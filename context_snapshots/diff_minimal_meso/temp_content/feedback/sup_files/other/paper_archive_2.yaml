@@ -1,0 +1,430 @@
+unclassified:
+- title: "ChatSUMO: Large Language Model for Automating Traffic Scenario Generation in Simulation of Urban MObility"
+  summary: "mere integration of scenario creation, scenario import, scenario modification, and LLM-assisted simulation; 
+    not much methodological novelty though somehow cited"
+- title: "Gradient-based Trajectory Optimization with Parallelized Differentiable Traffic Simulation"
+  summary: "differentiable traffic simulation with waymo (WOMD) dataset on IDM following. two novelties: 1, parallization of IDM model; 
+    2, directly optimize IDM parameters to do trajectory prediction on the curve (instead of end to end learning)"
+- title: "Language-Guided Traffic Simulation via Scene-Level Diffusion"
+  date: 2023.06.10
+  summary: "foundation paper of LLM + traffic simulation, CTG++; use diffusion model for scenario (trace) generation for a few vehicles (usually two); 
+    LLM to understand text guidance: translate user prompt into loss function (as generation guidance)"
+- title: "Differentiable Hybrid Traffic Simulation"
+  date: 2022.10.14
+  summary: "first differentiable traffic simulator for macro and hybrid traffic simulation; suggest to use gradients to directly 
+    plug in nn training, very conventional and straightforward use; macro based on ARZ model
+    probablistic method to convert between macro and micro, differentiable
+    magnutude faster than autodiff; optimizing over autodiff a good method?"
+- title: "Differentiable Agent-Based Simulation for Gradient-Guided Simulation-Based Optimization"
+  date: 2021.03.23
+  summary: "very early proof of concept paper, convert program steps (e.g. iteration, branch) into differentiable functions by adding auxiliary functions (e.g. sigmoid, period, range); 
+    use autodiff for the entire flow, with man full scans (e.g. to get the leading vehicle in IDM, need to scan all vehicles); 
+    this can be very inefficient when scaled as the style of always add components is 'flood style' e.g. all branches are executed and use mask to weighted average;
+    proof of concept experiments (freeway and TSC and epidemic model)"
+- title: "Traffic-Aware Autonomous Driving with Differentiable Traffic Simulation"
+  date: 2023.04.07
+  note: "not viewed yet. contains explicit analytic jacobian gradient of IDM, maybe useful later"
+- title: "End-to-end differentiable network traffic simulation with dynamic route choice"
+  date: 2026.04.29
+  summary: "major contribution is modeling LWR, link transmission model (LTM), and dynamic user optimal (DUO) in macro simulation; 
+    construct the gradient paths with these components and use autodiff to get the gradient; 
+    chicago toll is used as the example, while using this macro model in OD fitting is an interesting idea"
+- title: "MODELING METRO PASSENGER ROUTING CHOICES WITH A FULLY DIFFERENTIABLE END-TO-END SIMULATION-BASED OPTIMIZATION (SBO) "
+  date: 2025.07.?
+  summary: "OD fitting with HK metro real data; use differentiable simulation to fit the OD parameters and use matrix based optimization to accelerate"
+- title: "Estimating multi-class dynamic origin-destination demand through a forward-backward algorithm on computational graphs"
+  date: 2020.10.?
+  summary: "construct a forward-backward computation graph for OD estimation. derive analytic formulation for flow and travel time 
+    and their gradients. use meso-scale, individual vehicles still have discrete decisions. the route gradient is estimated (by sampling).
+    use this graph to fit both flow and travel time on networks with different sizes. 
+    notice that the gradient is not analytically a chain and cannot be directly applied to differentiable simulation because 
+    it still contains discrete decision process"
+- title: "Rectify, Don't Regret: Avoiding Pitfalls of Differentiable Simulation in Trajectory Prediction"
+  date: 2026.03.24
+  summary: "very quick work proposing a training framework for ADEV trajectory prediction. core ideas: 
+    rollout the prediction only partly so that error won't accumulate, do fresh prediction at waypoint
+    diffsim can leak future ground truth information for the trajectory mathematically so the framework is proposed non-diff (probably the most important lesson)
+    decompose the trajectory problem into classification+regression"
+
+microscopic traffic simulation:
+- title: "Fast-Forwarding of Vehicle Clusters in Microscopic Traffic Simulations"
+  date: 2020.06.15
+  summary: "very short paper, proposed fast forwarding of vehicle clusters instead of indivudual vehicle in microscopic sim"
+- title: "Fidelity and Performance of State Fast-forwarding in Microscopic Traffic Simulations"
+  date: 2020.03.?
+  summary: "fidelity and cost learning of single vehicle fast forwarding of vehicle in microscopic sim, use singapore network as reference"
+- lane changing model:
+  - title: "SUMO's Lane-Changing Model "
+    date: 2015.?.?
+    summary: "SUMO's lane changing model LC2013. It is more engineering oriented, most important value is proposing 4 classes of lane changing: 
+      strategic (follow link transition constraints), cooperative, tactic, and forced (regulatory)
+      the model is rule based so it is not relevant to differentiable traffic simulation; it discuss the situation of deadlock which has 
+      some modeling value?"
+  - title: "General Lane-Changing Model MOBIL for Car-Following Models"
+    date: 2007.01.?
+    summary: "MOBIL lane changing model. the novelty is to propose a polite factor term to maximize accel gain with that polite factor;
+      tested with IDM: IDM + lane changing is a mainstream in freeway traffic research"
+  - title: "Modelling lane changing and merging in microscopic traffic simulation"
+    date: 2002.?.?
+    summary: "highly cited paper, proposing sitrus simulator framework. lane changing is an important component and the component is rule-based, 
+      looking at whether before- and after- changing's acceleration for both ego and trailing vehicles are acceptable,
+      hence in nature the behavior is cooperative
+      they use hardcoded lane changes when forced: just link the ego to the newly changed lane by scanning backward for the first slot with acceptable accel 
+      and require the two vehicles to cooperate; the lane changing is instantious
+      in other words this work focuses on the decision rather than the lane changing process"
+  - title: "Integrated driving behavior modeling"
+    date: 2007.?.?
+    summary: "another more detailed lane changing model. the core idea is that lane change acceleration has different stages, and each stage can be individually modeled. 
+      driver should first find a reasonable gap, and accel/decel to fit a reasonable gap, and then complete the change and apply new accel. 
+      old and new successive vehicles will also have to update their acceleration. key novelties are two: 
+      1, it explicitly separate the accelrations for each proposed stage and
+      2, it explicitly model the accel behavior for preparation of the lane change
+      limitation: the operaion is not cooperative in nature; thus as the available gap can change, in dense flow, the fetched gap may be no longer available later, 
+      causing inefficiency; in the experiment they also report that outermost lane usage is high (no modeling of keeping on fast lanes, 
+      probably because too adhering to the traffic rule?)"
+
+
+meso traffic simulation and multi-resolution/hybrid:
+- title: "Traffic Simulation Performance Optimization through Multi-Resolution Modeling of Road Segments"
+  date: 2015.06.10
+  summary: "elementary techniques about meso traffic simulation; handle micro-macro and macro-micro transition specifically, 
+    and introduced basic techniques such as ghost vehicle and macro-micro vehicle stacking (like the vertical stacking
+    method used in some TSC)"
+  note: "this may not be meso; it is more like multi-resolution or hybrid"
+- title: "Bridging the Gap Between Mesoscopic Transport Planning and Microscopic Traffic Simulation: An Analytical and Numerical Analysis of Traffic Dynamics"
+  date: 2022.10.28
+  summary: "a comparison work, mainly compare MATsim amd SUMO for consistency between meso and micro behavior. the paper lists quite a couple of flow, speed, and congestion
+    analysis as comparison between the two.
+    key ideas: they cannot be used together since behavior differs much when MATsim uses less Resolution
+    SUMO is used as micro ground truth to compare with; the two behaves similarly under static flow conditions but in non-static conditions they can differ much
+    main difference are: sumo (by nature) models vehicle interaction so flow speed is usually lower than legal speed, also there are bottlenecks in the network;
+    and thus flow can differ as a result of different speed behavior"
+- title: "Multiresolution Modeling for Traffic Analysis: Guidebook"
+  date: 2022.02.?
+  summary: "a guidebook from US fed highway admin. contains engineering intro, methodology, and flow; they are rather practical than theoretical, 
+    and I only read the intro part and had a glimpse at examples but nevertheless it presents meso sim from the engineering perspective"
+- title: "Efficient Gradient-Based Calibrations with A Differentiable Dynamic Traffic Assignment (DTA) Simulation Model by Iterative Backpropagation (IB) And Auto-Differentiation "
+  date: 2025.09.16-18 
+  summary: "p68 from abstract book of DTA conference 10TH INTERNATIONAL SYMPOSIUM ON DYNAMIC TRAFFIC ASSIGNMENT. short work presenting how differentiability 
+    is derived from link transmission model plus user equilibrium assumption of dynamic route choice. 
+    use a toy example to very briefly illustrate the idea of optimizing the model parameters. "
+- title: "Revisiting mesoscopic traffic flow simulation in SUMO: Limitations, analysis, and an alternative"
+  date: 2026.07.25
+  summary: "A work that studies meso accuracy in sumo. sumo has its own meso simulation method MESO but it is quite old (2004) 
+    the paper identifies 2 major problems: 1, jam->free two segments have problem in discharge: jam often discharge slowly, resulting in unrealistic discharge; 
+    2, CTM and LTM are sometimes mixed, and since CTM assumes homogeneous traffic while LTM does not, it can result in unrealistic traffic dynamics
+    the paper adopts a discrite version of LIFT(a meso version of LTM in 2026) and asserts in the experiment that 
+    discrete version of LIFT can produce similar enough simulation results compared to micro"
+- title: "A mesoscopic link-transmission-model able to track individual vehicles"
+  date: 2025.02.02
+  summary: "From journal: Simulation Modelling Practice and Theory. 
+    proposes a discretized LTM: use individual counts instead of continual flow; the residual of continual flow is accumulated, 
+    and FIFO queue is maintained to track individual identity; individuals are discharged based on accumulated flow (for 1 unit);
+    it provides a proof that this method has at most one vehicle error compared to the continual LTM;
+    it also has queue blocking behavior since FIFO is assumed; but it can be too strong as this is equivalent to one-lane for all movements;
+    it also does only discretization so the discrete vehicles are generated with jagging from continual flow residual"
+
+macroscopic traffic simulation:
+- title: "Extended macroscopic node model for multilane traffic"
+  date: 2025.04.09
+  summary: "from transportation research part B. generalize the link transmission model to lane-based. traditional link and cell transmission model assumes
+    that the link supports all movements; also, if the flow is constrained by the downstream availability, all movements will be reduced proportionally, 
+    which is unreallistic as different movements hardly can be affected uniformly by downstream bottlenecks
+    generalize the model to lane-expanded nodes, generalize the movement matrix to lane-based, and prove that the new model is FIFO by movement (with lane equilibrium).
+    the implicit lane but not expanding the links circumvents the problem of route explosion upon expanding the lanes. 
+    the work also uses user equilibrium (wardrop's principle) to determine the equilibrium flow of each lane (actually per movement group, 
+    as the paper proves that for each movement the resistant of each lane is the same) and formulate this as a variational inequality problem
+    the work guarantees that the VI solution is unique and is bi-relationship with the flow solving
+    also, compared to traditional LTM, the flow adds an additional step to determine the resistance of each lane and lane selection rebalance 
+    which are natural additions of the lane component"
+- title: "The continuous signalized (COS) node model for dynamic traffic assignment"
+  date: 2023.01.03
+  summary: "from transportation research part B. a good paper modeling traffic signal in macroscopic traffic sim.
+    core ideas: develop a solver to solve for through vehicle quantity while not losing or simply aggregating the signal structure. ideas:
+    hold-free: only physical constraints (link or phase capacity) can stop a vehicle from moving; 
+    hold-free + stage level free: correctly identify which movement can use which downstream space in different phases, and that's why 
+    the phase structure must be retained;
+    conservation of turning fractions: a blocked movement can block others using the same lane; (implicit FIFO)
+    per-phase downstream discharge competition: only the movements using the same downstream demand in the same phase compete and distribute the capacity,
+    preserving fidelity of the impacts of phase orders;
+    stable solution for the intersection: simulate on the single intersection with init condition until the solution is stable
+    a core assumption resulting in limitation: assumes the signal phase plan is constant within a delta_t"
+- title: "The Link Transmission Model for Dynamic Network Loading"
+  date: 2007.?.?
+  summary: "the phd thesis that derives LTM from LWR conditions and kinetic wave theory.
+    core ideas: don't need to model the link spatially like CTM; the wave propagates linearly so it can be solved analytically 
+    from end to end; the forwarding time of a traffic delta can be computed by (assuming triangular) FD on the link; 
+    use cumulative vehicle count as the state variable of a link
+    how much traffic is transmitted is used by an inverse cumulative function
+    merging and diverging are discussed and handled by min (diverge downstrem traffic) and max (merging, based on supply priority)
+    the intersection should give the amortized waiting time of vehicles on the intersection. traffic also form queues per inbound link 
+    and this work performs a strict FIFO blockage if any of the movement is not allowed.
+    furthermore, the work generalizes LTM to multi-commodity, or multi-routes. traffic is generated and movement traced according to the routes,
+    and thus determining node movements and it is the source of FIFO
+    basic backbone update rule: link physics -> node physics -> state update."
+- title: "A generic class of first order node models for dynamic macroscopic simulation of traffic flows"
+  date: 2011.?.?
+  summary: "from transportation research part B. propose a very first node macro node model that satisfies a bucket of constraints 
+    that are essential in modeling correct traffic behavior. 
+    the work first asserts that previous (very old) works either violate traffic constraints or generate unrealistic behavior at node
+    then propose 7 constraints that a macro node model must satisfy: independent of inbound/outbound link numbers, maximizing flows, non-neg, 
+    conservation of vehicles, satisfy D&S, conservation of turning fractions (CTF), satisfication of invariance principle (hold-free)
+    and generalize the model to signalized intersections.
+    CTF is especially interesting because it introduces implicit FIFO, and hold-free (at least one constraint should be reached 
+    for the converged solution)"
+- title: "On the continuum approximation of the on-and-off signal control on dynamic traffic networks"
+  date: 2014.?.?
+  summary: "from transportation research part B. 
+    The paper is not the first inventor of the continuous signal model, but it proposes the gap that nobody had studied whether 
+    this model provides the fidelity as the on-off signal model. It uses theoretical proof to establish a few conclusions: 
+    the continuous model has a strict analytical error bound regardless of FD, and scales with cycle length; 
+    upon heavy spillback (over few cycles), the guaranteed bound is gone, and the error bound increases with time but with concave FD the error is better; 
+    with transient spillback, the bound does not hold and the error can be large + go with time. 
+    important lesson: intra-cycle dependencies are not behavior that can be safely averaged at cycle level. explicit modeling needed 
+    in macrosim. meso can solve this right ahead because the queue FIFO is constructed with agent level granularity.
+    "
+- title: "Differentiable Packet-Based Mesoscopic DNL for Fixed-Time Signal Optimization"
+  date: 2017.09.02
+  summary: "partial FIFO paper. two core contributions: extend existing macro work to arbitrary input priority; and propose partial FIFO at link level
+    core idea: a movement may only obstruct another movement partially if affected by downstream spillback, so use eta to model the blockage proportion; 
+    eta=1 is full FIFO; this ratio can be asymmetric between two movements and intuitive: consider off ramp and 4-lane freeway
+    discuss three cases mainly in paper: MISO, SIMO, MIMO; MISO: distribute demand according to inbound link priority proportionally
+    SIMO: distribute the demand in priority ranked order, and also resolve spillback and partial FIFO in this order
+    MIMO: the joint case of MISO and SIMO. the derivation is from equating the both cases by the same node flow in two cases (node conservation)
+    also assumes isotropic traffic for the movement "
+
+differentiable traffic simulation:
+- title: "Ultra-fast Traffic Nowcasting and Control via Differentiable Agent-based Simulation"
+  date: 2026.03.26
+  summary: "recent work on differentiable traffic simulation focusing on efficiency. cooperated car following model and transition model, as well as 
+    handling continuous computation graph across intersections via STE; result in real road networks (efficiency) is significant, like what cityflow tries to achieve;
+    it is limited though because the model is rather simple; no TSC, and no micro overtaking so that they can get rid of any conditional executions"
+- title: "Dynamic network loading: A stochastic differentiable model that derives link state distributions"
+  date: 2011.?.?
+  summary: "Transportation research part B. an early work formulating the differentiable link transmission model 
+    defines upstream and downstream queues, transition into upstream, upstream to downstream, and downstream discharge, as probablistic quantity; 
+    identify the uncongested and congested phases of the link and defines the guard condition of self queue spillback and downstream queue spillback 
+    that would affect discharge or accept rates
+    the model is per-link and very macroscopic sense, there is no modeling of intersections; the flow across the node is fully based on the flow, 
+    which is not accurate in the mesoscopic sense"
+
+Autodiff:
+- title: "You Only Linearize Once Tangents Transpose to Gradients"
+  date: 2022.12.06
+  summary: "very innovative paper: assert that forward and backward pass can be unified via linearization; the backward pass is the transpose of 
+    the linearized tangent path (instead of non-linear primal) of the forward pass; proved that AD is structurally linear for the selected set 
+    of operations; prone to extension of operations"
+- title: "Efficient and Modular Implicit Differentiation"
+  date: 2022.10.21
+  summary: "propose implicit AD method; the core idea is to implicitly differentiate f(x(theta), g(theta)) without differentiating the possible non-smooth, non-convex component g();
+    the formulation is especially useful for ML where proximal grad fix points are often the form of op target"
+- title: "Do Differentiable Simulators Give Better Policy Gradients?"
+  date: 2022.08.22
+  summary: "interesting paper, study whether first order gradient (simulator gradient) is better than the zero order gradient (policy gradient)
+    core conclusion: FoBG (batched gradient) has low variance but structural bias (related to discontinuity, that is also asserted in discrete random process handling),
+    and ZoBG can be theoretically unbiased (and often the case) but high variance.
+    however FoBG sometimes also produce high variance when discontinuities and jumps comes into play, and ZoBG is better in such cases 
+    propose an initial method to dynamically mix FoBG and ZoBG to inherit advantages of both"
+- title: "A taxonomy of automatic differentiation pitfalls"
+  date: 2024.07.08
+  summary: "interesting survey, list the common AD failures but mainly focus on implementation pitfalls and suggestions to bridge the implementation gap.
+    does not count mathematical bad formulation like what discrete random process differentiable modeling usually do"
+- title: "Conservative set valued fields, automatic differentiation, stochastic gradient methods and deep learning"
+  date: 2020.04.09
+  summary: very important paper, propose conservative field (for scalar) and map (for vector) to reformulate the AD process, that is conservative (integral is 
+    the diff of potential, thus not dependent on path over kinks and discontinuities), can be chained (especially for DL), can reconstruct the original target 
+    (the integral and derivative is two-way), can give exact set of Aumann inteegration). thus it does not require exact convexity and can tolerate branches
+- title: "Automatic Differentiation of Optimization Algorithms with Time-Varying Updates"
+  date: 2024.10.24
+  summary: "recent paper studying the effect of varying timestep. core challenge: traditional iterative optimization use fixed update map (static scenario), 
+    and varying timestep can change this; core method: treat AD as error recurrence to x^*; requires contractive around the final convergence and 
+    same fixed point, and thus evaluating the derivative in the final region is equivalent to evaluating that on the optimal solution, 
+    the effect of varying timestep is not decisive in this case; 
+    from a side reveals why my project fails for sparse grad since backward target is changed, breaks the required property"
+- title: 'The Curse of Unrolling: Rate of Differentiating Through Optimization'
+  date: 2023.08.25
+  summary: "an initial work on the distinction between primal optimization target and the gradient convergence (jacobian). for quadratic target, there is 
+    an outer exponentially decay gain and inner linearly increase term, and the linear term can introduce an initial burn-in period for jacobian; 
+    lesson: good primal convergence can with bad jacobian direction; derivative usefulness itself is not fully dependent 
+    on the primal convergence;
+    tested only on quadratic target, and propose quadratic-only optimizer (sobolev and chebyshev) but the core idea may generalize on my project"
+- title: "Automatic differentiation of nonsmooth iterative algorithms"
+  date: 2022.06.02
+  summary: "early work of implicit differentiation on bi-level optimization problem. tackes non-smooth horizon, also assumes contractive fixed point neighborhood, 
+    and cannot deal with non-continuous functions generally; or can deal with kinks (even if kink position moves with theta) generally but cannot deal with jumps 
+    use set-valued piggyback recursion and contractive assumption to handle derivative discontinuities; and propose an initial linear convergence bound 
+    for ITD (iterative differentiation, compared to AID approx implicit diff);
+    also propose a simple example to prove that the formulation can diverge; consistent observation: primal convergence path does not imply 
+    gradient quality by default
+    the core culprit of non-smooth should be there can be no single jacobian for some steps with piggyback backprop"
+- title: "Nonsmooth Implicit Differentiation: Deterministic and Stochastic Convergence Rates"
+  date: 2026.06.04
+  summary: "subsequent work from Automatic differentiation of nonsmooth iterative algorithms. Different from that, propose AID instead of ITD, 
+    propose AID-FP: fix the fixed-point state, solve the derivative problem there;
+    NSID: tackles stochastic process by estimating an implicit and conservative JVP; 
+    prove a better bound than the previous work"
+
+
+misc or utility:
+- title: "Categorical Reparameterization with Gumbel-Softmax"
+  date: 2017.08.05
+  summary: "gumbel softmax. use reparameterization trick to move the stochastic node out of the gradient path; 
+    also reviewed score function estimator (REINFORCE) and straight through estimator (biased)"
+- title: "Estimating or Propagating Gradients Through Stochastic Neurons for Conditional Computation"
+  date: 2013.08.15
+  summary: "original paper of straight through estimator (biased); also contain unbiased gradient estimator for stochastic neurons"
+- title: "Smoothing Methods for Automatic Differentiation Across Conditional Branches"
+  date: 2023.12.13
+  summary: "paper of smooth interpretation and discograd; SI is to use gaussian kernel to smooth branching condition by using CDF to 
+    represent condition; discograd uses monte carlo method to estimate the distribution of arbitrary branches;
+    experiments show that SI can produce small gradients and low recall, while discograd need to estimate the branching distribution 
+    and have bias & local noise"
+- title: "Automatic Gradient Estimation for Calibrating Crowd Models with Discrete Decision Making"
+  summary: "continuation of discograd (by same authors); not much novelty, mainly experiment paper"
+- title: "Automatic Differentiation of Programs with Discrete Randomness"
+  date: 2023.01.09
+  summary: "stochasticAD. use reparameterization trick to introduce decision boundary modeling over discrete random sampling; 
+    the method is analytic and unbiased but have no way to address branching mass distribution of arbitrary branching 
+    correction: its probability reparameterization do represent the branching mass. 
+    its limitation is mainly native forward mode and no guarantee on bias/variance"
+- title: "Systematically Differentiating Parametric Discontinuities"
+  date: 2021.07.19
+  summary: "Teg paper. propose the language 'teg' to handle discrete boundary problem in the integration, which is common in CV, 
+    rendering, physics, etc. explicitly models dirac delta and use reparameterization trick to cancel the effect of delta 
+    to perform the integration of a function of parameters"
+- title: "Distributions for Compositionally Differentiating Parametric Discontinuities"
+  date: 2024.04.29
+  summary: "potto paper, following up work by the same group"
+- title: "ADEV: Sound Automatic Differentiation of Expected Values of Probabilistic Programs"
+  note: "not read; it is very theory-heavy, used gpt to generate summary"
+  summary: "Do not differentiate one sampled execution path as if randomness were fixed.
+    Instead, transform the probabilistic program into a new estimator program whose expectation equals the derivative of 
+    the original program's expectation."
+- title: "A New Unbiased Stochastic Derivative Estimator for Discontinuous Sample Performances with Structural Parameters"
+  date: 2018.02.03
+  summary: "a highly cited pivot IPA+LR (likelihood ratio, or score function) paper; very cybernetics backgrounded; proposed
+    concrete derivations of derivative target and explicitly model both pathwise and moving branching mass terms; 
+    yet can only apply if the task analytically allows this (as early stage limitation)"
+
+survey:
+- title: "Large language models empowered agent-based modeling and simulation: a survey and perspectives"
+  date: 2023.12.19
+  summary: "highly cited LLM application survey paper, outdated but has a detailed view in: social, economical, physical, cyber, hybrid application of LLMs in ABMS"
+- title: "From Individual to Society: A Survey on Social Simulation Driven by Large Language Model-based Agents"
+  date: 2024.12.04
+  summary: "survey on society, but it is really comprehensive and list a very wide ranges of applications.
+    It's category of simulation tasks (individual, scenatio, socieal) and architecture decomposition of each class is meaningful"
+- title: "Large Language Model Agent: A Survey on Methodology, Applications and Challenges"
+  date: 2025.03.07
+  summary: "A highly cited general LLM survey, lists full applications of LLM agents; real-time, transportation, simulation, or digital twin are 
+    totally not in the scope; good for having a brief big picture of current LLM agent development"
+- title: "Agent Harness for Large Language Model Agents: A Survey"
+  date: 2026.04.09
+  summary: "proposed 6 components for harness structure: E—Executionloop, T—Toolregistry, C—Contextmanager, S—Statestore, L—Lifecyclehooks, V—Evaluationinterface 
+    analyzed structural necessity and failure modes of these components 
+    good to have a measurable decomposition and definition of harness 
+    history of harness: prompt engineering (-2024) -> context management (2024-2025) -> agent harness (2025-) 
+    good examples elaborated (e.g. codex) 
+    idea of meta-harness: search the space: What harness design, discovered through agentic search, enables this agent to perform optimally?"
+- title: "Perturbation analysis: A framework for data-driven control and optimization of discrete event and hybrid systems"
+  date: 2018.04.13
+  summary: "infinitesimal perturbation analysis survey. very cybernetics grounded and provided a brief timeline of how the differentials evolve 
+    over the course of time in terms of the cybernetics. 
+    useful to show the relationship that the current differentiable simulation, discrete random sampling/branching modeling are continuations 
+    or circumvents of IPA which is a very large branch in cybernetics"
+- title: "A review of automatic differentiation and its efficient implementation"
+  date: 2018.02.23
+  summary: "well known AD literature review, covers typical AD, checkpointing, supernode, retaping, and other computational and mathematical tricks; 
+    but this is too old"
+- title: "Saltation Matrices: The Essential Tool for Linearizing Hybrid Dynamical Systems"
+  date: 2024.08.30
+  summary: "saltation matrices review. it is a technique from cybernetics that models linearity of parameters in hybrid dynamic systems: the transition reaches a guard,
+    and then state reset, then evolve under a new dynamic. saltation matrices can correctly consider the temporal relationship of the even boundary given the 
+    event will happen, and give correct derivative for the sampled trace between a perturbed trace. the key is the perturbed trace can trigger the event at a different time 
+    and two traces have a time piece evolving under different dynamics and states. 
+    the key idea is to model the temporal sensitivity, or generally, sensitivity across a dynamic boundary that can be dependent on the parameter, given that in the 
+    locality this event will happen; as a contrary, probablistic mass modeling models another aspect: the chance of the event to happen."
+
+next batch candidates:
+- "DTALite: A queue-based mesoscopic traffic simulator for fast model evaluation and calibration"
+- "A generic class of first order node models for dynamic macroscopic simulation of traffic flows"
+- "A link queue model of network traffic flow"
+- "Dynamic network loading: A stochastic differentiable model that derives link state distributions"
+- "Dynamic traffic modelling and dynamic stochastic user equilibrium assignment for general road networks"
+- "Second order macroscopic traffic flow model validation using automatic differentiation with resilient backpropagation and particle swarm optimisation algorithms"
+- "Discrete adjoint gradient computation for multiclass traffic flow models on road networks"
+- "Integrated self-consistent macro-micro traffic flow modeling and calibration framework based on trajectory data"
+
+stashed candidates:
+- "Differentiable Discrete Event Simulation for Queuing Network Control"
+- "Generalizing Stochastic Smoothing for Differentiation and Gradient Estimation"
+- "Ultra-fast Traffic Nowcasting and Control via Differentiable Agent-based Simulation"
+
+notes:
+  - "https://arxiv.org/abs/2605.15777: agent's self-confirmation is a problem in regressive task; tackle this with LLM harness?"
+  - "distinct value of differentiable simulation: optimize simulation model parameter directly to fit data by simulation gradients"
+  - "LLMs in system simulation: somehow indistinguishable to human in social science subjects, but in phys domain
+    sim to real gap is harder to address"
+  - "for differentiable simulation, categorial selection is a very hard aspect to model; because 'choosing the class x+0.01' or something like this does not make sense;
+    categorial selection should be avoided as much or if math tricks exist to prove that soft version of it makes sense or is end to end effective"
+  - "continued from categorial selection in differentiable simulation: straight through estimator may be useful (forward pass with hard selection, backward pass pretends to be differentiable);
+    worth trying or is it a good component in the differentiable simulation stack?"
+  - "differentiable conditional branch: min/max is a way to handle branch rather than unrolling the branch or selection; based on 'meaasure zero' of min/max; 
+    in general, measure zero functions are acceptable as differentiable surrogate"
+  - "in terms of OD or flow analysis, differential macroscopic models seems be the major branch"
+  - "STE, gumbel softmax, and all other surrogate representation tricks that models a discrete process all have gradient bias; 
+    by annealing to the real distribution bias is reduced but variance may explode; this is a typical bias-var tradeoff; 
+    when modeling a continuous target this can be unbiased"
+  - "problem in training a model with surrogate gradient modeling a discrete process:
+    since the process is smoothed, there is a 'changing band' which is fine when continuous gradient is available, 
+    but during deployment etc. the discrete process is hard sampled and the 'decision boundary' can appear in anywhere inside the band, which can cause unexpected behavior;"
+  - "a fundamental tradeoff: gradient mismatch (STE family) vs relaxation mismatch (surrogate gradient)"
+  - "differentiable variant of branching operation: should still be 'arithmatic' according to the current literature; 
+    e.g. checking attributes of object as the branching condition cannot be handled now; what are the doable ways to handle this?
+    "
+  - "fundamental issue of arbitrary differential path: by log-derivative trick, the expectation over the derivative of branching 
+    is the sum of path-wise derivative and mass-distribution over the branching (sum rule); 
+    traditional AD ignores the branching mass which (equivalently) creates multiple discrete conditions for the model; 
+    the literature focuses on how to estimate or smooth or relax the mass-distribution part "
+  - "path explosion problem of arbitrary branching: e.g. a branching inside the loop have exponential possible path, creating explosive dimension 
+    for unbiased mass estimation; some works propose method to restrict the dimension to fixed size or linear but that of course have to drop some 
+    branches or create bias (e.g. by estimating by gaussian)"
+  - "two most improtant dimensions to reconstruct OD from traffic flow data: traffic flow over each link, and travel time 
+    (of each vehicle class) over the link"
+
+
+
+
+ideas:
+  differentiable simulation:
+    - "one way to do differentiable simulation is to make the simulation program differentiable (substituting branch, iteration, and flow with 
+      auxilliary functions (e.g. minimum, sigmoid, inrange (for attribute selection)) to make them differentiable); what about using LLM to do this conversion? 
+      (e.g. using LLM to convert a non-differentiable traffic simulation program into a differentiable one, 
+      by substituting the non-differentiable components with differentiable approximations)
+      LLM can also take care of driving model analytic gradient but it may not be reliable"
+    - "differentiable simulation is fast in parameter optimization (which requires many iterations in grad-free methods), 
+      and it is useful in runtime data processing; this is naturally suitable to digital twin idea, and may worth trying"
+    - "notice: the combination of differentiable components may not yield expected good or direct parameter optimization capability; 
+      the component though differentiable can still produce misleading gradients, e.g. in sigmoid too large slope provides no hints far from the boundary, 
+      and too small slope provides no hints near the boundary; any method to address this with non-end-to-end or analytic methods?"
+    - "GPT suggestion: 4. Better inverse problems.
+      You can infer hidden causes from observed outcomes: OD demand, driver behavior parameters, 
+      latent congestion state, compliance rates, incident severity, route preferences, or unknown control settings.
+      worth exploring. may be deleted later"
+    - "another use of differentiable simulation is that it can quickly train the model with hints directly from the simulator; 
+      probably pre-training the model with differentiable simulation can be a good idea, and then fine-tune with the big bulk simulator with non-differentiable components; 
+      this can be a good way to make use of derivative hints while mitigating the oversimplification issues of differentiable simulation"
+  
+  candidates:
+  - reconstruction-to-learning gradient transfer;
+  - amortized differentiable reconstruction;
+  - fine-forward, simplified-backward gradients.
+  - Control-oriented or sensitivity-aware simulator calibration
+  - Simulator gradients as auxiliary supervision rather than the sole training path
+  - Cross-fidelity gradient transfer and correction
+
+ideas (7.27):
+- "different gradient resolution ~= variable time step, true; but variable time step is probably difficult to be differentiated. any work on this, or applying 
+  a variable gradient resolution on a global synced step size is a novel stuff and carry efficiency or realism value?"
+- "lane changing is hard to model indeed in downstream optimization, because in nature it involves discrete exploration; but what if 
+  the simulator just supports differentiating lane changing, and separate the exploration problem? in this case, it is like 'differentiating through' the decision"
