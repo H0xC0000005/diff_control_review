@@ -82,5 +82,6 @@
   "initial_bootstrap_visibility": "private for both repositories",
   "user_visibility_instruction": "initialize the review as public repository, while the vsl as private",
   "visibility_instruction_date": "2026-10-29",
-  "visibility_status": "user-authorized setting; verified in the visibility update receipt"
+  "visibility_status": "verified by GitHub API",
+  "visibility_verified_utc": "2026-10-29T03:52:13.017876+00:00"
 }
