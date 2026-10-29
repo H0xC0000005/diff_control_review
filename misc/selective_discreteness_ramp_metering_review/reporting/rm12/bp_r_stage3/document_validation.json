@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "scope": "Document/PDF/source inventory integrity only; no physical or gradient validation",
+  "documents_checked": 12,
+  "local_links_checked": 133,
+  "executed_queries": 4,
+  "query_batches": 2,
+  "qualified_source_records": 7,
+  "new_sources": 1,
+  "source_ids": [
+    "RM0001",
+    "RM0011",
+    "RM10-P01",
+    "RM10-P04",
+    "RM12-S3-P01",
+    "RM8-P01",
+    "RM9-L04"
+  ],
+  "next_gate": "S3-G2: neither route approved",
+  "stage_3_complete": false,
+  "stage_4_opened": false,
+  "pdf_pages": 3,
+  "pdf_page_text_lengths": [
+    1912,
+    2395,
+    2785
+  ],
+  "pdf_bytes": 155579,
+  "pdf_sha256": "ac84e46b3fbe823324ea029a1eaf75bc4dea06dc4da582fdba592db4efea82ca",
+  "latex_final_log_warnings": [],
+  "pdf_raster_preview": false,
+  "failures": []
+}

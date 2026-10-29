@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "date": "2026-10-19",
+  "scope": "Feedback 10 compact-report writing and artifact checks",
+  "pdf_pages": 3,
+  "nominal_main_font_pt": 10,
+  "third_page_body_in_upper_half": true,
+  "page_geometry": [
+    {
+      "page": 1,
+      "width_pdf_pt": 595.276,
+      "height_pdf_pt": 841.89,
+      "body_word_count": 656,
+      "lowest_body_baseline_pdf_y": 127.87,
+      "lowest_body_with_descent_pdf_y": 125.9373,
+      "body_extent_fraction_from_page_top": 0.85041
+    },
+    {
+      "page": 2,
+      "width_pdf_pt": 595.276,
+      "height_pdf_pt": 841.89,
+      "body_word_count": 550,
+      "lowest_body_baseline_pdf_y": 235.805,
+      "lowest_body_with_descent_pdf_y": 233.8723,
+      "body_extent_fraction_from_page_top": 0.72221
+    },
+    {
+      "page": 3,
+      "width_pdf_pt": 595.276,
+      "height_pdf_pt": 841.89,
+      "body_word_count": 259,
+      "lowest_body_baseline_pdf_y": 435.89,
+      "lowest_body_with_descent_pdf_y": 433.9573,
+      "body_extent_fraction_from_page_top": 0.48454
+    }
+  ],
+  "equation_groups": 11,
+  "report_parts": 5,
+  "physical_components": 4,
+  "source_references": 4,
+  "external_reference_links": 4,
+  "embedded_fonts": 13,
+  "font_resources": {
+    "/NZTNSX+CMBX12": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UFTRUA+CMBX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/SBXTJS+CMR10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ZCSNCS+CMMI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/BUACOS+CMMI7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ROZUSQ+CMR7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/KQOOKX+CMSY10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/LUYYYY+CMSY7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/WWUDGK+CMEX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HCSCLX+CMTI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/JYIAMT+CMMI5": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UZQLUM+CMR5": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/DRSFHC+CMSY5": {
+      "subtype": "/Type1",
+      "embedded": true
+    }
+  },
+  "pypdf_version": "6.15.0",
+  "latex_final_warnings": [],
+  "body_font_shrinking_used": false,
+  "dedicated_limitations_discussion_in_report": false,
+  "raster_visual_inspection": false,
+  "snapshot_file_count": 453,
+  "changed_existing_files": [
+    "README.md",
+    "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "vsl_successor_00_opening_plan.md"
+  ],
+  "new_files": [
+    "extraction/research_readiness/vsl_compact_report_source_and_coverage_map.md",
+    "reporting/research_readiness/vsl_feedback10_report_build.log",
+    "reporting/research_readiness/vsl_feedback10_report_validation.json",
+    "reporting/research_readiness/vsl_feedback10_report_work_report.md",
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex"
+  ],
+  "protected_existing_files_unchanged": 447,
+  "deleted_files": [],
+  "feedback_change": "Only the feedback-10 answered heading token",
+  "old_mathematics_sources_PDFs_results_build_logs_preserved": true,
+  "markdown_files_checked": 8,
+  "local_links_checked": 556,
+  "heading_anchors_checked": 22,
+  "report_source_sha256": "0d99e6882cf6bdd166aaf81315459ee0cf139c51e1dc8efab2aab2d8eb130474",
+  "report_pdf_sha256": "e14e24f721e4f28c98afcc3ca71691baf070346b12a5a3b78515136c5374ba47",
+  "traffic_or_numerical_gradient_experiments": false,
+  "overall_step4_closed": false,
+  "command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_feedback10_report_checks.py",
+  "snapshot": "/tmp/vsl_feedback10_before.json"
+}

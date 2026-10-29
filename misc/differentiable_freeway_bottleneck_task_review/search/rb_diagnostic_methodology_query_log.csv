@@ -1,0 +1,8 @@
+query_id,query,purpose,outcome
+MDQ001,"Hermann Krener 1977 nonlinear controllability observability pdf",known-input state/history distinction,MD-S1 author-hosted scan found
+MDQ002,"Li Walsh Littman 2006 unified theory state abstraction pdf",dynamics versus decision preservation,author full-text discovery
+MDQ003,"traffic lane distribution estimation aggregate measurements density mean speed variable speed limit observability model lane drop",traffic observer information requirements,MD-S2 identified
+MDQ004,"""Towards a Unified Theory of State Abstraction"" littman pdf cs.brown.edu",lawful primary source alternative,MD-S3 Microsoft Research full copy found
+MDQ005,"""Highway traffic state estimation per lane"" ""pdf""",lawful traffic full text,Crete repository lead
+MDQ006,"""Highway traffic state estimation per lane"" Bekiaris Liberis Roncoli 2017 pdf Aalto",resolve failed publisher-repository access,MD-S2 Aalto accepted manuscript found
+MDQ007,"""Nonlinear Controllability and Observability"" ""indistinguishable"" site:math.ucdavis.edu",author-hosted theory qualification,primary indexed text found

@@ -1,0 +1,215 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\title{Aggregate history, hidden lane allocation, and useful common advice\\Conditional analytical results and the remaining obstruction}
+\author{Freeway bottleneck review continuation}
+\date{17 September 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} Methodology only. These are original conditional derivations,
+not simulations, an adoption of a traffic law, or a proof about native SUMO.
+The approved target is an admissibly prepared pair with equal strong aggregate
+history and different useful shared desired-speed-advice decisions. We obtain
+an information-side result in a free-flow model class and a decision-side
+negative result in a fixed-service queue. Neither completes that target.
+
+\section{Information-side construction without deleting history}
+Consider three upstream lanes, one of which ends at a fixed downstream lane drop.
+Before any traffic reaches a restrictive boundary, let $k_\ell(t,x)$ denote
+continuous density in mass/metre and let all lanes have the same free-flow speed
+$v_0>0$ in metres/second. Let $r_{\ell j}\geq0$ be conservative lateral transfer
+rates in mass/(metre second), with transfers paired on the same longitudinal
+coordinate. The conditional free-flow equations are
+\begin{equation}
+\partial_t k_\ell+\partial_x(v_0k_\ell)
+=\sum_{j\ne\ell}r_{j\ell}-\sum_{j\ne\ell}r_{\ell j}.
+\label{eq:lane}
+\end{equation}
+We require admissible, nonnegative states, adequate receiving/storage, and an
+identical homogeneous free-flow branch throughout the prefix. Transfers need
+not be zero, symmetric, or independent of density. We do not clip or repair a
+published transfer law to enforce these assumptions.
+
+Let $K=\sum_\ell k_\ell$, and provide the controller the entire predecision
+history of spatial mass and density, mass-weighted mean speed, empty-bin masks,
+cumulative aggregate flows across spatial boundaries, source waiting and input
+(both intended and actual), together with common geometry, response parameters, advice and
+future forcing. Lane-entry allocation is the sole unknown past input in this
+construction. There are no connectors occupied during this prefix.
+
+\begin{proposition}[Exact aggregate-prefix invariance]
+Starting empty with identical total entry rate $e(t)$ and identical aggregate
+boundary conditions, two admissible solutions of \eqref{eq:lane} have identical
+declared aggregate histories, regardless of their hidden lane-entry allocations.
+This holds on any spatial/time sampling of these observables.
+\end{proposition}
+\begin{proof}
+Pairwise lateral terms cancel, giving
+\begin{equation}
+\partial_tK+v_0\partial_xK=0,\qquad
+K(0,x)=0,\qquad v_0K(t,0)=e(t).
+\label{eq:aggregate}
+\end{equation}
+The transport solution is determined by the same total input and is therefore
+identical. Every spatial-bin mass is its integral, every aggregate crossing
+flow is $v_0K$, and mean speed in every occupied bin is $v_0$. Empty bins have
+the same mask and the same declared empty-speed convention. Choose entry below
+the receiving limits of either allocation, so actual and intended entry agree
+and source waiting is zero in both. The other known inputs are identical.
+No current-state-only reduction or shorter history has been used.
+\end{proof}
+
+\subsection*{A reachable hidden contrast in the conditional class}
+The result alone does not guarantee that a lane contrast survives. A short-prefix
+example can establish that separately. Suppose, additionally, total outgoing
+lateral transfer from any lane is bounded by $\lambda$ times its current mass,
+where $\lambda<\infty$ is in inverse seconds. This is a hypothesis about a
+valid transfer law, not permission to cap an invalid one. Inject the same low
+total mass $m$ over $[0,T]$: preparation $a$ through the ending lane and $b$
+through a continuing lane. Let no traffic reach the lane-drop boundary or leave
+the upstream region during this short prefix. Total mass satisfies $M(t)\leq m$.
+For ending-lane upstream mass $E_a,E_b$, the transfer bound gives
+\begin{align}
+E_a(T)&\geq m-\lambda\int_0^T M(t)\,dt\geq m-\lambda mT,\\
+E_b(T)&\leq \lambda\int_0^T M(t)\,dt\leq\lambda mT,\\
+E_a(T)-E_b(T)&\geq m(1-2\lambda T)>0\quad\text{if }T<(2\lambda)^{-1}.
+\label{eq:contrast}
+\end{align}
+For $\lambda=0$, any sufficiently short prefix works. Small enough entry rate
+keeps the states on the declared free-flow branch. Thus known-empty initialization
+and full aggregate history do not, by themselves, rule out a reachable lane
+contrast when lane-entry forcing is hidden.
+
+\textbf{Scope of this witness.} The contrast is upstream ending-lane mass at an
+early decision, not certified contrast in the last 400 metres of the approved
+numerical design. Persistence to that region and postdecision control value
+remain unproved. These are continuous-mass observation analogues, not bit-identical
+native vehicle-count/trajectory arrays. If lane inputs are also known, this
+construction no longer establishes unknown-input ambiguity. If actual free-flow
+speed depends on lane/gaps or receiving limits activate, Proposition 1's
+premises must be checked again; they cannot be assumed from homogeneous vehicle types.
+
+\subsection*{Traffic-source grounding and non-transfer}
+FB0030 gives paired lane conservation and triangular demand in its equations
+1--2 and 12--15. In an admissible, demand-active homogeneous free-flow branch,
+the paired modifications in equations 20--22 also cancel upon summation over
+lanes. This motivates the model class above, but does not certify the complete
+published discrete scheme. Its calibrated lanes have different fundamental
+diagrams; empty-density ratios, transfer budgets and receiving/capacity branches
+remain unresolved. We have not transplanted the continuous short-prefix witness
+into that scheme, disabled mandatory/courtesy incentives, or proven its lane
+contrast persists. See \href{https://doi.org/10.1080/21680566.2019.1700846}{FB0030}.
+
+\section{Why a hidden contrast is not yet useful advice information}
+We now test the tempting completion: attach a fixed bottleneck capacity to each
+hidden preparation, and claim this alone makes slowing advice differently useful.
+It does not in the following explicitly restricted class.
+
+For each hidden state $s$, model the bottleneck as a work-conserving fluid point
+queue, initially empty, with nonnegative locally integrable service rate $c_s(t)$.
+The rate may differ between preparations, but is fixed independently of the
+subsequent advice. Let $B_{s,u}(t)$ be cumulative arrivals to that queue under
+common desired-speed advice trajectory $u$. Let $S_s(t)=\int_0^t c_s(z)\,dz$.
+Assume some common feasible trajectory $u^+$ gives arrival dominance:
+\begin{equation}
+B_{s,u^+}(t)\geq B_{s,u}(t)\quad\text{for all }s,u,t.
+\label{eq:arrivals}
+\end{equation}
+For an independent free-flow approach with monotone desired-speed response,
+holding the highest feasible advice supplies such a trajectory. This assumption
+is \emph{not} inferred for native following, lane changing or spillback.
+
+Queue departures satisfy the continuous min-plus expression
+\begin{equation}
+D_{s,u}(t)=\inf_{0\leq r\leq t}
+\left\{B_{s,u}(r)+S_s(t)-S_s(r)\right\},\qquad B_{s,u}(0)=0.
+\label{eq:queue}
+\end{equation}
+Use continuous cumulative arrivals here; atomic time-zero batches require an
+explicit initial-queue convention and are not needed for this derivation.
+Let $I(t)$ be cumulative intended departures for a common finite cohort of mass
+$m$, including traffic still waiting at source or on the approach. Define the
+complete all-cohort time-spent score through queue exit by
+\begin{equation}
+J_s(u)=\frac{1}{m}\int_0^\infty\left[I(t)-D_{s,u}(t)\right]dt.
+\label{eq:cost}
+\end{equation}
+Assume every cohort drains and scores are finite; a common fixed downstream
+travel time adds an action-independent constant. Any already accrued prefix
+cost is likewise fixed within each preparation.
+
+\begin{proposition}[A common best action in the fixed-service class]
+Under these assumptions, $J_s(u^+)\leq J_s(u)$ for every state and feasible advice.
+Consequently no pair in this class requires disjoint optimal or nonnegative-
+tolerance acceptable action sets over the full feasible advice space.
+\end{proposition}
+\begin{proof}
+For the same $S_s$, arrival dominance makes every expression inside the infimum
+in \eqref{eq:queue} no smaller for $u^+$. Thus
+$D_{s,u^+}(t)\geq D_{s,u}(t)$ pointwise. The intended-input process in
+\eqref{eq:cost} is unchanged, so integration gives the score inequality. This
+argument counts delayed arrivals on the approach/source; moving waiting outside
+the bottleneck cannot create an apparent improvement. It holds separately for
+every $s$, including different fixed capacities. All states share $u^+$.
+\end{proof}
+
+For a feasible set $\mathcal U$ containing $u^+$ and acceptable tolerance
+$\varepsilon_s\geq0$, this means
+\begin{align}
+\mathcal A_s&=\{u\in\mathcal U:J_s(u)-\inf_{v\in\mathcal U}J_s(v)
+\leq\varepsilon_s\},\qquad u^+\in\bigcap_s\mathcal A_s,\\
+\inf_{u\in\mathcal U}\max_s
+\left[J_s(u)-\inf_{v\in\mathcal U}J_s(v)\right]&=0.
+\end{align}
+This is a conditional obstruction, not proof that real common speed advice
+cannot help. A mechanism that violates arrival dominance or makes realized
+service depend on advice/state evolution can escape it. Capacity drop is one
+possible mechanism, not a necessary condition for every traffic-control benefit.
+
+\section{The missing mechanism and the action-menu qualification}
+The remaining target needs a jointly justified chain: admissible lane/history
+collision near the consequential region; shared desired-speed response; endogenous
+merge/receiving dynamics under that response; and disjoint useful-action sets
+after all slowing/source/recovery costs. Positive lane effects under another
+actuator do not complete this chain.
+
+FB0001 provides an aggregate speed-limit/capacity-drop analytical example, but its
+equations 5/9 use a discontinuous discharge switch and equation 6 regulates
+upstream inflow rather than the approved desired-response zone. FB0038 optimizes
+lateral fractions with natural lane changing turned off; it is not shared advice.
+FB0039 supplies field plausibility for common speed limits affecting lane
+distribution, not a dynamic voluntary-advice closure or paired-history certificate.
+See \href{https://arxiv.org/abs/1310.2658}{FB0001},
+\href{https://doi.org/10.1177/0361198120948055}{FB0038}, and
+\href{https://doi.org/10.1016/j.trc.2017.01.024}{FB0039}.
+
+The prospective nine-action menu has baseline advice 90 km/h and early/late
+60-second pulses of $\pm5,\pm10$, reverting to 90. It does not contain holding
+100 km/h throughout the decision horizon. Proposition 2 is therefore a result
+for a feasible advice space containing the dominating action, not a negative
+result for that pulse menu. Restricted-menu distinctions could still occur
+without unavoidable continuous-space information loss. Conversely, including
+held 100 in a native reference would not assume it is actually best there.
+An added dominance stress probe requires explicit menu/budget approval, not
+silent expansion. With the existing maximum paired/context/time-step counts,
+one added action changes action invocations from 216 to 240 and the total cap
+from 480 to 504; preparation counts and other obligations remain unchanged.
+
+\section{Certificate disposition}
+\begin{itemize}
+\item Established conditionally: exact full aggregate-prefix equality and a
+reachable early lane contrast in a homogeneous conservative free-flow class.
+\item Established conditionally: fixed, advice-independent work-conserving
+service plus arrival dominance cannot produce an unavoidable useful-action split.
+\item Not established: the near-drop preparation, native full-history collision,
+an admissible shared-advice/merge service closure, or a useful-action split.
+\item Not established: minimum sufficient retained state, any gradient correctness,
+independent gradient usefulness, field relevance, or generic aggregate sufficiency.
+\end{itemize}
+We stop at the evidence-route decision. No unsupported lane penalty, shortened
+history, categorical moving-mass process, smoothing or saltation exception has
+been adopted to bridge the missing link.
+\end{document}

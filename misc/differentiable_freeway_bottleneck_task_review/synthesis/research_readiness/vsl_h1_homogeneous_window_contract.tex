@@ -1,0 +1,311 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\begin{center}
+{\Large H1: a homogeneous upstream candidate}\\[4pt]
+13 October 2026 --- analytical qualification, not an adopted traffic contract
+\end{center}
+
+\section*{1. Traffic meaning and assumption boundary}
+The ending lane $E$ seeks early transfer into adjacent continuing lane $A$;
+continuing lane $B$ does not receive lateral traffic. A finite uniform
+footprint initially occupies $[0,\ell]$ inside a fixed preparation area
+$[0,L]$, with $0<\ell\leq L$. At the decision instant it has densities
+$e_0,a_0,b_0$ and mass $M=\ell(e_0+a_0+b_0)>0$. Initial symmetry means
+$a_0=b_0$, not $a(t)=b(t)$ after merging. No new arrivals are included.
+All quantities and the initial footprint are fixed across action comparisons.
+
+One constant common advice $v\in[v_-,v_+]$, $v_->0$, is realized as the
+preparation speed on the admitted free-flow branch. This is a declared
+analytical response hypothesis, not established compliance. Lane changes
+are represented by a uniform same-coordinate lateral source. The model does
+not reproduce the diagonal next-cell movement of the native CTM algorithm.
+
+The physical interaction scale $h>0$ is fixed across actions. It converts a
+throughput-equivalent opportunity into a lateral density-change rate. Its
+meaning is repeated physical opportunity per unit progress, rather than an
+arbitrary numerical tick. It is an explicit adaptation requiring provenance
+or robustness qualification; no source-derived or fitted value is adopted.
+The early work weight $\gamma\geq1$ and late work weight $\alpha\geq1$ are
+distinct. Work is normalized so that an ordinary mass unit uses one work unit.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Quantity & Meaning & Units\\
+\midrule
+$L,\ell,h,z$ & geometry, footprint, opportunity scale, progress & m\\
+$v,w$ & common free speed, backward-wave magnitude & m/s\\
+$k_j,e,a,b$ & jam or lane density & veh-eq/m\\
+$q_E,q_A,q_B$ & ordinary longitudinal mass flux & veh-eq/s\\
+$C,S$ & receiving-work rate (ordinary-work normalization) & work/s\\
+$f$ & lateral mass-flux equivalent at a representative opportunity & veh-eq/s\\
+$m=f/h$ & local lateral density source & veh-eq/(m s)\\
+$\gamma,\alpha$ & receiving work per lateral/late mass unit & dimensionless\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The boundary must accept approaching traffic for the no-wait transport
+qualification below. A waiting terminal is considered as a reopen condition,
+not silently added to the equations.
+
+\section*{2. State to receiving, own demand, and completed merging}
+Use one declared triangular diagram for the diagnostic family:
+\[
+ Q_v(k)=\min\{vk,w(k_j-k)\},\quad
+ k_c(v)=\frac{wk_j}{v+w},\quad C(v)=v k_c(v),\qquad w,k_j>0.
+\]
+For density $a$ the adjacent receiving rate is
+\[
+ S(v,a)=\min\{C(v),w(k_j-a)\}.
+\]
+Restrict the initial densities over the whole action range by
+\[
+ 0\leq e_0,a_0,b_0\leq k_c(v_+).
+ \tag{A}
+\]
+The candidate will keep $a\leq k_c(v)$ and $e\leq e_0$, so ordinary traffic
+remains on the linear free-flow branch. Own longitudinal flow and the declared
+rate analogue of eager donor availability are
+\[
+ q_A=va,\quad q_E=ve,\quad q_B=vb_0,\qquad D_E=ve.
+\]
+Within this branch $S=C$ and $q_A\leq S$. The local R1-inspired rate allocation
+is
+\[
+ f(v,e,a)=\min\left\{D_E,\frac{S(v,a)-q_A}{\gamma}\right\},\qquad
+ m=\frac{f}{h}.
+ \tag{1}
+\]
+Consequently
+\[
+ 0\leq f\leq ve,\qquad va+\gamma f\leq S(v,a),\qquad
+ \dot e=-m,\quad \dot a=m,\quad \dot b=0.
+ \tag{2}
+\]
+Actual transferred mass is $m\,dx\,dt$; it is not $\gamma m\,dx\,dt$.
+No clipping rule is needed inside the admitted domain because $S-q_A\geq0$.
+
+\textbf{Adaptation boundary.} Carey's R1 supports own-lane-first residual
+receiving and the gap-weighted work inequality. Its native request is a
+cell stock in a native interval. Equations (1)--(2) additionally choose a
+progress-based rate offer, same-coordinate transfer and a physical scale $h$.
+They are not a verbatim continuous-time transcription of Algorithm A1. Here
+$q_E$ describes road-frame longitudinal motion; $f$ is the opportunity-equivalent
+bound used in a separate lateral source. It is not a second longitudinal
+outflow to add to $q_E$ at the same boundary. A native diagonal donor sending
+budget cannot be imported unchanged into this altered representation.
+
+Likewise, $C$ at successive road cross sections is not one pooled capacity
+to sum and spend remotely. Uniformity makes the local budget identical at
+every occupied location; the choice $f/h$ specifies lateral intensity locally.
+This is precisely the additional homogeneous interaction assumption to qualify.
+
+\section*{3. Why the homogeneous member is invariant}
+For an analytical transport reference, use the proposed balance equations
+within the occupied region:
+\[
+ \partial_t e+v\partial_x e=-m(e,a;v),\qquad
+ \partial_t a+v\partial_x a=m(e,a;v),\qquad
+ \partial_t b+v\partial_x b=0.
+ \tag{3}
+\]
+Outside the common footprint all three densities are zero and the source is
+zero. Equal initial values at all occupied positions produce equal solutions
+of the same ordinary differential equations along their characteristics.
+Thus the occupied body stays uniform while its edges translate at $v$.
+Equation (3) is a reference proof, not a position-resolved simulator or an
+assertion about congested waves in this task.
+
+Put $r=e_0+a_0=e+a$. In the free-flow member (2) becomes
+\[
+ \dot e=-\frac{v}{h}\min\left\{e,\frac{k_c(v)-r+e}{\gamma}\right\},
+ \qquad a=r-e.
+ \tag{4}
+\]
+At $e=0$ the rate is zero. The donor-bound $m\leq ve/h$ preserves
+nonnegative ending density. At $a=k_c(v)$ the spare receiving vanishes, so
+the adjacent density cannot cross that boundary. Therefore
+\[
+ 0\leq e(t)\leq e_0,\qquad
+ a_0\leq a(t)\leq\min\{r,k_c(v)\},\qquad b(t)=b_0.
+ \tag{5}
+\]
+Condition (A) and this invariant ensure the selected common speed is feasible
+throughout the candidate upstream motion. They do not prove that every
+traffic state under a VSL actually lies in this domain.
+
+\section*{4. The opportunity clock and exact branch references}
+With physical progress $z=vt$ and $\delta(v)=k_c(v)-r$, (4) gives
+\[
+ \frac{de}{dz}=-\frac1h\min\left\{e,\frac{\delta(v)+e}{\gamma}\right\}.
+ \tag{6}
+\]
+The explicit factor $v$ cancels. If normalized receiving $C(v)/v$ is
+unchanged between actions, this candidate has the same preparation per unit
+distance. Additional elapsed time alone supplies no benefit.
+
+For a donor-limited branch starting at $(z_s,e_s)$,
+\[
+ e(z)=e_s\exp\left[-\frac{z-z_s}{h}\right].
+ \tag{7}
+\]
+For a residual-service branch,
+\[
+ e(z)=(e_s+\delta)\exp\left[-\frac{z-z_s}{\gamma h}\right]-\delta.
+ \tag{8}
+\]
+Use these formulas only while the corresponding minimum branch remains active.
+For $\gamma>1$ and $\delta>0$, the switch threshold is
+$e=\delta/(\gamma-1)$. If $\delta<0$, the donor cannot vanish while the
+target stays free flow; its limiting residual is $-\delta=r-k_c(v)$.
+These are exact analytical branch references, not numerical rollouts.
+
+In the triangular diagnostic
+\[
+ k_c'(v)=-\frac{wk_j}{(v+w)^2}<0.
+\]
+For a service branch with fixed initial branch data,
+\[
+ \frac{\partial e}{\partial\delta}
+ =\exp\left[-\frac{z-z_s}{\gamma h}\right]-1\leq0.
+\]
+Slower speed can therefore increase preparation via changed normalized
+density headroom. This conditional preparation sensitivity is not the
+derivative of complete time with a waiting terminal. Switch events and any
+new boundary need their own derivative qualification later.
+
+\section*{5. Compact physical arrivals and whole-cohort conservation}
+The front reaches $L$ at $t_f=(L-\ell)/v$, and the rear at $t_r=L/v$.
+For $0\leq t<t_r$, the length still in preparation is
+\[
+ s(t)=\min\{\ell,L-vt\};\qquad s(t)=0\text{ for }t\geq t_r.
+\]
+The no-wait arrival rates at the lane end are
+\[
+ A_E'(t)=ve(t),\quad A_A'(t)=va(t),\quad A_B'(t)=vb_0,
+ \qquad t_f<t<t_r,
+ \tag{9}
+\]
+and zero outside that interval. These are arrivals to terminal service,
+not guaranteed complete departures when service binds. Ordinary total
+arrival rate is $v\rho_0$, with $\rho_0=e_0+a_0+b_0$.
+
+Before the front exits, remaining total mass is $s(t)\rho_0=M$.
+During exit, it is $s(t)\rho_0$ and decreases by the total arrival rate.
+Including all terminal arrivals, conservation is
+\[
+ s(t)\rho_0+ A_E(t)+A_A(t)+A_B(t)=M.
+ \tag{10}
+\]
+For the ending lane in particular, early transferred mass is
+$\int_0^t s(u)m(u)\,du$, and
+\[
+ s(t)e(t)+A_E(t)+\int_0^t s(u)m(u)\,du=\ell e_0.
+ \tag{11}
+\]
+Hence the moving-footprint formulation does not lose mass when its occupied
+length shrinks. It also does not create an arbitrary current-stock discharge
+tail. Every surviving upstream element reaches the boundary according to its
+initial physical position and common travel clock.
+
+\section*{6. A joint nonblocking terminal limit and its scientific conclusion}
+Let $R_A^{\rm out}(v,t)$ and $R_B^{\rm out}(v,t)$ be the declared downstream
+receiving-work rates. For a nonblocking terminal it is sufficient that
+\[
+ va(t)+\alpha ve(t)\leq R_A^{\rm out}(v,t),\qquad
+ vb_0\leq R_B^{\rm out}(v,t)
+ \tag{12}
+\]
+throughout the arrival window for all admitted actions. These are domain
+conditions, not externally supplied future receiving curves for prediction.
+As one existence member, keep declared constant finite downstream receiving
+rates $Q_A^{\rm out},Q_B^{\rm out}>0$ at an unconstrained exit. This retains
+the fixed-resource idea of S13 without adopting its simultaneous batch or
+proportional allocation. Conservative sufficient initial bounds are
+\[
+ v_+\alpha r\leq Q_A^{\rm out},\qquad
+ v_+b_0\leq Q_B^{\rm out}.
+ \tag{13}
+\]
+Indeed $a+\alpha e=r+(\alpha-1)e\leq\alpha r$, and
+$v\leq v_+$. Sufficiently sparse positive initial traffic can satisfy (A)
+and (13) together. This member has no terminal queue and no feedback
+that contradicts the upstream homogeneous clock. Allocation priority is
+immaterial when every demand is served; no new binding-terminal priority is
+selected by this limit.
+
+Every initial position $x\in[0,\ell]$ completes at $(L-x)/v$. Its mean
+complete time and derivative are therefore
+\[
+ \overline T(v)=\frac{L-\ell/2}{v},\qquad
+ \frac{d\overline T}{dv}=-\frac{L-\ell/2}{v^2}<0.
+ \tag{14}
+\]
+The preferred speed is the largest admissible one, irrespective of hidden
+merge composition. The result is a limiting/negative information-dependent
+control finding. It does not transfer S13's positive information/action
+certificate to the new member.
+
+If (12) fails, terminal waiting is consequential. A queue on the ending lane
+or adjacent lane can change incoming flow and earlier receiving. Neither
+(3) nor (9) then automatically remains valid. A detached point queue with
+unlimited storage and no upstream influence would be a new approximation or
+new geometry assumption, not a source-supported default. This limitation does
+not prove that all compact homogeneous holding models are impossible.
+
+For any eventual admitted terminal, retain the complete-population objective
+\[
+ F(v)=\int_0^{T_{\rm clear}} N_{\rm unexited}(t;v)\,dt,
+ \qquad \overline T=F/M.
+ \tag{15}
+\]
+It counts upstream travel, any preparation waiting, terminal holding and all
+traffic until final exit. Staggered arrivals do not justify importing the
+half-clearance mean of a simultaneous proportional batch.
+
+\section*{7. Information sufficiency and present disposition}
+With fixed known footprint and initial symmetry, aggregate mass $M$ plus
+initial ending mass $E_0$ gives
+\[
+ e_0=E_0/\ell,\qquad a_0=b_0=(M-E_0)/(2\ell).
+\]
+Equation (4) then determines $e(t)$, and $a(t)=e_0+a_0-e(t)$ reconstructs
+the adjacent receiver. Thus one initial ending statistic is sufficient for
+the proposed upstream member. A strong aggregate-plus-ending-statistic rival
+can implement the identical equations and histories. Independent initial
+continuing-lane asymmetry would change that information contract; it is not
+admitted here.
+
+\textbf{Disposition.} Homogeneous upstream closure is mathematically possible
+under explicit adaptations. A complete no-blocking member exists but loses
+the desired information-dependent speed contrast. A waiting-terminal member,
+applied MP6 domain, fresh reachable observer witness, derivative protocol and
+independent usefulness evidence remain open. The review stops at the original
+B2 system-interface gate; no simulator or experiment is authorized.
+
+\section*{Source and adaptation record}
+\begin{itemize}
+\item Carey, Balijepalli and Watling (2013), \emph{Extending the Cell
+Transmission Model to Multiple Lanes and Lane-Changing}: diagram and local
+allocation ingredients, not this joined homogeneous task.
+\href{https://eprints.whiterose.ac.uk/id/eprint/77315/7/Carey\%20et\%20al\%202013_with_coversheet.pdf}{Author manuscript}, Sections 2, 4 and 5.
+\item Jin (2015), \emph{Continuous formulations and analytical properties of
+the link transmission model}: initial/boundary-profile requirements, not
+one-stock closure with interior lateral sources.
+\href{https://arxiv.org/pdf/1405.7080}{Primary preprint}, Section 2.2.
+\item Jin (2021), \emph{A link queue model of network traffic flow}:
+compact model-form rival with distinct internal dynamics.
+\href{https://arxiv.org/pdf/1209.2361}{Primary preprint}, introduction and conclusion.
+\end{itemize}
+All additional profile, rate-scale, uniform-source, speed-response and terminal
+assumptions are declared above. Conditional proof is not empirical calibration.
+The accepted S13 contract and its original scalar certificate are unchanged.
+\end{document}

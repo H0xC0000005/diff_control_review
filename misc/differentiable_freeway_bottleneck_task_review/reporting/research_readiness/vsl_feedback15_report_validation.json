@@ -1,0 +1,225 @@
+{
+  "status": "passed",
+  "scope": "feedback-15 semantic presentation, display-equation preservation and document/color checks only",
+  "pdf_pages": 4,
+  "main_text_pages_equivalent": 2.9219590043763777,
+  "main_text_limit": 3.0,
+  "references_start_page": 4,
+  "references": 8,
+  "equations": 8,
+  "source_hierarchy": "Subraveti backbone; inherited Han budgets/VSL completion; Carey-led movement adaptation; Wright supporting allocation",
+  "sharing_equation_color": "SrcCarey; unchanged mathematical expression; Wright support retained",
+  "palette_unchanged": true,
+  "display_math_blocks_unchanged": 7,
+  "inline_math_expressions": 72,
+  "inline_explanation_additions": [
+    "j",
+    "I",
+    "P_{i,\\ellj}",
+    "I=1",
+    "\\ell",
+    "P_{\\ellj}",
+    "b_{\\ellj}",
+    "d_\\ell",
+    "m_{\\ellj}",
+    "\\lambda_j",
+    "z_{\\ellj}",
+    "r_j",
+    "F_n,F_v"
+  ],
+  "inline_explanation_omissions": [
+    "u_0",
+    "w",
+    "m"
+  ],
+  "bibliography_content_unchanged": true,
+  "v4_tex_pdf_byte_preserved": true,
+  "source_palette": {
+    "SrcJin": "56617B",
+    "SrcWei": "895B32",
+    "SrcNS": "317D37",
+    "SrcHan16": "7146A9",
+    "SrcHan17": "165CA7",
+    "SrcCarey": "947112",
+    "SrcThesis": "A5418A",
+    "SrcWright": "23828C",
+    "Own": "B53D36",
+    "Standard": "2A2A2A"
+  },
+  "white_background_contrast": {
+    "SrcJin": 6.191810833422492,
+    "SrcWei": 5.8233606876375035,
+    "SrcNS": 5.09806873130268,
+    "SrcHan16": 6.6642967075294655,
+    "SrcHan17": 6.724352681100301,
+    "SrcCarey": 4.535671090668293,
+    "SrcThesis": 5.640641398591811,
+    "SrcWright": 4.522735520776784,
+    "Own": 5.697979161745323,
+    "Standard": 14.353406478158625
+  },
+  "source_hls": {
+    "SrcJin": [
+      0.6171171171171171,
+      0.40980392156862744,
+      0.1770334928229665
+    ],
+    "SrcWei": [
+      0.078544061302682,
+      0.36666666666666664,
+      0.46524064171123
+    ],
+    "SrcNS": [
+      0.34649122807017546,
+      0.3411764705882353,
+      0.4367816091954022
+    ],
+    "SrcHan16": [
+      0.7390572390572391,
+      0.46862745098039216,
+      0.4142259414225941
+    ],
+    "SrcHan17": [
+      0.5862068965517242,
+      0.37058823529411766,
+      0.7671957671957671
+    ],
+    "SrcCarey": [
+      0.12179487179487176,
+      0.3254901960784314,
+      0.783132530120482
+    ],
+    "SrcThesis": [
+      0.8783333333333334,
+      0.45098039215686275,
+      0.4347826086956522
+    ],
+    "SrcWright": [
+      0.5158730158730159,
+      0.3431372549019608,
+      0.6000000000000001
+    ],
+    "Own": [
+      0.009186351706036747,
+      0.4607843137254902,
+      0.5404255319148936
+    ],
+    "Standard": [
+      0.0,
+      0.16470588235294117,
+      0.0
+    ]
+  },
+  "actual_text_drawing_color_counts_by_page": [
+    {
+      "SrcJin": 4,
+      "SrcWei": 5,
+      "SrcNS": 11,
+      "SrcHan16": 9,
+      "SrcHan17": 6,
+      "SrcCarey": 6,
+      "SrcWright": 3,
+      "Own": 6,
+      "SrcThesis": 2,
+      "Standard": 2
+    },
+    {
+      "Own": 56,
+      "SrcNS": 58,
+      "SrcHan16": 75,
+      "SrcHan17": 20,
+      "Standard": 3,
+      "SrcThesis": 9,
+      "SrcCarey": 8,
+      "SrcWright": 2
+    },
+    {
+      "SrcCarey": 31,
+      "Own": 61,
+      "Standard": 32
+    },
+    {
+      "SrcJin": 5,
+      "SrcWei": 6,
+      "SrcNS": 6,
+      "SrcHan16": 5,
+      "SrcHan17": 6,
+      "SrcCarey": 5,
+      "SrcThesis": 5,
+      "SrcWright": 5
+    }
+  ],
+  "declared_main_font_pt": 10,
+  "minimum_regular_text_pdf_font_pt": 9.9626,
+  "math_scripts": "standard TeX sizes",
+  "build_issues": [],
+  "embedded_fonts": [
+    "/CJBDGH+CMMI7",
+    "/DRSFHC+CMSY5",
+    "/GRTOYT+CMEX10",
+    "/HYDLIE+CMR7",
+    "/JNHGWK+CMSS10",
+    "/LIXJHO+CMSY7",
+    "/LLFWNI+CMBX12",
+    "/PJOCGS+CMSSBX10",
+    "/RXQYKI+CMR10",
+    "/UCMYRY+CMTI10",
+    "/UUMAWH+CMMI10",
+    "/WWRLTC+CMSY10",
+    "/XUJKNC+CMTT10",
+    "/YCRYRK+CMBX10"
+  ],
+  "current_local_pdf_links": [
+    "vsl_joined_candidate_contract_and_qualification.pdf"
+  ],
+  "markdown_links_checked": 197,
+  "existing_files_snapshot": 600,
+  "changed_existing_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_peer_work_overview.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_hierarchy_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex",
+    "temp_content/vsl_review_report/report_structure_candidates.md"
+  ],
+  "preserved_existing_files": 593,
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_validation.json",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v4/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v4/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v4/vsl_literature_backbone_review_report.tex"
+  ],
+  "python": "3.11.9",
+  "pypdf": "6.15.0",
+  "tex_engine": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+  "visual_check": "approved palette unchanged; PDF text/positions/fonts/colors and layout log checked; no raster PDF rendering",
+  "artifacts": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex": {
+      "bytes": 22109,
+      "sha256": "a92c833d10fa9fb9fbefe2029947c1e520db037977f30ff0ea635760cd4b13c6"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 204264,
+      "sha256": "f5ca884673fdc5f79f2be77d815e506f6e7236836ec78511e0510603293f4dca"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_build.log": {
+      "bytes": 19695,
+      "sha256": "e689cc8b8985732cbbe1013b29ffbe0250bf6d840990b0120cf9e0b1a647eaf0"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md": {
+      "bytes": 10480,
+      "sha256": "2c4d2b79a8bd0ae44503cf891afe05c7f1486b68280485cf22e88d5977dbe557"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v4/vsl_literature_backbone_review_report.tex": {
+      "bytes": 19021,
+      "sha256": "c8cdf2d7fc3a4f4088a68a8ec35ac41e242e5dd407a44aaffb0eefc738b060e4"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v4/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 200439,
+      "sha256": "7cbbdbf1a834e72e596b24c8303582c33036b795db43704fcb651ba77785a0b9"
+    }
+  }
+}

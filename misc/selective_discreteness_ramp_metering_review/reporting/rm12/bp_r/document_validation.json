@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-06",
+  "scope": "RM12 Stage 2 / BP-R document and record integrity only",
+  "status": "PASS",
+  "stage_status": "bounded audit complete at BPR-G3; user disposition pending; Stage 3 unopened",
+  "documents_checked": 14,
+  "local_links_checked": 117,
+  "query_rows": 8,
+  "combined_search_batches": 3,
+  "source_rows": 10,
+  "reused_sources": 8,
+  "new_sources": 2,
+  "fresh_selected_reused_method_reads": 7,
+  "reused_prior_extraction_with_failed_fresh_fetch": 1,
+  "question_inventory": [
+    "BPR-G0",
+    "BPR-G1",
+    "BPR-E1",
+    "BPR-E2",
+    "BPR-E3",
+    "BPR-G2",
+    "BPR-G3"
+  ],
+  "g2": "not triggered; no scientific transfer adopted",
+  "g3": "pending",
+  "csv_schema_unique_ids_query_references": "PASS",
+  "tracked_status": [
+    " M AGENTS.md",
+    " M PLANS.md"
+  ],
+  "preexisting_root_changes_preserved": true,
+  "manual_evidence_checks": [
+    "primary versions and access grades explicit",
+    "common-rate/TST joined certificate marked unestablished",
+    "compact memory/moment/lane-aggregate rivals retained",
+    "source facts separated from reviewer deductions and candidate interfaces",
+    "initialization projection and no reference-oracle updates declared",
+    "continuous-mass and reference-event transfer not silently adopted",
+    "no numerical experiment or derivative validation claimed"
+  ],
+  "scientific_tests": "none; review/document integrity checks do not establish traffic or gradient validity",
+  "errors": []
+}

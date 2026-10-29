@@ -1,0 +1,18 @@
+source_id,filename,sha256,pages,accessed,source_url,notes
+FB0001,full_text/FB0001.pdf,aa4f07412569b259545b75eb7291d9b6dd02231a4a550aa2efacf21e33c649e3,31,2026-09-16,https://arxiv.org/abs/1310.2658,Open author manuscript
+FB0002,full_text/FB0002.pdf,370588f8f1cebdb912c7bd9d2a8d670802ae5ddee728084203fb9cfd87e2019a,25,2026-09-16,https://arxiv.org/abs/1603.04785,Open author manuscript
+FB0003,full_text/FB0003.pdf,d1233d463c33f849b2f61be977d0d751bf932a9a2da229b00e361485050fe0dd,7,2026-09-16,https://pure.tudelft.nl/ws/portalfiles/portal/51568416/1_s2.0_S2405896318307791_main.pdf,Open repository copy
+FB0005,full_text/FB0005.pdf,755b55a9abd00058e58b7d3a5893e192dc53442e0f7ca4a06f0dfaea6acd0a62,98,2026-09-16,https://dot.ca.gov/-/media/dot-media/programs/research-innovation-system-information/documents/final-reports/ca18-2447-finalreport-a11y.pdf,Official report
+FB0006,full_text/FB0006.pdf,be66624e7c65e771dd2c7c5cfc360056c579c41d4263599d3d01ad51bbce893d,88,2026-09-16,https://library.ctr.utexas.edu/ctr-publications/0-5422-1.pdf,Official report
+FB0007,full_text/FB0007.pdf,e76b1df904131886fcf28aa586d6f7539dbe205289ad5f8564888c1a4408c24c,24,2026-09-16,https://arxiv.org/abs/2607.16615,Recent preprint
+FB0008,full_text/FB0008.pdf,ef9cd4f458ffc52193d2076fb69976634401204cef304a53001672c0e6fe8317,7,2026-09-16,https://arxiv.org/abs/2601.06311,Recent preprint
+FB0009,full_text/FB0009.pdf,03394fc5f81aaff5ba097abcff3fb8a43c0d49d186e88fcaf69e83d0f2fbdd74,10,2026-09-16,https://arxiv.org/abs/2503.06767,Recent preprint
+FB0011,full_text/FB0011.pdf,89c210b8756a111c8946b76bbd620b36b9ff1e669d53a69a7f1f3c8f80759719,83,2026-09-16,https://ops.fhwa.dot.gov/publications/fhwahop21021/fhwahop21021.pdf,Official FHWA report
+FB0012,full_text/FB0012.html,503f01d5668443fdfa13641c99f7e652d85fce019c9e35e755b57f06aff2b724,NA,2026-09-16,https://ops.fhwa.dot.gov/publications/ramp_mgmt_handbook/manual/manual/5_1.htm,Official FHWA handbook page
+FB0013,user_supplied/FB0013.pdf,e47da1bb385685bd9529a3e9671423cb3c8791b4d9fbf5c283698a8053b76e3f,15,2026-09-16,https://doi.org/10.1061/JTEPBS.0000395,User-supplied final published PDF identity and all-page readability verified
+FB0021,user_supplied/FB0021.pdf,6ad00928a6a2516afae34cdb58971cea49f7cef4cc885651ff06467d5f790ee5,21,2026-09-16,https://doi.org/10.1016/j.trc.2014.10.015,User-supplied final published PDF including Appendix A
+FB0026,full_text/FB0026.pdf,36affe749684a0173e1d889227af53fca4be4da6d7a6f72566fd0d8d5f9c1bed,23,2026-09-16,https://www.dcsc.tudelft.nl/~bdeschutter/pub/rep/19_022.pdf,Open author report 19-022 journal citation reconciled on cover
+FB0030,full_text/FB0030.pdf,05f8998666dd663c8521eede6ce225f269c0b4bd951e61507734802bae38d88a,24,2026-09-16,https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae,Final published university copy repository 2019 article header 2020 discrepancy retained
+FB0038,full_text/FB0038.pdf,bfe03c4d0e26104bec2283acb7e60eb3625adf80b4ad3cc71bb46e944ee69d74,13,2026-09-17,https://pure.tudelft.nl/ws/portalfiles/portal/85144218/0361198120948055.pdf,Final2020 with repository CC BY cover; title pages and selected methods results verified during Route B
+FB0039,full_text/FB0039.pdf,e1febfa78114084ec6857f444c6da87c687714e25e74c2a45aa6e7802381be2c,18,2026-09-17,https://upcommons.upc.edu/server/api/core/bitstreams/271525be-078b-4297-8eeb-c262e2f04b3e/content,Final2017 open CC BY-NC-ND paper; title pages and sections4-5-7 verified during Route B
+FB0040,user_supplied/FB0040.pdf,d7407542b542b5a8e62b3cf2a2ea0a820e89c3e9eb243bcf4a42ca7c4582362f,17,2026-09-17,https://doi.org/10.1016/j.physa.2025.130876,User-supplied final2025 Elsevier PDF; identity consecutive pages all-page readability and decision-relevant methods results verified

@@ -1,0 +1,210 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.79in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\head}[1]{\par\medskip\textbf{#1}\par}
+\begin{document}
+\begin{center}
+{\large\bfseries Congestion budgets at the selected lane allocator}\\[3pt]
+2026-10-21 --- conditional interface check; LF2 unselected
+\end{center}
+
+\textbf{Scope.} The user selects the attempt-and-forward allocator (LF1).
+This note checks its demand/receiving inputs against the Subraveti summary
+and cited Han formulation. It isolates a consequential sending-mode choice;
+it does not complete the task, select LF2 or run a traffic trajectory.
+The formulas below cover a common triangular fundamental diagram (FD), not
+the source's heterogeneous-lane state mapping.
+
+\head{1. The complete source-lineage budget on a common FD}
+Let nominal free speed $u_0>0$, backward wave-speed magnitude $w>0$, and jam
+density $k_J>0$ be fixed geometry/traffic parameters. Let $0\leq\delta<1$ be
+the maximum capacity-drop fraction. This $\delta$ is the source's capacity-drop
+parameter, not Carey's lane-change headway multiplier. Define
+\begin{align}
+ C&=\frac{u_0wk_J}{u_0+w}, & k_c&=C/u_0,\nonumber\\
+ Q_J&=(1-\delta)C, & k_{c,J}&=Q_J/u_0, &
+ w_d&=\frac{Q_J}{k_J-k_{c,J}}
+      =\frac{u_0w(1-\delta)}{u_0+\delta w}. \label{eq:fixed}
+\end{align}
+$w_d$ is the positive recovery-branch slope, with $0<w_d\leq w$.
+The primed critical density in Han 2016's coefficient is $k_{c,J}$, evaluated
+at maximum jam/drop; it is not a new advice-dependent parameter
+\cite[sec. 3.2, eqs. (3)--(7)]{han16}. Han 2017 supplies the explicitly
+capped ceiling and the VSL interpretation \cite[sec. 2.3]{han17}:
+\begin{equation}
+ Q(x)=\min\left\{C,\ C\left[1-\delta\frac{x-k_c}{k_J-k_c}\right]\right\},
+ \qquad 0\leq x\leq k_J. \label{eq:ceiling}
+\end{equation}
+Consequently $Q_J\leq Q(x)\leq C$. Its input $x$ is the density of the
+preceding same-lane cell. The min with $C$ follows the source's no-drop
+under-critical branch; it is not an unapproved numerical clipping repair.
+
+For consecutive same-lane densities $x=k_{i,l}$ and $y=k_{i+1,l}$, the
+common-FD receiving law is
+\begin{equation}
+ R_H(x,y)=\min\{Q(x),\ w(k_J-y),\ w(k_J-x)+w_d(x-y)\}. \label{eq:receive}
+\end{equation}
+This is the original Han min-of-three form with its constants resolved,
+consistent with Han 2017's piecewise supply. It uses both adjacent upstream
+and downstream traffic, not only the downstream cell's empty space.
+
+\textbf{H: the full-lineage sending law.} For advice $v_{i,l}$,
+\begin{equation}
+ D^H_{i,l}(v)=\min\{v_{i,l}k_{i,l},\ Q(k_{i-1,l})\},\qquad
+ 0<v_{\min}\leq v_{i,l}\leq u_0. \label{eq:demandH}
+\end{equation}
+The source uses $Q_{i,l}=Q(k_{i-1,l})$: its index identifies the cell whose
+outflow is limited; its pressure input comes from the preceding cell. VSL
+restricts sending and does not replace $u_0$ in \eqref{eq:fixed}, move the
+physical grid or directly alter receiving/priority weights. A fixed control
+mask can apply common advice in the designated upstream cells and use
+$v=u_0$ elsewhere. Its exact task boundary still needs consolidation.
+
+\head{2. The shared-receiver interpretation}
+For movements into $(i+1,A)$, use \emph{one} budget
+$\Delta t\,R_H(k_{i,A},k_{i+1,A})$ and share it among all allowed donors.
+Do not give each donor a separate copy. This retains the principal source's
+lane index and the cited source's shared-mainline-supply structure. E's
+congestion does not independently become a second direct pressure argument.
+The selected endpoint sends last-E mass only toward A; its donor ceiling
+$Q(k_{i-1,E})$ remains defined without a downstream E cell. Boundary ghost
+states for the first physical row remain a task-boundary obligation.
+
+\newpage
+\head{3. Why the alternative is a model choice}
+The principal paper~\cite[eqs. (18)--(19) and following paragraph]{ns}
+says that modified demand and supply apply in a discharging state
+$k_{i,l}\geq k_{i+1,l}$, and ordinary functions otherwise. The thesis repeats
+the sentence~\cite[chap. 3, eqs. (3.18)--(3.19)]{thesis}. One literal joint
+reading yields the following \emph{G completion}:
+\begin{equation}
+ D^G_{i,l}(v)=
+ \begin{cases}
+ \min\{v_{i,l}k_{i,l},Q(k_{i-1,l})\},&k_{i,l}\geq k_{i+1,l},\\
+ \min\{v_{i,l}k_{i,l},C\},&k_{i,l}<k_{i+1,l}.
+ \end{cases} \label{eq:demandG}
+\end{equation}
+It completes the otherwise abbreviated constants from the original source;
+it is not a claim about unpublished author code. To complete G at the last
+E cell, whose same-lane successor does not exist, the proposed convention
+keeps the first branch enabled for its compulsory merge. That endpoint
+convention is part of candidate G, not an approved default.
+
+Use \eqref{eq:receive} for the common receiving budget in both candidates.
+On this common FD, when $x\leq y$, it reduces to
+$\min\{C,w(k_J-y)\}$; the source's non-discharging receiving branch is thus
+recovered. The sending switch in \eqref{eq:demandG} is the consequential
+difference isolated here. Both candidates can conserve mass. The source's
+short summary and full ancestor are insufficient to identify author intent
+without selecting or clarifying this difference explicitly.
+
+\head{4. Exact static case: a receiving queue grows, but G serves more}
+Use the earlier illustrative FD, not a calibration:
+\begin{equation}
+ u_0=60\ {\rm km/h},\quad w=20\ {\rm km/h},\quad k_J=150\ {\rm veh/km},
+ \quad C=2250\ {\rm veh/h},\quad k_c=37.5,\quad\delta=0.1.
+\end{equation}
+Then $Q_J=2025$, $k_{c,J}=33.75$, $w_d=540/31$ km/h. Set
+\begin{equation}
+ k_{i-1}=150,\quad k_i=40,\quad v_i=60,\qquad
+ k_{i+1}=40-\varepsilon\ \hbox{or}\ 40+\varepsilon.
+\end{equation}
+All densities are in veh/km. No lateral requests are used: this is the
+one-lane reference reduction of the allocator. We have $Q(150)=2025$,
+$Q(40)=2245$ and $v_i k_i=2400$. For small positive $\varepsilon$,
+\begin{align}
+ R_H(40,40-\varepsilon)&=2200+\frac{540}{31}\varepsilon>2025,\nonumber\\
+ R_H(40,40+\varepsilon)&=2200-20\varepsilon>2025. \label{eq:receivesides}
+\end{align}
+For example these expressions apply at $\varepsilon=1/10$. Hence
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+ & $k_{i+1}=39.9$ & $k_{i+1}=40.1$\\
+\midrule
+$D^G_i$ (veh/h) & 2025 & 2250\\
+$\min\{D^G_i,R_H\}$ (veh/h) & 2025 & 2198\\
+$\min\{D^H_i,R_H\}$ (veh/h) & 2025 & 2025\\
+\bottomrule
+\end{tabular}
+\end{center}
+As $\varepsilon\downarrow0$, G's flow limits differ by $2200-2025=175$
+veh/h; H's do not. The difference is not hidden by receiving. The example
+does not depend on evaluating a missing supply branch away from its domain:
+the recovery-side formula is supplied by the original Han source, and the
+buildup side uses the ordinary space bound. It diagnoses a literal sending
+interpretation, not the authors' realized implementation.
+
+\newpage
+\head{5. Conditional budget and storage qualification}
+For $0\leq x,y\leq k_J$, rewrite the third receiving term as
+\begin{equation}
+ w(k_J-x)+w_d(x-y)
+ =w_d(k_J-y)+(w-w_d)(k_J-x)\geq0. \label{eq:positive}
+\end{equation}
+Together with \eqref{eq:ceiling}, this proves
+\begin{equation}
+ 0\leq R_H(x,y)\leq w(k_J-y),\qquad
+ 0\leq D^H_{i,l},D^G_{i,l}\leq v_{i,l}k_{i,l}. \label{eq:bounds}
+\end{equation}
+On fixed equal-length cells, choose
+\begin{equation}
+ u_0\Delta t\leq\Delta x,\qquad w\Delta t\leq\Delta x.
+\end{equation}
+Let $n_{i,l}=\Delta x k_{i,l}$ and $J=\Delta x k_J$. Then the allocator
+inputs $d_{i,l}=\Delta t D_{i,l}$ and $r_{i,l}=\Delta t R_{i,l}$ obey
+\begin{equation}
+ 0\leq d_{i,l}\leq n_{i,l},\qquad
+ 0\leq r_{i,l}\leq J-n_{i,l}.
+\end{equation}
+The selected allocator's common donor and receiver bounds therefore imply
+nonnegative stocks, jam-storage protection and conservation for either
+candidate. Its one-cell diagonal connections and no-instant-reuse update
+are unchanged. Setting $\delta=0$ gives $w_d=w$, $Q=C$ and ordinary CTM
+budgets, so G and H coincide in the no-capacity-drop limit.
+
+\textbf{A helpful source caution.} Subraveti motivates its same-cell scheme
+by warning that diagonal transfer depending only on downstream supply can
+misrepresent congestion propagation. The selected geometry changes that
+scheme, but \eqref{eq:receive} and the retained lookahead incentives still
+use adjacent/upstream lane information. This addresses information retained
+in the join; it does \emph{not} prove equivalent wave propagation or inherit
+the source's calibration. No traffic run tests that claim here.
+
+\head{6. Sensitivity scope and decision}
+H's budgets are continuous, piecewise smooth functions of their current
+density inputs and advice. With fixed active minima and request-allocation
+sets they can be differentiated normally. G adds a possible finite jump at
+the density-order guard; a derivative through just the selected arithmetic
+branch does not capture crossing that jump. Neither statement validates a
+whole rollout gradient. The native incentives, empty states, time-boundary
+choices and complete population-time objective remain to be reviewed.
+
+\textbf{LF2 recommendation: H.} It uses the full congestion law in the
+principal model's own source lineage and the already proposed Han VSL map.
+It avoids the extra sending switch and endpoint convention. Selecting it
+still resolves a scientific interpretation affecting all movements; it is
+not silently approved as a transcription fix. LF1 stays selected. The
+review stops here before full task/information/accounting/gradient closure.
+
+\begin{thebibliography}{9}\setlength{\itemsep}{0pt}
+\bibitem{ns} H. H. S. Nagalur Subraveti, V. L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model -- an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B},
+vol. 7, no. 1, pp. 1758--1779, doi: 10.1080/21680566.2019.1700846.
+\bibitem{han16} Y. Han, Y. Yuan, A. Hegyi, and S. P. Hoogendoorn,
+``New extended discrete first-order model to reproduce propagation of jam
+waves,'' \emph{Transp. Res. Rec.}, vol. 2560, pp. 108--118, 2016,
+doi: 10.3141/2560-12. Institutional accepted manuscript, sec. 3.2.
+\bibitem{han17} Y. Han \emph{et al.}, ``Resolving freeway jam waves by
+discrete first-order model-based predictive control of variable speed limits,''
+\emph{Transp. Res. C}, vol. 77, pp. 405--420, 2017,
+doi: 10.1016/j.trc.2017.02.009. Accepted manuscript, sec. 2.3.
+\bibitem{thesis} H. H. S. Nagalur Subraveti, \emph{Lane-specific Traffic
+Flow Control}, Ph.D. dissertation, TU Delft, 2021,
+doi: 10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9.
+\end{thebibliography}
+\end{document}

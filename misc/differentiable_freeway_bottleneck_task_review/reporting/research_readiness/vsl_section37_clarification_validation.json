@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "Section 3.7 presentation and document checks only",
+  "source_outside_section37_byte_identical": true,
+  "display_math_blocks_unchanged": 7,
+  "numbered_equations": 8,
+  "inline_math_expressions_unchanged": 72,
+  "bibliography_unchanged": true,
+  "references": 8,
+  "source_palette_and_attribution_unchanged": true,
+  "pdf_pages": 4,
+  "main_text_pages_equivalent": 2.9973680043641844,
+  "main_text_limit": 3,
+  "references_start_page": 4,
+  "minimum_regular_font_pt": 9.9626,
+  "build_issues": [],
+  "local_markdown_links_checked": 174,
+  "local_pdf_links": [
+    "vsl_joined_candidate_contract_and_qualification.pdf"
+  ],
+  "changed_existing_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex"
+  ],
+  "preserved_existing_files": 595,
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_section37_clarification_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_section37_clarification_validation.json"
+  ],
+  "python": "3.11.9",
+  "pypdf": "6.15.0",
+  "visual_check": "PDF text/fonts/positions and LaTeX log; no raster visual audit",
+  "artifacts": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex": {
+      "bytes": 22722,
+      "sha256": "7cfbbc255765e40e684a0f7e7cdeea65b500475777b06e2dda8755b35ef1a366"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 205759,
+      "sha256": "532b45fc4426b1711b2fa0f89bf2730b47ef694addf1f58df8deaf66f7d68fac"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_section37_clarification_build.log": {
+      "bytes": 19729,
+      "sha256": "49039c06ab4b6329d01cd4788acb121ab105dcdf8994e71ab6ae2d222bf165e8"
+    }
+  }
+}

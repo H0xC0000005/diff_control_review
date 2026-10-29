@@ -1,0 +1,265 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\begin{document}
+\begin{center}
+{\Large Revised A1-C: service work and causal traffic state}\\[4pt]
+15 October 2026 --- conditional module, diagnostic and new choice
+\end{center}
+
+\textbf{Status.} Revised A1-C's qualification direction is user-approved;
+M2-A1 is closed at that scope. The equations below are proposed/diagnostic,
+not an approved complete M2 traffic law. Stop at A1-C-S1 before selecting
+the state/speed dynamics. No simulator or traffic experiment is involved.
+
+\section*{1. One work account and a concrete allocation module}
+
+Retain the finite terminal histories, common advice, triangular backbone
+and physical/eligible stocks:
+\begin{equation}
+ P_j(t)=F_j(t-b/v),\quad q_j=P_j-Y_j,\quad N_j=F_j-Y_j,\quad
+ C(v)=\frac{wk_jv}{w+v},\qquad j=A,E,B. \tag{1}
+\end{equation}
+As before, eligible demand is $d_j=C(v)$ for $q_j>0$, and
+$d_j=\dot P_j$ at an empty eligible queue. All lane offers are at most
+$C(v)$. A causal solution must maintain $Y_j\leq P_j$.
+
+Let $X$ denote the justified current aggregate traffic state and $Z$ the
+retained service/recovery state. For fixed inputs, consider
+\begin{equation}
+ 0\leq B\leq R\leq C(v_-),\qquad c_A(X,Z),c_E(X,Z)\geq1,
+ \qquad c_Ag_A+c_Eg_E\leq B. \tag{2}
+\end{equation}
+$B$ is available normalized service work per second; $g_j$ is admitted
+vehicle-equivalent mass per second; $c_j$ is work per unit mass relative
+to ordinary passage. Only when $c_j=1$ do work and mass rates coincide.
+There is one budget, not a separate recovery constraint per past entry.
+The complete model must predict $B$ from its account, not receive a future
+service trace from outside. Here it is an input only to the local module.
+The maps $B,c_j$ and the physical division of current versus retained
+burden remain to be qualified; they cannot both charge the same effect.
+
+\textbf{Proposed fair-work convention.} For these fixed inputs choose the
+smallest $z\geq0$ with
+\begin{equation}
+ H(z):=\min\{c_Ad_A,z\}+\min\{c_Ed_E,z\}
+     =\min\{B,c_Ad_A+c_Ed_E\},\quad
+ g_j=\min\{d_j,z/c_j\}. \tag{3}
+\end{equation}
+If both offers are zero, take $z=0$. $H$ is continuous and strictly
+increasing until all offered work is served; hence (3) determines unique
+flows. If work demand does not exceed $B$, both offers pass. Otherwise
+the full work budget is used, with unused shares reallocated. In all cases
+\begin{equation}
+ 0\leq g_j\leq d_j,\qquad g_A+g_E\leq B\leq R. \tag{4}
+\end{equation}
+Equation (3) is a declared equal-work fairness assumption, not a theorem
+of traffic behavior. Conservative allocation templates motivate its shape;
+the source literature does not establish our state-to-work maps.
+
+\newpage
+\section*{2. Shares, effective throughput and residual service}
+
+When both streams can use their work shares,
+\begin{equation}
+ z=B/2,\qquad g_A=\frac{B}{2c_A},\quad g_E=\frac{B}{2c_E},\quad
+ s_E=\frac{g_E}{g_A+g_E}=\frac{c_A}{c_A+c_E}. \tag{5}
+\end{equation}
+Thus $c_E>c_A$ gives E a smaller mass share and also changes total flow.
+For $c_A=c_E=c$, the shares are equal but total service is $B/c$.
+For $c_E=c_A(1+\varepsilon)$, E's share is $1/(2+\varepsilon)$.
+These are conditional implications, not an approved equality or small
+$\varepsilon$ assumption for real lane-drop traffic.
+
+For an actual or specified offered mix $\theta_j$ summing to one,
+\begin{equation}
+ \mu_{\rm mix}=\frac{B}{\theta_Ac_A+\theta_Ec_E}. \tag{6}
+\end{equation}
+At binding work demand, actual total outflow equals the reading for its
+admitted mix; at underload it may be smaller. Do not infer capacity loss
+from low outflow. A composition-independent capacity is not asserted by
+(6), and no mix is inferred from absent traffic. This is one shared
+account with a composition-dependent mass conversion.
+
+If A's offer is served fully and E remains work-limited,
+\begin{equation}
+ g_A=d_A,\qquad g_E=\frac{B-c_Ad_A}{c_E},\qquad
+ c_Ad_A\leq B/2,\quad c_Ed_E\geq B-c_Ad_A. \tag{7}
+\end{equation}
+A larger E cost can reduce use of nominal spare mass service, unlike a
+priority weight that only redistributes a fixed mass budget.
+
+\begin{center}
+\begin{tabular}{c c c c c}
+$B$ & $c_A$ & $c_E$ & $(g_A,g_E)$ when both ready & total\\\hline
+6 & 1 & 1 & $(3,3)$ & 6\\
+6 & 1 & $3/2$ & $(3,2)$ & 5\\
+6 & 1 & 2 & $(3,3/2)$ & $9/2$\\
+6 & 2 & 2 & $(3/2,3/2)$ & 3
+\end{tabular}
+\end{center}
+
+These normalized exact hand allocations do not assign physical traffic
+parameters. For $B=6,d_A=2,c_A=1,c_E=2$ and ample E offer, (7) gives
+$(g_A,g_E)=(2,2)$. At underload, e.g. $d_A=d_E=1$ with these costs,
+both pass and unused work is positive.
+
+\textbf{Not yet a full model.} Fixed-input uniqueness does not establish
+uniqueness after costs depend on endogenous speed, queues or recovery.
+The next page tests one tempting instantaneous closure. No numerical
+smoothing, clipping epsilon or timestep-selected branch is introduced.
+
+\newpage
+\section*{3. An exact queue-birth ambiguity in a simple completion}
+
+Use normalized $v=w=1,k_j=2$, so $C(v)=1$ and the congested FD speed is
+$u_{\rm c}(f)=f/(2-f)$. Over a local time interval take
+\begin{equation}
+ B=R=4/5,\quad \dot P_A=a=1/5,\quad \dot P_E=\lambda=1/2,
+ \quad q_A=0,\quad q_E(0)=0,\quad c_A=1. \tag{8}
+\end{equation}
+The combined ordinary offer is $7/10<4/5$. Illustrate a monotone speed-cost
+law and a queue-selected speed by
+\begin{equation}
+ c_E=2-u_E,\qquad
+ u_E=\begin{cases}1,&q_E=0,\\ g_E/(2-g_E),&q_E>0.\end{cases} \tag{9}
+\end{equation}
+This cost law is a diagnostic assumption, not an empirical formula or
+the selected A1-C closure. The recovery budget is held fixed to isolate
+the instantaneous entry-state test. This local constant-offer interval
+is not asserted to be an exact H1-generated finite-cohort MP6 witness.
+
+At $q_E=0$, $c_E=1$ and work demand $a+\lambda=7/10<B$, so
+$g_A=a,g_E=\lambda$ and $\dot q_E=0$. At $q_E>0$, E can send at 1
+and A uses its full offer. Equation (7) requires
+\begin{equation}
+ g_E\left(2-\frac{g_E}{2-g_E}\right)=\frac35
+ \quad\Longleftrightarrow\quad15g_E^2-23g_E+6=0. \tag{10}
+\end{equation}
+The roots are $1/3$ and $6/5$; only $1/3$ is feasible. Then
+$u_E=1/5,c_E=9/5,g_A=1/5$, the work budget is exactly $4/5$, and
+\begin{equation}
+ \dot q_E=\lambda-g_E=1/6\quad(q_E>0),\qquad
+ \dot q_E=0\quad(q_E=0). \tag{11}
+\end{equation}
+For every chosen $t_b\geq0$, as well as $t_b=\infty$, the function
+\begin{equation}
+ q_{t_b}(t)=\frac{\pos{t-t_b}}6,\quad
+ Y_E(t)=t/2-q_{t_b}(t),\quad Y_A(t)=t/5 \tag{12}
+\end{equation}
+satisfies the absolutely-continuous queue/departure rules almost everywhere
+on the local offer interval. Both departures are nonnegative, increasing,
+eligible and budget-feasible. Yet queue birth is arbitrary.
+
+The differential equation holds outside isolated transition times and
+does not choose the next regime there. An explicit rule for continuation
+could exclude (12), but it would be an additional scientific rule. A
+discrete integrator selecting a branch does not qualify that rule. This
+example concerns the stated closure, not all A1-C laws or a complete
+P-H history model.
+
+\newpage
+\section*{4. Conditional physical and clearance interfaces}
+
+If a complete causal law supplies admissible departures, retain
+\begin{equation}
+ H=k_jb>M,\qquad F_j\leq M,\qquad 0\leq\dot F_j\leq C(v). \tag{13}
+\end{equation}
+For the initially empty terminal, vacancy before $b/w$ is positive since
+$F_j(t)\leq C(v)t<k_jwt$. Afterwards
+\begin{equation}
+ V_j(t)=Y_j(t-b/w)+H-F_j(t)\geq H-M>0. \tag{14}
+\end{equation}
+Thus the sufficient domain protects the H1 handoff under either future
+state closure. This is not a general upstream spillback solver.
+
+Physical stock is $N_j=F_j-Y_j$, never service memory or weighted mass.
+For uniform initial footprint $[0,\ell]$ and road length $L$, the complete
+local cohort objective remains
+\begin{equation}
+ J(v)=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E+q_B)\,dt. \tag{15}
+\end{equation}
+Actual departure mass is $g_jdt$, not $c_jg_jdt$. A completed entry may
+retain service influence while contributing no further local vehicle-time.
+B retains its independent admitted domain and $Y_B=P_B$.
+
+\textbf{A sufficient clearance condition only.} All traffic is eligible
+by $t_*=L/v$, and B is clear then. Suppose the future qualified account
+has uniform bounds
+\begin{equation}
+ 1\leq c_j(t)\leq c_{\max}<\infty,\quad 0\leq B(t)\leq R,
+ \quad\int_{t_*}^\infty(R-B(t))dt\leq\Lambda<\infty. \tag{16}
+\end{equation}
+If $Q=q_A+q_E>0$, one lane offers $C(v)\geq R$, hence its work
+offer reaches at least $B$. The account binds and
+$B=c_Ag_A+c_Eg_E\leq c_{\max}(g_A+g_E)$. Before clearance,
+\begin{equation}
+ Q(T)\leq Q(t_*)-\frac{R(T-t_*)-\Lambda}{c_{\max}}. \tag{17}
+\end{equation}
+Therefore clearance occurs by
+\begin{equation}
+ t_*+\frac{c_{\max}Q(t_*)+\Lambda}{R}. \tag{18}
+\end{equation}
+Temporary zero budget is allowed; no artificial positive floor is assumed.
+The complete M2 law must establish (16) or a different valid clearance
+argument. The work module alone and M1's finite-kernel proof do not do so.
+
+\textbf{Information and gradients.} Known initialization plus a uniquely
+autonomous state law could preserve ending-statistic reconstruction.
+That is conditional: no full-law uniqueness, consequential reachable MP6
+regime, observation collision, action split or useful gradient is proved.
+Changes in cost, state and event times all enter the full-objective path;
+none may be frozen merely to simplify a later derivative check.
+
+\newpage
+\section*{5. What must be selected before exact-law qualification}
+
+\textbf{S-E: equilibrium boundary state plus explicit causal transitions.}
+The free branch persists while its physical admission/service conditions
+permit it. A specified restriction must trigger queue formation; a specified
+clearance condition returns the stream to free passage. This rejects the
+arbitrary births in (12) if the free conditions remain satisfied. It does
+not supply a complete entropy/transition rule or prove the whole history
+node unique. A simple speed-only cost can remain benign under ordinary
+underload; conditional compulsory entry/opportunity must still be modeled.
+
+\textbf{S-V: finite-rate local aggregate speed state.}
+Predict approach/entry speeds from explicit local initial-value dynamics
+and admission/empty-state rules. Queue presence is a constraint/input,
+not an instantaneous complete speed assignment. This changes local
+motion/state meaning and needs parameter and averaging semantics. It is
+not automatically microscopic car following or a spatial CTM model, and
+an added speed ODE alone does not guarantee a valid node.
+
+Both choices may use a unified service map that has intermediate states;
+neither requires linear or globally smooth interpolation. They differ
+in how the traffic state changes through time, not in whether forced
+interaction and ordinary congestion may coexist. Neither is selected.
+The provisional first qualification is S-E because it retains the smaller
+first-order amendment; its failure would warrant an explicit return to S-V.
+
+\textbf{Sources and adaptation.} The boundary formulation in
+\href{https://arxiv.org/pdf/1310.2660}{Jin et al.} (sections 2 and 6) has
+its own selection rule and proof. The inspected relation in
+\href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{Leclercq et al.}
+(section 3.2) assumes congested entry. Neither paper supplies this work
+node. The fairness convention, state-to-cost proposal and queue-birth
+diagnostic are review constructions, not proofs of the finite task.
+
+\textbf{Gate and original-stage status.} A1-C-S1 is Type 2 G3; select the
+local state/dynamics interpretation before qualifying its exact equations,
+recovery/overlap and joint MP6 domain. M2-A1's revised A1-C direction is
+closed. H1/cutoff, known initial information, finite storage, primary
+ordinary-underload domain, local choke completion and S-P--S-L remain.
+The approved three-part review and Step 3 are unfinished. No simulator,
+installation, calibration, traffic experiment or numerical gradient has
+been undertaken. The strict, fixed-share, aggregate/history/scalar and
+search rivals remain; a common fastest action is an admissible outcome.
+\end{document}

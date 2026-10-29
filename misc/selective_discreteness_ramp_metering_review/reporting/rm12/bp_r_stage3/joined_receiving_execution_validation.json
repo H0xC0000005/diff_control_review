@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "date": "2026-10-08",
+  "scope": "Static exact-rational analytical identities and document/source/build preservation. No traffic/gradient simulation.",
+  "protected_files": 343,
+  "checked_documents": 13,
+  "local_links": 253,
+  "analytical_groups": [
+    {
+      "group": "constant-path wave/count identity and capacity",
+      "cases": 453
+    },
+    {
+      "group": "piecewise prescribed-path delay, envelope and shortcut discrepancy",
+      "cases": 121
+    },
+    {
+      "group": "idle-then-burst cumulative constraint, slack and exact catch time",
+      "cases": 101
+    },
+    {
+      "group": "N.A scarcity/reallocation bounds and paired conservation",
+      "cases": 784
+    },
+    {
+      "group": "conditional free-motion lower-speed bound (local algebra only)",
+      "cases": 36
+    }
+  ],
+  "source_queries": 8,
+  "source_query_batches": 4,
+  "source_activity_rows": 16,
+  "source_technical_objects": 5,
+  "source_failed_access_routes": 4,
+  "pdf_pages": 3,
+  "pdf_equations": 16,
+  "pdf_inspection": "Extracted text and build log; no raster inspection claimed.",
+  "python_version": "3.11.9 (main, Apr 19 2024, 16:48:06) [GCC 11.2.0]",
+  "pypdf_version": "6.15.0",
+  "latex_version": "pdfTeX 3.141592653-2.6-1.40.25, TeX Live 2023/Debian",
+  "snapshot": "/tmp/rm12_67_joined_receiving_20261008_113903_196795/snapshot.json",
+  "checker_path": "/tmp/validate_rm12_joined_receiving.py",
+  "checker_sha256": "243efde6fa96cef8127b951a2cff0784fca2444fbb94f46ae70568c44458f174",
+  "checker_source": "from pathlib import Path\nfrom fractions import Fraction as F\nimport csv, hashlib, json, re, sys\nfrom pypdf import PdfReader\n\nROOT = Path(\"/home/zpz/repos/diff_minimal_meso\")\nBASE = ROOT / \"misc/selective_discreteness_ramp_metering_review\"\nTEMP = Path(\"/tmp/rm12_67_joined_receiving_20261008_113903_196795\")\nsnapshot = json.loads((TEMP / \"snapshot.json\").read_text())\ndigest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()\nfor rel, h in snapshot[\"protected\"].items():\n    assert digest(ROOT / rel) == h, rel\n\nnew_md = [\n    \"reporting/rm12/bp_r_stage3/joined_receiving_findings.md\",\n    \"extraction/rm12/bp_r_stage3/joined_receiving_source_audit.md\",\n    \"synthesis/rm12/bp_r_stage3/joined_receiving_qualification.md\",\n    \"archive/user_supplied/rm12_bp_r_stage3/own_motion_source_request.md\",\n]\ndocuments = snapshot[\"mutable\"] + new_md\nlinks = 0\nfor rel in documents:\n    p = BASE / rel\n    content = p.read_text()\n    assert not re.search(r\"\\)\\+(?:and|gives|contain|separate)\", content), rel\n    for match in re.finditer(r\"\\[[^\\]\\n]*\\]\\((<[^>]+>|[^)\\n]+)\\)\", content):\n        target = match.group(1).strip(\"<>\")\n        if re.match(r\"https?://|mailto:\", target):\n            continue\n        path, _, fragment = target.partition(\"#\")\n        destination = (p.parent / path).resolve() if path else p\n        assert destination.exists(), (rel, target)\n        links += 1\n        if fragment and destination.suffix == \".md\":\n            text = destination.read_text()\n            headings = set()\n            for line in text.splitlines():\n                if re.match(r\"^#{1,6} \", line):\n                    heading = re.sub(r\"^#{1,6} \", \"\", line).lower()\n                    heading = re.sub(r\"[^a-z0-9 _-]\", \"\", heading).strip()\n                    headings.add(heading.replace(\" \", \"-\"))\n            assert fragment in headings, (rel, target)\n\nplan = (BASE / \"rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md\").read_text()\nassert \"**Closed as A:**\" in plan\nassert \"ACT.C is deferred\" in plan\nassert \"S3-I2.SRC\" in plan and \"Type 1\" in plan\nreport = (BASE / new_md[0]).read_text()\nfor token in [\"SRC.A\", \"SRC.B\", \"prescribed-path\", \"not a demand to redesign\", \"Stage 3 remains open\"]:\n    assert token in report, token\n\nu, w, kappa = F(30), F(5), F(3, 20)\nQ = u*w*kappa/(u+w)\ntrace = lambda v: w*kappa*v/(w+v)\ngroups = []\ncases = 0\nfor i in range(151):\n    v = F(i, 5)\n    assert 0 <= trace(v) <= Q\n    for t in [F(0), F(1, 3), F(15)]:\n        tau = t*w/(w+v)\n        assert tau + v*tau/w == t\n        assert kappa*v*tau == trace(v)*t\n        cases += 1\ngroups.append({\"group\": \"constant-path wave/count identity and capacity\", \"cases\": cases})\n\nphi = lambda tau: 5*tau if tau <= 10 else 15*tau-100\ninverse = lambda t: t/2 if t <= 20 else (t+20)/4\nenvelope = lambda t: 3*t/8 if t <= 20 else 9*t/16-F(15,4)\ncases = 0\nfor i in range(121):\n    t = F(i, 2)\n    tau = inverse(t)\n    assert tau + phi(tau)/w == t\n    assert kappa*phi(tau) == envelope(t)\n    assert 0 <= envelope(t) <= Q*t\n    for s in {F(0), min(t, F(20)), t}:\n        assert envelope(s) + Q*(t-s) >= envelope(t)\n    cases += 1\nassert inverse(F(15)) == F(15, 2)\nassert envelope(F(15)) == F(45, 8)\nassert trace(F(15)) == F(9, 16)\nassert F(3,8)*10 + F(9,16)*5 - envelope(F(15)) == F(15,16)\nassert envelope(F(20)) == F(15,2)\ngroups.append({\"group\": \"piecewise prescribed-path delay, envelope and shortcut discrepancy\", \"cases\": cases})\n\nidle = lambda t: F(0) if t <= 10 else min(Q*(t-10), F(3,8)*t)\nattempt = lambda t: Q*max(F(0), t-10)\ncases = 0\nfor i in range(101):\n    t = F(i, 2)\n    C = idle(t)\n    assert 0 <= C <= F(3,8)*t\n    breakpoints = {F(0), min(F(10),t), t}\n    variational = min(F(3,8)*s + attempt(t)-attempt(s) for s in breakpoints)\n    assert C == variational\n    if t <= 24:\n        assert C == attempt(t)\n    else:\n        assert C == F(3,8)*t\n    cases += 1\nassert Q*(24-10) == F(3,8)*24 == 9\nassert idle(F(12)) == F(9,7) and Q > trace(F(5))\ngroups.append({\"group\": \"idle-then-burst cumulative constraint, slack and exact catch time\", \"cases\": cases})\n\ncases = 0\nfor dr in [F(0),F(1,20),F(1,8),F(1,4),F(3,8),F(1),F(3)]:\n    for dm in [F(0),F(1,20),F(1,8),F(1,4),F(3,8),F(1),F(3)]:\n        for R in [F(0),F(1,8),F(3,8),F(1)]:\n            for p in [F(0),F(1,3),F(1,2),F(1)]:\n                if dr+dm <= R:\n                    fr, fm = dr, dm\n                else:\n                    fr = min(dr, max(p*R,R-dm))\n                    fm = R-fr\n                assert 0 <= fr <= dr and 0 <= fm <= dm\n                assert fr+fm == min(dr+dm,R)\n                assert -fr-fm+(fr+fm) == 0\n                cases += 1\ngroups.append({\"group\": \"N.A scarcity/reallocation bounds and paired conservation\", \"cases\": cases})\n\ncases = 0\nfor a0 in [F(1),F(3),F(4)]:\n    for dt in [F(1,10),F(1,2),F(1)]:\n        vmax = F(40)\n        assert 0 < a0*dt/vmax <= 1\n        vstar = min(u,a0*dt)\n        assert vstar > 0\n        for v in [vstar,F(10),F(20),u]:\n            next_v = min(u,v+a0*(1-v/vmax)*dt)\n            assert vstar <= v <= next_v <= u\n            cases += 1\ngroups.append({\"group\": \"conditional free-motion lower-speed bound (local algebra only)\", \"cases\": cases})\n\npdf = BASE / \"synthesis/rm12/bp_r_stage3/joined_receiving_math.pdf\"\ntex = pdf.with_suffix(\".tex\")\nassert pdf.read_bytes() == (TEMP/\"tex/joined_receiving_math.pdf\").read_bytes()\nreader = PdfReader(pdf)\npdf_text = \"\\n\".join(p.extract_text() for p in reader.pages)\nassert len(reader.pages) == 3\nassert tex.read_text().count(r\"\\begin{equation}\") == 16\nfor token in [\"Disposition\", \"Own motion\", \"Unused receiving\", \"(16)\"]:\n    assert token in pdf_text, token\nlog = (TEMP / \"tex/joined_receiving_math.log\").read_text()\nassert not re.search(r\"Warning|Overfull|Underfull|^!\", log, flags=re.M)\n\nqueries = list(csv.DictReader((BASE/\"search/rm12_bp_r_stage3_joined_receiving_queries.csv\").open()))\nactivities = list(csv.DictReader((BASE/\"screening/rm12_bp_r_stage3_joined_receiving_sources.csv\").open()))\nassert len(queries) == 8\nassert len({r[\"batch\"] for r in queries}) == 4\nassert len(activities) == 16\nassert sum(r[\"activity\"].startswith(\"technical_\") for r in activities) == 5\nassert sum(r[\"activity\"] == \"failed_access\" for r in activities) == 4\n\nallowed_new = set(new_md + [\n    \"synthesis/rm12/bp_r_stage3/joined_receiving_math.tex\",\n    \"synthesis/rm12/bp_r_stage3/joined_receiving_math.pdf\",\n    \"search/rm12_bp_r_stage3_joined_receiving_queries.csv\",\n    \"screening/rm12_bp_r_stage3_joined_receiving_sources.csv\",\n    \"reporting/rm12/bp_r_stage3/joined_receiving_execution_validation.json\",\n])\nbaseline = set(snapshot[\"baseline_files\"])\nnew_files = {str(p.relative_to(BASE)) for p in BASE.rglob(\"*\") if p.is_file() and str(p.relative_to(ROOT)) not in baseline}\nassert new_files <= allowed_new, new_files-allowed_new\nresult = {\n    \"status\":\"PASS\",\n    \"date\":\"2026-10-08\",\n    \"scope\":\"Static exact-rational analytical identities and document/source/build preservation. No traffic/gradient simulation.\",\n    \"protected_files\":len(snapshot[\"protected\"]),\n    \"checked_documents\":len(documents),\n    \"local_links\":links,\n    \"analytical_groups\":groups,\n    \"source_queries\":len(queries),\n    \"source_query_batches\":4,\n    \"source_activity_rows\":len(activities),\n    \"source_technical_objects\":5,\n    \"source_failed_access_routes\":4,\n    \"pdf_pages\":len(reader.pages),\n    \"pdf_equations\":16,\n    \"pdf_inspection\":\"Extracted text and build log; no raster inspection claimed.\",\n    \"python_version\":sys.version,\n    \"pypdf_version\":__import__(\"pypdf\").__version__,\n    \"latex_version\":\"pdfTeX 3.141592653-2.6-1.40.25, TeX Live 2023/Debian\",\n    \"snapshot\":str(TEMP/\"snapshot.json\"),\n    \"checker_path\":__file__,\n    \"checker_sha256\":digest(Path(__file__)),\n    \"checker_source\":Path(__file__).read_text(),\n    \"commands\":[\n        \"pdflatex -interaction=nonstopmode -halt-on-error -output-directory=\"+str(TEMP/\"tex\")+\" \"+str(tex.relative_to(ROOT)),\n        \"/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/validate_rm12_joined_receiving.py\",\n    ],\n    \"current_status\":\"Q.ACT A approved; Step 67/Stage 3 open at source-input discussion. Full law and Stage 4 unadopted.\",\n    \"limitations\":[\n        \"Prescribed isolated path diagnostic, not a source-generated metering/TST witness.\",\n        \"Full J01 own-motion journal algorithm not read; accessible 2003 predecessor is not substituted.\",\n        \"General motion/node/source/coincidence, clearance and useful gradients remain unqualified.\",\n    ],\n    \"changed_and_new_hashes\":{rel:digest(BASE/rel) for rel in documents + sorted(allowed_new-{\"reporting/rm12/bp_r_stage3/joined_receiving_execution_validation.json\"}) if (BASE/rel).exists()},\n}\noutput = BASE/\"reporting/rm12/bp_r_stage3/joined_receiving_execution_validation.json\"\nif output.exists():\n    assert sys.argv[1:] == [\"--refresh-current\"], \"Existing evidence is preserved unless this current-task refresh is explicit.\"\n    previous = json.loads(output.read_text())\n    assert previous[\"snapshot\"] == str(TEMP/\"snapshot.json\") and previous[\"status\"] == \"PASS\"\n    mode = \"w\"\nelse:\n    mode = \"x\"\nwith output.open(mode) as f:\n    json.dump(result,f,indent=2)\nprint(json.dumps({k:result[k] for k in [\"status\",\"protected_files\",\"checked_documents\",\"local_links\",\"analytical_groups\",\"pdf_pages\",\"pdf_equations\"]},indent=2))\n",
+  "commands": [
+    "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/rm12_67_joined_receiving_20261008_113903_196795/tex misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/joined_receiving_math.tex",
+    "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/validate_rm12_joined_receiving.py"
+  ],
+  "current_status": "Q.ACT A approved; Step 67/Stage 3 open at source-input discussion. Full law and Stage 4 unadopted.",
+  "limitations": [
+    "Prescribed isolated path diagnostic, not a source-generated metering/TST witness.",
+    "Full J01 own-motion journal algorithm not read; accessible 2003 predecessor is not substituted.",
+    "General motion/node/source/coincidence, clearance and useful gradients remain unqualified."
+  ],
+  "changed_and_new_hashes": {
+    "README.md": "6b622470a5d1607026f43c9c9e0974dd4ea4d3fb88bb41dae447964e7a75450e",
+    "rm12_30_provisional_four_stage_roadmap.md": "404548b96f3302c2a082491942ba320212b267f5e145d772fbff94511b24aaae",
+    "rm12_60_bp_r_stage3_protocol.md": "f15795468ec778f7cdb1a1ab197b85a27a7a0c5293ade0314927832f0dae987c",
+    "rm12_66_bp_r_stage3_sampled_insertion_qualification.md": "4516ba5660e55c9977634b899e900e5a3a18726d3a4a0be6b3c5974925021cd2",
+    "rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md": "c21243c4288cc8bf6831cfd0e2eabc5607478ccfc0592e438946ad6562b16ba9",
+    "reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md": "c3a4fda516cf9dfda63f2ad9bd1e7feb5412e25101bf86f5ac2ce4abacda3cc6",
+    "reporting/rm12/bp_r_stage3/sampled_insertion_findings.md": "6dbdd7c9fe463dd4f59e97379829ee05278c792c578a049416d9a5e9722ca6a3",
+    "discussion/rm12/backtracking_planning_dialogue.md": "bcd6635f078e7dc8abf3af18e08622caec8692ece020a6e33d0b83a039523691",
+    "reporting/rm12/bp_r_stage3/work_report.md": "e751514badbde7692de54b25c9df02ac7285f51533787f81f830a461dc9b9ad3",
+    "reporting/rm12/bp_r_stage3/joined_receiving_findings.md": "532852cc886b9577c0fbca5a8f210b4571ea344e4d006575988e7bae129bf1cd",
+    "extraction/rm12/bp_r_stage3/joined_receiving_source_audit.md": "7052790e62788ff57a6f9da7966694dc0ec251e62e167a790e0765cd7057fb80",
+    "synthesis/rm12/bp_r_stage3/joined_receiving_qualification.md": "b9dd9f23f9c1be340dea9409e4375611071b8b9de39fa3c3805a19617b554215",
+    "archive/user_supplied/rm12_bp_r_stage3/own_motion_source_request.md": "d86f8b3e89916fedc0a266e8f54695f1ecddc6dc448936d38e4a2030865ff09a",
+    "screening/rm12_bp_r_stage3_joined_receiving_sources.csv": "7aa24dd3bf0af6134151939ac2443f8b32a2d2b2a9611ff2065d201ac5d242ac",
+    "search/rm12_bp_r_stage3_joined_receiving_queries.csv": "bfafa0cbfd81d7a129fd63324b7c08a29ec43dddd8116a873783a85f34db989f",
+    "synthesis/rm12/bp_r_stage3/joined_receiving_math.pdf": "ac78f4fea8caeeaacf5fe649b43bc01ccb822c7946499f8357b7b87b26a55822",
+    "synthesis/rm12/bp_r_stage3/joined_receiving_math.tex": "a65f19e101bb8a6fdeff46fbd34d78b885c515914060e413ec8cf98c5946e47e"
+  }
+}

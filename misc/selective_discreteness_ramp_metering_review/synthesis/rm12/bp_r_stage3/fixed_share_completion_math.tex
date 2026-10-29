@@ -1,0 +1,310 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\raggedright\emergencystretch=3em
+\begin{document}
+\begin{center}{\Large P.A priorities, a joint field certificate and donor-side completion}\\[4pt]
+8 October 2026 --- methodology-only analytical review\end{center}
+\textbf{Status.} P.A is approved. T.A amount ceilings stay fixed. D1/D2 below
+are conditional donor completions; neither is adopted. No whole solver,
+clearance or gradient result is claimed.
+
+\section*{1. Approved meaning and static rate problem}
+Use metres, seconds and continuous vehicle-equivalent mass (eq). The common
+triangular flux is
+\begin{equation}
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\quad u=30,\ w=5,\ \kappa=3/20,
+ \quad\rho_c=3/140,\ Q=9/14,\quad L=30,\ T=1.
+\end{equation}
+At the regular clock donor $a$ has sampled sending mass $S_a$ (eq), choice
+fractions $\theta_{ab}$, and desired amounts/weights
+\begin{equation}
+ d_{ab}=\mu_{ab}=\theta_{ab}S_a,\quad \sum_b\theta_{ab}=1,\quad
+ b_{ab}(t)=d_{ab}-\int_0^t f_{ab}(s)ds\ge0.
+\end{equation}
+P.A freezes $\mu$ within this public interval; queue growth does not increase
+its priority. Weights refresh at the original next request clock. Ramp share
+$p$ remains geometric/fixed. Active ports have $b_{ab}>0$ and original
+$\mu_{ab}>0$; fulfilled ports have flow zero until refresh. No mass belongs
+to a request or effect record.
+
+For one instantaneous own-field state use physical sending demands $D_a$ and
+capacities $Q_a$ (eq/s), and own target receiving $R_b$ (eq/s). Joint bounds are
+\begin{equation}
+ f_{ab}\ge0,\quad\sum_b f_{ab}\le D_a\le Q_a,\quad
+ \sum_a f_{ab}\le R_b.
+\end{equation}
+Independent target awards cannot spend the same donor twice. Two candidate
+port problems differ in oriented potential ceilings:
+\begin{equation}
+ \text{D1: } f_{ab}\le\theta_{ab}Q_a;\qquad
+ \text{D2: no additional oriented ceiling (the shared donor bound applies).}
+\end{equation}
+These are not the held nominal bounds $f_{ab}\le d_{ab}/T$ rejected at T.
+D1 has source-disaggregated lineage but is an explicit richer-field rate
+interpretation; P.A itself did not approve it.
+
+For the ramp target A, let $D_r^+$ be ramp physical sending if its claim is
+active, else zero. N.A permits a convenient algebraic mainline cap
+\begin{equation}
+ C_A=\max\{(1-p)R_A,R_A-D_r^+\}.
+\end{equation}
+Allocate mainline into A up to $C_A$, with fixed P.A weights; if its actual
+inflow is $m\le C_A$, ramp entry is $f_r=\min\{D_r^+,R_A-m\}$. This is one
+shared $R_A$, not two receiving resources. It implements fixed priority and
+unused-share transfer. A strictly restricted ramp has $D_r^+>pR_A$
+(its accepted flow can exceed $pR_A$ when mainline leaves unused space).
+Thus $C_A=(1-p)R_A$; increasing ramp sending to capacity leaves it unchanged.
+
+\newpage
+\section*{2. Finite conditional port construction and amount events}
+For either declared D problem, start all active rates at zero. Increase
+still-free port rates in their fixed proportions: $df_{ab}=\mu_{ab}\,d\lambda$.
+The water level $\lambda$ has units s$^{-1}$ and is \emph{not physical time}.
+For the current free set $E$, the next increment is the minimum of
+\begin{align}
+ \delta_a&=\frac{D_a-\sum_b f_{ab}}{\sum_{(a,b)\in E}\mu_{ab}},\qquad
+ \delta_b=\frac{R_b-\sum_a f_{ab}}{\sum_{(a,b)\in E}\mu_{ab}},\\
+ \delta_{ab}&=\frac{\theta_{ab}Q_a-f_{ab}}{\mu_{ab}}
+ \quad\text{(D1 only)}.
+\end{align}
+Use $C_A$ in place of $R_A$ for the mainline subproblem. Omit resources with
+no free incident port. After the increment, freeze every free port incident
+to any tied saturated donor/recipient; under D1 also freeze every tied
+oriented ceiling. Resume the other ports. At least one port freezes each
+pass, so at most $|E_0|$ passes are needed. Ties are simultaneous, without
+lexicographic traffic priority or perturbing input values.
+
+This constructs the unique capped proportional sharing result for its
+\emph{declared} donor/recipient sharing conventions: before the earliest
+binding level, every active port must grow in its prescribed ratio. That
+level is forced by the first resource bound. Its incident rates are fixed;
+repeat on residual resources. This finite induction specifies all rates.
+It is not a theorem that P.A alone chooses the directional ceiling, nor an
+imported generic FIFO/network-throughput optimum.
+
+For any strictly restricted donor ($\sum_bf_{ab}<D_a$), its physical row bound
+never froze a port. Raising that unused bound to $Q_a$ cannot change the
+result. This is the required local invariance after its own queue forms.
+Recipient capacity bounds never frozen are likewise irrelevant when raised.
+Under D1, orientation caps remain explicit independent restrictions.
+
+A cap/weight can govern static rate allocation without owning traffic.
+Actual rates integrate in physical time until the next field or allowance
+change. For locally constant positive rates, an allowance exhaustion is at
+\begin{equation}
+ \tau_{\rm amount}=\min_{ab:f_{ab}>0}\frac{b_{ab}}{f_{ab}}.
+\end{equation}
+At simultaneous exhaustion remove every fulfilled port; retain other original
+weights and amounts. Do not normalize $\theta$, enlarge $d$, resample choice,
+replace $b$ by a nominal rate, or create effects early. Re-solve with the
+own field. This static construction is conditional on D; all-mode wave
+continuation and numerical/reference adoption remain unqualified.
+
+\newpage
+\section*{3. A joint local one-step field and transfer certificate}
+Geometry: donor1 through to A; donor2 lateral to A and through to B; finite
+ramp to A; B through to next section C. Meter/ramp and donor2 inlets are
+closed, outside demand/queue zero. Donor1 inlet is $1/5$. C is initially
+empty. Original source masses are
+\begin{equation}
+ S_1=1/5,\quad S_2=1/10,\quad S_r=S_B=Q,\quad
+ \theta_{2A}=1/4,\ \theta_{2B}=3/4.
+\end{equation}
+All other enabled diagnostic choices are through. Supplied prior Edie
+observations give these choices; no reached history is claimed.
+
+A starts at density $r_A=9/100$ on $[0,1]$ and vacuum ahead, with an old
+record desired speed $s_A=10/3$. B starts at $r_B=11/100$ on $[0,29]$ and
+vacuum ahead, old speed $s_B=20/11$. Their zero-relative-passing own queues
+have $F(r_A)=s_A r_A=3/10$, $F(r_B)=s_Br_B=1/5$. Use illustrative $p=1/3$:
+\begin{equation}
+ f_r=1/10,\quad C_A=1/5,\quad\mu_{1A}:\mu_{2A}=1/5:1/40=8:1,
+ \quad f_{1A}=8/45,\ f_{2A}=1/45.
+\end{equation}
+Through B receives $1/5$ until its donor2 allowance $d_{2B}=3/40$ is used at
+$t_b=3/8$. Afterwards $f_{2B}=0$. D1's oriented ceilings are nonbinding in
+this specimen; D1/D2 return identical rates. A receiving stays $3/10$.
+B's upstream receiving rises to $Q$ after its new vacuum rear leaves the
+inlet at $t_b$, but its fulfilled donor2 request cannot restart.
+
+Donor1 initially has uniform free density $1/150$. Its own congested exit
+trace is $103/900$, shock speed $-20/97$. At $t=1$ its density integral is
+$2/9=1/5+(1/5-8/45)$. The shock never reaches its inlet.
+
+Donor2 is initially jammed on $[88/3,30]$, mass $1/10$. Before $t_b$, its
+total exit flow is $g_0=2/9$ and exit trace $r_0=19/180$, rear speed
+$c_0=40/19$. The release contact $-5$ reaches its initial rear at $t_0=2/15$.
+At $t_b$, that rear is $567/19$. Through exhaustion leaves only lateral flow
+$g_1=1/45$, with trace $r_1=131/900$. The new $-5$ contact catches the rear at
+\begin{equation}
+ t_c=143/360,\quad x_c=269/9,\quad c_1=g_1/r_1=20/131.
+\end{equation}
+The completed rear is $7855/262$ and donor2 mass is
+\begin{equation}
+ r_1(30-7855/262)=1/360=1/10-3/40-1/45.
+\end{equation}
+The rear does not reach the exit until $9/8>1$, so physical sending remains
+available during the whole public interval. The resulting waves determine
+that availability, rather than an external flow oracle.
+
+The ramp initially has critical density throughout. Its closed inlet sends
+a vacuum front at $u$, meeting the $-w$ exit queue front at $6/7$ s. The exit
+trace is $13/100$ and final vacuum rear is $2350/91$, giving
+\begin{equation}
+ m_r(1)=\tfrac{13}{100}(30-2350/91)=19/35=Q-1/10.
+\end{equation}
+
+\newpage
+\section*{4. Actual crossing, own counts and completed E1}
+A's field is $r_A$ on $[0,1+s_A t]$ and vacuum ahead. Consequently
+\begin{equation}
+ m_A(t)=9/100+(3/10)t=C_A^{\rm count}(t),\quad
+ N_A(t,z_A(t))=0.
+\end{equation}
+The superscript distinguishes this incoming count gauge from section3's
+mainline receiving cap. The old record sees vacuum ahead, so K.A permits its
+held speed with no extra slowdown.
+
+B's vacuum rear after through-input exhaustion is
+$b_B(t)=s_B\max\{0,t-3/8\}$. Its old record crosses the section edge at
+$t_*=11/20$, then moves in C at $z_C=s_B(t-t_*)$. The explicit fields are
+\begin{equation}
+ \rho_B=r_B\text{ on }[b_B(t),\min(29+s_Bt,30)],\quad
+ \rho_C=r_B\text{ on }[0,s_B\max\{0,t-t_*\}],
+\end{equation}
+with vacuum elsewhere. At crossing, the C record initially occupies zero
+length; its own queue gives C receiving $1/5$, paired B-to-C flow $1/5$ for
+$t>t_*$. No traffic bypass or second receiving resource appears.
+\begin{align}
+ I_B(t)&=\tfrac15\min(t,3/8),\quad O_B(t)=\tfrac15\max(0,t-11/20),\\
+ m_B(t)&=319/100+I_B(t)-O_B(t),\qquad m_C(t)=O_B(t).
+\end{align}
+Before crossing $N_B(t,z_B)=0$; at crossing rebase to $N_C(t_*,0)=0$;
+afterwards $N_C(t,z_C)=0$. These equal values arise from the chosen gauges;
+the general rebase is $h^{\rm new}=N_{\rm receiver}(t_*,0)$, not mass transfer.
+
+The six completed inventories are
+\begin{center}\begin{tabular}{cccccc}\toprule
+Donor1&Donor2&Ramp&A&B&C\\\midrule
+$2/9$&$1/360$&$19/35$&$39/100$&$127/40$&$9/100$\\\bottomrule
+\end{tabular}\end{center}
+Their total is $774/175=739/175+1/5$: initial plus the only external input.
+Every port debit has one paired credit; no exterior exit occurs by this clock.
+The one-interval population integral is $1513/350$ eq s. This accounting is
+not a control-benefit witness, since total inventory is unaffected by internal
+redistribution when the diagnostic has no external exit.
+
+Illustrative E1 counters give
+\begin{equation}
+ H_r(1)=47/50+1/10=26/25,\quad H_L(1)=49/50+1/45=451/450.
+\end{equation}
+With unit descriptor threshold, each creates one effect, carrying remainders
+$1/25$ and $1/450$. Both attach at A's entrance with completed label $39/100$,
+but retain distinct request-phase speeds (e.g. 10 and 15) and signatures.
+They own zero population. A's ahead speed $F(r_A)/r_A=10/3$ caps both initial
+actual speeds at the next interval; same count/position creates no invented
+vehicle order. Old ending speeds are stored separately and positive recovery
+uses the next regular source recurrence and its approved grade convention.
+
+This is a completed \emph{local} sourced field/node/motion/crossing/reset
+certificate, not all encounters, indefinite continuation, reached policy,
+clearance or a selected A1/A2/C numerical realization.
+
+\newpage
+\section*{5. Early-depletion diagnostic: same allowed mass, different timing}
+One donor starts jammed on $[86/3,30]$, mass $1/5$, inlet closed. Through
+receiving is zero; lateral recipient empty/free. Original choice fraction
+$1/4$ gives lateral allowance $d_L=1/20$ and through $3/20$.
+
+D1 uses lateral $\beta_1=Q/4=9/56$ until the allowance is fulfilled. Its
+trace is $33/280$, rear speed $15/11$, release contact time $4/15$, and
+\begin{equation}
+ t_{q1}=14/45,\quad x_{q1}=316/11,\quad
+ t_{c1}=23/45,\quad x_{c1}=29.
+\end{equation}
+After the stop, a jam contact catches the moving rear; final donor is jammed
+on $[29,30]$ with mass $3/20$. This reuses the preserved earlier certificate.
+
+D2 uses full physical sending $\beta_2=Q$ until the same allowance is fulfilled:
+\begin{equation}
+ t_{q2}=7/90<4/15,\quad r_2=\rho_c,
+ \quad t_{c2}=4/15+1/90=5/18,\quad x_{c2}=29.
+\end{equation}
+Before $t_{q2}$ the release contact is at $30-5t$. The new stop contact is
+at $30-5(t-t_{q2})$: both travel at $-5$, with a critical-density slug
+between. At $4/15$ the release contact reaches the initial rear; that vacuum
+rear travels at $u$ until meeting the stop contact $1/90$ later. Thereafter
+the jam rear is stationary at 29. This is an admissible triangular-KW field
+with exactly $1/20$ departed; no retry/rerouting is needed.
+
+At $T=1$ the empty lateral recipient has respectively
+\begin{equation}
+ \text{D1: }\rho=3/560\text{ on }[62/3,30];\qquad
+ \text{D2: }\rho=3/140\text{ on }[83/3,30].
+\end{equation}
+Both masses are $1/20$ and neither has positive-measure exit before the clock.
+The profiles and event times differ despite identical ending donor/recipient
+mass. The proper start/stop post-event boundary trace has zero spatial
+measure at the event; it changes no density integral.
+
+This does not select a controller or demonstrate hidden information under
+a shared law. It proves that the instantaneous sender completion matters.
+T.A and P.A can hold in both cases.
+
+\newpage
+\section*{6. Late arrival changes accepted mass and next effects}
+Initial donor is jammed on $[0,3]$ and empty ahead, inlet closed. The original
+sending mass is $S=9/20$. Choice fraction $1/4$ sets
+\begin{equation}
+ d_L=9/80,\quad d_T=27/80.
+\end{equation}
+Through receiver is jammed with zero receiving; lateral receiver empty/free.
+The donor's free front reaches its exit at $t_a=9/10$, and its inlet release
+reaches zero at $3/5$. The free rear then travels at $u$ and is at 12 at
+$T=1$. There is no source or early arrival invented by the node.
+
+The two rate histories over the last $1/10$ second give
+\begin{equation}
+ M_{L1}=(Q/4)(1/10)=9/560,\qquad
+ M_{L2}=Q(1/10)=9/140,
+ \qquad M_{Lk}<d_L.
+\end{equation}
+D1 creates a congested exit trace $33/280$; its backward contact is at $59/2$
+at the clock. The exact donor mass is
+\begin{equation}
+ \rho_c(59/2-12)+(33/280)(30-59/2)=243/560
+ =9/20-9/560.
+\end{equation}
+D2 has critical density on $[12,30]$, mass $27/70=9/20-9/140$.
+Recipient fields are $3/560$ and $3/140$ on $[0,3]$, respectively;
+their integrals equal the paired lateral entries. Both are capacity/storage
+admissible and respect original mass allowances.
+
+With old eligible counter $H_0=47/50$,
+\begin{equation}
+ H_1=2677/2800<1,\qquad H_2=703/700>1.
+\end{equation}
+Only D2 creates an E1 effect at the next regular update. Birth timing/rule
+itself is unchanged; this is donor-side transfer non-equivalence, not a
+same-law hidden-state or gradient-usefulness result.
+
+\section*{Decision and evidence limits}
+Q.J.F.D is a shared source/availability contract, distinct from closed P.A
+receiving competition and T.A integrated ceilings. D2 is provisionally
+recommended to avoid an extra instantaneous directional restriction without
+an established physical requirement. D1 has the source sampled-rate lineage
+and remains viable. Neither is adopted. After D, qualify selected remaining
+wave/contact/crossing/repeated-reset modes; full Q/J.F and Stage3 adoption
+remain pending. The finite static allocation proof is not whole-network
+PDE/record existence or numerical convergence. Stage4 stays unopened.
+
+Primary source: Laval--Daganzo, eqs7--13; Wright et al.
+\href{https://arxiv.org/pdf/1601.01054}{priority/node manuscript} and
+\href{https://arxiv.org/pdf/1608.07623}{node execution manuscript}; Jin
+\href{https://arxiv.org/pdf/1204.6727}{stationary/interior wave framework}.
+Their generic FIFO/optimization theorems are not transplanted. Sections2--6
+contain reviewer derivations under explicit local/conditional contracts.
+\end{document}

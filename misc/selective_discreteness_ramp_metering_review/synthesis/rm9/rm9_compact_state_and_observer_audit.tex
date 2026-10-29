@@ -1,0 +1,267 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\newcommand{\R}{\mathbb{R}}
+\title{RM9: Compact local merge state and strong-observer audit}
+\author{Method-first ramp-metering review}
+\date{1 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} RM8 Candidate A was approved. This is the first bounded
+RM9 analytic audit. It derives conditional constraints, not an adopted simulator,
+a full published-scheme validation, or a useful-gradient certificate.
+A new finite-receiving allocation decision is pending.
+
+\section{Contracts and proof ownership}
+The task remains one metered finite-storage ramp entering a local multilane
+mainline. Compare common bounded open-loop rates and count all affected traffic
+through common clearance. The aggregate observer has the declared road-total
+density, flow, speed and count histories, ramp histories, known lane parameters,
+geometry, forcing and prior rates. Observation functions and source equations
+must be specified before making an exact-history claim.
+
+The conservation structure below is consistent with the lane-model lineage [1].
+Projection, identifiability and accounting results are \emph{reviewer derivations}
+under their stated conditions. They are not reported results of [1--4].
+The full update in [1] includes additional modified-demand/supply rules;
+none is silently repaired or certified here.
+
+\section{A conserved sum need not be a closed state}
+Let lane 1 be the shoulder lane; lanes 2 through $m$ are interior lanes.
+For a cell of length $L$, $n_\ell=Lk_\ell$ is mass in vehicle equivalents,
+$q^{\rm in/out}_\ell$ and $\lambda_{a\to b}$ are rates in vehicles per unit time.
+Writing a generic conservative local balance, with realized ramp entry $r$,
+\begin{equation}
+ \dot n_\ell=q^{\rm in}_\ell-q^{\rm out}_\ell
+ +\sum_a\lambda_{a\to\ell}-\sum_b\lambda_{\ell\to b}
+ +\boldsymbol 1_{\ell=1}r. \label{eq:balance}
+\end{equation}
+Define shoulder/rest state $z=(n_1,n_R)$, with $n_R=\sum_{\ell=2}^m n_\ell$.
+Internal transfers among rest lanes cancel. But the boundary transfer
+$\lambda_{1\to2}$ depends on lane 2, not generally on $n_R$ alone.
+For an autonomous exact projected update $G$, a necessary condition is
+\begin{equation}
+ P x=P x'\ \Longrightarrow\ P F(x,u)=P F(x',u)
+ \quad\text{for every admissible common input }u. \label{eq:lump}
+\end{equation}
+Here $F$ is the detailed one-step map and $P$ the proposed projection.
+If longitudinal/lateral source dependencies, mode memory or receiving states
+are missing from $z$, summing balances does not prove this condition.
+
+\paragraph{Explicit local-operator obstruction.}
+For three or more lanes, compare spatially constant profiles in a local plateau
+\begin{equation}
+ (k_1,k_2,k_3)=(a,b,c),\qquad
+ (k'_1,k'_2,k'_3)=(a,b+\epsilon,c-\epsilon),\quad \epsilon\ne0.
+\end{equation}
+Both have the same shoulder/rest masses. On the free-flow branch where the
+source keep-right incentive is $I=1-b/a$, the weighted downstream densities
+reduce to the constant local densities and the donor demand is $v_1a$.
+Choose positive densities with $b,b+\epsilon<a/2$, all sending/receiving
+limitations inactive. The candidate lateral-demand expression from [1] then
+reduces to
+\begin{equation}
+ \lambda_{1\to2}(b)=v_1a\frac{a-2b}{a+b},\qquad
+ \frac{d\lambda_{1\to2}}{db}=-\frac{3v_1a^2}{(a+b)^2}\ne0. \label{eq:lateral}
+\end{equation}
+This is an algebraic source-branch calculation, not a new transfer law.
+Reverse transfer is inactive on this branch. A homogeneous plateau makes each
+lane's longitudinal inflow/outflow balance zero locally; rest-internal
+transfers cancel in $n_R$. Therefore the projected lateral evolution differs
+although $z$ agrees. This rules out a \emph{general autonomous shoulder/rest
+closure} on that branch without extra information or restrictions.
+It does \textbf{not} rule out a closure conditioned on additional aggregate
+observations, prove insufficiency of every scalar state, or establish identical
+observable traffic histories. The two profiles above may have different road
+flows and speeds.
+
+\paragraph{Two distinct remedies.}
+If the mainline has exactly two physical lanes, ``rest'' is one lane:
+there is no within-rest aggregation. With known total $N=n_1+n_2$,
+$n_1$ (or a contrast $n_1-n_2$) specifies the same lane information.
+For three or more lanes, retain sufficient receiving-adjacent information,
+prove a lossless reconstruction from admitted observables, or explicitly
+adopt and justify an approximate mixing closure. The last option changes
+the scientific claim and is not approved.
+
+\section{Hidden at a snapshot versus hidden from the observer}
+For a diagnostic equilibrium free-flow observation map, assume each lane has
+known constant speed $v_\ell$, common observation support, no active supply
+limit, and $q_\ell=v_\ell k_\ell$. Define road-total density $K$ and rate $Q$:
+\begin{equation}
+ K=\sum_\ell k_\ell,\qquad Q=\sum_\ell v_\ell k_\ell. \label{eq:moments}
+\end{equation}
+This condition is a diagnostic subcase, not a declaration that the entire
+source update always realizes this observation map.
+For two distinct lane speeds, already $K,Q$ determine the split:
+\begin{equation}
+ k_1=\frac{Q-v_2K}{v_1-v_2},\qquad
+ k_2=\frac{v_1K-Q}{v_1-v_2}. \label{eq:two}
+\end{equation}
+Thus two different free-flow lane occupations with the same $K$ but different
+$Q$ do not demonstrate information hidden from this observer.
+For equal $v_1=v_2=v$, the instantaneous flow becomes $Q=vK$ and no longer
+adds an independent equation. Selecting exact equality solely to obtain this
+ambiguity would create a symmetry-dependent claim. It is not approved here.
+Distinct speeds arbitrarily near equality restore algebraic invertibility
+in the noiseless map; numerical conditioning and noisy estimation are separate
+questions from exact identity.
+
+\paragraph{Speed has a measurement meaning.}
+A density-weighted space mean is redundant with \eqref{eq:moments}:
+\begin{equation}
+ V_s=Q/K, \qquad K>0.
+\end{equation}
+In the same equilibrium, point-detector subcase, a vehicle-passage-weighted
+arithmetic speed instead supplies
+\begin{equation}
+ V_t=\frac{\sum_\ell q_\ell v_\ell}{Q}
+     =\frac{\sum_\ell v_\ell^2 k_\ell}{Q},\qquad Q>0.
+\end{equation}
+For three lanes, distinct known speeds and these co-supported observations,
+\begin{equation}
+ \begin{bmatrix}1&1&1\\v_1&v_2&v_3\\v_1^2&v_2^2&v_3^2\end{bmatrix}
+ \begin{bmatrix}k_1\\k_2\\k_3\end{bmatrix}
+ =\begin{bmatrix}K\\Q\\QV_t\end{bmatrix},\qquad
+ \det A=(v_2-v_1)(v_3-v_1)(v_3-v_2)\ne0.
+ \label{eq:three}
+\end{equation}
+This is an identifiability result for that specific observation map, not a
+field estimator or a statement about mismatched station/cell averages.
+A road-average speed must not silently be replaced with $Q/K$ if it means
+an independent detector statistic. Source [1] distinguishes time/space mean
+speeds and calibrates distinct lane speeds. Its detector-derived density may
+not be an independent exact measurement of true cell density; the audit must
+keep that dependence explicit.
+
+For three lanes with $K,Q$ alone, adding shoulder $k_1$ determines the remaining
+pair when $v_2\ne v_3$. This is a \emph{lossless reparameterization} of three
+lane densities, not an autonomous two-dimensional group compression.
+If $V_t$ is also admitted under \eqref{eq:three}, no additional split information
+is required in this free-flow diagnostic. Congested modes and other measurement
+maps require a different proof. Snapshot ambiguity in a higher-dimensional
+profile still does not establish ambiguity of its full history.
+
+\paragraph{History and memory.}
+The required certificate would compare two realizable trajectories with
+\begin{equation}
+ H(x(t))=H(x'(t))\quad\text{at every declared observed time/cell},
+ \qquad u_{\rm past},d,\text{geometry and parameters common}. \label{eq:history}
+\end{equation}
+No trajectory satisfying \eqref{eq:history} and differing useful metering
+responses is constructed in this audit. An unobserved prehistory, changed lane
+parameters or unequal speed aggregates cannot be concealed in such a pair.
+Likewise, a deterministic hysteresis mode updated from admitted density history
+and common initial mode [3] is reconstructible memory, not an extra hidden state.
+The field mechanism [4] does not by itself settle this identifiability issue.
+
+\section{Meter permission is not guaranteed physical entry}
+Let $u$ be meter-permitted rate; $d_r$ the local ramp sending offer at the merge,
+affected by meter releases, ramp propagation and stored traffic; $d_s$ the
+shoulder-mainline offer; $r,f_s$ their realized entry rates; $S$ finite
+receiving rate. At a common receiving point necessary constraints include
+\begin{equation}
+ 0\le r\le d_r,\qquad 0\le f_s\le d_s,\qquad r+f_s\le S.
+ \label{eq:budget}
+\end{equation}
+An upstream meter constrains its own release $e_r(t)\le u(t)$, not necessarily
+instantaneous merge entry $r(t)$: released traffic can arrive later. Only an
+explicitly co-located offer gate gives $d_r(t)\le u(t)$. That special mapping is
+not adopted here. Account for post-meter in-flight mass if it exists.
+
+At the full multilane interface, every incoming longitudinal/lateral transfer
+must share its target receiving budget; every outgoing transfer must also respect
+its donor budget. Equation \eqref{eq:budget} isolates a two-input component;
+it does not authorize reserving supply twice or prescribe an update order.
+
+With two offers exceeding shared supply, these inequalities alone admit many
+allocations. Conservation and a finite capacity do not select the ramp/mainline
+service split. A consistent priority/redistribution rule is needed before
+there is a unique forward map, let alone its derivative. The ramp-control
+source [2] prioritizes ramp flow and excludes mainline spillback onto ramps.
+Its assumption cannot replace a finite-access contract for arbitrary demand.
+Finite-receiving ramp preference itself remains a valid alternative when its
+bounds and domain are made explicit.
+
+The primary node framework [5] describes fixed-priority allocation and unused
+supply redistribution. It cautions against setting priorities proportional to
+current demand because of nodal invariance. Therefore the neutral proportional
+\emph{batch} allocation used in the separate VSL analytical construction cannot
+be inherited as a universally sound continuous-flow merge law. No change to that
+closed VSL result follows: the traffic semantics and scope differ.
+
+\section{Complete accounting rejects a queue-location-only benefit}
+Let $M(t)$ be all uncompleted affected traffic inside the accounting boundary,
+including ramp and external waiting, mainline cell masses and residual demand.
+For common total arrivals $A(t)$ and departure rate $E(t)$,
+\begin{equation}
+ \dot M(t)=A(t)-E(t),\qquad
+ J=\int_0^{T_c}M(t)\,dt,\qquad M(T_c)=0. \label{eq:account}
+\end{equation}
+$J$ is total system time, with a common sufficiently long clearance horizon
+$T_c$; a delay objective may subtract a policy-independent reference time.
+If two policies have common initial total mass, arrivals and full departure
+history, they have identical $M(t)$ and $J$. Moving waiting from the ramp to
+the mainline alone cannot improve this objective.
+
+On a fixed differentiable branch with control parameter $\theta$, common forcing
+and common terminal accounting, the sensitivity is
+\begin{equation}
+ \frac{dJ}{d\theta}
+ =-\int_0^{T_c}(T_c-t)\frac{\partial E(t;\theta)}{\partial\theta}\,dt.
+ \label{eq:grad}
+\end{equation}
+This follows by integrating the sensitivity of \eqref{eq:account} and exchanging
+the order of integration. It is not an independent gradient verification.
+If a work-conserving fixed-supply bottleneck remains continuously busy with
+unchanged aggregate departures for all compared perturbations, the derivative
+is zero even if local queues differ. A useful rate decision must change actual
+departure timing, future service/spillback, or another explicitly approved
+outcome. Merely introducing finite shared receiving does not ensure it.
+
+\section{Disposition and next gate}
+The compact family is not refuted. However, autonomous group closure is not
+inherited, lane contrast need not be hidden from aggregate flow/speed, and queue
+redistribution alone does not establish an all-stream action benefit.
+The complete source scheme has unresolved branch/flow-budget transcription
+issues, while the ramp extension uses a priority assumption outside the general
+finite-access contract. No equation repair or symmetry assumption is adopted.
+
+\textbf{RM9-UG1 asks for a finite-merge allocation contract:} start with
+source-backed demand-independent priorities plus unused-supply redistribution
+(recommended), use explicitly bounded ramp preference, or adopt a deliberately
+stylized proportional-cohort law with a narrower claim. After that decision,
+continue a source-to-conservative-formulation audit and test exact information
+matching before attempting an action/gradient certificate. Priorities' numerical
+values, spatial discretization and lane count are not frozen by this report.
+All configurations must preserve the strong observer. No experiment is required
+or authorized by this gate.
+
+\begin{thebibliography}{9}
+\bibitem{lane} Nagalur Subraveti, Knoop, van Arem.
+\emph{First order multi-lane traffic flow model: an incentive based macroscopic
+model to represent lane change dynamics}. DOI
+\href{https://doi.org/10.1080/21680566.2019.1700846}{10.1080/21680566.2019.1700846}.
+FB0030 final PDF, printed pp. 1760--1766 and 1768--1769; equations 1--22,
+Tables 1--2. Publication/repository year labels differ (2019/2020).
+\bibitem{ramp} Nagalur Subraveti, Knoop, van Arem.
+\emph{Lane Change Control Combined with Ramp Metering}. 2021.
+\href{https://doi.org/10.1155/2021/8638523}{10.1155/2021/8638523}.
+RM0004, Sections 2.1--3. Final repository PDF inspected.
+\bibitem{memory} Cao, Nilsson, Coogan.
+\emph{On the Impact of the Capacity Drop Phenomenon for Freeway Traffic Flow
+Control}. 2021. \href{https://arxiv.org/abs/2106.10347}{arXiv:2106.10347}.
+RM0003, Section II.B, equation 3; archived PDF and public methods.
+\bibitem{field} Cassidy, Rudjanakanoknad.
+\emph{Increasing the capacity of an isolated merge by metering its on-ramp}.
+RM0014, public 2004 report, Sections 3--5; distinct from 2005 journal version.
+\href{https://escholarship.org/uc/item/30s46939}{Primary report landing page}.
+\bibitem{node} Wright, Gomes, Horowitz, Kurzhanskiy.
+\emph{On node models for high-dimensional road networks}.
+Transportation Research B 105 (2017), 212--234.
+RM0018, Section 3.1, Remark 3.1 and Section 4.2 priority examples.
+\href{https://horowitz.me.berkeley.edu/Publications_files/All_papers_numbered/Wright_node_models_transportation_networks_Transportation_research_B_2017.pdf}{Author-hosted published PDF}.
+\end{thebibliography}
+\end{document}

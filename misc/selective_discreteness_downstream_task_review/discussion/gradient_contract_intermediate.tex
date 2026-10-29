@@ -1,0 +1,228 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\definecolor{navy}{HTML}{17365D}
+\definecolor{bluegray}{HTML}{EAF0F6}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=navy,pdftitle={Making the Downstream Gradient Contract Explicit}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{1em}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Downstream-task intermediate discussion}
+\rhead{Gradient contract}
+\cfoot{\thepage}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\finding}[1]{\begin{center}\colorbox{bluegray}{\parbox{0.93\linewidth}{\textbf{Finding.} #1}}\end{center}}
+
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Making the Downstream Gradient Contract Explicit\par}
+\end{center}
+
+\finding{The colleague's request to define $f$ and $x$ in $df/dx$ identifies a genuine open part of the downstream task. The project has a demonstrated derivative path for a diagnostic objective with respect to green split, but it has not yet selected the final objective, experimental scenario family, or interpretation contract. These choices must be made together because changing either the differentiated input or the measured output changes the scientific task.}
+
+\section{Use a task contract, not an unqualified $df/dx$}
+
+The notation $df/dx$ is useful as a prompt but is too ambiguous for this project. Traffic models already use symbols such as $x$ for physical state, while the derivative could mean sensitivity to a signal, demand, model parameter, initial condition, or route choice. A clearer task-level notation is
+
+\begin{equation}
+  J_M(\theta;\xi)=\Phi\!\left(\mathcal{S}_M(\theta;\xi)\right),
+  \qquad
+  \nabla_{\theta}J_M,
+\end{equation}
+
+where:
+
+\begin{itemize}
+  \item $M$ identifies the simulator or baseline representation;
+  \item $\theta$ is the continuous decision or perturbation variable;
+  \item $\xi$ is the fixed scenario, including demand, routes, route order, topology, and lane permissions;
+  \item $\mathcal{S}_M$ is the simulated state trajectory; and
+  \item $\Phi$ maps that trajectory to a scalar task objective $J_M$.
+\end{itemize}
+
+This notation makes the conditioning explicit. In the initial project scope, $\theta$ is a physical green-allocation vector, whereas routes and realized order belong to $\xi$: they define which fixed scenario is differentiated, not variables through which derivatives are taken.
+
+A complete gradient contract must answer seven questions:
+
+\begin{enumerate}
+  \item What continuous variable is differentiated?
+  \item What scalar objective or vector traffic output is measured?
+  \item Which simulator states carry the derivative between them?
+  \item Which topology, routes, order, permissions, and scenario data remain fixed?
+  \item What feasibility constraints define an admissible perturbation?
+  \item Where are nonsmooth active-set or event boundaries expected?
+  \item How is the derivative judged outside the model that produced it?
+\end{enumerate}
+
+Without these items, ``the simulator supports gradients'' is an implementation statement, not a scientifically defined task.
+
+\section{What the project supports today}
+
+The closed macroscopic foundation supports the following narrow contract:
+
+\begin{equation}
+  \theta=g, \qquad
+  J_{\mathrm{macro}}(g)=\Delta t\sum_{k}M_k,qquad
+  \nabla_gJ_{\mathrm{macro}},
+\end{equation}
+
+where $g$ is the vector of physical green fractions on a fixed phase topology and $M_k$ is the total mass remaining in the modeled system during interval $k$. The implementation has stable-active-regime automatic-differentiation and finite-difference evidence for this diagnostic total-system-time quantity.
+
+This does \emph{not} yet mean that total system time is the final scientific objective. It also does not establish optimization performance or external usefulness. It establishes that the basic chain
+
+\begin{equation}
+g\rightarrow\text{signal service}\rightarrow\text{node flows}
+\rightarrow\text{cumulative traffic state}\rightarrow J
+\end{equation}
+
+can carry a credible derivative in controlled macroscopic cases.
+
+The ordered route-mass ledger adds route-conditioned masses and timing values to the gradient-carrying continuous state. Route identifiers, positions, and ordering topology remain fixed structure. Its current coupling is deliberately passive, so it does not yet make $\nabla_gJ$ differ from the matched macroscopic result. The planned lane-local and service components are what can make order and accessibility alter the trajectory and objective.
+
+\section{A correction to the baseline interpretation}
+
+The colleague's inference that the first three baseline levels are differentiable and the fourth is not is a good description of the \emph{intended experiment}, with one important qualification.
+
+The published works supporting the structured-movement and lane/storage levels are mostly not end-to-end differentiable implementations. They supply traffic equations, behavioral precedents, and reference cases. To make the first three levels gradient baselines, the project would implement matched ablations within a common differentiable framework:
+
+\small
+\begin{longtable}{p{0.18\linewidth}p{0.24\linewidth}p{0.20\linewidth}p{0.20\linewidth}}
+\toprule
+\textbf{Baseline role} & \textbf{Gradient contract} & \textbf{Literature role} & \textbf{Qualification}\\
+\midrule
+Homogeneous macro & $\nabla_gJ_{\mathrm{macro}}$ & LTM, generic node, continuum signal, differentiable LTM & Already supported diagnostically; final $J$ remains open.\\
+Structured movement queue & $\nabla_gJ_{\mathrm{movement}}$ & Partial FIFO and turn-level queue equations & Differentiability would belong to the matched implementation, not automatically to the source paper.\\
+Lane/storage aggregate & $\nabla_gJ_{\mathrm{lane}}$ & Multilane allocation, lane-group blockage, physical queue/storage equations & Must omit exact realized sequence while retaining fair lane/storage capability.\\
+Identity/order mesoscopic reference & Forward $J_{\mathrm{discrete}}(g)$ or traffic traces & Individual-tracking LTM and event-based LIFT & Used for forward semantics and fidelity; no gradient is required.\\
+Proposed selective-\allowbreak discreteness model & $\nabla_gJ_{\mathrm{meso}}$ & Composite/adapted model under study & The target gradient, not a baseline.\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+This distinction matters when presenting the experiment. Saying that Wright's partial-FIFO or Gao's turning-lane model ``is a differentiable baseline'' would overstate those papers. The defensible statement is that their equations define the traffic behavior of a differentiable matched ablation constructed for the comparison.
+
+\section{Toy contracts that make the choices concrete}
+
+The following examples are not proposed final experiments. They show how different definitions of $\theta$, $J$, $\xi$, and the evaluator produce different scientific tasks.
+
+\subsection{Toy 1: isolated two-phase junction---basic derivative correctness}
+
+Let $g\in(0,1)$ be the green share for the through phase and $1-g$ the share for the conflicting phase. With fixed arrivals, turning fractions, phase order, saturation flows, and horizon,
+
+\begin{equation}
+  J(g)=\Delta t\sum_k\left(Q_{\mathrm{source},k}
+  +\sum_a O_{a,k}\right).
+\end{equation}
+
+The task asks whether automatic differentiation computes $dJ/dg$ correctly in a stable active regime. Central finite differences provide the reference. This is useful for numerical validation, but it does not test the value of mesoscopic state because a homogeneous model may already represent the scenario adequately.
+
+\subsection{Toy 2: equal totals, different queue order---representation sensitivity}
+
+Construct two fixed scenarios, $\xi_A=[T(5),L(5)]$ and $\xi_B=[L(5),T(5)]$, with identical demand, turning totals, initial aggregate state, and signal settings. Define
+
+\begin{equation}
+ d_A=\nabla_gJ_M(g;\xi_A),\qquad
+ d_B=\nabla_gJ_M(g;\xi_B).
+\end{equation}
+
+The homogeneous macro model should return the same state representation and hence the same gradient in both cases. An order-aware model may return different service and gradients when the red or capacity-limited head movement blocks the ordered prefix. This task directly tests whether retained order changes sensitivity, but not yet whether either direction is externally useful.
+
+\subsection{Toy 3: finite turn pocket---physical reachability}
+
+Use a shared approach with a finite left-turn pocket. Let $g$ again be the phase allocation and choose an objective that charges time spent in queues, including terminal residual mass. The derivative path is
+
+\begin{align}
+g &\rightarrow \text{movement service} \rightarrow \text{pocket discharge} \notag\\
+  &\rightarrow \text{available storage/access} \notag\\
+  &\rightarrow \text{realized lane occupancy} \rightarrow J.
+\end{align}
+
+Two scenarios can have the same desired lane allocation but different ordered access to the pocket. A lane-equilibrium baseline may compute feasible aggregate totals, while the order-aware model asks whether those totals can actually be realized by the approaching sequence. This is the clearest toy setting for separating desired allocation from physical accessibility.
+
+\subsection{Toy 4: gradient-direction transfer---decision usefulness}
+
+Let a differentiable model supply the normalized descent direction
+
+\begin{equation}
+  p_M=-\frac{\nabla_gJ_M(g;\xi)}{\|\nabla_gJ_M(g;\xi)\|_2}.
+\end{equation}
+
+The richer reference simulator need not be differentiated. It evaluates a feasible perturbation $\Pi(g+\epsilon p_M)$ through
+
+\begin{equation}
+  \Delta J_{\mathrm{ref}}(M,\epsilon)=
+  J_{\mathrm{ref}}\!\left(\Pi(g+\epsilon p_M);\xi\right)
+  -J_{\mathrm{ref}}(g;\xi),
+\end{equation}
+
+where $\Pi$ enforces the green-allocation constraints. Comparing $\Delta J_{\mathrm{ref}}$ across macro, movement-queue, lane/storage, and selective-discreteness directions tests which model supplies a useful intervention. This is stronger than checking $\nabla_gJ_M$ against finite differences, because finite differences only validate the derivative of model $M$ itself.
+
+\subsection{Toy 5: changing $x$ changes the research question}
+
+If $x$ instead denotes demand, a fundamental-diagram parameter, an origin--destination matrix, or route-choice utility, then $df/dx$ becomes calibration, uncertainty, or demand-management sensitivity. Such derivatives may be technically supported by the simulator, but they do not test the stated signal-control contribution. The task review must therefore distinguish a simulator's broad derivative capability from the particular derivative contract used to evaluate the selective-discreteness hypothesis.
+
+\section{What should be added to the downstream-task review}
+
+The forthcoming review should not extract only task names such as ``signal optimization'' or ``traffic control.'' Each candidate task should receive a gradient-contract record with the following fields:
+
+\begin{longtable}{p{0.27\linewidth}p{0.64\linewidth}}
+\toprule
+\textbf{Field} & \textbf{Required content}\\
+\midrule
+Decision variable $\theta$ & Physical meaning, dimension, units, feasible set, parameterization, and whether it is actually differentiated in the cited work.\\
+Objective/output & Exact scalar objective or vector sensitivity; units; horizon; terminal-state treatment; relationship to traffic-engineering value.\\
+Conditioning scenario $\xi$ & Demand, routes/order, topology, signals, randomness, and what remains fixed during differentiation.\\
+Gradient path & State variables and model components connecting $\theta$ to the objective; structural/non-differentiated boundaries.\\
+Nonsmoothness & Active constraints, queue emptying, storage saturation, prefix changes, and how the study treats their derivatives.\\
+Baselines & Which alternative explanations are controlled and whether each baseline is executable, reconstructed from equations, conceptual, or forward-only.\\
+Validation & Analytic/finite-difference derivative evidence, optimization evidence, held-out scenarios, and richer-simulator or empirical evaluation.\\
+Decision claim & What a positive, partial, equivalent, or negative result would establish.\\
+Feasibility & Required implemented components, external tools, calibration burden, runtime, and data.\\
+\bottomrule
+\end{longtable}
+
+Candidate tasks should then be compared on at least five criteria:
+
+\begin{enumerate}
+  \item \textbf{Diagnosticity:} does the task activate order, shared-lane blockage, finite storage, or accessibility rather than merely reward generic congestion reduction?
+  \item \textbf{Gradient interpretability:} can the derivative be defined under fixed structural semantics and checked away from known event boundaries?
+  \item \textbf{Traffic-engineering relevance:} is the objective and control meaningful to a traffic engineer, with units and constraints that can be defended?
+  \item \textbf{Comparison fairness:} can the complete baseline ladder share the scenario, control, objective, and budget?
+  \item \textbf{External evaluability:} can a richer simulator compute the same intervention and outcome without changing the task?
+\end{enumerate}
+
+\section{Implications for a later project-plan amendment}
+
+The current roadmap does not need to be amended before the task review. The review should first recommend a complete contract. If accepted, the smallest later amendment would need to state, before the sensitivity study begins:
+
+\begin{itemize}
+  \item the primary $\theta$ and its feasibility mapping;
+  \item the primary $J$, component metrics, horizon, and terminal treatment;
+  \item the causal scenario family and held-out distribution;
+  \item the differentiable macro, movement-queue, lane/storage, and full mesoscopic contracts;
+  \item the forward-only individual/event reference role;
+  \item the richer-evaluator mapping; and
+  \item derivative, transfer, equivalence, cost, and negative-result acceptance rules.
+\end{itemize}
+
+This would convert the current phrase ``useful mesoscopic gradients'' into a falsifiable scientific statement. It would not require claiming that every simulator input is differentiable or that every traffic task benefits from exact order.
+
+\section{Conclusion}
+
+The colleague's question should be adopted as a central organizing device for the downstream review. The clearest formulation is not simply ``what are $f$ and $x$?'' but:
+
+\begin{quote}
+For each candidate traffic task, what decision variable is perturbed, what traffic outcome is optimized, which scenario structure is held fixed, through which model states does the derivative pass, which baselines support the same contract, and what external evidence would make the direction useful?
+\end{quote}
+
+Today the project can answer this only for a diagnostic macro case: total-system-time sensitivity to green allocation in stable regimes. The intended downstream contract is green-allocation sensitivity under order/storage-active scenarios, compared across a differentiable baseline ladder and judged in a richer forward simulator. Selecting the precise objective, scenarios, and acceptance rules remains the substantive purpose of the downstream-task review.
+
+\end{document}

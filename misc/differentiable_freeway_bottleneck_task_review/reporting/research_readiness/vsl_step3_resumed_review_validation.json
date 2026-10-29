@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-14",
+  "status": "Passed document, exact stationary-algebra, population and PDF checks",
+  "markdown_files_checked": 16,
+  "local_links_checked": 340,
+  "heading_anchors_checked": 27,
+  "current_file_sha256": {
+    "README.md": "c2c753922fe206da16b2bb44814f387c472c17e9cc7d5961ca092dc4c8769679",
+    "vsl_successor_00_opening_plan.md": "97aab195c4427a48c1f36d2d4314b052edf0580a7223c8c9fd10943c856211b2",
+    "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md": "92f0a621f9e4449e71aded0e68fe189a04645cbc8cf1acafc3a6aa3f4347c44a",
+    "reporting/research_readiness/vsl_step3_validation_ladder_decision.md": "e08239413640b22dec2041eebddfbbd006742d3bd533c145441cb9dd309905df",
+    "reporting/research_readiness/vsl_step3_sumo_work_report.md": "2f77063ebe987b5879a6b52096d0b2b7448ea66c14f227bef944078d72674ea2",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md": "b1711e07f3cfd11fc2d7cb9b501d2d94fe43418259c74b499062c987988c84f9",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md": "ce508f608ad710df48f417ac6335e2c0e7b70b5ceeacc611659273ccea5ca06c",
+    "reporting/research_readiness/vsl_review_progress.md": "2d85fac1357e48f8178d8695b7df2971cc7c1dc73ec837c02200a227fe00f730",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "e1c7a6ae572dbcdc85975689cbf58780c00132fc2a905e9878a6b9178a1fbd9b",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md": "1a74cae09f74fe21380b823a788ae3cdbf17d95479df8053c4a05f5a60fb94de",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "b5f67f6dfd80caca864062f30d55cfd6d0d74f321a7fa50889d4a1b74db61ba9",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md": "55ed6d10124769cb8784d773d43cfdf6584f7b04b0531568a66d5aedf04cab9c",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md": "f621bdce67bfd62afc227386497ac4cd9884fd7db98f7785e01b7741e3db39e7",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "0eca927f29aabd84e0b900e5604b01ce62b9affcbf26f4d94411843a72b28f97",
+    "reporting/research_readiness/vsl_step3_reference_qualification_and_final_gate.md": "221cfa53825d3ca10982e0aa3e20f8c9f49c2278e656678dd80026c4be34687e",
+    "reporting/research_readiness/vsl_step3_resumed_review_work_report.md": "967980878906a77fd2b4091246fdf2743f2ce5e0525b26ae3d059ed971774cf7",
+    "synthesis/research_readiness/vsl_step3_stationary_headway_correspondence.tex": "974811003628cdda55c0bf2fbf53474aeef4474da28a66e12cad71830da8c30e",
+    "synthesis/research_readiness/vsl_step3_stationary_headway_correspondence.pdf": "d7fc3722edc55541d35dce708128ca766b84dfe5be3b449265b632532e17bbad",
+    "reporting/research_readiness/vsl_step3_stationary_headway_build.log": "f7ca31c250ec3e03068b1a96234ffd9072ac63bfb17afdfd2191219e06ce4e4a"
+  },
+  "accepted_h1_t1_sha256_unchanged": {
+    "vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "compatible_exact_lane_counts": [
+    [
+      12,
+      6,
+      6
+    ],
+    [
+      14,
+      5,
+      5
+    ]
+  ],
+  "stationary_formula_exact_fraction_cases": 45,
+  "pdf": {
+    "pages": 2,
+    "bytes": 132020,
+    "strict_parse": "Passed",
+    "text_checks": "Passed",
+    "font_subtypes": {
+      "/Type1": 16
+    },
+    "type3_fonts": false,
+    "overflow_warnings": false,
+    "raster_visual_inspection": false
+  },
+  "sumo_selection": "Approved",
+  "s3_m1": "Closed: model verification/optimisation -> S-P -> S-L transfer",
+  "s3_m2": "Open: J-P point provisionally recommended; J-F finite viable; neither selected",
+  "step_2": "Approved and closed; accepted source/PDF unchanged",
+  "step_3": "Bounded review/protocol assembly delivered at VSL-S3-G1; physical choice and user freeze pending",
+  "step_4": "Unopened",
+  "traffic_runs": false,
+  "ad_or_finite_difference_traffic_checks": false,
+  "parameter_fit_or_optimisation": false,
+  "installation_or_local_binary_probe": false,
+  "simulator_code_or_network_build": false,
+  "new_published_papers_viewed": 0,
+  "limits": [
+    "No runnable evaluator admission or physical initialization was tested.",
+    "Stationary formulas do not certify native dynamics or work-factor traffic ranges.",
+    "No independently useful gradient/advice was evaluated.",
+    "Only documentation, analytical identities and PDF structure/text were checked."
+  ]
+}

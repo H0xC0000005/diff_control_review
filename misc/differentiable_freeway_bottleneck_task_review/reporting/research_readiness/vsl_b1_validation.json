@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "review": "VSL-B1",
+  "date": "2026-10-13",
+  "gate": "VSL-B1-G1",
+  "review_execution": "authorized and delivered",
+  "replacement_model_and_joint_applied_domain": "not approved",
+  "recommended_unselected_option": "B1-L: bounded local receiving and chronology amendment",
+  "snapshot_path": "/tmp/vsl_b1_20261013_preservation_snapshot.json",
+  "snapshotted_files": 751,
+  "unchanged_snapshotted_files": 743,
+  "modified_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_core_mechanism_findings_and_gate.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md"
+  ],
+  "created_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_b1_lane_change_model_and_gate.md",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_b1_source_and_interface_audit.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_b1_interface_examples.tex",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_b1_interface_examples.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_b1_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_b1_validation.json"
+  ],
+  "accepted_mp1_mp6_definitions_ownership_and_closure_options_unchanged": true,
+  "r1_scientific_findings_and_admission_verdict_unchanged": true,
+  "candidate_a_and_c_bodies_unchanged": true,
+  "dialogue_append_only": true,
+  "feedback_closed_studies_and_production_snapshot_preserved": true,
+  "existing_user_git_changes_preserved": [
+    " M AGENTS.md",
+    " M PLANS.md",
+    " M memo.txt"
+  ],
+  "local_links_checked": 150,
+  "expanded_gate_options_have_pros_cons_and_dependencies": true,
+  "conditional_exact_arithmetic": {
+    "total_work_and_clearance": "3 for all three schedules",
+    "complete_times": [
+      "5/2",
+      "7/2",
+      "3"
+    ],
+    "mean_times_seconds": [
+      "5/4",
+      "7/4",
+      "3/2"
+    ],
+    "scope": "algebra only; no traffic experiment, sampling or optimizer"
+  },
+  "pdf": {
+    "pages": 3,
+    "bytes": 123343,
+    "sha256": "82401c90b748c820fc39f6dab0a82b177ec49f01a7d4b5d85c2faadeb4f9bc06",
+    "text_extraction_all_pages": true,
+    "latex_warnings": [],
+    "visual_render_inspection": "not performed; no claim made"
+  },
+  "scientific_traffic_ad_fd_optimizer_tests": "not run; outside authorized review",
+  "dependencies_installed": false,
+  "next_allowed_action": "user disposition of VSL-B1-G1; no further contract pass started"
+}

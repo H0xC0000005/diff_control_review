@@ -1,0 +1,11 @@
+date,operation,source_id,source,location,purpose
+2026-10-08,local_read,A01,archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf,PDF pages 2-6; equations 5-15; prior Appendix A audit,"desired masses, frozen choice, sampled IT and original grid"
+2026-10-08,web_open,JIN10,https://arxiv.org/pdf/0810.3952,47-page arXiv v2 primary manuscript,two-to-one merge source-to-continuum basis
+2026-10-08,web_open,JIN15,https://arxiv.org/pdf/1405.7080,prior primary consistency source reopened,context; prior detailed audit retained
+2026-10-08,web_find,JIN10,https://arxiv.org/pdf/0810.3952,Theorem 3.1,fair merge Riemann states
+2026-10-08,web_find,JIN10,https://arxiv.org/pdf/0810.3952,Theorem 3.2,find result leads to actual Corollary 3.2; no such theorem attributed
+2026-10-08,web_find,JIN10,https://arxiv.org/pdf/0810.3952,non-invariant,"finite CTM is an approximation, not refuted"
+2026-10-08,web_find,JIN10,https://arxiv.org/pdf/0810.3952,Theorem 4.1,fixed priority invariance
+2026-10-08,web_open,JIN10,https://arxiv.org/pdf/0810.3952,lines 708 onward,theorem 3.1/corollary 3.2 and interior states
+2026-10-08,web_open,JIN10,https://arxiv.org/pdf/0810.3952,lines 1066 onward,section 4.1 theorem 4.1 equations 21-22
+2026-10-08,web_open,JIN10,https://arxiv.org/pdf/0810.3952,lines 1538 onward,section 5.2 and conclusion; no incorrect-CTM claim

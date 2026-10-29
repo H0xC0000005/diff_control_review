@@ -1,0 +1,14 @@
+query_id,date,batch,provider,query,purpose
+M1Q01,2026-10-07,1,web search,"""moving bottlenecks"" ""kinetic""",distribution-family discovery
+M1Q02,2026-10-07,1,web search,"""moving bottlenecks"" ""distribution"" macroscopic",joint-state and aggregate-service discovery
+M1Q03,2026-10-07,1,web search,"""lane changing"" ""bounded acceleration"" kinetic model",nearest acceleration/distribution lineage
+M1Q04,2026-10-07,1,web search,"""moving bottlenecks"" grouping approximation",direct grouping leads
+M1Q05,2026-10-07,2,web search,traffic flow moving bottleneck kinetic distribution PDE ODE mean field limit,independent measure dynamics
+M1Q06,2026-10-07,2,web search,"""moving bottlenecks"" ""homogenization""",limit assumptions and transfer boundaries
+M1Q07,2026-10-07,2,web search,"""moving bottlenecks"" ""finite volume"" ""multiple""",service and interaction closure
+M1Q08,2026-10-07,2,web search,"""traffic"" ""moving bottlenecks"" ""measure"" position speed",joint-state and boundary coupling
+M1Q09,2026-10-07,3,web search,"""Modeling and simulation of multilane traffic flow"" arxiv Helbing Greiner",primary version retrieval
+M1Q10,2026-10-07,3,web search,"""moving bottlenecks"" ""aggregation"" ""model""",aggregation/reduction screening
+M1Q11,2026-10-07,4,web search,"""Modeling and simulation of multilane traffic flow"" ""arxiv""",identify author preprint
+M1Q12,2026-10-07,4,web search,"""moving bottlenecks"" ""group"" ""reduction"" traffic",direct grouping evidence screening
+M1Q13,2026-10-07,4,web search,"""moving bottlenecks"" ""coincident"" constraints",coincidence/equivalence boundaries

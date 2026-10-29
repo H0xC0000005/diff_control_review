@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-14",
+  "status": "Passed documentary and exact population-arithmetic checks",
+  "markdown_files_checked": 14,
+  "local_links_checked": 311,
+  "heading_anchors_checked": 24,
+  "current_file_sha256": {
+    "README.md": "54dae23187e840946b442831ecc50a5c645e7b2d6feed60da2da2f13ce8f58fe",
+    "vsl_successor_00_opening_plan.md": "c042622ddda9c00c583950a81d64dc3f897fdb3c215e2b3aa0c1faec91e06647",
+    "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md": "1cdafb49f70aacc44b4c4696ad05929e906cffe1f189138e376ac3cf3e2cfdf6",
+    "reporting/research_readiness/vsl_step3_validation_ladder_decision.md": "41629cd9b8d92b3a98e772a134ce0f00cb2f5313a28265125ecc6038f67b2694",
+    "reporting/research_readiness/vsl_step3_sumo_work_report.md": "81155c573ebb2f7c8561ea3583e392801862e783578ce909ccad5b359510029f",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md": "3e771bce5742e605e1202acb92e195bdff857dec7e62589e0b3a6ca81f0a644d",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md": "7e2bbef7b4974579d16503aecac8606c5d82d9807bd24d45a45a4f72395a9f73",
+    "reporting/research_readiness/vsl_review_progress.md": "2c559de06f18ed5e654f0d8dcbfd294f6e49969875e6474203cc72865c62d192",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "c68bb6aac5458d2a8be798f9b4a91614b50baefbaddd2b8ec1bdc6eb7de41db8",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md": "95715a3480e1177539963a08bd543892830bb74b01196b8e266b8391231e181e",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "9461df9cd260ac7f13ffda58273e893749c715b4fd6e15f1ae814d7dc6789bbb",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md": "e36b1368a56d3ff275536615dcba4c267c458bc800cc9908ae7d242275f6270e",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md": "93335d02ba85b256a6d397b819ac19e34489af00ac268157e78c1f5ff92b6adc",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "00a8d23c43e46b659b5ca2c33a641aff3ed9b639ee0ed908dd73ff4ed2444d56"
+  },
+  "accepted_h1_t1_sha256_unchanged": {
+    "vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "compatible_exact_lane_counts": [
+    [
+      12,
+      6,
+      6
+    ],
+    [
+      14,
+      5,
+      5
+    ]
+  ],
+  "sumo_selection": "Approved by user",
+  "terminal_interpretation": "S3-M1 closed: S-P restricted-task validation first, S-L transfer second",
+  "assessment_order_approved": [
+    "Internal verification/optimisation",
+    "SUMO S-P",
+    "SUMO S-L transfer"
+  ],
+  "step_2": "Approved and closed; exact mathematical source/PDF unchanged",
+  "step_3": "Open for selected-reference qualification and protocol consolidation at VSL-S3-G1",
+  "step_4": "Unopened",
+  "traffic_runs": false,
+  "ad_or_finite_difference_traffic_checks": false,
+  "installation_or_binary_probe": false,
+  "simulator_code_or_network_build": false,
+  "paper_reading": "No new published paper viewed; official documentation reviewed",
+  "limits": [
+    "Document links/status and exact rational population arithmetic only.",
+    "No native initialization, geometry, forwarding or clearance test.",
+    "No parameter calibration or independent gradient/policy validation.",
+    "Assessment meanings are approved; neither runnable reference has passed admission."
+  ]
+}

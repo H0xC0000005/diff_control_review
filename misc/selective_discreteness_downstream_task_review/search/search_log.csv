@@ -1,0 +1,12 @@
+search_id,date,source_family,query_group,status,useful_new_records,notes
+T1-P1,2026-09-10,scholarly-web,pilot differentiable TSC,completed,4,"Confirmed differentiable agent signal task; found restricted differentiable-signal thesis and recent hierarchical LTM control"
+T1-P2,2026-09-10,scholarly-web,pilot LTM MPC and blockage,completed,6,"Confirmed LTM-MPC lineage; recovered lane overflow and arterial blockage formulations"
+T1-P3,2026-09-10,scholarly-web,pilot gradient signal optimization,completed,3,"Found multi-fidelity SBO and signal-gradient precedents; substantial RL noise"
+T1-P4,2026-09-10,scholarly-web,pilot evaluator and objective,completed,5,"Recovered CRN, replicated simulation, SUMO realization, and stochastic evaluation sources"
+T2-D1,2026-09-10,arXiv-and-preprints,differentiable simulator snowball,completed,5,"Reused nearest differentiable works; added recent benchmark/evaluation preprint"
+T2-D2,2026-09-10,publisher-and-TRID,LTM signal-control snowball,completed,7,"Identified service-fraction versus signal-realization lineage"
+T2-D3,2026-09-10,publisher-and-repositories,lane storage blockage snowball,completed,9,"Retained physical-queue, lane-group, overflow, partial-FIFO, and turn-queue records"
+T6-A1,2026-09-11,official-code-repositories,differentiable baseline implementation availability,completed,0,"Verified UNsim and diff-hybrid-traffic-sim public repositories and licenses; engineering references rather than task-compatible drop-ins"
+T6-A2,2026-09-11,publisher-and-repositories,structured queue and multilane node implementation availability,completed,0,"Verified open equation/algorithm sources for T0014 T0015 T0030; no decision-grade official drop-in implementations located"
+T6-A3,2026-09-11,official-SUMO-sources,SUMO evaluator APIs licensing and controller tooling,completed,0,"Verified Eclipse SUMO source/license and traffic-light TraCI/libsumo support; verified public sumoITScontrol repository"
+T2-D4,2026-09-10,publisher-government-official,cross-fidelity and fairness,completed,6,"Retained multi-simulator SBO, CRN, replicated evaluation, and SUMO implementation semantics"

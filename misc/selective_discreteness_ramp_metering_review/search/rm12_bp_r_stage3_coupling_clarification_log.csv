@@ -1,0 +1,2 @@
+query_id,date,query,domains,purpose,batch_id,source_ids,outcome
+RM12-S3-CQ01,2026-10-06,"""Daganzo"" ""Laval"" ""On the numerical treatment of moving bottlenecks"" pdf",,Resolve user question about moving-constraint to macro coupling,S3-CB1,RM12-S3-C01,"Institutional 2003 original report selected methods read; related 2005 journal institutional abstract only; prescribed trajectory limits explicit"

@@ -1,0 +1,14 @@
+operation_id,date,operation,query_or_source,finding_and_scope
+QA-S01,2026-10-08,search,Jin Riemann solver junction general network first order non FIFO oriented demand priorities supply demand invariant node model,primary leads screened; secondary results not relied upon
+QA-S02,2026-10-08,search,Wright Horowitz Kurzhanskiy 2017 generic class first order node models oriented priorities non FIFO arxiv,primary author manuscripts screened
+QA-R01,2026-10-08,local reread,supplied Laval-Daganzo journal PDF pp4-6 / existing extraction,sampled requests equations7-13; IT orientation; no new download
+QA-R02,2026-10-08,web open,https://arxiv.org/pdf/1608.07623,W16D cumulative node service and completion events; six pages
+QA-R03,2026-10-08,web open,https://arxiv.org/pdf/1601.01054,W16N priorities/demands and invariance; 31 pages
+QA-R04,2026-10-08,web open,https://arxiv.org/pdf/1204.6727,J12 stationary/interior wave states; 29 pages
+QA-R05,2026-10-08,web find,https://arxiv.org/pdf/1601.01054 : invariance,requirement7 / priority-demand distinction
+QA-R06,2026-10-08,web find,https://arxiv.org/pdf/1608.07623 : time limit,snapshot-node deadlines not imported as physical clock
+QA-R07,2026-10-08,web find,https://arxiv.org/pdf/1204.6727 : FIFO,fair-merge/FIFO-diverge theorem scope differs from native IT
+QA-R08,2026-10-08,web find,https://arxiv.org/pdf/1601.01054 : uniqueness,no inferred generic uniqueness for all shared-resource nodes
+QA-R09,2026-10-08,web open,https://arxiv.org/pdf/1601.01054 : line310,section3.1 ratios and demand dependence remark3.1
+QA-R10,2026-10-08,web open,https://arxiv.org/pdf/1204.6727 : line320,section3.1 boundary-state admissibility
+QA-R11,2026-10-08,web open,https://arxiv.org/pdf/1608.07623 : line1118,section4.3 varying-source network suggestion is not a full proof

@@ -1,0 +1,433 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{\left[#1\right]_+}
+\newcommand{\Reflect}{\mathcal R}
+\begin{document}
+\begin{center}
+{\Large P-H: a conditional recovery-work point node}\\[4pt]
+15 October 2026 --- proposed exact law, analytical qualification only
+\end{center}
+
+\textbf{Decision status.} P-H's causal slow-entry/recovery direction is
+user-approved at CP-D1. The exact reduction below is proposed at CP-D2,
+not yet approved or calibrated. It substitutes the compulsory point-service
+component of the unchanged H1/T1 predecessor. No simulator, traffic rollout,
+gradient computation, fitting or optimisation was performed.
+
+\section*{1. Shared inputs and the single-component delta}
+
+Retain the predecessor's uniform footprint $[0,\ell]$, preparation length
+$L_p\geq\ell$, terminal length $b>0$, $L=L_p+b$, no subsequent external
+arrivals, initially empty terminal, continuing symmetry $a_0=b_0$, total
+mass $M=\ell(e_0+a_0+b_0)$, and one advice $v\in[v_-,v_+]$.
+Use the same positive wave speed $w$, jam density $k_j$, and triangular family
+\begin{equation}
+ c(s)=\frac{wk_js}{w+s},\quad k_c(s)=\frac{wk_j}{w+s},\quad
+ r=e_0+a_0,\quad v_+r<R\leq c(v_-),\quad
+ v_+b_0\leq R_B\leq c(v_-).
+ \tag{1}
+\end{equation}
+$R$ is the fixed ordinary shared service ceiling. It is not a prescribed
+future receiving history. H1's paired early transfer remains
+\begin{equation}
+ \dot e=-\frac{v}{h}\min\left\{e,\frac{k_c(v)-r+e}{\gamma}\right\},
+ \qquad a=r-e,\qquad b_0\text{ constant},\quad h>0,\ \gamma\geq1.
+ \tag{2}
+\end{equation}
+During $t_f^p=(L_p-\ell)/v<t<t_r^p=L_p/v$, terminal entrance rates
+are $(\dot F_E,\dot F_A,\dot F_B)=v(e(t),a(t),b_0)$, and zero otherwise.
+Define histories, extended by zero to negative times, by
+\begin{equation}
+ P_j(t)=F_j(t-b/v),\quad N_j(t)=F_j(t)-Y_j(t),\quad
+ q_j(t)=P_j(t)-Y_j(t),\qquad j=E,A,B.
+ \tag{3}
+\end{equation}
+$N$ is physical stock; $q$ is eligible unserved mass, not spatial queue
+length. All geometry/parameters are shared across advice values and observers.
+
+\textbf{Delta.} Remove the predecessor's instantaneous extra E work factor
+$\alpha$ and the identity $Y_A=P_A$. Retain ordinary one-for-one mass
+admission, strict A priority and independent B service. Replace the node
+budget by the causal recovery history below. H1's early work factor
+$\gamma$, physical opportunity scale $h$, cutoff and control are unchanged.
+There is no new lateral opportunity in the terminal or spatial recovery zone.
+
+\newpage
+\section*{2. An isolated restriction with a finite recovery duration}
+
+\textbf{Source basis versus deduction.} The point case in
+\href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{Leclercq et al. (2016), section 2, eq. (1), printed p4}
+uses bounded acceleration and backward waves to calculate cumulative
+passing capacity. The recovery envelope below is our isolated-case
+deduction, capped at the retained ceiling $R$. The many-entry convolution
+on the next page is a proposed closure, not that source's native law.
+
+Let $m_{\rm ref}=1$ vehicle-equivalent fix physical mass normalization.
+It is not a packet size or an integer admission. Define the speed at which
+an isolated restriction becomes neutral to $R$:
+\begin{equation}
+ u_R=\frac{wR}{wk_j-R},\qquad c(u_R)=R,\qquad u_R\leq v_-.
+ \tag{4}
+\end{equation}
+Propose a representative insertion speed $0\leq u_*<u_R$ and positive
+recovery acceleration $a_{\rm r}>0$. These are effective shared parameters;
+they are not an Eulerian exit-speed field inferred from (3). An isolated
+prototype at age $\xi$ has
+\begin{equation}
+ x(\xi)=u_*\xi+\tfrac12a_{\rm r}\xi^2,\quad
+ \theta=\xi+x(\xi)/w,\quad
+ U(\theta)=\sqrt{(w+u_*)^2+2wa_{\rm r}\theta}-w.
+ \tag{5}
+\end{equation}
+$\theta$ is age as seen by the boundary after a backward wave, whereas
+$\xi$ is prototype travel age. Equivalently, differentiating the isolated
+cumulative expression $wk_j(\theta-\xi(\theta))$ gives $c(U(\theta))$.
+Only until the restriction reaches $R$ is that expression used.
+
+The resulting loss profile is
+\begin{align}
+ \Theta&=\frac{u_R-u_*}{a_{\rm r}}
+       +\frac{u_R^2-u_*^2}{2a_{\rm r}w},\nonumber\\
+ D(\theta)&=
+ \begin{cases} R-c(U(\theta)),&0\leq\theta\leq\Theta,\\
+                0,&\theta>\Theta.
+ \end{cases}
+ \tag{6}
+\end{align}
+$D$ is nonnegative, decreasing, bounded by $D_0=R-c(u_*)$, continuous
+at $\Theta$ and Lipschitz on $[0,\infty)$; $\|D'\|_1=D_0$.
+In particular $u_*=0$ gives $D_0=R$, with no singularity or positive-speed
+epsilon. Its integrated missing work is exactly
+\begin{equation}
+ W=\int_0^\Theta D(\theta)d\theta
+   =\frac{k_c(u_R)(u_R-u_*)^2}{2a_{\rm r}}<\infty.
+ \tag{7}
+\end{equation}
+For example, use $d\theta/du=(w+u)/(a_{\rm r}w)$ and
+$[R-c(u)]d\theta=k_c(u_R)(u_R-u)du/a_{\rm r}$ to verify (7).
+Because $R,w,k_j,u_*,a_{\rm r}$ are fixed and $v\geq u_R$, this profile
+is fixed across advices. Advice still changes (2), arrivals and admissions;
+no additional direct advice-to-insertion-speed relation is asserted.
+
+\newpage
+\section*{3. Proposed continuous history and conservative priority service}
+
+\textbf{Constitutive assumption.} Completed continuous E mass leaves
+mass-weighted copies of (6). Their loss demands add; the finite budget
+saturates at zero if those demands exhaust it:
+\begin{equation}
+ p(t)=\frac{1}{m_{\rm ref}}\int_0^tD(t-s)\,dY_E(s),\qquad
+ \mu(t)=\pos{R-p(t)},\qquad p(0)=0.
+ \tag{8}
+\end{equation}
+Only $Y_E$ in the last $\Theta$ seconds is needed. It is predicted history,
+not initial hidden information, a list of individual cars, or stored
+longitudinal trajectories. Linear overlap of loss demands is an explicit
+reduction of physical interactions, not an exact wave/void calculation.
+Nonnegative residual service in (8) is part of this proposed service law,
+not an unapproved numerical clipping or recovery smoothing.
+
+For $j=E,A$ define eligible demand almost everywhere by
+\begin{equation}
+ d_j(t)=\begin{cases}c(v),&q_j(t)>0,\\
+                          \dot P_j(t),&q_j(t)=0.
+          \end{cases}\qquad
+ g_A=\min\{d_A,\mu\},\quad
+ g_E=\min\{d_E,\pos{\mu-g_A}\},\quad \dot Y_j=g_j.
+ \tag{9}
+\end{equation}
+$Y_B=P_B$ on the retained independent B domain. At an empty queue,
+available arrivals restrict departure; a nonempty queue can send at $c(v)$.
+Since $0\leq\mu\leq R\leq c(v)$, a nonempty combined queue receives all
+available shared service. A has priority but can be delayed by (8).
+Exactly $g_jdt$ mass leaves, never a work-weighted amount. There is no
+forward escape for E or second compulsory merge of early-transferred mass.
+
+\begin{center}
+\begin{tabular}{p{0.38\linewidth}p{0.5\linewidth}}
+Quantity & Units and role\\ \hline
+$Y,F,P,N,q,m_{\rm ref},W$ & Vehicle-equivalent mass (history, stock or integrated work).\\
+$R,c,D,p,\mu,g,d$ & Vehicle-equivalents per second (service or demand).\\
+$u_*,u_R,v,w$ & Length per second.\\
+$a_{\rm r},\Theta$ & Length per second squared; seconds, respectively.\\
+$p$ & Service-loss demand, not physical traffic stock.\\
+\end{tabular}
+\end{center}
+
+For finite completed E mass $M_E$,
+\begin{equation}
+ \int_0^\infty p(t)dt=\frac{M_E}{m_{\rm ref}}W.
+ \tag{10}
+\end{equation}
+This is Tonelli's identity for the nonnegative finite-support kernel,
+conditional at first on the eventual admitted mass. Even before clearance,
+the left side is bounded above by $MW/m_{\rm ref}$ because $Y_E\leq P_E\leq M$.
+An E burst may have completed while $p$ remains positive. Its influence
+expires by $\Theta$ after its last admission; its vehicle-time does not
+continue in the local objective merely because $p$ persists.
+
+\newpage
+\section*{4. Existence and uniqueness for this particular node}
+
+The queue-indicator form (9) need not be used to infer uniqueness.
+For a continuous candidate cumulative service $K(t)=\int_0^t\mu(s)ds$,
+define one-sided reflection, with histories starting at zero, by
+\begin{equation}
+ \Reflect(X)(t)=X(t)-\min\left\{0,\inf_{0\leq s\leq t}X(s)\right\}.
+ \tag{11}
+\end{equation}
+For fixed $K$, the work-conserving strict-priority solution is
+\begin{align}
+ q_A&=\Reflect(P_A-K),\qquad Q=\Reflect(P_A+P_E-K),\nonumber\\
+ q_E&=Q-q_A,\qquad
+ Y_A=P_A-q_A,\qquad Y_E=P_E+q_A-Q.
+ \tag{12}
+\end{align}
+Nondecreasing $P_E$ gives $Q\geq q_A$. Checking the cases $q_A>0$,
+$q_A=0<Q$ and $Q=0$ recovers (9); each departure is nonnegative,
+nondecreasing in cumulative mass and bounded by eligible arrivals.
+The total rate is at most $\dot K\leq R$, hence also respects each
+lane's sending ceiling. All histories are absolutely continuous.
+
+Reflection is 2-Lipschitz in the uniform norm. Holding arrivals fixed,
+\begin{equation}
+ \|\Delta Y_E\|_\infty\leq4\|\Delta K\|_\infty.
+ \tag{13}
+\end{equation}
+Integration by parts, using $Y_E(0)=0$ and the absolutely continuous $D$
+on nonnegative ages, gives
+\begin{equation}
+ p(t)=\frac{D_0Y_E(t)+\int_0^tD'(t-s)Y_E(s)ds}{m_{\rm ref}},\qquad
+ \|\Delta p\|_\infty\leq\frac{8D_0}{m_{\rm ref}}\|\Delta K\|_\infty.
+ \tag{14}
+\end{equation}
+Thus the causal map
+\begin{equation}
+ K\ \longmapsto\ \int_0^t\pos{R-p[Y_E[K]](s)}ds
+ \tag{15}
+\end{equation}
+is a contraction on any interval of length
+$\eta<m_{\rm ref}/(8D_0)$ with fixed identical past histories. The closed
+space consists of cumulative $K$ starting at zero with slopes in $[0,R]$.
+The map preserves it. Successive intervals therefore give a unique global
+causal solution; the same estimates and Gronwall give continuous dependence
+on arrivals and the kernel on finite time intervals. If $D_0=0$, $K=Rt$
+directly. The interval length is a proof device, not a simulation time step.
+
+No future insertion schedule or receiving trace is supplied. Continuous
+admissions generate (8), which determines subsequent admissions uniquely.
+This is a proof for (6)--(9), not an appeal to a general invariant-node
+theorem for an arbitrary history-dependent junction.
+
+\newpage
+\section*{5. Physical storage and finite full-cohort clearance}
+
+Retain the sufficient all-action domain
+\begin{equation}
+ M< H=k_jb,\qquad 0\leq\dot F_j\leq c(v),\qquad F_j\leq M.
+ \tag{16}
+\end{equation}
+The accepted empty-link vacancy is $k_jwt-F_j(t)$ until $b/w$, then
+$Y_j(t-b/w)+H-F_j(t)$. Before $b/w$, it is positive because
+$c(v)<k_jw$; afterwards it is at least $H-M>0$. This proof needs only
+nonnegative departures, not immediate A service. H1 therefore keeps its
+unrestricted entrance/handoff on (16) even when either terminal queue
+stops temporarily. Physical stock $F_j-Y_j$ is conserved, bounded and
+never replaced by the service-memory variable. The domain protects H1;
+it does not demonstrate general spillback into the preparation window.
+
+All traffic is eligible by $t_*=L/v$. B is then clear. Suppose combined
+eligible A/E mass $Q(t_*)>0$ has not yet cleared by a time $T>t_*$.
+With no subsequent arrivals, $Q$ is nonincreasing and remains positive
+throughout that interval. Work conservation and (8) give
+\begin{align}
+ \dot Y_A+\dot Y_E&=\mu,\qquad R\leq\mu+p,\nonumber\\
+ R(T-t_*)&\leq\int_{t_*}^T\mu(t)dt+\int_{t_*}^Tp(t)dt\nonumber\\
+ &\leq Q(t_*)+\frac{\overline M_E}{m_{\rm ref}}W,
+ \qquad \overline M_E=P_E(t_*).
+ \tag{17}
+\end{align}
+The last inequality uses only $Y_E\leq\overline M_E$, not prior clearance.
+Letting $T$ grow contradicts (17), proving finite clearance. In particular
+\begin{equation}
+ T_{\rm clear}\leq \frac{L}{v}
+   +\frac{Q(L/v)+(\overline M_E/m_{\rm ref})W}{R}.
+ \tag{18}
+\end{equation}
+If $Q(t_*)=0$, the cohort is already clear. A common, conservative horizon
+for all admitted advices and same-$M$ observer comparisons is
+\begin{equation}
+ \overline T=\frac{L}{v_-}+\frac{M+(M/m_{\rm ref})W}{R}.
+ \tag{19}
+\end{equation}
+All physical and eligible queues are empty after actual clearance. Any
+remaining service influence is not counted as an unfinished vehicle.
+
+\textbf{Meaning.} No positive service floor is inserted: $p\geq R$ can
+give $\mu=0$. Finite total admitted mass creates a finite integrated burden,
+so temporary closure cannot persist forever. Equations (17)--(19) replace
+the predecessor's inapplicable positive instantaneous service bound.
+
+\newpage
+\section*{6. MP6: a nonempty conditional family with A delay}
+
+This symbolic existence construction establishes possibility, not a
+calibrated regime, numerical scenario, or preferred advice. It can require
+slow recovery and a long terminal. Fix one advice $v=v_+$ satisfying (1),
+let $e_0,a_0=b_0>0$, and choose $\gamma>1$ so
+\begin{equation}
+ \delta=k_c(v)-r>0,\qquad (\gamma-1)e_0>\delta.
+ \tag{20}
+\end{equation}
+The receiving branch of (2) is strictly active initially. Let $L_p=\ell$,
+so the front enters the terminal at time zero. Measured from the first
+eligible arrival, at $b/v$, the arrival rates are
+\begin{equation}
+ \lambda_A(t)=v(r-e(t))\nearrow\lambda=vr<R,\qquad
+ \lambda_E(t)=ve(t)>0,\quad \lambda_A+\lambda_E=\lambda
+ \quad (0<t<\ell/v).
+ \tag{21}
+\end{equation}
+The formal extension of (2) to all positive times has $e\downarrow0$,
+finite positive $\int_0^\infty e(t)dt$, and that integral scales with $h$.
+Choose $h$ so the potential E arrivals in this extension exceed
+$m_{\rm ref}(R-\lambda)/D_0$.
+
+First use $a_{\rm r}=0$ only as an \emph{auxiliary finite-time limit}:
+$D(t)=D_0>0$ and $\mu=\pos{R-D_0Y_E/m_{\rm ref}}$. It is not an
+admitted recovery law or a clearance example. While $\mu>\lambda$, all
+arrivals leave and $Y_E$ accumulates the potential E arrivals. The chosen
+integral forces $\mu$ to reach $\lambda$ at a finite time when
+$\lambda_E>0$. A positive E departure rate makes $\mu<\lambda$ just
+afterwards. From then on $\mu$ cannot increase in this auxiliary limit.
+Choose a time $t_1$ with $\mu(t_1)<\lambda$. Since $\lambda_A\to\lambda$,
+eventually A demand exceeds $\mu(t_1)$ by a positive amount. If A has not
+already queued, its eligible stock must then start increasing. Thus
+$q_A(t_2)>0$ at some finite $t_2$.
+
+As $a_{\rm r}\downarrow0$, the positive-recovery kernels (6) converge
+uniformly to $D_0$ on every fixed finite interval. The finite-interval
+continuous dependence from (12)--(15) preserves the strict inequality
+$q_A(t_2)>0$ for sufficiently small \emph{positive} $a_{\rm r}$. Choose
+$\ell/v>t_2$; the finite footprint then reproduces that prefix exactly.
+Finally choose finite $b>M/k_j$. This changes the common eligibility delay,
+not the translated node argument. Initial symmetry and B's bounds can be
+retained, and (16)--(19) apply to the admitted positive-recovery law.
+
+Hence the \emph{same finite cohort} can have active early receiving
+limitation, positive continuing-lane waiting caused by forced-entry history,
+protected H1 storage and finite clearance. This establishes no empirical
+acceleration range, natural queue size, action split or interior optimum.
+The zero-recovery auxiliary limit is used only to construct a finite prefix;
+it is explicitly excluded from the admitted model parameter set.
+
+\newpage
+\section*{7. Objective, information and sensitivity consequences}
+
+From the predecessor's uniform footprint and unchanged paired early
+conservation, local complete cohort time is
+\begin{align}
+ J(v)&=\int_0^{\overline T}\left[M-Y_E(t)-Y_A(t)-Y_B(t)\right]dt\nonumber\\
+ &=\frac{M(L-\ell/2)}{v}
+   +\int_0^{\overline T}(q_E(t)+q_A(t))dt.
+ \tag{22}
+\end{align}
+B's queue is zero on (1). This includes all pre-line waiting and the full
+clearance tail. The service record in (8) is not another vehicle queue.
+Post-line vehicle-time remains outside $J$ even if its influence remains.
+The fixed bound (19) removes artificial horizon truncation; it does not
+hold physical arrival or queue events fixed as advice changes.
+
+Under the retained symmetry, aggregate initial density and ending density
+recover $a_0=b_0=(\rho_0-e_0)/2$. Shared parameters and empty initial memory
+then fix (2)--(3); uniqueness above fixes (8)--(9). Therefore A+E and G
+have exactly the same objective function for every admitted advice.
+At points of differentiability they also have the same derivative.
+This is model-relative sufficiency, not a minimum-information theorem for
+SUMO or a discrete-order necessity result. Unknown initial service memory
+would reopen G2 and is not introduced here.
+
+The causal sensitivity path includes
+\begin{equation}
+ v\ \longrightarrow\ \hbox{early transfer and arrival clocks}
+ \ \longrightarrow\ Y_E\ \longrightarrow\ p
+ \ \longrightarrow\ (Y_A,Y_E)\ \longrightarrow\ J.
+ \tag{23}
+\end{equation}
+The fixed prototype profile has no direct $v$ dependence in this member.
+Admission times, priorities, active constraints and the recovery influence
+of those admissions do depend on advice. A derivative that freezes them,
+omits A waiting, or stops before clearance is not the complete derivative.
+Uniqueness and Lipschitz dependence alone do not prove differentiability
+at every switching event or AD/finite-difference correctness.
+
+\textbf{What is not inherited.} The predecessor's positive action certificate
+at large $\alpha$, its common-fastest parameter range, and its derivative
+formulas apply to its unchanged instantaneous-work member only. The old
+aggregate-history loading construction can still initialise the same H1
+family with a newly known empty node, but a new control-information advantage
+requires its own objective comparison. No such advantage, positive interior
+optimum or useful gradient has been proved or computed here.
+
+\newpage
+\section*{8. Limiting checks, physical limits and the gate}
+
+\textbf{No E.} If $e_0=0$, then $Y_E=p=0$, $\mu=R$ and (1) admits A
+without waiting. The remaining complete travel time decreases with advice.
+
+\textbf{Negligible recovery burden.} As $u_*\uparrow u_R$ or
+$a_{\rm r}\to\infty$, $W\to0$. The limiting node has ordinary shared
+service $R$. It does not recover the old extra-work member with $\alpha>1$.
+
+\textbf{Stationary connection to a simpler rival.} If E departures have
+been constant at rate $g_E$ over a full recovery window and the node is
+saturated with $p<R$, then
+\begin{equation}
+ p=\frac{W}{m_{\rm ref}}g_E,\qquad
+ g_A+\left(1+\frac{W}{m_{\rm ref}}\right)g_E=R.
+ \tag{24}
+\end{equation}
+This is our stationary consequence, not the source many-event capacity
+formula. It explains why instantaneous work can be a serious average-flow
+rival. Finite-burst timing, rather than novelty of a work factor, must
+justify the retained history.
+
+\textbf{A delay is permitted, not inevitable.} For constant A arrivals
+$\lambda_A<R$, empty initial memory, decreasing $D$ and strict A priority,
+the barrier $p\leq R-\lambda_A$ is preserved: when service reaches
+$\lambda_A$, E receives zero service and only recovery can change $p$,
+so it cannot rise through that barrier. A stays unqueued in this fluid
+case. Increasing A demand in (21) avoids that special protection. The model
+does not predict that every slow insertion produces a backward shockwave.
+
+\textbf{Main limits.} A representative fixed insertion speed is a closure
+parameter, not a traffic-state-derived field. Additive loss demands and
+budget saturation approximate overlapping physical restrictions. No source
+guarantees their finite-burst fidelity. Full downstream trajectories,
+wave/void interactions, stochastic vehicle heterogeneity and post-line
+vehicle-time are not reconstructed by (8). The conservative storage domain
+deliberately protects H1 from terminal feedback. These limits must appear
+in any paper claim, parameter qualification and SUMO comparison.
+
+\textbf{Gate.} Confirming CP-D2 would admit this exact law only as a
+conditional elementary primary model. Independent development evidence,
+renewed action/sensitivity analysis and the accepted SUMO S-P then S-L
+qualification remain. Strong aggregate-history inference, A+E, scalar
+search, analytical/finite-difference gradients and the phenomenological
+capacity-drop node are retained. No empirical law, new observation, numerical
+parameter set, executable evaluator or next roadmap stage is approved here.
+
+\textbf{Reference record.} The accompanying
+\href{../../extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md}{source audit}
+identifies all four papers rechecked in this pass and their access limits,
+including the 2011 conference version and Jin's continuous-LTM and
+capacity-drop interfaces. All new proofs above are for the stated proposed
+member. The accepted H1/T1 source/PDF are preserved unchanged.
+\end{document}

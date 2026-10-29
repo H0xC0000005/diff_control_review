@@ -1,0 +1,27 @@
+id,date,operation,url,line_or_pattern,source_id,access,scope
+LO01,2026-10-08,open,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,63,S02,read,Cover/body identity; moving-point method
+LO02,2026-10-08,open,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,460,V03,read,Continuous count/wave reference family
+LO03,2026-10-08,open,https://www.aimsciences.org/article/doi/10.3934/dcdss.2014.7.435,,DG14,read_abstract,Coupled moving-mesh precedent
+LO04,2026-10-08,open,https://www.aimspress.com/fileOther/PDF/MinE/Mine-01-01-055.pdf,,BCLMP18,read,Multiple-coupled method; mechanism scope check
+LO05,2026-10-08,open,https://www.sciencedirect.com/science/article/abs/pii/S0191261517300802,,SC17,access_error,Publisher internal error; author full text used later
+LO06,2026-10-08,open,https://ems.press/content/serial-article-files/36595,,CDG17,read,Primary PDF 18 pages; sections 1-3 inspected
+LO07,2026-10-08,open,https://www.mass-lab-ut.com/articles/,,SC17_lead,read_lead,Author article list; not solver evidence
+LO08,2026-10-08,open,https://www.researchgate.net/publication/318699176_A_fast_simulation_algorithm_for_multiple_moving_bottlenecks_and_applications_in_urban_freight_traffic_management,,SC17,read,Author-uploaded primary body
+LO09,2026-10-08,find,https://www.researchgate.net/publication/318699176_A_fast_simulation_algorithm_for_multiple_moving_bottlenecks_and_applications_in_urban_freight_traffic_management,endogenous,SC17,no_match,Other body wording inspected
+LO10,2026-10-08,find,https://www.researchgate.net/publication/318699176_A_fast_simulation_algorithm_for_multiple_moving_bottlenecks_and_applications_in_urban_freight_traffic_management,algorithm,SC17,read,Algorithms 1-2 and crossing approximation
+LO11,2026-10-08,find,https://www.researchgate.net/publication/318699176_A_fast_simulation_algorithm_for_multiple_moving_bottlenecks_and_applications_in_urban_freight_traffic_management,Laval,SC17,read,Method lineage
+LO12,2026-10-08,find,https://ems.press/content/serial-article-files/36595,collision,CDG17,read,Single restriction/wave test scope
+LO13,2026-10-08,find,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,composite,S02,read,Composite-Riemann definition
+LO14,2026-10-08,find,https://www.aimspress.com/fileOther/PDF/MinE/Mine-01-01-055.pdf,multiple,BCLMP18,read,Multiple setting; not zero-passing equivalence
+LO15,2026-10-08,find,https://www.mass-lab-ut.com/articles/,simulation,SC17_lead,read_lead,Source-location lead only
+LO16,2026-10-08,open,https://www.researchgate.net/publication/318699176_A_fast_simulation_algorithm_for_multiple_moving_bottlenecks_and_applications_in_urban_freight_traffic_management,405,SC17,read,Count internal conditions
+LO17,2026-10-08,open,https://www.researchgate.net/publication/318699176_A_fast_simulation_algorithm_for_multiple_moving_bottlenecks_and_applications_in_urban_freight_traffic_management,990,SC17,read,Multiple interactions; section 3.3 Zeno handling
+LO18,2026-10-08,open,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,95,S02,read,Sections 3-4 stalling and perturbation scope
+LO19,2026-10-08,open,https://www.aimspress.com/fileOther/PDF/MinE/Mine-01-01-055.pdf,0,BCLMP18,read,Identity and model introduction
+LO20,2026-10-08,open,https://arxiv.org/pdf/1405.7080,,JIN15,read,Continuous LTM/node requirements
+LO21,2026-10-08,find,https://arxiv.org/pdf/1405.7080,not well-defined,JIN15,read,Non-invariant direct continuous LTM
+LO22,2026-10-08,find,https://arxiv.org/pdf/1405.7080,non-invariant,JIN15,read,Section 6; distinguishes CTM interior states
+LO23,2026-10-08,open,https://doi.org/10.1016/j.trb.2025.103208,,NODE25,access_error,Publisher redirect not accessible; indexed-primary lead only
+LO24,2026-10-08,open,https://intlpress.com/api/bgcloud-front/resource/pdf/volume/1806261872028504065-1806261872028504065-76ddf6ddc1152a68b4b1a09558bf8154.pdf,,LP21,read,Single-bottleneck existence; smooth strict-concavity and trace caveat
+LO25,2026-10-08,open,https://www.aimspress.com/fileOther/PDF/MinE/Mine-01-01-055.pdf,82,BCLMP18,read,"Equations 1.1-2.4: spatial modulation, cars can pass"
+LO26,2026-10-08,open,https://www.sciencedirect.com/science/article/pii/S0191261525000578,,NODE25,access_error,Direct publisher access also failed; no proof claimed

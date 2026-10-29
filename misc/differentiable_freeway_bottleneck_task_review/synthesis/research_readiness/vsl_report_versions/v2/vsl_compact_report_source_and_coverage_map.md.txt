@@ -1,0 +1,80 @@
+# Compact methods report: formulation provenance and coverage
+
+Date: 2026-10-19. Supporting record for feedback 10's writing pass and the
+subsequent user-requested reference/attribution recheck.
+The main deliverable is the compact PDF; this map is outside its page budget.
+No traffic equation, initialization, observation, objective or derivative
+contract changes. Dummy argument names are clarified for readability.
+
+[Compact report, PDF](../../synthesis/research_readiness/vsl_compact_methods_report.pdf)
+
+[Retained LaTeX source](../../synthesis/research_readiness/vsl_compact_methods_report.tex)
+
+## Writing requirements applied
+
+The user explicitly requests a LaTeX PDF with main methodology preferably
+no longer than 2.5 pages **excluding references**, at least 10 pt main text,
+IEEE numbered citations/references, familiar existing notation, and the current
+functional methodology without a limitations discussion. This supersedes
+the earlier plan's unspecified page count and main-text limitations section.
+Essential assumptions, admission bounds, branch conditions and the regular
+derivative's domain remain because they define the model. The PDF contains
+no new numerical/physical performance claim or positive-action certificate.
+Previously recorded scientific limitations remain in the review archive.
+
+The five agreed parts are retained: question; concrete task/global assumptions;
+four physical components; information/objective logic; complete sensitivity.
+No plot is needed to explain the presented dependencies. Page breaks keep
+the point-service formulation/table and the sensitivity block together.
+
+## Equations and scientific ownership
+
+| Report object | Exact accepted formulation used | Lineage and report treatment |
+|---|---|---|
+| **Equation 1: FD and boundary speed map** | [AS1](../../synthesis/research_readiness/vsl_as1_asymmetric_forward_contract.tex), `eq:fd`. | Triangular/LTM ingredients cited to Jin [1]; the advice-response family is explicitly selected here. Writing capacity as speed times critical density is algebraically identical. |
+| **Equation 2: operating domain** | AS1 `eq:domain`, with nonnegative initial densities and positive ordered advice interval in the task text. | Existing sufficient receiving/storage domain; no new bound. Positive interaction/recovery scales and preparation penalty are defined beside their equations. |
+| **Global assumptions and initial state** | AS1 §1; [accepted assumption statement](../../synthesis/research_readiness/vsl_global_assumptions_statement.md). | Independent E/A/B loads, common uniform footprint, finite cohort, empty terminal/history, fixed action/parameters and coupled point/history structure are explicit. No continuing symmetry is reintroduced. |
+| **Equation 3: pre-choke transfer** | AS1 `eq:h1`; [CORE](../../synthesis/research_readiness/vsl_feedback8_math_core.tex), `eq:h1general`. | Paired conservative lane-source structure cites Nagalur Subraveti et al. [2]; receiving work and own-lane priority cite Carey [3]. The homogeneous donor/headroom minimum and physical opportunity length are defined here. The actual density source remains the opportunity-equivalent flow divided by length; neither source is credited with the entire H1 law. |
+| **Equation 4 and terminal counts** | AS1 `eq:entry`, `eq:counts`, `eq:vacancy`; CORE terminal section. | LTM-style boundary travel/storage cites Jin [1]; cutoff/handoff are defined here. The displayed conservative storage domain ensures positive vacancy, so the compact report need not repeat the inactive receiving branch. Stock and eligible waiting remain distinct; B remains unqueued. |
+| **Equation 5: work/root and coefficient domain** | AS1 `eq:root`, `eq:workdomain`; CORE `eq:currentwork`, `eq:root`, `eq:rootderiv`. | Receiving-work accounting cites Carey [3]. Fixed W-F mismatch work, representative equilibrium marks, the selected allocation/guards and unique-root condition remain defined/proved here. The original baseline is written directly as at least one; its separate extra-work symbol is unnecessary. The coefficient's anchor is fixed once. |
+| **Four service branches and causal guards** | AS1 §3 table; CORE allocation section and `eq:queuedynamics`. | All four selected branches retained, including queued A/free E cooperation. Strict-shortfall birth, true-zero retest, equality continuation and right-hand arrival data remain; no timer, smoothing or new priority is added. |
+| **Equation 6: isolated loss profile** | AS1 `eq:recovery`; CORE `eq:profile`. | Point-insertion/bounded-acceleration motivation cites Leclercq et al. [4], [5]. The profile is explicitly obtained by differentiating the isolated passing expression in [5], then capping service at the retained ceiling. The equivalent boundary-speed meaning is stated; it is not a vehicle trajectory. Capping and aggregate use are identified separately from the source. |
+| **Equation 7: recent-mass account and budget** | AS1 `eq:recovery`; CORE `eq:renewal`. | E-only deposition, fixed-mass prefill normalization and old-weight retirement are defined here. The reading is written with the existing explanatory subscript; it is the same account. Retained age/mark history remains predicted dynamic state. |
+| **Equation 8: complete TST** | AS1 `eq:tst`; [AS3](../../synthesis/research_readiness/vsl_as3_asymmetric_actions_and_gradients.tex), `eq:tstgradient`. | Own complete-accounting deduction: all initial lanes, mean remaining distance and complete A/E waiting tails, with choke completion. Fixed horizon extends beyond clearance. |
+| **Information comparison and compact peer** | [AS2](../../synthesis/research_readiness/vsl_as2_information_and_history.tex), §§1, 4–5; [current protocol](../../synthesis/research_readiness/vsl_asymmetric_standalone_verification_protocol.md). | Shared geometry/physical parameters, full admitted history/inference, E-plus-continuing versus per-lane inputs and the extra-adjacent-statistic peer remain. The report explains the diagnostic mechanism without asserting a universal action split. |
+| **Equation 9: implicit service derivative** | AS3 `eq:rootsensitivity`. | Own deduction for this node. Dummy A-flow/A-mark arguments replace the overloaded density-like argument names; partial derivatives and allocated E work have the same meaning. |
+| **Equation 10: cutoff and event corrections** | AS3 `eq:history`, `eq:historysensitivity`, `eq:events`. | The moving-cutoff identity is explicitly derived here. Only the remaining regular event-time/state correction is attributed to Kong [6]. History remains included in the guard; the integral also carries mark/flow/source-event contributions. |
+| **Equation 11: full objective derivative** | AS3 `eq:tstgradient`. | Own joined-model reference on the stated regular sequence, with both equivalent complete-objective forms. No AD or numerical usefulness result is implied. |
+
+The report does not print the long positive-action proof, source-model
+comparison tables or full history derivative. Its sensitivity paragraph
+states all paths and shows the requested critical updates; the exact
+retirement/source-event formula remains in AS3. Those are presentation
+choices under feedback 10, not deleted model terms or weakened contracts.
+
+## Viewed primary references in this writing pass
+
+All six references were already in the accepted review. Targeted primary
+text and bibliographic rechecks support the second attribution pass; they
+are not a new general literature sprint, native-model adoption or full-paper
+rereading. The list records references and actual reading limits, not a
+new downloaded-paper archive. The revised bibliography orders entries by
+first citation and supplies IEEE-style author initials, quoted article
+titles, venues, volume/issue where verified, pages, dates and DOI links.
+
+| Report reference | Primary link and material viewed | Attribution boundary |
+|---|---|---|
+| **[1] Jin, 2015** | [Primary manuscript](https://arxiv.org/pdf/1405.7080): cumulative boundary/demand/supply context and queue/vacancy definitions, particularly equations 20–23 and the initially empty-link discussion. The [author's UCI publication record](https://its.uci.edu/people/wenlong-jin/) verifies the final title, TRB 74, 88–103, 2015 and DOI 10.1016/j.trb.2014.12.006. | Supports the triangular and boundary ingredients. The advice family, homogeneous lateral exchange and point node retain their own definitions/proofs. The bibliography now cites the verified journal record. |
+| **[2] Nagalur Subraveti, Knoop and van Arem, 2019** | [Existing archived final PDF](../../archive/full_text/FB0030.pdf), cover and printed pp. 1758–1762: paired lane conservation, equations (1)–(2), and lateral-transfer context. [Publisher issue record](https://www.tandfonline.com/action/tocQuickLink?quickLinkId=vttrb20-7&quickLinkJournal=ttrb20) identifies online publication on 17 Dec. 2019; the institutional cover also cites 2019. | Credits paired conservative lateral sources, not the source's complete CTM/incentive algorithm or our exact minimum/interaction scale. The article header says 2020, while the institutional record and publisher's online date say 2019. The compact reference uses 2019; the discrepancy remains recorded rather than silently rewriting earlier source records. |
+| **[3] Carey, Balijepalli and Watling, 2015 journal record / 2013 manuscript** | [Primary manuscript](https://eprints.whiterose.ac.uk/id/eprint/77315/7/Carey%20et%20al%202013_with_coversheet.pdf), selected §5: headway-weighted receiving constraint and priority rules R1–R3. [Publisher record](https://link.springer.com/article/10.1007/s11067-013-9193-7) verifies final volume 15, 507–535, Sept. 2015, first online July 2013. | Credits larger receiving work for lane changes and available own-lane-priority alternatives. H1's homogeneous source law, fixed speed-mismatch formula, representative marks, cooperation table and guards are our selected rules. The reference now uses the final journal year without claiming a newly read journal full text. |
+| **[4] Leclercq, Laval and Chiabaut, 2011 conference version** | [Author-uploaded primary text](https://www.researchgate.net/publication/251530773_Capacity_Drops_at_Merges_an_endogenous_model), printed pp. 12–14: bounded-acceleration motivation, §2 regime and point-insertion assumptions. The actual text and [publisher conference record](https://www.sciencedirect.com/science/article/pii/S1877042811010640) give Procedia 17, 12–26, DOI 10.1016/j.sbspro.2011.04.505. | Credits the slow-insertion mechanism. The journal metadata on the upload's landing page is not substituted for the conference text actually read. It supplies neither our empty-start transient node nor our E-only renewal account. |
+| **[5] Leclercq, Knoop, Marczak and Hoogendoorn, 2016** | [Primary repository manuscript](https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6): introduction's physical mechanism and point-case equation (1), with equivalent-speed interpretation around manuscript p. 4. [Publisher article record](https://www.sciencedirect.com/science/article/pii/S0968090X15002405) and accepted source archive retain TRC 62, 171–181 and DOI 10.1016/j.trc.2015.06.025. | Credits the isolated cumulative passing expression. The report explicitly says that the equivalent profile is derived by differentiation, then capped here. E-only deposition, continuous recent-mass averaging and retirement are our definitions, not the source's native many-insertion law. |
+| **[6] Kong, Payne, Zhu and Johnson, 2024** | [Primary manuscript](https://arxiv.org/pdf/2306.06862): regular event sensitivity, differentiable/transverse guard conditions and identity-reset discussion around PDF p. 5. [Authors' lab publication list](https://www.cmu.edu/me/robomechanicslab/publications.html) verifies Proc. IEEE 112(6), 585–608, June 2024, DOI 10.1109/JPROC.2024.3440211, also linked from the [arXiv record](https://arxiv.org/abs/2306.06862). | Event corrections only. The E-rank cutoff relation, implicit node sensitivity, joined history treatment and objective derivative are our deductions. The final journal citation replaces the incomplete preprint entry. |
+
+The existing [component/source archive](vsl_feedback8_model_stack_source_map.md)
+and [assumption dependency audit](vsl_global_assumptions_dependency_audit.md)
+remain the detailed evidence/interpretation record.
+
+[Reference revision, build and verification](../../reporting/research_readiness/vsl_report_reference_revision_work_report.md)
+
+[Initial writing-pass record](../../reporting/research_readiness/vsl_feedback10_report_work_report.md)

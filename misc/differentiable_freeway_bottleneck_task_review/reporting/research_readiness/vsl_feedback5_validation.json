@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-15",
+  "status": "Passed documentary, link, unchanged-math and feedback-preservation checks",
+  "markdown_files_checked": 13,
+  "local_links_checked": 374,
+  "heading_anchors_checked": 27,
+  "current_file_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/README.md": "47b6d672c4f781958fb6e5bf3002f3d7ef057991611c9c67db5143bbac16d86b",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md": "f55d2ebda0af7fc6c81a5e51e2cc72ab82adfeaf65ae6856dbb91d8b58904727",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md": "c6321400d90a1bdb751e7e01096d48b2d85441004fac82c93b27a8a995451c77",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "c692e746fd20b51cd7083483a095041f0fd7d00c7db3d67bc47d0cf915868ed5",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "1d0d7f185323ed2191d8f67da1bfd4eb5c32f6f792dd78e5f62447b65a04d8a6",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_step3_comparison_review_plan.md": "970d668c94e19166c243f4621521f0991b240192e769f6a1cb1ddf7d8efce185",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md": "ea83577c4a2f75b0b7a79af14f7df9f772e647b0e3111b3fc0afe8529f7f6524",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_ph_recovery_work_findings_and_gate.md": "6c4577626b0df3ed3d7f6a5af36b56f35b8bdc47a7d3b3d1f46d7f1c87193992",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md": "3d03a87ae33c45ccda4bdada10040bdef42a1e41b6fed28ae0bc113be5019c1e",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md": "2b27e763bc6565943d63f8170416c77167e8a2767306d3c5e83db03d4ccf4731",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback5_shared_service_meter_response.md": "44afcce9d17de21efc8b6b1e109deff771d589da10164fd067ba1d6f4ced781b",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback5_work_report.md": "3461b027d780895c5b0a0973858dde12ec1cd2a159b4e4683589b52f5cd667ab",
+    "temp_content/feedback/vsl_refinement_feedback.md": "7c9336a1ba8d0684bff1ea7075418dac5871d8105ae74133e678726dd462a755"
+  },
+  "unchanged_mathematical_sha256": {
+    "synthesis/research_readiness/vsl_ph_recovery_work_contract.tex": "4a3a4af169bc951f6aea56e0dcbbdff70344ad921726c8172cf6d217105e4f68",
+    "synthesis/research_readiness/vsl_ph_recovery_work_contract.pdf": "be29c46651c043720131a5ad23e9469884b6b6e21b6bd2b836669348bb8240b1",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "feedback_change_only": "Appended (answered) to heading 5",
+  "sources_rechecked": [
+    "Jin continuous LTM, selected demand/junction sections",
+    "Jin/Gan/Lebacque capacity-drop model, selected boundary/limitation passages",
+    "Leclercq et al. 2016, selected slow-entry/point input passages"
+  ],
+  "current_recommendation": "Qualify M2 traffic-dependent shared-meter update; retain exact M1 as reference",
+  "m2_selected_or_equations_approved": false,
+  "new_A_loss_approved": false,
+  "one_scalar_state_proved": false,
+  "cp_d1": "Closed with P-H",
+  "cp_d2": "Open; refined update-law choice",
+  "s3_m1_m2": "Closed and unchanged",
+  "step_3": "Open",
+  "step_4": "Unopened",
+  "scientific_limits": [
+    "One service reading does not imply one sufficient recovery state.",
+    "A queue alone does not justify a second capacity penalty.",
+    "M1 mathematical guarantees do not establish an unspecified M2 law."
+  ],
+  "new_math_simulator_code_dependencies_or_experiments": false
+}

@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "scope": "One red sensitivity-notation paragraph only",
+  "pdf_pages": 4,
+  "methodology_pages_excluding_references": 3.42078,
+  "nominal_main_text_pt": 10,
+  "section_and_equation_cross_reference_resolved": true,
+  "equation_destination": "equation.0.5",
+  "added_paragraph_red_in_pdf": true,
+  "displayed_equation_groups_unchanged": 11,
+  "service_table_unchanged": true,
+  "bibliography_unchanged": true,
+  "final_latex_warnings": [],
+  "feedback_unchanged": true,
+  "protected_artifacts_unchanged": 470,
+  "v3_archive_exact": true,
+  "changed_files": [
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex"
+  ],
+  "new_files": [
+    "reporting/research_readiness/vsl_sensitivity_notation_build.log",
+    "reporting/research_readiness/vsl_sensitivity_notation_clarification.md",
+    "reporting/research_readiness/vsl_sensitivity_notation_validation.json",
+    "synthesis/research_readiness/vsl_report_versions/v3/README.md",
+    "synthesis/research_readiness/vsl_report_versions/v3/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_report_versions/v3/vsl_compact_methods_report.tex"
+  ],
+  "deleted_files": [],
+  "new_record_links_checked": 11,
+  "raster_visual_inspection": false,
+  "source_sha256": "b288dc047f5cac1cf4f77ed09ddb1a2b9017706f2d54adf6402eb49765ea284b",
+  "pdf_sha256": "2353a6b3f1c68e3d1de5cd8e6613c4ac637268f129d07b41b0d9456d0f1e9265",
+  "snapshot": "/tmp/vsl_sensitivity_notation_before.json",
+  "check_command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_sensitivity_notation_checks.py",
+  "scientific_model_change_or_experiment": false,
+  "overall_step4_closed": false
+}

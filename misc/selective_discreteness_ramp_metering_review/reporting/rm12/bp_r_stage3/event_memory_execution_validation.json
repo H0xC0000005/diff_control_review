@@ -1,0 +1,169 @@
+{
+  "date": "2026-10-07",
+  "status": "passed",
+  "scope": "Document status/navigation, preserved evidence, local algebra and mathematical artifact; no traffic or gradient validation",
+  "documents": 15,
+  "local_links": 245,
+  "approved": "S3-G2-Q-T.1 and its bounded qualification",
+  "gate": "S3-G2-Q-M open: proposed retained-state family or restricted claim domain; no M option adopted",
+  "stage3": "open; bounded T1 pass completed with partial support",
+  "stage4": "unopened",
+  "global_reporting_preference": {
+    "path": "AGENTS.md",
+    "preexisting_content_preserved": true,
+    "before_sha256": "942f850c2c2892ea7b998918f56c6c63597674e8a9d8dc12003937f376a0b457",
+    "after_sha256": "04f3a1a6f96e78bea4b834ad4a734824d2e6450121a68ab36162ddd152d5ecfa"
+  },
+  "preserved_artifacts": [
+    {
+      "path": "PLANS.md",
+      "sha256": "410b9619c8ca63a61c23118afb447ff2f520559d1a3bb97afd2f892f0861cb1b"
+    },
+    {
+      "path": "temp_content/feedback/feedback.md",
+      "sha256": "03e907f213868e952cf40f83a523cfe4ff35f1e83b53762393fb5920688a53d9"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_review_arrangement_validation.json",
+      "sha256": "26ee9f3019c3fb4e03a0fdc0f234350e9df7ac2bde9d82d0e8029693c80b27cd"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/document_validation.json",
+      "sha256": "d4d77519b243915981f858946b670b52d00ca4c9c450c5f4da9f02196eb88a11"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_clarification_validation.json",
+      "sha256": "10934f53622576dca44682a99a3ec89a23fbf19e2e14db4533ce2d4d7d24a549"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quasi_steady_clarification_validation.json",
+      "sha256": "f36827f6e90c092bae0e004afd28bb423c010ecb4e4e22321c3db47af06474a3"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/post_priority_validation.json",
+      "sha256": "eba5782ed3fb554ed49938ad24e4299ddd976c283859d3f65c11e15105645cb9"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_execution_validation.json",
+      "sha256": "16b59aaafedb685e35d7977bf2173cf061ae4634c3d8a26ea27f11d73306f31a"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/coupling_clarification_validation.json",
+      "sha256": "82a2f854c9a53c8c837d13fbf1ac2662a83306643a3fe6091fe1848cabceb606"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/A_qualification_validation.json",
+      "sha256": "596bb1a16bacc27d1e85cb3b36db30bf8ed3e7ff8920819e5eb69e864a8b2484"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_A_continuation_validation.json",
+      "sha256": "2642cdf03af0362a0b1dc67f1f6e3484923f070ab04e8c49a8ea5227906d53a2"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/semantic_comparison_validation.json",
+      "sha256": "3a50817e98cccad523c9bd6b3faab597208734c7d892ec529bb2ae38a273e2aa"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/supplied_methods_validation.json",
+      "sha256": "d83455ddf7144772d59f0b33af7701b2acd3535a35fdaaee4eea25538654423e"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/interface_continuation_validation.json",
+      "sha256": "3891e1daa2cf4aef3db82524e2c5d82eff0744983d9195f5d67b5f83044bc1e3"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/source_laws_and_merge_choices.pdf",
+      "sha256": "a0a5c1ac903b415644e0135120c8102e1cb0a0524553e1bdae54a115c9e63b32"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/post_priority_static_contract.pdf",
+      "sha256": "c865bbebfff420a5b918d9c3bbd5bbc7bd951b24c6659b7f752fce051eed8c17"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/dual_qualification_math.pdf",
+      "sha256": "f6b20bc82e71c507e80a0013676ff6e3b5f8d103254f924c24eaa83d232e98b1"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/accounting_and_reference_contract.pdf",
+      "sha256": "333e008ef99a0e7526bfc4bf43726e7831fb5bc3d9eae12a48d50b2a2eb099fd"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/interface_continuation_math.pdf",
+      "sha256": "d405ff3fea9096c7406004ea3977ca537b0c7914f2b85452c322c980f34f6374"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/accounting_and_reference_contract.tex",
+      "sha256": "f01f35502c42c8afd86d5a4b64afebe3441e8812eeaf8048a63bc0fd0f073561"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/interface_continuation_math.tex",
+      "sha256": "5d11a3dadc73c17db85eef13ff1ad0bbfdc0d44d5a3a43de7c187985c8808c88"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/post_priority_static_contract.tex",
+      "sha256": "f7b5a71438e36da8885e0e63dc4d78d64cb1c4f0e3654cf1f339fbd93effda66"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/dual_qualification_math.tex",
+      "sha256": "6aa2b2d8e35dc1a06587d8325c1779f2367e2e37f6337435f11c22bde2762d20"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/source_laws_and_merge_choices.tex",
+      "sha256": "a6a986398293b8fa38f9431c1f9f8bc5fe6a38df7537f1c2b9bde38cbbff7e4f"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/archive/user_supplied/rm12_bp_r_stage3/A SIMPLE PHYSICAL PRINCIPLE FOR THE SIMULATION OF FREEW A YS WITH SPECIAL LANES AND PRIORITY VEHICLES.pdf",
+      "sha256": "512befe8666bbdb17a23386d76d499b85a5a6918ae99d51b7f247c882f7e2895"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf",
+      "sha256": "ac4a032d7e9df4baa2daa5b0546c8c22d95bb84f6320eb97463d12cad33c2b58"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/search/rm12_bp_r_stage3_dual_queries.csv",
+      "sha256": "4fd0b3a96b1c782c397a27a4fdade75a0fee5b7eb7ed652b2d93d07eb21b3c8b"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/screening/rm12_bp_r_stage3_dual_sources.csv",
+      "sha256": "f1e2d60a03942ed6041409f5368f2f5025f8f529e7f362b12ef109b19c9c778a"
+    }
+  ],
+  "search": {
+    "queries": 6,
+    "batches": 2,
+    "primary_activity_records": 7,
+    "new_downloads": 0,
+    "missing_original_retrievals": 0
+  },
+  "symbolic_checks": {
+    "integer_shift_threshold_count": true,
+    "sampled_free_motion_recurrence": true,
+    "continuous_free_motion_diagnostic_ode": true,
+    "continuous_target_speed_time": true,
+    "equal_current_speed_moment": true,
+    "capped_moment_difference": true
+  },
+  "pdf": {
+    "path": "synthesis/rm12/bp_r_stage3/event_memory_math.pdf",
+    "pages": 4,
+    "equations": 11,
+    "sha256": "fba73e38c9f91b839547d6ef7b17182c9df358c708d869c3a3264f650d6af25f",
+    "tex_sha256": "caeb308674326912c2535dc976e0db97e0292c8b3635d5df652aeadb8ffd702e",
+    "clean_final_log": true,
+    "text_parsed": true,
+    "raster_visual_inspection": false
+  },
+  "environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "sympy": "1.14.0",
+    "latex": "pdfTeX / TeX Live 2023"
+  },
+  "tracked_status": "M AGENTS.md\n M PLANS.md",
+  "limits": [
+    "Conditional bookkeeping/free kinetics, not complete service law",
+    "Moment obstruction not common-control reachability or a universal no-summary theorem",
+    "Unlabelled atomic endpoint not compression",
+    "No full TST intervention effect or useful gradient proved"
+  ]
+}

@@ -1,0 +1,80 @@
+# T6 literature adoption and implementation-affinity matrix
+
+Date: 2026-09-11  
+Status: Approved at T6 on 2026-09-14 with the baseline realization matrix. Specific equation/code choices remain subject to the adoption gates below.
+
+## Answer first
+
+The baseline ladder is practically grounded, but not every role should be adopted in the same way:
+
+- **B0–B2:** implement literature-defined equations or algorithms behind project-owned interfaces, then differentiate them only after faithful forward reproduction.
+- **B3:** compose established ingredients with the project's novel selective-order/access contract; no reviewed paper supplies this complete model as reusable code or equations.
+- **R1:** reproduce a bounded set of published forward cases or implement a small reference operator; do not force it into the differentiable production stack.
+- **R2:** reuse SUMO directly as external software, with project-owned scenario generation, intervention mapping, and result extraction.
+- **Optimizer comparators:** adopt published experimental logic or maintained optimizer libraries, but keep them outside the traffic-model implementation.
+
+This means the literature affinity is strongest at the equation, algorithm, and evaluation-protocol levels. Direct third-party code reuse inside the main simulator should be limited because the reviewed implementations use different frameworks or scientific semantics.
+
+## Adoption vocabulary
+
+| Adoption class | Meaning | Evidence required before use |
+|---|---|---|
+| Faithful equation transcription | Implement the published state/update equations without changing their traffic meaning | Hand cases and reproduction of a published numerical example where available |
+| Bounded methodological adaptation | Reuse an algorithmic idea while documenting a necessary task/interface adaptation | Side-by-side source/adaptation statement and a neutral-limit check |
+| Engineering-pattern reuse | Reuse software organization, AD, batching, experiment, or API patterns without claiming equation identity | Public source and compatible license; local conformance tests |
+| Direct software reuse | Run or call maintained external software/library | Version/license record, deterministic wrapper, smoke test, and archived configuration |
+| Forward-reference reproduction | Reproduce selected published behavior without making the method a production component | Independently coded fixture and agreement within a declared tolerance |
+| Context only | Cite a task, risk, or evaluation lesson | No implementation claim |
+
+## Role-by-role adoption map
+
+| Role | Primary literature anchors | What can be adopted | Adoption class | Engineering availability verified 2026-09-11 | Required project adaptation | Main risk or prohibition |
+|---|---|---|---|---|---|---|
+| B0 homogeneous differentiable macro | T0001 Seo, *End-to-end differentiable network traffic simulation with dynamic route choice*; T0005 van de Weg et al., linear LTM-MPC; T0011 Flötteröd and Rohde, COS node; T0012 continuum on/off approximation | LTM/INM-style piecewise AD patterns from T0001; aggregate LTM signal-service/task equations from T0005; traffic-consistent signal-node constraints from T0011; qualification of effective service from T0012 | Faithful equation transcription plus engineering-pattern reuse | [UNsim](https://github.com/toruseo/UNsim) is public, MIT-licensed, installable, JAX-based, and explicitly marked early-development; no verified maintained code was found for the exact T0005/T0011 baseline combination | Keep the existing project LTM/node semantics; add the shared four-group service adapter and TST contract; exclude dynamic route choice | Do not import UNsim wholesale or claim equation identity merely because both use LTM; framework, node semantics, and route behavior differ |
+| B1 structured movement/partial-FIFO queue | T0007 Wei et al., hierarchical LTM with turn queues; T0015 Wei et al., turn-level queue transmission; T0014 Wright et al., mutual-restriction/partial-FIFO node; T0010 Gao et al., physical turning queues | Turn-level cumulative queue states and signal coupling from T0007/T0015; parameterized partial restriction from T0014; directional queue/storage bookkeeping from T0010 | Faithful equation transcription with bounded adaptation | T0014 has a public arXiv specification; T0015 is publicly described by the publisher/arXiv. No decision-grade public reference implementation was verified for these exact operators | Normalize all sources to the shared time, units, phase groups, objective, and node interface; choose one declared B1 realization before experiments | Do not combine the strongest feature of every paper into an unpublished super-baseline; do not give B1 exact order it is meant to lack |
+| B2 lane/storage-aware aggregate | T0030 Gong, Bliemer, and Raadsen, extended multilane node; T0008 Liu and Chang, lane-group blockage; T0009 Wong and Lee, lane overflow; T0010 Gao et al., turning-lane capacity | Lane-permission-aware equilibrium allocation from T0030; finite lane-group/turn-pocket storage and obstruction logic from T0008–T0010 | Faithful equation transcription or one explicitly chosen bounded hybrid | T0030 is open-access and publishes a generic solution scheme; no verified official code accompanies it. T0008–T0010 provide method/reference equations rather than reusable project-compatible software | Choose either T0030 as the principal allocation operator with literature-faithful storage augmentation, or a simpler published storage model; preserve aggregate composition and exclude exact ordered accessibility | A bespoke mixture can become an unfair weak or strong baseline; every combined equation and parameter must have provenance and a macro/neutral limit |
+| B3 selective-order model | T0017 Yperman et al., individual-tracking LTM; T0001 differentiable LTM engineering; T0003 Son et al., differentiable hybrid traffic simulation; T0016 LIFT; B0–B2 anchors above | Persistent order and forward identity lessons from T0017; AD/experiment engineering patterns from T0001/T0003; interrupted-flow reference behavior from T0016; aggregate and storage operators from B0–B2 | Documented composition; individual suboperators may use faithful transcription | [UNsim](https://github.com/toruseo/UNsim) and [diff-hybrid-traffic-sim](https://github.com/SonSang/diff-hybrid-traffic-sim) are public MIT-licensed implementations. Neither implements the project's continuous ordered-mass lane-access model | Maintain project-owned PyTorch state/interfaces; cite the source lineage of each component; derive ordered-access/service equations during the responsible milestone; validate each component and the composed gradient | No single paper may be cited as implementing B3. Do not copy microscopic conversion, integer vehicle transfer, smoothing, or dynamic route choice into the mainline |
+| R1 identity/order forward reference | T0017 individual-tracking LTM; T0016 LIFT; T0018 MESCOP; T0008 lane-group blockage model | Integer/event order behavior, interrupted-flow/blockage fixtures, and selected published reference cases | Forward-reference reproduction | No reviewed public implementation was verified as a drop-in reference for the exact V1–V3 geometry | Build the smallest independent forward fixture or reproduce published cases; keep it outside the differentiable state path | R1 is not a gradient baseline and must not be tuned to agree with B3 |
+| R2 richer microscopic evaluator | T0032 official SUMO traffic-light documentation; T0025 `sumoITScontrol`; T0022 Osorio and Selvam multi-simulator optimization; T0027 reliable scenario-based optimization | SUMO lane/route/signal execution and trip outputs; TraCI/libsumo control; replicated scenario/evaluation practices; multi-simulator separation | Direct software reuse plus protocol adaptation | [Eclipse SUMO](https://github.com/eclipse-sumo/sumo) is maintained, open source under EPL-2.0, and exposes traffic-light programs plus TraCI/libsumo. [sumoITScontrol](https://github.com/DerKevinRiehl/sumoITScontrol) is public GPL-3.0 and provides standardized controller/evaluation patterns | Pin a SUMO version; generate the symmetric V0–V4 networks and routes; define one effective-service-to-program mapping; collect TST-compatible trip/source-wait measures; run paired seeds | SUMO does not provide the reference gradient. `sumoITScontrol` targets established controllers, so its controller semantics should not replace the project task |
+| Optimizer-only comparison | T0024 TuRBO green-split optimization; T0002 differentiable agent-based SBO; T0022 multi-simulator optimization | Trust-region BO/search logic, matched gradient-versus-gradient-free evaluation, and later multi-fidelity scheduling | Methodological adaptation or external optimizer-library reuse | Paper/repository availability supports implementing or calling the optimization methods, but an exact library/version choice has not been frozen | Wrap the same model/action/objective; count objective and derivative calls separately; centralize seeds, initialization, and stopping rules | Do not let optimizer tuning or unequal budgets masquerade as a representation result |
+
+## Concrete adoption plan by baseline
+
+### B0 — retain the project backbone; adopt reference tests and AD patterns
+
+B0 should not be a new imported simulator. The existing project LTM/node foundation is already the matched macro implementation. T0001/UNsim is most useful as an independent engineering and derivative reference: compare simple LTM/node cases, piecewise-AD behavior, and batching patterns. T0005, T0011, and T0012 justify and constrain the service adapter and task semantics. This is lower-risk than replacing the accepted backbone with JAX code whose route and node behavior differ.
+
+### B1 — choose one principal published structured-queue formulation
+
+The recommended principal equation source is T0015 for turn-level queue transmission, with T0014 used as a separately identifiable partial-FIFO alternative or sensitivity setting—not silently fused into T0015. T0007 validates the task relevance of turn queues and supplies the nearest signal-control precedent. T0010 supplies physical-queue checks. Before differentiation, B1 should reproduce a published or hand-computed queue-transmission case and demonstrate its declared FIFO/restriction behavior.
+
+### B2 — use T0030 as the lane-allocation anchor and expose storage augmentation
+
+T0030 is the clearest recent algorithmic anchor for movement-to-lane allocation without exact order. Its published equilibrium formulation and solution scheme can be transcribed. Because the primary V2/V3 task requires finite bay storage, the chosen storage/obstruction equations must be explicitly sourced from one of T0008–T0010 and documented as an augmentation. B2 should be rejected as unfair if this composition cannot be specified without outcome-fitted rules.
+
+### B3 — maintain a component provenance table, not a single-paper claim
+
+B3's affinity is architectural. Its aggregate propagation, node service, lane storage, persistent order, and access/service operators each need their own source or project-approved derivation. T0017 is a forward order precedent, not authority for continuous-mass differentiation. T0001 and T0003 demonstrate viable AD engineering patterns, but their code should be mined only for test/organization ideas because B3 uses PyTorch and different traffic semantics. The novel claim depends precisely on the absence of a direct published implementation of this composition.
+
+### R1/R2 — separate independent reference from production code
+
+R1 should remain independently coded or externally executed so it can catch shared implementation errors. R2 should directly reuse SUMO and its official control APIs. Official documentation confirms that signal programs and phase duration/state can be set through TraCI, while libsumo offers compatible calls with less process overhead. The effective-service mapping still requires T6/later approval; direct SUMO availability does not solve that scientific mapping automatically.
+
+## Adoption gates before implementation
+
+For every adopted method or codebase, the responsible milestone/experiment plan must record:
+
+1. exact paper, equation/algorithm section, and version or commit;
+2. adoption class from this document;
+3. unchanged source semantics and every project-specific adaptation;
+4. units, indexing, update order, and neutral/limit behavior;
+5. license and whether code is copied, called, or consulted only;
+6. independent reference cases before AD is relied upon;
+7. derivative validation when the role is gradient-bearing; and
+8. capability boundaries that prevent the baseline from receiving unavailable order/access state.
+
+## What this establishes—and does not
+
+The ladder is implementable without inventing every baseline from scratch. Published equations cover aggregate LTM/service, turn queues/partial FIFO, lane allocation, and finite storage; maintained software covers the richer evaluator and offers differentiable-engineering references.
+
+It does not establish that all components are drop-in libraries, nor should that be the standard. For scientific baselines, transparent equation transcription and independently reproduced behavior are often more credible than wrapping incompatible research code. The remaining engineering choices—especially the exact B1 formulation, the precise B2 storage augmentation, and the SUMO service-realization wrapper—must be frozen at their ordinary milestone or experiment gates.

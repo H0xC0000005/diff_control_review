@@ -1,0 +1,223 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\begin{document}
+\begin{center}
+{\Large M2 joined opening: admission before recovery}\\[4pt]
+15 October 2026 --- analytical audit and a terminal-priority gate
+\end{center}
+
+\textbf{Status.} The user approved the three-part joined review and conditional
+E slowing. M2 remains selected. This note checks a shared service/allocation
+interface and stops at M2-A1, a possible narrow terminal-priority amendment.
+Neither alternative nor a complete M2 constitutive law is approved. No
+traffic integration, numerical gradient, calibration or optimisation occurs.
+All earlier mathematical sources/PDFs remain unchanged.
+
+\section*{1. Retained physical inputs and the literal terminal rule}
+
+Retain H1's entrance histories $F_j$, minimum-travel eligibility $P_j$,
+finite terminal length $b$, jam density $k_j$, common advice $v$ and known
+empty initial state. Write
+\begin{equation}
+ P_j(t)=F_j(t-b/v),\qquad q_j=P_j-Y_j,\qquad N_j=F_j-Y_j,
+ \quad j=E,A,B. \tag{1}
+\end{equation}
+Cumulative mass/stock is in vehicle-equivalents; departure, demand and
+service rates below are in vehicle-equivalents per second. Retain
+\begin{equation}
+ C(v)=\frac{wk_jv}{w+v},\qquad 0\leq\mu(t)\leq R\leq C(v_-),
+ \qquad v\in[v_-,v_+]. \tag{2}
+\end{equation}
+$\mu$ is the one effective shared ceiling. Its M2 update is not specified
+by (2). Eligible lane demand has the existing interpretation
+\begin{equation}
+ d_j=\begin{cases} C(v),&q_j>0,\\ \dot P_j,&q_j=0.\end{cases}
+ \tag{3}
+\end{equation}
+The inherited strict allocator is
+\begin{equation}
+ g_A=\min\{d_A,\mu\},\qquad
+ g_E=\min\{d_E,\pos{\mu-g_A}\},\qquad \dot Y_j=g_j. \tag{4}
+\end{equation}
+
+\textbf{Strict-priority consequence.} Whenever $q_A>0$, (2)--(3) give
+$d_A=C(v)\geq\mu$, hence
+\begin{equation}
+ q_A>0\quad\Longrightarrow\quad g_A=\mu,\quad g_E=0. \tag{5}
+\end{equation}
+The consequence holds for every admissible service history and every
+recovery memory. Lowering $\mu$ cannot by itself create an E allocation.
+This is temporary exclusion during A backlog, not proof of permanent
+starvation of a finite cohort. It does not rule out E entry while A is
+unqueued or A delay caused by earlier E entry.
+
+\textbf{Interpretation limit.} Equations (3)--(5) average within-lane
+service; they do not identify physical gaps. Giving E passage during
+$q_A>0$ by a new demand adapter would change this contract just as changing
+(4) would. It is not a local transcription correction.
+
+\newpage
+\section*{2. A concrete alternative allocation, not a recovery law}
+
+The merge template in
+\href{https://arxiv.org/pdf/1310.2660}{Jin, Gan and Lebacque, section 6,
+equations (15)} separates downstream service and priority. Reuse only its
+allocation shape, with a proposed E priority weight $0\leq\beta<1$:
+\begin{align}
+ g_E&=\min\{d_E,\max\{\mu-d_A,\beta\mu\}\},\nonumber\\
+ g_A&=\min\{d_A,\max\{\mu-d_E,(1-\beta)\mu\}\}. \tag{6}
+\end{align}
+This is a proposed M2 adaptation of that allocation; the source's
+phenomenological capacity-drop law is not imported. A weight favoring A
+would use $\beta<1/2$, but no value or calibration is selected. The weight
+is a shared physical/model parameter, not another control or an observer
+privilege. At $\beta=0$, (6) reproduces (4).
+
+For all nonnegative demands and service,
+\begin{equation}
+ 0\leq g_j\leq d_j,\qquad
+ g_A+g_E=\min\{d_A+d_E,\mu\}. \tag{7}
+\end{equation}
+To verify, first take $d_A+d_E\leq\mu$: both minima equal their own
+demands. Otherwise, if $d_E\leq\beta\mu$, E gets its demand and A the
+remainder; if $d_A\leq(1-\beta)\mu$, reverse those roles. In the remaining
+case each receives its weighted share. These cases exhaust the domain,
+including equalities and $\mu=0$.
+
+If both queues are positive, $d_A=d_E=C(v)\geq\mu$, so
+\begin{equation}
+ (g_A,g_E)=((1-\beta)\mu,\beta\mu). \tag{8}
+\end{equation}
+If only A is queued, $g_E=\min\{d_E,\beta\mu\}$; an E stream with positive
+demand can therefore enter before the A queue empties. Unused E allocation
+returns to A. A lone stream can use the whole ceiling. Thus $\beta$ does
+not impose a fixed completed merging proportion outside contention.
+
+\textbf{Hand case, not a rollout.} At $\mu=600$ vehicle-equivalents/hour
+and saturated eligible A/E demands, strict priority gives $(600,0)$;
+illustrative $\beta=1/4$ gives $(450,150)$. These are exact allocations,
+not proposed traffic parameters or empirical throughput. The common total
+is unchanged. If total demand is 400, (7) passes 400 under either rule;
+no artificial queue or slowing is implied by (6).
+
+\textbf{Scope.} Changing (4) to (6) with $\beta>0$ changes terminal
+right-of-way/service allocation. It leaves H1's own-lane-first lateral
+rule, cutoff, storage, advice and local completion untouched. The allocation
+alone specifies neither an acceptable physical gap, crossing speed,
+maneuver friction nor recovery. It is not a complete M2 law.
+
+\newpage
+\section*{3. Kinematic and recovery guardrails}
+
+For a triangular fundamental diagram, a congested branch compatible with
+a rate $0<f<C(v)$ is
+\begin{equation}
+ k_{\rm c}(f)=k_j-f/w,\qquad
+ u_{\rm c}(f)=\frac{wf}{wk_j-f},\qquad C(u_{\rm c}(f))=f. \tag{9}
+\end{equation}
+The free branch at the same rate has speed $v$. A queue/regime can motivate
+examining (9); the lateral insertion trajectory does not follow uniquely
+from a point count. No actual speed is assigned to absent traffic.
+
+The source
+\href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{Leclercq et al., section 3.2}
+uses the congested-entry regime for its flow/speed relation. It does not
+prove a universal empty-start point-entry map. Its mean-capacity process
+and our finite transient account remain distinct.
+
+\textbf{Why an automatic A feedback needs care.} Suppose a tentative rule
+uses (9) for queued A and takes the fresh isolated loss amplitude to be
+$D_A(0)=R-C(u_A)$. Under strict priority, (5) gives
+\begin{equation}
+ q_A>0,\quad u_A=u_{\rm c}(g_A),\quad g_A=\mu
+ \quad\Longrightarrow\quad D_A(0)=R-\mu. \tag{10}
+\end{equation}
+The supposed new A-loss amplitude is exactly the shared service reduction
+already acting. Adding a fresh independent recovery copy for every such
+follower needs another physical justification; observing low A speed alone
+does not supply it. Under (8) it would even include the part of service
+allocated to E. This diagnostic does not rule out a separately justified
+A startup/acceleration mechanism or prove every possible A model duplicates
+loss. No such extra source is selected.
+
+\textbf{Shared-account contract.} Let $Z$ denote sufficient predicted
+aggregate state/history, not traffic mass, and let a future qualified law
+produce $\mu=\mathcal M(Z,\text{current state})$. Admissions can update
+$Z$ using their amount/type and justified kinematics. A single output
+$\mu$ is compatible with richer internal memory. Neither an unproved
+one-state reduction nor independent constraints per past entry are assumed.
+An E passage with no actual disturbance must not acquire a fixed slow-entry
+penalty merely because it is E.
+
+\textbf{Still open.} Conditional admission/opportunity, actual departure
+speed, recovery overlap and causal closure remain unformed. Neither (6)
+nor a larger memory automatically supplies these. Initial ordinary
+underload may still be a benign regime; a compulsory interaction must be
+specified before claiming the model generates a consequential episode.
+No exclusive slowing-origin choice is reinstated.
+
+\newpage
+\section*{4. Joined interfaces that can already be checked conditionally}
+
+Assume departures are conservative, absolutely continuous, minimum-travel
+eligible and demand/service feasible. The fixed finite-terminal domain
+\begin{equation}
+ H=k_jb>M,\qquad 0\leq\dot F_j\leq C(v),\qquad F_j\leq M \tag{11}
+\end{equation}
+protects H1's handoff under either allocation. Before $b/w$, vacancy is
+at least $(k_jw-C(v))t>0$; afterwards,
+\begin{equation}
+ V_j(t)=Y_j(t-b/w)+H-F_j(t)\geq H-M>0. \tag{12}
+\end{equation}
+Physical stock remains $N_j=F_j-Y_j$; $Z$ is never added to stock. These
+are sufficient interface bounds, not a general upstream spillback solver.
+
+For the uniform initial footprint $[0,\ell]$ on the road of length $L$,
+complete local cohort time has the unchanged conservative identity
+\begin{equation}
+ J(v)=\frac{M(L-\ell/2)}v+
+       \int_0^\infty(q_A+q_E+q_B)\,dt. \tag{13}
+\end{equation}
+It follows by writing $M-\sum_jY_j=(M-\sum_jP_j)+\sum_jq_j$ and
+integrating each travel-eligibility delay. A and E queue areas both count.
+Post-crossing recovery may affect following departures but contributes no
+second post-crossing vehicle-time to the local objective.
+
+\textbf{A sufficient clearance criterion, not a new M2 proof.} Set
+$Q=q_A+q_E$ and $t_*=L/v$, after which all traffic is eligible and no new
+external traffic arrives. B retains its independent admitted domain and
+$Y_B=P_B$, so B is clear by $t_*$. If a candidate guarantees a finite total loss
+budget
+\begin{equation}
+ 0\leq\mu\leq R,\qquad
+ \int_{t_*}^{\infty}(R-\mu(t))\,dt\leq\Lambda<\infty, \tag{14}
+\end{equation}
+then work conservation (7), or (4), gives $\dot Q=-\mu$ whenever $Q>0$.
+If it had not cleared by $T>t_*$,
+\begin{equation}
+ Q(T)=Q(t_*)-R(T-t_*)+
+       \int_{t_*}^T(R-\mu(t))dt
+ \leq Q(t_*)-R(T-t_*)+\Lambda. \tag{15}
+\end{equation}
+Thus clearance occurs by $t_*+[Q(t_*)+\Lambda]/R$. The argument permits
+temporary zero service and assumes no artificial positive floor. M2 must
+establish (14) or another valid clearance argument for its exact law;
+M1's finite-kernel proof does not transfer automatically.
+
+\textbf{Limits and gate.} Neither a complete coupled-law uniqueness proof
+nor a reachable consequential MP6 domain is supplied. Known initial state
+plus a uniquely autonomous law would permit the familiar ending-statistic
+initialization, but that conditional statement does not establish decision
+relevance or a useful gradient. M2-A1 asks whether to retain (4) or reopen
+terminal allocation for positive-weight (6). Both preserve conditional E
+slowing and the model--SUMO S-P--SUMO S-L ladder. Freeze no new priority,
+demand domain, information channel or recovery law at this audit.
+\end{document}

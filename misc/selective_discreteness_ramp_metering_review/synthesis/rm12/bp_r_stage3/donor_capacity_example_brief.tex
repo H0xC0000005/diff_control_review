@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=20mm]{geometry}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\raggedright\emergencystretch=3em
+\begin{document}
+\begin{center}
+{\Large Why the donor-capacity options give different amounts}\\[3pt]
+9 October 2026 --- a short explanation of the existing gate example
+\end{center}
+
+\textbf{The setting.} Consider one 1-second update. Traffic can leave a donor
+lane either by continuing through or by changing lane. The through destination
+is blocked; the lane-change destination has enough receiving capacity. Traffic
+reaches the donor's exit only after 0.9 seconds, leaving \textbf{0.1 seconds}
+to discharge. All amounts are continuous vehicle-equivalents (eq), not integer
+vehicles.
+
+\textbf{Where the shared numbers come from.} The 30-m donor initially contains
+traffic in its first 3 m, at density 0.15 eq/m. The leading front covers the
+remaining 27 m at 30 m/s. The example's physical sending capacity is
+$Q=9/14\simeq0.642857$ eq/s. There is no earlier exit flow.
+\[
+\begin{aligned}
+\text{initial traffic}&=3\times0.15=0.45\ \mathrm{eq},\\
+\text{arrival time}&=(30-3)/30=0.9\ \mathrm{s},\\
+\text{lane-change allowance}&=25\%\times0.45=0.1125\ \mathrm{eq}.
+\end{aligned}
+\]
+The 25\% is the original sampled lane-choice fraction. The 0.1125-eq allowance
+limits \emph{total lane-changing mass during this update}. Both options keep it.
+
+\textbf{D1: reserve an instantaneous capacity fraction for each movement.}
+The 25\% fraction also caps the lane-change \emph{rate}. Blocking the through
+exit does not release its fraction for lane changing. Thus:
+\[
+\begin{aligned}
+\text{lane-change rate}&=0.25\times0.642857\simeq0.160714\ \mathrm{eq/s},\\
+\text{accepted mass}&=\min\{0.160714\times0.1,\ 0.1125\}
+\simeq\boxed{0.016071\ \mathrm{eq}}.
+\end{aligned}
+\]
+\textbf{Core idea:} the original direction fraction governs both how much
+traffic may change lane and how quickly it may be served. Some donor sending
+capability stays unused when the through exit is blocked.
+
+\textbf{D2: share physical sending among still-active original requests.}
+Lane changing is the only usable exit, so it can use the donor's full physically
+available sending, until its original amount allowance is exhausted:
+\[
+\text{accepted mass}=\min\{0.642857\times0.1,\ 0.1125\}
+\simeq\boxed{0.064286\ \mathrm{eq}}.
+\]
+\textbf{Core idea:} the fraction limits total requested mass, without imposing
+an additional direction-specific rate cap. This borrows unused \emph{sending
+capability}, not the blocked movement's mass allowance. It creates no new
+lane-changing demand.
+
+\textbf{Why the difference matters.} Both results are below 0.1125 eq, so both
+respect the same amount limit. If the existing accepted-entry counter is 0.94,
+the ending counters are:
+\[
+\text{D1: }0.94+0.016071\simeq0.956071<1,
+\qquad
+\text{D2: }0.94+0.064286\simeq1.004286>1.
+\]
+Under the already approved E1 bookkeeping rule, only D2 therefore generates a
+new restriction record at the next regular update. That record adds no traffic
+mass. This shows a real difference in the forward laws; it does not prove that
+D2 is more realistic or gives a better control policy. Neither option is adopted.
+
+\small
+For the exact underlying traffic fields, see Section 6 of
+\href{fixed_share_completion_math.pdf}{the existing joint-example derivation}.
+Here rates are rounded for readability; the exact accepted amounts are
+$9/560$ eq (D1) and $9/140$ eq (D2).
+\end{document}

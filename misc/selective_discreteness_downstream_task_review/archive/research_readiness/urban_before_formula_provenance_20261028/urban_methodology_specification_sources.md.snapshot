@@ -1,0 +1,108 @@
+# Urban model: component sources, equations and evidence
+
+28 October 2026. Feedback 13 clears earlier broad highlighting, marks selected current changes in red, and makes the derivative section explain its forward sources, internal balances and role in the complete gradient path. The main report has 23 numbered equations; the companion has 35. The core traffic laws and geometry remain unchanged. This is a mathematical report under review, not an implemented simulator or an empirical result.
+
+[Main report](../../reporting/research_readiness/urban_compact_methods_report.pdf)
+
+[Mathematical companion](../../reporting/research_readiness/urban_methodology_specification.pdf)
+
+[Component provenance, reading depth and CTM clarification](urban_feedback12_component_provenance.md)
+
+[Current feedback-13 response](../../reporting/research_readiness/urban_feedback13_response.md)
+
+[Earlier feedback-12 response](../../reporting/research_readiness/urban_feedback12_response.md)
+
+[Pre-feedback-13 report/source snapshots](../../archive/research_readiness/urban_before_feedback13_20261028/README.md)
+
+## What the composition represents
+
+U feeds parallel F1/F2; F1 branches to left-only B and through-only T1; F2 continues to shared through/right T2. Through traffic chooses a feeder on actual admission, then retains that realized lane. A blocked F1 head cannot be passed by its followers while independently accessible F2 may continue. Actual-admission assignment, movement-specific residual priority, fixed average service, current-ready-head receiving reuse and complete TST are unchanged.
+
+The per-lane grid uses fixed cumulative-mass bins and exact overlaps with continuous packet intervals. It is derived from the authoritative ordered ledger, with geometry-derived capacity masks and no duplicated mass. This restores the documented project representation. It does not add a spatial CTM wave law to the LTM sections. The long-link ledger preserves route identity/timing; local lane ledgers add realized order. Their continuous quantities and timing, the grid overlaps and cumulative histories all participate in the sensitivity map.
+
+The older adoption matrix's T0017 author attribution is corrected: the individual-tracking paper is de Souza et al. (2025), not Yperman. Yperman remains the LTM thesis source. The primary-source distinction and original snapshot are recorded in the provenance note.
+
+## Equation-level provenance
+
+Labels in this table refer to the current companion. Inherited means the verified repository transcription is reused; it does not mean that a literature theorem applies to the complete urban composition.
+
+| Companion labels / definition | Basis | Status and limit |
+|---|---|---|
+| eq:action | Average-service idea from Han et al.; fixed four-group task | Physical-cap/saturation minimum for this model. No finite-cycle equivalence theorem is imported. |
+| eq:geometry | User's feedback-11 representative topology | Internal two-feeder/three-terminal geometry; matched within each comparison. |
+| eq:history, eq:sending, eq:receiving | Yperman LTM lineage and approved repository transcription | Fixed delayed cumulative queries, triangular FD and affine interpolation; application to the local section graph is this model's composition. |
+| eq:grid | Documented cumulative-mass lattice and ledger-authoritative grid; cell-based CTM lineage | Exact packet/bin overlaps, not the spatial CTM flux equation. Fixed geometry masks and partial final bins; one physical mass. |
+| Route/position and continuous packet timing | Continuous ledger specification; identity-tracking idea illustrated by de Souza et al. | Route/order metadata are fixed; integer-transfer mechanism is not imported. |
+| Ready candidate inspection and residual priority | Existing urban scan policy, adapted from the original passive ledger extraction | Sending limits transferred mass, not candidate inspections. Physical access still blocks an occupied lane's followers. |
+| eq:allocation, eq:allocation-update | Gong et al.'s equilibrium-allocation idea; local quadratic queue cost and capacity constraints | The present per-packet entry adaptation, not Gong's original exit-node algorithm. Actual additions alone update occupancy and perceived load. |
+| eq:physical-access | Explicit actual-lane FIFO and fixed topology | No cross-feeder bypass; independent access follows actual edges. |
+| eq:receiving-rate | Current constant average receiving convention | Converts the timestep allowance into the local head-service rate limit. |
+| eq:leg-sharing, eq:lane-sharing, eq:head-time, eq:service-amount | First-order node feasibility framework; model-specific green/equal priorities and elapsed-rate FIFO | Capped reuse among current heads. Theta and eta are solved rate-sharing levels; the priorities are not Tampère's original oriented-capacity algorithm. |
+| eq:head-example, eq:head-example-derivative | Direct arithmetic and differentiation of elapsed service in a shared-lane diagnostic | Local rate/head-time response, not a left permission for representative T1 or complete-TST benefit. |
+| eq:state-update, eq:storage-bound, eq:mass-identity | Paired transfers, cumulative histories and compatible timestep | Derived conservation/storage and population identities, also route-wise. |
+| eq:entry-time | Affine reconstruction from the continuous ledger specification | Explicit front/tail entry interval using mass offset z and admitted packet mass. Add fixed free-flow time for readiness. |
+| eq:allocation-derivative, eq:allocation-level-derivative, eq:scan-derivative | Derivative of the actual-admission mass balances | Explicit d/d-alpha notation, same continuous law and active constraints. |
+| eq:sharing-derivative, eq:sharing-level-derivative, eq:service-derivative, eq:duration-derivative | Derivative of the forward sharing, amount and stopping-time laws | Total balances precede case expansions; solved common levels are separate. Rate and duration responses both contribute. The duration display includes head, sending and timestep-ending branches. |
+| eq:grid-derivative | Exact overlap and cumulative-rank calculus | Fixed bin edges, continuous packet endpoints; no differentiation through route labels. |
+| eq:eligibility-derivative, eq:entry-derivative | Affine readiness fractions and entry-rank quotient calculus | Both mass and timing responses retained; derivative domain is stated in the companion. |
+| eq:ltm-derivative | Direct derivative of inherited delayed sending/receiving limits | Fixed query times, sensitive history values; capacity and zero branches follow the existing min/max map. |
+| eq:tst | Inherited source-plus-road occupancy quadrature | All available releases remain charged until sink exit, in vehicle-equivalent seconds. |
+| eq:state-sensitivity, eq:exit-objective | Full state chain rule and population conservation | The response persists during fixed clearance. No useful-gradient claim is inferred solely from derivability. |
+| eq:reference-action | Existing common executable-action mapping and official SUMO interface | Nominal opportunity mapping; implementation, calibration and external qualification are later evidence. |
+
+## Main-to-companion map
+
+The main now follows the causal sensitivity path: rates, available service time, remaining mass/grid, later lane admission, entry/propagation timing, and complete TST. Balance/case systems and their solved common-level gradients are separate numbered displays. The forward service-amount sum is explicit before its derivative. These are presentation and algebraic expansions of existing laws, not changed traffic rules.
+
+All 30 prior companion labels remain, with five new labels. The main retains 19 of its 20 previous labels and adds four. Its detailed local example (`eq:compact-service`, formerly equation 18) is replaced by a traffic explanation; its formula remains in companion `eq:head-example`, with the optional derivative in `eq:head-example-derivative`. Current totals are 23 main and 35 companion labels, all mapped here.
+
+| Main label | Companion label or section |
+|---|---|
+| eq:compact-domain | Physical parameter/timestep domain |
+| eq:compact-sending | eq:sending |
+| eq:compact-receiving | eq:receiving |
+| eq:compact-allocation | eq:allocation |
+| eq:compact-action | eq:action |
+| eq:compact-leg-sharing | eq:leg-sharing |
+| eq:compact-lane-sharing | eq:lane-sharing |
+| eq:compact-head-time | eq:head-time |
+| eq:compact-service-amount | eq:service-amount |
+| eq:compact-update | eq:state-update |
+| eq:compact-entry | eq:entry-time |
+| eq:compact-grid | eq:grid |
+| eq:compact-tst | eq:tst |
+| eq:compact-chain | eq:state-sensitivity |
+| eq:compact-sharing-derivative | eq:sharing-derivative |
+| eq:compact-sharing-level-derivative | eq:sharing-level-derivative |
+| eq:compact-service-derivative | eq:service-derivative |
+| eq:compact-head-time-derivative | eq:duration-derivative (head-clearance branch) |
+| eq:compact-grid-derivative | eq:grid-derivative |
+| eq:compact-allocation-derivative | eq:allocation-derivative |
+| eq:compact-allocation-level-derivative | eq:allocation-level-derivative |
+| eq:compact-entry-derivative | eq:entry-derivative |
+| eq:compact-objective-derivative | eq:exit-objective |
+
+## Forward source of each sensitivity block
+
+| Current main equations | Forward source | Role in the full path |
+|---|---|---|
+| 14 | Timestep composition of 2–12 | Carries prior state response and adds direct control response. |
+| 15–16 | Leg sharing 6; lane sharing 7 uses equal weights | Green and receiving changes become granted-rate changes. |
+| 17 | Service-amount sum 9 | Combines rate and duration changes into transferred mass. |
+| 18 | Head-clearance branch of 8 | Earlier/later head removal changes followers' service time. Other stopping branches are explicit in the companion. |
+| 19 | Grid/overlap definition 12 and remaining ledger mass | Changed traffic quantities become later lane-load responses. |
+| 20–21 | Actual-admission rule and total balance 4 | Changed loads, demand, sending and room change later actual lane entry. |
+| 22 | Front-entry endpoint in 11 | Entry changes become readiness changes and feed later LTM limits 2–3. |
+| 23 | Population-time objective 13, rewritten by conservation | Cumulative sink-exit responses become complete TST sensitivity. |
+
+## Comparison purpose and evidence limits
+
+V0–V3 isolate and combine traffic mechanisms; V4 reserves demand, turn-share, bay-storage/length, order and receiving combinations for robustness outside calibration/tuning. The order-only and storage-only cases are separate controls, not a strictly nested information ladder. The printed comparison models use public descriptive names rather than internal codes. The detailed baseline policy and original-series aggregate-inference allowance remain unchanged.
+
+The movement-queue and lane/storage sources remain working model directions, not fully qualified current adapters. Their literature role is now connected to what the ablations should explain. The earlier exclusive-target mixture ablation remains unselected; this revision does not introduce a weaker comparator or select new baseline algorithms.
+
+Feedback-13 exact arithmetic checks concern the separated admission and weighted-service balances, all three duration branches, cancellation for a fully cleared fixed head, and the optional shared-lane derivative. These are rational first-order identity checks, not executed traffic or numerical-gradient experiments. Existing reference checks remain historical evidence at their original scope. No simulator, AD/finite-difference traffic experiment, optimization, richer-reference run, package installation or numerical scenario calibration is undertaken. A complete, readable derivative path does not establish implementation correctness or external usefulness.
+
+[Current reading guide](../../temp_content/research_readiness/unified_methodology_draft.md)
+
+[Review decisions](../../temp_content/research_readiness/review_decisions.md)

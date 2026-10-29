@@ -1,0 +1,48 @@
+access_id,date,source_id,url,result,evidence
+N2A001,2026-09-16,FB0013,https://doi.org/10.1061/JTEPBS.0000395,publisher route checked,E1
+N2A002,2026-09-16,FB0013,https://ascelibrary.org/doi/10.1061/JTEPBS.0000395,403,E1
+N2A003,2026-09-16,FB0013,https://ascelibrary.org/doi/epdf/10.1061/JTEPBS.0000395,retrieval cache miss,E1
+N2A004,2026-09-16,FB0013,https://www.researchgate.net/publication/343367845_Optimal_Variable_Lane_Group-Based_Speed_Limits_at_Freeway_Lane_Drops_A_Multiobjective_Approach,no full text request only,E1
+N2A005,2026-09-16,FB0013,https://researchconnect.buffalo.edu/en/publications/optimal-variable-lane-group-based-speed-limits-at-freeway-lane-dr/,search-indexed official metadata inspected direct open failed,E1
+N2A006,2026-09-16,FB0013,https://www.buffalo.edu/content/dam/engineering/civil-structural-environmental/faculty-CVs/A.Sadek_CV_2021.pdf,bibliographic lead not target text,E1
+N2A007,2026-09-16,FB0021,https://www.sciencedirect.com/science/article/pii/S0968090X14003209,indexed abstract and snippets full retrieval failed,E2-context-only
+N2A008,2026-09-16,FB0021,https://www.researchgate.net/publication/270595759_Variable_speed_limit_control_for_severe_non-recurrent_freeway_bottlenecks,no full text,E1
+N2A009,2026-09-16,FB0021,https://uml.academia.edu/DanjueChen/Papers,author listing lead retrieval failed,E1
+N2A010,2026-09-16,FB0021,https://trid.trb.org/View/1342198,authorized abstract and metadata inspected,E1
+N2A011,2026-09-16,FB0020,https://www.researchgate.net/publication/321448438_Integrated_control_of_highway_traffic_flow,full author text selected methods inspected,E3-selected-locations
+N2A012,2026-09-16,FB0022,https://doi.org/10.1111/mice.13492,redirect retrieval failed,discovery
+N2A013,2026-09-16,FB0022,https://onlinelibrary.wiley.com/doi/10.1111/mice.13492,official full HTML methods and experiment contract inspected,E3-selected-locations
+N2A014,2026-09-16,FB0023,https://faculty.eng.ufl.edu/lilidu/wp-content/uploads/sites/164/2025/07/TR-PartB_Variable-Speed-Limit_R1-Final.pdf,open author PDF abstract inspected,E1-full-available
+N2A015,2026-09-16,FB0024,https://attap.umd.edu/wp-content/uploads/2023/01/JTEPBS.0000481.pdf,open university PDF abstract inspected,E1-full-available
+N2A016,2026-09-16,FB0013,archive/user_supplied/FB0013.pdf,supplied published 15-page PDF all pages inspected hash verified,E3
+N2A017,2026-09-16,FB0021,archive/user_supplied/FB0021.pdf,supplied published 21-page PDF all pages including appendix inspected hash verified,E3
+N2A018,2026-09-16,FB0003,archive/full_text/FB0003.pdf,sections3 and6-7 response law and field meaning inspected,E3-selected-locations
+N2A019,2026-09-16,FB0005,archive/full_text/FB0005.pdf,Table3.2 and sections8.3-9.1 inspected numerical discrepancy recorded,E3-selected-locations
+N2A020,2026-09-16,FB0002,archive/full_text/FB0002.pdf,selected variation optimization and appendix locations inspected,E3-selected-locations
+N2A021,2026-09-16,RM0025,https://link.springer.com/article/10.1007/s11081-026-10122-4,official published date verified and inherited final PDF sections4-5 inspected,E3-selected-locations
+N2A022,2026-09-16,FB0004,https://www.researchgate.net/publication/340013753_Integrated_Variable_Speed_Limits_and_Lane-Changing_Control_for_Freeway_Lane-Drop_Bottlenecks,author full methods actuator and population inspected,E3-selected-locations
+N2A023,2026-09-16,FB0024,https://attap.umd.edu/wp-content/uploads/2023/01/JTEPBS.0000481.pdf,full methods eq7-12 and field evaluation inspected,E3-selected-locations
+N2A024,2026-09-16,FB0029,https://www.fhwa.dot.gov/publications/research/operations/16023/002.cfm,official speed-advisory methods and simulation compliance scenarios inspected,E3-selected-locations
+N2A025,2026-09-16,SUMO-DOC,https://sumo.dlr.de/docs/Simulation/Variable_Speed_Signs.html,lane-limit actuator capability inspected,official-documentation
+N2A026,2026-09-16,SUMO-DOC,"https://sumo.dlr.de/docs/Definition_of_Vehicles,_Vehicle_Types,_and_Routes.html",speedFactor realization distributions and departure handling inspected,official-documentation
+N2A027,2026-09-16,SUMO-DOC,https://sumo.dlr.de/docs/Simulation/Rerouter.html,lane-closing intervals permissions and rerouting warning inspected,official-documentation
+N2A028,2026-09-16,SUMO-DOC,https://sumo.dlr.de/docs/TraCI/Change_Vehicle_State.html,desired speed parameter versus direct speed command distinction inspected,official-documentation
+N2A029,2026-09-16,SUMO-DOC,https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html,arrived-only output departDelay and write-unfinished inspected,official-documentation
+N2A030,2026-09-16,FB0026,https://www.dcsc.tudelft.nl/~bdeschutter/pub/rep/19_022.pdf,browser timeout and default curl DNS failure; same download escalated successfully then archived,E3-selected-locations
+N2A031,2026-09-16,FB0030,https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae,university full PDF inspected and archived by approved network download,E3-selected-locations
+N2A032,2026-09-16,FB0033,https://www.mdpi.com/2076-3417/16/14/7091,main page 429 and alternate html retrieval failure,E1-retrieval-only
+N2A033,2026-09-16,FB0033,https://www.mdpi.com/2076-3417/16/14/7091/notes,publisher version date verified July15-2026,primary-metadata
+N2A034,2026-09-16,FB0033,https://www.researchgate.net/publication/410108475_Three-Layer_Model_Calibration_for_SUMO_A_Study_on_Speed-Limit_Compliance_in_Chinese_Work_Zones,publisher-provided full text selected methods and Table10 and data limits inspected,E3-selected-locations
+N2A035,2026-09-16,FB0007,https://arxiv.org/abs/2607.16615,latest landing-page v2 August10-2026 verified boundary only,primary-version-metadata
+N2A036,2026-09-16,FB0008,https://arxiv.org/abs/2601.06311,v1 January9-2026 and related FISTS DOI verified ramp-actuator boundary,primary-version-metadata
+N2A037,2026-09-16,FB0009,https://arxiv.org/abs/2503.06767,v1 March9-2025 verified ramp-actuator boundary,primary-version-metadata
+N2A038,2026-09-16,SEO2026,https://arxiv.org/abs/2604.11380,v3 April29-2026 verified AD LTM toll-routing boundary,primary-version-metadata
+N2A039,2026-09-16,FB0033,https://www.researchgate.net/publication/410108475_Three-Layer_Model_Calibration_for_SUMO_A_Study_on_Speed-Limit_Compliance_in_Chinese_Work_Zones,section4.3 same dataset no independent validation verified in full text,E3-selected-locations
+N2A040,2026-09-17,FB0030,https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae,feedback23 candidate discussion re-opened primary model text existing source study reused,E3-selected-locations
+N2A041,2026-09-17,FB0024,https://attap.umd.edu/wp-content/uploads/2023/01/JTEPBS.0000481.pdf,feedback23 candidate discussion re-opened primary lane-group text existing source study reused,E3-selected-locations
+N2A042,2026-09-17,FB0034,https://skoge.folk.ntnu.no/prost/proceedings/ifac2014/media/files/1657.pdf,primary six-page PDF sections2-3 inspected,E3-selected-locations
+N2A043,2026-09-17,FB0034,https://research.aalto.fi/en/publications/traffic-flow-optimisation-in-presence-of-vehicle-automation-and-c/,2015 journal-extension DOI abstract metadata only,E1-companion-metadata
+N2A044,2026-09-17,FB0035,https://d-nb.info/1265990972/34,primary 29-page author copy section3.2 and section5 inspected,E3-selected-locations
+N2A045,2026-09-17,FB0036,https://durham-repository.worktribe.com/OutputFile/1395060,primary indexed abstract inspected direct full-text retrieval failed,E1-indexed-abstract
+N2A046,2026-09-17,FB0036,https://www.sciencedirect.com/science/article/pii/S0968090X16301152,primary indexed publication abstract direct open403,E1-indexed-abstract
+N2A047,2026-09-17,FB0036,https://trid.trb.org/View/1424424,indexed abstract lead subsequent direct open internal error,E1-indexed-abstract

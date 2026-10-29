@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "existing_documents_updated": 5,
+  "new_plan_artifacts": 3,
+  "local_links_resolved": 144,
+  "protected_files_byte_identical": 209,
+  "four_navigation_changes_only": true,
+  "dialogue_append_only": true,
+  "P1_and_approval_records_unchanged": true,
+  "MP_definitions_and_candidate_bodies_unchanged": true,
+  "new_papers_viewed": 0,
+  "scientific_tests_or_traffic_experiments_run": false,
+  "review_evidence_pass_executed": false
+}

@@ -1,0 +1,14 @@
+date,source_id,operation,url,inspection_scope,access,claim_limit
+2026-10-08,C15,open,https://arxiv.org/abs/1409.6354,version and publication metadata,readable metadata,not theorem evidence
+2026-10-08,L08,open,https://www.sciencedirect.com/science/article/pii/S0191261507001312,full source attempt,403,discovery only
+2026-10-08,G08,open,https://www.sciencedirect.com/science/article/abs/pii/S0968090X0700085X,publisher abstract attempt,403,alternate primary PDF used
+2026-10-08,V03,open lines 463,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,section 5 endogenous-feedback scope,readable primary text,no general joined-task theorem
+2026-10-08,C15,open,https://arxiv.org/pdf/1409.6354,primary stability paper,readable primary text,scope checked in targeted propositions
+2026-10-08,G08,find Theorem 5.1,https://people.eecs.berkeley.edu/~varaiya/papers_ps.dir/TRC_364.pdf,strict-feasibility theorem,readable primary text,native map only
+2026-10-08,C15,find globally,https://arxiv.org/pdf/1409.6354,check global-claim wording,no match,not negative theorem evidence
+2026-10-08,L08,find continuum,https://www.sciencedirect.com/science/article/pii/S0191261507001312,targeted continuum claim,find failed,no full proof inspected
+2026-10-08,C15,open recheck,https://arxiv.org/abs/1409.6354,version metadata,readable metadata,v3 date confirmed
+2026-10-08,L08,open recheck,https://www.sciencedirect.com/science/article/pii/S0191261507001312,full source retry,403,no full proof inspected
+2026-10-08,G08,open recheck,https://www.sciencedirect.com/science/article/abs/pii/S0968090X0700085X,publisher abstract retry,403,alternate primary PDF available
+2026-10-08,G08,open lines 185,https://people.eecs.berkeley.edu/~varaiya/papers_ps.dir/TRC_364.pdf,equations 6-11 node/ramp map,readable primary text,map differs from current N.A/restriction task
+2026-10-08,C15,open lines 1000,https://arxiv.org/pdf/1409.6354,Propositions 3-4 hypotheses,readable primary text,local/free-flow-domain results only

@@ -1,0 +1,12 @@
+source_id,activity,version,url_or_path,locations,disposition
+RM12-S3-A01,technical local re-read,Laval/Daganzo 2006 final journal,archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf,PDF 4-6;11-12,"Native mass, sampled births and constrained motion; joined reset incomplete"
+RM0011,technical web re-read,Laval/Daganzo 2004 antecedent,https://escholarship.org/content/qt8w70q261/qt8w70q261.pdf,Sections 2.2-3 PDF 4-5,Donor birth speed and sampled thresholds; mandatory adaptation unbound
+RM12-S3-S02,technical web re-read,Daganzo/Laval RR-2003-2,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,Sections 2-4;Appendix PDF 3-7,Frozen coupled count recipe; numerical field averaging and coincidence limitation
+RM12-S3-C01,technical web re-read,Daganzo/Laval PWP-2003-10,https://escholarship.org/content/qt69r4t5pp/qt69r4t5pp.pdf,Sections 1-2.3;4-5 PDF 4-9;16-18,Prescribed-path count convergence not joined endogenous node theorem
+RM12-S3-S01,technical web re-read,Daganzo PWP-94-12,https://escholarship.org/content/qt9pz309w7/qt9pz309w7.pdf,Section 3.2 PDF 14-16,Existing fixed priority; no birth reset
+RM8-P01,technical web re-read,Laval/Cassidy/Daganzo merge manuscript,https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/f/3571/files/2023/03/merges.pdf,Section 2 PDF 1-3,Retained accelerating restrictions and point merge; different calibration/control wrapper
+RM12-S3-E01,technical new web read,Goatin/Daini/Delle Monache/Ferrara NHM 2023,https://www.aimspress.com/aimspress-data/nhm/2023/2/PDF/nhm-18-02-040.pdf,Sections 2-3 eq2.1 Definitions2.1-2.2;PDF2-8,Explicit interaction laws with different passing/control; not imported
+EXACT-ACCESS,discovery/access limited,Laval 2004 thesis;Dymski thesis/network chapter,https://www.researchgate.net/publication/35936658_Hybrid_models_of_traffic_flow_impacts_of_bounded_vehicle_accelerations,Author listing;library opens failed;author chapter links failed,No full methods read;no technical adoption evidence
+RM12-S3-A03,retained unavailable,Previous gridlock original,,No retrieval attempted,User unavailable boundary preserved
+RM12-S3-Q01,retained unavailable,Previous EPFL memory original,,No retrieval attempted,Prior access boundary preserved
+EXACT-DISCOVERY,discovery/excluded,Priority preprint;second-order;relaxation;microscopic insertion;generic secondary,,Search metadata only,No technical claims or alternative adoption

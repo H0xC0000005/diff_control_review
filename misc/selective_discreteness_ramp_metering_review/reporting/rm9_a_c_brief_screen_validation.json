@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "date": "2026-10-05",
+  "documents_checked": 9,
+  "local_links_checked": 95,
+  "new_queries": 2,
+  "new_abstract_only_leads": 1,
+  "source_ids_unique": true,
+  "status_contract": "Screen approved/completed; A/C not adopted; RM9 open at UG5",
+  "not_performed": [
+    "traffic simulation",
+    "model formulation",
+    "numerical gradient tests",
+    "PDF build",
+    "RM9 closure",
+    "successor opening"
+  ]
+}

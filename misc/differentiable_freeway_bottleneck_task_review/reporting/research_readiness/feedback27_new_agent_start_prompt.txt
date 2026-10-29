@@ -1,0 +1,12 @@
+You are taking over a method-first VSL task-definition review, not simulator development.
+
+Work in /home/zpz/repos/diff_minimal_meso/misc/differentiable_freeway_bottleneck_task_review.
+
+Read this finalized handoff first and follow its reading list:
+/home/zpz/repos/diff_minimal_meso/misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/feedback27_fresh_agent_handoff.md
+
+The ramp-metering review is closed. The feedback-27 assessment and four-stage transition roadmap are accepted. Start by preparing the bounded successor opening plan and a short methodology outline for an elementary VSL lane-drop task that could serve as a paper methodology and the first information/gradient verification alongside the urban task.
+
+Keep the review method-first. Reuse the accepted S13 certificate and sources, inspect the strongest simpler models, and preserve the distinction between omitted-information value, derivative correctness and independent control usefulness. The current VSL certificate does not prove discrete-order or full-lane-state necessity. Do not constrain task design to current implementation progress or assume a positive novelty result.
+
+Resolve minor refinements within the accepted direction yourself. Save the plan in this review package with an appropriate successor label and supporting folders. Stop after presenting the opening plan, or earlier at a genuinely new methodological choice. Do not resume ramp construction, implement simulator code, install dependencies or run traffic experiments.

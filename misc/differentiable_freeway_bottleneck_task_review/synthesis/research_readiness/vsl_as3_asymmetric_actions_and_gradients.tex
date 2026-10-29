@@ -1,0 +1,463 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\kc}{k_c}
+\newcommand{\Bud}{\mathcal B}
+\newcommand{\He}{\mathcal H}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\title{AS3: asymmetric initial lanes, useful finite advice changes\newline
+and the complete gradient reference}
+\author{Elementary VSL lane-drop task review}
+\date{19 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} AS1 and AS2 are user-accepted. This completes AS3
+at review/reference scope and returns to the original Step 3 user closure
+gate. No traffic rollout, numerical derivative, AD or optimization is run.
+No new traffic law or numerical smoothing is selected.
+
+\paragraph{Result and limitation.}
+The accepted hidden A/B split can matter for complete-TST advice, not merely
+for local receiving: a conditional existence range of the selected model
+has opposite utility for the same finite slowdown. A nonzero common-fastest
+range also exists. The positive range may require large forced work, weak
+mismatch and fast recovery; it is not an admitted physical parameter range.
+The complete regular-event sensitivity below is a reference for later
+verification, not proof of numerical gradient accuracy or usefulness.
+
+\section{Accepted traffic and information remain fixed}
+Use the
+\href{vsl_as1_asymmetric_forward_contract.pdf}{accepted AS1 forward contract}
+and \href{vsl_as2_information_and_history.pdf}{accepted AS2 observation contract}.
+E ends, A is its adjacent continuing lane and B the far lane. The initial
+uniform footprint is $[0,\ell]$, $L=L_p+b$ and
+\begin{equation}
+ e_0,a_0,b_0\geq0,\quad r=e_0+a_0,\quad
+ \rho=e_0+a_0+b_0,\quad M=\ell\rho.
+ \label{eq:initial}
+\end{equation}
+Each true initial state is fixed as advice $v\in[v_-,v_+]$ varies.
+So are geometry, physical coefficients, the W-F anchor and $m=1$ veh-eq.
+Retain independent lane loads, neutral initial terminal/recovery histories,
+no postdecision arrivals, finite storage and choke completion. In particular,
+\begin{equation}
+ v_+r<R\leq C(v_-),\quad v_+b_0\leq R_B\leq C(v_-),\quad
+ M<k_jb,\quad c_0-\beta(1+v_+/w)>0,
+ \label{eq:domain}
+\end{equation}
+with all other AS1 bounds intact. Write $K=wk_j$,
+$C(v)=Kv/(w+v)$, $\kc(v)=K/(w+v)$, $U(g)=wg/(K-g)$ and
+$c_0=1+\delta\geq1$, $\chi=\beta/[C(v_+)v_+]$ fixed once.
+
+Level 2 receives E and continuing totals and every permitted history/inference;
+Level 3 additionally knows A/B separately. The compact peer knows one extra
+initial adjacent mass and exactly matches Level 3. No realized $r$, future
+E/service trace or pair label is leaked into Level 2. AS2's stronger matched
+aggregate/E history is retained, and identifying histories remain admissible.
+
+\section{A genuinely asymmetric analytical reference family}
+\subsection{The same E and continuing total, with unequal adjacent loading}
+For arbitrary positive scales $u,\kappa,h$, choose
+\begin{equation}
+ \begin{gathered}
+ v_-=u,\ v_+=2u,\ w=2u,\ k_j=3\kappa,\ \gamma=2,\quad
+ R=39\kappa u/20,\ R_B=\kappa u,\\
+ \nu=\ell/h=\log(6/5),\quad L_p=2\ell,\quad b=\ell,\quad L=3\ell,\\
+ \mathcal L:(e_0,a_0,b_0)=(3\kappa/5,\kappa/5,7\kappa/20),\\
+ \mathcal H:(e_0,a_0,b_0)=(3\kappa/5,7\kappa/20,\kappa/5).
+ \end{gathered}\label{eq:family}
+\end{equation}
+Here $\rho=23\kappa/20$ is common, $r_{\mathcal L}=4\kappa/5$,
+$r_{\mathcal H}=19\kappa/20$, and $M/(k_jb)=23/60<1$.
+The worst ordinary load margin is $R-v_+r_{\mathcal H}=\kappa u/20$.
+AS2's same lower-speed loading construction reaches both initial states
+with identical full permitted histories, including E history.
+
+The family fixes initial state/geometry; it does not fix one work cost for
+all deductions. AS2 illustrated $c_0=11/10,\beta=1/100$. The action existence
+proof below chooses another \emph{shared} work range inside the accepted
+domain, not a new result for those illustrative coefficients. Predecision
+histories stay unchanged since no traffic reached the terminal.
+
+\subsection{Preparation and its nonzero asymmetric speed sensitivity}
+With $z=vt$ and $\Delta_i(v)=\kc(v)-r_i>0$, H1 is
+\begin{equation}
+ e_{i,z}=-\frac1h\min\{e_i,(\Delta_i+e_i)/2\}.
+ \label{eq:h1}
+\end{equation}
+$\mathcal L$ is donor-limited at every advice: $\Delta_{\mathcal L}\geq
+7\kappa/10>e_0$. Its density at every fixed progress is independent of
+advice. $\mathcal H$ starts receiving-limited only when
+$v>v_c=58u/31$. Its switch progress is
+\begin{equation}
+ z_s(v)=2h\log\frac{e_0+\Delta_{\mathcal H}(v)}{2\Delta_{\mathcal H}(v)}.
+ \label{eq:switch}
+\end{equation}
+At its largest value, $v=2u$, $\exp(z_s/h)=(23/22)^2<6/5=\exp(\ell/h)$.
+Thus all terminal handoff exposures $z\in[\ell,2\ell]$ are donor-branch
+exposures, with front density $B_i(v)=e_i(\ell;v)$:
+\begin{equation}
+ B_{\mathcal L}=\frac\kappa2,\qquad
+ B_{\mathcal H}(v)=
+ \begin{cases}
+ \kappa/2,&v\leq58u/31,\\[2pt]
+ \displaystyle\frac56\frac{(e_0+\Delta_{\mathcal H})^2}{4\Delta_{\mathcal H}},
+ &v>58u/31.
+ \end{cases}\label{eq:front}
+\end{equation}
+The two expressions match with zero first derivative at $v_c$. At $v_+$,
+\begin{equation}
+ B_{\mathcal H}=\frac{529\kappa}{1056},\quad
+ B'_{\mathcal H}=\frac{115\kappa}{7744u}>0,\qquad
+ B_{\mathcal L}=\frac\kappa2,\quad B'_{\mathcal L}=0.
+ \label{eq:frontvalues}
+\end{equation}
+This replaces the historical symmetric-member calculation; its different E
+population is not reused as the present hidden variable.
+
+\section{A nonzero common-fastest range in the selected law}
+The front free-work test is $W_{f,i}(v)=v[r_i+\delta B_i(v)]$.
+H1 comparison makes $B_i$ nondecreasing in advice, so the largest front work
+is at $2u$. There,
+\begin{equation}
+ \frac{W_{f,\mathcal L}}{\kappa u}=\frac85+\delta,\qquad
+ \frac{W_{f,\mathcal H}}{\kappa u}=\frac{19}{10}+\frac{529}{528}\delta.
+ \label{eq:frontwork}
+\end{equation}
+Consequently, for
+\begin{equation}
+ 0\leq\delta\leq\frac{132}{2645},\qquad
+ J_i(v)=\frac{M(L-\ell/2)}v\quad\hbox{for both states and every advice}.
+ \label{eq:negative}
+\end{equation}
+Joint free admission holds; its workload decreases through the pulse.
+Free E's mark is $v\geq U(R)$, so no recovery loss is deposited.
+At equality the selected free-continuation guard applies. This includes
+positive maneuver burden and can have positive $\beta$ and finite recovery
+acceleration. Both preparations uniquely prefer $v_+$. Information can be
+missing without being needed for the best action in this range.
+
+\section{Complete TST can have different useful advice changes}
+\subsection{An exact auxiliary reference, with every waiting tail counted}
+For this subsection only, delete mismatch and retained recovery while
+keeping H1, propagation, $c_0$, initial state and TST. Denote this fixed-work
+reference by $J_i^0$. A remains free because $\lambda_A< R$; while E queues,
+$g_E=(R-\lambda_A)/c_0$. This is an auxiliary reference/rival, not an
+amendment of the selected law.
+
+Let $t_f=(L-\ell)/v$, $d=\ell/v$, and $s=t-t_f$ during the pulse.
+Since every exposure is past the applicable preparation switch,
+\begin{equation}
+ \lambda_E=vB_i(v)e^{-vs/h},\quad
+ \lambda_A=v[r_i-B_i(v)e^{-vs/h}],\quad 0<s<d.
+ \label{eq:arrivalsreference}
+\end{equation}
+Set
+\begin{equation}
+ m_i=hB_i(v)(1-e^{-\nu})=hB_i(v)/6,\quad
+ Q_i=hB_i(v)\ell-hm_i,\quad D_i=\ell r_i-Rd,\quad
+ \mathcal T=M(L-\ell/2).
+ \label{eq:referencequantities}
+\end{equation}
+$m_i$ is forced E mass, distinct from the fixed renewal mass $m$;
+$Q_i$ has units mass times length and is an arrival-pulse area quantity.
+No normalization or packet size is changed.
+
+A sufficient condition for a strictly positive E queue throughout the
+eligible pulse at every advice is
+\begin{equation}
+ c_0>94/25.
+ \label{eq:sustained}
+\end{equation}
+Indeed $e_i$ at any handoff exposure is at least
+$e_0e^{-2\nu}=5\kappa/12$, $r_i\geq4\kappa/5$, $v\geq u$, and
+$u[4\kappa/5+(c_0-1)5\kappa/12]>R$. The queue is
+\begin{equation}
+ q_i^0(s)=\frac{(vr_i-R)s+(c_0-1)hB_i(1-e^{-vs/h})}{c_0}.
+ \label{eq:referencequeue}
+\end{equation}
+It drains after the rear at $R/c_0$. Integrating the pulse and full tail gives
+\begin{equation}
+ J_i^0(v)=\frac{\mathcal T}{v}+\frac{D_id}{2c_0}
+       +(1-1/c_0)\frac{Q_i}{v}
+       +\frac{[D_i+(c_0-1)m_i]^2}{2c_0R}.
+ \label{eq:referenceobjective}
+\end{equation}
+Every initial lane's travel and the entire E tail are included; A has no
+waiting in this reference. Equation~\eqref{eq:referenceobjective} is used
+only on its proved branch.
+
+\subsection{The reference action contrast is proved anew for fixed E}
+For $\mathcal L$, $B,m_i,Q_i$ are action-independent. Writing
+$W_i=\ell r_i+(c_0-1)m_i$, exact cancellation of the $v^{-2}$ terms gives
+\begin{equation}
+ J_{\mathcal L}^0(v)=\frac{W_{\mathcal L}^2}{2c_0R}
+        +\frac{A_{\mathcal L}}v,\quad
+ A_{\mathcal L}=\mathcal T+(1-1/c_0)(Q_{\mathcal L}-\ell m_{\mathcal L})
+                      -\frac{\ell^2r_{\mathcal L}}{2c_0}>0.
+ \label{eq:lowmonotone}
+\end{equation}
+To see strictness, $0\leq Q_i\leq\ell m_i$,
+$m_i\leq\ell r_i$ and $\mathcal T=(5/2)\ell M>\ell^2r_i$ imply
+$A_{\mathcal L}\geq \mathcal T-\ell^2r_{\mathcal L}>0$.
+Hence $v_+$ is the unique optimum of the low-A reference.
+
+For $\mathcal H$, expand the same complete formula as
+\begin{equation}
+ \begin{gathered}
+ J_i^0=\frac{c_0m_i^2}{2R}+I_{0,i}+I_{1,i}/c_0,\\
+ I_{0,i}=\frac{\mathcal T+Q_i}{v}+\frac{(D_i-m_i)m_i}{R},\quad
+ I_{1,i}=\frac{D_id}{2}-\frac{Q_i}{v}+\frac{(D_i-m_i)^2}{2R}.
+ \end{gathered}\label{eq:expansion}
+\end{equation}
+At $v_+$, $A_+=m_{\mathcal H}m'_{\mathcal H}/R>0$, whereas
+$I'_{0,\mathcal H}$ and $I'_{1,\mathcal H}$ are finite and independent of
+$c_0$. Thus
+\begin{equation}
+ c_0>\max\left\{94/25,
+ \frac{|I'_{0,\mathcal H}(v_+)|+|I'_{1,\mathcal H}(v_+)|}{A_+}\right\}
+ \quad\Longrightarrow\quad (J_{\mathcal H}^0)'(v_+)>0.
+ \label{eq:positivecost}
+\end{equation}
+Near $v_-$ the high-A preparation is donor-only, and the same positive
+$A_i/v$ coefficient gives a strictly negative derivative. The continuous
+reference therefore has interior high-A minimizers and disjoint low/high
+minimizing sets. A sufficiently small common feasible slowdown from $v_+$
+strictly worsens $\mathcal L$ and improves $\mathcal H$. No physical
+plausibility or moderate-work result follows from this existence bound.
+
+\subsection{Transfer finite action utility into the selected positive-mechanism law}
+Restore the actual fixed W-F mismatch, E-only source and recent-mass O-R
+renewal. With $u_R=U(R)$, its zero-mark isolated loss area and account satisfy
+\begin{equation}
+ W_0=\frac{K}{w+u_R}\frac{u_R^2}{2a_r},\qquad
+ 0\leq p(t)\leq\varepsilon_p:=\frac{RW_0}{mc_0}.
+ \label{eq:lossbound}
+\end{equation}
+The latter bounds the nonnegative retained-window time integral by the
+all-history integral with $g_E\leq R/c_0$. It does not replace renewal.
+Put $a_*=v_+\max_i r_i<R$ and choose
+\begin{equation}
+ 0<\beta\leq1,\quad c_0-\beta(1+v_+/w)>0,\quad
+ \varepsilon_p<\min\{(R-a_*)/2,R/2\}.
+ \label{eq:smallparameters}
+\end{equation}
+Then $\Bud\geq R-\varepsilon_p>a_*$, so A is free by its actual admission
+test. While E queues, its service is bracketed by
+\begin{equation}
+ \mu_-:=\frac{R-\varepsilon_p-\lambda_A}{c_0+\beta}
+ \leq g_E\leq\mu_0:=\frac{R-\lambda_A}{c_0},\quad
+ 0\leq\mu_0-\mu_-\leq\varepsilon_\mu
+ :=\frac{\varepsilon_p}{c_0}+\frac{R\beta}{c_0^2}.
+ \label{eq:servicebrackets}
+\end{equation}
+The same arrivals drive reflected comparison queues $q_0,q_-$ with these
+two positive services. The causal free/queued guards and a first-crossing
+comparison give $q_0\leq q_E\leq q_-$; the actual queue itself need not be a
+fixed-service reflection. Reflection implies $q_--q_0\leq t\varepsilon_\mu$.
+Choose $H>L/v_-+2(c_0+1)M/R$ after fixing $c_0$ and geometry. Every compared
+cohort clears by $H$. Consequently, for both states and all advice,
+\begin{equation}
+ 0\leq J_i(v)-J_i^0(v)\leq\varepsilon_J:=H^2\varepsilon_\mu/2.
+ \label{eq:valuebound}
+\end{equation}
+The initial split is held fixed in this estimate. It makes no derivative
+closeness assertion. With $c_0$ fixed first, positive $\beta$ can be made
+small and positive finite $a_r$ sufficiently large to make $\varepsilon_J$
+as small as needed while retaining every selected mechanism.
+
+Let $d_i^0(v)=J_i^0(v)-\min_zJ_i^0(z)$. Compactness, continuity and
+disjoint reference minimizing sets give
+\begin{equation}
+ \Gamma_0=\min_v\max_i d_i^0(v)>0.
+ \label{eq:referenceregret}
+\end{equation}
+For actual $V_i=\inf_vJ_i(v)$, uniform comparison yields conservatively
+\begin{equation}
+ \inf_v\max_i\{J_i(v)-V_i\}\geq\Gamma_0-2\varepsilon_J>0
+ \qquad(\varepsilon_J<\Gamma_0/4).
+ \label{eq:actualregret}
+\end{equation}
+No global continuity or attainment of actual minima is assumed. Making
+$2\varepsilon_J$ smaller than each of the two strict reference slowdown
+gaps also preserves their opposite signs in the selected law. Thus identical
+Level 2 histories can require incompatible near-optimal common advice.
+Level 3 and its compact peer can distinguish the states.
+
+\textbf{Limits.} This is a new asymmetric action certificate, not the old
+hidden-E result renamed. It may need large work, weak mismatch and fast
+recovery. A stays free in this range; the archived A-delay/active-retirement
+witness is separate. No joint strong-delay/action/physical witness, default
+calibration, opposite infinitesimal gradient signs in the actual law,
+AD advantage or real-freeway usefulness is proved.
+
+\section{The complete sensitivity reference does not require initial symmetry}
+\subsection{Preparation, clocks and all three lane arrivals}
+Define $E_v(z;v)=\partial_ve(z;v)$ at fixed physical progress, with
+$E_v(0;v)=0$. On each smooth H1 branch,
+\begin{equation}
+ (E_v)_z=\begin{cases}-E_v/h,&\text{donor},\\
+ -(E_v+\kc'(v))/(\gamma h),&\text{receiving},\end{cases}
+ \quad\kc'(v)=-K/(w+v)^2.
+ \label{eq:prepsensitivity}
+\end{equation}
+The vector fields match at their moving switch, so the state sensitivity
+has no jump from unequal vector fields there. Every true $r,b_0,e_0$ is
+fixed within the advice derivative; one does not regenerate initial traffic
+or recondition its history after changing advice.
+
+For an initial position $x$, eligibility is $(L-x)/v$. Exactly,
+\begin{equation}
+ P_E(t;v)=\int_0^\ell e(L_p-x;v)\mathbf1_{(L-x)/v\leq t}\dd x.
+ \label{eq:PE}
+\end{equation}
+Inside the eligible pulse set $x_*=L-vt$, $z_*=vt-b$. Then
+\begin{align}
+ P_{E,v}&=\int_{x_*}^\ell E_v(L_p-x;v)\dd x+t e(z_*;v),\nonumber\\
+ \lambda_E&=ve(z_*;v),\qquad
+ \lambda_{E,v}=e+vE_v+vt e_z,\nonumber\\
+ P_{A,v}&=rt-P_{E,v},\quad P_{B,v}=b_0t,\quad
+ \lambda_{A,v}=r-\lambda_{E,v},\quad\lambda_{B,v}=b_0,\nonumber\\
+ t_f'&=-(L-\ell)/v^2,\qquad t_r'=-L/v^2.
+ \label{eq:arrivalsensitivity}
+\end{align}
+Before the front all cumulative sensitivities vanish; after the rear the
+E derivative is its full progress integral, A is its negative and B is zero.
+Their final total sensitivity is zero by fixed total mass. Use one-sided
+front/rear values; fixed clocks would omit a genuine causal channel.
+
+\subsection{Implicit point service and its traffic marks}
+For queued E retain $\He(g;a,u)=g[c_0+\chi a\pos{u-U(g)}]=x$.
+Here $a$ is A flow. On positive mismatch,
+\begin{equation}
+ \begin{gathered}
+ \He_g=c_0+\chi a\{u-U(g)-gU'(g)\}>0,\quad
+ \He_a=\chi g\{u-U(g)\},\quad\He_u=\chi ag,\\
+ g_v=\frac{x_v-\He_a a_v-\He_u u_v}{\He_g}.
+ \end{gathered}\label{eq:rootsensitivity}
+\end{equation}
+On inactive mismatch, $\He_g=c_0$, $\He_a=\He_u=0$.
+Free A/queued E uses $(a,u,x)=(\lambda_A,v,\Bud-\lambda_A)$;
+both queued use $(\Bud/2,U(\Bud/2),\Bud/2)$.
+Free marks have derivative one; queued marks have derivative $U'(g)g_v$.
+The other service branches are differentiated from their retained admission
+equations. At fixed current traffic/budget the fully queued root has no
+direct advice term. $\chi$ is not recomputed with advice or a search box.
+
+\subsection{History, retirement and queue events}
+Write $Y=Y_E$, $g=g_E$ and $Z=Y_v$. On a regular history chart,
+\begin{equation}
+ p(t)=\frac1m\int_{s_m(t)}^tD(t-s;u_E(s))g_E(s)\dd s,
+ \quad Y(s_m)=Y(t)-m\quad\hbox{after fill},
+ \label{eq:history}
+\end{equation}
+with $s_m=0$ before fill. After fill suppose the cutoff lies at positive
+old E rate, away from a mark event. Then
+$g(s_m)s_{m,v}=Z(t)-Z(s_m)$. For source/mark events $\tau_k(v)$ inside
+the retained window put
+$\Phi_k^\pm=D(t-\tau_k;u_E(\tau_k^\pm))g_E(\tau_k^\pm)$ and
+$D_o=D(t-s_m;u_E(s_m))$. Piecewise Leibniz differentiation gives
+\begin{align}
+ p_v=\frac1m\bigg[&\int_{s_m}^t(D_u u_{E,v}g_E+Dg_{E,v})\dd s
+ +\sum_k(\Phi_k^- -\Phi_k^+)\tau_k'\nonumber\\
+ &-\mathbf1_{Y(t)>m}D_o\{Z(t)-Z(s_m)\}\bigg],\qquad \Bud_v=-p_v.
+ \label{eq:historysensitivity}
+\end{align}
+The last term is old-weight retirement; the old-rate denominator cancels.
+It must not be omitted or replaced by a strictest-old-cap rule. For active
+loss, with $S=\sqrt{(w+u)^2+2wa_r\theta}$,
+\begin{equation}
+ D_u=-Kw(w+u)/S^3,\qquad D_\theta=-Kw^2a_r/S^3.
+ \label{eq:kernel}
+\end{equation}
+They are zero on the inactive side. At fixed integration time $s$, physical
+age $t-s$ is fixed; moving source-event times enter through the jump terms.
+The zero-loss support edge has no jump contribution because $D$ is continuous
+and zero there. Fill, plateau and cutoff/mark encounters require their own
+one-sided/event treatment, not a universal smooth derivative assertion.
+
+For an isolated transverse guard let $G(t,v)$ denote its left-side value
+evaluated along the full history-aware solution. Then
+\begin{equation}
+ \tau_k'=-G_v^-/G_t^-,\qquad
+ X_v^+=X_v^-+(F^- -F^+)\tau_k'
+ \label{eq:events}
+\end{equation}
+for continuous physical-state coordinates with identity reset. Guard
+derivatives include the history sensitivity above. This notation does not
+claim a finite-dimensional Markov reduction of the account. A birth uses
+the free-feasibility margin $\Bud-\lambda_A$, not the identically zero
+free A queue; clearance uses the positive queue approaching zero. Recorded
+source-event times remain in the history. The regular timing principle is
+the one reviewed in Kong et al.; the renewal derivative is a separate
+model-specific deduction.
+
+\subsection{Complete TST and the derivative's domain}
+Use a fixed horizon above the AS1 clearance bound, independent of advice:
+\[
+ H_*>L/v_-+c_{\max}M/B_{\min},\qquad B_{\min}>0.
+\]
+With $Z_j=Y_{j,v}$,
+\begin{align}
+ J&=\int_0^{H_*}(M-Y_A-Y_E-Y_B)\dd t
+   =\frac{M(L-\ell/2)}v+\int_0^{H_*}(q_A+q_E)\dd t,\nonumber\\
+ J'&=-\int_0^{H_*}(Z_A+Z_E+Z_B)\dd t
+   =-\frac{M(L-\ell/2)}{v^2}+\int_0^{H_*}(q_{A,v}+q_{E,v})\dd t.
+ \label{eq:tstgradient}
+\end{align}
+Queue-area endpoint values vanish at zero-queue hits; their timing effects
+on future service/history do not. All traffic, including both A/E waiting
+tails, is counted. Recovery after the last completed unit is not extra own
+travel beyond the selected choke completion.
+
+On a neighborhood with a fixed finite event list, smooth branches, transverse
+guards and regular cutoffs, differentiating the locally uniform causal
+Volterra contraction gives the within-chart linear sensitivity. Implicit
+guard differentiation and identity-state matching join the charts; bounded
+regular-chart terms permit fixed-horizon differentiation. This proves the
+local reference construction. It uses no initial A/B equality.
+
+Forward-admitted grazing, coincident events, activation thresholds, root/
+profile kinks and renewal encounters remain in the task. Check continuity
+and feasible side behavior before assigning a derivative. If no finite
+ordinary or one-sided derivative exists, report that and the actual finite
+cost change. No smoothing, frozen event, deleted boundary case or new
+generalized-gradient controller is selected. Uniform value comparison does
+not imply gradient closeness or global minimum attainment.
+
+\section{Evidence and source limits at the original Step 3 gate}
+AS1's complete-forward result, AS2's conditional information contrast and
+compact equality, and this asymmetric action/sensitivity review now fit one
+standalone verification contract. Later evidence must distinguish continuous
+reference correctness, numerical forward convergence, numerical differences,
+AD, feasible-step usefulness and optimizer performance. A strong bounded
+scalar search and the compact peer remain required rivals. No such numerical
+layer is marked passed here.
+
+Information revealed through complicated features may be harder for a
+learner to extract; that is a plausible separate conditioning/learning
+hypothesis. AS2's exactly identical histories establish structural ambiguity,
+not that learning hypothesis. When information is recoverable from the same
+inputs, model-aware inference and feature transforms must be allowed equally;
+learning difficulty needs matched tasks, inputs and resources before a claim.
+No training experiment is opened by this clarification.
+
+This note adapts the own fixed-work derivation and service/queue comparison
+in the historical
+\href{vsl_step3_standalone_information_and_gradient.pdf}{standalone Step 3 mathematics},
+with the new fixed-E split calculation and explicit sensitivity audit above.
+It does not transplant the historical symmetric action certificate.
+The archived \href{https://arxiv.org/pdf/2306.06862}{Kong et al. hybrid-sensitivity paper}
+supports regular event-time corrections only; the
+\href{https://arxiv.org/pdf/1603.04785}{Delle Monache--Piccoli--Rossi VSL paper}
+is prior art under a different objective. No paper is newly viewed or new
+traffic model adopted in AS3. Applied MP6 remains unexecuted, SUMO optional,
+Step 4/implementation unopened and ramp/urban lines closed.
+\end{document}

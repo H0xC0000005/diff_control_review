@@ -1,0 +1,203 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\emergencystretch=3em
+\raggedright
+\begin{document}
+{\Large Exact-information chain: state, count attachment and births}\\[4pt]
+7 October 2026 --- G1 approved; insertion contract Q-E unselected
+
+\textbf{Scope.} Source transcription and reviewer deductions. Every distinct
+restriction may be retained. No compression/cost criterion, new approximate
+recovery closure, traffic simulation or useful-gradient claim. A complete
+joined birth/node solver and clearance remain unqualified.
+
+\section*{1. Retained state and conservative population}
+At a declared update phase, keep the own traffic field $U$, speed-support
+history $\mathcal H$, waiting inventories $W$, accepted transfer counters $H_e$
+and all restriction records:
+\begin{equation}
+X=(U,\mathcal H,W,\{H_e\},\{z_j\}),\qquad
+z_j=(\ell_j,x_j,v_j,v_{{\rm des},j},\theta_j,h_j,e_j,t_j^{\rm b}).
+\end{equation}
+Here $\ell_j$ is lane; $x_j$ position (m); $v_j,v_{{\rm des},j}$ realized/desired
+speed (m/s), retaining the phase-required value; $\theta_j$ contains fixed
+acceleration/type/grade data; $h_j$ is the lane-count association (vehicle
+equivalents); $e_j$ is birth-stream metadata; $t_j^{\rm b}$ birth time (s).
+$U$ contains the spatial mass/count information needed by the declared KW
+method. $\mathcal H$ contains own preceding-period information needed by source
+lane-choice speeds, initialized publicly. None is a reference-future oracle.
+
+For cell/volume $c$, mass $n_c$ (vehicle equivalents) and accepted transfer
+mass $F_{cb}$, the paired update is
+\begin{equation}
+n_c^+=n_c+\sum_bF_{bc}-\sum_bF_{cb},\qquad
+M^+-M=I-E.
+\end{equation}
+$M$ includes all waiting, ramp and road mass; $I,E$ are external arrival/exit
+increments. All internal transfers cancel. Descriptors add no mass. A source
+lateral transfer already advances to the downstream target section.
+
+For upstream ramp permission $r^k$ (veh/s), offered mass $A^k$, waiting mass
+$W_r^k$, approach receiving $R_a^k$ (veh/s) and step $\Delta t$ (s),
+\begin{equation}
+B^k=\min\{W_r^k+A^k,r^k\Delta t,R_a^k\Delta t\},\quad
+W_r^{k+1}=W_r^k+A^k-B^k.
+\end{equation}
+This admitted mass enters the approach, not directly the freeway merge.
+At the approved point node let $D_r,D_m,R$ be ramp/non-ramp demands and shared
+receiving (veh/s), and $p\in(0,1)$ fixed ramp priority:
+\begin{equation}
+(f_r,f_m)=
+\begin{cases}
+(D_r,D_m),&D_r+D_m\le R,\\
+(\min\{D_r,\max\{pR,R-D_m\}\},R-f_r),&D_r+D_m>R.
+\end{cases}
+\end{equation}
+The first component is evaluated before the second. Existing coupled
+restrictions must determine $R$ consistently; this formula does not supply it.
+These are previously approved interfaces, not a new reference law.
+
+\newpage
+\section*{2. Exact source correction to a moving traffic label}
+\textbf{Reviewer derivation.} On a regular lane interval with fixed upstream
+boundary $x_0$, let $\rho$ be density (veh/m), $q$ longitudinal flow (veh/s)
+and $s$ net lateral source (veh/(m s)). Conservation is
+\begin{equation}
+\partial_t\rho+\partial_xq=s.
+\end{equation}
+Let $C(t)$ be accepted cumulative inflow at $x_0$, with $\dot C=q(t,x_0)$.
+Choose one fixed label gauge and define
+\begin{equation}
+N(t,x)=C(t)-\int_{x_0}^{x}\rho(t,y)\,dy.
+\end{equation}
+Differentiation and conservation give
+\begin{align}
+N_x&=-\rho,\\
+N_t&=q(t,x)-\int_{x_0}^{x}s(t,y)\,dy.
+\end{align}
+For a path $x=\phi(t)$ with speed $v=\dot\phi$, set
+$h(t)=N(t,\phi(t))$. Thus
+\begin{equation}
+\dot h=q(t,\phi)-v\rho(t,\phi)-\int_{x_0}^{\phi}s(t,y)\,dy.
+\end{equation}
+Where the embedded zero-passing condition gives zero relative flux
+$q-v\rho=0$, this becomes
+\begin{equation}
+\dot h=-\int_{x_0}^{\phi}s(t,y)\,dy.
+\end{equation}
+If $s=0$, $h$ is constant. With lateral entries/exits upstream of the path,
+its label changes despite zero passing. This is a coordinate/count correction,
+not an extra service penalty or population term.
+
+\textbf{Discrete fixed-section version.} For population $P_x$ between $x_0$
+and fixed $x$, accepted boundary mass $\Delta C$, crossing mass $F_x$ and net
+lateral addition $L_x$ in that section,
+\begin{equation}
+\Delta P_x=\Delta C-F_x+L_x,\qquad
+\Delta N_x=\Delta C-\Delta P_x=F_x-L_x.
+\end{equation}
+An upstream net lateral entry of one unit shifts $N$ by $-1$ when $F_x=0$.
+An exit shifts it by $+1$. Boundary admissions also increment $C$ and so cancel
+their inventory contribution in this coordinate. Weak/discrete balances extend
+the bookkeeping beyond smooth fields; they do not choose which side owns a
+point source exactly on a path. That attachment remains a joined-law obligation.
+
+At a point merge chosen as $x_0$, the boundary ledger includes both accepted
+incoming streams. It is not a lateral source inside $(x_0,x)$.
+
+\newpage
+\section*{3. Motion, birth clocks and count attachment}
+\textbf{Source motion.} At the source sample phase, motion obeys
+\begin{align}
+v_j(t)&=\min\{v_{{\rm dwn},j}(t),v_{{\rm des},j}(t)\},\\
+v_{{\rm des},j}(t+\Delta t)&=v_j(t)+
+\left[a_{0,j}\left(1-\frac{v_j(t)}{v_{\max,j}}\right)-gG(x_j(t))\right]\Delta t,
+\\
+x_j(t+\Delta t)&=x_j(t)+v_j(t)\Delta t.
+\end{align}
+$v_{\rm dwn}$ is own coupled immediately downstream KW speed; $a_0$ is
+zero-speed acceleration (m/s$^2$), $v_{\max}$ maximum speed, $g$ gravity and
+$G$ dimensionless grade. Lane-choice look-ahead speed is a different quantity.
+Exact retention does not justify assigning downstream speed independently.
+
+For generating stream $e$, define public progress $\eta_e\in[0,1)$ and actual
+accepted rate $f_e$:
+\begin{equation}
+H_e(t)=\eta_e+\int_0^t f_e(s)\,ds.
+\end{equation}
+The sampled source birth count at update $t_k$ is
+\begin{equation}
+\Delta K_e^k=\lfloor H_e(t_k)\rfloor-\lfloor H_e(t_{k-1})\rfloor.
+\end{equation}
+No conserved quantity is rounded. The proposed E1 reset adds these records
+after the completed transfer update, with declared placement/speed/count data.
+It does not retroactively alter completed transfers.
+
+E2 instead proposes each continuous crossing time
+\begin{equation}
+\tau_{e,m}=\inf\{t:H_e(t)\ge m\},\qquad m=1,2,\ldots.
+\end{equation}
+It requires coupled continuation after $\tau$, because the new restriction
+may alter the remaining $f_e$. It explicitly reopens the selected sampled clock
+and dependent onset/inactive classification if approved; neither is reopened
+now. It is an extension, not a source theorem.
+
+\textbf{Clock input example only.} Give $H(t)=3/4+t/2$ on $[0,1]$ (veh) and
+a sampled update at $t=1$ s. Then
+\begin{equation}
+\tau_1=\tfrac12\ {\rm s},\qquad \Delta K=1,
+\end{equation}
+whereas the sampled record starts at $1$ s. No joined traffic solution, feasible
+common-control pair or TST difference is asserted from this prescribed counter.
+
+The birth count association must match the own traffic field at its location
+and phase. At a point ramp boundary it uses total accepted mainline plus ramp
+count in the same gauge. At an internal point source, one-sided attachment
+must be explicit. Neither clock choice alone certifies simultaneous events.
+
+\newpage
+\section*{4. Conditional equivalence and full-system-time obligations}
+Suppose the complete joined update $\mathcal T_r$ is well defined and invariant
+under descriptor renaming. Let $\Pi$ be a lossless representation with the
+independent own update $\widetilde{\mathcal T}_r$, and assume
+\begin{equation}
+\Pi\mathcal T_r(X)=\widetilde{\mathcal T}_r(\Pi X).
+\end{equation}
+Starting from equivalent public states, induction gives equivalent states and
+exits at every common update. Keeping all distinct complete records can meet
+the information part of this identity. The identity does not prove existence
+of $\mathcal T_r$ or fill an unspecified birth/reset. It also does not prove
+that personal identities or every retained record are necessary.
+
+Let $M_0$ be initial total mass, $A(t)$ cumulative offered arrivals and $E(t)$
+cumulative sink exits. Include all outside waiting and finite ramp/road mass:
+\begin{equation}
+M(t)=M_0+A(t)-E(t),\qquad J=\int_0^{T_{\rm clear}}M(t)\,dt.
+\end{equation}
+$J$ has units veh s. For two schedules $a,b$ with common population and arrival
+history, extend cleared exits constantly to common $T$:
+\begin{equation}
+J^a-J^b=-\int_0^T[E^a(t)-E^b(t)]\,dt.
+\end{equation}
+Equivalent complete exit histories imply equal TST, including relocated queues.
+Finite-horizon equality is insufficient if remaining tails differ. An integrable
+certified inventory tail may replace finite exact clearance. Positive final
+permission and finite population alone do not prove that tail for this joined law.
+
+\textbf{Disposition.} Exact-state own evolution has source-backed ingredients
+and source-correct count interfaces. The complete birth/activation/reset contract
+is Q-E; E1/E2 are unselected. Joined node/coincidence solution, clearance,
+nontrivial full-TST rate leverage, reduced-model claims and useful gradients
+remain unqualified. No exact-state impossibility or necessity of approximation
+is inferred. Stage 3 open, Stage 4 and experiments unopened.
+
+\textbf{Source locations.} Supplied Laval/Daganzo (2006), Section 2 and Appendix
+A; 2004 antecedent Section 3; Daganzo/Laval RR-2003-2 Sections 2--4/Appendix;
+Daganzo PWP-94-12 Section 3.2. Source-correct count identities, equivalence
+induction and the clock example are reviewer deductions. Versions, URLs and
+transfer limits are in \texttt{exact\_information\_source\_audit.md}.
+\end{document}

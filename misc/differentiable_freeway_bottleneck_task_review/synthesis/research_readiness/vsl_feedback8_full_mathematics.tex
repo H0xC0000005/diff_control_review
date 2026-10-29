@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false,pdftitle={Current elementary VSL stack: consolidated equations and derivations}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\budget}{\mathcal B}
+\newcommand{\loss}{p_{\mathrm{rec}}}
+\newcommand{\He}{\mathcal H}
+\newcommand{\kc}{k_c}
+\newcommand{\dd}{\,\mathrm d}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\setcounter{tocdepth}{1}
+\begin{document}
+\begin{center}
+{\LARGE The current elementary VSL stack}\\[5pt]
+{\large Consolidated equations, derivations and conditional results}\\[5pt]
+Feedback 8 mathematical report --- 16 October 2026
+\end{center}
+
+\textbf{Purpose.} Assemble the selected model and the mathematical work
+supporting its improvements in one notation. This is a consolidation of
+the S13 reference, H1/T1, selected S-E-P/R-E/O-R/W-F, the full-domain
+forward argument at WF-Q1 and the physical-identifiability review at MP6-Q1.
+It is not a new model selection, experiment, derivative validation or
+execution plan. No rejected formula is reinstated as current behavior.
+
+\textbf{The central chain.} Initial footprint and common advice determine
+receiving-limited preparation. Boundary histories transport the resulting
+streams into a finite terminal. A/E service combines present maneuver work
+with retained effects of earlier E entries. Conservation and complete
+departures determine local total time. The proofs qualify this chain under
+declared restrictions, not all lane-drop traffic.
+
+\textbf{Reading guide.} Sections 1--5 give the original reference, geometry,
+upstream law and terminal interfaces. Sections 6--8 specify present service
+and recovery. Sections 9--11 give causality, positive service, event
+continuation, clearance and accounting. Section 12 records information and
+sensitivity limits. Section 13 reproduces the selected analytical coexistence
+construction. Sections 14--15 collect physical-identification deductions
+and the source/status map. These supporting proofs are available for human
+review; symbolic checks of identities are not machine certification of
+quantified physical or hybrid-system claims.
+
+\textbf{Status.} The stack is functionally complete as a conditional
+mathematical model. Applied MP6, amended action/gradient and SUMO evidence
+contracts remain open. Step 3 is unfinished; Step 4 remains unopened.
+S13's closed certificate remains valid for S13 and is not transferred to the
+amended model. ``M2'' in the review is a mechanism label, not project
+implementation Milestone 2. The urban task and ramp line remain closed.
+
+\begin{center}
+\href{vsl_feedback8_model_stack_recap.pdf}{\textbf{Companion: plain-language old-to-new model recap}}
+\end{center}
+\newpage
+\tableofcontents
+\newpage
+\input{vsl_feedback8_math_core.tex}
+\input{vsl_feedback8_math_forward.tex}
+\input{vsl_feedback8_math_support.tex}
+\end{document}

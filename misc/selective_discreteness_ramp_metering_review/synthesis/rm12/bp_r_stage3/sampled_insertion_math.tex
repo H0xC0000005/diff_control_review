@@ -1,0 +1,161 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large Sampled insertion: static qualification}\\[4pt]
+7 October 2026 --- E1 approved; Stage 3 remains open
+
+\textbf{Scope.} Conservative reset and local compatibility deductions, followed
+by a conditional prescribed-path analytical reference. No joined traffic solver,
+reachable control witness, clearance or gradient is certified. The readable
+report is \texttt{sampled\_insertion\_findings.md}; source locations are in
+\texttt{sampled\_insertion\_source\_audit.md}.
+
+\section*{1. Completed transfer and newborn metadata are separate}
+At regular update $t_{k+1}$, let $U^{k+1}$ be the completed own population/count
+state, including all accepted transfers during $[t_k,t_{k+1})$.
+Pre-existing restrictions are part of that interval's traffic problem.
+For directed generating stream $e$, let $\Delta m_e^k\ge0$ be actual continuous
+transfer mass, $H_e^k$ its cumulative mass and $m_*>0$ the fixed threshold unit.
+\begin{equation}
+ H_e^{k+1}=H_e^k+\Delta m_e^k,\qquad
+ b_e^k=\left\lfloor H_e^{k+1}/m_*\right\rfloor
+       -\left\lfloor H_e^k/m_*\right\rfloor .
+\end{equation}
+With remainder $z_e^k\in[0,1)$, the exact bookkeeping is
+\begin{equation}
+ b_e^k=\left\lfloor z_e^k+\Delta m_e^k/m_*\right\rfloor,\qquad
+ z_e^{k+1}=z_e^k+\Delta m_e^k/m_*-b_e^k .
+\end{equation}
+The floor counts descriptors, never rounded physical traffic.
+For each of the $b_e^k$ newborns, the selected reset reads
+\begin{equation}
+ t_b=t_{k+1},\quad \ell_b=\ell_{\rm target},\quad
+ x_b=x_{\rm entry,e},\quad v_b^{\rm des}=v_{\rm donor,e}^{k,\rm request},
+ \quad h_b=N_{\ell_b}^{k+1}(x_b).
+\end{equation}
+Here $N$ is the own count field with the declared gauge and accepted source
+accounting. Ramp $x_{\rm entry,e}$ is the physical merge; discretionary entry
+uses the declared target-section coordinate. These are E1 adaptations.
+The first realized speed still obeys source CM:
+\begin{equation}
+ v_b=\min\{v_b^{\rm des},\,v_b^{\rm dwn,own}\}.
+\end{equation}
+This relation does not independently supply the joined downstream-speed estimator.
+
+Let $\mathcal D^+$ be the retained old/new descriptor list after reset and
+$\mathcal R$ the metadata reset. It satisfies
+\begin{equation}
+ \mathcal R:(U^{k+1},H^{k+1},\mathcal D^-)\longmapsto
+ (U^{k+1},H^{k+1},\mathcal D^+),\qquad
+ M(U^{k+1})_{\rm after}=M(U^{k+1})_{\rm before}.
+\end{equation}
+$M$ includes outside waiting, the approach and all road lanes. Paired internal
+transfers cancel; only offered arrivals and sink exits change total population.
+Completed exit histories are unchanged. Equal own inputs/histories through
+$t_{k+1}$ yield equal newborns through that time; no future reference is used.
+This is conditional reset causality, not existence of the preceding solve.
+
+\newpage
+\section*{2. Count attachment must be a value of the traffic field}
+For same-lane newborns $i,j$ at the same update and location,
+\begin{equation}
+ x_i=x_j\quad\Longrightarrow\quad
+ h_i=h_j=N_{\ell}^{k+1}(x_i).
+\end{equation}
+Different speeds or physical parameters do not imply different $N$ values at
+one point. For neighboring distinct positions and jam density $\kappa$,
+admissibility requires
+\begin{equation}
+ 0\le N_{\ell}^{k+1}(x_i)-N_{\ell}^{k+1}(x_j)
+ \le \kappa(x_j-x_i),\qquad x_i<x_j .
+\end{equation}
+In particular, artificial label spacing at zero spatial separation violates
+the upper bound. Descriptor multiplicity is not extra population.
+Identical complete signatures may be grouped losslessly; differing signatures
+are kept. Equal initial labels do not establish equal future paths.
+
+Existing paths retain the preceding source correction. On a regular sourced
+segment, with boundary $x_0$, net lateral source $s$ and $\dot\phi=v$,
+\begin{equation}
+ \frac{d}{dt}N(t,\phi(t))
+ =q(t,\phi)-v\rho(t,\phi)-\int_{x_0}^{\phi(t)}s(t,y)\,dy .
+\end{equation}
+Zero relative passing removes the first two terms, not the source integral.
+This does not choose attachment for an atomic source on the path.
+
+\section*{3. One local active trace explains the service mechanism}
+Consider only a source-free segment with triangular fundamental diagram,
+positive free/wave speeds $u,w$, jam density $\kappa$, and an active zero-passing
+restriction moving at prescribed $0\le v<u$. An upstream saturated trace and a
+downstream free trace satisfy
+\begin{equation}
+ Q(\rho)=\min\{u\rho,w(\kappa-\rho)\},\qquad
+ Q(\rho_U)-v\rho_U=Q(\rho_D)-v\rho_D=0.
+\end{equation}
+Selecting those branches gives
+\begin{equation}
+ \rho_U=\frac{w\kappa}{w+v},\quad
+ q_U=\frac{vw\kappa}{w+v},\quad
+ \rho_D=q_D=0,\qquad
+ \frac{dq_U}{dv}=\frac{w^2\kappa}{(w+v)^2}>0.
+\end{equation}
+The zero downstream trace is the void adjacent to the moving restriction.
+This is \emph{not} a global fixed-section service cap or new node rule.
+All node receiving and later exits must follow the same wave solution.
+For diagnostic values $u=30$, $w=5$ m/s, $\kappa=0.15$ veh/m and $v=10$ m/s,
+$q_U=0.5$ veh/s versus road capacity $uw\kappa/(u+w)=9/14$ veh/s.
+These are hand-selected local inputs, not calibrated or reachable metering cases.
+
+\newpage
+\section*{4. Simultaneous prescribed paths have a wider analytical route}
+For a homogeneous source-free road with prescribed paths $\phi_j(t)$,
+the relative road capacity at observer speed $\xi$ is
+\begin{equation}
+ R(\xi)=\sup_{0\le\rho\le\kappa}\{Q(\rho)-\xi\rho\},\qquad -w\le\xi\le u.
+\end{equation}
+Along a bottleneck, its declared maximum relative passing rate $r_j(t)$ reduces
+that cost. Applicable coincident restrictions combine by a minimum, not by an
+additive population or capacity debit. For compatible data on boundary $\Gamma$,
+the variational reference reads
+\begin{equation}
+ N(t,x)=\inf_{\gamma:B\in\Gamma\to(t,x)}
+ \left\{N(B)+\int_{t_B}^{t}R_{\mathcal D}
+       (\dot\gamma(\tau),\tau,\gamma(\tau))\,d\tau\right\}.
+\end{equation}
+$R_{\mathcal D}$ is the road cost reduced on the applicable prescribed curves.
+All distinct curves remain. V03, Theorems 1--3, supplies scoped validity and
+boundary consistency conditions; V02 discusses graph representations and their
+errors. A finite graph is not declared exact or adopted here.
+
+The source pairwise-CRP step bound includes
+\begin{equation}
+ \Delta t\le\frac{x_{i+2}-x_i}{w+v_i}.
+\end{equation}
+A triple coincidence makes this bound zero when $w+v_i>0$.
+That demonstrates the limit of the pairwise construction, not nonexistence
+of the multi-path variational solution.
+
+\section*{5. The remaining feedback is an actual qualification obligation}
+In the full task the paths are not prescribed independently of traffic:
+CM needs the own downstream speed; the paths constrain that traffic; node
+receiving and accepted sources must come from the same solution. V03 Section 5
+distinguishes this endogenous case. Neither the displayed infimum nor a name
+for its solver proves that the joined update is determinate.
+
+The sampled reset is conservative and causal. Prescribed-path continuation has
+positive source support within its assumptions. The full own-speed/node/source
+update and eventual clearance remain partial; complete TST leverage, reduction
+necessity and useful gradients are not established. Exact information remains
+permitted; no recovery approximation, position perturbation, changed clock,
+replacement solver or experiment is adopted.
+
+\textbf{Sources.} A01: supplied journal Sections 2.2 and Appendix A.
+S02: RR-2003-2 Sections 2--4. V01: RR-2003-3 Sections 1--3.
+V02: RR-2003-7 Sections 2 and 4.1.
+V03: Daganzo (2006), NHM 1(4), Sections 2.1 and 5.
+\end{document}

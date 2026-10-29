@@ -1,0 +1,71 @@
+Take responsibility for a separate, method-first urban task refinement and
+compact methodology-report effort. This is not VSL refinement or simulator
+development.
+
+Work in:
+/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_downstream_task_review
+
+Read this handoff first and follow its reading list:
+/home/zpz/repos/diff_minimal_meso/misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md
+
+The urban Part-I task review was accepted and closed on 2026-09-14. Recover
+its current authority from the T6/T7 closure and impact decisions before
+interpreting older proposal text. Preserve V0-V4, effective-service action,
+clearance-complete TST, the baseline/fairness and staged evidence contracts.
+V5/I1 and the ramp line remain excluded/closed. Historical P8 delegates
+service-order resolution to M3; exact production FIFO was not selected.
+The user now explicitly permits overriding that delegation if necessary,
+including using other methods to handle the affected modeling aspect.
+Reconsideration is in scope and needs no additional permission merely
+because P8 assigned it elsewhere. No replacement method is preselected.
+
+The target is a complete research-ready urban methodology framework and
+task formulation, followed by a compact paper-style report. First propose
+what the VSL-like completion standard means for urban: a reader can
+reconstruct the traffic model/task/sensitivity test without inventing a
+missing traffic rule. Numerical calibration and implementation remain later.
+
+The user has selected the review order: settle the urban model's global
+assumptions and interfaces first, then review its coupled components.
+These are contracts within urban: components agree on state/order/timing/
+conservation; V0-V4 share action/objective/accounting conventions; comparison
+models share the physical task and fairness rules while their traffic laws
+may differ. No urban-VSL model unification is required. The representative-
+V3-first review order is unselected. The precise rubric and sprint inventory
+remain outputs of the bounded opening assignment.
+
+Open only steps 0-1: propose that standard, recover the latest authorities,
+then produce a component-and-interaction gap audit and bounded review plan.
+Cover explicit global assumptions, concrete traffic mechanisms/interfaces,
+equation-level source/adaptation credit, fair information comparisons and a
+complete conditional sensitivity path. For each gap state why it matters,
+the proposed review, owner/dependencies and closure evidence. Separate what
+is ready to write, what later approved records supply, what needs a new
+methodological decision and what belongs to implementation/evidence.
+
+The existing urban formulation includes intentionally schematic ordered
+access, receiving and service operators. Recover later decisions if available;
+otherwise identify the smallest required questions and their ownership.
+The accepted task/experiment contract is the starting point; the complete
+methodology is the new target. Within the user-authorized P8 reconsideration,
+review different methods as well as ownership changes where justified.
+Document why an override is needed, the proposed old/new traffic behavior
+and its implications for interfaces, sensitivities and fair comparisons.
+Concrete consequential method selection still returns at its review gate;
+do not fill missing laws through editorial choices. Implementation remains
+separate. Include a final integrated-model check and compact report
+in the later staged sequence. Follow the selected global-assumptions/
+interfaces-first order, then dependency-ordered coupled component review.
+Retain adequate accepted global decisions and do not silently reopen the
+selected review order or switch to the unselected V3-first approach.
+
+Use the VSL report as a specification/presentation example, without importing its
+traffic assumptions, scalar information ladder or optional-SUMO amendment.
+
+Explain the core traffic ideas in plain, connected language. Save the
+proposed standard, assessment, reading/report structure and bounded next-step plan in
+the urban review package. Stop after presenting that plan, or earlier at a
+genuinely new methodological choice. Do not implement simulator code,
+install dependencies, run traffic/gradient/optimization/SUMO experiments or
+reopen VSL. Further report drafting and model refinement follow separately
+authorized review steps.

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "Planning clarification and document checks; no review execution or scientific runs",
+  "protected_files_unchanged": 608,
+  "existing_branch_documents_updated": [
+    "misc/selective_discreteness_ramp_metering_review/README.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_60_bp_r_stage3_protocol.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "misc/selective_discreteness_ramp_metering_review/discussion/rm12/backtracking_planning_dialogue.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/work_report.md"
+  ],
+  "new_files": [
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/representation_alignment_ordering.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/representation_alignment_ordering_validation.json"
+  ],
+  "documents_checked": 7,
+  "local_links_checked": 233,
+  "snapshot": "/tmp/rm12_alignment_ordering_20261008_uk5z0xpf/before.json",
+  "status_contract": {
+    "route": "conditional interface alignment then justified adaptation then representation reconsideration",
+    "classification": "A/C qualification strategy within Q.J.F",
+    "K.A": "approved and unchanged",
+    "concrete_new_law": "not adopted",
+    "execution": "not opened in this planning answer",
+    "Stage3/67": "open",
+    "Stage4": "unopened"
+  }
+}

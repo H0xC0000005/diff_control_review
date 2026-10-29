@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-05",
+  "status": "passed",
+  "review_status": "C0 execution complete; scoped negative admission; user closure pending",
+  "query_rows": 18,
+  "source_rows": 12,
+  "current_selected_method_originals": [
+    "FB0030",
+    "RM0001",
+    "RM0004",
+    "RM11-P01",
+    "RM11-P02",
+    "RM8-P02"
+  ],
+  "prior_timing_context": "RM8-P03",
+  "limited_access_leads": [
+    "RM11-L01",
+    "RM11-L02",
+    "RM11-L03",
+    "RM11-L04",
+    "RM11-L05"
+  ],
+  "unique_ids_and_csv_widths": "passed",
+  "query_source_reference_integrity": "passed",
+  "source_access_upgrade": "author-hosted published full text accessible; selected methods inspected RM11 on 2026-10-05; earlier excerpt-only grade superseded",
+  "documents_checked": [
+    "README.md",
+    "rm11_00_post_a_direction_check_proposal.md",
+    "extraction/rm11/c0_primary_source_audit.md",
+    "synthesis/rm11/c0_spatial_history_action_audit.md",
+    "discussion/rm11/c0_execution_dialogue.md",
+    "reporting/rm11/c0_findings_and_disposition.md",
+    "reporting/rm11/current_handoff.md",
+    "reporting/rm11/c0_work_report.md"
+  ],
+  "local_links_checked": 54,
+  "local_links": "passed",
+  "status_and_coverage_checks": "passed",
+  "validation_command": "python3 /tmp/rm11_c0_validate_documents.py",
+  "manual_claim_audit": "Physical support, conditional sufficiency, and missing full-history/action support kept distinct; no new traffic law adopted",
+  "experiments_or_implementation_tests": "none; not part of the authorized source/static admission pass",
+  "scope_limit": "Bounded frontier; inaccessible methods are coverage limits, not scientific failures"
+}

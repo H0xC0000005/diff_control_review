@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-14",
+  "status": "passed",
+  "stage_status": "Original VSL-B2/Pass 2 evidence review complete at assembled-contract confirmation before freeze",
+  "selected_direction": "T1 physical terminal section with reviewed handoff and restricted own-lane-first member",
+  "exact_contract_status": "consolidated and qualified; confirmation before freeze pending",
+  "next_stage_status": "Pass 3 not opened",
+  "checked_artifacts": [
+    "README.md",
+    "vsl_successor_00_opening_plan.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_h1_homogeneous_window_findings.md",
+    "reporting/research_readiness/vsl_b2_p1_joined_service_review_plan.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "reporting/research_readiness/vsl_k2_forced_merge_findings_and_gate.md",
+    "extraction/research_readiness/vsl_k2_terminal_source_and_interface_audit.md",
+    "reporting/research_readiness/vsl_t1_joined_model_and_gate.md",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.tex",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf",
+    "reporting/research_readiness/vsl_t1_work_report.md",
+    "reporting/research_readiness/vsl_t1_validation.json"
+  ],
+  "local_markdown_links_checked": 269,
+  "markdown_anchors_checked": 13,
+  "failures": [],
+  "analytical_reference_checks": {
+    "normalized_family": {
+      "kc_at_vmin": "2",
+      "kc_at_vmax": "3/2",
+      "capacity_at_vmin": "2",
+      "capacity_at_vmax": "3",
+      "mass_to_terminal_lane_jam_storage_ratio": "2/5",
+      "own_load_at_vmax": "19/10",
+      "receiver": "39/20",
+      "initial_fast_preparation_service": "5/8",
+      "initial_eager_offer": "7/10",
+      "initial_slow_preparation_service": "7/8",
+      "front_residual_at_vmin": "7/20",
+      "front_residual_at_vmax": "125/352",
+      "front_residual_difference": "9/1760",
+      "positive_fast_queue_growth": "581/1760",
+      "coefficient_and_branch_arithmetic": "passed"
+    },
+    "isolated_terminal_pulses": [
+      {
+        "duration": "2",
+        "peak_queue": "2",
+        "queue_area": "3",
+        "complete_time_sum": "11"
+      },
+      {
+        "duration": "4",
+        "peak_queue": "0",
+        "queue_area": "0",
+        "complete_time_sum": "16"
+      }
+    ],
+    "conservation_no_spillback_reflection_clearance_TST": "analytical deductions in PDF, not simulator tests"
+  },
+  "pdf": {
+    "pages": 6,
+    "bytes": 195608,
+    "sha256": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e",
+    "parser": "pypdf 6.15.0",
+    "all_pages_text_extracted": true,
+    "page_text_character_counts": [
+      2517,
+      2240,
+      2511,
+      2270,
+      2870,
+      2486
+    ],
+    "latex_layout_or_reference_warnings": false,
+    "raster_visual_inspection": "not performed"
+  },
+  "source_access": "Carey 2013, Jin continuous-LTM preprint and publication metadata, Yperman 2005 re-viewed; no new paper beyond the existing list",
+  "dependencies_installed": "none",
+  "traffic_experiments": "not performed",
+  "time_stepped_simulation": "not performed",
+  "optimization_parameter_search_or_gradient_tests": "not performed",
+  "scientific_authorities_preserved": [
+    "S13",
+    "urban closure",
+    "ramp closure"
+  ],
+  "user_feedback_modified": false,
+  "unrelated_root_edits_left_unchanged": [
+    "AGENTS.md",
+    "PLANS.md",
+    "memo.txt"
+  ]
+}

@@ -1,0 +1,22 @@
+query_id,date,query,domains,purpose,batch_id,source_ids,outcome
+RM12-IQ01,2026-10-06,"""Verkeerstechnische specificatie"" ""toeritdosering"" ""1.09""",,Exact cited specification,B1,RM12-I03;RM12-I05,Combined B1 returns dataset metadata and older manual; original v1.09 not retrieved
+RM12-IQ02,2026-10-06,"""Verkeerstechnische specificatie van een applicatieprogramma voor toeritdosering""",,Exact title citation frontier,B1,RM12-I03;RM12-I05,B1 combined result association; no exact specification methods
+RM12-IQ03,2026-10-06,"""14791917"" ramp metering",,Cited dataset and archive contents,B1,RM12-I03;RM12-I05,B1 combined result association; numeric unrelated matches excluded
+RM12-IQ04,2026-10-06,site.rijkswaterstaat.nl toeritdosering meetgegevens applicatieprogramma,,Agency operational documentation,B1,RM12-I03;RM12-I05,B1 combined result association; general unrelated agency results excluded
+RM12-IQ05,2026-10-06,"""Verkeerstechnische"" ""toeritdosering"" ""2013""",,Specification version frontier,B2,RM12-I01;RM12-I02,Combined B2 returns thesis and infrastructure note; full specification not retrieved
+RM12-IQ06,2026-10-06,"""toeritdosering"" ""1.09""",,Exact version frontier,B2,RM12-I01;RM12-I02,B2 combined result association; different specification versions not substituted
+RM12-IQ07,2026-10-06,"site.open.rijkswaterstaat.nl ""applicatieprogramma"" ""toerit""",,Primary agency repository,B2,RM12-I01;RM12-I02,B2 combined result association; no complete site knowledge contract
+RM12-IQ08,2026-10-06,"""toeritdosering"" specificatie ""initialisatie""",,Initialization specification frontier,B2,RM12-I01;RM12-I02,B2 combined result association; no bound physical initialization
+RM12-IQ09,2026-10-06,"""Klomp"" ""Gap-based"" ""master thesis"" ramp metering",,Author method followup,B3,,Weak combined results; unrelated sources excluded; no scientific claim
+RM12-IQ10,2026-10-06,"""MSc_Thesis_Stefan_Klomp.pdf"" ""initial""",,Closest author initialization detail,B3,,B3 combined result association; no verified initialization passage
+RM12-IQ11,2026-10-06,"""rws-c-regelaar_toelichting_3e_generatie_tdi""",,Infrastructure note retrieval,B3,,B3 combined result association; later official-page search succeeds
+RM12-IQ12,2026-10-06,Stefan Klomp ramp metering thesis 2020,repository.tudelft.nl;its-edulab.nl,Official thesis copy,B4,RM12-I01;RM12-I02,Combined B4 locates thesis repository and official tools page; citation-link followups inspected
+RM12-IQ13,2026-10-06,"""rws-c-regelaar""",,Agency-collaboration interface documentation,B4,RM12-I01;RM12-I02,B4 combined result association; selected primary one-page note later read
+RM12-IQ14,2026-10-06,"""MSc_Thesis_Stefan_Klomp""",,Alternative thesis access,B4,RM12-I01;RM12-I02,B4 combined result association; full PDF access remains failed
+RM12-IQ15,2026-10-06,"site:its-edulab.nl/wp-content/uploads/2020/07/MSc_Thesis_Stefan_Klomp.pdf ""Rijkswaterstaat"" ""detectors""",,Selected primary thesis algorithm passage,B5,RM12-I01;RM12-I04,Combined B5 supplies Section 2.3 p12 excerpt and exact citation context; full reads failed
+RM12-IQ16,2026-10-06,"site:its-edulab.nl/wp-content/uploads/2020/07/MSc_Thesis_Stefan_Klomp.pdf ""initial""",,Initial knowledge passage,B5,RM12-I01;RM12-I04,B5 combined result association; no initial physical knowledge contract established
+RM12-IQ17,2026-10-06,"site:its-edulab.nl/wp-content/uploads/2020/07/MSc_Thesis_Stefan_Klomp.pdf ""60"" ""flow""",,Reporting interval detail,B5,RM12-I01;RM12-I04,B5 combined result association; excerpt about another algorithm does not bind reference interval
+RM12-IQ18,2026-10-06,"""Verkeerstechnische specificatie"" ""toeritdosering"" ""Rijkswaterstaat""",,Exact agency specification citation,B5,RM12-I01;RM12-I04,B5 combined result association; 2007/2008 versions not treated as v1.09 methods
+RM12-IQ19,2026-10-06,"site:its-edulab.nl/wp-content/uploads/2020/07/MSc_Thesis_Stefan_Klomp.pdf ""2.3"" ""30""",,Nearest section and interval clarification,B6,,Combined B6 returns unrelated theses; excluded; not evidence absence
+RM12-IQ20,2026-10-06,"site:its-edulab.nl/wp-content/uploads/2020/07/MSc_Thesis_Stefan_Klomp.pdf ""initialisation""",,Nearest initialization clarification,B6,,B6 combined result association; other studies initialization not transferred
+RM12-IQ21,2026-10-06,"site:its-edulab.nl/wp-content/uploads/2020/07/MSc_Thesis_Stefan_Klomp.pdf ""aggregation"" ""seconds""",,Nearest report-window clarification,B6,,B6 combined result association; no reference window established

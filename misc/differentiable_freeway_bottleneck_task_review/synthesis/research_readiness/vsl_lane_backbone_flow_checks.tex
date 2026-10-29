@@ -1,0 +1,158 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.78in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\head}[1]{\par\medskip\textbf{#1}\par}
+\newcommand{\Prule}{\mathcal P}
+\begin{document}
+\begin{center}
+{\large\bfseries Native lane-flow equations: two admissibility checks}\\[3pt]
+2026-10-20 --- analytical review, no traffic rollout
+\end{center}
+
+\textbf{Finding.} Literal source receiving adjustment can force negative
+forward flow in a positive-density state. Separately, two pairwise lateral
+desires can exceed their donor's common sending budget. These checks concern
+the displayed equations, not an unobserved author implementation. They do
+not establish a replacement rule, calibrated validity or a gradient result.
+
+\head{1. Source rules and the exact interpretation checked}
+Use the notation of Nagalur Subraveti et al.~\cite{ns}, with $L_{i,l\to l'}$
+abbreviating their realized lateral flow $lq_{il\to l'}$. Density $k$ is in
+veh/km and all $D,S,L,q$ are in veh/h. Their equations 6 and 13--17 give
+\begin{align}
+ \Prule_{i,l\to l'}&=\max\left\{0,
+       \frac{I K_{il}-K_{il'}}{K_{il}+K_{il'}}\right\},\qquad
+ D_{il}=\min\{u_{il}k_{il},C_{il}\}, \label{eq:desire}\\
+ S_{il}&=\min\{C_{il},w_{il}(k^{\rm jam}_{il}-k_{il})\},\quad
+ \phi_{i,l\to l'}=D_{il}\Prule_{i,l\to l'},\quad
+ \theta_{il'}=\min\{1,(C_{il'}-S_{il'})/C_{il'}\}. \label{eq:receiving}
+\end{align}
+Here $K$ is a convex weighted average of current and two downstream densities
+on that lane. For $\theta<1$, the printed realized flow is
+$L=(1-\theta)\phi$. In both checks the targets have $S=C$, so $\theta=0$
+and $L=\phi$; the disputed special branch at $\theta=1$ is never used.
+
+For one lateral pair, source equations 20--22 print
+\begin{align}
+ D^{\rm mod}_{il}&=D_{il}+L_{i,l'\to l}-L_{i,l\to l'},\nonumber\\
+ S^{\rm mod}_{il}&=S_{il}+L_{i,l'\to l}-L_{i,l\to l'},\quad
+ q_{i-1,l}=\min\{D^{\rm mod}_{i-1,l},S^{\rm mod}_{il}\}. \label{eq:adjusted}
+\end{align}
+The second line reindexes the source receiving cell from $i+1$ to $i$.
+It is not a sign correction. Thesis chapter 3, equations 3.20--3.22,
+repeats this structure~\cite{thesis}.
+
+For transparent arithmetic choose the illustrative triangular FD
+\begin{equation}
+ u=60\ {\rm km/h},\qquad w=20\ {\rm km/h},\qquad
+ k^{\rm jam}=150\ {\rm veh/km},\quad k_c=37.5,\quad C=2250\ {\rm veh/h}.
+ \label{eq:parameters}
+\end{equation}
+These are review examples, not fitted source-site parameters or a proposed
+task calibration. The violations below are strict and tolerate small
+parameter perturbations. One may use $\Delta x=0.1$ km and $\Delta t=6$ s,
+satisfying the source CFL equality. No update trajectory is computed.
+
+\head{2. One lateral departure makes printed receiving negative}
+Consider one permitted direction from lane $l$ to a free target $l'$ away
+from route/courtesy effects. Choose the source's allowed congested
+keep-right setting zero, giving $I=1$. Other lateral flows are zero. Set
+\[
+\begin{array}{c|rrrr}
+ \text{cell position}&i-1&i&i+1&i+2\\ \hline
+ k_l&139&140&141&142\\
+ k_{l'}&1&2&3&4
+\end{array}
+\]
+All densities are positive and below jam density. At the cells needed here
+they increase downstream, so the stated source discharge-mode condition
+$k_i\geq k_{i+1}$ is inactive; the ordinary rules
+\eqref{eq:desire}--\eqref{eq:receiving} apply. Since
+$K_l\geq140$ and $K_{l'}\leq4$, the fraction is bounded by
+\begin{equation}
+ \Prule_{i,l\to l'}\geq\frac{140-4}{140+4}=\frac{17}{18},\qquad
+ D_{il}=2250,\quad S_{il}=200,\quad S_{il'}=2250.
+\end{equation}
+Hence $L\geq2125$ and the printed receiving adjustment forces
+\begin{equation}
+ S^{\rm mod}_{il}=200-L\leq-1925,\qquad
+ q_{i-1,l}\leq-1925\ {\rm veh/h}. \label{eq:negative}
+\end{equation}
+This needs no assumed upstream demand value: the minimum in
+\eqref{eq:adjusted} cannot exceed its negative receiving argument. A
+departure that should release space instead removes receiving allowance.
+It is a forward-admissibility obstruction before VSL is added.
+
+\head{3. Two pairwise desires can oversubscribe one donor}
+Take a three-lane section away from structural incentives, with a middle
+donor lane $l=2$. All three lanes are free. At $i,i+1,i+2$, use donor
+densities $(30,31,32)$ and densities $(2,3,4)$ on each neighboring lane.
+The current free-flow keep-right factor, where applied, is
+$I=1-2/30=14/15$; an unrestricted direction has $I=1$, so $I\geq14/15$
+for both outgoing directions. Reverse lateral desires are zero.
+Consequently, independently of the convex lookahead weights,
+\begin{equation}
+ \Prule_{i,2\to j}\geq
+ \frac{(14/15)30-4}{30+4}=\frac{12}{17},\qquad j\in\{1,3\}.
+ \label{eq:two}
+\end{equation}
+Both targets have $S=C$; therefore with $D_{i2}=1800$,
+\begin{equation}
+ L_{i,2\to1}+L_{i,2\to3}\geq\frac{24}{17}D_{i2}
+ =\frac{43200}{17}>1800\ {\rm veh/h}. \label{eq:overbudget}
+\end{equation}
+The source density update includes both lateral directions. If equation 20
+is extended by summing both, as its conservation update requires for a
+simultaneous two-direction interpretation, its residual forward demand is
+\begin{equation}
+ D^{\rm mod}_{i2}=D_{i2}-L_{i,2\to1}-L_{i,2\to3}
+ \leq-\frac{12600}{17}<0. \label{eq:residual}
+\end{equation}
+Unlike the first check, this last step explicitly uses the natural summed
+interpretation of the one-pair printed equation. If instead only one
+direction is realized, a selection/priority rule must be supplied. The
+displayed pairwise desires alone do not provide it. At the CFL equality,
+the requested lateral masses alone total at least $72/17$ veh against a
+current donor sending mass of 3 veh. This is oversubscription of its sending
+budget, not a claim that a complete unobserved implementation loses mass.
+
+Simply replacing $D$ by a positive VSL-capped budget while retaining the
+two fractions gives the same ratio $24/17>1$. A cap does not allocate the
+shared budget. Han et al.'s sending restriction~\cite{han} therefore cannot
+alone resolve this issue.
+
+\head{4. Later-source clarification and the decision boundary}
+Thesis chapter 4, equation 4.11, uses unrestricted flow at $\theta=0$ and
+$(1-\theta)\phi$ otherwise. On $0\leq\theta\leq1$ this is continuous and
+gives zero at zero receiving. It differs from the original special branch
+but neither hand check uses that branch. The later chapter also supplies
+a three-to-two case. Neither observation resolves the original receiving
+adjustment or supplies the joint allocator in the inspected summary.
+
+An authoritative algorithm could clarify the transcription or allocation.
+Absent that evidence, changing signs, clipping or selecting priorities
+would create a changed flow-realization contract. Qualification stops at
+that choice. No repaired law, replacement backbone, information advantage,
+finite-clearance guarantee or derivative contract is selected here.
+
+\begin{thebibliography}{3}\small
+\bibitem{ns} H. H. S. Nagalur Subraveti, V. L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model -- an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B}, vol. 7,
+no. 1, pp. 1758--1779, DOI: \href{https://doi.org/10.1080/21680566.2019.1700846}{10.1080/21680566.2019.1700846}.
+Source equations 6, 8--9, 13--17, 20--22; repository/copyright 2019,
+article header 2020.
+\bibitem{thesis} H. H. S. Nagalur Subraveti, \emph{Lane-specific Traffic Flow
+Control}, Ph.D. dissertation, TU Delft, 2021,
+\href{https://doi.org/10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9}{DOI: 10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9}.
+Selected ch. 3, printed pp. 26--32; ch. 4, pp. 51--52.
+\bibitem{han} Y. Han, A. Hegyi, Y. Yuan, S. Hoogendoorn, M. Papageorgiou,
+and C. Roncoli, ``Resolving freeway jam waves by discrete first-order
+model-based predictive control of variable speed limits,'' \emph{Transp.
+Res. C}, vol. 77, pp. 405--420, 2017,
+\href{https://doi.org/10.1016/j.trc.2017.02.009}{DOI: 10.1016/j.trc.2017.02.009}, sec. 2.3.
+\end{thebibliography}
+\end{document}

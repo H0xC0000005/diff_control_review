@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\CM}{\mathcal{T}}
+\title{Grouped recovery: conditional equivalence and projection limits}
+\author{RM12 BP-R Stage 3 --- methodological review}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} M1 authorizes grouped-state qualification, not adoption
+of the rules examined below. These are reviewer deductions from the supplied
+Laval--Daganzo source and explicitly conditional algebra. They do not establish
+a coupled ramp trajectory, control benefit, finite-summary impossibility or
+useful gradient. No traffic simulation is used.
+
+\section{State and sampled motion}
+At a completed source sample, let $x$ be position (m), $v$ realized speed (m/s),
+$\delta$ time step (s), $a_0$ zero-speed acceleration (m/s$^2$), $v_{\max}$ the
+vehicle capability parameter (m/s), $g$ gravity and $G(x)$ road grade. Fixed lane
+and type are implicit. The source Appendix A advances
+\begin{align}
+ x^+&=x+\delta v,\qquad
+ w^+=v+\delta\{a_0(1-v/v_{\max})-gG(x)\}, \label{eq:sample}\\
+ v^+&=\min\{w^+,U^+(x^+)\}. \label{eq:clip}
+\end{align}
+Here $w^+$ is next desired speed. $U^+$ denotes the consistently estimated
+next downstream KW speed, from the model's own coupled field. Equation
+\eqref{eq:clip} is not a substitute algorithm for determining that field.
+At an intermediate phase $w^+$ cannot be discarded. Birth/node/crossing
+existence and timing remain separate qualification obligations.
+
+A lane-wise descriptor measure is
+\begin{equation}
+ \mu=\sum_{j=1}^{K}\delta_{\sigma_j},\qquad
+ \sigma_j=(x_j,v_j,\theta_j,c_j),\qquad
+ \mu^+=\CM_{s\,\#}\mu+\beta_s-\eta_s. \label{eq:measure}
+\end{equation}
+$\theta_j$ stores fixed motion/type and any required sample-phase data;
+$c_j$ denotes a cumulative-count anchor (vehicle equivalents), if required by
+the coupled representation, computed from its own traffic field at the declared
+moving-boundary sample. It is not a personal vehicle identifier.
+$s$ is the model's own traffic field, not reference truth; $\beta_s$ records
+own-transfer births, and $\eta_s$ only justified removal. The pushforward maps
+each signature by the same specified own-state update. This is a conditional
+description, not a proof that the joined solver is complete. Descriptor count
+is not physical traffic mass or additional TST population.
+
+\section{When a group is lossless}
+Group only identical \emph{full} signatures, retaining multiplicity $m_h$:
+\begin{equation}
+ \mu=\sum_{h=1}^{H}m_h\delta_{\sigma_h},\qquad
+ \CM_{s\,\#}\mu=\sum_{h=1}^{H}m_h\delta_{\CM_s(\sigma_h)}.
+ \label{eq:groups}
+\end{equation}
+This identity preserves the complete measure; $H\leq K$, with $H=K$ possible.
+If the coupled solution is well defined and independent of descriptor names,
+identical signatures see the same local field and have identical future
+updates. Repeated identical constraint inequalities are redundant. Where a
+qualified cumulative-count construction combines contributions by a minimum,
+\begin{equation}
+ \min\{C_0,C,C,\ldots\}=\min\{C_0,C,\ldots\}. \label{eq:idempotent}
+\end{equation}
+Thus multiplicity does not multiply the service penalty. The road field still
+contains all continuous transferred mass. These arguments do not merge distinct
+positions, speeds, count associations or types. Equal current speed alone is
+insufficient. No assumption is made that sampled births share identical
+placement, nor that a currently inactive constraint can be permanently removed.
+
+\section{Joint location--speed association matters}
+This is a local-input test of \eqref{eq:sample}--\eqref{eq:clip}, not a common-rate
+traffic witness. On a level road, assign illustrative algebraic parameters
+$\delta=1$ s, $a_0=3$ m/s$^2$, $v_{\max}=30$ m/s. Then the desired-speed map is
+$\psi(v)=3+0.9v$. In two separated regions take the same prescribed local-input
+speed estimates $U_L=15$ m/s and $U_R=20$ m/s. Positions $0$ m and $100$ m and
+their one-step advances stay in their respective regions. Compare
+\begin{equation}
+ \mu_A=\delta_{(0,10)}+\delta_{(100,14)},\qquad
+ \mu_B=\delta_{(0,14)}+\delta_{(100,10)}. \label{eq:swap}
+\end{equation}
+They share position and speed marginals, count, mean position and mean speed.
+Both current speeds are below each assigned local cap. But
+\begin{align}
+ S_A^+&=\min(12,15)+\min(15.6,20)=27.6\ \mathrm{m/s},\\
+ S_B^+&=\min(15.6,15)+\min(12,20)=27.0\ \mathrm{m/s}. \label{eq:sums}
+\end{align}
+Separate marginals cannot determine this speed-sum update. A coarse spatial bin
+covering both regions can lose the same association, even with velocity bins.
+Resolving the joint support may distinguish it. No claim is made that the
+prescribed field is the eventual joined solution for both configurations, or
+that this difference changes exit flow, TST or an optimal action.
+
+\section{Count and mean position do not close histogram transport}
+At one position update, use the source's current-speed advance $x^+=x+h$ with
+$h=\delta v=2$ m and common $v=2$ m/s, $\delta=1$ s. All positions are initially
+in the interval $[0,10)$ m:
+\begin{equation}
+ A=\{5.5,7.5\},\qquad B=\{4.5,8.5\}. \label{eq:positions}
+\end{equation}
+Both have count two, mean $6.5$ m and the same speed list. After translation,
+$A^+=\{7.5,9.5\}$ stays inside while $B^+=\{6.5,10.5\}$ sends one record across
+the boundary. Hence their projected next bin counts differ, despite equal
+initial count/mean summaries. This does not defeat a summary retaining the
+full subcell profile or a justified richer/restricted family.
+
+For bins $B_a$ and projection $P_a\mu=\mu(B_a)$, the exact formula
+\begin{equation}
+ (P\CM_{s\,\#}\mu)_a=\int\mathbf{1}_{B_a}(\CM_s(z))\,\dd\mu(z)
+ \label{eq:binupdate}
+\end{equation}
+requires the within-bin measure. Calling this a formula does not make it an
+update from $P\mu$ alone. A declared reconstruction $R$ can instead define a
+closed approximate map $P\CM_sR$, with births/coupling added consistently.
+Its accuracy, activity and service are separate qualifications. A later bin
+refinement cannot retrieve lost member locations from the reference.
+
+\section{Conditional service and objective bounds}
+For \emph{already qualified} trajectory contributions, suppose lower and upper
+count contributions satisfy $L_h(z)\leq C_j(z)\leq U_h(z)$ for every member
+$j$ of group $h$, on the same valid domain (including extended $+\infty$ values
+outside domains of influence). Then
+\begin{equation}
+ \min\{C_0,\min_h L_h\}\ \leq\
+ \min\{C_0,\min_j C_j\}\ \leq\
+ \min\{C_0,\min_h U_h\}. \label{eq:envelope}
+\end{equation}
+This follows from monotonicity of minimum. It does not supply $L_h,U_h$ for
+coupled unknown trajectories, sampled births or receiving interactions. Count
+inequalities cannot simply be differentiated into pointwise flow inequalities.
+If uncertainty straddles active/inactive configurations, a worst-case penalty
+does not certify exact inactive behavior for the actual reference state.
+
+Let $I(t)$ be cumulative offered population, including initial population, and
+$E(t)$ cumulative final exits, in vehicle equivalents. With all entrance,
+ramp and road waiting counted, system inventory is $I(t)-E(t)$. For common $I$,
+finite-horizon total system time and its error satisfy
+\begin{align}
+ J_T&=\int_0^T [I(t)-E(t)]\,\dd t,\\
+ |J_T-\widehat J_T|&\leq\int_0^T|E(t)-\widehat E(t)|\,\dd t.
+ \label{eq:tst}
+\end{align}
+Units are vehicle-equivalent seconds. Full clearance requires certified tails
+for both models. A genuine exit-count enclosure gives a corresponding TST
+enclosure by integration; bin widths alone do not provide such an enclosure.
+Even a small objective error does not prove correct or useful gradients.
+
+\section*{Disposition}
+Exact identical-signature grouping is a conditional equivalence rule. Broader
+compact reconstruction remains unqualified. The sampled task, point merge,
+priority, public data and TST are unchanged. The concrete grouping/approximation
+decision S3-G2-Q-G is open; no candidate is adopted and Stage 4 is unopened.
+
+\section*{Source locations}
+Supplied Laval--Daganzo (2006), Section 2.2 and Appendix A, supplies the motion
+and descriptor semantics. Daganzo--Laval RR-2003-2, Sections 2--4/Appendix, and
+Simoni--Claudel, arXiv:1701.01026, Sections 2--3, support count/trajectory
+coupling under their stated laws. Equations here are conditional reviewer
+deductions, not a transferred theorem for the complete ramp task.
+\end{document}

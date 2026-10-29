@@ -1,0 +1,423 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,longtable}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\pos}[1]{\left[#1\right]_+}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\status}[1]{\textit{Definition status: #1.}}
+\title{Urban traffic methodology: first joined technical draft}
+\author{Selective discreteness review}
+\date{Updated 27 October 2026}
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+A vacant left-turn bay need not be reachable. A through block can occupy the common feeder before the opening; serving that block can help a turner more than adding left-turn service. The research question is how much of the order and route information must survive aggregation to predict such responses and choose useful service changes.
+
+This draft consolidates the agreed traffic meaning and derives the parts already determined by it. On 27 October the user selects receiving sharing among currently ready heads. Section~\ref{sec:receiving} states that priority sublaw and its conditional sensitivity. The current scope retains M0 timestep histories; an optional event-history refinement is deferred. Feedback 9 corrects the new-allocation dependency: currently known feasibility must constrain allocation itself. Section~\ref{sec:step-admission} records the correction and retains the older fixed-target comparison only conditionally. It remains \textbf{a working technical draft, not a complete next-state law or final methods report}. Conservative ingress and complete physical histories still need a joined transcription. No traffic simulation, numerical gradient check or external evaluation is reported.
+
+\section{The task, population and physical state}
+
+The accepted task has one four-leg junction, fixed routes and permissions, and four protected \emph{effective-service groups}: north--south through/right, north--south left, east--west through/right, and east--west left. Let their fractions be
+\begin{equation}
+ g=(g_1,g_2,g_3,g_4)\in\mathcal G,
+ \qquad g_p\geq \underline g_p\geq0,\qquad \sum_{p=1}^4 g_p=1.
+ \label{eq:action}
+\end{equation}
+The lower bounds remain task parameters, not selected numbers. A physical perturbation $d$ satisfies $\sum_p d_p=0$ and stays feasible. The action does not specify an on/off waveform. Cycle length and phase order are not new optimization variables.
+
+V0 has movement-exclusive lanes; V1 introduces shared-lane order; V2 introduces finite storage with order nonbinding; V3 couples order with access and storage; V4 tests held-out variation. Exact order remains in the present model: an order-nonbinding case is not permission to mix traffic. V5/I1 remains excluded. The symmetric primary suite and its rotation checks are retained; local asymmetric hand examples below are diagnostics, not replacements for that suite.
+
+For an approach with an internal bay opening, partition the road into an upstream part $U$, a common feeder $F$ inside the detailed zone, and downstream parallel sections $T$ and $B$. Other layouts use their actual corresponding sections. Each physical section $e$ has its own length, capacity $C_e$ (mass/time), storage $K_e$ (mass), and forward/backward delays $\tau^f_e,\tau^b_e$ (time). Parallel storage is counted per physical lane. Refinement does not create another copy of the road space. Permissions must be authored explicitly: a through-only lane does not become a legal left-turn target to activate lane choice.
+
+Let $N^{\rm in}_e,N^{\rm out}_e$ be cumulative mass and $n_e=N^{\rm in}_e-N^{\rm out}_e$. Let $Q_o$ be unadmitted mass at source $o$. Every physical mass unit belongs to exactly one source or road section until reaching its sink. A pending lane-target record points to mass still in $U$ or $F$; it is not an additional stock. Initially the network is empty; prescribed preparation demand creates queues through the same laws. If preparation is independent of $g$, its initial-state derivative is zero, not its subsequent control response.
+
+An ordered resident entry carries continuous mass, route-table reference, route position, physical section/lane, and its eligibility-time segment. The current movement is projected from the route. A fixed lane commitment is distinct from present occupancy. Internal section crossings do not advance the global route position; crossing the actual junction does. Different future routes may share a current movement without losing their persistent identities.\footnote{Inherited ledger semantics: approved Milestone 1 plan, Sections 3.5--3.7. Physical partition and neutral-domain limits: Milestone 2 global revision, G1--G5. The internal bay extension is a current review composition.}
+
+The grid records current movement along cumulative mass rank. For lane entry $r$ with rank interval $[a_r,b_r]$ and fixed rank cell $[v_j,v_{j+1}]$, its contribution is
+\begin{equation}
+ W_{\ell jm}=\sum_{r:\,m_r=m}
+ \pos{\min(b_r,v_{j+1})-\max(a_r,v_j)}.
+ \label{eq:grid}
+\end{equation}
+This overlap is a representation formula, not a physical access law. Rank is not distance; grid totals cannot recover exact FIFO order or locate the bay opening. The ledger remains authoritative.
+
+\status{Task and invariants inherited from the accepted urban contract and M1/M2 decisions; the explicit internal-section composition is the selected review direction, still requiring the joined transcription. Equation~\eqref{eq:grid} restates the rank-overlap representation.}
+
+\section{Propagation and conservative boundary transfers}
+
+The inherited empty-history LTM uses boundary times $t_k=k\Delta t$.\footnote{Approved Milestone 0 plan, Component 0.2, ``Exact history query and equations,'' checked against \texttt{ltm.py}. That plan records Yperman (2007) and UNsim v0.12.0 as its reference basis; this draft transcribes the approved repository law, not a newly verified primary-source equation.} Between stored boundaries, cumulative history $H$ is affine:
+\begin{equation}
+ \mathcal H_H(q)=(1-\theta)H_j+\theta H_{j+1},\qquad
+ j=\lfloor q/\Delta t\rfloor,\quad \theta=q/\Delta t-j.
+ \label{eq:history}
+\end{equation}
+The empty prehistory is zero for $q\leq0$. Queries must not use a future boundary. The M0 section transcription is
+\begin{align}
+ S_{e,k}&=\min\!\left(C_e\Delta t,
+  \pos{\mathcal H_{N^{\rm in}_e}(t_{k+1}-\tau^f_e)-N^{\rm out}_{e,k}}\right),
+  \label{eq:sending}\\
+ R_{e,k}&=\min\!\left(C_e\Delta t,
+  \pos{\mathcal H_{N^{\rm out}_e}(t_{k+1}-\tau^b_e)+K_e-N^{\rm in}_{e,k}}\right).
+  \label{eq:receiving}
+\end{align}
+For this explicit history convention, local sections require compatible positive delays and $\Delta t\leq\min_e(\tau^f_e,\tau^b_e)$. Numerical values are not chosen here. Creating an artificial delay merely to meet this condition would change the traffic model.
+
+Accepted transfers $b_{e,k},y_{e,k}$ obey $0\leq b_{e,k}\leq R_{e,k}$, $0\leq y_{e,k}\leq S_{e,k}$ and give
+\begin{equation}
+ N^{\rm in}_{e,k+1}=N^{\rm in}_{e,k}+b_{e,k},\quad
+ N^{\rm out}_{e,k+1}=N^{\rm out}_{e,k}+y_{e,k},\quad
+ n_{e,k+1}=n_{e,k}+b_{e,k}-y_{e,k}.
+ \label{eq:update}
+\end{equation}
+Each internal transfer is subtracted from one physical owner and added to the next, with matching route mass. Sources similarly satisfy $Q_{o,k+1}=Q_{o,k}+D_{o,k}-b_{o,k}$. Consequently
+\begin{equation}
+ \sum_o Q_{o,k}+\sum_e n_{e,k}+N^{\rm sink}_k
+ =M^{\rm released}_k
+ \label{eq:conservation}
+\end{equation}
+for a consistent boundary convention. Pending records do not appear again on the left.
+
+Delayed backward propagation determines new receiving room. One must not add current departures directly to same-step entry room, nor admit and discharge new mass from the same physical section in one update. These restrictions preserve the inherited causal seam; positive physical delays still matter even inside the detailed zone.
+
+The formulas above specify physical \emph{bounds}, not which competing lane obtains a transfer. Applying them to $U,F,T,B$ is a review composition, not the already implemented neutral M2 model. The latter had precommitted entry and no internal lane starts, ends or shared-lane obstruction. Its matched neutral comparator is a split-domain aggregate model; equivalence with an unsplit link is a separate subdivision question.
+
+\status{Equations~\eqref{eq:history}--\eqref{eq:update} transcribe approved M0 laws; \eqref{eq:conservation} is derived accounting. Their boundary-history reconstruction is retained for the current timestep model; the optional comparison in Appendix~\ref{sec:history-choice} is deferred. Extension to all internal sections remains draft work. M0's restricted non-redistributing signal quotas are not adopted as the new urban node law.}
+
+\section{Progressive desired allocation and physical access}
+
+For matched legal lanes with nonbinding transfer limits, or an already feasible assigned portion, let $q$ be the mass being assigned, $L$ its legal set and $h_\ell$ the perceived committed queue loads. The ideal equalization has the water-filling transcription
+\begin{equation}
+ a_\ell=\pos{\lambda-h_\ell},\qquad
+ \sum_{\ell\in L} a_\ell=q,\qquad a_\ell=0\text{ outside }L.
+ \label{eq:allocation}
+\end{equation}
+Feedback 9 requires currently known sending, receiving and accessibility inside the general allocation. The displayed unconstrained water-filling case is not that full constrained law. Only new mass is allocated; old valid commitments stay fixed. A unique legal target still does not override physical feasibility. For matched raw queue measures the restricted formula also minimizes $\tfrac12\sum_{\ell\in L}(h_\ell+a_\ell)^2$ subject to nonnegative additions totaling $q$. It is not a new service-aware cost or an approved normalization for unequal lanes.
+
+Process source packets in their original order. After each assignment, add $a_\ell$ to the committed load used for the next packet. A waiting commitment still contributes; it does not consume physical target-lane storage until admitted. The precise physical observation feeding the initial $h_\ell$ must distinguish queued/committed traffic from moving stock; the formula is not a license to count every moving unit as queued or to count one commitment twice. No timestep-start freeze remains. Existing valid targets are reused, not repeatedly optimized while waiting.
+
+With nonbinding limits, loads $0.2,0$ and a new unit give additions $0.4,0.6$. If those targets already validly exist, later admissions $0.3,0.5$ leave pending amounts $0.1,0.1$. That conditional arithmetic is not a requirement to assign a whole new packet without considering known constraints. Feedback 9 instead permits fresh feasible admission $0.6$ to be balanced directly as $0.2,0.4$. With only $0.1$ feasibly assignable, additions are $0,0.1$; old traffic is not moved to force equality.
+
+The homogeneous split does not invent a serial target order. Its children append in parent source order to each target lane. Preserve route and timing provenance. Exact adjacent merging is allowed only under the inherited lossless route/position and eligibility-segment compatibility conditions; no arbitrary packet partition or lossy merge may choose the behavior.
+
+At the physical opening, an already single-target feeder prefix provides a distinct obstruction example. With through $0.4$ ahead of left $0.6$, through allowance $0.2$ and bay allowance $1$, only through $0.2$ passes: the through residual still blocks the common path. Independent physical feeders do not inherit that one global prefix. Conversely, this example does not justify arbitrarily concatenating the targets of a newly split homogeneous packet. Full ingress transcription must respect both examples, inherited sending, and fixed pending shares.
+
+On a fixed active set $J=\{\ell:a_\ell>0\}$, the local allocation derivative is explicit:
+\begin{equation}
+ \lambda=\frac{q+\sum_{\ell\in J}h_\ell}{|J|},\qquad
+ \dd\lambda=\frac{\dd q+\sum_{\ell\in J}\dd h_\ell}{|J|},\qquad
+ \dd a_\ell=\dd\lambda-\dd h_\ell\quad(\ell\in J).
+ \label{eq:allocation-derivative}
+\end{equation}
+Inactive additions have zero derivative within that region. At ties or active-set changes a classical derivative need not exist. The allocator has no direct input from the service plan at fixed $h$, but later queue loads depend on earlier control.
+
+\status{Equation~\eqref{eq:allocation} transcribes the agreed ideal balancing for matched alternatives; \eqref{eq:allocation-derivative} is its derivation. Physical access/eligibility and a general coupled ingress transaction are not completed by this allocation equation.}
+
+\section{Elapsed-rate service and selected receiving priorities}
+\label{sec:receiving}
+
+For a resident head with current movement $m$, let $p(m)$ be its fixed group and $s_{\ell m}$ its physical per-lane saturation rate. Its effective rate is
+\begin{equation}
+ \mu_{\ell m}(g)=s_{\ell m}g_{p(m)}.
+ \label{eq:rate}
+\end{equation}
+Copying an entire input-link saturation rate to every lane would create capacity. With all resident entries already eligible and receiving nonbinding, the served prefix is the largest feasible prefix whose work fits the interval:
+\begin{equation}
+ \sum_r\frac{y_{\ell r}}{\mu_{\ell m_r}}\leq\Delta t,\qquad
+ 0\leq y_{\ell r}\leq q_{\ell r},
+ \label{eq:elapsed}
+\end{equation}
+with every earlier entry complete before a later one is served. A zero-rate head blocks following entries; it is handled as no service, without dividing by zero. Waiting for eligibility or receiving consumes elapsed time. Equation~\eqref{eq:elapsed} alone applies only to the ready, unblocked case and does not supply those waiting intervals.
+
+For the earlier hand example, $s=1$, $\Delta t=1$, all $g_p=0.25$, and ready order $[L\,0.05,T\,0.8]$. Left needs $0.2$ seconds; through receives $0.20$ mass in the remaining $0.8$ seconds. A step-wide movement-budget rule would instead permit through $0.25$; it is not the selected rule. Locally,
+\begin{equation}
+ y_T=\mu_T\left(\Delta t-\frac{q_L}{\mu_L}\right),\quad
+ \dd y_T=\left(\Delta t-\frac{q_L}{\mu_L}\right)\dd\mu_T
+ +\frac{\mu_Tq_L}{\mu_L^2}\dd\mu_L
+ -\frac{\mu_T}{\mu_L}\dd q_L.
+ \label{eq:head-derivative}
+\end{equation}
+For $g_L\mapsto0.25+\epsilon$, $g_T\mapsto0.25-\epsilon$ and fixed $q_L$, the derivative is $-0.6$ mass per unit fraction transfer, while the unselected budget rule gives $-1$. These are analytic local branch derivatives, not implemented gradient checks.
+
+\subsection*{What the receiving agreement fixes}
+
+For a common exit, use the relevant movement's green to weight inbound legs, apply a leg's weight once, and share equally among that leg's eligible competing lanes. Respect demand, service, order and physical receiving; reuse infeasible shares. Do not copy a whole leg weight to each lane or multiply green into a discharge a second time. There is no signal-phase or software-scan precedence.
+
+The 27 October decision fixes its temporal meaning: priorities govern the \emph{competitors ready at each time}. Newly exposed movements join the current competition. Earlier service stays as served, without a later debit or compensation to restore green-proportional final interval totals. Both alternatives already need discharge-order awareness. The user selects current-head sharing because order then directly shapes realized discharge, while whole-interval fairness can offset part of that effect. This is a modeling rationale, not a measured complexity or fidelity result.
+
+\subsection*{The capped current-head sharing sublaw}
+
+At effective-service time $t$, let $H_{ij}(t)$ contain the currently ready, accessible lane heads from inbound leg $i$ toward exit $j$ with positive feasible service. Each lane has only its actual head in the competition. Let $c_\ell(t)\leq\mu_{\ell m}$ be its individual feasible rate cap, $C_{ij}=\sum_{\ell\in H_{ij}}c_\ell$, and $w_{ij}=g_{p(i,j)}$ its leg's relevant movement priority. Let $\rho_j(t)$ be the physical receiving rate available to those heads. This is a sublaw \emph{given} these causal inputs; it does not prescribe $\rho_j=R_{j,k}/\Delta t$ for general cumulative histories.
+
+The current amount of receiving usable per unit time is $V_j=\min(\rho_j,\sum_i C_{ij})$. Capped green weighting gives each competing leg rate $r_{ij}$, followed by capped equal sharing within that leg:
+\begin{align}
+ r_{ij}&=\min(C_{ij},\theta_j w_{ij}),&
+ \sum_i r_{ij}&=V_j,\label{eq:ready-leg-sharing}\\
+ r_\ell&=\min(c_\ell,\eta_{ij}),&
+ \sum_{\ell\in H_{ij}}r_\ell&=r_{ij}.
+ \label{eq:ready-lane-sharing}
+\end{align}
+Only ready legs with positive caps participate; zero green implies zero effective service. With zero receiving or no competitors, all corresponding rates are zero. The rates are uniquely determined by these capped sharing equations even when a multiplier need not be unique after every cap is met. Unused lane shares are reused within the leg; an unused leg share is reused across the remaining legs. A leg's weight appears once. If receiving exceeds all feasible caps, every head receives its cap and the excess stays unused.
+
+For example, with receiving rate $1$ and leg weights $3:2$, feasible leg rates at least $0.6,0.4$ give grants $0.6,0.4$. Two uncapped ready lanes in the first leg receive $0.3$ each. If one is capped at $0.1$, the other can receive $0.5$. If the first leg instead has total cap $0.2$, the other leg can receive $0.8$ if feasible. These restate the agreed caps/reuse convention at the selected current time basis.
+
+Keep the resulting rates only while their physical inputs and active heads support them. A head's finite mass clears at its actual exhaustion time, after which its successor competes if eligible. Eligibility arrivals, head clearance, and changes in physical supply or caps require the corresponding rates to be recomputed. No artificial head order, phase waveform or interval-end catch-up grant is introduced. A remaining head mass is not converted into a constant whole-interval rate cap to avoid following its clearance.
+
+\subsection*{Conditional rate and discharge sensitivity}
+
+On a branch where receiving binds, let $A$ be capped legs and $B$ the remaining positive-weight competing legs. For fixed active sets,
+\begin{align}
+ \theta_j&=\frac{\rho_j-\sum_{i\in A}C_{ij}}{\sum_{i\in B}w_{ij}},&
+ \dd\theta_j&=\frac{\dd\rho_j-\sum_{i\in A}\dd C_{ij}
+ -\theta_j\sum_{i\in B}\dd w_{ij}}{\sum_{i\in B}w_{ij}},
+ \label{eq:ready-leg-derivative}\\
+ \dd r_{ij}&=\dd C_{ij}\quad(i\in A),&
+ \dd r_{ij}&=w_{ij}\dd\theta_j+\theta_j\dd w_{ij}\quad(i\in B).
+ \label{eq:ready-grant-derivative}
+\end{align}
+For one leg, let $A_i$ be its capped heads and $B_i$ the uncapped heads. When $B_i$ is nonempty,
+\begin{equation}
+ \dd\eta_{ij}=\frac{\dd r_{ij}-\sum_{\ell\in A_i}\dd c_\ell}{|B_i|},
+ \qquad \dd r_\ell=
+ \begin{cases}\dd c_\ell,&\ell\in A_i,\\
+ \dd\eta_{ij},&\ell\in B_i.
+ \end{cases}
+ \label{eq:ready-lane-derivative}
+\end{equation}
+If supply is nonbinding and all individual caps are served, differentiate those caps directly. Physical cap/supply derivatives include their upstream histories; they are not frozen merely because priorities use a current ready set. At cap ties, zero-service transitions or coincident head events, a classical branch derivative is not assumed.
+
+Changing head times also matters. For an illustrative piecewise-constant rate branch with events $0=\tau_0<\cdots<\tau_E=\Delta t$, the interval mass and its fixed-signature response satisfy
+\begin{equation}
+ y_\ell=\sum_{e=0}^{E-1}r_{\ell e}(\tau_{e+1}-\tau_e),\qquad
+ \dd y_\ell=\sum_{e=0}^{E-1}
+ \left[(\tau_{e+1}-\tau_e)\dd r_{\ell e}
+ +r_{\ell e}(\dd\tau_{e+1}-\dd\tau_e)\right].
+ \label{eq:ready-event-derivative}
+\end{equation}
+Thus holding clearance times fixed would omit an actual sensitivity path. General varying supply profiles require the corresponding integral, not a forced constant rate. These formulas define the priority response conditional on valid physical inputs; they do not yet derive those inputs or all event times from the complete coupled model.
+
+\status{Current-head timing is selected by the user. Equations~\eqref{eq:ready-leg-sharing}--\eqref{eq:ready-lane-sharing} transcribe the already agreed green/equal/capped/reuse policy on that time basis. Equations~\eqref{eq:ready-leg-derivative}--\eqref{eq:ready-event-derivative} are conditional calculus consequences, not numerical evidence or approval of a complete node implementation.}
+
+\subsection*{The selected rule and the unselected total-fairness comparison}
+
+Use a one-second local interval. Lane A, from the south, has ample through mass toward north exit J, ready at time zero (group 1). Lane B, from the west, has through mass $0.6$ toward east exit K (group 3), then ample left mass toward J (group 4). All relevant per-lane saturation rates are $4$; all fractions are $0.25$, so movement rates are $1$. K is unrestricted. J has a constant entrance rate $0.5$ and nonbinding storage. These diagnostic numbers are not a proposed timestep or calibration.
+
+B clears its first block at $t=0.6$. Its J-bound head can therefore use at most $0.5(1-0.6)=0.2$ mass. A and B's J movements have equal priority, but different readiness times.
+
+\begin{center}
+\begin{tabular}{p{0.49\linewidth}cc}
+\toprule
+Receiving interpretation & A to J & B to J\\
+\midrule
+Final-interval total fairness (unselected) & $0.3$ & $0.2$\\
+Current ready-head sharing (selected) & $0.4$ & $0.1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first schedule serves A alone at rate $0.5$ on $[0,0.6]$, then B alone on $[0.6,1]$. It gives whole-interval fairness with a feasible cap; A waits after consuming its grant. It does not waste receiving or retain an unusable reservation. The second serves A alone initially, then each at $0.25$ for the last $0.4$ seconds. Both obey exact lane order, average service, all physical rates and total receiving $0.5$. Neither is an actual phase waveform. The difference is temporal priority accounting, not software traversal.
+
+Now transfer $\epsilon$ from group 4 to group 1, holding groups 2 and 3 fixed. B's first-block clearing time stays $0.6$. For $|\epsilon|<0.04$, both J service rates exceed $0.5$ and B's final-total weighted grant still exceeds its feasible cap $0.2$. Therefore
+\begin{align}
+ (y_{AJ},y_{BJ})_{\rm final\ totals}&=(0.3,0.2),
+ &\frac{\dd}{\dd\epsilon}(y_{AJ},y_{BJ})&=(0,0),\label{eq:total-priority}\\
+ (y_{AJ},y_{BJ})_{\rm current\ heads}&=(0.4+0.4\epsilon,0.1-0.4\epsilon),
+ &\frac{\dd}{\dd\epsilon}(y_{AJ},y_{BJ})&=(0.4,-0.4).
+ \label{eq:current-priority}
+\end{align}
+In the second line the late common supply $0.2$ is split in ratios $(0.25+\epsilon):(0.25-\epsilon)$; the early $0.3$ belongs to A. Thus the disagreement survives in smooth local branches, not only at a kink.
+
+\textbf{Evidence limit.} Both send the same total mass and the same aggregate inflow profile to J in this isolated case. It does not demonstrate different total TST. It demonstrated why the definition mattered: lane/route residual states and local sensitivity differ. The selected model takes \eqref{eq:current-priority}; the other line is an unselected comparison.
+
+\textbf{Decision closed, 27 October 2026.} Option 2, current-ready-head sharing, is selected under UR-G2/UR-C3-Q1. The priority sublaw is explicit. Its physical supply/eligibility histories and conservative ingress coupling remain to complete. Current propagation retains its established timestep history; the optional event-history comparison is deferred and does not reopen this priority decision.
+
+\section{The timestep map and feedback 9 allocation correction}
+\label{sec:step-admission}
+
+The present target is the response of timestep discharge and state, followed by their composition into complete TST. Retain M0's cumulative boundary histories and interpolation. A delayed query inside a timestep update may fall between past boundaries; its existing interpolation remains part of that discrete map. This does not require an observation, objective or research question between simulation steps.
+
+Elapsed/current-head service is an internal calculation of the interval's output amounts. Its internal head times do not become a new event-resolved history state. Route timing/eligibility must be transcribed consistently with the retained boundary reconstruction. The optional history comparison has been moved to Appendix~\ref{sec:history-choice} and is not a current blocker.
+
+\subsection*{Known capability constrains a new allocation}
+
+Feedback 9 rejects an unconstrained new assignment followed by a separate rationing decision as the general architecture. Queue-based allocation should choose among currently feasible transfers. With queues $(0.2,0)$, available lane amounts $(0.3,0.5)$ and known common sending $0.6$, ideal balanced fresh admission is $(0.2,0.4)$, leaving queues $(0.4,0.4)$ and upstream mass $0.4$. This does not automatically determine every waiting label or approve either old candidate below; the exact coupled transcription is later work, not part of this feedback-only answer.
+
+Known feasible capability is not a prediction of final realized discharge. If allocation changes blockage, enforce the dependent constraints during the calculation or update valid bounds after earlier transfers, respecting existing causal propagation. The selected queue-based preference and source-order packet processing remain. Physical constraints do not require a service-aware driver objective.
+
+Previously valid commitments are a different case: current capability does not itself cancel them. The older example below explicitly assumes that whole target vector already exists independently. It remains a conditional diagnostic, not a required normal construction of new allocation. Feedback 9 withdraws its binary gate and the earlier target-proportional recommendation for the fresh-allocation problem. No next-step model derivation is undertaken here.
+
+\subsection*{Historical conditional case: targets already validly exist}
+
+The agreed partial-admission fixture has two legal matched lanes, physical queue loads $h=(0.2,0)$, fixed remaining targets $a=(0.4,0.6)$ and physical admission allowances $R=(0.3,0.5)$. With nonbinding feeder sending, admission is $(0.3,0.5)$ and pending targets are $(0.1,0.1)$. This does not assign an artificial order to the two target children.
+
+Now let the whole committed parent be ready but a shared capacity-limited sending bound permit only $S=0.6$ in this update. Its commitments already exist and both paths are accessible. These are conditional node inputs, not a change to primary lane permissions or a new initialization. Define $u_\ell=\min(a_\ell,R_\ell)$ and $V=\min(S,\sum_\ell u_\ell)$. Maximizing admitted total gives $V$, but does not determine its lane division. Two concrete completions are
+\begin{align}
+ x^A_\ell&=\min(u_\ell,\lambda a_\ell),
+ &\sum_\ell x^A_\ell&=V,
+ \label{eq:admission-proportional}\\
+ x^B&=\mathop{\arg\min}_{0\leq x\leq u,\;\sum x=V}
+ \frac12\sum_\ell(h_\ell+x_\ell)^2.
+ \label{eq:admission-realized-balance}
+\end{align}
+A uses remaining fixed targets as the weights of scarce admission, with caps and reuse. B reuses ideal balancing on the actual destination queues, subject to the same fixed target caps. B changes which targeted portions enter now, not their final targets. Both are local to this parent; neither solves a global heterogeneous allocation or uses signal-plan knowledge. They are two traffic criteria, not merely different algorithms for one result. With zero usable mass both return zero; no division by zero is required.
+
+\begin{center}
+\begin{tabular}{p{0.31\linewidth}ccc}
+\toprule
+Rule & Admitted $x$ & Pending $a-x$ & Next lane counts $h+x$\\
+\midrule
+Target-proportional A & $(0.24,0.36)$ & $(0.16,0.24)$ & $(0.44,0.36)$\\
+Realized-balance B & $(0.20,0.40)$ & $(0.20,0.20)$ & $(0.40,0.40)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both use all $0.6$, respect each storage/target cap, retain source-parent order and leave $0.4$ upstream. In either case, adding physical lane count and pending commitment gives $(0.6,0.6)$, the agreed intended balance. Neither criterion was selected by the earlier example with nonbinding sending. Each can use a capped scalar water-filling calculation. Feedback 9 does not choose between them under this old premise; it changes the normal new-allocation dependency and removes this comparison as the current gate.
+
+For $S$ near $0.6$, their active caps remain unchanged. Their end-step responses satisfy
+\begin{align}
+ \frac{\partial x^A}{\partial S}&=(0.4,0.6),&
+ \frac{\partial x^B}{\partial S}&=(0.5,0.5),
+ \label{eq:admission-sending-response}\\
+ \frac{\partial(h+x^A)}{\partial h_1}&=(1,0),&
+ \frac{\partial(h+x^B)}{\partial h_1}&=(0.5,0.5).
+ \label{eq:admission-queue-response}
+\end{align}
+The second line holds targets and shared sending fixed and stays inside inactive room caps, allowing the physical queue to vary slightly. This is directly a timestep-state Jacobian question: queues formed by previous control feed the current update. It does not assume that the fixed-state direct derivative with respect to the current signal is nonzero. A complete control derivative must compose all input paths. Moving mass from feeder to lanes alone does not establish an immediate TST difference.
+
+\textbf{Disposition after feedback 9.} Withdraw the former A recommendation and mandatory A/B gate for new allocation. The user requires capability-aware constrained creation of the allocation. Neither conditional fixed-target law is thereby approved for all cases. Preserve existing valid commitments; exact treatment of later changed capabilities belongs to later transcription. No new question is opened in this response.
+
+\subsection*{Accounting to preserve in the later constrained transcription}
+
+Known sending, receiving, eligible mass and causal accessibility must constrain the new allocation rather than merely correct a previously unconstrained result. Source-order processing, valid prior commitments and conservative paired transfers remain obligations. An accepted amount is removed from its actual upstream/feeder owner and appended to the receiving lane with route identity and the retained timing convention. Waiting records do not add physical mass or storage. This feedback response does not derive a new full algorithm or decide new waiting-commitment labels; new traffic still cannot receive same-section service in the same update.
+
+Each accepted internal flow appears with opposite signs in the two owners; pending views add no physical stock. Thus \eqref{eq:conservation} holds for either admission criterion. Internal section crossings leave global route position unchanged. The exact capability-aware allocation must be transcribed later. Residual bookkeeping is not a new vote or permission to reassign valid existing targets.
+
+\status{Feedback 9 settles the capability-aware new-allocation direction, not a complete solver. Equations~\eqref{eq:admission-proportional}--\eqref{eq:admission-realized-balance} and their derivatives remain conditional earlier alternatives for an independently fixed-target case; neither is approved as the general new-allocation law. No simulator, new derivation pass or numerical gradient test is reported in this answer-only update.}
+
+\section{From a one-step response to complete total system time}
+
+The complete target counts each released unit from its desired release until sink arrival, including source waiting and motion:
+\begin{equation}
+ J(g)=\int_0^{T_*}\left(\sum_o Q_o(t;g)+\sum_e n_e(t;g)\right)\dd t.
+ \label{eq:continuous-tst}
+\end{equation}
+The population includes all prescribed demand, with a candidate-independent continuation after the controlled period. An independently generated preparation contributes a constant if included. Pending lane records are not another summand. For a completed common population, subtracting its fixed free-flow travel time changes the value but not the service derivative.
+
+The existing implementation's diagnostic uses a specific left-interval convention:
+\begin{equation}
+ J_{\Delta t}=\Delta t\sum_{k=0}^{H-1}
+ \left(\sum_o[Q_{o,k}+D_{o,k}]+\sum_e n_{e,k}\right).
+ \label{eq:discrete-tst}
+\end{equation}
+Here demand for interval $k$ is available before that interval's admission. This is a discrete accounting/quadrature convention; it is not automatically the exact integral of arbitrary intra-interval profiles. The final model must use one declared timing convention consistently in its cost, eligibility and comparisons.\footnote{Accepted urban task, D2--D3 and its T6/T7 closure; the displayed discrete cost is checked against \texttt{objectives.py}, function \texttt{total\_system\_time}.}
+
+\textbf{Conditional composition, not a completed traffic operator.} Once a unique joined law exists, collect histories, physical stocks, ledger/commitments and other retained numerical state in $X_k$ and write $X_{k+1}=F_k(X_k,u_k)$. For fixed structural metadata and an unchanged active signature, a feasible direction $d$ gives
+\begin{align}
+ P_0&=0,\qquad P_k=\frac{\dd X_k}{\dd\epsilon}\bigg|_{g+\epsilon d},\\
+ P_{k+1}&=F_{k,X}P_k+F_{k,u}\dot u_k,
+ \label{eq:state-sensitivity}\\
+ \dot J_{\Delta t}&=\sum_{k=0}^{H-1}
+ \left(c_{k,X}P_k+c_{k,u}\dot u_k\right).
+ \label{eq:objective-sensitivity}
+\end{align}
+Here $P_0=0$ applies to empty or candidate-independent prepared initial state; a preparation using the varied control would require its own propagated initial derivative. Within control, $\dot u_k=d$; under fixed continuation, $\dot u_k=0$. The existing state derivative $P_k$ keeps propagating through clearance. At a fixed starting state, the immediate direct partial $c_{k,u}$ in \eqref{eq:discrete-tst} is zero. Current discharge can still change $X_{k+1}$ and future cost. No per-packet trajectory derivative is required to explain this causal path.
+
+Equations~\eqref{eq:allocation-derivative}, \eqref{eq:head-derivative} and the selected priority derivatives in Section~\ref{sec:receiving} supply actual local pieces. Differentiate the active branches of \eqref{eq:sending}--\eqref{eq:receiving} and retain delayed-history and head-event sensitivities; do not freeze queues that arose under earlier control. Section~\ref{sec:step-admission} records the capability-aware dependency correction. Thus $F_{k,X}$ and $F_{k,u}$ for the full joined model still require the exact constrained allocation and completed discrete timing/coupling transcription; the older fixed-target comparison is not a current mandatory choice. The existing interpolation, not optional event-history derivatives, is used for the present scope.
+
+The domain of the derivative must also include complete clearance. One may use a common finite $H$ if all sufficiently nearby feasible controls clear the entire population before it, or derive an actual completion endpoint with its stated regularity. No finite numerical horizon is selected here. At a smooth continuous endpoint the extra boundary term is the terminal population times the endpoint derivative; it vanishes only when the terminal population is genuinely zero. An integer stop index, positive residual cutoff or censored run does not inherit that argument. A nonclearing case is reported as noncompletion, not a favorable truncated TST.
+
+\status{Complete population and fixed continuation are accepted task semantics. Equations~\eqref{eq:continuous-tst}, \eqref{eq:state-sensitivity}--\eqref{eq:objective-sensitivity} are accounting/calculus consequences; \eqref{eq:discrete-tst} transcribes current code. Full actual-model and completion-domain derivations remain incomplete. Classical derivatives are conditional on active branches; finiteness or internal optimization success would not prove usefulness.}
+
+\section{Comparisons and independent references}
+
+B0 is the native aggregate baseline; B1 adds movement queues; B2 has the accepted lane-allocation and finite-storage role; B3 retains the ordered mesoscopic information. R1 checks stated laws independently; R2 is a richer external evaluator. A turn-queue B1 and allocation-plus-sourced-storage B2 are working preferences. Their concrete adaptations are not approved combined equations. Qualification follows soundness/adaptation first, task fit second, implementation ease third.
+
+Wei et al. provide a turn-level queue-transmission anchor already including green fractions. Gong et al. provide an allocation anchor, but their link-exit allocation is not an internal bay-entry law. Liu--Chang supplies a physical lane-group/storage anchor; its native signal and lane assumptions require declared adaptation. Wright et al.'s partial FIFO concerns physical lane obstruction and remains eligible.\footnote{Primary sources: \href{https://doi.org/10.1016/j.trc.2024.104937}{Wei et al. (2024)}, \href{https://doi.org/10.1016/j.trb.2025.103208}{Gong et al. (2025)}, \href{https://doi.org/10.1016/j.trc.2010.04.005}{Liu--Chang (2010)}, \href{https://doi.org/10.1016/j.trb.2017.09.001}{Wright et al. (2017)}. Exact inspected locations and reading depth are retained in the supporting rival source note and new equation map. No whole-source reproduction is claimed.} These sources do not supply a theorem or a complete implementation for the proposed B3 composition. Exact source locations and reading limits are in the companion source map.
+
+Fine-grained original series may enter each macro model's declared conversion or state estimator. Retained representation, memory, observation schedule and inferred quantities determine the information boundary. Native subsets and observation updates are legitimate. A hidden exact ledger remains mesoscopic retained information even if the final output is aggregate. Successful macro reconstruction is evidence against needing exact order for that task. Equal current aggregate totals alone do not prove that lawful histories are indistinguishable. A replay with later observations and a forecast without them support different claims; neither observation-updated models nor fine-data conversion are disqualified.
+
+R1 should include the water-filling, ordered obstruction, homogeneous residual and ready-head service examples above, plus complete conservation, delayed eligibility, neutral split-domain and rotation/symmetry cases. The receiving diagnostic now has the selected result $0.4/0.1$, together with the capped hierarchical sharing cases. Independent arithmetic is not simulation evidence. General lane collapse requires corresponding order, access, storage, readiness and service symmetry, not equal queue totals alone.
+
+For R2, all candidates need one action/population/accounting contract. A possible effective-to-executable mapping, \emph{not selected by this draft}, fixes cycle $C$, phase order, offset and total clearance allowance $L<C$, and assigns green durations
+\begin{equation}
+ G_p(g)=(C-L)g_p,\qquad
+ \overline\mu^{\rm ideal}_{\ell m}
+ =s^{\rm physical}_{\ell m}\frac{C-L}{C}g_{p(m)}.
+ \label{eq:external-action}
+\end{equation}
+If adopted, its factor must be reconciled with the model's effective saturation rate in \eqref{eq:rate}; using the same numerical fractions alone does not do so. Startup, within-cycle blockage, turning permissions and microscopic behavior remain external mismatch to disclose, not fit separately for each tested model. SUMO's custom static programs support explicit phase definitions; its generated defaults do not establish the intended protected task.\footnote{Official SUMO documentation: \url{https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html}. Checked 26 October 2026.}
+
+For a fixed finite reference population, a compatible complete-time measure is the sum of actual trip duration and insertion delay relative to the prescribed desired releases. Do not add in-network waiting time again. SUMO documents these quantities separately, and ordinarily emits trip records on arrival.\footnote{Official SUMO documentation: \url{https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html}. Checked 26 October 2026.} Missing, uninserted or unfinished members must not disappear through completed-trip-only averaging. A shared finite reference vehicle list can define continuous demand for the abstract models; alternatively fractional-demand realization requires an explicit approximation. Neither silently rounds the mainline's traffic mass. No cycle, population realization, external command or error margin is approved here.
+
+Forward fidelity, local derivative correctness and downstream usefulness require different evidence. Later finite differences check a selected simulator's branch derivative; held-out external perturbations test whether its suggested direction improves the real comparison target. Neither this derivation nor a decreasing internal objective substitutes for that evidence. External perturbation evidence before full optimization remains required.
+
+\section{What this draft establishes and what remains}
+
+The draft ties physical accounts and accepted local rules to formulas and conditional local derivatives. The user has settled temporal interpretation inside $R.\mathrm{reuse}$: priorities act among currently ready heads. The user defers event-resolved history and retains the existing timestep reconstruction. Feedback 9 requires known transfer capability inside new allocation and withdraws the old fixed-target binary as its current gate. Existing valid commitments remain constraints; the exact joint transcription is not completed in this answer-only response. Initialization, allocator order, route retention, actual phases and the macro information boundary remain settled.
+
+The writing still owes the exact capability-aware allocation, completed discrete eligibility/coupling, full conditional derivative and completion domain, concrete qualified B1/B2 instances, and the selected reference/evaluator mapping. Feedback 9 is answered without a new gate or next-step work, as the user requests. History refinement remains deferred and the compact report is unfinished.
+
+\appendix
+
+\section{Deferred history refinement: outside the current timestep scope}
+\label{sec:history-choice}
+
+The user defers event-resolved histories: current gradients concern timestep states and updates, and M0 interpolation is retained. This appendix preserves an optional numerical-refinement comparison. It does not identify a missing rule in the current timestep model and requires no decision now. Delayed queries can still fall between stored past boundaries inside the existing timestep update; that uses the already defined interpolation rather than opening a separate between-step research target.
+
+Take a diagnostic interval of length $1$ after loading from empty and preparing a ready shared lane. Its head is left mass $h=0.1$, followed by ample through mass; per-lane saturation is $1$. Set through fraction $g_1=0.4$, left fraction $g_2=0.2$, and the other fractions to $0.2$. Receiving at the stop line does not bind. In local elapsed time $t$, departures relative to the initial count satisfy
+\begin{equation}
+ H_{\rm service}(t)=
+ \begin{cases}
+ 0.2t,&0\leq t\leq0.5,\\
+ 0.1+0.4(t-0.5),&0.5\leq t\leq1,
+ \end{cases}
+ \qquad H_{\rm boundary}(t)=0.3t.
+ \label{eq:history-choice-curves}
+\end{equation}
+Both end at $0.3$. At $t=0.4$ they give $0.08$ and $0.12$, respectively. The second is the M0 boundary reconstruction of the same interval total; it is not the selected server's exact subinterval history.
+
+For a compatible triangular-FD section choose illustrative capacity $C=1$, storage $K=3$, forward delay $1.4$ and backward delay $1.6$. These satisfy $K=C(\tau^f+\tau^b)$, with both delays at least the one-second update interval. Consider a prepared full section with no new admissions in the diagnostic interval and initial departure count zero. Then $N^{\rm in}(1)=K$. The next interval's receiving calculation queries past outflow at $2-1.6=0.4$, so \eqref{eq:receiving} gives
+\begin{equation}
+ R_{\rm next}^{\rm service}=0.08,\qquad
+ R_{\rm next}^{\rm boundary}=0.12.
+ \label{eq:history-choice-receiving}
+\end{equation}
+Capacity and the nonnegative branch do not bind there. These are admissible local hand conditions after preparation, not prescribed nonempty initialization or calibrated numerical settings. The query uses available past data, so the discrepancy is not future access or same-step vacancy reuse.
+
+The local sensitivity also differs on stable branches. Transfer $\epsilon$ from through to left, holding the other fractions fixed. The end discharge is
+\begin{equation}
+ D(\epsilon)=0.1+(0.4-\epsilon)
+ \left(1-\frac{0.1}{0.2+\epsilon}\right),\qquad
+ D'(0)=0.5.
+ \label{eq:history-choice-total}
+\end{equation}
+For $|\epsilon|<0.02$, the left head still clears after $0.4$ and before $1$, while the other stated limits remain inactive. The past-query counts are $0.4(0.2+\epsilon)$ and $0.4D(\epsilon)$. Consequently
+\begin{equation}
+ \left.\frac{\dd R_{\rm next}^{\rm service}}{\dd\epsilon}\right|_0=0.4,
+ \qquad
+ \left.\frac{\dd R_{\rm next}^{\rm boundary}}{\dd\epsilon}\right|_0=0.2.
+ \label{eq:history-choice-sensitivity}
+\end{equation}
+This is an analytic difference away from event ties. It establishes different receiving and next-state responses, not a completed-system TST difference. Source-to-road admission alone does not change the instantaneous number in the system; the downstream time effect requires the complete coupled evolution.
+
+\textbf{Deferred alternative: retain the service-time crossing history.} Store each relevant piecewise departure curve and query it after the physical delay. This preserves the selected server's chronology in later readiness and spillback while retaining first-order cumulative physics. It extends M0's numerical history representation; it is not an already approved production capability. At nonuniform knots $(a,Y_a),(b,Y_b)$ with $\theta=(q-a)/(b-a)$, differentiation gives
+\begin{equation}
+ \dd H(q)=(1-\theta)\dd Y_a+\theta\dd Y_b
+ +\frac{Y_b-Y_a}{b-a}
+ \left[\dd q-(1-\theta)\dd a-\theta\dd b\right].
+ \label{eq:history-choice-knot-derivative}
+\end{equation}
+Fixed geometry and fixed query time give $\dd q=0$; control-dependent service times can still move $a,b$. Freezing those endpoints would discard part of the proposed model's sensitivity. On a fixed query bracket this is ordinary interpolation calculus; at bracket/event changes its classical derivative is not assumed.
+
+\textbf{Alternative: retain M0's boundary reconstruction.} Ordered service determines interval amounts, then future propagation uses their uniform reconstruction. This is a declared coarse discretization. Route eligibility and the rest of the physical account must consistently use that reconstruction where claimed; matching interval totals alone is not equivalent to keeping the service-time history. Integer-aligned delays or finer updates can remove some specific discrepancies, but do not define the general history rule.
+
+\textbf{Current disposition.} Retain M0 boundary reconstruction; withdraw the recommendation to introduce event-resolved history at this step. The comparison establishes that a refinement can change a result, not that the present research question requires the refinement. It may be reconsidered later under an explicit fidelity requirement. Production plans/code remain unchanged.
+
+\status{The diagnostic and derivatives are derived here from selected elapsed service and the approved M0 interpolation/receiving formulas. The alternative nonuniform-knot derivative is conditional calculus, not approval of that history law. The current model continues with the established timestep rule; these optional event-history formulas are not part of its required derivative.}
+
+\end{document}

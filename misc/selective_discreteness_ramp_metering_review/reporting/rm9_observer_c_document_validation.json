@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "date": "2026-10-05",
+  "pdf_pages": 4,
+  "pdf_sha256": "ca1ea70953d2a680cf9509c63c4fe963e400a8d486ffb050999448363aa54790",
+  "latex_warnings": 0,
+  "local_links_checked": 128,
+  "markdown_documents_checked": 15,
+  "new_queries": 4,
+  "new_sources": 2,
+  "branch_symbolic_coefficients_checked": 9,
+  "observer_scaling_exact_arithmetic": "PASS",
+  "current_status": "UG4-O.C approved; RM9 open at UG5",
+  "coverage": "Bounded analytic/source pass; no exhaustive initial-history classification",
+  "not_performed": [
+    "traffic simulation",
+    "numerical gradient verification",
+    "physical-speed validation",
+    "raster visual inspection"
+  ],
+  "validation_command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/rm9_c_validate.py"
+}

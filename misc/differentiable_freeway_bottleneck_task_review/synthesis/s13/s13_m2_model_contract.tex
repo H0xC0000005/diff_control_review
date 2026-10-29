@@ -1,0 +1,193 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newcommand{\ve}{\text{veh-eq}}
+\newcommand{\dd}{\,\mathrm{d}}
+\title{S13 M2 Analytical Model Contract\\\large Source-bounded continuous mass, mandatory transfer, and finite receiving}
+\author{Methodology review artifact}
+\date{30 September 2026}
+
+\begin{document}
+\maketitle
+
+\section{Purpose and claim boundary}
+
+This contract instantiates one minimal member of the M2 family admitted by S12.
+It is designed to test whether hidden lane allocation can change a useful common
+lane-uniform variable-speed-limit (VSL) decision through endogenous mandatory
+transfer and finite receiving. It is not a calibrated freeway model, a paper
+reproduction, or an implementation specification.
+
+The contract preserves continuous vehicle-equivalent mass, fixed lane topology,
+one shared infrastructure action, exact predecision aggregate-history equality,
+and complete affected-cohort time accounting. The analytical certificate that
+uses this contract is a conditional existence result.
+
+\section{Geometry, cohort, hidden state, and observer}
+
+Consider a permanent three-to-two lane drop. For the analytical reduction, the
+ending lane is explicit and the two continuing lanes are represented as one
+symmetric continuing group. Let a common affected cohort have total mass
+\(M>0\) \(\ve\). A hidden preparation state \(s\) is described by its
+ending-lane fraction \(p_s\in(0,1)\):
+\begin{equation}
+ e_s(0)=p_sM,\qquad c_s(0)=(1-p_s)M.
+ \label{eq:init}
+\end{equation}
+The compared states have different \(p_s\) but the same \(M\), route
+population, geometry, future forcing, action set, and declared aggregate
+predecision history.
+
+The strong observer contains spatial aggregate density, flow, speed, cumulative
+counts, and their complete declared history. It does not contain lane
+decomposition. S05 supplies the conditional upstream construction in which
+conservative lateral transfers cancel after aggregation, so two values
+\(p_L<p_H\) can arrive at the decision boundary with identical observer history.
+The decision boundary is the first entry into the fixed spatial M2 preparation
+zone; M2 physics is common thereafter.
+
+\section{Action and traversal time}
+
+The only action is a constant lane-uniform advice speed
+\(v\in[v_{\min},v_{\max}]\), with \(0<v_{\min}<v_{\max}\). The preparation
+zone has common length \(L>0\) km. On the selected uncongested longitudinal
+branch, advice determines zone traversal time
+\begin{equation}
+ \tau(v)=\frac{L}{v},\qquad
+ \tau\in[\tau_{\min},\tau_{\max}]
+ =\left[\frac{L}{v_{\max}},\frac{L}{v_{\min}}\right].
+ \label{eq:tau}
+\end{equation}
+This is the full one-parameter action family. Fastest advice \(v_{\max}\) is
+the endpoint \(\tau_{\min}\); it is not omitted from the comparison.
+
+\section{Conservative mandatory transfer}
+
+Within the preparation zone, ending-lane mass has mandatory lateral demand. On
+the fixed positive active branch used for this certificate, a common transfer
+rate \(\lambda>0\) (h\(^{-1}\)) gives
+\begin{equation}
+ \dot e_s(t)=-\lambda e_s(t),\qquad
+ \dot c_s(t)=+\lambda e_s(t),\qquad 0\le t\le\tau.
+ \label{eq:transfer}
+\end{equation}
+Thus
+\begin{equation}
+ e_s(\tau)=p_sM e^{-\lambda\tau},\qquad
+ c_s(\tau)=M-e_s(\tau),\qquad e_s(t)+c_s(t)=M.
+ \label{eq:remaining}
+\end{equation}
+Equation~\eqref{eq:transfer} is a deterministic continuous-mass specialization
+of repeated mandatory CTM transfer on one active density/geometry branch. It is
+an explicit S13 analytical assumption. It does not assert an empirically
+calibrated exponential lane-change law.
+
+Target receiving in the preparation zone is assumed nonbinding for the admitted
+certificate regime. This does not remove receiving from M2: the consequential
+finite-receiving interaction occurs at the choke. It isolates the mechanism by
+which longer residence can complete more mandatory transfer before that
+interaction.
+
+\section{Finite receiving at the choke}
+
+At the choke, same-lane mass consumes one unit of receiving work per unit mass.
+Mass that still must merge consumes \(\alpha>1\) units, following the
+gap-acceptance receiving-work interpretation in Carey, Balijepalli, and Watling.
+Let \(\mu>0\) be available receiving work per hour. The complete cohort's
+receiving workload is
+\begin{equation}
+ W_s(\tau)=c_s(\tau)+\alpha e_s(\tau)
+ =M+(\alpha-1)p_sM e^{-\lambda\tau}.
+ \label{eq:work}
+\end{equation}
+Neutral proportional allocation shares binding receiving between effective
+same-lane and gap-weighted lateral demand. For the homogeneous fluid batch used
+here, workload is served at rate \(\mu\), so clearance duration is
+\begin{equation}
+ T_s(\tau)=\frac{W_s(\tau)}{\mu}.
+ \label{eq:clear}
+\end{equation}
+The service rule is conservative and work-conserving in receiving-work units.
+It does not create or delete vehicle mass. The gap factor changes time/space
+consumption, not mass.
+
+\section{Complete affected-cohort objective}
+
+All \(M\) mass begins at the preparation-zone entrance at the decision time,
+traverses for \(\tau\), and then clears the choke under homogeneous proportional
+fluid service. Departures are linear over \(T_s\), so mean post-arrival time in
+system is \(T_s/2\). The per-mass complete time score is
+\begin{align}
+ J_s(\tau)
+ &=\tau+\frac{T_s(\tau)}{2} \\
+ &=\tau+\frac{M}{2\mu}
+   +Kp_s e^{-\lambda\tau},
+ &K&:=\frac{(\alpha-1)M}{2\mu}>0.
+ \label{eq:objective}
+\end{align}
+This score includes the full action-induced traversal delay and the time until
+the complete cohort clears. No unfinished demand or upstream waiting is omitted.
+A common action-independent prefix cost or downstream travel time can be added
+without changing the comparison.
+
+\section{Parameter class and active regime}
+
+The global parameter domain is
+\begin{equation}
+ M,L,\mu,\lambda>0,\quad \alpha>1,\quad
+ 0<v_{\min}<v_{\max},\quad 0<p_L<p_H<1.
+ \label{eq:domain}
+\end{equation}
+S13 does not select one calibrated point. The action-split certificate requires
+the open inequalities
+\begin{equation}
+ K\lambda p_L<e^{\lambda\tau_{\min}}
+ <K\lambda p_H<e^{\lambda\tau_{\max}}.
+ \label{eq:open}
+\end{equation}
+Strict inequalities make this a nonempty open regime whenever the common
+parameters permit ending-lane fractions on both sides of the threshold. They
+are declared before evaluating an action ranking. Equality surfaces are excluded
+active-set boundaries, not silently rounded cases.
+
+\section{Aggregate limits and falsification}
+
+The hidden-state contribution disappears when any of the following holds:
+\begin{itemize}
+\item \(\alpha\to1\): lateral and same-lane traffic consume equal receiving work;
+\item \(\lambda\to0\): advice no longer changes remaining mandatory transfer;
+\item \(p_L=p_H\): the hidden preparations coincide; or
+\item receiving never binds: the workload term no longer delays clearance.
+\end{itemize}
+In these limits, fastest advice is common best and S05's obstruction is recovered.
+
+The M2 claim is falsified if the exact observer collision cannot reach the zone
+entrance, the shared speed cannot change residence/remaining transfer, complete
+accounting removes the action split, or an observer-only deterministic model can
+condition on information that distinguishes the preparations at decision time.
+
+\section{Differentiability boundary}
+
+Inside the fixed active regime, equations~\eqref{eq:tau}--\eqref{eq:objective}
+are smooth in continuous state and action. Lane topology and the ending-lane
+label are fixed metadata. Action endpoints, receiving becoming nonbinding,
+priority-rule changes, zero mass, and CTM demand/supply branch switches are
+nonsmooth or active-set boundaries. S13 makes no smoothing claim across them.
+
+\section{Source and adaptation statement}
+
+Per-lane conservation and mandatory transfer are grounded in
+\href{https://doi.org/10.1080/21680566.2019.1700846}{Nagalur Subraveti,
+Knoop, and van Arem}. Finite receiving, proportional priority, and the
+lane-change gap factor are grounded in
+\href{https://doi.org/10.1007/s11067-013-9193-7}{Carey, Balijepalli, and
+Watling}. Common VSL at a permanent lane drop is grounded in
+\href{https://doi.org/10.1080/23249935.2022.2033878}{Zhang et al.}
+The constant-rate active branch, batch handoff, and certificate are S13's
+explicit conditional analytical adaptations.
+
+\end{document}

@@ -1,0 +1,39 @@
+record_id,provisional_decision,evidence_role,reason,access_for_t3
+T0001,include_primary,differentiable_macro,"Nearest aggregate AD baseline and optimizer evidence; task is toll rather than signal",abstract_and_full
+T0002,include_primary,differentiable_signal,"Direct high-dimensional signal-timing AD versus gradient-free comparison",abstract_and_full
+T0003,include_primary,differentiable_hybrid,"Signal/flow optimization with richer differentiable hybrid state",abstract_and_full
+T0004,exclude,differentiable_signal,"Microscopic differentiability relies on smoothing/approximation contrary to the project target; stronger peer-reviewed task precedents exist",abstract_only
+T0005,include_primary,ltm_mpc,"Established LTM-based signal-control formulation and computation baseline",abstract_and_repository
+T0006,include_primary,signal_realization,"Separates network reference outputs from implementable switching",abstract_and_repository
+T0007,include_primary,ltm_turn_queue_control,"Recent direct intersection of LTM control and turn-level queues",abstract_only
+T0008,include_primary,lane_blockage_task,"Direct finite lane-group blockage/spillback signal optimization",abstract_and_prior_archive
+T0009,include_primary,lane_overflow_task,"Direct short-lane overflow constraints and CTM evaluation",full_open
+T0010,include_primary,turning_lane_physics,"Physical turning-lane queues and lane-level FIFO reference",full_open
+T0011,include_primary,signal_node_semantics,"Defines signal-stage/node semantics relevant to service realization",prior_full_metadata
+T0012,include_primary,continuum_signal_error,"Bounds and failure regimes of continuous signal approximation",prior_full_metadata
+T0013,include_contextual,continuum_signal_scope,"Offset/multiphase extension informs later realization and scope",prior_metadata
+T0014,include_primary,partial_fifo,"Required structured aggregate blockage baseline",prior_full
+T0015,include_primary,turn_queue,"Turn-level queue baseline and recent control lineage",prior_full
+T0016,include_primary,richer_meso_evaluator,"Recent mesoscopic forward reference benchmarked against microscopic output",full_open
+T0017,include_primary,identity_order_reference,"Direct individual/order LTM forward comparator",prior_full
+T0018,include_primary,meso_signal_task,"Mesoscopic signal-plan evaluation and optimization precedent",abstract_and_repository
+T0019,include_contextual,intersection_method_only,"Retain only per-intersection TSC method content; network-level control is outside scope",metadata
+T0020,exclude,actuated_wrapper,"Actuated control is outside scope and the reusable mesoscopic formulation is already represented by T0018 MESCOP",abstract_and_open_author_pdf
+T0021,include_contextual,spillback_control,"Sensitivity and corridor control context; not direct simulator AD",metadata
+T0022,include_primary,cross_fidelity,"Direct multi-simulator signal optimization and cost/fidelity logic",abstract_and_publisher
+T0023,include_contextual,structured_metamodel,"Signal SBO with differentiable low-fidelity structure and microscopic evaluator",abstract_and_publisher
+T0024,include_primary,black_box_green_split,"Matched green-split black-box optimizer precedent under fixed topology",abstract
+T0025,include_contextual,evaluator_protocol,"Recent SUMO controller benchmarking and stochastic replication guidance",abstract_and_full
+T0026,borderline,stochastic_fairness,"Potential variance-control value, but likely insufficient marginal benefit relative to added methodological complexity",abstract
+T0027,include_contextual,scenario_reliability,"Real-world scenario uncertainty and racing evaluation",abstract
+T0028,borderline,benchmark_context,"Useful held-out/benchmark ideas but dominated by adaptive/RL scope",abstract_and_full
+T0029,include_contextual,differentiable_dnl,"Early differentiable aggregate DNL; no direct signal task",prior_full
+T0030,include_primary,lane_allocation,"Required lane-aware aggregate comparator",prior_full
+T0031,include_contextual,spatial_queue_control,"Shows spatial queueing changes responsive-control conclusions",abstract
+T0032,include_primary,evaluator_realization,"Authoritative mapping from phase durations to executable SUMO signals",official_full
+T0033,exclude,gridlock_intervention,"Detects overflow and inserts clearing phases for gridlock intervention; does not analyze transferable simple-intersection spillback evolution",abstract_and_full_preprint
+T0034,borderline,signal_model_context,"Signal/congestion regimes relevant, but second-order model and no selected optimization task",abstract
+T0035,exclude,adjacent_autonomous_driving,"Differentiable but decision variable and task do not inform initial signal contract",abstract_and_full
+T0036,exclude,adjacent_trajectory,"Differentiable trajectory optimization does not inform signal/blockage task",abstract_and_full
+T0037,exclude,rl_signal,"Generic RL signal task; categorical/adaptive control outside primary scope",abstract
+T0038,exclude,evaluator_context,"Different AI/digital-twin purpose and high adaptation burden; no distinctive method needed by this review",abstract

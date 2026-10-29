@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "scope": "Feedback 12: read-only urban readiness assessment and proposed handoff",
+  "existing_vsl_files_changed": [
+    "README.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "vsl_files_added": [
+    "reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "reporting/research_readiness/urban_report_refinement_start_prompt.txt",
+    "reporting/research_readiness/vsl_feedback12_urban_readiness_and_agent_hygiene.md",
+    "reporting/research_readiness/vsl_feedback12_validation.json",
+    "reporting/research_readiness/vsl_feedback12_work_report.md"
+  ],
+  "existing_vsl_files_protected_unchanged": 492,
+  "urban_files_unchanged": 69,
+  "urban_files_added_or_deleted": false,
+  "protected_root_files_unchanged": [
+    "AGENTS.md",
+    "PROJECT_CONTEXT.md",
+    "PLANS.md",
+    "memo.txt"
+  ],
+  "local_links_checked": 381,
+  "local_heading_targets_checked": 17,
+  "link_errors": [],
+  "prompt_absolute_paths_verified": [
+    "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_downstream_task_review",
+    "/home/zpz/repos/diff_minimal_meso/misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md"
+  ],
+  "feedback_only_three_answered_tokens_added": true,
+  "vsl_step4_closure_record_unchanged": true,
+  "separate_step3_acceptance_record_unchanged": true,
+  "accepted_vsl_report_hashes": {
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf": "5c7e81bb15d2b64b3094926c0c153775eae8ba08b62213a776428d85a5dde960",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex": "3415847b5fb39032d6985e998e00920fbd7520ab856222a9cec67a3c05703319"
+  },
+  "urban_model_laws_or_decisions_changed": false,
+  "new_agent_spawned_or_assignment_started": false,
+  "external_contacts_scientific_tests_installs_or_experiments": false,
+  "snapshot": "/tmp/vsl_feedback12_before.json",
+  "command": "python3 /tmp/vsl_feedback12_checks.py"
+}

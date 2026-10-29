@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "date": "2026-10-13",
+  "scope": "one minimal component improvement proposal, not adoption or remaining review execution",
+  "snapshot": "/tmp/vsl_p1_20261013_preservation_snapshot.json",
+  "snapshotted_unique_files": 1069,
+  "unchanged_snapshotted_files": 1061,
+  "modified_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_b1_lane_change_model_and_gate.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback3_existing_framework_component_audit.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md"
+  ],
+  "created_files": [
+    "reporting/research_readiness/vsl_p1_preparation_transfer_improvement_proposal.md",
+    "reporting/research_readiness/vsl_p1_work_report.md",
+    "reporting/research_readiness/vsl_p1_validation.json"
+  ],
+  "one_component_substitution_with_explicit_assumption_and_interface_consequences": true,
+  "r1_and_r2_behavior_pros_cons_dependencies_explicit": true,
+  "accepted_mp1_mp6_definitions_ownership_and_dependencies_unchanged": true,
+  "old_b1_findings_results_table_and_gate_alternative_bodies_unchanged": true,
+  "old_candidate_bodies_preserved_except_declared_new_p1_proposal_and_recommendation_notices": true,
+  "inherited_methods_and_closed_s13_urban_ramp_evidence_preserved": true,
+  "feedback3_audit_and_dialogue_append_only": true,
+  "user_feedback_inbox_unchanged": true,
+  "local_links_resolved": 158,
+  "static_r1_example_own_merge_remaining": [
+    [
+      4.0,
+      3.0,
+      3.0
+    ],
+    [
+      4.0,
+      0.0,
+      6.0
+    ]
+  ],
+  "static_r2_example_own_merge": [
+    2.5,
+    3.75
+  ],
+  "primary_paper_reopened": "Carey, Balijepalli and Watling (2013), institutional author manuscript; selected text only",
+  "source_pdf_screenshots": "indices 9–11 returned Internal Error; no rendered or whole-algorithm certification",
+  "scientific_traffic_or_gradient_experiments": "none; static arithmetic and document checks only",
+  "preexisting_git_changes_preserved": [
+    " M AGENTS.md",
+    " M PLANS.md",
+    " M memo.txt"
+  ],
+  "phase": "method-only proposal/discussion at VSL-B1-G1",
+  "next_allowed_action": "discuss P1; remaining bounded review requires a subsequent explicit opening"
+}

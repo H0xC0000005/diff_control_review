@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "scope": "Coupling terminology/source/document clarification only; no physical or gradient test",
+  "documents_checked": 4,
+  "local_links_checked": 21,
+  "additional_executed_queries": 1,
+  "new_primary_report": "RM12-S3-C01",
+  "primary_method_version": "2003 PATH UCB-ITS-PWP-2003-10",
+  "related_journal_version": "2005 institutional abstract/metadata only",
+  "S3_G2": "open; neither route approved",
+  "urban_production_contract_changed": false,
+  "stage_3_complete": false,
+  "new_simulation": false,
+  "failures": []
+}

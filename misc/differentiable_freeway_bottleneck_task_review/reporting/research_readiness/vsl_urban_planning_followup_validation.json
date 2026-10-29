@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "scope": "Proposed urban methodology completion standard and staged review plan; discussion only",
+  "modified_existing_vsl_files": [
+    "reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "reporting/research_readiness/urban_report_refinement_start_prompt.txt",
+    "reporting/research_readiness/vsl_feedback12_urban_readiness_and_agent_hygiene.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "added_vsl_files": [
+    "reporting/research_readiness/urban_refinement_standard_and_plan_proposal.md",
+    "reporting/research_readiness/vsl_urban_planning_followup_validation.json",
+    "reporting/research_readiness/vsl_urban_planning_followup_work_report.md"
+  ],
+  "deleted_files": [],
+  "protected_existing_vsl_files_unchanged": 495,
+  "urban_files_unchanged": 69,
+  "all_three_feedback_inboxes_unchanged": [
+    "vsl_refinement_feedback.md",
+    "baseline_novelty_audit_feedback.md",
+    "feedback.md"
+  ],
+  "root_project_files_unchanged": [
+    "AGENTS.md",
+    "PROJECT_CONTEXT.md",
+    "PLANS.md",
+    "memo.txt"
+  ],
+  "local_links_checked": 249,
+  "local_heading_targets_checked": 16,
+  "link_errors": [],
+  "prompt_absolute_paths_verified": [
+    "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_downstream_task_review",
+    "/home/zpz/repos/diff_minimal_meso/misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md"
+  ],
+  "global_and_split_local_scaffold_present": true,
+  "options_have_pros_cons_dependencies": true,
+  "standard_or_p8_ownership_transfer_approved": false,
+  "urban_model_choices_or_review_execution_started": false,
+  "preserved_status_and_report_hashes": {
+    "reporting/research_readiness/vsl_step4_scope_closure_response.md": "503bb7a315cc373c08071575be2c2d591d9f8410dbee287c2e49547bb43f9e24",
+    "reporting/research_readiness/vsl_as3_step3_consistency_audit.md": "a3ae5ba7a65bbb13768e0228e22a1ca8608c706cf40bca0da049fb0aa8f84adb",
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf": "5c7e81bb15d2b64b3094926c0c153775eae8ba08b62213a776428d85a5dde960",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex": "3415847b5fb39032d6985e998e00920fbd7520ab856222a9cec67a3c05703319"
+  },
+  "scientific_tests_installs_experiments_or_agent_spawn": false,
+  "command": "python3 /tmp/urban_refinement_plan_checks.py",
+  "snapshot": "/tmp/urban_refinement_plan_before.json"
+}

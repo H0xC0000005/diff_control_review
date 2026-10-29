@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "date": "2026-10-19",
+  "scope": "IEEE/reference attribution revision only",
+  "pdf_pages": 3,
+  "methodology_page_extent_excluding_references": 2.33557,
+  "nominal_main_text_pt": 10,
+  "page_geometry": [
+    {
+      "page": 1,
+      "width_pdf_pt": 595.276,
+      "height_pdf_pt": 841.89,
+      "all_body_endpoint_fraction_from_page_top": 0.86757
+    },
+    {
+      "page": 2,
+      "width_pdf_pt": 595.276,
+      "height_pdf_pt": 841.89,
+      "all_body_endpoint_fraction_from_page_top": 0.75061
+    },
+    {
+      "page": 3,
+      "width_pdf_pt": 595.276,
+      "height_pdf_pt": 841.89,
+      "all_body_endpoint_fraction_from_page_top": 0.56975,
+      "methodology_endpoint_fraction_from_page_top": 0.33557,
+      "reference_heading_y": 533.5240000000001
+    }
+  ],
+  "ieee_references": 6,
+  "first_citation_order": [
+    "jin",
+    "subraveti",
+    "carey",
+    "leclercq2011",
+    "leclercq",
+    "kong"
+  ],
+  "citation_numbers_resolved": true,
+  "unique_external_doi_targets": 6,
+  "equation_groups_unchanged_exactly": 11,
+  "service_table_unchanged_exactly": true,
+  "final_latex_warnings": [],
+  "font_shrinking_used": false,
+  "embedded_fonts": 13,
+  "font_resources": {
+    "/NZTNSX+CMBX12": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UFTRUA+CMBX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/BIAKNO+CMR10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ZCSNCS+CMMI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/BUACOS+CMMI7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ROZUSQ+CMR7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/KQOOKX+CMSY10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/LUYYYY+CMSY7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/WWUDGK+CMEX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/XCLIHY+CMTI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/JYIAMT+CMMI5": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UZQLUM+CMR5": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/DRSFHC+CMSY5": {
+      "subtype": "/Type1",
+      "embedded": true
+    }
+  },
+  "pypdf_version": "6.15.0",
+  "raster_visual_inspection": false,
+  "changed_existing_files": [
+    "README.md",
+    "extraction/research_readiness/vsl_compact_report_source_and_coverage_map.md",
+    "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "vsl_successor_00_opening_plan.md"
+  ],
+  "new_files": [
+    "reporting/research_readiness/vsl_report_reference_revision_build.log",
+    "reporting/research_readiness/vsl_report_reference_revision_validation.json",
+    "reporting/research_readiness/vsl_report_reference_revision_work_report.md",
+    "synthesis/research_readiness/vsl_report_versions/v1/README.md",
+    "synthesis/research_readiness/vsl_report_versions/v1/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_report_versions/v1/vsl_compact_methods_report.tex",
+    "synthesis/research_readiness/vsl_report_versions/v1/vsl_compact_report_source_and_coverage_map.md.txt"
+  ],
+  "deleted_files": [],
+  "protected_existing_artifacts_unchanged": 450,
+  "v1_archived_bytes_verified": true,
+  "feedback_unchanged": true,
+  "changed_new_markdown_checked": 9,
+  "local_links_checked": 570,
+  "heading_anchors_checked": 22,
+  "report_source_sha256": "333316a88adfa3d0229ff7b46e7ab89c738465d77ff9833409aa0e25c8e4f078",
+  "report_pdf_sha256": "b8a31a3b009126032cfd1148454ff05ff80152a253c046bb386bcb12bb6c80c7",
+  "snapshot": "/tmp/vsl_reference_revision_before.json",
+  "check_command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_reference_revision_checks.py",
+  "traffic_experiments_dependency_installations_or_simulator_changes": false,
+  "overall_step4_closed": false,
+  "new_methodological_decision": false
+}

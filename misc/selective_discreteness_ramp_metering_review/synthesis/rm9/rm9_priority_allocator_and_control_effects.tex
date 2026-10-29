@@ -1,0 +1,281 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\title{RM9 continuation: priority allocation, control effects\\and conservative lane-flow readiness}
+\author{Method-first ramp-metering review}
+\date{1 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Disposition.} RM9-UG1.A is approved as \textbf{Default}.
+The selected merge subproblem is transcribed below. The complete lane-flow
+coupling is not adopted; Section~\ref{sec:proposal} is an explicit proposal for
+RM9-UG2. No traffic simulation, numerical derivative check or useful-gradient
+certificate is reported. Proofs and examples are reviewer derivations.
+
+\section{The approved two-input allocator}
+Let $d_m,d_r\geq0$ be local mainline and ramp sending offers and $S\geq0$
+their common receiving rate, all in vehicle equivalents per unit time.
+Let structural priorities $p_m,p_r>0$ be independent of offers and meter
+rate, with $a=p_m/(p_m+p_r)\in(0,1)$. A transcription of [1]'s MISO law is
+\begin{align}
+ r&=\min\{d_r,\max\{(1-a)S,S-d_m\}\},\label{eq:r}\\
+ m&=\min\{d_m,S-r\}.\label{eq:m}
+\end{align}
+The max term lets the ramp use supply the mainline cannot consume; the
+second line lets the mainline consume supply the ramp cannot consume.
+It is equivalent to the symmetric expression
+$m=\min\{d_m,\max\{aS,S-d_r\}\}$.
+This is accepted physical flow, not an optimized assignment or guaranteed entry.
+
+\paragraph{Bounds and work conservation.}
+The inner max lies in $[0,S]$, hence $0\leq r\leq\min(d_r,S)$ and
+$0\leq m\leq d_m$, $m+r\leq S$. If $d_m+d_r\leq S$, then
+$S-d_m\geq d_r$, giving $r=d_r,m=d_m$.
+If $d_m+d_r>S$ and $d_m\geq aS$, then $r=\min(d_r,(1-a)S)$:
+when the ramp is under its share, $m=S-d_r$; otherwise $m=aS$.
+If $d_m<aS$, then $r=S-d_m,m=d_m$. Consequently
+\begin{equation}
+ m+r=\min\{S,d_m+d_r\}.\label{eq:total}
+\end{equation}
+This proof covers zero supply/offers. No source-wide MIMO/FIFO behavior follows.
+
+\paragraph{Ordinary derivatives, not a verified whole-chain gradient.}
+At fixed $d_m,S,a$, write $B=\max((1-a)S,S-d_m)$.
+Away from $d_r=B$,
+\begin{equation}
+ \frac{\partial r}{\partial d_r}=\begin{cases}1,&d_r<B,\\0,&d_r>B,\end{cases}
+ \qquad
+ \frac{\partial(m+r)}{\partial d_r}
+ =\begin{cases}1,&d_m+d_r<S,\\0,&d_m+d_r>S.\end{cases}
+\end{equation}
+At ties the ordinary derivative need not exist; no smoothing or generalized
+estimator is adopted. In a supply-limited region, increasing ramp service can
+reduce mainline service one for one. This does not prove a useful meter gradient.
+\newpage
+
+\section{What the rule changes in the control chain}
+\subsection*{Hand-calculated service examples}
+Use $S=180$ veh-equivalents/h and $a=2/3$ solely for illustration.
+The nominal mainline/ramp shares are 120/60. No site calibration is implied.
+\begin{center}
+\begin{tabular}{rrrrl}
+\toprule
+$d_m$ & $d_r$ & $m$ & $r$ & Total / interpretation\\
+\midrule
+180&30&150&30&180; mainline uses spare ramp share\\
+180&10&170&10&180; allocation changes, total unchanged\\
+180&80&120&60&180; 20 of ramp offer remains unserved\\
+80&70&80&70&150; all eligible offers served\\
+80&40&80&40&120; less offer leaves more idle supply\\
+\bottomrule
+\end{tabular}
+\end{center}
+Rows compare local offers, not instantaneous upstream meter values. An upstream
+rate $u(t)$ bounds release $e(t)$; stored/traveling ramp traffic determines
+$d_r(t)$ later. A co-located meter is a separate geometric specialization.
+Post-meter traffic and blocked/unserved demand must remain in accounting.
+
+\subsection*{Spare supply on another lane is not freely transferable}
+For two separate receivers of supply 180 each, ignore lateral access at the
+instant considered. Offers $(d_{m1},d_{m2},d_r)=(180,50,30)$ give
+\begin{equation}
+ F=\min(180,d_{m1}+d_r)+\min(180,d_{m2})=180+50=230.
+\end{equation}
+Offers $(90,140,30)$ have the same total offer 260 but give $F=120+140=260$.
+Thus lane-specific eligibility can matter to total service. These are offer-level
+examples, \textbf{not matched density/flow/speed histories}, feasible controlled
+trajectories, or a proof that lane contrast changes the best meter action.
+A physical redistribution law is needed to connect them to traffic dynamics.
+
+\subsection*{Why queue redistribution may produce no objective benefit}
+With all affected uncompleted mass $M$, common arrivals $A$, final system exit
+rate $E$, and common clearance horizon $T_c$,
+\begin{equation}
+ \dot M=A-E,\qquad J=\int_0^{T_c}M(t)\,dt,\qquad M(T_c)=0.
+\end{equation}
+Identical initial total mass, arrivals and exit history imply identical $J$,
+even if ramp and mainline queues differ. The local merge flow $m+r$ is not
+necessarily $E$: downstream travel, storage and bottlenecks must be included.
+On a fixed differentiable branch, for common forcing and a control parameter $b$,
+\begin{equation}
+ \frac{dJ}{db}=-\int_0^{T_c}(T_c-t)\frac{\partial E(t;b)}{\partial b}\,dt.
+\end{equation}
+Allocation changes next lane/ramp masses and may change later receiving,
+spillback, lane access or exit timing. Those are possible causal paths, not
+established effects in this task. If final departure history stays unchanged,
+queue relocation alone gives zero total-time improvement.
+\newpage
+
+\section{Why the selected allocator does not close the lane model}
+\subsection*{A source coefficient range diagnostic}
+The fuller source [2], equation 6, uses a coefficient whose local numerator
+contains a combined incentive. Let $x>0,y\geq0$ denote donor and target
+weighted densities on a constant profile, and denote that coefficient by $P$.
+From the printed expression, reviewer algebra gives
+\begin{equation}
+ P>1\quad\Longleftrightarrow\quad (I-1)x>2y
+\end{equation}
+on its positive branch. For the printed free-flow cooperation incentive near
+a merge, with base incentive one and other incentives inactive, $I=2+y/x$.
+Thus the isolated coefficient is $2x/(x+y)$, exceeding one if $x>y$.
+A coefficient called a fraction is therefore not automatically a donor-bounded
+accepted transfer. This diagnosis does \emph{not} establish reachability of every
+such combination or failure of every complete source trajectory. Later operators
+or domain restrictions might resolve it; they must be shown, not assumed.
+
+\subsection*{Zero-receiving special branch}
+For capacity $C>0$, supply $S\in[0,C]$ and positive proposed lateral rate $\phi$,
+source equations 16--17 give $\vartheta=1-S/C$ and the printed accepted rate
+\begin{equation}
+ \lambda=\begin{cases}\phi,&\vartheta=1,\\
+ (1-\vartheta)\phi,&\vartheta<1.\end{cases}
+\end{equation}
+At $S=0$ this isolated operator accepts $\phi$, whereas its limit from $S>0$
+is zero. It cannot be used as a simple receiving-bounded interface without
+an additional interpretation/domain condition. No branch is silently corrected.
+Source equations 20--22 also modify demand and supply after lateral transfer;
+applying another independent node operator could double-count budgets.
+This is an unresolved joint-update transcription, not a blanket source rejection.
+
+\subsection*{An inspected predecessor does not supply the missing autonomy}
+Source [3]'s 2014 formulation optimizes lateral, longitudinal and ramp flows
+jointly. Its constraints are useful conservation precedents, but its lateral
+flow is not autonomous response to a meter-only action. The 2015 Part I article
+[4] has verified primary metadata; its full methods were not retrieved in this
+pass. A bounded attractiveness equation reproduced in [2], equation 5, is an
+inspected antecedent, not verification of [4]'s complete model.
+
+\subsection*{What has and has not passed}
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.46\linewidth}>{\raggedright\arraybackslash}p{0.44\linewidth}}
+\toprule
+Passed in this analytic review & Still required\\
+\midrule
+Two-input allocation bounds, work conservation and fixed-branch derivatives
+& Complete conservative lateral/longitudinal/ramp update\\
+Local service examples and full-time accounting identity
+& Exact observer/initialization and feasible identical-history pair\\
+Source range/branch and actuator-scope diagnostics
+& Action relevance, full derivative correctness and independent usefulness\\
+\bottomrule
+\end{tabular}
+\end{center}
+\newpage
+
+\section{A concrete conservative adaptation for RM9-UG2.A}\label{sec:proposal}
+\noindent\textbf{Proposed, not adopted.} Use two physical mainline lanes per
+cell, with no instantaneous rest-group mixing. The update below is a reviewer
+adaptation; it is not the complete calibrated algorithm in [2] or [4].
+It retains only discretionary density-driven transfer, ordinary first-order
+receiving and the Default ramp allocator. It adds no capacity-drop penalty.
+
+For cell length $L$, timestep $\Delta t$, lane mass $n_\ell=Lk_\ell$,
+maximum mass $N_\ell=Lk_\ell^{\rm jam}$ and known positive parameters,
+\begin{equation}
+ D_\ell(n)=\min(v_\ell n/L,C_\ell),\qquad
+ S_\ell(n)=\min(C_\ell,w_\ell(N_\ell-n)/L).
+\end{equation}
+Use the step restrictions $\Delta t v_\ell/L\leq1$ and
+$\Delta t w_\ell/L\leq1$. For $0\leq n\leq N_\ell$ they imply
+$\Delta t D_\ell(n)\leq n$ and $\Delta t S_\ell(n)\leq N_\ell-n$.
+Parameters may differ between lanes; symmetry is not imposed to hide state.
+
+\paragraph{Stage 1: bounded autonomous within-cell lateral exchange.}
+For structural $\mu_{\ell j}\in[0,1]$, $\kappa_{\ell j}\in(0,1]$, use the
+bounded attractiveness form reproduced in [2], equation 5:
+\begin{align}
+ A_{\ell j}&=\mu_{\ell j}\max\left(0,
+ \frac{\kappa_{\ell j}k_\ell-k_j}{\kappa_{\ell j}k_\ell+k_j}\right),\\
+ \lambda_{\ell j}&=\min(A_{\ell j}D_\ell(n_\ell),S_j(n_j)),\\
+ n_\ell^L&=n_\ell+\Delta t(\lambda_{j\ell}-\lambda_{\ell j}).
+\end{align}
+At zero denominator set $A_{\ell j}=0$ (both lane masses zero). Otherwise
+$0\leq A_{\ell j}\leq1$. There is at most one adjacent target per donor in
+the two-lane case. Both directions cannot be positive: that would require
+$k_j<\kappa_{\ell j}k_\ell$ and $k_\ell<\kappa_{j\ell}k_j$, contrary to
+$\kappa_{\ell j}\kappa_{j\ell}\leq1$. The bounds imply
+\begin{equation}
+ 0\leq n_\ell^L\leq N_\ell,\qquad
+ n_1^L+n_2^L=n_1+n_2.
+\end{equation}
+Rejected propensity does not leave the donor. For more lanes the same formula
+cannot be applied independently without a joint donor/receiver budget.
+
+\paragraph{Stage 2: recompute state limits and retain unspent shared budgets.}
+Recomputing from $n^L$ alone could spend the original receiving or sending
+budget twice. Define residual longitudinal budgets for each cell-lane:
+\begin{align}
+ \overline D_{i\ell}&=\min\{D_{i\ell}(n_{i\ell}^L),
+ D_{i\ell}(n_{i\ell})-\lambda_{\ell j}\},\\
+ \overline S_{i\ell}&=\min\{S_{i\ell}(n_{i\ell}^L),
+ S_{i\ell}(n_{i\ell})-\lambda_{j\ell}\}.
+\end{align}
+These residuals are nonnegative by Stage 1's bounds. At an ordinary interface
+use $q_{i\ell}=\min(\overline D_{i\ell},\overline S_{i+1,\ell})$.
+At the shared shoulder receiver apply \eqref{eq:r}--\eqref{eq:m} with the
+mainline residual donor offer and receiver residual $\overline S$.
+With total accepted longitudinal/ramp incoming rate $f_{i\ell}^{\rm in}$,
+\begin{equation}
+ n_{i\ell}^{+}=n_{i\ell}^L+
+ \Delta t(f_{i\ell}^{\rm in}-q_{i\ell}),\qquad
+ f_{i\ell}^{\rm in}\leq\overline S_{i\ell},\quad
+ q_{i\ell}\leq\overline D_{i\ell}.
+\end{equation}
+Thus incoming lateral plus longitudinal/ramp flows share the original $S$,
+and outgoing lateral plus longitudinal flows share the original $D$.
+Post-lateral limits also imply $0\leq n_{i\ell}^{+}\leq N_{i\ell}$.
+Every internal transfer cancels between its donor/receiver. Ramp/external
+waiting and post-meter propagation need corresponding conservative balances.
+This is an explicitly conservative shared-budget adaptation, not calibration,
+a selected geometry, a history certificate or verified useful gradient.
+Stage order and step dependence can restrict flows and must remain explicit.
+\newpage
+
+\section{Next decision and evidence order}
+\textbf{RM9-UG2} asks whether to adopt the restricted candidate above for
+analytic review, or retain the fuller incentive/cooperation family and first
+resolve its source-level coupling. The expanded alternatives, pros, cons and
+dependencies are in \texttt{reporting/rm9\_30\_allocator\_contract\_and\_control\_chain.md}.
+The provisional recommendation is the restricted candidate, with no positive
+outcome assumed. It can legitimately establish aggregate sufficiency or no
+useful metering distinction. Fuller cooperation/capacity-loss mechanisms remain
+possible extensions; their necessity is not yet proved.
+
+After adoption of a defensible law, transcribe the actual strong density,
+flow, speed, cumulative-count and ramp-history functions with temporal/spatial
+support, initialization, common forcing and known parameters. Check reconstruction
+before seeking an exact feasible hidden-history pair. A scalar equivalent of
+lane contrast remains admissible. Do not use equal speeds, weakened speed
+observations, hidden prehistory or an imposed service penalty to produce ambiguity.
+
+Only after forward action relevance should the review claim a candidate
+sensitivity path. Ordinary branch derivatives are insufficient at switching
+boundaries, and they do not verify independent downstream usefulness. No
+finite-difference/autograd run, optimizer, SUMO experiment or successor is
+opened. RM9 remains open at the physical-law decision; RM9-UG1 stays closed.
+
+\section*{Primary references and provenance}
+\begin{enumerate}
+\item Wright et al. (2017), \emph{On node models for high-dimensional road
+networks}. Existing RM0018, published author-hosted version, Section 3.1.
+\href{https://doi.org/10.1016/j.trb.2017.09.001}{DOI 10.1016/j.trb.2017.09.001}.
+\item Nagalur Subraveti, Knoop and van Arem, \emph{First order multi-lane
+traffic flow model---an incentive based macroscopic model to represent lane
+change dynamics}. Existing FB0030, final PDF, printed pp. 1762--1766.
+\href{https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae}{Primary final PDF}.
+\item Roncoli, Papageorgiou and Papamichail (2014), \emph{Optimal control for
+multi-lane motorways in presence of vehicle automation and communication systems}.
+Existing FB0034, IFAC proceedings pp. 4179--4181.
+\href{https://skoge.folk.ntnu.no/prost/proceedings/ifac2014/media/files/1657.pdf}{Primary proceedings PDF}.
+\item Roncoli, Papageorgiou and Papamichail (2015), \emph{Traffic flow optimisation
+in presence of vehicle automation and communication systems---Part I}.
+RM9-L01 \textbf{metadata lead only}; no full-method adoption.
+\href{https://doi.org/10.1016/j.trc.2015.06.014}{DOI 10.1016/j.trc.2015.06.014}.
+\end{enumerate}
+\noindent\textbf{Ownership.} The allocator transcription, analytical proofs,
+hand-calculated illustrations, range/branch diagnostics and proposed split
+update are reviewer work under their stated assumptions. They are not findings
+reported by all the cited papers or a verified combined literature gradient chain.
+\end{document}

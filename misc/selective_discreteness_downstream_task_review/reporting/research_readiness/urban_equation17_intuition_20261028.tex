@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\newcommand{\der}[1]{\frac{\mathrm d #1}{\mathrm d\alpha}}
+\begin{document}
+\begin{center}
+{\Large Equation 17: stopping condition, time and discharged mass}
+\end{center}
+
+\textbf{Why the minima disappear.}
+Equation 8 asks which condition first ends the present service interval.
+Its minima select among head clearance, exhaustion of a sending allowance,
+and the end of the timestep, across the participating lanes. Equation 17's
+first line covers only the case where a head clearance wins that comparison.
+It is not the derivative for every possible winner.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Condition selected by equation 8 & Locally selected duration\\
+\midrule
+Head clearance in controlling lane $\ell$ & $\delta=q_\ell/r_\ell$\\
+Sending allowance spent in controlling lane $\ell$
+ & $\delta=S_\ell^{\rm rem}/r_\ell$\\
+Timestep ends & $\delta=\Delta t-\sigma$\\
+\bottomrule
+\end{tabular}
+\end{center}
+If the same lane and condition continue to win under a small perturbation,
+differentiate that selected expression. Other candidates do not determine
+the interval locally. At a tie, this fixed-winner argument does not give
+one universal ordinary derivative.
+
+\textbf{Why the clearance-time derivative has two coefficients.}
+Write $q,r$ for the controlling head's mass and rate. Clearing it obeys
+the simple mass account
+\[
+ r\delta=q
+ \quad\Longrightarrow\quad
+ r\der{\delta}+\delta\der{r}=\der{q}.
+\]
+Solve for the change in required time:
+\[
+ \boxed{\der{\delta}
+ =\underbrace{\frac1r\der{q}}_{\text{time needed for a mass change}}
+  -\underbrace{\frac{\delta}{r}\der{r}}_{\text{time saved by a rate increase}},
+ \qquad \frac{\delta}{r}=\frac{q}{r^2}.}
+\]
+The first coefficient converts an extra amount of traffic into extra
+service time at the current rate. For the second term, a rate increase
+would serve extra mass over the existing duration; dividing that extra
+mass by the current rate gives how much earlier clearance occurs. These
+are the two responses of the same mass account, not extra model weights.
+
+\textbf{The discharge derivative has the complementary interpretation.}
+For a given served stream, total discharge is the sum of rate times
+duration over its service intervals:
+\[
+ y=\sum_a r_a\delta_a
+ \quad\Longrightarrow\quad
+ \der{y}=\sum_a\left(
+ \underbrace{\delta_a\der{r_a}}_{\text{rate changes over existing time}}
+ +\underbrace{r_a\der{\delta_a}}_{\text{time changes at existing rate}}
+ \right).
+\]
+Thus the two parts of equation 17 connect through duration sensitivity.
+The clearance formula supplies that sensitivity when a head determines
+the endpoint; the other rows of the table govern the other stopping
+conditions. For the final interval, remaining time changes when earlier
+intervals change even though the timestep length itself is fixed.
+\end{document}

@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,pdftitle={Aggregate information and local-to-system sensitivity}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\R}{\mathbb R}
+\newcommand{\dd}{\mathrm d}
+\title{Aggregate information and local-to-system sensitivity}
+\author{Urban methodology review: mathematical companion to feedback 5}
+\date{26 October 2026}
+\begin{document}
+\maketitle
+
+\textbf{Traffic meaning.} First ask how a service reallocation changes discharge and the next traffic state. Then carry those changes through later access, queues and source waiting into complete total system time (TST). No packet-by-packet path differentiation is required. An aggregate rival may read the original fine-grained series through its declared macro conversion; report its retained representation and observation schedule.
+
+This note clarifies the agreed principles, including the subsequent permission for original-series access through a model-defined macro boundary. Its algebra follows the accepted urban task's state-sensitivity contract. It does not select a missing access/service law, prove a useful gradient or construct a matched traffic pair.
+
+\section*{1. From original records to macro state}
+
+Let $D_{0:k}$ be the original fine-grained record available through time $k$. A rival $M$ may read that series and define its own aggregation or state estimator:
+\begin{equation}
+ r_k^{(M)}=\mathcal A_M(D_{0:k};\mathcal R_M).
+\end{equation}
+Here $\mathcal R_M$ describes its macro variables and resolution. Lane/bay masses, speeds, queue measures or estimated aggregate obstruction may be derived from the original records. The source can contain fine order; access to it does not itself make the model non-macro. We do not require a common projection to remove that information before every model applies its own method.
+
+Declare the conversion and the complete retained representation, including estimator memory. A transient calculation of a useful macro summary is allowed. If an exact ordered packet ledger is also retained for later queries, that mesoscopic state belongs to the method's representation account. Successful aggregate reconstruction of a relevant effect must not be excluded as leakage.
+
+For a causal observation-updated model, a complete retained macro record can be written
+\begin{equation}
+ I_k^{(M)}=\bigl(r_{0:k}^{(M)},\mu_k^{(M)},u_{0:k-1},\xi_{\rm common}\bigr),
+\end{equation}
+where $\mu_k^{(M)}$ is retained estimator memory, $u$ is applied service and $\xi_{\rm common}$ contains common physical/exogenous data. A model may use a subset. Full-record retrospective analysis is also legitimate; state when observations are available rather than present it as a forecast made before those outcomes. Macro state updated from the series is an allowed setup. Prediction without later updates is a particular capability, not a universal eligibility rule.
+
+\textbf{A conditional information limit.} Fix one declared representation and observation protocol. Suppose two admissible full situations $a,b$ have the same complete retained record, $I^a=I^b=I$, for the response under examination. At the same action $u$, a predictor $h$ using only that record must give
+\begin{equation}
+ \widehat z^a=h(I,u)=\widehat z^b.
+\end{equation}
+Let their reference scalar responses be $z^a,z^b$. The triangle inequality gives
+\begin{equation}
+ \max\bigl\{|h(I,u)-z^a|,\ |h(I,u)-z^b|\bigr\}
+ \ \geq\ \tfrac12 |z^a-z^b|.
+ \label{eq:limit}
+\end{equation}
+Thus a response contrast exceeding twice a declared absolute error margin prevents both predictions from meeting that margin, independently of the chosen deterministic aggregate equation. The scalar response may be current discharge, a selected next-state measure, or a properly defined directional control response.
+
+For a derivative comparison, hold the common predecision record fixed while changing the control. A differentiable $h(I,u)$ then supplies the same directional derivative to both situations. Equation~\eqref{eq:limit} applies to their reference directional responses as scalars. Equality of observations only at one nominal action does not justify equating derivatives of an observation-assisted, control-dependent record; those additional observation sensitivities must not be silently supplied.
+
+This bound is conditional on the declared record. Equality under one aggregation does not establish equality under another model's legitimate summary of the original series. A universal result would require the condition across the admitted representation class; it has not been proved here. No matching pair has been constructed. Successful history-based reconstruction and failure of a selected subset-using model must be interpreted accordingly.
+
+\textbf{Prediction and sensitivity meaning.} Local replay, observation-updated prediction and evolution without later updates are all legitimate tests. Disclose the conversion and observation schedule. Holding an observed record fixed gives a conditional response. If data or their estimated macro state change with the candidate control, their responses must be accounted for in a claimed total derivative. Supplying later outcomes does not establish that they were predicted before observation, but does not make the receiving representation non-macro. Matching a forward value at one action still does not establish matching sensitivity or richer-traffic validity.
+
+\section*{2. One step: discharge response and next-state response}
+
+Fix the starting state, exogenous data and a locally valid structural/active signature. For a \emph{selected} law write
+\begin{equation}
+ x_{k+1}=F_k(x_k,u_k),\qquad y_k=Y_k(x_k,u_k),
+ \label{eq:transition}
+\end{equation}
+where $y_k$ is discharged continuous mass during the interval. Service fractions are dimensionless; $y_k$ is vehicle-equivalent mass. The continuous state includes the quantities and history endpoints that actually depend on the control. Structural labels are not differentiation variables.
+
+Define the local partial responses
+\begin{equation}
+ A_k=F_{k,x},\quad B_k=F_{k,u},\qquad
+ C_k=Y_{k,x},\quad D_k=Y_{k,u}.
+\end{equation}
+The first-order changes are
+\begin{equation}
+ \delta x_{k+1}=A_k\delta x_k+B_k\delta u_k,
+ \qquad
+ \delta y_k=C_k\delta x_k+D_k\delta u_k.
+ \label{eq:local}
+\end{equation}
+Changing service \emph{now} at a fixed starting state means $\delta x_k=0$. The quantities of interest are then $D_k\delta u_k$ and $B_k\delta u_k$. They answer how current discharge and the following state change. If $F_k$ is defined by a joint allocation/equilibrium, its actual local response must be derived; merely writing~\eqref{eq:local} does not supply it.
+
+For an illustrative \emph{movement-exclusive} service law from the neutral task, hold the available demand $E$ and receiving $R$ fixed:
+\begin{equation}
+ y=\min\{E,R,s a^\top u\,\Delta t\}.
+\end{equation}
+On a strict service-limited branch, a feasible direction $d$ gives
+\begin{equation}
+ \dd y[d]=s\Delta t\,a^\top d.
+\end{equation}
+On a strict demand/receiving-limited branch it gives zero. A queued movement can have a large service response when it has reachable demand and room. Conversely, blockage or jammed receiving can make additional service ineffective. This neutral illustration does not choose the unresolved shared-lane/bay law. At ties/front changes, a classical two-sided derivative need not exist.
+
+\section*{3. A change last step, and a fixed allocation over time}
+
+With $x_{k-1}$ held fixed, an isolated change to the previous control gives
+\begin{equation}
+ \delta x_k=B_{k-1}\delta u_{k-1},\qquad
+ \delta y_k=C_kB_{k-1}\delta u_{k-1}
+ \quad(\delta u_k=0).
+ \label{eq:laststep}
+\end{equation}
+This is the precise form of ``what would be different this step if I had changed the knob last step?'' A persistent change adds the current direct term in~\eqref{eq:local} as well. Repeated application carries the response through later access, residual order, storage and source waiting.
+
+In the accepted task, $g\in\R^4$ is one fixed physical allocation. A feasible reallocation direction $d$ satisfies $\mathbf1^\top d=0$ and respects the local lower bounds. It changes service share, not absolute cycle length. Write the applied allocation schedule as
+\begin{equation}
+ u_k(g)=\begin{cases}g,&k\text{ in the control window},\\
+ \bar u_k,&k\text{ in the fixed clearance continuation}.
+ \end{cases}
+ \label{eq:control}
+\end{equation}
+Equation~\eqref{eq:control} makes explicit the retained reading of the existing D2 default: clearance service is independent of the candidate allocation. Its numerical schedule is not selected here. Initial preparation is common and independent of $g$.
+
+For $S_k=\partial x_k/\partial g$ and $H_k=\partial u_k/\partial g$,
+\begin{equation}
+ S_0=0,\qquad S_{k+1}=A_kS_k+B_kH_k,
+ \qquad H_k=\begin{cases}I_4,&\text{control},\\0,&\text{fixed clearance}.
+ \end{cases}
+ \label{eq:sequence}
+\end{equation}
+The state response generally persists during clearance through $A_kS_k$, even though the direct forcing $B_kH_k$ has ended. This is differentiation of a whole-system \emph{state sequence}, not a requirement to derive and sum individual packet paths.
+
+\section*{4. Why the direct current TST charge can be unchanged}
+
+Use a decision-boundary state after current exogenous arrivals have joined source availability. Under the inherited left-interval convention,
+\begin{equation}
+ \ell_k(x_k)=\Delta t\,[N_k^{\rm src}+N_k^{\rm net}],\qquad
+ J(g)=\sum_{k=0}^{K-1}\ell_k(x_k(g)).
+ \label{eq:tst}
+\end{equation}
+Network mass includes moving and queued traffic, counted once. The charge $\ell_k$ is fixed when $x_k$ is fixed, so its direct current-control partial is zero. Nevertheless, $B_k$ and $D_k$ may be nonzero, altering later state/time charges. Internal discharge between links also need not complete a trip. A valid zero local charge response therefore does not imply a zero complete-objective response.
+
+For a common fixed horizon covering complete clearance in the relevant local neighborhood,
+\begin{equation}
+ \nabla_gJ=\sum_{k=0}^{K-1}S_k^\top\nabla_x\ell_k.
+ \label{eq:tstgradient}
+\end{equation}
+Equivalently, define a future-time weight $\lambda_k$:
+\begin{equation}
+ \lambda_K=0,\qquad
+ \lambda_k=\nabla_x\ell_k+A_k^\top\lambda_{k+1},\qquad
+ \nabla_{u_k}J=B_k^\top\lambda_{k+1}.
+ \label{eq:adjoint}
+\end{equation}
+The last expression values one local control change by its later time consequences. Summing $H_k^\top\nabla_{u_k}J$ gives the response to the shared fixed allocation. Summing only same-step discharge responses would miss those consequences.
+
+Feedback 5 agrees the local-to-system principle. It does not select a horizon or endpoint algorithm. The formulas above use a common horizon under the stated clearance condition. A sound calculation through actual completion can evaluate the same objective. Nonclearing runs remain failed/censored. Do not add a positive mass cutoff or detach a state at clearance. A changing constraint or traffic front need not be smooth. Numerical correctness and useful richer-evaluator directions still require separate evidence.
+
+\section*{Source and interpretation limits}
+
+The state-transition, physical-control and complete-TST definitions follow the accepted urban task in \path{synthesis/experiment_formulation_formal.tex}, especially its derivative contract and full gradient path. The local/previous-step distinction, observation-bound argument and future-time interpretation above are algebraic explanations of those definitions, not newly selected traffic equations. The objective convention is also recorded in the approved M0 objective section and \path{src/diff_minimal_meso/objectives.py}.
+
+Aggregate blockage capability is already represented in the reviewed literature: Liu and Chang's lane-group model addresses queue/blockage interactions; Wright et al. supply a macroscopic partial-FIFO restriction mechanism~\cite{liu,wright}. The bounded primary-source check supports that capability correction only. It does not establish exact order-conditioned gradient agreement, nor adopt either complete model here.
+
+\begin{thebibliography}{2}
+\bibitem{liu} Y. Liu and G.-L. Chang, ``An arterial signal optimization model for intersections experiencing queue spillback and lane blockage,'' \emph{Transp. Res. C}, vol. 19, pp. 130--144, 2011. doi: \href{https://doi.org/10.1016/j.trc.2010.04.005}{10.1016/j.trc.2010.04.005}. Primary check: abstract/introduction in \href{https://attap.umd.edu/wp-content/uploads/2022/05/TRC522.pdf}{author-hosted copy}.
+\bibitem{wright} M. A. Wright, G. Gomes, R. Horowitz, and A. A. Kurzhanskiy, ``On node models for high-dimensional road networks,'' \emph{Transp. Res. B}, vol. 105, pp. 212--234, 2017. doi: \href{https://doi.org/10.1016/j.trb.2017.09.001}{10.1016/j.trb.2017.09.001}. Primary check: \href{https://arxiv.org/abs/1601.01054v3}{arXiv:1601.01054v3}, abstract.
+\end{thebibliography}
+\end{document}

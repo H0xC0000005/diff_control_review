@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-21",
+  "status": "bounded allocator assessment complete; LF1 behavioral choice open; no allocator adopted",
+  "scope": "static documents, exact rational input cases and PDF/preservation checks only; no traffic rollout, gradient or policy test",
+  "package_before_files": 524,
+  "existing_files_changed": [
+    "README.md",
+    "extraction/research_readiness/vsl_lane_backbone_source_audit.md",
+    "reporting/research_readiness/vsl_lane_backbone_qualification.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "existing_files_deleted": [],
+  "files_added": [
+    "extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+    "reporting/research_readiness/vsl_allocator_build.log",
+    "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+    "reporting/research_readiness/vsl_allocator_validation.json",
+    "reporting/research_readiness/vsl_allocator_work_report.md",
+    "synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf",
+    "synthesis/research_readiness/vsl_allocator_contract_and_checks.tex"
+  ],
+  "other_prior_package_files_unchanged": 520,
+  "protected_root_and_feedback_unchanged": {
+    "AGENTS.md": true,
+    "PLANS.md": true,
+    "PROJECT_CONTEXT.md": true,
+    "memo.txt": true,
+    "temp_content/feedback/vsl_refinement_feedback.md": true
+  },
+  "accepted_report_pdf_unchanged": true,
+  "accepted_report_tex_unchanged": true,
+  "prior_flow_checks_unchanged": true,
+  "new_markdown_relative_links": [
+    {
+      "file": "extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+      "target": "../../archive/full_text/FB0030.pdf",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+      "target": "vsl_lane_backbone_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+      "target": "../../synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+      "target": "../../synthesis/research_readiness/vsl_allocator_contract_and_checks.tex",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+      "target": "../../extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+      "target": "vsl_allocator_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_work_report.md",
+      "target": "vsl_allocator_validation.json",
+      "exists": true
+    }
+  ],
+  "pdf": {
+    "pages": 4,
+    "words_per_page": [
+      496,
+      519,
+      447,
+      574
+    ],
+    "all_required_markers": true,
+    "bytes": 159860,
+    "sha256": "791ecf6c519a6530f8d8b1247b5fbca957e4209e946a625c24e745c9031a13e3",
+    "latex_passes": 2,
+    "final_latex_warnings": [],
+    "text_extraction_checked": true,
+    "image_rendered_visual_inspection": false
+  },
+  "hand_cases": {
+    "overbooked_donor_normalized": [
+      "1/2",
+      "1/2"
+    ],
+    "overbooked_final_flows": [
+      "2",
+      "5",
+      "3"
+    ],
+    "failed_attempt_forward": [
+      "0",
+      "10"
+    ],
+    "committed_full_fifo": [
+      "0",
+      "0"
+    ],
+    "committed_no_fifo": [
+      "0",
+      "5"
+    ],
+    "equal_priority_congested": [
+      "4",
+      "4"
+    ],
+    "unused_share_return": [
+      "1",
+      "7"
+    ],
+    "preferred_rule_throughput_counterexample": {
+      "proposed": "15",
+      "freely_reassigned": 20
+    },
+    "stock_bound_example": "9",
+    "status": "all exact rational assertions passed; no trajectory attainability claim"
+  },
+  "carey_reading_copy": {
+    "bytes": 985961,
+    "pages": 26,
+    "sha256": "4709f6b71cc70419098359d98a2dd839d244707d29bf887ac9575c223158a455",
+    "repository_archive_addition": false
+  },
+  "environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "latex": "pdfTeX 3.141592653-2.6-1.40.25; TeX Live 2023/Debian"
+  },
+  "no_simulator_code_or_experiments": true,
+  "urban_scope": "no writes performed; no claim about concurrent changes by others",
+  "next_allowed_action": "user LF1 behavioral selection, then selected VSL/congestion and task qualification"
+}

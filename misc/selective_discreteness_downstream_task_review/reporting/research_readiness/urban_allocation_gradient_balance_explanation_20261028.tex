@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\newcommand{\der}[1]{\frac{\mathrm d #1}{\mathrm d\alpha}}
+\begin{document}
+\begin{center}
+{\Large How the two lines of equations 15 and 16 connect}\\[5pt]
+{\small Clarification of the urban compact methods report}
+\end{center}
+
+The individual flows enter through a \textbf{total-allocation constraint}:
+lane additions must sum to the admitted mass, and leg discharge rates must
+sum to the usable output rate. Substituting the lower cases into the
+derivative of that constraint produces the upper equation.
+
+\textbf{Equation 15: lane additions share one mass budget.}
+Here $x_\ell$ is the mass of the current packet actually admitted to lane
+$\ell$. It determines how much traffic enters that lane; it is not a
+discharge rate. The total admitted mass is $V$.
+The starting load is $h_\ell$, the admission bound is $u_\ell$, and
+$\lambda$ is the common filling level.
+
+On an unchanged set of allocation categories, the forward rule is
+\[
+ x_\ell=
+ \begin{cases}
+ \lambda-h_\ell,&\ell\in\mathcal A\quad(0<x_\ell<u_\ell),\\
+ u_\ell,&\ell\in\mathcal U\quad\text{(upper bound binds)},\\
+ 0,&\text{lane remains without an addition},
+ \end{cases}
+ \qquad \sum_\ell x_\ell=V.
+\]
+Thus $x_\ell$ matters even though it does not appear explicitly in the
+upper gradient formula: its forward value identifies which case applies,
+and its derivative must respect the total mass budget.
+
+Differentiate the total, then replace each individual derivative by the
+appropriate lower case of equation 15:
+\[
+ \underbrace{\der{V}=\sum_\ell\der{x_\ell}}_{\text{differentiated total-mass constraint}}
+ =\sum_{\ell\in\mathcal A}
+       \left(\der{\lambda}-\der{h_\ell}\right)
+  +\sum_{\ell\in\mathcal U}\der{u_\ell}.
+\]
+Lanes remaining at zero contribute zero. Each lane in $\mathcal A$
+contains the same unknown $\mathrm d\lambda/\mathrm d\alpha$, so collecting
+those terms gives
+\[
+ |\mathcal A|\der{\lambda}
+ =\der{V}-\sum_{\ell\in\mathcal U}\der{u_\ell}
+             +\sum_{\ell\in\mathcal A}\der{h_\ell}.
+\]
+Dividing by $|\mathcal A|$ gives the upper line of equation 15.
+\textbf{You substitute the lower cases into the total constraint, rather
+than substituting the forward values of $x_\ell$ into the upper line.}
+
+For calculation, first solve the forward allocation and identify its
+categories. Given the input sensitivities of $V$, $u_\ell$ and $h_\ell$,
+use the upper line to obtain the filling-level sensitivity. Then use the
+lower line to obtain each lane's admitted-mass sensitivity. Their sum
+equals the sensitivity of $V$ by construction.
+
+\newpage
+\textbf{Equation 16: inbound legs share one output-rate budget.}
+Here $r_{ij}$ is the discharge rate granted to inbound leg $i$ toward
+output $j$. The lane-sharing calculation divides this grant among that
+leg's ready lanes; their rates determine transferred mass over each
+head-service interval. The total grant toward $j$ is $W_j$.
+
+For a fixed output $j$, the cap of leg $i$ is $C_{ij}$, its green weight
+is $w_{ij}$, and $\theta_j$ is the common multiplier of those weights.
+With $\mathcal C$ the capped legs and $\mathcal F$ the uncapped legs,
+\[
+ r_{ij}=
+ \begin{cases}
+ C_{ij},&i\in\mathcal C,\\
+ \theta_jw_{ij},&i\in\mathcal F,
+ \end{cases}
+ \qquad \sum_i r_{ij}=W_j.
+\]
+Again, differentiate the total constraint and substitute the lower cases
+of equation 16. The uncapped case uses the product rule:
+\begin{align*}
+ \der{W_j}
+ &=\sum_i\der{r_{ij}}\\
+ &=\sum_{i\in\mathcal C}\der{C_{ij}}
+   +\sum_{i\in\mathcal F}
+       \left(w_{ij}\der{\theta_j}
+             +\theta_j\der{w_{ij}}\right).
+\end{align*}
+Collect the terms containing the same multiplier sensitivity:
+\[
+ \left(\sum_{i\in\mathcal F}w_{ij}\right)\der{\theta_j}
+ =\der{W_j}-\sum_{i\in\mathcal C}\der{C_{ij}}
+          -\theta_j\sum_{i\in\mathcal F}\der{w_{ij}}.
+\]
+Dividing by the total uncapped weight gives the upper line of equation 16.
+The individual rates disappear explicitly because their lower-case
+expressions have replaced them inside their sum.
+
+The calculation again runs from the common quantity to the individual
+ones: solve the forward rates and identify the capped legs; use input
+sensitivities of total service, caps and weights to calculate the upper
+line; then calculate each leg's rate sensitivity using the lower line.
+
+\textbf{Why the two lines are not circular.}
+In the derivation, individual responses are inserted into a shared budget
+to solve for one unknown common-level response. In numerical evaluation,
+that common-level response is calculated first and then distributed back
+to the individual flows. Neither upper line requires the individual flow
+derivatives as an additional unknown input.
+
+These formulas apply while the categories remain unchanged and there is
+at least one uncapped contributor (with positive total weight in equation
+16). If none remains, capped flows follow their caps directly; there is
+no need to determine a common-level derivative by division.
+\end{document}

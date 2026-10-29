@@ -1,0 +1,219 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\setlength{\emergencystretch}{2em}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\begin{center}
+{\Large When aggregate flow reveals lane contrast}\\[0.4em]
+Ramp-metering review clarification --- 5 October 2026
+\end{center}
+
+\section*{1. What is the problem?}
+The review asks whether traffic information omitted from the \emph{complete
+declared aggregate observation history} can change a useful common meter-rate
+decision. A necessary condition is that the compared lane states genuinely look
+the same to that observer. Equal road-total mass alone does not meet that condition:
+total flow, independently observed speed, counts and past observations also matter.
+
+The slide's ``effective lane factor'' is more precisely the known
+\textbf{free-flow mobility coefficient}, not a multiplier on vehicle mass.
+For a common cell length \(L\), lane \(\ell\) has
+\[
+ c_\ell=v_\ell/L,\qquad
+ D_\ell(n)=\min(c_\ell n,C_\ell),\qquad
+ q_\ell=\min(D_\ell(n_\ell^{\mathrm{after}}),S_{\mathrm{down},\ell}).
+\]
+Here \(v_\ell\) is the lane free-flow speed, \(c_\ell\) has units inverse time,
+\(C_\ell\) is flow capacity, \(D\) is a sending offer, \(S\) is a receiving
+limit and \(q\) is actual longitudinal flow rate. ``After'' means after paired
+lateral exchange, before longitudinal transmission. These coefficients are
+common known parameters across the compared scenarios, not private hidden forcing.
+They are also different from the VSL choke-work multiplier or a merge priority.
+
+On an ordinary uncapped interface with ample downstream receiving,
+\[
+ N=n_1^{\mathrm{after}}+n_2^{\mathrm{after}},\qquad
+ Q=q_1+q_2=c_1n_1^{\mathrm{after}}+c_2n_2^{\mathrm{after}}.
+\]
+\(N\) counts all mass equally; \(Q\) weights the lane masses by their mobility.
+Conserving the first sum does not conserve or equalize the second.
+
+\section*{2. A concrete example from the slides}
+Take normalized \(c_1=1\), \(c_2=1.5\) per time unit. Both sending offers
+are below capacity, downstream receiving is ample and the displayed masses
+are post-lateral states of one cell:
+\begin{center}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+State & Lane 1 mass & Lane 2 mass & Total \(N\) & \(q_1\) & \(q_2\) & Total \(Q\)\\
+\midrule
+A & 2 & 8 & 10 & 2 & 12 & 14\\
+B & 6 & 4 & 10 & 6 & 6 & 12\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both have ten mass units. State A places more in the more mobile lane, so more
+mass can leave this cell per unit time. A road-total flow observation can
+distinguish 14 from 12 without reporting separate lane counts.
+
+This is a normalized hand illustration of an observation map, not a calibrated
+traffic result, a reachable whole-history pair, a meter intervention or an
+optimal-action comparison. Its flow is useful as decision information only if
+it was measured at the admitted location/stage and is already available then.
+
+\newpage
+\section*{3. Why this matters, and how much can be distinguished}
+\textbf{For two lanes the result can be stronger than partial distinction.}
+If exact co-supported \(N,Q\) are available, the active branch is known and
+\(c_1\ne c_2\), then
+\[
+ \begin{bmatrix}1&1\\c_1&c_2\end{bmatrix}
+ \begin{bmatrix}n_1^{\mathrm{after}}\\n_2^{\mathrm{after}}\end{bmatrix}
+ =\begin{bmatrix}N\\Q\end{bmatrix},\qquad
+ \det=c_2-c_1\ne0.
+\]
+Thus the entire two-lane \emph{post-exchange} split is recovered:
+\[
+ n_1^{\mathrm{after}}=\frac{Q-c_2N}{c_1-c_2},\qquad
+ n_2^{\mathrm{after}}=\frac{c_1N-Q}{c_1-c_2}.
+\]
+For the example, \(N=10,Q=14\) recovers \((2,8)\), and \(N=10,Q=12\)
+recovers \((6,4)\). If two free-flow splits differ by \((\delta,-\delta)\),
+their total-flow difference is \((c_1-c_2)\delta\): with unequal mobilities,
+matching both \(N\) and \(Q\) forces that contrast to vanish.
+
+\textbf{This is a problem for a proposed hidden-information witness, not a
+failure of CTM or of conservation.} Such a pair cannot be presented as identical
+aggregate observations if this flow sample is among the admitted inputs.
+Information can be implicit in a weighted total even when lane labels are absent.
+An observer-aware aggregate method can potentially infer that contrast from
+public parameters and observations.
+
+\textbf{Information loss and model reduction are different questions.}
+A model storing only total mass may fail to predict flow with one constant
+aggregate FD, because flow depends on allocation. But a method with access to
+total mass \emph{and} flow may know that allocation indirectly. Therefore failure
+of a particular mass-only simulator does not prove that the declared strong
+aggregate observer lacks the information, or that all aggregate-based controllers
+must fail. Reconstruction also does not automatically give a correct traffic
+model, optimal meter action or useful gradient.
+
+\textbf{Mass-conserving lane exchange itself illustrates the distinction.}
+On the same unimpeded branch, transferring \(h\lambda\) mass from donor \(d\)
+to recipient \(t\) preserves the cell total but changes its forward offer by
+\[
+ Q_{\mathrm{after}}-Q_{\mathrm{before}}
+   =h(c_t-c_d)\lambda.
+\]
+This is the current recomputation rule's local consequence. It is different
+from the superseded automatic one-for-one lateral-flow debit, and does not
+prove a complete-time benefit or create additional lane capacity.
+
+For more than two lanes, total mass plus total flow generally leaves contrasts
+undetermined at a snapshot. Additional speed moments or history can supply more
+constraints. This observation does not change the current two-lane task.
+
+\newpage
+\section*{4. Which cases resolve the split, and where does the proof stop?}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.32\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\toprule
+Case & Consequence for the information question\\
+\midrule
+Two lanes; unequal known mobilities; uncapped offers; ample receiving; exact aligned \(N,Q\)
+& Unique post-lateral split. This is established under the declared conditions.\\
+Equal mobilities on that branch
+& \(Q=cN\): flow adds no split information. Speed, other conditions and history still need checking. Equal speeds cannot be imposed just to force a positive result.\\
+Capacity, downstream supply or node allocation clips flows
+& Accepted flow can conceal underlying sending demand. The linear inverse above no longer applies. This does not prove that speed/history also conceal it.\\
+Different measurement locations, averaging windows or stages
+& The two measurements may not describe the same state. The inverse cannot be applied without a consistent observation/propagation map.\\
+Known earlier state and all accepted per-lane fluxes
+& Conservation may reconstruct the current state from completed past observations. This is conditional on complete ramp and boundary balances.\\
+Noisy data, uncertain parameters or nearly equal mobilities
+& Exact algebra may be practically fragile. That does not establish exact hidden histories under the current idealized review contract.\\
+\bottomrule
+\end{tabular}
+
+\textbf{A capped-flow illustration.} Keep \(c_1=1,c_2=1.5\), but let
+\(C_1=C_2=2\), with enough downstream supply. Splits \((3,7)\) and
+\((6,4)\) both have \(N=10\), and both produce \(q_1=q_2=2\), hence
+\(Q=4\). All offers are strictly capped. This shows only snapshot ambiguity
+in mass/flow: no full speed/history equality or useful action distinction follows.
+
+\textbf{The stage and timing boundary is essential.}
+Post-lateral flow identifies a post-lateral state, not necessarily the preceding
+start-of-step state. The accepted lateral map can send \((6,4)\) and \((9,1)\)
+to the same \((5.4,4.6)\) under the existing rational example. If remaining
+state/forcing agree and the control acts only after that shared map, those
+erased differences cannot change its action response. Their earlier histories
+have not been matched. Unrecoverable information need not be useful information.
+
+Flow caused by a proposed future meter action cannot be supplied to its initial
+observer. Reconstruction from a completed previous step needs that step's
+identified post-lateral state and actual incoming/outgoing fluxes, including
+ramp entry. Current exact ramp/measurement support remains unfinished.
+
+\newpage
+\section*{5. How this arose, the evidence, and the remaining gap}
+\textbf{Why the audit raised it.} The review retained strong aggregate history,
+public lane parameters and complete time accounting. The source has lane-specific
+FDs; the chosen task did not assume equal lane mobilities. Auditing which
+aggregate channels distinguish a lane split therefore became necessary.
+After UG3.B removed the old residual-rate coupling, the observation algebra had
+to be rederived for ordinary forward flow from post-exchange occupancy. This
+is why matching mass alone was flagged in the slides.
+
+\textbf{Literature support, with its boundary.}
+\begin{itemize}
+\item \href{https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae}{Nagalur Subraveti, Knoop and van Arem, first-order multilane model}:
+lane-wise CTM conservation and lateral-transfer structure are relevant
+antecedents. Tables 1--2 on printed p.\ 1769 report different calibrated lane
+free-flow speeds; for A13 these are 104.6, 98.5 and 87 km/h. Heterogeneity is
+therefore a sourced modeling possibility, not a requirement at every site.
+\item The same paper, printed pp.\ 1768--1769, distinguishes detector time-mean
+speed from model space-mean speed and derives density from detector data.
+It does not establish our exact independent cell-mass/passage-speed observer.
+\item \href{https://horowitz.me.berkeley.edu/Publications_files/All_papers_numbered/Wright_node_models_transportation_networks_Transportation_research_B_2017.pdf}{Wright et al., node models, Section 3.1}:
+demand, receiving supply and priorities determine accepted merge flows.
+This grounds the allocation constraints, not lane-state observability or a
+congested detector-speed map.
+\end{itemize}
+The inverse, stage diagnostics and action-erasure argument are \textbf{reviewer
+derivations for the adapted RM9 kernel}, not theorems established by those
+papers. The sources do not prove that our ramp task is identifiable everywhere.
+
+\textbf{What is already established.} Current claims RM9-C25/C27 provide
+conditional post-lateral free-flow reconstruction and prior-step sufficiency;
+C26 prevents equating lost pre-state information with useful hidden state.
+The strict-branch sensitivity/accounting path is explicit. No full source
+algorithm reproduction or numerical traffic experiment supplies these findings.
+
+\textbf{What remains unresolved.}
+\begin{enumerate}
+\item An adopted observation map: speed meaning, cell versus detector support,
+time windows, update stages and available initial/past information.
+\item Complete consistent ramp geometry, propagation and mass balances so the
+observed history can be related to the state relevant to the next action.
+\item Identifiability in capacity/receiving-limited branches under \emph{all}
+retained observations, not only a mass/flow snapshot.
+\item A feasible pair with identical complete predecision histories but different
+useful common meter actions and consequential gradient information, or a
+properly scoped aggregate-sufficiency/negative result.
+\item Physical observation validity, numerical gradient correctness and independent
+gradient usefulness if a later research stage is opened.
+\end{enumerate}
+
+\textbf{Current disposition.} UG4 remains open. Its idealized-observer route A
+and physical-measurement-first route B remain unapproved. This is an explanation
+of existing findings with hand illustrations; it opens no new review track,
+observer, parameter choice, simulation or implementation.
+
+\small Local basis: current RM9 separate-resource/observer audit,
+claim ledger and source-to-claim audit.
+Editable source is retained beside this PDF.
+\end{document}

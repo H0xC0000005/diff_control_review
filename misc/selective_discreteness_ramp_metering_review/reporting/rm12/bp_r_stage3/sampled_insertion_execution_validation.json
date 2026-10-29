@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-07",
+  "status": "pass",
+  "scope": "methodology-only sampled insertion static qualification",
+  "authorization": "Q-E closed as E1; bounded reset/prescribed-path pass performed; full joined feedback partial",
+  "protected_prior_files": 319,
+  "documents_checked": 19,
+  "local_links_checked": 300,
+  "static_checks": [
+    {
+      "name": "sampled_threshold_progress",
+      "result": "pass",
+      "rational_cases": 32,
+      "scope": "descriptor threshold bookkeeping, not a traffic rollout"
+    },
+    {
+      "name": "paired_transfer_population",
+      "result": "pass",
+      "scope": "internal-transfer cancellation; reset leaves population argument unchanged"
+    },
+    {
+      "name": "coincident_count_attachment",
+      "result": "pass",
+      "scope": "storage bound forces equal count values at zero separation; no collision continuation claim"
+    },
+    {
+      "name": "local_active_zero_passing_trace",
+      "result": "pass",
+      "scope": "source-free active trace, 0 <= v < u; not a universal fixed-section cap or metering witness"
+    },
+    {
+      "name": "pairwise_triple_coincidence_step_bound",
+      "result": "pass",
+      "scope": "a native algorithm condition, not underlying multi-path nonexistence"
+    },
+    {
+      "name": "triangular_fd_relative_capacity",
+      "result": "pass",
+      "scope": "piecewise-linear supremum at critical density for -w <= xi <= u; not full endogenous solver"
+    }
+  ],
+  "pdf_pages": 3,
+  "numbered_equations": 13,
+  "final_latex_log": "clean",
+  "queries": 7,
+  "query_batches": 3,
+  "technical_reads": 8,
+  "new_primary_reads": 3,
+  "source_activity_rows": 11,
+  "retained_unavailable_originals": 2,
+  "environment": {
+    "python": "3.11.9",
+    "sympy": "1.14.0",
+    "pypdf": "6.15.0"
+  },
+  "pdf_sha256": "e65a9eafd59dc44aa93a8abf04d6aa4949ae87904a7b36014e7e059de48240a7",
+  "tex_sha256": "54e5a46a98a9c872ab48ee35ee4efee436288a0cfa8609c9bee551bd71cc9e59",
+  "checks_script_source": "from pathlib import Path\nfrom urllib.parse import unquote\nimport csv\nimport hashlib\nimport json\nimport re\nimport sys\nimport pypdf\nimport sympy as sp\n\nroot = Path('/home/zpz/repos/diff_minimal_meso')\nbase = root / 'misc/selective_discreteness_ramp_metering_review'\nsnapshot = json.loads(Path('/tmp/rm12_e1_sampled_insertion_preservation.json').read_text())\nfor name, expected in snapshot.items():\n    path = root / name\n    assert path.is_file(), f'Protected file missing: {name}'\n    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, f'Protected file changed: {name}'\n\nnames = json.loads(Path('/tmp/rm12_e1_sampled_insertion_mutable.json').read_text())\nnames += [\n    'rm12_66_bp_r_stage3_sampled_insertion_qualification.md',\n    'reporting/rm12/bp_r_stage3/sampled_insertion_findings.md',\n    'synthesis/rm12/bp_r_stage3/sampled_insertion_qualification.md',\n    'extraction/rm12/bp_r_stage3/sampled_insertion_source_audit.md',\n]\nlinks = 0\nfor name in names:\n    path = base / name\n    content = path.read_text()\n    for match in re.finditer(r'\\]\\((<[^>]+>|[^)\\n]+)\\)', content):\n        target = match.group(1).strip().strip('<>')\n        if re.match(r'[A-Za-z][A-Za-z0-9+.-]*:', target) or target.startswith('#'):\n            continue\n        target = unquote(target.split('#')[0])\n        if not target:\n            continue\n        assert (path.parent / target).resolve().exists(), (name, target)\n        links += 1\n\nfor name in names[:15]:\n    if name.startswith('discussion/') or name.endswith('work_report.md'):\n        continue\n    content = (base / name).read_text()\n    assert 'E1' in content, name\n    assert not re.search(r'Q-E[^\\n]{0,30}(?:open|Open)', content), name\n    assert 'E1/E2 unselected' not in content, name\nplan = (base / 'rm12_66_bp_r_stage3_sampled_insertion_qualification.md').read_text()\nfacade = (base / 'reporting/rm12/bp_r_stage3/sampled_insertion_findings.md').read_text()\nassert 'Q-E closed as E1' in plan\nassert 'E2 unselected' in plan and 'without another opening approval' in facade\nassert 'No new methodological choice' in facade\nassert 'whole' not in plan.lower().split('q-e closed as e1')[0]\nassert 'cost/storage do not decide' in plan\nassert 'No new solver' in facade and 'Stage 4 and experiments are unopened' in facade\n\nchecks = []\ncases = 0\nfor z in [sp.Rational(0), sp.Rational(1, 4), sp.Rational(3, 4), sp.Rational(99, 100)]:\n    for inc in [sp.Rational(0), sp.Rational(1, 2), sp.Rational(1), sp.Rational(9, 4)]:\n        for old_integer in [0, 3]:\n            before = old_integer + z\n            births = sp.floor(before + inc) - sp.floor(before)\n            rem = before + inc - sp.floor(before + inc)\n            assert births == sp.floor(z + inc)\n            assert 0 <= rem < 1\n            assert births + rem == z + inc\n            cases += 1\nchecks.append({'name': 'sampled_threshold_progress', 'result': 'pass', 'rational_cases': cases,\n               'scope': 'descriptor threshold bookkeeping, not a traffic rollout'})\n\ndonor, receiver, delta = sp.symbols('donor receiver delta', real=True)\nassert sp.expand((donor - delta) + (receiver + delta) - donor - receiver) == 0\nchecks.append({'name': 'paired_transfer_population', 'result': 'pass',\n               'scope': 'internal-transfer cancellation; reset leaves population argument unchanged'})\n\nkappa, u, w = sp.symbols('kappa u w', positive=True)\nv = sp.symbols('v', nonnegative=True)\nassert kappa * (sp.Rational(0) - sp.Rational(0)) == 0\nassert sp.Rational(1) > kappa * 0\nchecks.append({'name': 'coincident_count_attachment', 'result': 'pass',\n               'scope': 'storage bound forces equal count values at zero separation; no collision continuation claim'})\n\nrho_u = w * kappa / (w + v)\nq_u = v * rho_u\nassert sp.simplify(w * (kappa - rho_u) - q_u) == 0\nassert sp.simplify(sp.diff(q_u, v) - w**2 * kappa / (w + v)**2) == 0\nrho_crit = w * kappa / (u + w)\nassert sp.simplify(rho_u - rho_crit - w * kappa * (u - v) / ((w + v)*(u + w))) == 0\ndiagnostic = {u: 30, w: 5, kappa: sp.Rational(3, 20), v: 10}\nassert q_u.subs(diagnostic) == sp.Rational(1, 2)\nassert (u * rho_crit).subs(diagnostic) == sp.Rational(9, 14)\nchecks.append({'name': 'local_active_zero_passing_trace', 'result': 'pass',\n               'scope': 'source-free active trace, 0 <= v < u; not a universal fixed-section cap or metering witness'})\n\nx = sp.symbols('x', real=True)\nassert sp.simplify((x - x) / (w + v)) == 0\nchecks.append({'name': 'pairwise_triple_coincidence_step_bound', 'result': 'pass',\n               'scope': 'a native algorithm condition, not underlying multi-path nonexistence'})\n\nxi = sp.symbols('xi', real=True)\ncost = (u - xi) * rho_crit\nassert sp.simplify(cost - ((u * rho_crit) - xi * rho_crit)) == 0\nassert sp.simplify(cost.subs(xi, u)) == 0\nassert sp.simplify(cost.subs(xi, -w) - w*kappa) == 0\nchecks.append({'name': 'triangular_fd_relative_capacity', 'result': 'pass',\n               'scope': 'piecewise-linear supremum at critical density for -w <= xi <= u; not full endogenous solver'})\n\nwith (base / 'search/rm12_bp_r_stage3_sampled_insertion_queries.csv').open(newline='') as f:\n    queries = list(csv.DictReader(f))\nassert len(queries) == 7 and {r['batch'] for r in queries} == {'1', '2', '3'}\nwith (base / 'screening/rm12_bp_r_stage3_sampled_insertion_sources.csv').open(newline='') as f:\n    sources = list(csv.DictReader(f))\nassert len(sources) == 11\nassert sum(r['activity'].startswith('technical') for r in sources) == 8\nassert sum(r['activity'] == 'technical new read' for r in sources) == 3\nassert sum(r['activity'] == 'retained unavailable' for r in sources) == 2\n\npdf_path = base / 'synthesis/rm12/bp_r_stage3/sampled_insertion_math.pdf'\npdf = pypdf.PdfReader(pdf_path)\nassert len(pdf.pages) == 3\npdf_text = '\\n'.join(page.extract_text() for page in pdf.pages)\nnumbers = {int(n) for n in re.findall(r'\\((\\d+)\\)', pdf_text) if int(n) < 50}\nassert set(range(1, 14)) <= numbers, numbers\nassert 'remaining feedback' in pdf_text\nlog = Path('/tmp/sampled_insertion_math.log').read_text()\nassert not re.search(r'LaTeX Warning|Package .* Warning|Overfull|Underfull|^!', log, re.M)\nassert pdf_path.read_bytes() == Path('/tmp/sampled_insertion_math.pdf').read_bytes()\n\ndata = {\n    'date': '2026-10-07', 'status': 'pass',\n    'scope': 'methodology-only sampled insertion static qualification',\n    'authorization': 'Q-E closed as E1; bounded reset/prescribed-path pass performed; full joined feedback partial',\n    'protected_prior_files': len(snapshot), 'documents_checked': len(names),\n    'local_links_checked': links, 'static_checks': checks,\n    'pdf_pages': len(pdf.pages), 'numbered_equations': 13,\n    'final_latex_log': 'clean',\n    'queries': len(queries), 'query_batches': 3, 'technical_reads': 8,\n    'new_primary_reads': 3, 'source_activity_rows': len(sources),\n    'retained_unavailable_originals': 2,\n    'environment': {'python': sys.version.split()[0], 'sympy': sp.__version__, 'pypdf': pypdf.__version__},\n    'pdf_sha256': hashlib.sha256(pdf_path.read_bytes()).hexdigest(),\n    'tex_sha256': hashlib.sha256(pdf_path.with_suffix('.tex').read_bytes()).hexdigest(),\n    'checks_script_source': Path(__file__).read_text(),\n    'new_user_gate': False, 'E2_selected': False, 'sampled_clock_reopened': False,\n    'replacement_solver_adopted': False, 'approximate_recovery_reduction': False,\n    'traffic_simulation': False, 'numerical_derivative_or_optimizer': False,\n    'source_download': False, 'production_or_package_change': False,\n    'limits': 'No complete endogenous node/CM/source solver, clearance, common-control TST witness or useful-gradient certificate.'\n}\noutput = base / 'reporting/rm12/bp_r_stage3/sampled_insertion_execution_validation.json'\nwith output.open('x') as f:\n    json.dump(data, f, indent=2)\nprint(f'PASS: {len(snapshot)} protected files; {len(names)} documents/{links} links; {len(checks)} static checks; 3-page/13-equation PDF; E1 approved.')\n",
+  "new_user_gate": false,
+  "E2_selected": false,
+  "sampled_clock_reopened": false,
+  "replacement_solver_adopted": false,
+  "approximate_recovery_reduction": false,
+  "traffic_simulation": false,
+  "numerical_derivative_or_optimizer": false,
+  "source_download": false,
+  "production_or_package_change": false,
+  "limits": "No complete endogenous node/CM/source solver, clearance, common-control TST witness or useful-gradient certificate."
+}

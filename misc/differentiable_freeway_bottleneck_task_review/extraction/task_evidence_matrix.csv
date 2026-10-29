@@ -1,0 +1,16 @@
+claim_id,candidate,rq,claim,evidence_ids,exact_locations,strength,direct_or_inference
+F1-C1,F1,RQ1,"Continuous upstream speed advisory/VSL at an exogenous lane reduction is operationally coherent",FB0001;FB0005;FB0011,"FB0001 pp. 1-3; FB0005 pp. 6 and 11; FB0011 pp. 25-30",E3,direct
+F1-C2,F1,RQ2,"A homogeneous link-aggregate capacity-drop model is a strong first baseline",FB0001,"pp. 6-8 and 25-29",E3,direct
+F1-C3,F1,RQ2,"Compliance/composition can be added without microscopic vehicles",FB0003;FB0007,"FB0003 pp. 2-6; FB0007 pp. 3-5 and 9-15",E3,direct
+F1-C4,F1,RQ3,"Mandatory lateral movement and lane-specific control can materially affect lane-drop control",FB0004;FB0010;FB0013,"FB0004 methods/results in full web text; FB0010 abstract and sections 3-5; FB0013 abstract only",E3+E1,qualified inference
+F1-C5,F1,RQ4,"Compliance class followed by lane-group state is the smallest testable retained-information ladder",FB0003;FB0004;FB0005,"FB0003 pp. 2-6; FB0004 model/results; FB0005 pp. 39-61 and 79-80",E3,reviewer inference
+F1-C6,F1,RQ5,"VSL derivatives can be derived/checked in first-order discretized traffic models",FB0002;SEO2026,"FB0002 p. 7 and pp. 13-20; SEO2026 method/gradient-validation sections",E3,direct plus transfer
+F1-C7,F1,RQ6,"Microscopic car-following/lane-changing evaluation is feasible but matched gradient transfer is unanswered",FB0004;FB0010,"FB0004 SUMO evaluation; FB0010 sections 3-5",E3,qualified inference
+F1-C8,F1,RQ7,"Generic VSL optimization is established; novelty must be resolution-dependent gradient usefulness",FB0001;FB0002;FB0004,"FB0001 pp. 25-30; FB0002 pp. 13-20; FB0004 results",E3,reviewer inference
+F2-C1,F2,RQ1,"Coordinated ramp rates with storage/queue constraints are operationally coherent",FB0012;RM0024,"FB0012 §§5.1-5.5; RM0024 pp. 11-19",E3,direct
+F2-C2,F2,RQ2,"First-order adjoint ALINEA fairness-aware and nonlinear MPC baselines already exist",RM0024;RM0025;FB0008;FB0009,"RM0024 pp. 9-20; RM0025 pp. 7-17 and 32-33; FB0008 pp. 2-7; FB0009 pp. 2-9",E3,direct
+F2-C3,F2,RQ3,"No decision-grade source demonstrated that retained lane/order state changes coordinated-meter rankings for the fixed lane reduction",RM0024;RM0025;FB0006;FB0008;FB0009,"candidate evidence set inspected throughout; bounded-search result",qualified,bounded absence
+F2-C4,F2,RQ4,"No minimum added state beyond aggregate/multiclass/storage/fairness state is justified",RM0025;FB0008;FB0012,"RM0025 pp. 7-17; FB0008 pp. 2-7; FB0012 §§5.1-5.5",qualified,reviewer inference
+F2-C5,F2,RQ5,"Discrete adjoint derivative correctness is directly established for first-order and multiclass networks",RM0024;RM0025,"RM0024 pp. 9-17; RM0025 pp. 7-17 and 32",E3,direct
+F2-C6,F2,RQ7,"Without a resolution-sensitive failure F2 would repeat established control rather than test selective discreteness",RM0024;RM0025;FB0008;FB0009,"same baseline set; synthesis judgment",E3,reviewer inference
+F4-C1,F4,RQ1,"Post-reopening recovery can dominate or reveal control benefit and must be included",FB0006,"pp. 49-50 and 87",E3,direct

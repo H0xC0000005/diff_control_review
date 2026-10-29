@@ -1,0 +1,95 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.56in]{geometry}
+\usepackage{booktabs,tabularx,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{ink}{HTML}{243341}
+\definecolor{teal}{HTML}{267D86}
+\definecolor{blue}{HTML}{416F9B}
+\definecolor{amber}{HTML}{A87532}
+\definecolor{pale}{HTML}{EDF5F6}
+\definecolor{light}{HTML}{F1F4F6}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\color{ink}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.2pt}
+\renewcommand{\thesection}{}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0pt}{5pt}{2pt}{\large\bfseries\color{teal}}}
+\makeatother
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\keybox}[1]{\noindent\fcolorbox{teal}{pale}{\begin{minipage}{0.965\linewidth}#1\end{minipage}}}
+\newcommand{\gapbox}[1]{\noindent\fcolorbox{amber}{light}{\begin{minipage}{0.965\linewidth}#1\end{minipage}}}
+
+\begin{document}
+
+{\LARGE\bfseries Traffic resolution for useful freeway speed advice}\par
+\vspace{2pt}
+{\large What the review has established and what remains open}\par
+\vspace{6pt}
+
+\keybox{\textbf{Research question.} At a freeway lane reduction, when does a strong aggregate traffic model lose information that changes a useful speed recommendation shared by every lane? If such a case exists, what is the smallest conservative state refinement needed, and do its gradients improve decisions when tested in an independent lane-resolved traffic model?}
+
+\section{Why this question is narrower than ``build a lane-aware simulator''}
+
+Aggregate freeway models already support variable-speed control, imperfect mean driver response, traffic history, queues, and efficient sensitivities. Microscopic models already contain lane changes, gaps, cooperation, and heterogeneous behavior. The unresolved contribution is therefore not that either model family exists. It is whether \textbf{selected omitted information changes the control decision} after the action set, traffic inputs, objective, and accounting are matched fairly.
+
+The current task anchor is a permanent three-to-two lane narrowing. Infrastructure issues one desired-speed recommendation to all lanes in an upstream zone; actual speeds and lane changes are determined by driver and traffic interactions. The objective counts total travel and waiting time, including traffic still waiting to enter. Temporary closures would additionally require post-reopening recovery accounting.
+
+\section{What the literature already provides}
+
+\renewcommand{\arraystretch}{1.13}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\color{blue}}p{0.22\linewidth}Y Y@{}}
+\toprule
+Evidence family & What it establishes & Why the central question remains open \\
+\midrule
+Strong aggregate response & Mean-speed dynamics, advice response, queues, and calibration can be represented without fixed driver classes [1]. & A weak or memoryless aggregate comparison model would exaggerate the value of richer state. \\
+Aggregate history & Entry-speed history and spatial traffic records can retain effects that a snapshot misses [2]. & Apparently hidden lane state may be inferable from history; this must be tested rather than assumed. \\
+Lane and merge mechanisms & Microscopic lane-change models represent anticipation, safety gaps, cooperation, and merge interactions [3], [4]. & Mechanism evidence does not show that lane information is necessary for a shared speed-advice decision. \\
+Speed-control outcomes & Aggregate-feedback advice and lane-drop speed control can improve richer simulations [5], [6]. & These studies do not compare matched information resolutions with the same actions, objective, and search effort. \\
+\bottomrule
+\end{tabularx}
+
+\section{The comparison standard that emerged}
+
+Two claims must remain separate. \textbf{Information loss} means that identical declared aggregate observations and history still conceal traffic states requiring different useful advice. \textbf{Model inadequacy} means that one model uses available information poorly, although another estimator could recover what matters. The review targets the first. It therefore requires two physically reachable traffic states created before advice begins, the same complete set of advice choices, identical known future inputs, and full waiting/travel accounting. Different trajectories or a ranking reversal between two inferior choices are insufficient if a third choice works well in both states.
+
+\newpage
+
+\section{What has been established so far}
+
+\begin{enumerate}
+  \item \textbf{A focused task and credible baseline now exist.} Common speed advice at a lane reduction is operationally meaningful, while spatial traffic, mean response, queues, cumulative counts, and relevant history form a serious lower-resolution alternative.
+  \item \textbf{Hidden lane information is conditionally possible.} In idealized homogeneous free flow, mass-conserving lane transfers can change lane allocation without changing aggregate mass history. This result applies to an upstream free-flow construction, not yet to interacting traffic near the narrowing.
+  \item \textbf{Hidden information is not automatically useful.} If the narrowing's discharge rate is fixed and unaffected by advice, lower advice only adds or relocates waiting. The highest advice remains a common best action, even for different hidden lane configurations.
+  \item \textbf{Advice-dependent interaction mechanisms are plausible but inconclusive.} Microscopic merging couples speed, urgency, gaps, and cooperation; field evidence also shows that slower traffic can redistribute lanes without reliably improving merge service [3], [4]. These mechanisms do not yet produce two states with matching aggregate histories but different useful advice.
+\end{enumerate}
+
+\gapbox{\textbf{Current scientific gap.} No reviewed source or analytical construction yet supplies two reachable traffic states with identical strong aggregate histories, different omitted lane information, and genuinely different useful common-speed advice. Consequently, no minimum lane state or useful-gradient claim is established. This is unresolved evidence, not proof that aggregate modeling is sufficient.}
+
+\section{Next-step plan}
+
+Before constructing a new differentiable model or running a control experiment, perform a bounded analytical and documentary study of how to create the two comparison states near the narrowing:
+
+\begin{enumerate}
+  \item \textbf{Define the state construction.} Specify where and how traffic enters, its initial speed and demand, the allowed driver response, and how far upstream drivers begin reacting to the narrowing.
+  \item \textbf{Derive feasible timing ranges.} Use travel and response bounds to determine when enough traffic can reach the comparison region before proposing a small set of candidate scenarios.
+  \item \textbf{Test whether the information is truly hidden.} Require the two states to have the same declared aggregate traffic measurements and history while retaining different lane configurations. If interactions make that difference visible, record the obstruction rather than weakening the comparator.
+  \item \textbf{Test decision relevance conceptually.} Use the same advice choices and future traffic inputs in both states, count all waiting and travel time, and define what difference would be large enough to matter before any numerical experiment.
+\end{enumerate}
+
+A viable small scenario set would return for approval before simulation. If no exact near-narrowing comparison can satisfy these requirements, the next choice is to study an earlier upstream difference with longer-term consequences or to defer the branch. Neither outcome implies that aggregate modeling is universally sufficient. Simulator construction, traffic runs, and gradient tests remain later steps.
+
+\section{Selected evidence anchors}
+
+{\footnotesize
+[1] Frejo, Papamichail, Papageorgiou, and De Schutter, macroscopic variable-speed-limit response modeling and field calibration, \emph{Transportation Research Part C}, 2019, \href{https://doi.org/10.1016/j.trc.2019.01.001}{doi:10.1016/j.trc.2019.01.001}.\quad
+[2] Wei et al., aggregate freeway modeling that retains speed history by link entry time, 2025, \href{https://doi.org/10.1111/mice.13492}{doi:10.1111/mice.13492}.\quad
+[3] Erdmann, ``SUMO's Lane-Changing Model,'' 2015, \href{https://doi.org/10.1007/978-3-319-15024-6_7}{doi:10.1007/978-3-319-15024-6\_7}.\quad
+[4] Knoop et al., lane distribution near merges under speed limits, IEEE ITSC, 2010, \href{https://doi.org/10.1109/ITSC.2010.5625034}{doi:10.1109/ITSC.2010.5625034}.\quad
+[5] Caltrans, \emph{Field Experiment of Variable Speed Advisory}, UCB-ITS-PRR-2019-02.\quad
+[6] Zhang et al., lane-drop variable-speed-limit optimization, \emph{Transportmetrica A}, 2023, \href{https://doi.org/10.1080/23249935.2022.2033878}{doi:10.1080/23249935.2022.2033878}.
+}
+
+\end{document}

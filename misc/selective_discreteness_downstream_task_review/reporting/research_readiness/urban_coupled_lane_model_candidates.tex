@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdftitle={Concrete lane access and service candidates}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\ve}{\mathrm{veh\!\!\;eq}}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\pos}[1]{\max\{0,#1\}}
+\title{Concrete lane access and service candidates}
+\author{Urban methodology review: supporting definitions and hand comparisons}
+\date{26 October 2026}
+\begin{document}\maketitle
+
+\textbf{Traffic question.} A lane target does not guarantee access to a bay. Physical access and source order determine entry, while the service interpretation determines when the next block can move. This note gives local prototypes and contrasts, not a complete joined model. The preceding principles batch is closed; simulator implementation and experiments are not opened.
+
+\textbf{Current status after the feedback-7 amendment.} The user withdraws the frozen queue decision and selects sequential source-order packets with per-packet continuous lane balancing; later packets see earlier assigned loads. This resolves the batch's last question. Ideal equality is as feasible without moving old traffic. Current movement suffices for the grid/allocation, but ordered route identity survives. Equal lane totals alone do not justify one FIFO lane with multiplied capacity; a fully corresponding symmetric limit is required. Min-based balancing is piecewise differentiable, with possible active-constraint kinks. Receiving, commitments and source/realized-lane order remain as selected. No next batch or construction is opened. See \url{urban_feedback7_amendment_response.md}.
+
+The named directions concern geometry, perceived lane cost, homogeneous splitting, local service and shared receiving. Their aliases are not implementation stages. Local definitions have stated conditions; the joint admission/receiving operator and timing composition remain incomplete.
+
+\section*{Physical sections and exact access}
+
+For \texttt{G.internal}, take a fixed single-feeder approach with upstream part $U$, a common feeder $F$ inside the refined zone, and parallel main-lane/bay sections $T,B$ after the opening. Let their lengths satisfy
+\begin{equation}
+ L_a=L_U+L_F+L_b,\qquad L_Z=L_F+L_b,\qquad L_T=L_B=L_b.
+\end{equation}
+The main road has one lane before the opening and two physical lanes afterward. With lane jam density $\kappa$ in $\ve/{\rm m}$, the example storage account is
+\begin{equation}
+ K_U=\kappa L_U,\quad K_F=\kappa L_F,\quad K_T=K_B=\kappa L_b.
+\end{equation}
+Different physical lane primitives can be authored explicitly; these equalities state the illustrative homogeneous case. Do not add a whole-link stock on top of the disjoint section stocks. If $L_U=0$, omit $U$.
+
+The former \texttt{G.mouth} alternative puts the same physical feeder upstream and sets $L_Z=L_b$. It changes the refinement domain. Feedback 6 rejects this direction and selects \texttt{G.internal}. A branch queue obstructing the common feeder can block both branches; branch fullness alone does not establish that obstruction. Independent physical feeders retain their own access.
+
+\textbf{Proposed propagation realization.} Each physical section $s$ may use the accepted first-order cumulative-count primitive, with fixed triangular-FD parameters and geometry-consistent capacity $C_s$, storage $K_s$, free-flow delay $\tau^f_s$ and wave delay $\tau^b_s$:
+\begin{align}
+ S_{s,k}&=\min\left\{C_s\Delta t,
+    \pos{\widehat N^{\rm in}_s(t_{k+1}-\tau^f_s)-N^{\rm out}_s(t_k)}\right\},\\
+ R_{s,k}&=\min\left\{C_s\Delta t,
+    \pos{\widehat N^{\rm out}_s(t_{k+1}-\tau^b_s)+K_s-N^{\rm in}_s(t_k)}\right\}.
+\end{align}
+These are the approved M0 equations; their application to local physical sections is a proposed composition. The hats use the inherited causal history convention. No future boundary is queried, and an incompatible short section cannot be repaired by adding a fictitious timestep of travel. Local capacities must reconcile with the matched physical aggregate convention, not copy the full input capacity to every lane.
+
+Actual section occupancy and ledger mass agree:
+\begin{equation}
+ n_{s,k}=N_s^{\rm in}(t_k)-N_s^{\rm out}(t_k)
+       =\sum_{r\in\mathcal L_{s,k}}m_r,\qquad 0\le n_{s,k}\le K_s.
+\end{equation}
+A committed bay target may be carried by mass still physically in $U$ or $F$. Pending records and rank grids are views of that mass, not additional physical stocks. Current section and committed target are distinct. A local-section transition does not change the target or introduce a free lane-change maneuver.
+
+The internal prototype proposes first assignment when the upstream block becomes physically eligible to enter $F$, before receiving room is guaranteed. Reuse any already valid target and do not choose again merely because mass waits. Internal section transitions retain the original global route reference/position. For a boundary-aligned comparison, hold the physical assignment location/information fixed or disclose its change; equal road geometry alone does not imply equivalent driver decisions.
+
+\textbf{Restricted opening rule: already ordered, single-target blocks.} Scan eligible blocks at $F$'s downstream boundary. For block $r$ of mass $m_r$, its committed target $\ell(r)\in\{T,B\}$ is fixed. Admit an exact prefix, subject to
+\begin{equation}
+ 0\le b_r\le m_r,\qquad
+ \sum_r b_r\le S_{F,k},\qquad
+ \sum_{r:\ell(r)=\ell}b_r\le R_{\ell,k}.
+ \label{eq:admission}
+\end{equation}
+Use the maximal prefix satisfying these bounds when that single-target order is physically given. A partially admitted or blocked block leaves its residual at the front; no later distinct block passes it on this common feeder. Independent physical feeders use their own order. This rule must not impose an artificial target concatenation on a newly split homogeneous block; its joint extension is still to formulate.
+
+For ready order $[T(0.4),L(0.6)]$, with feeder sending at least $1$ and bay receiving $1$, through receiving $0.2$ permits exactly $0.2$ through mass and no left entry. If through receiving is at least $0.4$ and all remaining bounds permit, the left block can then use bay room. Logical assignment can have finished for both blocks before this physical admission.
+
+\textbf{Remaining timing coupling.} The physical section choice, admission mass selection and a service clock are not by themselves a complete cumulative-history/ledger composition. Actual crossing/eligibility profiles must agree with the inherited time convention. A piecewise local service clock cannot silently be substituted for a boundary interpolation while claiming unchanged physics. Newly admitted mass is not served from the same section in the same update. These timing/interface consequences need explicit formulation with the selected candidates, not an undocumented adapter.
+
+\section*{Historical opening cost prototypes: not the selected current formula}
+
+The following formulas preserve the opening comparison. The amendment restores progressive load accounting across packets and selects ideal per-packet queue balancing. This does not silently approve every travel-time/storage normalization below for heterogeneous lanes. There is no unresolved frozen-cost choice in the current batch. Here ``joint'' means one packet's lane amounts, not a global heterogeneous-packet solve.
+
+For the next input block of movement $m$ and mass $q$, let $\mathcal A_m$ be its fixed nonempty legal target set. With one legal target, assignment is forced. Two physical lanes alone do not imply a choice. In particular, the accepted through/bay labels do not authorize adding left-turn permission to the main lane.
+
+In the opening prototype, $Q_{\ell r}$ is service-ready queued mass and $W_{\ell r}$ committed waiting mass outside the target lane, counted physically once. Let $a_\ell$ be the current block's intended share, $\tau^0_\ell>0$ a fixed travel-time scale and $K_\ell>0$ storage. Adding earlier same-step assignments to the load seen by later packets is selected again in the amendment; the normalization remains an opening prototype. Targets stay fixed while waiting.
+
+For \texttt{L.queue}, define the current-pressure cost
+\begin{equation}
+ c^{\rm queue}_{\ell m}(a_\ell)=\tau^0_\ell
+ \left[1+\frac{\sum_r(Q_{\ell r}+W_{\ell r})+a_\ell}{K_\ell}\right].
+ \label{eq:queuecost}
+\end{equation}
+This is a defined-here perception closure, not physical density: waiting mass may exceed target storage without being stored there. No room clipping occurs in intended allocation. Current service fractions are not inputs to this cost. Queue-mediated allocation sensitivity can still arise after earlier control changes the state.
+
+For \texttt{L.work}, let every movement have one fixed protected group $p(r)$ in the current four-group task, with proposed lane-specific saturation $s_{\ell r}>0$ and average rate
+\begin{equation}
+ \mu_{\ell r}(g)=s_{\ell r}g_{p(r)}.
+\end{equation}
+On the positive-service domain, the alternative cost is
+\begin{equation}
+ c^{\rm work}_{\ell m}(a_\ell)=\tau^0_\ell+
+ \sum_r\frac{Q_{\ell r}+W_{\ell r}}{\mu_{\ell r}(g)}
+ +\frac{a_\ell}{\mu_{\ell m}(g)}.
+ \label{eq:workcost}
+\end{equation}
+This assumes knowledge of the current average allocation and treats present queued work myopically. It does not forecast later arrivals or supply changes. A full-domain forward model still needs a rule when a required service rate is zero; no epsilon or new action lower bound is selected here. With zero queued mass its contribution is zero, but positive mass facing zero rate has no finite clearing-time estimate under this closure.
+
+For either finite strictly increasing cost, assign the block by
+\begin{equation}
+ \min_{a\ge0,\;\sum_{\ell\in\mathcal A_m}a_\ell=q}
+ \ \sum_{\ell\in\mathcal A_m}\int_0^{a_\ell}c_{\ell m}(z)\,\dd z.
+ \label{eq:allocation}
+\end{equation}
+Its marginal conditions state the perceived equilibrium:
+\begin{equation}
+ a_\ell>0\ \Longrightarrow\ c_{\ell m}(a_\ell)=\lambda,\qquad
+ a_\ell=0\ \Longrightarrow\ c_{\ell m}(0)\ge\lambda.
+\end{equation}
+Positive slopes give a unique mass vector on this finite legal simplex. This is a small separable candidate, not the published T0030 node-exit algorithm. The source motivates equilibrium across legal alternatives; the entry costs and waiting commitments here are project-defined candidates. Labels remain structural while the $a_\ell$ values carry continuous sensitivities on a stable active set.
+
+For matched-lane progressive balancing, identical adjacent blocks with the same route state/legal alternatives and no intervening event can be grouped without changing final lane totals. Heterogeneous packet order is retained. Later packets see earlier committed loads, while physical receiving remains separate from perception and no target is reassigned merely to equalize queues.
+
+\textbf{Joint homogeneous splitting: \texttt{A.joint}.} A homogeneous split need not create a single-target waiting sequence. Under the historical balancing cost, one new unit, initial bay/other occupancy $0.2/0$, equal scales and storage $1$ each give intended additions $0.4/0.6$. With storage $0.5$ each, additions $0.3/0.5$ fill both and leave $0.2$ upstream. Assume receiving permits the room, sufficient sending and no tighter travel/entry-rate bound. Already fixed targets then leave pending amounts $0.1/0.1$, confirmed by feedback 7. No extra partial-admission decision is requested. The fully frozen-cost reading need not reproduce the original intended vector.
+
+Homogeneity preserves persistent route state, current movement, legal alternatives and applicable prior commitments. Original source-block order and exact order within realized lanes remain. A parent block with fixed pending shares and single-target admission children is a possible representation, not an approved ingress replacement. Changing receiving, timing and arbitrary-packet invariance still need formulation. The earlier \texttt{A.pieces}/\texttt{A.curve} descriptions overlap and are not required competing behaviors: a cumulative profile may describe a joint law. Equation~\eqref{eq:admission} covers only the already single-target ordered case.
+
+As a qualitative cost comparison, let a left mover be legally allowed in either a bay with two left equivalents ahead or a shared lane with one through equivalent ahead. With comparable geometry, pressure favors the shorter queue for a sufficiently small increment. If $s=1$, $g_L=0.5$ and $g_T=0.1$, the queued works are $4$ and $10$ seconds. Work cost instead favors the bay. The other two group fractions can be $0.2$ each, so the example respects the total budget. This is an illustrative permission/cost case, not a new primary-suite layout or calibrated plan.
+
+\section*{Two exact-prefix interpretations of average service}
+
+Consider one lane's ordered resident blocks, all ready at interval start for the following local comparison. Let $y_r$ be the mass served from block $r$ and $m(r)$ its movement. Exact prefix means later mass is zero if an earlier block remains; service can split a block continuously. Sending, downstream supply and physical storage still constrain the result. The definitions below first use nonbinding receiving to isolate the service meaning.
+
+In \texttt{S.elapsed}, a head at average rate $\mu_{\ell m}$ uses elapsed time $\dd y/\mu_{\ell m}$. With every considered rate positive, the maximal ready prefix satisfies
+\begin{equation}
+ \sum_r\frac{y_r}{s_{\ell,m(r)}g_{p(m(r))}}\le\Delta t.
+ \label{eq:elapsed}
+\end{equation}
+A zero-rate head stops that lane. For an active block with service start $\theta$, its departure profile is $\theta+z/\mu_{\ell m}$ until a constraint changes. Moving to the next already-resident block is permitted when the head clears; this does not serve newly admitted mass.
+
+In \texttt{S.budget}, the lane has protected-group physical-time budgets. The maximal prefix is subject to
+\begin{align}
+ \sum_{r:p(m(r))=p}\frac{y_r}{s_{\ell,m(r)}}&\le g_p\Delta t
+ &&\text{for each group }p,\\
+ \sum_r\frac{y_r}{s_{\ell,m(r)}}&\le\Delta t.
+ \label{eq:budget}
+\end{align}
+The head is processed at physical saturation rate; it consumes its group's budget and physical time. Its departure profile is $\theta+z/s_{\ell m}$. A depleted head-group budget stops the lane. Later groups may spend their remaining reservations once exposed. This is a spendable-budget abstraction, not a specified common on/off phase schedule.
+
+If availability changes within an interval, both local servers must wait for actual eligibility. Initialize the first block's service clock at $t_k$, then carry preceding completion times forward within the interval. For a single constant-rate block with cumulative availability-time profile $a(u)$, current clock $d_0\ge t_k$ and processing rate $v>0$, the FIFO departure clock has the form
+\begin{equation}
+ d(z)=\max\left\{d_0+\frac zv,\
+       \sup_{0\le u\le z}\left[a(u)+\frac{z-u}{v}\right]\right\}.
+ \label{eq:clock}
+\end{equation}
+Use $v=\mu$ for elapsed service or $v=s$ with the remaining group budget for budget service. For affine $a(u)=a_0+\beta u$, $\beta\ge0$, this reduces to
+\begin{equation}
+ d(z)=\max\left\{\max(d_0,a_0)+\frac zv,\ a_0+\beta z\right\}.
+\end{equation}
+This is an explicitly derived fluid-server clock. Its composition with the chosen link histories and eligibility data still requires the timing reconciliation noted earlier. Do not claim gradient correctness merely by writing this formula.
+
+\textbf{A hand comparison.} Let $\Delta t=1$ second, $s=1\;\ve/{\rm s}$, and $g_p=0.25$ for all four groups. On one ready lane take $[L(0.05),T(0.8)]$, with receiving and sending bounds nonbinding.
+\begin{center}
+\begin{tabular}{lrrl}\toprule
+Law & $y_L$ & $y_T$ & Time/constraint explanation\\\midrule
+\texttt{S.elapsed} & $0.05$ & $0.20$ & $0.05/0.25=0.20$ s, then $0.80$ s at $0.25$\\
+\texttt{S.budget} & $0.05$ & $0.25$ & The exposed through block spends its full group budget\\\bottomrule
+\end{tabular}
+\end{center}
+For a small feasible transfer $g_L\mapsto g_L+\varepsilon$, $g_T\mapsto g_T-\varepsilon$, with the other groups fixed and this branch stable,
+\begin{align}
+ y_T^{\rm elapsed}&=s_Tg_T\left(\Delta t-\frac{0.05}{s_Lg_L}\right),
+ &\left.\frac{\dd y_T^{\rm elapsed}}{\dd\varepsilon}\right|_0&=-0.6,\\
+ y_T^{\rm budget}&=s_Tg_T\Delta t,
+ &\left.\frac{\dd y_T^{\rm budget}}{\dd\varepsilon}\right|_0&=-1.
+\end{align}
+These are analytical local slopes in mass per unit service-fraction transfer. They establish different model responses, not which approximation is true or useful. The direct present-step TST charge remains unchanged at fixed starting mass under the inherited left-interval convention; later state responses carry the consequence.
+
+\section*{Receiving reuse and its sharing principle are selected}
+
+For every physical downstream link $j$, actual lane/movement transfers must satisfy
+\begin{equation}
+ \sum_{\ell,m:\,\operatorname{out}(m)=j}y_{\ell m}\le R_{j,k}.
+\end{equation}
+Each lane also obeys its chosen service law, sending bound, permissions and exact prefix. These constraints alone do not select a joint solution or a priority rule.
+
+\texttt{R.reserve} is unselected. Feedback 7 gives \texttt{R.reuse} its sharing principle: green-weighted grants to inbound legs for their movement into this exit, equal sharing within each leg, feasible demand caps and reuse of unusable grants. Apply the leg weight once, not once per lane. No phase precedence or software lane-scan priority is introduced. Green remains in average service and is not multiplied into allocated discharge again; zero-green movements have zero service. M0's restricted non-reassigned green receiving quotas are not this rule. Full mixed-lane coupling is not opened by this current-batch clarification.
+
+For illustration, two initial reservations of $0.5$ can realize only $0.2+0.5$ if the first lane reaches a different blocked exit after $0.2$, whereas a feasible joint allocation may use $0.2+0.8$. This assumes the second lane's own service permits $0.8$. Reusing physical receiving is not redistribution of another movement's green/service budget. The illustrative equal reservations do not set experiment priorities.
+
+Every physical section uses conservative updates
+\begin{equation}
+ n_{s,k+1}=n_{s,k}+b_{s,k}-y_{s,k},
+\end{equation}
+with each internal transfer debited/credited once. Receiving depends on causal histories, not simply $K_s-n_{s,k}+y_{s,k}$. Source, all road sections and completion account for the population exactly once. A complete coupling still must establish actual timings, priority reconciliation, storage/receiving and local law compatibility. No solver tie, lane scan order or adapter may silently choose those meanings.
+
+\section*{Attribution, admitted scope and decision status}
+
+The link formulas are the approved M0 primitive; local physical-section composition is proposed. The pressure/work costs, fluid-clock exposition and the two service comparisons are defined-here candidate constructions. T0030 motivates an equilibrium over legal alternatives but its native operator distributes link-exit sending flows, not zone-entry waiting mass~\cite{gong}. Directional physical queue literature provides context~\cite{gao}; its different running-link law is not adopted. No source uniqueness or gradient theorem is transferred.
+
+The illustrative geometry is a single common feeder with fixed permissions. No shared-left permission, route mixing, microscopic lane changes, new initialization, stochastic route choice, cycle-length control, cutoff or smoothing is selected. Sequential progressive packet balancing resolves the former frozen-cost question; imperfect lane preferences are deferred. \texttt{L.work} remains set aside and \texttt{S.elapsed} selected. Ordered route identity remains outside the movement grid. Complete joined construction is not opened; no numerical validation or implementation approval is supplied.
+
+\begin{thebibliography}{2}
+\bibitem{gong} X. Gong, M. C. J. Bliemer and M. P. H. Raadsen, ``Extended macroscopic node model for multilane traffic,'' \emph{Transp. Res. B}, vol. 195, 103208, 2025. \href{https://doi.org/10.1016/j.trb.2025.103208}{doi:10.1016/j.trb.2025.103208}. Bounded primary-text scope check, especially Section 5; no complete algorithm adoption.
+\bibitem{gao} M. Gao, ``A Node Model Capturing Turning Lane Capacity and Physical Queuing for the Dynamic Network Loading Problem,'' \emph{Mathematical Problems in Engineering}, 542459, 2012. \href{https://doi.org/10.1155/2012/542459}{doi:10.1155/2012/542459}. Context only, indexed primary introduction/model description.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,58 @@
+query_id,date,query,purpose,outcome
+N2Q001,2026-09-16,"""Optimal Variable"" ""Lane Group"" ""Seliman"" pdf",FB0013 lawful full text,metadata only
+N2Q002,2026-09-16,"""10.1061/JTEPBS.0000395"" pdf",FB0013 lawful full text,no inspectable manuscript
+N2Q003,2026-09-16,"""lane group"" ""speed limits"" ""gradient"" bottleneck",closest overlap,leads not closure
+N2Q004,2026-09-16,"""variable speed limit"" ""compliance"" ""lane drop"" macroscopic microscopic",response and cross fidelity,integrated control leads
+N2Q005,2026-09-16,"""Optimal Variable, Lane"" ""Seliman"" full text",FB0013 access,metadata only
+N2Q006,2026-09-16,"""Seliman"" ""speed limits"" dissertation Buffalo",author repository,author CV lead
+N2Q007,2026-09-16,"""Variable speed limit control for severe non-recurrent freeway bottlenecks"" pdf",strong nonrecurrent baseline,FB0021 abstract lead
+N2Q008,2026-09-16,"""Combined Variable Speed Limit and Lane Change Control for Highway Traffic"" pdf",boundary citation frontier,integrated control leads
+N2Q009,2026-09-16,"""Seliman"" ""Lane"" ""Speed"" site:ubir.buffalo.edu",FB0013 repository,no target full text
+N2Q010,2026-09-16,"""Seliman"" ""0000395"" manuscript",FB0013 manuscript,no target full text
+N2Q011,2026-09-16,"""Optimal Variable"" ""Freeway Lane Drops"" researchgate",FB0013 author copy,request only
+N2Q012,2026-09-16,"""Variable speed limit control for severe non-recurrent"" ""Chen"" full text",FB0021 access,author listing lead
+N2Q013,2026-09-16,"""Variable speed limit control for severe non-recurrent freeway bottlenecks"" filetype:pdf Chen Ahn -scispace -ssrn -researchgate",FB0021 open copy,no inspected full text
+N2Q014,2026-09-16,"""Seliman"" ""lane drop"" thesis dissertation repository",FB0013 repository,no target full text
+N2Q015,2026-09-16,"""JTEPBS.0000395"" author accepted manuscript",FB0013 manuscript,no target full text
+N2Q016,2026-09-16,"""A first-order link-based flow model"" ""13492"" pdf",strong aggregate frontier,FB0022 lead
+N2Q017,2026-09-16,"""A first-order link-based flow model with variable speed limits and capacity drops"" pdf Delft",strong aggregate access,official Wiley full HTML located
+N2Q018,2026-09-16,"""Real-Time Temporal-Spatial Variable Speed Limit Profile for Heterogeneous"" traffic",recent strong baseline frontier,FB0023 open author PDF
+N2Q019,2026-09-16,"""Variable speed limit control for severe non-recurrent freeway bottlenecks"" site:academia.edu",FB0021 author copy,listing inaccessible
+N2Q020,2026-09-16,"""Seliman"" ""speed limits"" site:buffalo.edu -CV -profile",FB0013 university access,metadata not manuscript
+N2Q021,2026-09-16,"""Variable speed limit control for severe non-recurrent freeway bottlenecks"" ""pdf"" ""Chen"" ""Ahn"" -scispace -researchgate -ssrn",final FB0021 access check,no inspected lawful full text
+N2Q022,2026-09-16,"""Optimal Variable, Lane Group"" ""Seliman"" repository manuscript",final FB0013 access check,university metadata verified
+N2Q023,2026-09-16,"""variable speed advisory"" compliance heterogeneous macroscopic cohorts calibration bottleneck",response identification,field and mixed-control leads
+N2Q024,2026-09-16,"""variable speed limit"" ""model"" ""gradient"" ""microscopic"" lane drop",matched sensitivity,aggregate and actuator-boundary leads
+N2Q025,2026-09-16,"""variable speed limit"" temporary closure reopening recovery residual queue delay",recovery,Chen baseline and recovery leads
+N2Q026,2026-09-16,"""variable speed limit"" lane drop no capacity drop ineffective feedback sufficiency",negative sufficiency,Jin no-drop counterevidence and capacity leads
+N2Q027,2026-09-16,"""variable speed limit"" ""multiclass"" ""compliance"" model continuous",cohort alternatives,FB0028 urban multiclass and mixed-control leads
+N2Q028,2026-09-16,"""variable speed limits"" ""link transmission"" ""information propagation"" 2021",strong aggregate history,FB0027 lineage lead
+N2Q029,2026-09-16,"""variable speed limit"" ""saltation"" gradient capacity drop",hybrid screen,no direct task-level indispensable exception established
+N2Q030,2026-09-16,"""variable speed limit"" ""lane group"" ""sensitivity"" ""ranking""",state versus action,nearest predecessors and boundary leads
+N2Q031,2026-09-16,"""Integrated Variable Speed Limits and Lane-Changing Control"" ""Guo"" pdf 2981658",Guo full text,author full text located
+N2Q032,2026-09-16,"""variable speed limit"" ""automatic differentiation"" arxiv",derivative frontier,general AD and task-boundary leads
+N2Q033,2026-09-16,"""variable speed limit"" ""adjoint"" traffic capacity drop",adjoint frontier,RM0025 general class-control lineage
+N2Q034,2026-09-16,"""variable speed advisory"" work zone ""Kwon"" 2007 pdf",advice field evidence,agency and early field-study leads
+N2Q035,2026-09-16,"""Macroscopic modeling of variable speed limits on freeways"" pdf Frejo 2019",Frejo extension,stronger author-report baseline FB0026
+N2Q036,2026-09-16,"""First order multi-lane traffic flow model"" ""incentive"" pdf 2019",mandatory endogenous merge,FB0030 open university full text
+N2Q037,2026-09-16,"""variable speed limit"" ""model resolution"" gradient ranking transfer",matched resolution,leads but no adopted direct matched ranking result
+N2Q038,2026-09-16,"""variable speed advisory"" ""compliance"" ""heterogeneity"" sensitivity",response counterevidence,field and heterogeneous-control leads
+N2Q039,2026-09-16,"""variable speed limit"" ""gradient"" ""compliance"" ""lane"" model resolution",additional frontier,new recent evaluator calibration category FB0033
+N2Q040,2026-09-16,"""variable speed limits"" ""1700846"" mandatory lane changes sensitivity",lane citation frontier,existing lane and derivative categories
+N2Q041,2026-09-16,"""Macroscopic modeling of variable speed limits"" ""2019"" validation compliance",response extension validation,existing Frejo lineage
+N2Q042,2026-09-16,"""variable speed limit"" ""103184"" information propagation author manuscript",LTM access frontier,no inspected full methods dependency retained as gap
+N2Q043,2026-09-16,"""Three-Layer Model Calibration for SUMO"" ""7091"" compliance calibration",recent calibration date and full text,publisher-provided author full text and official version notes
+N2Q044,2026-09-16,"""variable speed limits"" ""gradient fidelity"" independent microscopic",final targeted frontier,no new substantive decision category
+N2Q045,2026-09-16,"""variable speed advice"" ""action ranking"" heterogeneous traffic",final targeted frontier,no new substantive decision category
+N2Q046,2026-09-16,"""First order multi-lane traffic flow model"" ""mandatory"" ""gradient""",final targeted frontier,no new substantive decision category
+N2Q047,2026-09-16,"""speed-limit compliance"" ""SUMO"" ""variable"" ""gradient"" validation",post-extraction stopping frontier,no new category; FB0033 same-data validation limitation reinforced
+N2Q048,2026-09-16,"""lane drop"" ""speed advice"" ""aggregate"" ""ranking"" model",post-extraction stopping frontier,boundary control leads no new substantive decision category
+N2Q049,2026-09-17,multilane traffic model variable speed limits optimal control adjoint gradient lane changing Roncoli,feedback23 amendment overlap,Roncoli multi-lane control predecessor
+N2Q050,2026-09-17,"""variable speed limit"" ""automatic differentiation"" lane",feedback23 amendment overlap,aggregate AD and calibration leads
+N2Q051,2026-09-17,"""variable speed limits"" ""gradient"" ""lane"" ""model"" sensitivity microscopic",feedback23 amendment overlap,gradient leads and irrelevant road-slope hits
+N2Q052,2026-09-17,"""multilane"" ""traffic"" ""adjoint"" speed control",feedback23 amendment overlap,Goatin aggregate speed-adjoint predecessor
+N2Q053,2026-09-17,"""Speed limit and ramp meter control for traffic flow networks"" pdf adjoint",primary full text,29-page national-library author copy
+N2Q054,2026-09-17,"""variable speed limit"" ""gradient"" ""model fidelity"" lane",bounded necessity frontier,no inspected matched information-necessity result
+N2Q055,2026-09-17,"""variable speed limits"" ""automatic differentiation"" simulator control gradient",bounded overlap frontier,Poole aggregate AD calibration lead
+N2Q056,2026-09-17,"""Second order macroscopic traffic flow model validation using automatic differentiation"" Poole Kotsialos doi Durham",primary metadata and abstract,2016 DOI author repository and publication index verified
+N2Q057,2026-09-17,"""Traffic flow optimisation"" ""Part II"" ""2015.05.011"" pdf Roncoli",journal extension metadata,Aalto institutional abstract verified not full methods

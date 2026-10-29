@@ -1,0 +1,13 @@
+operation_id,date,operation,query_or_source,finding_and_scope
+FS-S01,2026-10-08,search,"""continuous"" ""non-FIFO"" ""Riemann"" ""node"" traffic priorities",secondary/irrelevant leads not relied upon
+FS-S02,2026-10-08,search,"""partial FIFO"" ""Riemann"" ""invariant"" junction model",primary known manuscripts used; no theorem transplanted
+FS-R01,2026-10-08,local reread,supplied journal original pp4-6 / existing extraction,"desired amounts, oriented recipes and IT"
+FS-R02,2026-10-08,web open,https://arxiv.org/pdf/1601.01054,priority/invariance framework
+FS-R03,2026-10-08,web open,https://arxiv.org/pdf/1204.6727,admissible wave/interior states
+FS-R04,2026-10-08,web open,https://arxiv.org/pdf/1608.07623,node execution versus physical clock
+FS-R05,2026-10-08,web find,1601.01054 : non-FIFO,literal token not found; no conclusion from failed find
+FS-R06,2026-10-08,web find,1601.01054 : unique solution,Theorem3.3 scope
+FS-R07,2026-10-08,web find,1601.01054 : invariance,requirement7 and Remark3.1
+FS-R08,2026-10-08,web find,1204.6727 : interior states,section3.1 scope and demand/receiving
+FS-R09,2026-10-08,web open,https://arxiv.org/pdf/1601.01054 : line1390,MIMO theorem / different priority-FIFO optimization
+FS-R10,2026-10-08,web open,https://arxiv.org/pdf/1608.07623 : line350,"merge execution, unused shares, diverge FIFO caveat"

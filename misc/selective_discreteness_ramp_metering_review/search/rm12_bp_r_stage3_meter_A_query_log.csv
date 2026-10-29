@@ -1,0 +1,7 @@
+query_id,date,query,domains,purpose,batch_id,source_ids,outcome
+RM12-S3-MAQ01,2026-10-06,"""Laval"" ""Hybrid models of traffic flow"" ""2004"" thesis",,Follow working-paper dissertation method citation,MA-B1,RM12-S3-MA01,Author-uploaded dissertation metadata located; public full-text links later failed
+RM12-S3-MAQ02,2026-10-06,"""Laval"" ""A hybrid model of traffic flow"" ""geometry"" pdf",,Follow actual CM antecedent rather than infer its law,MA-B1,RM12-S3-MA02,Indexed author institutional publication list confirms 2003 submitted manuscript; full page later failed 502
+RM12-S3-MAQ03,2026-10-06,"""Daganzo"" ""nature of freeway gridlock"" ""1995"" pdf",,Recheck exact cited merge-boundary source and version,MA-B1,RM12-S3-A03,Institutional/report metadata only; full boundary construction not retrieved
+RM12-S3-MAQ04,2026-10-06,"""Lane-changing in traffic streams"" pdf",gatech.edu;berkeley.edu;escholarship.org,Seek primary author or institutional full journal source,MA-B1,RM12-S3-A01,Institutional final journal record confirms version but no full appendix
+RM12-S3-MAQ05,2026-10-06,"""Laval"" ""constrained motion"" ""traffic"" ""2003""",,Find original CM method from source antecedent,MA-B2,RM12-S3-MA02;RM0011,Secondary descriptions excluded; no original CM-method upgrade
+RM12-S3-MAQ06,2026-10-06,"""Laval"" ""lane-changing in traffic streams"" ""pdf"" ""Appendix"" ""model""",,Test precise original appendix access,MA-B2,RM12-S3-A01,Indexed original introduction identifies appendix; subsequent full CiteSeer fetch returns 403

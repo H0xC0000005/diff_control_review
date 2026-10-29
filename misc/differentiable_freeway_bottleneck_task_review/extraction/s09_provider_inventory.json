@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-09-29",
+  "scope": "read-only local provider discovery",
+  "working_directory": "/home/zpz/repos/diff_minimal_meso",
+  "platform": "Linux x86_64, kernel 6.8.0-106-generic",
+  "active_conda_environment": "diff_minimal_meso",
+  "active_python": "3.12.13",
+  "executables": {
+    "sumo_on_path": false,
+    "sumo_gui_on_path": false,
+    "netconvert_on_path": false,
+    "standard_locations_found": []
+  },
+  "python_environments": [
+    {
+      "path": "/home/zpz/miniconda3/bin/python",
+      "version": "3.13.13",
+      "traci": false,
+      "sumolib": false,
+      "libsumo": false
+    },
+    {
+      "path": "/home/zpz/miniconda3/envs/diff_minimal_meso/bin/python",
+      "version": "3.12.13",
+      "traci": false,
+      "sumolib": false,
+      "libsumo": false
+    },
+    {
+      "path": "/home/zpz/miniconda3/envs/differential_sim/bin/python",
+      "version": "3.11.9",
+      "traci": false,
+      "sumolib": false,
+      "libsumo": false
+    },
+    {
+      "path": "/home/zpz/miniconda3/envs/llmfe/bin/python",
+      "version": "3.11.7",
+      "traci": false,
+      "sumolib": false,
+      "libsumo": false
+    }
+  ],
+  "filesystem_search_roots": [
+    "/usr/bin",
+    "/usr/local/bin",
+    "/usr/share/sumo",
+    "/opt",
+    "/home/zpz/miniconda3"
+  ],
+  "result": "provider_unavailable_in_inspected_local_scope",
+  "qualification": "This is not a host-wide or network-wide impossibility claim. No installation, configuration change or remote-provider discovery was performed."
+}

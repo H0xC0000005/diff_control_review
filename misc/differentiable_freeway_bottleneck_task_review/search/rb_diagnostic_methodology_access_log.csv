@@ -1,0 +1,10 @@
+access_id,source_id,url,outcome,inspection,limits
+MDA001,MD-S1,https://www.math.ucdavis.edu/~krener/1-25/10.IEEETAC77.pdf,open13-page scanned copy,introduction and primary indexed text,no browser lines or transferred rank theorem
+MDA002,MD-S1,https://www.fs.isy.liu.se/Edu/Courses/ObserversPhD/CourseMaterial/Hermann_Krener_1977.pdf,open failed,none,alternate not needed
+MDA003,MD-S2,https://www.sciencedirect.com/science/article/pii/S0191261517302114,open failed,indexed publisher abstract only,not full-method evidence from publisher route
+MDA004,MD-S2,https://sndbx.library.tuc.gr/view/74291?locale=en,open failed,indexed institutional record,not full-method evidence from this route
+MDA005,MD-S2,https://dias.library.tuc.gr/view/74291?locale=en,open failed,none,Aalto alternative available
+MDA006,MD-S2,https://acris.aalto.fi/ws/portalfiles/portal/28009519/ENG_Bekiaris_Liberis_et_al_Highway_traffic_state_estimation_Transportation_research_part_B.pdf,full accepted manuscript48PDFpages,II-B II-C II-E III-A III-E III-F selected,requires lane-aware measurements; not our envelope
+MDA007,MD-S3,https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/camera-ready-9.pdf,full10-page copy,table1 and3.3-3.4 selected,MDP theory not traffic or gradient certificate
+MDA008,MD-S4,https://proceedings.mlr.press/v48/abel16.html,official metadata and abstract,identity and PDF link,not method evidence by abstract alone
+MDA009,MD-S4,https://proceedings.mlr.press/v48/abel16.pdf,full9-page copy,definitions9-12 theorem1 and5.1;5.2 scope,model-value assumptions not observable-residual guarantee

@@ -1,0 +1,257 @@
+\documentclass[10pt]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{navy}{HTML}{17365D}
+\definecolor{blue}{HTML}{2F5597}
+\definecolor{pale}{HTML}{EAF0F7}
+\definecolor{gray}{HTML}{555555}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.16}
+
+\newcommand{\key}[1]{\textbf{\color{navy}#1}}
+\newcommand{\finding}[1]{%
+  \begin{center}\colorbox{pale}{\parbox{0.93\linewidth}{\textbf{#1}}}\end{center}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries\color{navy} Freeway Speed Advice at a Lane Drop}\par
+\vspace{2mm}
+{\large What the methodology review established, and what remains unproved}\par
+\vspace{2mm}
+{\small Colleague report \textbar{} 30 September 2026}
+\end{center}
+
+\finding{The reviewed freeway task is scientifically legitimate and well anchored in
+existing traffic-control and lane-changing literature. The review does not,
+however, establish that lane-resolved information is necessary for the control
+decision, nor that a lane-aware differentiable model would provide a useful
+gradient. The review closes because that boundary is now clear and the evidence
+needed to cross it is precisely defined.}
+
+\section{Why this review was needed}
+
+The project asks how much traffic discreteness must be retained to obtain useful
+gradients for control. A model-first route would build a lane-aware differentiable
+simulator and only later ask whether its extra state changes a meaningful control
+decision. This review instead used a task-first anchor: define one freeway control
+problem, identify a strong lower-resolution competitor, and require evidence that
+the information removed by that competitor changes the decision before proposing
+a richer model.
+
+The resulting task is deliberately narrow. Infrastructure supplies the same
+upstream speed advice to all lanes approaching a lane reduction. Drivers and
+traffic interactions determine actual speeds, lane changes and merging. The
+initial controlled setting is homogeneous traffic at a synthetic permanent
+three-to-two lane drop. Direct commands to individual vehicles or lane changes
+are outside the action space.
+
+The aggregate comparator is intentionally strong. It may know spatial traffic
+amount, mean speed or response, queues, cumulative counts and the full declared
+predecision history. A lane-aware method must add decision-relevant information;
+it cannot win because the baseline was made memoryless or poorly calibrated.
+
+\section{The task that the literature supports}
+
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.21\textwidth} X X}
+\toprule
+Task element & Literature foundation & Consequence for this review \\
+\midrule
+Aggregate VSL baseline & LWR and link-queue studies already regulate lane-drop
+traffic with feedback speed limits; first-order VSL sensitivities and gradient
+methods also exist \cite{jin2013,monache2016}. & Differentiability and successful
+aggregate VSL are prior art. The baseline must be treated as a credible
+competitor. \\
+\addlinespace
+Imperfect response & Macroscopic models and field studies represent incomplete
+compliance and the gap between displayed advice and realized speed
+\cite{frejo2018,caltrans2018}. & Imperfect response does not by itself require
+individual vehicles or lane state. \\
+\addlinespace
+Lane and merge effects & Lane-resolved CTM, microscopic lane-change models and
+field lane-use studies show that mandatory merging, urgency, gaps and lane
+distribution can affect traffic near a reduction \cite{guo2020,erdmann2015,knoop2010}. &
+Lane, gap and order variables are plausible candidates, but their necessity for
+common speed advice remains a hypothesis. \\
+\addlinespace
+Richer reference evaluation & Existing work compares aggregate controllers with
+microscopic simulation, including SUMO-based evaluation \cite{guo2020,chen2025}. &
+A richer evaluator can test transfer, but richer trajectories alone do not prove
+that added information improves the control decision. \\
+\addlinespace
+Temporary-event recovery & Incident guidance treats the period after lane
+reopening, while queues dissipate, as a distinct operational phase
+\cite{fhwa2008}. & A later temporary-closure review is credible, but it is a new
+scenario rather than missing evidence for the permanent-drop review. \\
+\bottomrule
+\end{tabularx}
+
+No reviewed paper supplies the complete target comparison: the same lane-uniform
+advice, the same strong aggregate information, a reachable hidden lane/gap/order
+contrast, complete waiting and travel accounting, a minimal differentiable
+refinement, and gradient-guided improvement in an independent richer evaluator.
+
+\section{The three central questions and their answers}
+
+\subsection{1. What information could an aggregate simulator hide?}
+
+The physically relevant candidates are near-drop lane allocation, continuing-lane
+balance, local gaps, queue or packet order, leaders and lane-change memory. Lane
+occupancy is best understood as a marker for this bundle, rather than an already
+proved sufficient state.
+
+The review obtained one conditional analytical result. In a homogeneous
+free-flow preparation, conservative transfers between lanes cancel when traffic
+mass is summed. Different lane allocations can therefore share the same aggregate
+mass history under the stated assumptions. This demonstrates how information can
+be hidden without rounding vehicle mass or disabling conservation.
+
+It does not demonstrate a native near-drop case. Once lane-dependent speeds,
+receiving constraints and merging affect aggregate measurements, the full history
+may reveal the preparation. The review designed a bounded future test for this
+existence question, but did not run it.
+
+\subsection{2. Can hidden information change useful common speed advice?}
+
+The literature establishes plausible mechanisms: speed affects arrivals, gap
+formation, lane distribution and merge interactions. It does not isolate a case
+where two situations with the same strong aggregate history require different
+lane-uniform advice after all waiting traffic is counted.
+
+The analytical review also found an important obstruction. If advice changes
+only when traffic arrives, while bottleneck service is fixed, advice-independent
+and work-conserving, sending traffic earlier cannot be worse under complete delay
+accounting. The highest feasible advice remains a common best action. Assigning
+different fixed capacities to hidden lane states therefore does not establish a
+reason to slow traffic.
+
+A successful case must contain an endogenous coupling: common advice must change
+merging, receiving or service enough to offset its added travel delay, and this
+effect must depend on information unavailable in the aggregate history. No
+reviewed source establishes that full chain for this task.
+
+\subsection{3. Can the missing information provide a useful gradient?}
+
+The required evidence path is clear:
+
+\begin{enumerate}
+\item establish a reachable collision in the declared aggregate information;
+\item establish different useful common-advice decisions;
+\item identify the smallest retained state that explains the difference;
+\item compare automatic or analytic derivatives with finite differences away
+      from event boundaries; and
+\item replay small gradient-guided perturbations in an independent richer
+      evaluator.
+\end{enumerate}
+
+The review completed the methodological definition of this path, not the traffic
+instance or derivative evidence. A differentiable simulator, a finite derivative
+or a lower internal objective would not by itself establish gradient usefulness.
+
+\section{What is established, and where the chain stops}
+
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.27\textwidth} X}
+\toprule
+Established result & Scientific meaning \\
+\midrule
+Strong aggregate comparator & Aggregate response/history models are a serious
+alternative and must not be weakened to create a gap. \\
+Conditional hiding construction & Conservative lane redistribution can be
+invisible in aggregate free-flow history under explicit assumptions. \\
+Fixed-service obstruction & Hidden lane state plus different fixed capacity is
+insufficient when advice cannot change service and faster arrival dominates. \\
+Mechanism foundation & Gap, urgency, lane redistribution and native merging are
+plausible paths, without a guaranteed beneficial sign. \\
+Reachable-preparation repair & Later decisions and a localized balanced contrast
+avoid the most obvious empty-near-zone and unequal-insertion confounds. \\
+Future exact-prefix protocol & A frozen dual-resolution design can test exact
+sampled-history collision for one bounded synthetic preparation bank. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{2mm}
+\key{The chain stops before the decisive link:} no source or proof combines a
+reachable strong-history match, consequential hidden state and different useful
+common advice. Therefore no minimum state and no task-specific useful gradient
+can yet be claimed.
+
+\section{Why the remaining gaps cannot be closed by more static review}
+
+\begin{itemize}
+\item \key{The information collision is existential.} Literature can justify
+      mechanisms and observer choices, but it cannot certify that the frozen
+      native preparations produce exactly equal histories.
+\item \key{The control effect is confounded in close predecessors.} Existing
+      lane-aware studies often change the actuator, objective, optimizer or
+      observability together with model resolution.
+\item \key{The minimum state depends on a positive case.} Lane mass, gaps, order
+      and lane-change memory cannot be ranked by necessity before a
+      decision-relevant contrast exists.
+\item \key{The derivative target depends on the adopted mechanism.} Exact
+      propagation through a conservative smooth branch differs from sensitivity
+      at a lane-change or reopening event.
+\item \key{A complete gradient claim requires construction and evaluation.}
+      Internal derivative checks and independent downstream usefulness require a
+      candidate model and controlled perturbations, neither of which belongs to
+      a methodology-only literature review.
+\end{itemize}
+
+These are evidence boundaries, not clerical omissions. Inventing an advice-to-
+service equation or installing a microscopic simulator would start a new study.
+
+\section{Conclusion}
+
+The current review closes with conditional findings. The formulated permanent
+lane-drop VSL task is defensible and literature-grounded, and the evidence needed
+for a selective mesoscopic contribution is explicit. The central hypothesis
+remains unresolved rather than refuted.
+
+The safe claim is therefore methodological: the literature supports the task,
+the strong aggregate baseline and the physical relevance of lane/gap/order
+effects, while the review identifies the exact evidence needed before selective
+mesoscopic state or useful gradients can be claimed. Establishing that evidence
+requires a new analytical or empirical study rather than further reinterpretation
+of the current literature.
+
+\small
+\begin{thebibliography}{99}
+\bibitem{jin2013} W.-L. Jin and H. Jin, ``Analysis and design of variable speed
+limit control for a lane-drop bottleneck,'' 2013. Available:
+\url{https://arxiv.org/abs/1310.2658}.
+\bibitem{monache2016} M. L. Delle Monache, B. Piccoli, and F. Rossi,
+``Traffic regulation via controlled speed limit,'' 2016. Available:
+\url{https://arxiv.org/abs/1603.04785}.
+\bibitem{frejo2018} J. R. D. Frejo et al., ``Macroscopic modeling and control of
+variable speed limits with non-compliance,'' \emph{IFAC-PapersOnLine}, 2018,
+doi: 10.1016/j.ifacol.2018.07.056.
+\bibitem{caltrans2018} California PATH, ``Field test of variable speed advisory
+system,'' Caltrans Final Report CA18-2447, 2018. Available:
+\url{https://dot.ca.gov/-/media/dot-media/programs/research-innovation-system-information/documents/final-reports/ca18-2447-finalreport-a11y.pdf}.
+\bibitem{guo2020} Y. Guo et al., ``Integrated variable speed limits and
+lane-changing control for freeway lane-drop bottlenecks,'' \emph{IEEE Access},
+vol. 8, pp. 54710--54721, 2020, doi: 10.1109/ACCESS.2020.2981658.
+\bibitem{erdmann2015} J. Erdmann, ``SUMO's lane-changing model,'' in
+\emph{Modeling Mobility with Open Data}, 2015. Available:
+\url{https://elib.dlr.de/102254/1/Springer-SUMOs_Lane_changing_model.pdf}.
+\bibitem{knoop2010} V. L. Knoop et al., ``Lane distribution of traffic near
+merging zones: influence of variable speed limits,'' IEEE ITSC, 2010,
+doi: 10.1109/ITSC.2010.5625034.
+\bibitem{chen2025} Y. Chen, G. Cheng, F. Meng, and W. Wang, ``Variable speed
+limit control method of freeway merging area in a car-truck mixed heterogeneous
+traffic environment,'' \emph{Physica A}, vol. 676, 130876, 2025,
+doi: 10.1016/j.physa.2025.130876.
+\bibitem{fhwa2008} Federal Highway Administration, ``Information sharing for
+traffic incident management,'' FHWA-HOP-08-059, 2008. Available:
+\url{https://ops.fhwa.dot.gov/publications/fhwahop08059/30.htm}.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,71 @@
+# Compact methods report: formulation provenance and coverage
+
+Date: 2026-10-19. Supporting record for feedback 10's writing pass.
+The main deliverable is the compact PDF; this map is outside its page budget.
+No traffic equation, initialization, observation, objective or derivative
+contract changes. Dummy argument names are clarified for readability.
+
+[Compact report, PDF](../../synthesis/research_readiness/vsl_compact_methods_report.pdf)
+
+[Retained LaTeX source](../../synthesis/research_readiness/vsl_compact_methods_report.tex)
+
+## Writing requirements applied
+
+The user explicitly requests a LaTeX PDF preferably no longer than 2.5 pages,
+at least 10 pt main text, familiar existing notation, and the current
+functional methodology without a limitations discussion. This supersedes
+the earlier plan's unspecified page count and main-text limitations section.
+Essential assumptions, admission bounds, branch conditions and the regular
+derivative's domain remain because they define the model. The PDF contains
+no new numerical/physical performance claim or positive-action certificate.
+Previously recorded scientific limitations remain in the review archive.
+
+The five agreed parts are retained: question; concrete task/global assumptions;
+four physical components; information/objective logic; complete sensitivity.
+No plot is needed to explain the presented dependencies. Page breaks keep
+the point-service formulation/table and the sensitivity block together.
+
+## Equations and scientific ownership
+
+| Report object | Exact accepted formulation used | Lineage and report treatment |
+|---|---|---|
+| **Equation 1: FD and boundary speed map** | [AS1](../../synthesis/research_readiness/vsl_as1_asymmetric_forward_contract.tex), `eq:fd`. | Triangular/LTM ingredients cited to Jin [1]; the advice-response family is explicitly selected here. Writing capacity as speed times critical density is algebraically identical. |
+| **Equation 2: operating domain** | AS1 `eq:domain`, with nonnegative initial densities and positive ordered advice interval in the task text. | Existing sufficient receiving/storage domain; no new bound. Positive interaction/recovery scales and preparation penalty are defined beside their equations. |
+| **Global assumptions and initial state** | AS1 §1; [accepted assumption statement](../../synthesis/research_readiness/vsl_global_assumptions_statement.md). | Independent E/A/B loads, common uniform footprint, finite cohort, empty terminal/history, fixed action/parameters and coupled point/history structure are explicit. No continuing symmetry is reintroduced. |
+| **Equation 3: pre-choke transfer** | AS1 `eq:h1`; [CORE](../../synthesis/research_readiness/vsl_feedback8_math_core.tex), `eq:h1general`. | Receiving-work/own-lane ingredients cite Carey [2]. Homogeneous exchange and physical opportunity-length scaling are identified as adaptations/definitions here. The actual density source remains the opportunity-equivalent flow divided by length. |
+| **Equation 4 and terminal counts** | AS1 `eq:entry`, `eq:counts`, `eq:vacancy`; CORE terminal section. | LTM-style boundary travel/storage cites Jin [1]; cutoff/handoff are defined here. The displayed conservative storage domain ensures positive vacancy, so the compact report need not repeat the inactive receiving branch. Stock and eligible waiting remain distinct; B remains unqueued. |
+| **Equation 5: work/root and coefficient domain** | AS1 `eq:root`, `eq:workdomain`; CORE `eq:currentwork`, `eq:root`, `eq:rootderiv`. | Fixed W-F work, equilibrium marks and allocation are explicitly defined here with receiving-work lineage [2]. The original baseline is written directly as at least one; its separate extra-work symbol is unnecessary. The coefficient's anchor is fixed once. |
+| **Four service branches and causal guards** | AS1 §3 table; CORE allocation section and `eq:queuedynamics`. | All four selected branches retained, including queued A/free E cooperation. Strict-shortfall birth, true-zero retest, equality continuation and right-hand arrival data remain; no timer, smoothing or new priority is added. |
+| **Equation 6: isolated loss profile** | AS1 `eq:recovery`; CORE `eq:profile`. | Adapted from Leclercq [3]. The equivalent boundary-speed meaning is stated. Capping and its use within the selected aggregate account are identified separately from the isolated source. |
+| **Equation 7: recent-mass account and budget** | AS1 `eq:recovery`; CORE `eq:renewal`. | E-only deposition, fixed-mass prefill normalization and old-weight retirement are defined here. The reading is written with the existing explanatory subscript; it is the same account. Retained age/mark history remains predicted dynamic state. |
+| **Equation 8: complete TST** | AS1 `eq:tst`; [AS3](../../synthesis/research_readiness/vsl_as3_asymmetric_actions_and_gradients.tex), `eq:tstgradient`. | Own complete-accounting deduction: all initial lanes, mean remaining distance and complete A/E waiting tails, with choke completion. Fixed horizon extends beyond clearance. |
+| **Information comparison and compact peer** | [AS2](../../synthesis/research_readiness/vsl_as2_information_and_history.tex), §§1, 4–5; [current protocol](../../synthesis/research_readiness/vsl_asymmetric_standalone_verification_protocol.md). | Shared geometry/physical parameters, full admitted history/inference, E-plus-continuing versus per-lane inputs and the extra-adjacent-statistic peer remain. The report explains the diagnostic mechanism without asserting a universal action split. |
+| **Equation 9: implicit service derivative** | AS3 `eq:rootsensitivity`. | Own deduction for this node. Dummy A-flow/A-mark arguments replace the overloaded density-like argument names; partial derivatives and allocated E work have the same meaning. |
+| **Equation 10: cutoff and event corrections** | AS3 `eq:history`, `eq:historysensitivity`, `eq:events`. | The moving-cutoff identity is explicitly derived here. Only the remaining regular event-time/state correction is attributed to Kong [4]. History remains included in the guard; the integral also carries mark/flow/source-event contributions. |
+| **Equation 11: full objective derivative** | AS3 `eq:tstgradient`. | Own joined-model reference on the stated regular sequence, with both equivalent complete-objective forms. No AD or numerical usefulness result is implied. |
+
+The report does not print the long positive-action proof, source-model
+comparison tables or full history derivative. Its sensitivity paragraph
+states all paths and shows the requested critical updates; the exact
+retirement/source-event formula remains in AS3. Those are presentation
+choices under feedback 10, not deleted model terms or weakened contracts.
+
+## Viewed primary references in this writing pass
+
+These four references were already in the accepted review. Targeted online
+rechecks verify attribution during drafting; they are not a new general
+literature sprint, native-model adoption or full-paper rereading. The list
+records viewed references, not downloaded full papers.
+
+| Report reference | Primary link and material viewed | Attribution boundary |
+|---|---|---|
+| **[1] Jin, 2015** | [Continuous formulations and analytical properties of the link transmission model](https://arxiv.org/pdf/1405.7080): cumulative boundary/demand/supply context and queue/vacancy definitions, particularly equations 20–23 and the initially empty-link discussion. | Supports boundary ingredients. Current homogeneous lateral exchange and point node retain their own accepted definitions/proofs. |
+| **[2] Carey, Balijepalli and Watling, 2013 manuscript** | [Extending the Cell Transmission Model to Multiple Lanes and Lane-Changing](https://eprints.whiterose.ac.uk/id/eprint/77315/7/Carey%20et%20al%202013_with_coversheet.pdf): title/cover, introduction's priority alternatives and selected Section 5 headway/receiving interpretation. | Manuscript date retained. The selected continuous opportunity law, equilibrium marks and specific joined service rule are not attributed to its native CTM. |
+| **[3] Leclercq, Knoop, Marczak and Hoogendoorn, 2016** | [Capacity drops at merges: New analytical investigations](https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6): point-case equation 1 and its equivalent-speed interpretation around manuscript page 4. | Isolated profile basis; capped transient use and recent-mass overlap remain adaptations/definitions here. |
+| **[4] Kong, Payne, Zhu and Johnson** | [Saltation Matrices: The Essential Tool for Linearizing Hybrid Dynamical Systems](https://arxiv.org/pdf/2306.06862): regular event sensitivity, differentiable/transverse guard conditions and identity-reset discussion around PDF page 5. | Event corrections only. It is not the source of the E-rank cutoff identity or a theorem for this history account. |
+
+The existing [component/source archive](vsl_feedback8_model_stack_source_map.md)
+and [assumption dependency audit](vsl_global_assumptions_dependency_audit.md)
+remain the detailed evidence/interpretation record.
+
+[Writing work, build and verification](../../reporting/research_readiness/vsl_feedback10_report_work_report.md)

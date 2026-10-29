@@ -1,0 +1,284 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\kc}{k_c}
+\newtheorem{proposition}{Proposition}
+\title{AS2: what E-plus-continuing aggregation can conceal}
+\author{Elementary VSL lane-drop task review}
+\date{19 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} AS1 is user-accepted. The bounded AS2 review is
+completed at its information checkpoint; AS3 has not begun.
+No traffic experiment, new traffic mechanism or additional observation
+restriction is introduced.
+
+\paragraph{Core finding.}
+Identical E and combined continuing traffic can conceal different A/B
+loads even from a complete predecision longitudinal record. A common
+low-speed preparation can keep early merging donor-limited, so it leaves
+no trace of unused adjacent receiving. An extra initial adjacent-load
+statistic removes the ambiguity in this homogeneous family. The result
+concerns information, not different best advice or useful gradients.
+
+\section{Accepted world and the information being compared}
+Use the user-accepted
+\href{vsl_as1_asymmetric_forward_contract.pdf}{AS1 initial-family/forward contract}.
+E ends, A is its adjacent continuing lane, B the far continuing lane.
+At time zero the cohort is uniform on $[0,\ell]$, the terminal and recovery
+account are empty, and there are no later external arrivals. Put
+\begin{equation}
+ r=e_0+a_0,\quad \rho=e_0+a_0+b_0,\quad M=\ell\rho,
+ \qquad C(v)=\frac{wk_jv}{w+v},\quad \kc(v)=\frac{wk_j}{w+v}.
+ \label{eq:world}
+\end{equation}
+Keep all AS1 bounds, laws, coefficients and choke-completion TST.
+The future action is one common constant $v\in[v_-,v_+]$ selected at zero;
+only information available before that action may choose it.
+
+All predictors receive the same geometry, physical coefficients, action
+set, initialization-family description, disclosed loading recipe and common
+past advice. These do not include the realized split between A and B.
+The nested information roles are:
+\begin{center}\small
+\begin{tabular}{p{24mm}p{122mm}}
+\toprule
+Role & Available information at the decision\\
+\midrule
+Level 1 & Every admitted lane-blind predecision longitudinal density, flow,
+speed and cumulative-count channel, with all lawful deterministic inference.\\[4pt]
+Level 2 & Level 1 plus initial E mass and combined A+B mass. Any permitted
+E-resolved history is retained; the construction below even matches that
+stronger record. The realized A/B split is not supplied separately.\\[4pt]
+Level 3 & The same common record plus individual initial E, A and B masses.
+No future traffic, queue or recovery trace is supplied.\\[4pt]
+Compact peer & Level 2 plus one initial adjacent-lane mass or an equivalent
+scalar. It has the same initial information as Level 3 in this family.\\
+\bottomrule
+\end{tabular}\end{center}
+Initial-dependent $r$ is not a shared physical parameter: with known $e_0$,
+it discloses $a_0$. Actual A/B boundary traces, adjacent receiving or a pair
+label likewise cannot be passed as common inputs in this contrast. If an
+actually admitted channel reveals the split, its inference must be allowed;
+it defines an informative case rather than an exception to suppress.
+
+\section{The existing loading recipe reaches unequal A/B states}
+\subsection{A general sufficient construction}
+Select two AS1-admitted initial states with common $e_0=e>0$ and
+$a_{0,i}+b_{0,i}=c$, but $a_{0,1}\ne a_{0,2}$. Thus
+$\rho=e+c$ is common and $r_i=e+a_{0,i}$ differs. Use the already disclosed
+predecision H1 loading recipe, with common past speed $\bar v>0$,
+$T=\ell/\bar v$, and an empty road before $-T$:
+\begin{equation}
+ e^{\rm in}(t)=e\exp(-\bar vt/h),\quad
+ a_i^{\rm in}(t)=r_i-e^{\rm in}(t),\quad
+ b_i^{\rm in}(t)=b_{0,i},\qquad -T\leq t\leq0.
+ \label{eq:loader}
+\end{equation}
+All inputs cease at zero. These are exogenous preparation traces; they do
+not depend on which future advice is tested. The recipe is the same as the
+accepted historical construction, now evaluated on the independent initial
+family. It adds neither a preparation mechanism nor a new controller.
+
+Sufficient loading conditions are
+\begin{equation}
+ e\exp(\ell/h)<\min_i r_i,\qquad
+ \max_i r_i+(\gamma-1)e\exp(\ell/h)<\kc(\bar v),\qquad
+ b_{0,i}\leq\kc(\bar v),\quad \ell<L_p.
+ \label{eq:loadbounds}
+\end{equation}
+For $\gamma\geq1$, these ensure positive A input and free lane densities.
+The donor test for H1 is $a+\gamma e\leq\kc(\bar v)$.
+It holds strictly because $a_i+\gamma e=r_i+(\gamma-1)e$.
+
+The occupied front is $x_f(t)=\bar v(t+T)$. In
+$0<x<x_f(t)$ the homogeneous fields are
+\begin{equation}
+ e(x,t)=e\exp(-\bar vt/h),\quad
+ a_i(x,t)=r_i-e(x,t),\quad b_i(x,t)=b_{0,i}.
+ \label{eq:fields}
+\end{equation}
+They satisfy the same transport and lateral balances:
+\begin{equation}
+ e_t+\bar ve_x=-\bar ve/h,\quad
+ (a_i)_t+\bar v(a_i)_x=\bar ve/h,\quad
+ (b_i)_t+\bar v(b_i)_x=0.
+ \label{eq:pde}
+\end{equation}
+For example a characteristic entering at $t-x/\bar v$ carries
+$e^{\rm in}(t-x/\bar v)e^{-x/h}=e\exp(-\bar vt/h)$.
+The front travels freely into an empty road. It never reaches $L_p$ before
+zero, so the terminal/recovery history is empty. At zero the required
+uniform independent-lane initial state is reached, with total mass $M$.
+
+\subsection{A nonempty example inside the accepted AS1 family}
+Reuse AS1's shared scales and coefficients:
+\begin{equation}
+ \begin{gathered}
+ v_-=u,\ v_+=2u,\ w=2u,\ k_j=3\kappa,\ \gamma=2,\quad
+ R=39\kappa u/20,\ R_B=\kappa u,\\
+ L_p=2\ell,\ b=\ell,\ c_0=11/10,\ \beta=1/100,\quad
+ e=3\kappa/5,\quad a_{0,i}+b_{0,i}=11\kappa/20,\\
+ (a_{0,1},b_{0,1})=(\kappa/5,7\kappa/20),\quad
+ (a_{0,2},b_{0,2})=(7\kappa/20,\kappa/5).
+ \end{gathered} \label{eq:pair}
+\end{equation}
+Use $\bar v=u$ and any $0<\ell/h<\log(4/3)$.
+Then $r_1=4\kappa/5$, $r_2=19\kappa/20$,
+$e\exp(\ell/h)<4\kappa/5$ and
+\begin{equation}
+ r_2+e\exp(\ell/h)<(19/20+4/5)\kappa
+ =7\kappa/4<\kc(u)=2\kappa.
+ \label{eq:examplebounds}
+\end{equation}
+The entire continuous AS1 split interval between these endpoints satisfies
+the same loading bounds. All postdecision AS1 admission margins remain
+unchanged. This is a sufficient matched-history subfamily, not a restriction
+of the whole admitted task to those histories.
+
+For exact rational checks one may set $\ell/h=\log(6/5)$. Earliest E input
+is then $18\kappa/25$, the smallest A input is $2\kappa/25>0$,
+and the worst donor work density is $167\kappa/100<2\kappa$.
+At the decision, future advice $2u$ has the same AS1 initial offer
+$6\kappa u/5$ in E, but receiving alternatives $13\kappa u/10$ and
+$23\kappa u/20$. Thus identical pasts can precede the already proved
+distinct initial receiving response. This local calculation is not an
+action comparison.
+
+\section{The complete observation record is identical}
+\begin{proposition}
+The constructed pair has identical lane-blind longitudinal fields and
+counts at every cross-section for every predecision time. It also has
+identical E and combined A+B histories, even if these richer histories
+are available. Nevertheless its initial A/B split is different.
+\end{proposition}
+\begin{proof}
+Write $I(x,t)=\mathbf1_{\{0<x<x_f(t)\}}$ for $-T\leq t\leq0$.
+The common aggregate fields and cumulative longitudinal count are
+\begin{equation}
+ \begin{gathered}
+ k_\Sigma(x,t)=\rho I(x,t),\quad
+ Q_\Sigma(x,t)=\bar v\rho I(x,t),\\
+ N_\Sigma(x,t)=\rho\pos{x_f(t)-x}.
+ \end{gathered} \label{eq:aggregate}
+\end{equation}
+Speed is $\bar v$ on the occupied region; empty-region masks are the same.
+E fields are $k_E=e(t)I$, $Q_E=\bar ve(t)I$. For a reached cross-section,
+its cumulative E count is
+\begin{equation}
+ N_E(x,t)=\bar v\int_{-T+x/\bar v}^t e(s)\dd s;
+ \quad N_E=0\ \hbox{before its first arrival}.
+ \label{eq:Ecount}
+\end{equation}
+This is the integral of the \emph{local} E flow; it is not a count of
+conserved E identity through upstream transfers. Since $e(t)$ is common,
+all E-resolved channels in this expression are common. Continuing fields
+are $k_{A+B}=(\rho-e(t))I$, $Q_{A+B}=\bar vk_{A+B}$ and
+$N_{A+B}=N_\Sigma-N_E$, likewise common.
+
+The represented early E-to-A transfer density source $\bar ve(t)/h$ is
+also common, so its cumulative transferred mass is not a distinguisher
+for this pair. This does not claim equality of unmodeled microscopic gap
+or individual maneuver observations. Before $-T$ both roads are empty;
+through zero both terminal/recovery histories are empty. At zero,
+$E_0=\ell e$ and $M-E_0=\ell c$ agree, while A/B differ. Any deterministic
+filter or inference from the complete matched record has identical inputs.
+The result therefore also holds for any finite sensor/history subset of
+that record, without shortening the history window.
+\end{proof}
+
+The common predecision population-time is $MT/2$, independent of future
+advice. Excluding it from the decision-time TST does not remove an
+action-dependent or pair-dependent term. Nothing from the post-action
+trajectory has been included in the decision input.
+
+\paragraph{What follows.}
+Level 2 cannot identify the correct initial A/B split for every member of
+this admitted pair. It may retain uncertainty or use a disclosed prior;
+it is not required to assume equal A/B loads. No deterministic point
+estimate can be correct in both states from identical inputs. This does
+not imply different optimal actions: a common action could be optimal in
+both, and AS3 must check that separately. The construction establishes
+an exact conditional ambiguity, not universal nonobservability in traffic.
+
+\section{The compact peer closes the initial-information gap}
+Let $E_0,A_0,B_0$ denote initial masses, so $M=E_0+A_0+B_0$.
+Given Level 2's common $M,\ell,E_0$ and one adjacent mass $A_0$,
+\begin{equation}
+ e_0=E_0/\ell,\qquad a_0=A_0/\ell,\qquad
+ b_0=(M-E_0-A_0)/\ell.
+ \label{eq:compact}
+\end{equation}
+An equivalent scalar such as $r$ also suffices. The AS1 forward law is
+unique with neutral initial terminal/recovery history. The compact peer
+and explicit per-lane initialization therefore predict the identical
+complete trajectory and TST for every admitted advice. Their objective
+derivatives are equal wherever those derivatives exist; this identity is
+not a numerical-gradient validation or a new regularity theorem.
+
+Predicted queues, speed marks and retained recovery histories still evolve.
+Initial scalar sufficiency does not reduce that dynamic state to a single
+meter reading. Nor does it establish that full per-lane spatial detail,
+integer mass, identities or discrete order are necessary for this task.
+Equal-information representation/optimizer comparisons remain separate
+from the Level 2-to-Level 3 information comparison.
+
+\section{When history does identify A, and the boundary of this result}
+If an admitted record supplies exact E density and its time derivative
+while early transfer is \emph{strictly receiving-limited} at known common
+past speed $\bar v$, then
+\begin{equation}
+ \dot e=-\frac{C(\bar v)-\bar va}{\gamma h},\qquad
+ a=\kc(\bar v)+\frac{\gamma h}{\bar v}\dot e,
+ \quad r=e+a.
+ \label{eq:infer}
+\end{equation}
+The body must be present and this is a density derivative, not the
+derivative of whole-lane E mass during changing footprint. With the retained
+free preparation law, $r$ is constant; its earlier inferred value gives
+current $a_0=r-e_0$, then $b_0=\rho-r$. Such permitted inference is fully
+available to Level 2.
+
+Strict receiving activity is detectable from a transfer rate below the
+donor offer, $0<-h\dot e<\bar ve$. On a donor-only history,
+\begin{equation}
+ \dot e=-\bar ve/h,\qquad
+ r+(\gamma-1)e\leq\kc(\bar v),
+ \label{eq:donorbound}
+\end{equation}
+which bounds $r$ but does not generally determine it. Both constructed
+members satisfy the bound strictly. At donor/receiver equality the
+derivative alone does not certify unique receiving activity. With only
+initial E and no E history, \eqref{eq:infer} is not an available measurement;
+the matched-history proof deliberately grants more, rather than relying on
+that omission. Exact noiseless identification is not a claim of robust
+estimation from noisy detector data.
+
+Direct A/B counts, a known realized $r$, an identifying adjacent-receiving
+measurement or other informative admitted data must also be honored. The
+pair certificate applies only to the stated matched channels. There is no
+new observation restriction: the positive result already matches the
+existing complete lane-blind envelope and a richer E-resolved envelope.
+
+\paragraph{Checkpoint and provenance.}
+The initial-information contract, complete-history existence certificate,
+conditional inference cases and compact-peer equality complete AS2 at
+review scope. AS3 must still address complete TST action relevance and the
+full advice derivative for this asymmetric comparison; no optimal-action
+split, interior optimum, regret or useful-gradient result is claimed here.
+
+The loading recipe and transport construction reuse Section 2 of the
+\href{vsl_step3_information_and_sensitivity.pdf}{14 October information/sensitivity note};
+initialization and complete forward qualification use the accepted
+\href{vsl_as1_asymmetric_forward_contract.pdf}{AS1 contract}.
+This note's matched-E asymmetric specialization, inference calculation and
+compact-peer deduction are original model-relative reasoning. No new paper
+was viewed or new literature model adopted. Existing physical/provenance
+limitations remain; applied MP6 is unexecuted and SUMO optional. This
+document stops at AS2's checkpoint, before AS3 or Step 4.
+\end{document}

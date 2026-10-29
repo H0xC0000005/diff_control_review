@@ -1,0 +1,150 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\raggedright
+\begin{document}
+{\Large BP-R Stage 3: interface continuation}\\[4pt]
+7 October 2026 --- static review; S3-G2-Q discussion; Stage 3 open
+
+\textbf{Status.} The previous partial result is accepted. Reference A,
+upstream admission M.A and priority N.A remain closed. Neither compact route
+Q.A nor Q.B is adopted. These are analytical checks, not traffic simulation,
+parameter estimation, clearance validation or a gradient test.
+
+\section*{1. Conservative count and event ownership}
+Let $F_{cb}^k\ge0$ be actual continuous mass transferred from control volume
+$c$ to $b$ during time bin $k$, $n_c^k$ its mass, and $I_c^k,E_c^k$ its external
+arrival/exit mass. For road/ramp and entrance waiting volumes together,
+\begin{equation}
+n_c^{k+1}=n_c^k+I_c^k-E_c^k+
+ \sum_b F_{bc}^k-\sum_b F_{cb}^k,
+\qquad M^{k+1}-M^k=I^k-E^k.
+\end{equation}
+Internal transfers cancel. A descriptor adds no mass. The source's lateral
+transfer advances to the next longitudinal target; it is not advected twice.
+Receiving, sending and source step-size bounds remain separate requirements.
+
+For stream $s$, $H_s(t)$ is actual cumulative transferred mass after the start,
+$m_*=1$ vehicle-equivalent is the descriptor threshold, and
+$z_s\in[0,1)$ is public initial threshold progress. At the stated source
+sampling instants, the number of new descriptors is
+\begin{equation}
+K_s(t)=\left\lfloor z_s+H_s(t)/m_*\right\rfloor,
+\qquad \sum_{s=1}^{S}K_s(t)\le LP/m_*+S.
+\end{equation}
+The bound is conditional on a finite acyclic directed mesh: every unit of the
+finite offered/initial population $P$ crosses at most $L$ descriptor-generating
+interfaces. $S$ is the finite number of such streams. Initial descriptors are
+additional finite public state. The bound does not establish clearing or
+justify continuous event-time interpolation of sampled source births.
+
+For a source-free lane segment with cumulative-count field $N(x,t)$, density
+$k=-N_x$, flow $q=N_t$, and constraint path $x_b(t)$, zero relative passing gives
+\begin{equation}
+\frac{d}{dt}N(x_b(t),t)=q(x_b,t)-\dot x_b\,k(x_b,t)=0.
+\end{equation}
+This is the local moving-boundary interface. Distributed lateral sources and
+junction events require count anchoring/reindexing; equation (3) is not a
+proof of their joined solution. Cell inventories, node counts and moving-path
+values must be consistent. No source coincidence perturbation is adopted.
+
+\newpage
+\section*{2. A concrete dynamic compact source law}
+Let $D_r,D_m$ be ramp and compatible mainline-group sending rates, $R_0$ the
+\emph{ordinary, unmodified} target receiving rate, $Q$ target FD capacity,
+$p\in(0,1)$ the approved fixed ramp priority, and $\delta\in[0,1)$ a fixed
+phenomenological capacity-drop fraction. All flows have units veh-equivalent/s.
+RM0010, Jin, Gan and Lebacque (2013), Section 6 equation (15), supplies
+\begin{equation}
+R_* = \min\{R_0,\ Q(1-\delta\,
+ \mathbf 1_{\{D_r+D_m>R_0\}})\}.
+\end{equation}
+Its priority merge transcription is
+\begin{equation}
+f_r=\min\{D_r,\max\{R_*-D_m,pR_*\}\},\quad
+f_m=\min\{D_m,\max\{R_*-D_r,(1-p)R_*\}\}.
+\end{equation}
+Use the already approved non-ramp subdivision. Densities evolve by equation
+(1), with flows formed from the model's own state; approach admission remains
+M.A. These wrapper/grouping adaptations are not the source's multilane theorem.
+The source law is phenomenological, not a derived disturbance kinetic law.
+
+Local bounds follow from the previously qualified priority operator:
+\begin{equation}
+0\le f_r\le D_r,\quad 0\le f_m\le D_m,\quad
+f_r+f_m=\min\{D_r+D_m,R_*\}\le R_0.
+\end{equation}
+Thus this is an independent dynamic conservative candidate, rather than only a
+mean-throughput formula. The trigger must use $R_0$, not already reduced $R_*$.
+Bounds do not prove predictive adequacy, joined reference validity or gradients.
+
+\textbf{Reviewer hand counterexample to the inactive match.}
+Take no ramp entry or active moving constraint. Share the same current ordinary
+density/receiving state across models and assign
+\begin{equation}
+D_r=0,\quad D_m=Q,\quad R_0=0.9Q,\quad\delta=0.2:
+\qquad f_m^{\rm compact}=0.8Q<0.9Q=f_m^{\rm unobstructed}.
+\end{equation}
+These values are an algebraic witness, not calibrated data or a simulated
+trajectory. The source model's own physical domain is not refuted. Its
+$\delta=0$ limit gives the ordinary node; that different parameter limit does
+not prove equality when constraints stop binding at fixed physical parameters.
+Replacing the trigger to erase this discrepancy would be a new closure.
+
+Q.A proposes qualifying a quasi-steady mean-service embedding while preserving
+the inactive criterion. Q.B would retain this native law and explicitly amend
+the compact admission criterion to a predictive-error diagnostic. Neither
+option is selected. A source-family prediction difference is not a pure
+state-removal theorem.
+
+\newpage
+\section*{3. What can be proved about recovery and the TST tail}
+For the source acceleration on level terrain, suppose $a_0>0$ and
+$v_{\max}>u>0$, where $u$ is free speed. While realized speed $v\le u$,
+\begin{equation}
+a(v)=a_0(1-v/v_{\max})\ge a_{\min}
+=a_0(1-u/v_{\max})>0,\qquad
+T_{\rm rec}\le (u-v_0)_+/a_{\min}.
+\end{equation}
+The recovery bound applies \emph{after downstream flow permits unrestricted
+acceleration}, with initial desired speed at least $v_0$. A discrete source
+update may add one time bin. Downstream congestion can postpone that start;
+finite descriptor count alone does not prove eventual release. These stated
+conditions are sufficient analytic conditions, not new adopted geometry.
+
+After the last offered arrival, total inventory $M(t)$ is nonnegative and
+nonincreasing by conservation. Suppose the eventual joined law independently
+certifies constants $H>0$ and $0<\eta\le1$ for all $t\ge T$:
+\begin{equation}
+M(t+H)\le(1-\eta)M(t).
+\end{equation}
+Then $M(T+jH)\le(1-\eta)^j M(T)$. Bounding each interval by its start inventory
+and summing the geometric series yields
+\begin{equation}
+\int_T^\infty M(t)\,dt
+\le H\sum_{j=0}^{\infty}M(T+jH)
+\le \frac{H M(T)}{\eta}.
+\end{equation}
+The right side has vehicle-equivalent seconds as units. It certifies a residual
+tail for complete TST without declaring a nonempty road cleared. The constants
+must be established from the joined law, not assumed from positive permission,
+finite population, fitted terminal values or the absence of newly arriving traffic.
+
+\textbf{Remaining obligations.} The adapted reference's simultaneous-event
+coupling and whole draining certificate are not proved. The compact mean map
+still needs its own inputs, regimes and consistent coupled solution. Common
+rate-to-exit/TST leverage, policy dominance, state necessity and useful gradients
+remain unanswered. The current result is new interface/compact qualification
+evidence and a concrete S3-G2-Q discussion, not Stage 3 closure.
+
+\section*{Source locations and status}
+Supplied Laval--Daganzo (2006), Sections 2.2 and Appendix A; Daganzo--Laval
+RR-2003-2, Sections 2--4; RM0010 (2013), Sections 4 and 6,
+\url{https://arxiv.org/pdf/1310.2660}. Node and moment wrappers here are declared
+review proposals. The tail inequality and inactive hand example are reviewer
+analysis. See the adjacent evidence and assessment Markdown records for
+source-access limits and the two candidate contracts.
+\end{document}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-21",
+  "scope": "Urban feedback 1 discussion-format response",
+  "status": "pass",
+  "command": "python3 /tmp/urban_feedback1_checks_20261021.py",
+  "feedback_questions_answered": 2,
+  "core_category_questions": 5,
+  "discussion_candidates": 3,
+  "scientific_question_ids": [
+    "UR-G0",
+    "UR-G1",
+    "UR-G2",
+    "UR-G3",
+    "UR-G4",
+    "UR-G5",
+    "UR-C1-Q1",
+    "UR-C2-Q1",
+    "UR-C3-Q1",
+    "UR-C4-Q1",
+    "UR-C4-Q2",
+    "UR-C5-Q1",
+    "UR-C6-Q1",
+    "UR-C7-Q1"
+  ],
+  "local_links_checked": 54,
+  "preservation_checks": {
+    "question_ids_classes_dependencies_and_scientific_candidate_bodies_unchanged": true,
+    "proposal_rubric_scientific_inventory_and_stage_table_unchanged": true,
+    "overview_changes_only_feedback_navigation": true,
+    "logical_category_mapping_and_evidence_unchanged": true,
+    "dialogue_append_only": true,
+    "feedback_exactly_two_permitted_answered_tokens": true
+  },
+  "before_snapshot": "/tmp/urban_feedback1_before_20261021.json",
+  "before_snapshot_sha256": "daf8ebdbb663c245df08ad8811df13a053bcb25cd7142697f5f092753a6b95bc",
+  "existing_files_checked": 844,
+  "existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md",
+    "temp_content/feedback/urban_refinement_feedback.md"
+  ],
+  "existing_files_unchanged": 838,
+  "new_files": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_category_first_discussion.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_work_report.md"
+  ],
+  "artifact_sha256": {
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_category_first_discussion.md": "1f54d6b61df4110768b46a7d4607a1af7bfd19455ce3e980b3a0513e488b8126",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_work_report.md": "edda57a7dec37672c02d25b353596a8452bd8be5df58e3c34bb51b577824944f",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md": "1784ef5a9e8cb4a4394a758e540d086d3b380fe44fef86185b76adf6da195f07",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md": "cdd80fee03600f369e801c3aa74497c17d1b884cbd8bcc531bbd8d8180e1a53e",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md": "6455f63b714a4c77222121db14f07b33d4130f96d5fdef24776ec51b4ec51f60",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md": "caa3215401300a2fbea4d5d92e4908a4ca5bc1f73cb035c8974dfe15aeee3dee",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_dialogue.md": "0f0b9071e4b2e6e0d62b087ad48ee8cff7de1be37068339ddc1d317efa1c784a",
+    "temp_content/feedback/urban_refinement_feedback.md": "dda28d48b9242b0c2d0bab67ed20e7c246798903d8052d1a95c1d84252f14c0b"
+  },
+  "git_status_after": [
+    " M AGENTS.md",
+    " M PLANS.md",
+    " M memo.txt"
+  ],
+  "scientific_tests_run": false,
+  "traffic_law_selected": false,
+  "substantive_review_stage_opened": false,
+  "discussion_format_status": "provisional recommendation",
+  "problems": []
+}

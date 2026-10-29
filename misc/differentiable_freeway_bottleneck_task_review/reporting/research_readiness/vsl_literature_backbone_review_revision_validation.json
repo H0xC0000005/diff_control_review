@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "scope": "report/document checks only; no traffic experiment",
+  "pdf_pages": 3,
+  "main_text_pages_equivalent": 2.474732345867641,
+  "main_end_page": 3,
+  "main_end_y_tex_pt": 441.28761291503906,
+  "limit_excluding_references": 2.5,
+  "references_start_page": 3,
+  "references": 8,
+  "equations": 8,
+  "declared_main_font_pt": 11,
+  "minimum_regular_text_pdf_font_pt": 10.9091,
+  "math_scripts": "standard TeX script sizes; excluded from main-text size check",
+  "build_issues": [],
+  "embedded_fonts": [
+    "/BZHDUL+CMBX10",
+    "/DGCWFZ+CMMI8",
+    "/DHMNIJ+CMSY10",
+    "/DOAGFA+CMR10",
+    "/GRTOYT+CMEX10",
+    "/GUOWTK+CMSY6",
+    "/LLFWNI+CMBX12",
+    "/PFSAOG+CMTI10",
+    "/SEYKTP+CMSY8",
+    "/UUMAWH+CMMI10",
+    "/VGDGHV+CMR8",
+    "/XUJKNC+CMTT10"
+  ],
+  "current_local_pdf_links": [
+    "vsl_joined_candidate_contract_and_qualification.pdf"
+  ],
+  "markdown_links_checked": 32,
+  "existing_files_snapshot": 574,
+  "changed_existing_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_draft_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex",
+    "temp_content/vsl_review_report/report_structure_candidates.md"
+  ],
+  "preserved_existing_files": 568,
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_revision_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_revision_validation.json",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_revision_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v1/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v1/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v1/vsl_literature_backbone_review_report.tex"
+  ],
+  "v1_tex_pdf_byte_preserved": true,
+  "bibliography_body_unchanged": true,
+  "python": "3.11.9",
+  "pypdf": "6.15.0",
+  "tex_engine": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+  "visual_check": "PDF text/positions/fonts and TeX layout log; no raster rendering",
+  "artifacts": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex": {
+      "bytes": 14771,
+      "sha256": "0ad4ef4aedc2c1f8f5c63483e6924034d6086590c07f99cb91d4b153c63e46aa"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 179640,
+      "sha256": "c83ce960b49b9e3e3f70afe64ff300aa15646ee344c56c84effd5f2cd968d3ac"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_revision_build.log": {
+      "bytes": 18023,
+      "sha256": "f0027f0a35ed66792b25f01bf7b5a805ec485f9e84c05121af89d01a2e7236e2"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_revision_work_report.md": {
+      "bytes": 7401,
+      "sha256": "a020d67df6e70f11bcffd15c238fcab7c8bf14d244ce15d28ef22709d3c32582"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v1/vsl_literature_backbone_review_report.tex": {
+      "bytes": 13658,
+      "sha256": "ab5eac4fe493d41fc537eec3ac3b2b76cb5e2c69dab6fb8b0cb27ccfb15c7177"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v1/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 108170,
+      "sha256": "849a068b1ba404ae5c13bdd505b824298fdd25b69eddf4e394a7a23761bd9e31"
+    }
+  }
+}

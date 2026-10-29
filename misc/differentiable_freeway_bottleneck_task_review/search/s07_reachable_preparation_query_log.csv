@@ -1,0 +1,5 @@
+query_id,date,stage,query,primary_results_used,disposition
+S07-Q1,2026-09-29,execution,"site:sumo.dlr.de/docs lane changing lcStrategic lookahead best lanes strategic urgency",S07-S1,"Official parameter semantics inspected; no installed-version value inferred"
+S07-Q2,2026-09-29,execution,"site:sumo.dlr.de/docs departSpeed departPos departLane vehicle routes",S07-S1;S07-S2,"Official entry and delayed-insertion semantics inspected"
+S07-Q3,2026-09-29,execution,"site:elib.dlr.de SUMO lane changing model strategic urgency distance speed history lane occupation Erdmann PDF",S07-S4,"Known S06 primary manuscript reused and relevant sections reinspected"
+S07-Q4,2026-09-29,execution,"site:sumo.dlr.de/docs Simulation vehicle insertion departSpeed default 0",S07-S2;S07-S3,"Insertion and capacity methodology inspected; examples not transferred as hard bounds"

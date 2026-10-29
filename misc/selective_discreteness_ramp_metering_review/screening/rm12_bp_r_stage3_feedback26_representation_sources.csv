@@ -1,0 +1,18 @@
+date,source_id,operation,url,inspection_scope,result
+2026-10-08,V03,open,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,variational model and composition,readable primary PDF
+2026-10-08,S02,open,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,primary numerical moving-boundary method,readable PDF; incorrect tool title
+2026-10-08,V03,find moving bottleneck,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,moving constraints and endogenous limit,readable primary text
+2026-10-08,V03,find rigorously,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,endogenous theorem scope,readable primary text
+2026-10-08,V03,find asynchronous,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,distinguish numerical schemes from physical model,readable primary text
+2026-10-08,CTM94,open,https://its.berkeley.edu/node/4777,primary institutional abstract,readable primary metadata/abstract
+2026-10-08,C01,open,https://escholarship.org/uc/item/69r4t5pp,institutional entry,render returned only three lines; search record used
+2026-10-08,C01,open,https://escholarship.org/content/qt69r4t5pp/qt69r4t5pp.pdf,moving-obstruction approximation scope,readable PDF; incorrect tool title
+2026-10-08,LTM15,open,https://arxiv.org/pdf/1405.7080,continuous LTM primary text,readable primary PDF
+2026-10-08,V03,open lines 400,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,model forms and endogenous composition,readable primary text
+2026-10-08,S02,open lines 0,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,verify actual cover/body identity,correct RR-2003-2 cover/body
+2026-10-08,C01,open lines 0,https://escholarship.org/content/qt69r4t5pp/qt69r4t5pp.pdf,verify actual cover/body identity,correct PWP-2003-10 cover/body
+2026-10-08,LTM15,open lines 200,https://arxiv.org/pdf/1405.7080,continuous count/initial-boundary formulation,readable primary text
+2026-10-08,S02,open lines 63,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,Section 3 full field/update rather than reconstruction alone,readable primary text
+2026-10-08,LTM15,find non-invariant,https://arxiv.org/pdf/1405.7080,junction transfer caution,readable primary text
+2026-10-08,S02,find positions,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,moving-point field state and stepping conditions,readable primary text
+2026-10-08,V03,find 2.2. Moving,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,linear moving-path/appendix context,no exact heading match; returned linear costs/appendix context

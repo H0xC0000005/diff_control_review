@@ -1,0 +1,18 @@
+claim_id,source_id,claim,location,evidence_status,limit
+RM8-C01,RM0014,meter-only action can change local shoulder queue and merge discharge,"Sections 3–4, Figures 4–6",empirical support,not all-stream cleared TST or a derivative test
+RM8-C02,RM0014,road-averaged occupancy can detect reported transition at that site,"Section 5, Figure 7",counterevidence to automatic lane necessity,not universal aggregate sufficiency
+RM8-C03,RM0002,aggregate CTM can support optimal metering under stated monotonic/nonrestrictive conditions,"Section 4, Theorem 1",conditional theorem,not a theorem for lane-sensitive real merges
+RM8-C04,RM0003,density-dependent hysteresis memory supplies a stronger aggregate alternative,"Section II.B, equations 3–6",explicit model,known initial mode plus aggregate history may identify memory
+RM8-C05,RM0004,lane-continuous merge candidate exists but joint control and ramp priority limit task transfer,Sections 2.1–3,explicit model/task boundary,do not inherit guaranteed ramp access or lane-control gains
+RM8-C06,FB0030,continuous lateral transfer gives candidate state semantics with unresolved branches,equations 1–22; existing source audit,explicit source / audit concerns,no wholesale differentiability or operational-rate validation
+RM8-C07,RM8-P01,hybrid lane-change acceleration model replicates metering-related capacity recovery,Sections 2–4,mechanism/forward support,"no certified compression, identical strong histories or useful gradient"
+RM8-C08,RM8-P02,gap-aware timed metering is a positive nearby control predecessor,control concept and results/discussion,simulated control benefit with empirical acceleration,changes sensor/timing and includes lane-demarcation dependence
+RM8-C09,RM8-P03,safety-aware micro timing and throughput stability have a different acceptance contract,Sections III–IV,theorem/control boundary,not finite-horizon all-population TST or continuous-rate sensitivity
+RM8-C10,RM8-P04,aggregate speed/merge model is a competitor; richer simulation must reproduce phenomenon,"Sections 3, 4.4.2–4.4.3 indexed primary text",section-level primary evidence,full PDF not inspected; no one-step gradient test
+RM8-C11,RM0024,first-order ramp-control adjoint is a direct differentiable predecessor,Section 4; Figure 9,derivation and optimizer comparison,figure is not a quantitative derivative-error certificate or external test
+RM8-C12,RM0025,multiclass network adjoints exist with explicit nonsmooth restrictions,"Sections 2, 4–5",derivation and model-internal examples,class routing controls differ from adopted meter rates
+RM8-C13,RM8-P05,separate flow composition and aggregate memory are plausible simpler competitors,publisher abstract/introduction,lead only,do not adopt exact uninspected equations
+RM8-C14,RM8-P06,merge/storage calibration consistency requires its own audit,publisher abstract,lead only,no inspected correction equations
+RM8-C15,RM8-P07,recent lane-level work uses joint VSL and metering,arXiv abstract,boundary lead,not direct support for rate-only information necessity
+RM8-C16,RM0026,smoothed CTM ramp gradients are prior art,historical abstract/metadata audit,inherited qualified lead,smoothing is not approved here
+RM8-C17,RM0030,freeway automatic differentiation includes macro calibration,historical repository audit,inherited qualified evidence,calibration gradients are not control-usefulness evidence

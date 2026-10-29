@@ -1,0 +1,327 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage{amsmath,booktabs,array,tabularx}
+\usepackage{cite,microtype}
+\usepackage{xcolor}
+\definecolor{SrcJin}{HTML}{56617B}
+\definecolor{SrcWei}{HTML}{895B32}
+\definecolor{SrcNS}{HTML}{317D37}
+\definecolor{SrcHan16}{HTML}{7146A9}
+\definecolor{SrcHan17}{HTML}{165CA7}
+\definecolor{SrcCarey}{HTML}{947112}
+\definecolor{SrcThesis}{HTML}{A5418A}
+\definecolor{SrcWright}{HTML}{23828C}
+\definecolor{Own}{HTML}{B53D36}
+\definecolor{Standard}{HTML}{2A2A2A}
+\newcommand{\Jin}[1]{\textcolor{SrcJin}{#1}}
+\newcommand{\Wei}[1]{\textcolor{SrcWei}{#1}}
+\newcommand{\NS}[1]{\textcolor{SrcNS}{#1}}
+\newcommand{\Hsix}[1]{\textcolor{SrcHan16}{#1}}
+\newcommand{\Hseven}[1]{\textcolor{SrcHan17}{#1}}
+\newcommand{\Carey}[1]{\textcolor{SrcCarey}{#1}}
+\newcommand{\Thesis}[1]{\textcolor{SrcThesis}{#1}}
+\newcommand{\Wright}[1]{\textcolor{SrcWright}{#1}}
+\newcommand{\Own}[1]{\textcolor{Own}{#1}}
+\newcommand{\Std}[1]{\textcolor{Standard}{#1}}
+\newcommand{\scite}[2]{\textcolor{#1}{\cite{#2}}}
+\newcommand{\relB}{\textsf{B}}
+\newcommand{\relA}{\textbf{\textsf{A}}}
+\newcommand{\relD}{\textbf{\textsf{D}}}
+\newcommand{\relS}{\textsf{S}}
+\renewcommand{\citepunct}{], [}
+\renewcommand{\citedash}{]--[}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={An established traffic backbone for an elementary VSL task},
+ pdfauthor={Differentiable traffic task review},
+ pdfsubject={Literature comparison and formed modeling backbone; source-color revision}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+\newcommand{\head}[1]{\par\vspace{5pt}\noindent\textbf{#1}\par\nobreak\vspace{1pt}}
+\newenvironment{points}{\begin{list}{$\bullet$}{%
+ \setlength{\leftmargin}{1.3em}\setlength{\labelwidth}{0.6em}%
+ \setlength{\labelsep}{0.4em}\setlength{\itemsep}{2pt}%
+ \setlength{\parsep}{0pt}\setlength{\topsep}{2pt}}}{\end{list}}
+\begin{document}
+\begin{center}
+{\large\bfseries An established traffic backbone for an elementary VSL task}\\[3pt]
+Literature comparison and formed modeling backbone --- source-color revision, 22 October 2026
+\end{center}
+\vspace{-3pt}
+
+\head{1. What a suitable backbone must provide}
+Can an established variable speed limit (VSL) model support the information,
+control and gradient questions with few traffic-model changes? Consider an
+ending lane E, its adjacent continuing lane A and farther lane B. Initial
+states can share the same E and combined A+B traffic at every road position
+while differing in A/B loading. We ask whether that difference changes merge
+service, useful common-speed advice and its sensitivity. A suitable backbone
+must represent the distinction, conserve traffic, respect receiving space
+and count every initial unit's time until exit. Simplicity concerns the
+traffic rules we must author and justify, not citation count.
+
+\head{2. What the closest published models offer}
+Aggregate VSL models support questions about traffic location or history;
+lane models additionally resolve A/B loading. The inspected starting points
+offer the following tradeoff.
+
+\begin{center}
+\textbf{Table 1. Published starting points and their fit to the question}\par
+\vspace{3pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.19\linewidth}
+ >{\raggedright\arraybackslash}p{0.37\linewidth}
+ >{\raggedright\arraybackslash}X@{}}
+\toprule
+Published model & What is already supplied & Direct finding for this review\\
+\midrule
+\Jin{Jin and Jin}~\scite{SrcJin}{jinjin}
+& Spatial and link-average traffic; VSL entry control, capacity drop and
+upstream holding queues.
+& Simpler if the question concerns \emph{where} traffic lies along the
+road. It changes the A/B information question.\\[3pt]
+\Wei{Wei, Han and Wang}~\scite{SrcWei}{wei}
+& Link traffic retaining entry/speed history, interacting speed cohorts
+and capacity drop.
+& A strong aggregate alternative, but no explicit A/B loading. Native
+advice acts on entering traffic.\\[3pt]
+\NS{Nagalur Subraveti et al.}~\scite{SrcNS}{ns}
+& Successive lane-cell densities, lane-change incentives and a lane-drop
+case; \Hsix{Han congestion lineage}~\scite{SrcHan16}{han16}.
+& Selected lane backbone. Adopt \Hseven{Han's VSL sending restriction}~\scite{SrcHan17}{han17}
+and explicitly replace movement realization.\\[3pt]
+\Carey{Carey et al.}~\scite{SrcCarey}{carey}
+& Multilane cell transmission, mandatory movements and receiving-allocation
+alternatives.
+& Supports conservative service and forward fallback. More VSL/lane-end
+task closure would be needed as the main backbone.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Selection.} Use the \NS{Subraveti lane-density framework} and its
+\Hsix{congestion}/\Hseven{VSL} lineage, with our \Own{conservative movement replacement}.
+This retains the chosen lane-information question. Jin--Jin remains a
+genuine simpler route if the question changes to spatial information.
+The comparison concerns inspected methods, not a globally best-model claim;
+the \Own{cohort/control scenario and movement composition} below are ours.
+
+\textbf{Source colors and relationship key.} Colors link rules and references;
+they do not assign ownership to symbols. The exact work is identified by [n].
+\par\nobreak\vspace{2pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+\Jin{Jin--Jin} \scite{SrcJin}{jinjin} (comparison)&
+\Wei{Wei et al.} \scite{SrcWei}{wei} (comparison)&
+\NS{Subraveti article} \scite{SrcNS}{ns}\\
+\Hsix{Han 2016} \scite{SrcHan16}{han16}&
+\Hseven{Han 2017} \scite{SrcHan17}{han17}&
+\Carey{Carey et al.} \scite{SrcCarey}{carey}\\
+\Thesis{Subraveti thesis} \scite{SrcThesis}{thesis}&
+\Wright{Wright et al.} \scite{SrcWright}{wright}&
+\Own{This study (\relD)}\\
+\midrule
+\multicolumn{3}{@{}p{\linewidth}@{}}{\relB: source form retained/re-expressed; \relA: adapted/composed from the
+colored source; \Own{\relD}: defined/derived here, including member choices
+(not a novelty claim); \Std{\relS}: standard algebra, conservation or calculus.}\\
+\bottomrule
+\end{tabularx}\par
+
+\head{3. The formed modeling backbone}
+\textbf{3.1. Physical picture, task and root assumptions.}
+The \NS{lane-density architecture (\relB)} forms a
+\emph{lane-resolved cell-transmission-type (CTM) model} with
+\Hsix{Han budgets}. Physical cells retain density and finite
+storage throughout the road; there is no separate link transmission model
+(LTM) link. E can change into A at upstream cell boundaries; traffic in the
+final E cell must merge at the exit.
+Unserved mass stays in its current cell, so congestion can extend upstream.
+The causal chain is:
+\begin{center}
+\fbox{\NS{Lane stocks}}\ $\longrightarrow$\ \fbox{\NS{Desires} / \Hsix{budgets}}\
+$\longrightarrow$\ \fbox{\Own{Shared movements}}\ $\longrightarrow$\ \fbox{\Std{New stocks}}
+\end{center}
+\Own{Member choices (\relD):} $N=10$, $\Delta x=0.1$\,km and $\Delta t=1/600$\,h (6\,s).
+At step $k$, density $\rho^k_{i\ell}$ and continuous stock
+$n^k_{i\ell}=\Delta x\rho^k_{i\ell}$ describe section $i$, lane
+$\ell\in\{E,A,B\}$. Initialize a finite cohort independently of constant
+common advice $v\in[30,60]$\,km/h, with no later arrivals. Free A/B outlets
+complete trips. \Own{Member assumptions (\relD):} common lane flow--density parameters, fixed geometry,
+old traffic/space for every movement, equal positive priorities and no extra
+merging-headway multiplier. The step satisfies $u_0\Delta t,w\Delta t\leq\Delta x$;
+$u_0$ is nominal free speed and $w$ the backward-wave speed magnitude.
+
+\textbf{3.2. How much traffic can move or be received?}
+\Hsix{Density-dependent budgets (\relB)}~\scite{SrcHan16}{han16} with
+\Hseven{nominal/VSL caps (\relB)}~\scite{SrcHan17}{han17} give $D$ and $R$.
+\Std{FD identities are standard (\relS).} The discharge ceiling $Q(x)$ equals nominal
+capacity $C$ below critical density $\rho_c$, then falls linearly to
+$(1-\delta)C$ at jam density $k_J$:
+\begin{align}
+ C&=\frac{u_0wk_J}{u_0+w},\quad \rho_c=C/u_0,\quad
+ Q(x)=\min\!\left\{\Hseven{C},\Hsix{C\left[1-\delta\frac{x-\rho_c}{k_J-\rho_c}\right]}\right\},\label{eq:ceiling}\\
+ \Hseven{D_{i\ell}}&=\Hseven{\min\{v\rho_{i\ell},Q(\rho_{i-1,\ell})\}},\quad
+ \Hsix{R(x,y)=\min\{Q(x),w(k_J-y),w(k_J-x)+w_d(x-y)\}}.\label{eq:budgets}
+\end{align}
+Here $x,y$ are the current upstream/downstream densities in the receiving
+lane. The three receiving bounds express discharge capacity, downstream
+space and Han's additional congestion-wave constraint. Its fixed recovery
+slope is \Hsix{$w_d=Q_J/(k_J-Q_J/u_0)$, $Q_J=(1-\delta)C$}.
+\Own{Member parameters (\relD):} $u_0=60$, $w=20$\,km/h, $k_J=150$\,veh/km/lane and
+$\delta=0.1$; initial densities lie in $[0,k_J]$.
+Our \Hsix{lane-wise budget mapping (\relA)} gives $d_{i\ell}=\Delta t D_{i\ell}$ and
+$r_{ij}=\Delta t R(\rho_{ij},\rho_{i+1,j})$: all straight and diagonal
+arrivals to target $j$ share that \emph{one} $r_{ij}$.
+At the outlets use $r_{Nj}=\Delta t R(\rho_{Nj},0)$, $j=A,B$;
+upstream boundary densities are zero with no inflow. Advice caps sending;
+receiving changes through the evolving densities, not directly through $v$.
+
+\textbf{3.3. Why and where does early merging occur?}
+\NS{Retained desires (\relB)}~\scite{SrcNS}{ns} compare perceived densities
+$K$, with \Thesis{current/two-cell lookahead, weights $2{:}2{:}1$ (\relB)}~\scite{SrcThesis}{thesis}.
+For a nonempty origin and adjacent destination,
+\begin{equation}
+ \color{SrcNS}
+ P_{i,\ell j}=\left[\frac{I_{i,\ell j}K_{i\ell}-K_{ij}}
+ {K_{i\ell}+K_{ij}}\right]_+,\qquad
+ I=1+I^r+I^{kr}+I^{coop},\qquad [x]_+=\max(x,0).\label{eq:desire}
+\end{equation}
+Less crowded destinations attract traffic. Within the last $D_r=0.75$\,km,
+\NS{E-to-A route bias (\relB)} grows as \NS{$I^r=(1-g_i/D_r)^3$}, where
+$g_i=(N-i)\Delta x$; it is zero farther upstream. This adds urgency, not
+a fixed merge fraction or a hard start line: density incentives can cause
+earlier E-to-A movement. \Own{Member conventions (\relD)} select mode/direction
+branches for keep-right/cooperation; free A can be encouraged toward B to
+make room. Missing downstream E cells are omitted and weights renormalized;
+A/B lookahead extends with zero outlet density. Empty origins make no
+requests. E, A and B name current lanes, so early-merged traffic becomes A.
+
+\textbf{3.4. Which attempts succeed, and what happens at the choke?}
+\Own{Our composition (\relD)} replaces native same-cell lateral/adjusted-forward coupling and
+separates desire from service. Requests use existing forward or adjacent
+cells/outlets. At one boundary, temporarily omit $i$.
+\Own{Normalize lateral desires (\relD)}, leave the rest for straight
+travel, and form requests $m$ from each donor's one sending amount:
+\begin{equation}
+ \color{Own}
+ b_{\ell j}=\frac{P_{\ell j}}{\max(1,\sum_{h\ne\ell}P_{\ell h})}\ (j\ne\ell),
+ \quad b_{\ell\ell}=1-\sum_{j\ne\ell}b_{\ell j},\quad
+ m_{\ell j}=d_\ell b_{\ell j}.\label{eq:requests}
+\end{equation}
+\Carey{Receiving/fallback (\relA)}~\scite{SrcCarey}{carey} and
+\Wright{capped priority sharing (\relA)}~\scite{SrcWright}{wright} are composed here.
+Each target serves requests at a common capped level:
+\begin{equation}
+ \color{SrcWright}
+ z_{\ell j}=\min(m_{\ell j},\lambda_j),\qquad
+ \sum_\ell z_{\ell j}=\min\!\left(r_j,\sum_\ell m_{\ell j}\right).\label{eq:sharing}
+\end{equation}
+Requests below the shared level are fully served; unused entitlement returns to the others.
+\Carey{Residual donor traffic gets one straight fallback $y_\ell$ (\relA)}, the minimum of
+its unused sending and its own lane's unused receiving amount. Thus
+\Own{$f_{\ell j}=z_{\ell j}+\mathbf1_{\{j=\ell\}}y_\ell$ (\relD)} is realized movement.
+An unsuccessful E-to-A attempt can therefore continue in E if space remains.
+\Own{Final-E rule (\relD): $b_{EA}=1$, $y_E=0$}; E must use A's outlet or wait.
+It competes with A and any B-to-A request for the same outlet budget.
+Equal priorities are not a constant realized merge proportion; demand and
+receiving state determine the flow. E's use leaves less service for the
+other requests, whose retained stock can restrict later receiving.
+There is no separate speed-mismatch or acceleration-recovery meter.
+
+\Carey{Diagonal transport (\relA)} advances one section when changing lanes.
+Apply old-state flows simultaneously using \Std{standard conservation (\relS)}:
+\begin{equation}
+ n^{k+1}_{i\ell}=n^k_{i\ell}-\sum_j f^k_{i,\ell j}
+                             +\sum_h f^k_{i-1,h\ell}.\label{eq:update}
+\end{equation}
+Set $f_0=0$; outlet flows $f_N$ complete trips. Matched additions/subtractions
+conserve mass, while donor/receiver limits protect stock and storage.
+
+\textbf{3.5. Complete objective, information comparison and sensitivity.}
+Minimize total system time $J$, counting all initial mass until exit.
+Once remaining mass is below
+$\Delta x\rho_c$, all requests receive service and a unit in section $i$
+has remaining mean time $(N-i+1)\Delta x/v$. Choose a fixed index $K_*$
+inside that regime. With $h_{i\ell}=N-i+1$ and $\mathbf1^\top n^k$ the
+total unfinished mass, the exact prefix-plus-residual objective is
+\begin{equation}
+ J(v)=\Delta t\sum_{k<K_*}\mathbf1^\top n^k
+             +\Own{\frac{\Delta x}{v}h^\top n^{K_*}}.\label{eq:objective}
+\end{equation}
+\Std{Population-time accounting is standard (\relS)}; \Own{the exact residual is derived here (\relD)}.
+Write the complete update as $n^{k+1}=F(n^k,v)$. Between branch switches,
+\Std{$s^0=0$, $s^{k+1}=F_n^{[k]}s^k+F_v^{[k]}$ (\relS)} propagates
+$s^k=\partial n^k/\partial v$ through budgets, desires, allocation and stock.
+Then
+\begin{equation}
+ J'(v)=\Delta t\sum_{k<K_*}\mathbf1^\top s^k
+       +\Own{\frac{\Delta x}{v}h^\top s^{K_*}
+       -\frac{\Delta x}{v^2}h^\top n^{K_*}}.\label{eq:sensitivity}
+\end{equation}
+\Own{This model's full derivative (\relD)} uses \Std{standard chain rule (\relS)}.
+Terms measure earlier traffic changes, residual-stock changes and
+direct residual travel time. Hold a valid $K_*$ fixed locally; at native
+mode or active-constraint switches a two-sided derivative can fail.
+
+\Own{Our information/control comparison (\relD)} uses this same model and objective:
+one observer sees E and A+B at each section, another sees each lane.
+Admit model-aware inference from allowed histories; choose advice before
+the subsequent revealing discharge. A compact observer adds the final-A
+density, sufficient on the existing two-state diagnostic. Separately,
+compare gradients with bounded scalar search using the same information,
+and retain maximum advice as a reference. These definitions isolate what
+information is needed from how the advice is optimized.
+The \href{vsl_joined_candidate_contract_and_qualification.pdf}{companion formulation}
+specifies all bias branches and finite-domain conventions.
+
+\par\pdfsavepos
+\write16{REVIEW-MAIN-END-PAGE: \thepage; Y-SP: \the\pdflastypos}
+\makeatletter
+\renewcommand{\section}{\@ifstar{\head}{\head}}
+\renewcommand{\@biblabel}[1]{\ifcase#1\or\Jin{[#1]}\or\Wei{[#1]}\or\NS{[#1]}\or\Hsix{[#1]}\or\Hseven{[#1]}\or\Carey{[#1]}\or\Thesis{[#1]}\or\Wright{[#1]}\else[#1]\fi}
+\makeatother
+\begin{thebibliography}{8}
+\setlength{\itemsep}{4pt}\setlength{\parskip}{0pt}
+\bibitem{jinjin} \Jin{H.-Y. Jin and W.-L. Jin, ``Control of a lane-drop bottleneck
+through variable speed limits,'' arXiv:1310.2658, 2013 (archived manuscript
+dated Oct. 29, 2018). [Online]. Available:
+\url{https://arxiv.org/abs/1310.2658}.}
+\bibitem{wei} \Wei{L. Wei, Y. Han, and M. Wang, ``A first-order link-based flow
+model with variable speed limits and capacity drops for freeway networks,''
+\emph{Comput.-Aided Civ. Infrastruct. Eng.}, vol.~40, no.~21,
+pp.~3200--3217, 2025, doi:
+\href{https://doi.org/10.1111/mice.13492}{10.1111/mice.13492}.}
+\bibitem{ns} \NS{H.~H.~S. Nagalur Subraveti, V.~L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model---an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B, Transp.
+Dyn.}, vol.~7, no.~1, pp.~1758--1779, 2019 (archived article header: 2020),
+doi: \href{https://doi.org/10.1080/21680566.2019.1700846}{10.1080/21680566.2019.1700846}.}
+\bibitem{han16} \Hsix{Y. Han, Y. Yuan, A. Hegyi, and S.~P. Hoogendoorn,
+``New extended discrete first-order model to reproduce propagation of jam
+waves,'' \emph{Transp. Res. Rec.}, vol.~2560, pp.~108--118, 2016, doi:
+\href{https://doi.org/10.3141/2560-12}{10.3141/2560-12}.}
+\bibitem{han17} \Hseven{Y. Han, A. Hegyi, Y. Yuan, S. Hoogendoorn,
+M. Papageorgiou, and C. Roncoli, ``Resolving freeway jam waves by discrete
+first-order model-based predictive control of variable speed limits,''
+\emph{Transp. Res. C, Emerg. Technol.}, vol.~77, pp.~405--420, 2017, doi:
+\href{https://doi.org/10.1016/j.trc.2017.02.009}{10.1016/j.trc.2017.02.009}.}
+\bibitem{carey} \Carey{M. Carey, C. Balijepalli, and D. Watling, ``Extending the
+cell transmission model to multiple lanes and lane-changing,''
+\emph{Netw. Spat. Econ.}, vol.~15, pp.~507--535, 2015, doi:
+\href{https://doi.org/10.1007/s11067-013-9193-7}{10.1007/s11067-013-9193-7}.}
+\bibitem{thesis} \Thesis{H.~H.~S. Nagalur Subraveti, \emph{Lane-specific Traffic
+Flow Control}, Ph.D. dissertation, Delft Univ. Technol., Delft, The
+Netherlands, 2021, ch.~4, doi:
+\href{https://doi.org/10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9}{10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9}.}
+\bibitem{wright} \Wright{M.~A. Wright, G. Gomes, R. Horowitz, and
+A.~A. Kurzhanskiy, ``On node models for high-dimensional road networks,''
+\emph{Transp. Res. B, Methodol.}, vol.~105, pp.~212--234, 2017, doi:
+\href{https://doi.org/10.1016/j.trb.2017.09.001}{10.1016/j.trb.2017.09.001}.}
+\end{thebibliography}
+\end{document}

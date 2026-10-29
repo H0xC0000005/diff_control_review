@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "documents_checked": [
+    "rm12_40_bp_i_stage1_protocol.md",
+    "rm12_30_provisional_four_stage_roadmap.md",
+    "rm12_20_backtracking_point_comparison.md",
+    "README.md",
+    "reporting/rm11/current_handoff.md",
+    "discussion/rm12/backtracking_planning_dialogue.md"
+  ],
+  "local_links_checked": 53,
+  "broken_local_links": [],
+  "scope_and_status_checks": {
+    "roadmap_approval_recorded": true,
+    "opening_decisions_closed": true,
+    "evidence_questions_and_adoption_split": true,
+    "source_default_is_not_task_adoption": true,
+    "no_required_reapproval": true,
+    "no_forced_cold_start_or_oracle": true,
+    "history_and_forcing_guard": true,
+    "next_stage_gate_explicit": true,
+    "no_substantive_execution_started": true,
+    "four_stage_structure_retained": true,
+    "historical_validation_preserved": true
+  },
+  "mandatory_preopening_decisions": 0,
+  "roadmap_status": "Approved; later routing provisional",
+  "bp_i_status": "ready to open; substantive execution not started",
+  "next_gate": "BPI-G2 on a necessary methodological amendment, otherwise BPI-G3 stage-result discussion",
+  "new_scientific_source_or_experiment_work": "none; readiness and protocol transcription only",
+  "validation_correction": "Cold-start/oracle check now checks the protocol wording rather than a literal phrase from the earlier roadmap; guard unchanged."
+}

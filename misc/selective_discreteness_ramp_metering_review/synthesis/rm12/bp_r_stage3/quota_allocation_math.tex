@@ -1,0 +1,322 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\emergencystretch=3em
+\begin{document}
+\begin{center}
+{\Large T.A amount allowances and a consistent allocation choice}\\[4pt]
+8 October 2026 --- methodology-only analytical continuation
+\end{center}
+\textbf{Status.} T.A is approved. The new Q.J.F.P question concerns the time
+meaning of competition proportions, not a held source rate. Both alternatives
+have qualified local examples; no whole joined solver or gradient is adopted.
+
+\section*{1. T.A state, units and conservation}
+Use metres, seconds and continuous vehicle-equivalent mass (eq). Density
+$\rho$ has units eq/m and flow has units eq/s. The common triangular field is
+\begin{equation}
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\quad
+ u=30,\ w=5,\ \kappa=3/20,\quad \rho_c=3/140,\ Q=9/14.
+\end{equation}
+Sections have $L=30$ m and public interval $T=1$ s. Sampled source sending and
+movement masses are
+\begin{equation}
+ S_a=\min\{n_a(0),QT\},\qquad d_{ab}=\theta_{ab}S_a,\quad
+ \sum_b\theta_{ab}=1.
+\end{equation}
+The choice fractions use the approved prior-period lookahead Edie observations;
+they are not newly sampled at interior wave events. For actual accepted port
+flow $f_{ab}$, define the unspent numerical claim
+\begin{equation}
+ b_{ab}(t)=d_{ab}-\int_0^t f_{ab}(s)\,ds\ge0.
+\end{equation}
+This is request accounting, not a second traffic population or assigned vehicle
+identity. Pair each transfer once. When a claim reaches zero, its movement
+cannot discharge further this interval. There is no imposed bound
+$f_{ab}\le d_{ab}/T$. For constant local rate $f>0$, the remaining amount
+is used after $b/f$ seconds; stop at that exact event rather than an arbitrary
+threshold. Claims refresh at the public clock, without rerouting unspent mass.
+
+The donor's total outflow uses its own physical field. All target inputs spend
+one receiving resource, and outgoing debits must not spend donor mass twice.
+Under the existing upstream-port geometry and $L=uT$, post-clock incoming
+traffic cannot traverse a whole section within the interval. Consequently
+\begin{equation}
+ \sum_b\int_0^T f_{ab}\,dt\le\min\{n_a(0),QT\}=S_a.
+\end{equation}
+Individual $d_{ab}$ do not follow from that total bound. They need the claim
+ledger. E1 accumulates completed actual transfers and creates zero-population
+effects at the public clock, never at interior claim exhaustion.
+
+\newpage
+\section*{2. Exact allowance exhaustion and stop waves}
+One donor starts with jam density on $[86/3,30]$ and vacuum upstream; its
+mass is $1/5$. Upstream admission is closed. Desired lateral and through
+masses are $1/20$ and $3/20$. Use sampled lateral choice fraction $1/4$;
+the through target has zero receiving, while the lateral target is free.
+Before the claim is fulfilled, the source-oriented local rate is
+\begin{equation}
+ \beta=Q/4=9/56,\quad \rho_\beta=\kappa-\beta/w=33/280,\quad
+ c_\beta=\beta/\rho_\beta=15/11.
+\end{equation}
+It is a declared source-orientation regime, not a unique general allocator
+selected by T.A. The outgoing queue trace has sending $Q$. The initial
+jam-to-$\rho_\beta$ release wave travels upstream at $-5$, reaching the
+rear at
+\begin{equation}
+ t_0=(4/3)/5=4/15.
+\end{equation}
+Before $t_0$, vacuum ends at $86/3$, then jam extends to $30-5t$, followed
+by $\rho_\beta$ to the exit. Afterwards the vacuum-to-$\rho_\beta$ rear
+travels at $c_\beta$. The lateral claim is fulfilled at
+\begin{equation}
+ t_q=(1/20)/\beta=14/45,\quad
+ x_q=86/3+c_\beta(t_q-t_0)=316/11.
+\end{equation}
+At $t_q$, stop lateral flow. Through receiving is still zero, so donor outflow
+becomes zero without reassigning its remaining through claim. A jam wave
+travels backward from 30 at $-5$, meeting the moving rear after
+\begin{equation}
+ t_c-t_q=\frac{30-x_q}{5+c_\beta}=1/5,\qquad
+ t_c=23/45,\quad x_c=29.
+\end{equation}
+Thereafter the vacuum-to-jam rear is stationary. At $T=1$ the donor is
+jammed on $[29,30]$, with mass $3/20$. Exactly $1/20$ transferred.
+At service start and stop use the post-event one-sided port trace: its new
+wave initially has zero length, so this changes no integrated field mass.
+In the initially empty recipient, density is $\beta/u=3/560$ on
+$[u(1-t_q),u]=[62/3,30]$ at the completed clock. Its mass is $1/20$;
+no positive-measure traffic has exited it before that clock. Donor/recipient
+counts therefore pair exactly.
+
+Without the T.A amount check, repeated source-oriented rate $\beta$ could
+continue for the entire second: remaining donor mass $1/5-\beta=11/280>0$.
+The ordinary rear then ends at $89/3$, with $\rho_\beta$ on its last $1/3$ m.
+Accepted lateral mass would be $9/56>1/20$, although aggregate traffic is still
+conserved. This refutes a naive repeated-demand transplantation, not native
+finite IT or continuous mass. This example resolves concrete wave interactions
+at depletion; arbitrary depleted multi-port modes remain unqualified.
+
+\newpage
+\section*{3. Actual ramp/two-lane geometry for the allocation comparison}
+Donor 1 advances through to shoulder recipient A. Donor 2 advances laterally
+to A with sampled fraction $\theta=1/4$, or through to free recipient B with
+fraction $3/4$. A finite KW ramp also enters A. There is no same-section
+lateral transfer followed by another longitudinal advance.
+
+Initially donor 1 is uniformly free at $\rho_1=1/150$, with sending
+$D_1=1/5$; donor 2 and the ramp start critical, sending $D_2=D_r=Q$.
+Compatible prescribed inlet forcing is $1/5,Q,Q$, respectively. These are
+physical boundary inputs; the ramp admission can be realized by M.A under
+adequate offered flow and permission. No downstream wave reaches its upstream
+meter in this one-second case. Use supplied prior Edie observations such
+that $\theta=1/4$ (e.g. 30 and 15 m/s with relaxation time 2 s). Their reached
+control history is not claimed.
+
+Recipient A has density $\rho_A=9/100$ on $[0,1]$ and vacuum ahead. An old
+zero-passing effect starts at 1, with held desired speed $s=10/3$. Own ahead
+traffic is vacuum, so K.A permits exactly $s$. The queue grows with the record:
+\begin{equation}
+ z(t)=1+\tfrac{10}{3}t,\quad F(\rho_A)=s\rho_A=3/10.
+\end{equation}
+Its own inlet supply $R=3/10$ is constant. This receiving history is derived
+from the same queue/record field, not an external capacity penalty.
+With illustrative fixed ramp share $p=1/3$, both groups request more than
+their shares. N.A awards
+\begin{equation}
+ f_r=1/10,\qquad R_m=1/5\quad\text{for all non-ramp inputs together}.
+\end{equation}
+Recipient B starts free at density $(27/56)/30=9/560$, with free exit; its
+inflow/outflow is $27/56$. All allowances are as sampled:
+\begin{equation}
+ d_{1A}=1/5,\quad d_{2A}=9/56,\quad d_{2B}=27/56,\quad d_{rA}=9/14.
+\end{equation}
+No movement is fulfilled before the interior times considered below; $d_{2B}$
+is exactly fulfilled at the ending clock. Thus the allocation distinction
+exists even before a quota-depletion policy is needed.
+
+\textbf{P.A.} Retain sampled non-ramp proportions $1/5:9/56=56:45$ as
+competition weights. Its accepted rates are
+\begin{equation}
+ f_{1A}^{A}=56/505,\quad f_{2A}^{A}=9/101,\quad f_{2B}^{A}=27/56.
+\end{equation}
+\textbf{P.B.} Solve the source-oriented wave junction consistently. Both
+donors are restricted and therefore have congested boundary sending $Q$.
+Its oriented proportions are $Q:(Q/4)=4:1$, giving
+\begin{equation}
+ f_{1A}^{B}=4/25,\quad f_{2A}^{B}=1/25,\quad f_{2B}^{B}=27/56.
+\end{equation}
+Both give the same $R_m$ and respect all amount ceilings.
+
+\newpage
+\section*{4. Compatible own fields, counts and births for both allocations}
+For candidate $k\in\{A,B\}$, donor 1's queue trace is
+$\rho_{1k}^*=\kappa-f_{1A}^{k}/w$. Its shock from the initial free state has
+speed
+\begin{equation}
+ \sigma_{1k}=\frac{f_{1A}^{k}-1/5}{\rho_{1k}^*-1/150}<0.
+\end{equation}
+It lies between $-w$ and $u$. At $t=1$ donor 1 has its initial density on
+$[0,30+\sigma_{1k}]$ and $\rho_{1k}^*$ to its port. The wave never reaches
+the inlet. Its own sending is then $Q$; this is distinct from actual service.
+Donor 2's total outflow is $g_{2k}=f_{2A}^k+27/56<Q$, with queue density
+$\rho_{2k}^*=\kappa-g_{2k}/w>\rho_c$. Its shock travels at $-5$, leaving
+initial critical density on $[0,25]$ and $\rho_{2k}^*$ on $[25,30]$.
+The ramp similarly has queue density $\kappa-(1/10)/w=13/100$ on $[25,30]$.
+
+Direct field integration equals paired conservation in every lane:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Ending mass & P.A & P.B\\
+\midrule
+Donor 1 & $146/505$ & $6/25$\\
+Donor 2 & $4041/5656$ & $1069/1400$\\
+Ramp & $83/70$ & $83/70$\\
+Recipient A & $39/100$ & $39/100$\\
+Recipient B & $27/56$ & $27/56$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The two donor-mainline masses sum to $281/280$ under both. Initial mass plus
+inlets minus external exits equals the total ending inventory; internal
+transfers cancel. Descriptors add no population.
+
+For recipient A, local count gauge is
+\begin{equation}
+ C_A(t)=9/100+(3/10)t,\quad
+ N_A(t,x)=C_A(t)-\int_0^x\rho_A(t,y)dy.
+\end{equation}
+The old record has $N_A(t,z(t))=0$ throughout. At $t=1$, $z=13/3$, the queue
+mass and gauge both equal $39/100$. Thus both own-field motion/count histories
+are consistent, although entry composition differs.
+
+For an illustrative eligible lateral counter $H_0=47/50$ and threshold one,
+\begin{equation}
+ H_A(1)=47/50+9/101=5197/5050>1,\qquad
+ H_B(1)=47/50+1/25=49/50<1.
+\end{equation}
+P.A creates one new E1 effect, attached at recipient A's completed inlet count
+$39/100$; P.B creates none. The distinction is not a same-law hidden-information
+witness: these are different temporal allocation completions.
+
+\newpage
+\section*{5. A local P.B wave-junction completion beyond naive substitution}
+Derive a one-fork/two-recipient kernel with $0<\theta<1$, two positive input
+demands $D_i\le Q_i$, recipient B unconstrained, receiving $R_m$ at A,
+and pending amount claims. This is a reviewer derivation from source IT and
+ordinary boundary-wave admissibility, not a generic FIFO theorem.
+Here ``B unconstrained'' means its supply is at least $(1-\theta)Q_2$;
+this holds for the common-capacity free recipient in the example.
+
+Let $\gamma\in[0,1]$ be A's common IT receiving factor and $\xi_i$ auxiliary
+interior demands. Input 1 sends $\gamma\xi_1$. Input 2 sends
+$\theta\gamma\xi_2$ to A and $(1-\theta)\xi_2$ to B. A restricted incoming
+road's stationary boundary state is congested: its interior sending is capacity.
+An unrestricted incoming road retains total accepted flow equal to $D_i$;
+an admissible interior state can have demand between $D_i$ and $Q_i$.
+Therefore
+\begin{align}
+ f_{1A}(\gamma)&=\min\{D_1,\gamma Q_1\},\\
+ \xi_2(\gamma)&=\min\left\{Q_2,\frac{D_2}{1-\theta+\theta\gamma}\right\},\\
+ f_{2A}(\gamma)&=\theta\gamma\xi_2(\gamma),\qquad
+ f_{2B}(\gamma)=(1-\theta)\xi_2(\gamma).
+\end{align}
+Define $H(\gamma)=f_{1A}(\gamma)+f_{2A}(\gamma)$. If
+$R_m\ge H(1)=D_1+\theta D_2$, use $\gamma=1$. Otherwise $H(0)=0$ and
+$H$ is continuous and strictly increasing, so solve $H(\gamma)=R_m$ uniquely.
+The second term has positive derivative: $\theta Q_2$ on its capacity branch,
+or $\theta D_2(1-\theta)/(1-\theta+\theta\gamma)^2$ on its demand branch.
+The first term is nondecreasing. All input totals are at most their incoming
+demands, and all output flows obey receiving.
+
+At a restricted input, total accepted flow is below $D_i$, so its capacity
+branch is already selected. Replacing that input's demand by capacity after
+its queue forms leaves the same selected flow. This is the local consistency
+that a direct initial point-proportional substitution lacked.
+
+For the actual comparison $D_1=1/5$, $D_2=Q=9/14$, $\theta=1/4$,
+$R_m=1/5$, both capacity branches give
+\begin{equation}
+ \gamma=\frac{R_m}{Q(1+\theta)}=56/225,\quad
+ f_{1A}=4/25<1/5,\quad f_{2A}=1/25,\quad f_{2B}=27/56.
+\end{equation}
+Input 2's total $731/1400$ is below $Q$, consistent with its queue. The source
+rule holds on the congested interior states. Input 1's actual traffic field
+receives the admissible shock in section 4. No externally prescribed queue
+or altered ramp priority is needed to select these local flows.
+
+\textbf{Limits.} Two constrained recipients, more lanes/inputs, zero or
+unit choice fractions, depleted claims and arbitrary restriction/node contacts
+require separate completion. This algebra is not an all-network theorem or
+a convergence proof for the finite source step. Primary continuum general-
+junction theorems cited here include FIFO coupling; they are not imported.
+
+\newpage
+\section*{6. P.A's local fixed-proportion completion and the pending choice}
+For the same one-fork geometry, let sampled weights $\mu_1,\mu_2>0$ remain
+constant within the public interval and $\alpha=\mu_1/(\mu_1+\mu_2)$.
+The same unconstrained-B supply condition applies.
+An explicitly declared local fixed-priority completion uses potential target-A
+demands $D_1$ and $\theta D_2$. With unused shares transferred, define
+\begin{align}
+ f_{1A}&=\min\{D_1,\max(\alpha R_m,R_m-\theta D_2)\},\\
+ f_{2A}&=\min\{\theta D_2,\max((1-\alpha)R_m,R_m-D_1)\},\\
+ \xi_2&=\min\left\{Q_2,\frac{D_2-f_{2A}}{1-\theta}\right\},\quad
+ f_{2B}=(1-\theta)\xi_2.
+\end{align}
+Since $f_{2A}\le\theta D_2$, $\xi_2\ge D_2$, and the donor total
+$f_{2A}+f_{2B}$ is at most $D_2$. If that total is strictly below $D_2$,
+then $\xi_2=Q_2$ and the donor queue is admissible. If equal, an interior
+demand $\xi_2\in[D_2,Q_2]$ is admissible. Thus this kernel also has compatible
+local wave states, without introducing a held $d/T$ rate ceiling.
+
+In the comparison, $\mu_1=1/5$, $\mu_2=9/56$, $\alpha=56/101$;
+both shares are below their potential demands, giving $56/505$ and $9/101$.
+The second donor is capacity-restricted in total, so $\xi_2=Q$ and its
+parallel through flow is $27/56$, as in the exact field table.
+
+In this local geometry, the fixed-weight kernel is invariant to a restricted
+input's demand increase. For input 1 this is the usual fixed-priority merge
+property. For input 2, strict total restriction implies
+$f_{2A}<D_2-(1-\theta)Q_2\le\theta D_2$; its target-A demand cap is already
+nonbinding in the allocation. Increasing $D_2$ to $Q_2$ leaves its assigned
+share unchanged, while the same parallel capacity branch is retained.
+Unrestricted inputs do not require a queue-induced demand replacement.
+
+This is a declared source-time priority adaptation, not a proof that native
+IT already specifies it for nonuniform physical-time fields. The primary
+node literature supports fixed-priority allocation; it does not choose our
+sampled-demand weights or qualify every joined/depleted mode.
+
+\textbf{Choice.} T.A determines each movement's integrated ceiling. It does
+not choose whether its original request determines a standing service weight
+(P.A), or source-proportional wave-junction demands determine its share (P.B).
+Both local kernels can be causal, conservative and quota-compatible, yet the
+flows and next-clock effects differ. Q.J.F.P therefore reopens only the
+temporal meaning of IT competition, including N.A's non-ramp subgroup.
+Fixed ramp priority/shared receiving, M.A/G1/E1/K.A/T.A stay approved.
+
+P.A is provisionally preferred for the sampled task. After selection,
+qualify shared-donor/multi-target allocation and depleted modes, then the
+remaining motion/contact/crossing/E1 completion. No full Q, clearance, full
+TST/control response, useful gradient or Stage 4 is claimed.
+
+\section*{Primary reading and attribution}
+Laval and Daganzo (2006), equations 7--13: sampled oriented amounts and IT.
+Wright et al., arXiv:1601.01054, sections 2.1/3.1: demand, priority and
+invariance; arXiv:1608.07623: cumulative node service/completion events, whose
+snapshot execution clock is not automatically our physical clock.
+Jin, arXiv:1204.6727, section 3.1: admissible stationary/interior states;
+its general theorem has a different FIFO scope. Sections 2--6 above contain
+reviewer derivations under their stated conditions.
+
+\href{https://doi.org/10.1016/j.trb.2005.04.003}{Source IT}\quad
+\href{https://arxiv.org/pdf/1601.01054}{Priority/node manuscript}\quad
+\href{https://arxiv.org/pdf/1608.07623}{Node dynamic-system manuscript}\quad
+\href{https://arxiv.org/pdf/1204.6727}{Wave-junction manuscript}
+\end{document}

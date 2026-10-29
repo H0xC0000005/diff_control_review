@@ -1,0 +1,234 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large J4: speed advice, actual mismatch and immediate merge work}\\[4pt]
+16 October 2026 --- static constitutive qualification, not traffic simulation
+\end{center}
+
+\textbf{Status.} J4 is authorized and begun after review of OR-Q1's
+conditional recovery evidence. This recheck reaches \textbf{J4-W1}, a
+Type 2 G3 interpretation/substitution choice in the trial work law. No
+alternative is selected. O-R, R-E, S-E-P, H1/T1, the original action range
+and local objective are unchanged. The whole Step 3 remains open.
+
+\section*{1. The law and the physical question}
+Retain fixed $w,k_j>0$, $K=wk_j$ and advice $v\in[v_-,v_+]$:
+\begin{equation}
+C(v)=\frac{Kv}{w+v},\qquad U(g)=\frac{wg}{K-g},\qquad
+0<R\leq C(v_-),\quad 0<B\leq R.\tag{1}
+\end{equation}
+Here $B$ is current shared work, not the far lane. Free marks are $v$;
+queued marks are $U(g_j)$. The present trial unit work is
+\begin{equation}
+c_E^{A}=c_0+\beta\frac{g_A}{C(v)}\frac{\pos{u_A-u_E}}v,
+\quad c_0=1+\delta,\quad
+\eta=c_0-\beta(1+v_+/w)>0.\tag{2}
+\end{equation}
+Use $\delta>0,\beta>0$ for strict diagnostics. The previously proved
+bound gives a unique queued-E root of
+\begin{equation}
+H(g,v)=g\left[c_0+\beta\frac{a}{C(v)v}
+                      \pos{u_A-U(g)}\right]=x,\quad H_g\geq\eta,
+\quad a=g_A,\quad x=B-a.\tag{3}
+\end{equation}
+When A is free and its offer fits, $a=\lambda_A<B$, $u_A=v$.
+When both streams queue, $a=B/2$, $u_A=U(a)$ and $x=a$.
+
+These are local constitutive tests: hold current offers/budget or queues/
+budget fixed when comparing advice. They are not two complete H1 trajectories
+at different controls, a reachability certificate or a policy experiment.
+When both are queued and all relevant flows are below $C(v_-)$, the
+free-flow ceilings are inactive; the congested branch $U$ is common.
+
+The physical question is whether a changed but inactive speed sign should
+still change immediate interaction work. A direct desired-speed influence
+could be posited, but it is an additional constitutive hypothesis. Neither
+source-relative-speed evidence nor units alone establishes it.
+
+\newpage
+\section*{2. Free A: the speed-matching benefit is not guaranteed}
+Put $\rho(v)=1/(C(v)v)$. Then
+\begin{equation}
+\rho(v)=\frac{w+v}{Kv^2},\quad
+\rho'(v)=-\frac{v+2w}{Kv^3},\quad
+\frac{d}{dv}\{(v-u)\rho(v)\}
+=\frac{(u-w)v+2wu}{Kv^3}.\tag{4}
+\end{equation}
+In (3), at fixed $g$, $u=U(g)$ is independent of $v$. On the free-A,
+queued-E branch $u<v$, so
+\begin{equation}
+\frac{dg}{dv}=-\frac{H_v}{H_g},\qquad
+H_v=\frac{\beta a g}{Kv^3}\{(u-w)v+2wu\}.\tag{5}
+\end{equation}
+If $u<wv/(v+2w)$, then $H_v<0$ and $dg/dv>0$: lowering advice
+\emph{reduces} E service in this local comparison. In other regimes the
+sign can be reversed. This is a property of the two changing scales, not
+a universal traffic conclusion. Lowering free A speed at fixed flow also
+changes its density and physical gaps; their real combined effect is not
+proved to be monotone by the user's intuition.
+
+An exact static example, using normalized units, is
+\begin{equation}
+w=2,\quad k_j=3,\quad v\in[1,2],\quad R=1,\quad
+c_0=5/4,\quad\beta=1/10,\quad a=1/2,\quad
+B=22183/35400.\tag{6}
+\end{equation}
+Here $C(1)=2$, $C(2)=3$, $\eta=21/20>0$ and $a<B<R$.
+At $v=2$, (3) has the exact root
+\begin{equation}
+g=1/10,\quad U(g)=2/59,\quad x=B-a=4483/35400.\tag{7}
+\end{equation}
+At $v=1$, test that same $g$:
+\begin{equation}
+H(1/10,1)-x=11/14160>0.\tag{8}
+\end{equation}
+Since $H$ is strictly increasing, its unique new root is smaller than
+$1/10$. A is still free with offer $1/2$; the same budget serves it.
+Take sufficient existing E backlog for this instantaneous test. No initial
+queue, history or parameter set in (6) is adopted as the primary task.
+
+\newpage
+\section*{3. Both queued: a direct effect of an inactive advice bound}
+Hold $B$ fixed, with both queues positive. S-E-P cooperation gives
+$a=B/2$, independent of advice. For $c_0>1$, (3) has
+$0<g\leq a/c_0<a$, hence $U(g)<U(a)$ and the positive part is active.
+For fixed $g$,
+\begin{equation}
+H_v=\beta a g\{U(a)-U(g)\}\rho'(v)<0,
+\qquad \frac{dg}{dv}>0.\tag{9}
+\end{equation}
+Changing advice changes E service although A's flow and congested speed,
+the fixed FD congested branch and the current budget are unchanged. The
+advice bound does not bind either trace. Any later change in E speed or
+recovery is a consequence of this extra immediate-work channel.
+
+For example, with $w=2,k_j=3,v\in[1,2],B=R=1,c_0=5/4$ and
+$\beta=1/10$, $a=1/2$, $U(a)=2/11<1$. At a fixed E trace, lowering
+$v$ from 2 to 1 triples $\rho(v)$ and therefore triples its mismatch
+coefficient. Root monotonicity makes E service smaller. This is a static
+comparison, not a full-cohort consequence or a proof the state is reachable
+with the same initial observations under both controls.
+
+\textbf{Negative controls.} With $\beta=0$ or $a=0$ there is no mismatch
+term. With $c_0=1$ and both queued, the unique root is $g=a$, giving equal
+traces and zero mismatch, so the strict sign in (9) disappears.
+
+\textbf{Interpretation.} If work is intended to depend only on represented
+current physical traffic and an inactive speed cap has no independent
+behavioral meaning, (9) fails that intended consistency test. It can instead
+be retained as a law with an explicit desired-speed/saturation influence.
+That meaning needs evidence. This check is distinct from the technical
+invariant-junction condition in the LTM literature; no general node
+invariance or hybrid nonexistence theorem is being asserted.
+
+The restricted congested follower calculation in Leclercq et al. (2016),
+Section 2, distinguishes insertion speed from free-flow speed. The empirical
+relative-speed study does not derive (2). The sign calculations here are
+our deductions, not results attributed to those papers.
+
+\newpage
+\section*{4. A concrete fixed-scale candidate, not yet selected}
+Choose once a physical reference speed $v_\star=v_+$ and
+$C_\star=C(v_\star)$, holding both fixed over the original action box.
+Replace only (2) by
+\begin{equation}
+c_E^{F}=c_0+\beta\frac{g_A}{C_\star}
+                  \frac{\pos{u_A-u_E}}{v_\star}.
+\qquad
+\chi=\frac{\beta}{C_\star v_\star}.\tag{10}
+\end{equation}
+$\chi$ has units s$^2$/(veh-eq m), so $\chi g_A(u_A-u_E)$ is
+dimensionless. Reference scales specify a fixed coefficient; changing the
+search box must not silently change $\chi$. The anchor choice introduces
+no new state and makes (10) identical to (2) at $v=v_+$.
+
+On the regular free-A/queued-E branch with fixed $a,B$ and $U(g)<v$,
+\begin{equation}
+H_v^{F}=\frac{\beta a g}{C_\star v_\star}>0,
+\qquad \frac{dg}{dv}<0.\tag{11}
+\end{equation}
+Lower actual free A speed then raises E service in this specific
+comparison. $U'(g)>0$ raises its speed mark, and the unchanged recovery
+profile is nonincreasing in that mark. These are local implications at
+fixed other inputs, not a global ordering of recovery histories or total
+travel times. H1 arrivals and travel time also change with advice.
+
+With both queued, (3) using (10) has no direct $v$ dependence, so its local
+allocation is unchanged while capacities remain nonbinding. The response
+depends on actual traffic traces, passing flow and current service instead.
+
+\textbf{Retained sufficient bounds.} Since $C(v)\leq C_\star$ and
+$v\leq v_\star$,
+\begin{equation}
+c_0\leq c_E^{F}\leq c_0+\beta,\quad
+H_g^{F}\geq c_0-\beta\frac{a}{C_\star v_\star}gU'(g)
+\geq c_0-\beta(1+v_+/w)=\eta>0.\tag{12}
+\end{equation}
+Use the old bound $gU'(g)\leq v(1+v/w)$ and $a\leq C(v)$.
+Thus the old conservative root domain remains sufficient, as do the
+rate bound $g_E\leq R/c_0$ and the bounded-work conditional clearance
+interface. No O-R profile, reference mass, cutoff, source or physical-time
+update is changed by (10).
+
+\newpage
+\section*{5. What survives, what does not, and the decision boundary}
+\textbf{Conditional preservation.} At $v=v_+$ all immediate-work values
+and queued/free trace rules coincide, so the previously constructed complete
+regular cohort at that advice remains the same conditional solution if
+W-F is selected. This is an algebraic anchor, not a preferred action.
+Local continuation uses the same strict-event arguments, subject to their
+existing scope. The O-R positive-budget proof uses the unchanged admission
+rate and profile bounds; storage, conservation and local TST remain conditional on
+admissible departures. No all-action hybrid theorem is supplied here.
+
+\textbf{Not inherited.} Advice derivatives away from the anchor, optimal
+actions, information regret, applied MP6 and SUMO usefulness must be qualified
+for the selected work law. The candidate's coefficient, representative
+insertion speed and maneuver-versus-recovery attribution are not calibrated
+by (10). The benefit in (11) must not be promoted to a universal empirical
+law or used to select parameters for an interior optimum.
+
+\textbf{Two viable interpretations.} W-A retains (2) with an explicit
+direct desired-speed/saturation influence, requiring its own evidence.
+W-F uses (10), omitting that extra influence and retaining actual-state
+interaction. Both preserve the compact point architecture and its known
+limitations. W-F is provisionally recommended for causal clarity; neither
+is selected by this note.
+
+\textbf{J4-W1.} This is the smallest Type 2 G3 choice about the work law,
+with dependent G4 sensitivity and MP6 consequences. It does not reopen
+H1 homogeneity, T1 storage, S-E-P, R-E, O-R, the observation contract or
+choke-line accounting. Source/unit/algebra transcription is Type 1 under
+the chosen interpretation. A new independent speed state or spatial zone
+would need a separate reopening; none is indicated by this finding.
+
+\textbf{Evidence obtained.} Exact identities (4)--(5), static rational
+diagnostic (6)--(8), monotone-root signs (9), candidate signs/bounds
+(11)--(12), negative controls and anchor equality. Symbolic checks verify
+identities and rational inequalities; they do not mechanically prove
+physical validity, H1 reachability or every coupled event sequence.
+
+\textbf{Next work after selection.} Resume J4 at whole original action-
+range/event and physical-domain qualification; then the sufficient-information,
+full-objective sensitivity, strong-rival and S-P--S-L contracts. Step 3 is
+open; Step 4 and implementation/experiments are unopened.
+
+\textbf{Primary references and reading limits.}
+\begin{itemize}
+\item \href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{Leclercq et al. (2016)}, Sections 2--3.2: restricted point/recovery context.
+\item \href{https://mocopo.ifsttar.fr/fileadmin/contributeurs/Mocopo/Documents/Other_documents/Article_-_Merging_behaviour_-_Empirical_comparison_between_two_sites_and_new_theory_development.pdf}{Marczak et al. (2013)}, Sections 4.4--7: gaps, relative speeds and selection limits.
+\item \href{https://arxiv.org/pdf/1405.7080}{Jin (2015)}, Sections 3 and 6: separate LTM boundary/node qualification.
+\end{itemize}
+No simulator, traffic time stepping, ODE rollout, numerical gradient,
+parameter calibration or optimization is involved.
+\end{document}

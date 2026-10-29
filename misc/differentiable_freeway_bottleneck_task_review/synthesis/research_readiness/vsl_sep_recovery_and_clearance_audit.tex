@@ -1,0 +1,270 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,array,booktabs}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large Selected S-E-P: clearance and a concrete recovery-source choice}\\[4pt]
+15 October 2026 --- bounded analytical review, not a traffic experiment
+\end{center}
+
+\textbf{Status.} The user selects S-E-P's priority direction, closing S-E-A2.
+The previously proposed cooperative and state/work formulas remain trial
+laws. Two explicit recovery-source laws are formed below for comparison;
+neither is selected. Stop at \textbf{SEP-R1}, Type 2 G3. Global hybrid
+well-posedness, complete MP6 and Step 3 are not established.
+
+\section*{1. Priority selection and the E-clearance boundary}
+
+Retain $P_j=F_j(t-b/v)$, $q_j=P_j-Y_j$, $N_j=F_j-Y_j$, eligible
+arrivals $\lambda_j=\dot P_j$, and initially empty terminal histories.
+The independent B lane has $Y_B=P_B$. For the common triangular family,
+\begin{equation}
+ c(u)=\frac{wk_ju}{w+u},\quad C(v)=c(v),\quad
+ U(f)=\frac{wf}{wk_j-f},\quad 0<R\leq C(v_-),\quad v\in[v_-,v_+]. \tag{1}
+\end{equation}
+Write $B(t)$ for shared available work, distinct from the B lane index.
+S-E-P gives unqueued A first claim to $\lambda_A$ when it fits $B$.
+Whenever A is queued, use the cooperative branch, including an empty E
+offer. Thus cooperation does not disappear solely because E clears.
+
+An exact local clearance diagnostic illustrates the distinction. Take
+\begin{equation}
+ B=4/5,\quad \lambda_A=3/5,\quad \lambda_E=1/10,\quad
+ q_A>0,\quad q_E\downarrow0,\quad c_A=c_E=1,\quad C\geq B. \tag{2}
+\end{equation}
+The unit-cost limit is an accounting diagnostic, not a primary parameter
+choice or an H1 reachability claim. Immediately before E clears, both
+queues can receive $(g_A,g_E)=(2/5,2/5)$, so E drains. At E clearance,
+the selected cooperative template serves
+\begin{equation}
+ (g_A,g_E)=(7/10,1/10),\qquad
+ (\dot q_A,\dot q_E)=(-1/10,0). \tag{3}
+\end{equation}
+A literal ``strict A priority unless both queues are positive'' toggle
+instead assigns $g_E=0$ at $q_E=0$, and $g_E=2/5$ at $q_E>0$.
+It would require
+\begin{equation}
+ \dot q_E=1/10\ (q_E=0),\qquad
+ \dot q_E=-3/10\ (q_E>0). \tag{4}
+\end{equation}
+There is no nonnegative absolutely continuous continuation from zero:
+on any positive component $(a,b)$, integration gives
+$q_E(t)=-3(t-a)/10<0$; staying identically zero contradicts (4).
+An averaged/sliding rule would be another law, not the literal toggle.
+Equation (3) is already the proposed S-E-P behavior. No new latch,
+smoothing, positive queue floor or time-step convention is adopted.
+
+\newpage
+\section*{2. A speed-marked finite recovery profile}
+
+Keep the prior local work family for conditional qualification,
+\begin{equation}
+ c_A=1,\qquad c_E=1+\delta+\beta\frac{g_A}{C(v)}
+                      \frac{\pos{u_A-u_E}}v,\quad
+ \delta,\beta\geq0,\quad g_A+c_Eg_E\leq B. \tag{5}
+\end{equation}
+The prior note proves fixed-regime unique queued roots under the sufficient
+condition $1+\delta-\beta(1+v_+/w)>0$. Free trace marks use $u_j=v$;
+queued trace marks use $u_j=U(g_j)$. Those representative speed and
+current-work identifications remain hypotheses, not measured kinematics.
+
+Let $a_r>0$ be a common physical recovery acceleration and
+$m_{\rm ref}=1$ vehicle-equivalent fix normalization, not a packet size.
+For an insertion-speed mark $u\geq0$, define
+\begin{align}
+ u_R&=U(R),&
+ V(\theta;u)&=\sqrt{(w+u)^2+2wa_r\theta}-w,\nonumber\\
+ D(\theta;u)&=\pos{R-c(V(\theta;u))},&\theta&\geq0. \tag{6}
+\end{align}
+Here $\theta$ is boundary-observed age, including backward propagation,
+as in the earlier isolated recovery derivation. The positive part is the
+proposed physical loss law, not a numerical clipping repair. The profile
+is zero if $u\geq u_R$, and otherwise ends after
+\begin{align}
+ \Theta(u)&=\frac{u_R-u}{a_r}+\frac{u_R^2-u^2}{2a_rw},\qquad
+ \Theta_{\max}=\Theta(0),\nonumber\\
+ W(u)&=\int_0^\infty D(\theta;u)d\theta
+   =\frac{k_c(u_R)\pos{u_R-u}^2}{2a_r},\qquad
+ k_c(u)=\frac{wk_j}{w+u}. \tag{7}
+\end{align}
+Thus $0\leq D\leq R$, it decreases with age and speed mark, and
+$W(u)\leq W_0:=W(0)<\infty$. On the active part, differentiating (6)
+gives $|\partial_uD|\leq k_j$ and
+$|\partial_\theta D|\leq a_rk_j$. These bounds extend across the
+continuous zero-loss cutoff in the Lipschitz sense.
+
+The isolated profile is a deduction using the point moving-bottleneck
+case in Leclercq et al. (2016). Summing profiles from continuous mass is
+an additional aggregate overlap assumption. The source's native wave/void
+interactions are not reproduced exactly. In particular, it does not show
+that every slow A departure should create a fresh independent profile.
+
+\newpage
+\section*{3. Two concrete laws for the same shared account}
+
+Both candidates retain the same S-E-P allocation, trial work/trace laws,
+empty initial history, common parameters and one budget output:
+\begin{equation}
+ B(t)=\pos{R-p(t)}. \tag{8}
+\end{equation}
+For each admitted stream, define a proposed speed-marked contribution
+\begin{equation}
+ p_j(t)=\frac1{m_{\rm ref}}\int_0^tD(t-s;u_j(s))\,dY_j(s)
+       =\frac1{m_{\rm ref}}\int_0^t
+           D(t-s;u_j(s))g_j(s)ds,\quad j=A,E. \tag{9}
+\end{equation}
+
+\textbf{R-E: E-origin disturbance, A follows the existing restriction.}
+Set $p=p_E$. Actual admitted E quantity and its predicted speed determine
+new impairment. A affects that speed and admission through the coupled
+node and consumes the resulting shared service. Its slow discharge is
+not separately a fresh source. This is not the old fixed-speed M1 kernel:
+its mark varies with current predicted traffic state and actual admission.
+
+\textbf{R-AE: both slow streams renew impairment.}
+Set $p=p_E+p_A$. A passage with mark below $u_R$ also deposits a new
+profile, even when its low speed resulted from a prior E restriction.
+That is an explicit renewal/independence assumption. The kernel is neutral
+for sufficiently fast passage, not triggered merely by a queue flag.
+
+These are specified constitutive candidates once parameters and the trial
+node are supplied, not names for unspecified future research. Their
+physical speed marks, overlap and complete event proofs are unfinished.
+R-AE's stronger assumption may count genuine successive acceleration
+burdens, or may overcount followers already constrained by one disturbance.
+R-E deliberately omits such independent follower renewal. Both limitations
+require evidence; neither follows from conservation alone.
+
+Internal source histories combine into one $p$ and one $B$. There is no
+separate service ceiling per past passage, integer admission, hidden
+initial speed oracle or longitudinal recovery zone. Only the last
+$\Theta_{\max}$ of predicted admission/mark history can contribute.
+This is recovery memory in the point account, not S-V approach-speed ODEs.
+
+For a \emph{fixed} admissible mode schedule, the prior monotone inverse
+makes $g_j$ and the trace marks locally Lipschitz in $B$. Equations
+(6),(9) then give a causal Volterra map with difference bounded by
+$K\Delta t\|\Delta B\|_\infty$ on a short interval with identical past.
+Together with the 1-Lipschitz map in (8), this is a contraction for small
+enough proof interval. No numerical time scale is introduced. It gives
+local fixed-mode causal construction, not a theorem through arbitrary
+simultaneous or grazing queue events or a full proof of the hybrid model.
+
+\newpage
+\section*{4. Exact recovery-tail contrast and finite-work bounds}
+
+Suppose no E is admitted after $T_E$. Under R-E,
+\begin{equation}
+ p_E(t)=0\quad(t\geq T_E+\Theta_{\max}),\qquad
+ \dot p_E\leq0\quad(t>T_E) \tag{10}
+\end{equation}
+almost everywhere. A can still be waiting during that recovery. Queue
+clearance never resets $p$ artificially.
+
+Consider an A-only queued tail, no new eligible arrivals, and
+$0<B<R$. S-E-P gives $g_A=B$, and its trial queued speed mark is $U(B)$.
+Because $c(U(B))=B$,
+\begin{equation}
+ D(0;U(B))=R-B. \tag{11}
+\end{equation}
+R-AE therefore adds new A loss at rate
+\begin{equation}
+ \frac{g_AD(0;u_A)}{m_{\rm ref}}
+       =\frac{B(R-B)}{m_{\rm ref}}>0;\qquad
+ R=1,\ B=3/4,\ m_{\rm ref}=1\ \Longrightarrow\ 3/16. \tag{12}
+\end{equation}
+R-E has no such new source. For identical inherited history at a comparison
+instant, (12) is the difference in initial loss derivatives. Old profiles
+also recover, so R-AE's total loss need not increase; it may recover more
+slowly. No global ordering of two endogenously different trajectories is
+claimed. The rational tail case is an exact local diagnostic, not a new
+primary initialization or an H1 reachability certificate.
+
+For either candidate, nonnegative kernels and mass conservation imply
+by Tonelli
+\begin{equation}
+ \int_0^\infty p(t)dt\leq
+ \begin{cases}
+ M_EW_0/m_{\rm ref},&\text{R-E},\\
+ (M_A+M_E)W_0/m_{\rm ref},&\text{R-AE}.
+ \end{cases} \tag{13}
+\end{equation}
+$M_j$ denotes total mass eventually admitted from its terminal stream;
+early-merged traffic belongs to A and is not forced to merge again.
+The bound also holds before full clearance using the upper bound $M$.
+Since $R-B=\min(R,p)\leq p$, (13) establishes a finite integrated service
+loss for these particular laws, conditional on an admissible solution.
+
+With $c_{\max}=1+\delta+\beta$, all mass eligible by $t_*=L/v$, and
+$M_{\mathcal S}=M_E$ or $M_A+M_E$, the prior work-conserving bound now yields
+\begin{equation}
+ T_{\rm clear}\leq t_*+
+ \frac{c_{\max}(q_A(t_*)+q_E(t_*))+M_{\mathcal S}W_0/m_{\rm ref}}R.
+ \tag{14}
+\end{equation}
+Thus finite loss is no longer an unspecified assumption for either trial
+source law. This does not prove existence, hybrid uniqueness or empirical
+fidelity. No positive service floor or inherited M1 uniqueness proof is used.
+
+\newpage
+\section*{5. A limiting case that constrains the traffic claim}
+
+Take an initially neutral account, empty A queue, constant A eligible rate
+$\lambda_A=a<R$, and the selected free-A priority branch. While A remains
+free, both recovery laws have no A source because $u_A=v\geq u_R$.
+Using $c_0=1+\delta$, the instantaneous work law gives
+\begin{equation}
+ 0\leq g_E\leq\frac{B-a}{c_0}. \tag{15}
+\end{equation}
+For the nonincreasing recovery profiles, differentiating (9) gives
+\begin{equation}
+ \dot p_E=\frac{g_E(t)D(0;u_E(t))}{m_{\rm ref}}+
+ \frac1{m_{\rm ref}}\int_0^t
+ \partial_\theta D(t-s;u_E(s))g_E(s)ds
+ \leq\frac{R}{m_{\rm ref}}g_E. \tag{16}
+\end{equation}
+On this branch $B>0$ and $B=R-p_E$. Set $x=B-a$. Then
+\begin{equation}
+ \dot x\geq-\frac{R}{m_{\rm ref}c_0}x,\qquad
+ x(t)\geq(R-a)\exp\!\left[-\frac{Rt}{m_{\rm ref}c_0}\right]>0.
+ \tag{17}
+\end{equation}
+Hence A cannot begin queueing in finite time in this constant-A branch.
+E may wait and reduce shared service, but its own admission is throttled
+before the smooth loss crosses A's protected offer. Adding the R-AE source
+does not create a first A queue there: its extra source is still neutral
+until A actually becomes slow under the trial rule.
+
+This is a specific limiting result, not an external-seed requirement or
+a theorem that primary A delay is impossible. H1 produces time-varying
+$\lambda_A=v(r-e(t-b/v))$ over its arrival pulse, generally increasing;
+for varying $a(t)$ the inequality contains an additional $-\dot a$ term.
+The constant-rate barrier therefore does not apply directly. A consequential
+joined A-impact/MP6 witness remains to be established rather than assumed.
+
+\textbf{Unchanged interfaces.} For the retained all-action domain
+$M<k_jb$ and $\dot F_j\leq C(v)$, terminal vacancy stays positive and H1
+is protected for any eventual admissible departures. Physical mass is
+$N=F-Y$, and complete local TST remains
+\begin{equation}
+ J(v)=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E+q_B)dt. \tag{18}
+\end{equation}
+Memory after completion is not vehicle-time. Scalar reconstruction and
+gradient usefulness do not follow from these bounds; neither an interior
+optimum nor full-lane-state necessity is required.
+
+\textbf{Gate SEP-R1.} Do ordinary slow A departures merely follow the
+represented disturbance (R-E), or renew it through new loss profiles
+(R-AE)? Both are concrete source-law candidates; both need physical and
+global-event qualification. Recommend R-E first as the minimal primary
+candidate, not as proof independent A recovery is negligible. Neither source
+law is selected. S-E-P stays selected and the whole review/Step 3 remains open.
+\end{document}

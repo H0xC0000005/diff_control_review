@@ -1,0 +1,170 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\emergencystretch=3em
+\raggedright
+\begin{document}
+\begin{center}
+{\Large BP-R Stage 3: source laws and merge choices}\\[4pt]
+6 October 2026 --- supplied originals read; S3-G2-N open
+\end{center}
+\textbf{Scope.} Source transcriptions and static proposed-node evaluations.
+Neither node is adopted. No simulator, traffic experiment or gradient validation.
+
+\section*{1. What the supplied journal actually specifies}
+Laval and Daganzo (2006), Section 2.1, equations 6--13, specifies continuous
+lane traffic with a triangular fundamental diagram. In this unit-consistent
+transcription, $k_\ell$ is donor density (veh/m), $u$ free-flow speed (m/s),
+$w>0$ backward wave-speed magnitude (m/s), $\kappa$ jam density (veh/m),
+$Q$ lane capacity (veh/s), and $\Delta t$ a time interval (s). Sending mass:
+\begin{equation}
+S_\ell=\Delta t\min\{u k_\ell,Q\}.
+\end{equation}
+For allowed target lane $b$, lane-choice speeds $\bar v$ (m/s) and relaxation
+time $\tau$ (s), desired lane-change rate and transfer masses are
+\begin{align}
+\pi_{\ell b}&=\frac{(\bar v_b-\bar v_\ell)_+}{u\tau},&
+d_{\ell b}&=\pi_{\ell b}\Delta t\,S_\ell,\quad b\ne\ell,\\
+d_{\ell\ell}&=\left(1-\sum_{b\ne\ell}\pi_{\ell b}\Delta t\right)S_\ell.
+\end{align}
+$(z)_+=\max(0,z)$. The step must give
+$\sum_{b\ne\ell}\pi_{\ell b}\Delta t\le1$; outgoing demands sum to $S_\ell$.
+Source lane changes advance from cell $(i,\ell)$ to $(i+1,b)$;
+they are not counted twice as separate lateral/longitudinal moves.
+
+For target cell/lane $b$, collect all compatible incoming demands $d_{jb}$
+and form receiving mass and actual transfers:
+\begin{equation}
+R_b=\Delta t\min\{w(\kappa-k_b),Q\},\qquad
+\gamma_b=\min\left\{1,\frac{R_b}{\sum_jd_{jb}}\right\},\qquad
+f_{jb}=\gamma_b d_{jb}.
+\end{equation}
+If demand is zero, all transfers are zero; no ratio is evaluated. This
+transcribes the journal's local IT allocation in mass units. Transfers respect
+receiving and desired donor demand. Pair each debit and credit:
+\begin{equation}
+n_c^{+}=n_c+\sum_j f_{jc}-\sum_b f_{cb}.
+\end{equation}
+Boundary admissions/exits are separate. Internal transfers cancel in the sum;
+event counts never round $n_c$.
+
+\textbf{Speed and receiving scope.} Lane-choice speed uses the journal's
+downstream look-ahead/preceding-time space-mean convention, not arbitrary point
+FD inversion. Equation (4) is the unobstructed local recipe. Active moving
+constraints must use the coupled source method; do not reuse unobstructed
+supply and add a guessed acceleration penalty.
+
+\newpage
+\section*{2. The motion law is now source-backed}
+Appendix A, equations A.1--A.4, uses disturbance position $\phi(t)$ (m),
+realized speed $v(t)$ (m/s), desired kinetic speed $v_{\rm des}(t)$, and
+immediately downstream KW-stream speed $v_{\rm dwn}(t)$:
+\begin{align}
+v(t)&=\min\{v_{\rm dwn}(t),v_{\rm des}(t)\},\\
+v_{\rm des}(t+\Delta t)&=v(t)+a(v(t),\phi(t))\Delta t,\\
+\phi(t+\Delta t)&=\phi(t)+v(t)\Delta t,\\
+a(v,x)&=a_0(1-v/v_{\max})-gG(x).
+\end{align}
+$a_0$ is zero-speed acceleration (m/s$^2$), $v_{\max}$ vehicle free maximum
+speed (m/s), $g$ gravity (m/s$^2$), and $G(x)$ dimensionless grade. Traffic
+constrains realized speed; $v_{\max}$ need not equal $u$. Numerical examples
+in the journal and merge manuscript have different parameters; none is
+silently combined or calibrated.
+
+$v_{\rm dwn}$ is a numerical estimate over the ensuing interval on the
+occupied lane, computed from the KW problem affected by the constraint.
+It is not independently assigned from the upstream command. Zero passing
+\emph{relative to the moving disturbance} permits positive stationary-detector flow.
+
+For cumulative actual transfer mass $H(t)$, the deterministic option creates
+descriptors when $\lfloor H(t)\rfloor$ increases. Only descriptors are discrete;
+the conserved transfer in (5) remains continuous, including fractional mass.
+Traffic is already counted in the field. Descriptors are not extra TST
+population. A complete task must declare birth speed, event phase and insertion
+timing. No random sampling or coincidence jitter is approved.
+
+\textbf{Numerical lineage.} Section 2.2 cites the 2005 method that converges
+in flows; Appendix A cites the separate numerical-treatment paper. Available
+2003 originals distinguish cumulative-count approximation from continuous-space
+composite-Riemann coupling. The latter uses wave-interaction and crossing step
+conditions. This supports a conservative route, not a theorem for every
+endogenous event/control derivative.
+
+\textbf{Second supplied paper.} Daganzo, Lin and Del Castillo (1997),
+Sections 2--3, proves IT equivalence for two classes with different permissions
+to two lane sets. Its priority vehicles are an access class. Section 4
+illustrates an exit-ramp/diverge; Section 5 leaves general junction extension
+open. It does not uniquely determine the merge manuscript's 40\% adjustment.
+
+\textbf{Preserved task.} Control caps admission to the finite KW ramp approach.
+Merge entry follows later demand and receiving; it is not also capped by the
+contemporaneous command. All waiting, ramp and mainline inventory is in TST.
+There is no added recovery-cost term.
+
+\newpage
+\section*{3. Remaining choice: mandatory point merge}
+$D_r,D_m\ge0$ are ramp and non-ramp incoming demand rates (veh/s);
+$R\ge0$ is shared target receiving (veh/s), including existing moving-constraint
+restrictions. Non-ramp demand includes all compatible through/lateral inflows.
+No other movement may spend $R$ again. Actual rates are $f_r,f_m$.
+
+\textbf{A: fixed junction priority.} A fixed ramp share $p_r\in(0,1)$ is
+common to all controls/models. Daganzo's 1994 original, Section 3.2, supplies
+the two-approach construction, transcribed as
+\begin{equation}
+(f_r,f_m)=
+\begin{cases}
+(D_r,D_m),&D_r+D_m\le R,\\
+\left(\min\{D_r,\max(p_rR,R-D_m)\},\,R-f_r\right),
+&D_r+D_m>R.
+\end{cases}
+\end{equation}
+Unused shares are reallocated. Grouping local lane demands and applying this
+node to the selected reference is a proposed adaptation, not exact reproduction
+of the unread gridlock chapter. No $p_r$ value is inferred from 40\%.
+
+\textbf{B: demand-proportional allocation.} Extend local IT to the mandatory node:
+\begin{equation}
+(f_r,f_m)=
+\begin{cases}
+(D_r,D_m),&D_r+D_m\le R,\\
+\displaystyle\frac{R}{D_r+D_m}(D_r,D_m),&D_r+D_m>R.
+\end{cases}
+\end{equation}
+No fixed share is introduced. Contested fractions change with demands. This
+extension is not a general-junction theorem from the 1997 paper.
+
+Both give $0\le f_j\le D_j$ and
+$f_r+f_m=\min(D_r+D_m,R)$. In (10)'s overloaded case,
+$R-D_m\le f_r\le D_r$ when the lower bound is positive, and
+$0\le f_r\le R$; hence $0\le R-f_r\le D_m$. In (11), the common multiplier
+is between zero and one. These are static algebraic checks, not traffic runs.
+
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$R$ & $D_m$ & $D_r$ & A: $f_m,f_r$ & B: $f_m,f_r$\\
+\midrule
+100 & 90 & 90 & 70,\ 30 & 50,\ 50\\
+100 & 20 & 90 & 20,\ 80 & 18.18,\ 81.82\\
+100 & 90 & 10 & 90,\ 10 & 90,\ 10\\
+100 & 0 & 90 & 0,\ 90 & 0,\ 90\\
+0 & 90 & 90 & 0,\ 0 & 0,\ 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+Illustrative consistent rate units; A uses $p_r=0.30$ only for these examples.
+Proportional allocation can leave some mainline demand unserved although it
+is below A's fixed share. Both use all available receiving.
+
+\textbf{Recommendation and limits.} A has direct merge-specific primary support.
+B avoids a share parameter but assumes demand-based competition. Either needs
+adoption at S3-G2-N. Then qualify joined event/receiving timing, clearance,
+inactive equivalence, strong independent closures and actual rate leverage.
+No full-TST benefit, fine-state necessity, useful gradient or Stage 3 closure
+is established here.
+\end{document}
+

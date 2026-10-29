@@ -1,0 +1,102 @@
+{
+  "slides": 14,
+  "boilerplate": 2,
+  "substantive": 12,
+  "body_line_counts": [
+    {
+      "slide": 1,
+      "body_lines": 4,
+      "formula_lines": 0
+    },
+    {
+      "slide": 2,
+      "body_lines": 5,
+      "formula_lines": 0
+    },
+    {
+      "slide": 3,
+      "body_lines": 1,
+      "formula_lines": 0
+    },
+    {
+      "slide": 4,
+      "body_lines": 5,
+      "formula_lines": 0
+    },
+    {
+      "slide": 5,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 6,
+      "body_lines": 4,
+      "formula_lines": 2
+    },
+    {
+      "slide": 7,
+      "body_lines": 4,
+      "formula_lines": 0
+    },
+    {
+      "slide": 8,
+      "body_lines": 6,
+      "formula_lines": 2
+    },
+    {
+      "slide": 9,
+      "body_lines": 6,
+      "formula_lines": 0
+    },
+    {
+      "slide": 10,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 11,
+      "body_lines": 4,
+      "formula_lines": 4
+    },
+    {
+      "slide": 12,
+      "body_lines": 4,
+      "formula_lines": 0
+    },
+    {
+      "slide": 13,
+      "body_lines": 4,
+      "formula_lines": 2
+    },
+    {
+      "slide": 14,
+      "body_lines": 6,
+      "formula_lines": 0
+    }
+  ],
+  "grouped_diagrams_by_slide": [
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0
+  ],
+  "embedded_vector_assets": 5,
+  "font": "Calibri",
+  "title_points": 32,
+  "body_points": 18,
+  "white_background": true,
+  "xml_zip_and_relationship_checks": "PASS",
+  "source_paths": "PASS",
+  "layout_checks": "PASS",
+  "preview": "Pillow layout proof using DejaVu Sans; not Office rendering"
+}

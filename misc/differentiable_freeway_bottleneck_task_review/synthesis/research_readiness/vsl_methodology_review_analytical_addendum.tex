@@ -1,0 +1,150 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\head}[1]{\par\medskip\textbf{#1}\par}
+\begin{document}
+\begin{center}
+{\large\bfseries Joined VSL stack: analytical review addendum}\\[3pt]
+2026-10-21 --- JM1; no new traffic law or numerical experiment
+\end{center}
+
+\textbf{Meaning of the result.} The complete remaining-time objective is
+more than a formal infinite rollout with a conditional chain rule. For this
+fixed model it admits a common finite representation over the allowed
+advice interval and has rational formulas (ratios of polynomials in advice)
+between finitely many possible switching values. This does not make it globally smooth or establish
+a useful information or optimizer advantage.
+
+\head{1. Same model and assumptions}
+Use the unchanged
+\href{vsl_joined_candidate_contract_and_qualification.pdf}{joined contract},
+sections 1--7: fixed $N=10$ rows, continuous stocks $0\leq n_{i\ell}\leq J=15$,
+common FD, selected H budgets, normalized requests, positive equal nominal
+priorities, capped sharing, one forward fallback, and one-row forward or
+diagonal advancement. Final E can only merge into A's outlet. All movements
+use old stock. The initial cohort is independent of advice; there are no
+later arrivals or blocked downstream outlets. Advice is one constant
+$v\in I=[30,60]$ km/h, with the stated time/space bounds. Empty donors skip
+undefined ratios. The fixed member's preferences and budgets use finitely
+many rational formulas, comparisons and min/max branches.
+
+Let $h_i=N-i+1$, $M(n)=\sum_{i,\ell}n_{i\ell}$ and
+\begin{equation}
+ V(n)=\sum_{i,\ell}h_i n_{i\ell},\qquad
+ \eta=\Delta x\rho_c=15/4,\qquad c(v)=v\Delta t/\Delta x\in[1/2,1].
+ \label{eq:definitions}
+\end{equation}
+Here $V$ is mass-weighted remaining row count, not a speed. Every realized
+movement, including an exit, reduces $V$ by its mass.
+
+\head{2. The progress argument supplies a uniform finite prefix}
+Regard desired fractions $b$ as independent elements of their fixed compact
+allowed simplices, keeping terminal E-to-A compulsory. For an empty donor,
+any such $b$ represents the same zero requests. Define $\Gamma(n,b,v)$ as
+the sum of all realized boundary movement amounts in one update. The
+budget/allocation laws give
+\begin{equation}
+ V(n^+)=V(n)-\Gamma(n,b,v),\qquad M(n)\leq V(n)\leq NM(n).
+ \label{eq:progress}
+\end{equation}
+The expanded map $\Gamma$ is continuous in $(n,b,v)$: budgets and requests
+are continuous, capped sharing has unique continuous flow amounts at demand
+caps and zero supply, and fallback takes minima of continuous residuals.
+This statement does not assume continuity of the native incentive map $b(n)$.
+
+If $V>0$, take the furthest occupied row. Its downstream row is empty or
+is the free outlet. Each allowed destination there has positive receiving
+budget, each positive donor has positive sending, and its requests sum to
+that sending. Positive priorities therefore serve some positive mass.
+Hence $\Gamma>0$ whenever $V>0$, for every admissible $b$.
+
+On the compact set of physical stocks, allowed $b$, $v\in I$ and $V\geq\eta$,
+continuity and positivity give a minimum $\mu>0$. As $V$ has a finite uniform
+upper bound, \eqref{eq:progress} implies a finite common bound on steps to
+$V<\eta$, independently of the native branch sequence or advice. Then
+$M<\eta$; no inflow can undo this. The existing contract's free-tail proof
+applies: all requests are served, each donor advances $c(v)n_{i\ell}$, and
+the remaining value is exact. Choose one integer $K_*$ beyond this common
+entry bound. For every $v\in I$,
+\begin{equation}
+ \mathcal J(v)=\Delta t\sum_{k=0}^{K_*-1}M(n^k(v))
+              +\frac{\Delta x}{v}V(n^{K_*}(v)).
+ \label{eq:finite}
+\end{equation}
+No numerical estimate of $\mu$ or simulated trajectory is used here. This
+is an existence argument, not an efficient clearance algorithm or a claim
+of exact finite emptying.
+
+\newpage
+\head{3. Finite branch formulas imply regular advice intervals}
+Fix the admitted initial state. On a chosen branch, density lookahead is
+linear, incentive ratios are rational wherever evaluated, geometry terms
+are constant, H budgets are min/max choices of rational terms, and donor
+normalization is rational. For capped sharing, fix fully served requests
+$H$ and entitlement-limited requests $U$. In the constrained branch,
+\begin{equation}
+ \lambda=\frac{r-\sum_{a\in H}m_a}{|U|},\qquad
+ z_a=m_a\ (a\in H),\quad z_a=\lambda\ (a\in U),\quad |U|>0.
+ \label{eq:sharing}
+\end{equation}
+The unconstrained/zero cases have their explicit finite formulas. Fallback
+and stock updates preserve rationality. There are finitely many choices per
+update and $K_*$ is finite, so each candidate trace gives rational states,
+branch conditions and full value \eqref{eq:finite} as functions of $v$.
+
+Every nonidentically-zero rational comparison has finitely many roots and
+denominator zeros on $I$: its numerator and denominator are polynomials of
+finite degree. Identically zero comparisons are persistent ties, not an
+infinite collection of separate switches; undefined-ratio branches are
+excluded by their own conditions. Taking the finite union over candidate
+traces yields a finite exceptional set. On each remaining open interval,
+the selected formulas are fixed and $\mathcal J$ is rational with nonzero
+denominators, hence smooth. Values at exceptional points may jump or have
+unequal one-sided slopes. No global minimum-attainment claim follows.
+
+For such an interval, write the selected step formula as $F^{[k]}$ and
+$s^k=\partial n^k/\partial v$. The contract's derivative is justified:
+\begin{align}
+ s^0&=0,\qquad
+ s^{k+1}=F_n^{[k]}s^k+F_v^{[k]},\nonumber\\
+ \mathcal J_v&=\Delta t\sum_{k<K_*}\mathbf1^\top s^k
+       +\frac{\Delta x}{v}h^\top s^{K_*}
+       -\frac{\Delta x}{v^2}V(n^{K_*}). \label{eq:derivative}
+\end{align}
+The three value terms concern prefix traffic, residual-state sensitivity
+and direct residual travel time. A persistent state tie need not admit a
+global state Jacobian: the selected smooth formula along the advice curve
+is what is differentiated. Ordinary derivatives can still be zero. A finite
+partition need not be cheaply enumerable. No AD/FD verification, smoothing,
+continuous-time saltation or continuum-limit result is asserted.
+
+\head{4. A bounded negative information result in the free regime}
+If $M(n^0)<\eta$, the entire episode already lies in the exact-tail regime
+for every allowed $v$. Therefore
+\begin{equation}
+ \mathcal J(v,n^0)=\frac{\Delta x}{v}V(n^0),\qquad
+ \mathcal J_v=-\frac{\Delta x}{v^2}V(n^0).
+ \label{eq:free}
+\end{equation}
+For any nonempty cohort, maximum advice uniquely minimizes this expression.
+If two initializations share row totals but differ in lane allocation, they
+share $V$ and the whole objective for every advice. Hidden lane allocation
+then has zero action value. The empty cohort has zero value for all advice.
+
+The existing X/Z contrast has $M_0=38.25>\eta$ and therefore is not covered
+by this sufficient free-regime condition. Its different local services do
+not prove different full-objective optimum advice. Outside the free regime,
+fixed physical receiving/ceiling budgets and state-dependent preferences
+prevent treating advice as a universal time rescaling, but no general
+positive information-gap or maximum-advice dominance theorem is proved here.
+
+\textbf{Review boundary.} These are deductions from the selected finite,
+closed-cohort member. Continuing inflow, blocked exits, changed action timing,
+heterogeneous-FD mapping or different traffic laws need their own qualification.
+No source calibration, numerical gradient correctness, optimizer advantage,
+physical transfer, full-lane necessity or discrete-order necessity follows.
+The earlier model and its equations remain unchanged.
+\end{document}

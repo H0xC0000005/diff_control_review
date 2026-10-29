@@ -1,0 +1,91 @@
+{
+  "static_verification": "passed",
+  "date": "2026-10-20",
+  "scientific_native_forward_status": "not admitted: literal printed receiving can force negative forward flow",
+  "scope_status": "first native-forward source/hand-reference check completed; full qualification incomplete at LF1",
+  "user_selected_route": "retain A/B lane-information question; qualify published lane backbone plus VSL sending component",
+  "LF1": "user-owned Type 2 choice: qualified allocator substitution versus backtracking to another native lane/VSL backbone",
+  "LF1_decision": "open; neither option executed",
+  "modified_existing_vsl_files": [
+    "README.md",
+    "extraction/research_readiness/vsl_published_backbone_sources.md",
+    "reporting/research_readiness/vsl_published_backbone_findings.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "added_vsl_files": [
+    "extraction/research_readiness/vsl_lane_backbone_source_audit.md",
+    "reporting/research_readiness/vsl_lane_backbone_build.log",
+    "reporting/research_readiness/vsl_lane_backbone_qualification.md",
+    "reporting/research_readiness/vsl_lane_backbone_validation.json",
+    "reporting/research_readiness/vsl_lane_backbone_work_report.md",
+    "synthesis/research_readiness/vsl_lane_backbone_flow_checks.pdf",
+    "synthesis/research_readiness/vsl_lane_backbone_flow_checks.tex"
+  ],
+  "deleted_files": [],
+  "protected_existing_vsl_files_unchanged": 510,
+  "root_project_files_unchanged": [
+    "AGENTS.md",
+    "PLANS.md",
+    "PROJECT_CONTEXT.md",
+    "memo.txt"
+  ],
+  "feedback_files_unchanged": 8,
+  "local_links_checked": 381,
+  "link_errors": [],
+  "pdf_pages": 2,
+  "pdf_checks": "text extraction, content/reference presence and clean build log; no raster visual inspection",
+  "latex_warnings": [],
+  "latex_body_font_pt": 10,
+  "pdf_sha256": "c96660ab6c3b91c9362f39811d1c521d704725fc22ca4b0f8b5c75fa3d60260f",
+  "protected_artifact_hashes": {
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf": "5c7e81bb15d2b64b3094926c0c153775eae8ba08b62213a776428d85a5dde960",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex": "3415847b5fb39032d6985e998e00920fbd7520ab856222a9cec67a3c05703319",
+    "reporting/research_readiness/vsl_step4_scope_closure_response.md": "503bb7a315cc373c08071575be2c2d591d9f8410dbee287c2e49547bb43f9e24",
+    "reporting/research_readiness/vsl_as3_step3_consistency_audit.md": "a3ae5ba7a65bbb13768e0228e22a1ca8608c706cf40bca0da049fb0aa8f84adb",
+    "archive/full_text/FB0030.pdf": "05f8998666dd663c8521eede6ce225f269c0b4bd951e61507734802bae38d88a"
+  },
+  "exact_reference_arithmetic": {
+    "status": "passed",
+    "kind": "exact arithmetic for two static source-equation deductions",
+    "receiver_fraction_lower": "17/18",
+    "receiver_lateral_lower_veh_per_h": "2125",
+    "receiver_adjusted_supply_upper_veh_per_h": "-1925",
+    "donor_fraction_each_lower": "12/17",
+    "donor_lateral_total_lower_veh_per_h": "43200/17",
+    "donor_summed_adjusted_demand_upper_veh_per_h": "-12600/17",
+    "cfl_number": "1",
+    "traffic_rollout_or_gradient_experiment": false
+  },
+  "environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "latex": "pdfTeX 3.141592653-2.6-1.40.25, TeX Live 2023/Debian"
+  },
+  "thesis": {
+    "location": "/tmp/vsl_lane_backbone_qualification/Lane_specific_Traffic_Flow_Control_Repository.pdf",
+    "sha256": "cb388f2a088126ead2214f5398a5d22bf72b81ce3462fd92769e1afd9e7ead71",
+    "pages": 189,
+    "selected_pages_read": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      64,
+      65
+    ],
+    "fetch": "public institutional PDF; minimum network escalation after sandbox DNS failure"
+  },
+  "source_equations_repaired_or_new_allocator_selected": false,
+  "native_alternative_backbone_review_executed": false,
+  "new_full_paper_archives_in_repository": false,
+  "dependency_install_simulator_code_traffic_gradient_sumo_or_optimization_experiment": false,
+  "urban_files_written_by_this_task": false,
+  "agent_launch_or_external_message": false,
+  "vsl_step4": "closed, preserved",
+  "historical_step3_acceptance": "unchanged",
+  "snapshot": "/tmp/vsl_lane_backbone_qualification/before.json",
+  "command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_lane_backbone_qualification/checks.py"
+}

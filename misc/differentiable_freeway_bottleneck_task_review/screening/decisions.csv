@@ -1,0 +1,22 @@
+source_id,decision,reason
+FB0001,include,strong aggregate task-specific F1 baseline
+FB0002,include,direct VSL gradient predecessor
+FB0003,include,macroscopic compliance representation
+FB0004,include-boundary,lane interaction evidence but includes F5 action
+FB0005,include,field advisory and compliance evidence
+FB0006,include,temporary blockage and recovery evidence
+FB0007,include-boundary,macroscopic mixed-flow model but direct CAV actuator
+FB0008,include,strong fair feedback F2 comparator
+FB0009,include,strong aggregate/data-driven F2 comparator
+FB0010,include-boundary,richer evaluator and entanglement warning
+FB0011,include,official lane-closure VSL guidance
+FB0012,include,official ramp constraints
+FB0013,discovery-only,abstract insufficient and not decision-critical
+FB0014,supporting,different direct-CAV actuator
+FB0015,supporting,capacity context without resolution comparison
+FB0017,discovery-only,abstract and crowded control family
+FB0018,exclude-primary,F5 discrete maneuver boundary
+RM0024,include,reused direct F2 derivative baseline
+RM0025,include,reused multiclass derivative baseline
+RM0026,supporting-only,evidence depth not upgraded
+SEO2026,include-method,general differentiability only; different task

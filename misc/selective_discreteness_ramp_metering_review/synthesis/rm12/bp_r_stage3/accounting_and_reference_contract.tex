@@ -1,0 +1,174 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\emergencystretch=2em
+\newcommand{\TST}{\operatorname{TST}}
+\begin{document}
+\begin{center}
+{\Large BP-R Stage 3: accounting and reference contract}\\[4pt]
+6 October 2026 --- reference and upstream-admission A selected; source laws pending
+\end{center}
+
+\textbf{Purpose.} Explain the shared conservative accounting and the difference
+between traffic quantity and disturbance-event metadata. These identities do not
+adopt a traffic law, prove control leverage or validate gradients. The proposed
+task has one local controlled ramp and the same open-loop rate permissions in
+every independently evolving model.
+
+\section*{1. Count each part of the population once}
+Let $\mathcal C$ be the disjoint road/ramp cells or lane segments, with $n_c(t)$
+their continuous vehicle-equivalent inventories. Let $q_e(t)$ denote waiting
+upstream of a full modeled entrance $e$. Physical ramp approach traffic belongs
+to $\mathcal C$; do not also count it as external waiting. If a point queue is
+used instead of a physical approach, it replaces that approach inventory.
+
+For offered external arrival rate $\lambda_e$, actual entrance rate $b_e$, sink
+exit rate $z_c$, and conservative internal transfer rate $f_{cd}$:
+\begin{align}
+\dot q_e &= \lambda_e-b_e, \label{queue}\\
+\dot n_c &= b_c+\sum_{d} f_{dc}-\sum_d f_{cd}-z_c. \label{cells}
+\end{align}
+Here $b_c$ sums external admissions into cell $c$; only the actual sink cells
+have $z_c>0$. Longitudinal, lateral and merge transfers are all internal $f$'s.
+Their debits and credits cancel in the population sum. Storage and receiving
+restrict admissible flows; they do not delete unserved offered demand.
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Quantity & Units\\\midrule
+$n_c,q_e,M,N^{\rm arr},N^{\rm exit}$ & vehicle equivalents\\
+$\lambda_e,b_e,f_{cd},z_c,r$ & vehicle equivalents/second\\
+Density, speed, acceleration & veh/m, m/s, m/s$^2$\\
+$\TST$ & vehicle-equivalent seconds\\\bottomrule
+\end{tabular}
+\end{center}
+
+Define total present population and cumulative arrivals/exits:
+\begin{align}
+M(t)&=\sum_c n_c(t)+\sum_e q_e(t),\\
+\dot M(t)&=\Lambda(t)-Z(t),\qquad
+\Lambda=\sum_e\lambda_e,\quad Z=\sum_c z_c,\\
+M(t)&=M_0+N^{\rm arr}(t)-N^{\rm exit}(t). \label{mass}
+\end{align}
+The sums involve actual continuous traffic mass, not the number of disturbance
+descriptors. Counting a descriptor as extra traffic after its mass is already
+in the fluid would violate \eqref{mass}.
+
+\newpage
+\section*{2. Complete system time is the area of present traffic}
+For a finite offered population, with arrivals ending at $T_a$, define
+\begin{equation}
+M_{\rm pop}=M_0+\int_0^{T_a}\Lambda(t)\,dt,\qquad
+\TST=\int_0^{\infty} M(t)\,dt,\qquad
+J=\TST/M_{\rm pop}. \label{tst}
+\end{equation}
+$J$ is mean remaining system time from the declared start, including waiting
+before admission. Initially present traffic contributes its remaining time;
+unobserved pre-start time is not reconstructed. Normalization is optional and
+does not change action rankings when $M_{\rm pop}$ is common.
+
+Why \eqref{tst}? Each infinitesimal unit of mass contributes one unit of inventory
+at every instant between its offered arrival and final exit. Integrating these
+contributions over time counts exactly its system time. Summing first over
+traffic or first over time gives the same nonnegative area. No additional merge
+work or recovery penalty is part of this objective: a physical disturbance
+affects \emph{when traffic exits}, hence the inventory area.
+
+Integrating \eqref{mass} on a finite horizon and changing integration order gives
+\begin{equation}
+\TST_T=M_0T+\int_0^T(T-s)\,[\Lambda(s)-Z(s)]\,ds. \label{weighted}
+\end{equation}
+The weights $T-s$ show why total exits at the endpoint are insufficient. For two
+actions $r_a,r_b$ with the same initial mass and offered arrivals:
+\begin{equation}
+\TST_T[r_b]-\TST_T[r_a]
+=-\int_0^T\bigl(N^{\rm exit}_{b}(t)-N^{\rm exit}_{a}(t)\bigr)\,dt. \label{delta}
+\end{equation}
+If the full inventory integrals are finite, take the limit $T\to\infty$.
+Identical full exit histories imply identical TST even if waiting shifts between
+the ramp, freeway and entrance. Equal eventual exit totals do not imply equal
+exit histories or equal TST.
+
+\textbf{Accounting example, not a freeway witness.} Ten units present initially,
+all exiting at 60 s or at 120 s, give the same eventual exit count but respectively
+600 and 1200 vehicle-equivalent seconds. This is an area identity, not evidence
+of a feasible ramp mechanism or a claimed control benefit.
+
+\textbf{Clearing tail.} After the decision horizon, every model uses the same
+declared draining policy and remaining forcing. If exact emptying occurs, the
+integral ends there. Some conservative discretizations empty only asymptotically:
+then bound the omitted tail instead of requiring a fabricated exact-zero state.
+For example, a justified bound $M(t)\le B\exp[-\gamma(t-T)]$ for $t\ge T$,
+with $\gamma>0$, implies omitted area at most $B/\gamma$. This is a conditional
+error bound, \emph{not} a proposed exponential traffic or recovery law.
+Finite demand alone does not prove clearance if some traffic can remain blocked.
+
+\newpage
+\section*{3. Rate permission and disturbance creation are different maps}
+A permission $r(t)$ now limits admission to the finite KW ramp approach under
+approved S3-G2-M.A. It is not the realized ramp entry: propagation and receiving
+intervene. In a common time-bin accounting convention let $q_k$ be prior
+waiting mass, $a_k$ the offered mass available in the bin, $R^a_k$ approach
+receiving in veh/s and $\Delta t$ its duration. The work-conserving entrance
+interface admits continuous mass $B_k$:
+\begin{equation}
+B_k=\min\{q_k+a_k,\ r_k\Delta t,\ R^a_k\Delta t\},\qquad
+q_{k+1}=q_k+a_k-B_k. \label{admission}
+\end{equation}
+The approach receives exactly $B_k$; no mass is rounded. This transcribes the
+selected cap and availability contract, not a red/green launch law or the
+source's full numerical solver. Receiving uses the declared current state;
+the arrival-bin convention must be common to all models.
+At a point merge, write the joint admissible allocation abstractly as
+\begin{equation}
+(f_m,f_r)=\mathcal A(D_m,D_r,R;X),\qquad
+0\le f_m\le D_m,\quad 0\le f_r\le D_r,\quad f_m+f_r\le R. \label{node}
+\end{equation}
+$X$ is the declared current physical state; $D_m,D_r$ are demands and $R$ is
+shared receiving rate. The selected upstream cap applies to entrance release,
+not automatically to delayed merge entry. Stored ramp traffic can enter above
+the contemporaneous entrance permission. No allocation formula,
+priority fraction or capacity reduction is selected by \eqref{node}.
+
+In the examined hybrid lineage, continuous lane-transfer intensities generate
+discrete accelerating obstruction events. For one movement, an illustrative
+deterministic cumulative convention has
+\begin{equation}
+\eta(t)=\eta_0+\int_0^t\phi(s)\,ds,\qquad
+K(t)=\lfloor\eta(t)\rfloor-\lfloor\eta_0\rfloor. \label{events}
+\end{equation}
+$\phi$ is actual lane-transfer intensity integrated over the movement's spatial
+support, in veh/s; $\eta$ is cumulative vehicle-equivalent transfer progress and
+$K$ counts unit-threshold disturbance births. At a point merge the relevant
+transfer is actual merge entry. The phase $\eta_0$ must be public if this convention
+is used. Equation \eqref{events} illustrates the working paper's deterministic
+option; it is \emph{not an adopted ramp actuator or a replacement conservation law}.
+
+A disturbance descriptor can retain target lane, birth time, position, speed
+and bounded-acceleration history. Its coupling constrains the surrounding flow.
+Creating one descriptor is not an instruction to replace \eqref{cells} with
+integer transfers. The source's exact mass ownership and coupling to moving
+constraints still require qualification. A fractional remainder cannot
+simply disappear, and fluid mass cannot be counted twice.
+
+\textbf{Sensitivity implication only.} Event times can move when rate changes
+move cumulative crossings, even while event count stays fixed. At crossings
+and changes of constraint topology, an ordinary smooth derivative is not assured.
+Differentiating sampled floor values alone may miss event-time effects. This
+flags Stage 4 work; no derivative formula, gradient estimator, smoothing or
+usefulness result is adopted here.
+
+\textbf{Sources and transfer status.} The continuous conservation and event lead
+comes from Laval--Daganzo's
+\href{https://escholarship.org/content/qt8w70q261/qt8w70q261.pdf}{2004 working paper,
+Sections 2--3}; the local merge lead is
+\href{https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/f/3571/files/2023/03/merges.pdf}{Laval--Cassidy--Daganzo's merge manuscript, Sections 2--4}.
+\href{https://horowitz.me.berkeley.edu/Publications_files/All_papers_numbered/80J_Gomes_TRC06.pdf}{Gomes--Horowitz 2006, Section 4}
+motivates the clearance qualification. Equations \eqref{queue}--\eqref{delta}
+are reviewer bookkeeping deductions under the inherited contract; the finite
+task and reference transfer have not been empirically validated.
+\end{document}

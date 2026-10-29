@@ -1,0 +1,238 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage{amsmath,booktabs,array,tabularx}
+\usepackage{cite,microtype}
+\renewcommand{\citepunct}{], [}
+\renewcommand{\citedash}{]--[}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={An established traffic backbone for an elementary VSL task},
+ pdfauthor={Differentiable traffic task review},
+ pdfsubject={Literature comparison and methodological findings; first draft}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.14}
+\newcommand{\head}[1]{\par\vspace{5pt}\noindent\textbf{#1}\par\nobreak\vspace{1pt}}
+\newenvironment{points}{\begin{list}{$\bullet$}{%
+ \setlength{\leftmargin}{1.3em}\setlength{\labelwidth}{0.6em}%
+ \setlength{\labelsep}{0.4em}\setlength{\itemsep}{2pt}%
+ \setlength{\parsep}{0pt}\setlength{\topsep}{2pt}}}{\end{list}}
+\begin{document}
+\begin{center}
+{\large\bfseries An established traffic backbone for an elementary VSL task}\\[3pt]
+Literature comparison, necessary adaptation and methodological findings\\[2pt]
+First draft --- 21 October 2026
+\end{center}
+\vspace{-3pt}
+
+\head{1. What a suitable backbone must provide}
+Can the intended information and gradient questions be studied using an
+established variable speed limit (VSL) model with very few changes? The
+motivation is to keep
+the traffic-model justification proportionate to an elementary verification
+of a computational method. A backbone should supply the traffic state and
+most evolution laws; simplicity concerns the assumptions and coupled rules
+we must author and justify, rather than the number of references cited.
+
+Consider a road with an ending lane E, its adjacent continuing lane A and a
+farther continuing lane B. Two initial states can have identical E traffic
+and identical combined A+B traffic at every road position, but different
+A/B splits. We ask whether that concealed split changes merging service,
+whether knowing it can improve a common speed decision, and whether complete
+travel-time sensitivity can guide that decision. These are separate claims.
+The objective is total system time, counting every initial unit until exit.
+A suitable task must conserve traffic and respect shared receiving space.
+Neither a plausible lane effect nor a differentiable formula establishes a
+control advantage.
+
+\head{2. What the closest published models offer}
+The inspected literature offers two substantive routes: use an aggregate
+VSL setting and ask about traffic location or history, or retain lane
+densities to ask specifically about A/B loading. Table~1 compares what each
+route already supplies and what our question would require.
+
+\begin{center}
+\textbf{Table 1. Published starting points and their fit to the question}\par
+\vspace{3pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.19\linewidth}
+ >{\raggedright\arraybackslash}p{0.37\linewidth}
+ >{\raggedright\arraybackslash}X@{}}
+\toprule
+Published model & What is already supplied & Direct finding for this review\\
+\midrule
+Jin and Jin~\cite{jinjin}
+& Spatial aggregate traffic and a link-average approximation; VSL entry
+control, threshold capacity drop and upstream holding queues.
+& The simplest inspected route if the hidden information is \emph{where}
+traffic lies along the road. It has no A/B lane split; its discharge switch
+still needs sensitivity qualification.\\[4pt]
+Wei, Han and Wang~\cite{wei}
+& Link traffic with entry/speed history, interacting speed cohorts and
+capacity drop; advice acts on entering traffic.
+& A serious history-aware aggregate alternative. Its native state omits
+A/B loading, and its action timing differs from common advice throughout
+our road.\\[4pt]
+Nagalur Subraveti et al.~\cite{ns}
+& Densities in successive lane cells, lane-change incentives and a lane-drop
+application; congestion dynamics draw on Han et al.~\cite{han16}.
+& Best fit among the inspected lane backbones for retaining the A/B question.
+Add the VSL sending restriction~\cite{han17} and explicitly qualify movement
+realization; direct source transcription is insufficient.\\[4pt]
+Carey et al.~\cite{carey}
+& Multilane cell transmission, intended lane changes, mandatory movements
+and receiving-allocation alternatives.
+& Useful support for conservative receiving and fallback rules. As the main
+backbone, more of the VSL and permanent lane-end task would need specifying.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Jin and Jin therefore offer a genuine simplification, with a different
+information contrast: equal total traffic can be distributed differently
+along a road. A fair information study would use the same spatial traffic
+model with different observations. Comparing their spatial and link-average
+simulators would also change the dynamics. Likewise, lawful inference from
+aggregate history must be admitted; aggregate models should not be reduced
+to an arbitrary equal-lane guess.
+
+For the chosen lane-loading question, the Subraveti framework supplies both
+the missing state and reasons to redistribute it, including approaching the
+lane end, density differences, keep-right behavior and cooperation. Its
+Han lineage supplies a compatible starting point for congestion and VSL
+budgets~\cite{han16,han17}. This is a bounded comparison of inspected methods,
+not a proof that no simpler native model exists. The remaining issue is
+whether the lane framework can be completed with a limited, explicit change.
+
+\newpage
+\head{3. How the selected model is completed}
+\textbf{Concrete task and assumptions.}
+The elementary member has ten 100\,m road sections, six-second updates and a
+permanent three-to-two lane drop. A finite cohort is initialized inside the
+road, independently of one constant common advice of 30--60\,km/h. There
+are no later arrivals; crossing the common free A/B outlet line completes
+a trip. E, A and B denote current lane stocks: early E-to-A traffic becomes
+ordinary A traffic. The root assumptions are:
+\begin{points}
+\item Continuous mass, fixed geometry and a common lane flow--density law;
+the time step respects sending and backward-wave storage bounds.
+\item Local movements use pre-update traffic and space, advance one section,
+and are applied simultaneously. New arrivals or freed space are not reused
+within the same update.
+\item Equal positive nominal priorities and unit receiving-space consumption
+per unit of traffic; merging has no additional headway multiplier.
+\end{points}
+
+\textbf{Retained and adapted ingredients.}\par
+Lane-density preferences retain the Subraveti framework~\cite{ns}; its
+same-author thesis clarifies density lookahead~\cite{thesis}. Full Han
+budgets bound available traffic and receiving service, with advice capping
+sending~\cite{han16,han17}. Thus advice influences later merge service
+through evolving traffic states. It does not directly prescribe a merge
+fraction or change nominal priorities. Finite-domain, empty-lane and traffic-mode
+conventions are specified explicitly for this member.
+
+\textbf{The substantive replacement is movement realization.}
+Review hand cases exposed donor/receiver budget conflicts in direct
+transcription of the displayed native coupling; these are not claims about
+recovered author code. The selected composition first normalizes all a lane's
+requests against its one sending allowance. Requests into a destination
+then share its one receiving allowance: small requests are satisfied, with
+unused entitlement redistributed. Remaining traffic gets one opportunity
+to continue in its own lane. At E's end there is no forward escape: it
+enters A's outlet or waits. This adapts Carey receiving/fallback principles
+and Wright priority sharing~\cite{carey,wright}. The complete composition is
+ours; changing lane also advances traffic into the next road section.
+
+Every realized transfer spends one donor budget and one receiver budget.
+Subtracting and adding that same mass preserves conservation, while the
+old-space bound protects storage. These joins make a complete model without
+adding another physical mechanism. They do not imply maximum throughput,
+equivalent congestion waves or inherited calibration. Calling this one
+replacement component does not remove its assumptions. The closed-cohort,
+one-advice comparison is also our task design, not an unchanged published
+benchmark. The \href{vsl_joined_candidate_contract_and_qualification.pdf}{companion formulation}
+retains the complete equations and hand cases.
+
+\head{4. Recommendation and what the evidence establishes}
+\textbf{Complete accounting and qualified sensitivity are established
+analytically.} Under these assumptions, positive service and free outlets
+eventually bring the cohort into an unconstrained regime. Remaining mass
+need not become exactly zero in finite time: its distance to the exit gives
+an exact remaining total system time. Consequently the objective counts
+the full trip rather than discarding a small residual. For the fixed finite
+model, the complete objective has smooth rational formulas between finitely
+many possible advice switches. Its derivative includes earlier traffic
+changes, residual-state changes and the direct residual travel-time effect.
+At switches, jumps or unequal slopes may remain; derivatives can also be zero.
+This is a fixed-step analytical result, not numerical gradient verification.
+
+\textbf{Lane information changes service; its control benefit is unproved.}
+The reviewed A/B pair has the same E and A+B profiles but different actual
+merge service and exit flow. Advice is chosen before that informative
+discharge; no identical hidden prehistory is asserted. The reduced observation loses predictive
+information under this model. One extra A density in the last road section
+identifies that pair completely, so it proves no need for all lane fields
+or discrete order. Nor does different service establish different optimal
+advice. In the sufficient small-cohort regime where all movements remain
+unconstrained, equal traffic at each road position gives identical full
+costs: maximum advice is optimal and lane information has zero action value.
+The congested diagnostic lies outside that regime; its action gap is open.
+
+\textbf{The resulting recommendation is conditional.}
+Use the published lane framework, its congestion/VSL lineage and the explicit
+movement replacement as a candidate for the selected information question.
+Keep a model-aware E+(A+B) observer, the sufficient one-scalar augmentation,
+maximum advice and equal-information scalar search as strong comparisons.
+They separate information value from optimizer value. The thesis omits
+bounded lane-change acceleration~\cite{thesis}; no earlier slow-entry/recovery
+explanation or positive-action certificate transfers. Numerical correctness,
+physical fidelity and useful-gradient performance remain future evidence.
+The review establishes a coherent route with visible adaptation costs;
+it does not establish that this route is globally simplest or best.
+
+\typeout{REVIEW-MAIN-END-PAGE: \thepage}
+\clearpage
+\makeatletter
+\renewcommand{\section}{\@ifstar{\head}{\head}}
+\makeatother
+\begin{thebibliography}{8}
+\setlength{\itemsep}{4pt}\setlength{\parskip}{0pt}
+\bibitem{jinjin} H.-Y. Jin and W.-L. Jin, ``Control of a lane-drop bottleneck
+through variable speed limits,'' arXiv:1310.2658, 2013 (archived manuscript
+dated Oct. 29, 2018). [Online]. Available:
+\url{https://arxiv.org/abs/1310.2658}.
+\bibitem{wei} L. Wei, Y. Han, and M. Wang, ``A first-order link-based flow
+model with variable speed limits and capacity drops for freeway networks,''
+\emph{Comput.-Aided Civ. Infrastruct. Eng.}, vol.~40, no.~21,
+pp.~3200--3217, 2025, doi:
+\href{https://doi.org/10.1111/mice.13492}{10.1111/mice.13492}.
+\bibitem{ns} H.~H.~S. Nagalur Subraveti, V.~L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model---an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B, Transp.
+Dyn.}, vol.~7, no.~1, pp.~1758--1779, 2019 (archived article header: 2020),
+doi: \href{https://doi.org/10.1080/21680566.2019.1700846}{10.1080/21680566.2019.1700846}.
+\bibitem{han16} Y. Han, Y. Yuan, A. Hegyi, and S.~P. Hoogendoorn,
+``New extended discrete first-order model to reproduce propagation of jam
+waves,'' \emph{Transp. Res. Rec.}, vol.~2560, pp.~108--118, 2016, doi:
+\href{https://doi.org/10.3141/2560-12}{10.3141/2560-12}.
+\bibitem{han17} Y. Han, A. Hegyi, Y. Yuan, S. Hoogendoorn,
+M. Papageorgiou, and C. Roncoli, ``Resolving freeway jam waves by discrete
+first-order model-based predictive control of variable speed limits,''
+\emph{Transp. Res. C, Emerg. Technol.}, vol.~77, pp.~405--420, 2017, doi:
+\href{https://doi.org/10.1016/j.trc.2017.02.009}{10.1016/j.trc.2017.02.009}.
+\bibitem{carey} M. Carey, C. Balijepalli, and D. Watling, ``Extending the
+cell transmission model to multiple lanes and lane-changing,''
+\emph{Netw. Spat. Econ.}, vol.~15, pp.~507--535, 2015, doi:
+\href{https://doi.org/10.1007/s11067-013-9193-7}{10.1007/s11067-013-9193-7}.
+\bibitem{thesis} H.~H.~S. Nagalur Subraveti, \emph{Lane-specific Traffic
+Flow Control}, Ph.D. dissertation, Delft Univ. Technol., Delft, The
+Netherlands, 2021, ch.~4, doi:
+\href{https://doi.org/10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9}{10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9}.
+\bibitem{wright} M.~A. Wright, G. Gomes, R. Horowitz, and
+A.~A. Kurzhanskiy, ``On node models for high-dimensional road networks,''
+\emph{Transp. Res. B, Methodol.}, vol.~105, pp.~212--234, 2017, doi:
+\href{https://doi.org/10.1016/j.trb.2017.09.001}{10.1016/j.trb.2017.09.001}.
+\end{thebibliography}
+\end{document}

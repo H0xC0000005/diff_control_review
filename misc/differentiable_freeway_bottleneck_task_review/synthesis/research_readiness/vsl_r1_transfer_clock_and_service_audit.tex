@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\setlength{\emergencystretch}{2em}
+\newcommand{\ve}{\mathrm{veh\mbox{-}eq}}
+\newcommand{\dd}{\mathrm{d}}
+\title{VSL-R1: What Makes Extra Preparation Time Useful?\\[0.25em]
+\large Conditional transfer-clock and receiving audit}
+\author{Method-first task-definition review}
+\date{12 October 2026}
+\begin{document}
+\maketitle
+\vspace{-1em}
+
+\textbf{Status and purpose.} These are analytical audit deductions, with no
+simulation or new primary traffic law adopted. S13 remains the accepted
+conditional reference. The audit stops at gate VSL-R1-G1 because a fixed
+physical-time transfer rate and a flow/distance-coupled transfer are different
+models under common-speed control.
+
+\section*{1. The marginal benefit the inherited task needs}
+Keep S13's fixed affected mass $M>0$ in $\ve$, zone length $L>0$ in metres,
+common realized speed $v>0$ in $\mathrm{m/s}$, receiving-work factor
+$\alpha>1$ and work rate $\mu>0$ in normalized $\ve/\mathrm{s}$.
+The ideal traversal time is $\tau=L/v$. Let $E(v)$ be the mass remaining in
+the ending lane at the choke. Conditional on the \emph{same proportional
+batch-service law}, the mean complete time is
+\begin{equation}
+ J(v)=\frac{L}{v}+\frac{M}{2\mu}+aE(v),
+ \qquad a=\frac{\alpha-1}{2\mu}.
+ \label{eq:objective}
+\end{equation}
+$J$ is seconds; $a$ has units $\mathrm{s}/\ve$. Total time is $F=MJ$,
+in $\ve\,\mathrm{s}$. Consequently, in a smooth branch,
+\begin{equation}
+ J'(v)=-\frac{L}{v^2}+aE'(v).
+ \label{eq:marginal}
+\end{equation}
+A small feasible slowdown $\delta v<0$ improves $J$ to first order only if
+\begin{equation}
+ J'(v)>0\quad\Longleftrightarrow\quad
+ aE'(v)>\frac{L}{v^2}.
+ \label{eq:criterion}
+\end{equation}
+The first term is the added travel time everyone pays. The second is the
+reduction in mean service burden under this particular allocation. Finite
+receiving and positive lateral transfers alone do not establish the inequality.
+At the fastest bound the slowdown is feasible; an increase beyond the bound
+is not. Equality gives no first-order conclusion.
+
+This expression must not be reused unchanged if preparation interaction delay,
+arrival chronology, receiving or allocation is altered. Those changes require
+their own complete departure-time accounting. The fixed coefficient $a$ is
+not a source-independent service identity.
+
+\newpage
+\section*{2. Holding a time rate fixed is a scientific assumption}
+For a diagnostic, suppose a nonbinding, prescribed-motion preparation uses a
+fractional completion rate $\lambda(v)>0$ in $\mathrm{s}^{-1}$, constant along
+one traversal at a fixed action. With initial ending mass $E_0=pM$,
+\begin{equation}
+ E(v)=E_0\exp\!\left[-\lambda(v)\frac{L}{v}\right].
+ \label{eq:rate}
+\end{equation}
+This diagnostic family is \textbf{not adopted as a new traffic model}.
+It exposes what a source-to-reduction argument would have to justify. Direct
+differentiation gives
+\begin{align}
+ E'(v)&=\frac{LE(v)}{v^2}
+          \bigl[\lambda(v)-v\lambda'(v)\bigr],\label{eq:rategrad}\\
+ J'(v)&=\frac{L}{v^2}
+       \left[-1+aE(v)\bigl(\lambda(v)-v\lambda'(v)\bigr)\right].
+ \label{eq:joinedgrad}
+\end{align}
+The speed dependence of the rate matters as much as its positive value.
+
+\textbf{Inherited S13 clock.} Hold the physical-time rate fixed:
+$\lambda(v)=\lambda_0>0$. Then
+\begin{equation}
+ E(v)=E_0e^{-\lambda_0L/v},\qquad
+ J'(v)=\frac{L}{v^2}\bigl[-1+a\lambda_0E(v)\bigr].
+ \label{eq:s13}
+\end{equation}
+This restates the accepted sensitivity and its conditional improving regime.
+
+\textbf{Speed-scaled countercase.} Hold a per-distance completion coefficient
+$\beta>0$ in $\mathrm{m}^{-1}$ fixed, so $\lambda(v)=\beta v$. Then
+\begin{equation}
+ E(v)=E_0e^{-\beta L},\qquad E'(v)=0,\qquad
+ J'(v)=-L/v^2<0.
+ \label{eq:spatial}
+\end{equation}
+Longer residence is exactly offset by a smaller per-time rate. Under the
+inherited service law, fastest speed is best for every preparation even though
+conservative merging and extra receiving work remain present.
+
+\textbf{Source connection and limit.} FB0030's equation 14 makes desired
+lateral flow a fraction of sending demand; its free-flow sending branch
+(equation 13) contains speed times density. That motivates checking rate scaling.
+Equation~\eqref{eq:spatial} is an original conditional diagnostic, not a
+continuum derivation or VSL prediction of the full native two-step model.
+Density, incentives, receiving and cooperation may break this scaling.
+Carey's location-based desire likewise is not a prescribed realized-completion
+schedule. Neither source identifies $\lambda'(v)=0$ for this task.
+
+\newpage
+\section*{3. Conditional receiving reduction behind batch co-clearance}
+The audited Carey R2 allocation uses gap-weighted receiving demands. Here we
+project that interpretation onto two simultaneously available queues, rather
+than claiming to reproduce the source's spatial update system.
+
+At the start of service let $e(0)=E$, $c(0)=M-E$. For remaining masses $c,e$,
+assume constant work rate $\mu$, unit work for continuing mass and $\alpha$
+work for ending mass. All demand is exposed, with no other binding constraint.
+Proportional allocation to work demands $c$ and $\alpha e$ gives
+\begin{equation}
+ \dot c=-\frac{\mu c}{c+\alpha e},\qquad
+ \dot e=-\frac{\mu e}{c+\alpha e},
+ \qquad c+e>0.
+ \label{eq:allocation}
+\end{equation}
+For positive classes their ratio is invariant; zero classes remain zero.
+Writing $B=c+e$, $f=E/M$ and $\overline w=1+(\alpha-1)f$ yields
+\begin{equation}
+ c+\alpha e=\overline w B,\qquad
+ \dot B=-\mu/\overline w,\qquad
+ T=\frac{\overline w M}{\mu}=\frac{M+(\alpha-1)E}{\mu}.
+ \label{eq:linear}
+\end{equation}
+Thus, for $0\le u\le T$,
+\begin{equation}
+ B(u)=M(1-u/T),\qquad
+ \int_0^T B(u)\,\dd u=\frac{MT}{2}.
+ \label{eq:area}
+\end{equation}
+Service stops at $B=0$; the quotient is not evaluated there. Work is consumed
+at rate $\mu$, and discharged traffic is the removed mass, not the work.
+Including the common preparation traversal gives $F=M\tau+MT/2$, as in S13.
+
+This is a coherent conditional resource model. It requires a simultaneous
+batch, constant accessible receiving, the stated allocation and no independent
+donor/sending limitation. A spatial CTM generally does not present its entire
+population as those two queue demands. Sharing a target cell is also different
+from assuming both continuing lanes offer one accessible resource.
+
+\textbf{Preparation receiving.} Nonbinding preparation is a separate regime
+assumption. A lane change can consume receiving space without adding travel
+delay when that resource has slack, but that slack must be established over the
+action range. Slower motion can change density and slack. The choke projection
+does not provide such a regime bound or a physical-time completion law.
+
+\textbf{Information and gate.} $E_0$ alone still reproduces the inherited
+grouped model under its fixed law. No future reference $E(v)$ is supplied.
+Native receiving-limited extensions may need adjacent-lane state; none is
+selected here. VSL-R1-G1 concerns retaining an explicit conditional benchmark
+versus amending its primary preparation/receiving contract. Independent useful
+traffic gradients, calibration and implementation checks remain unestablished.
+
+\end{document}

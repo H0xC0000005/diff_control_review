@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "scope": "Current source/access/approval/link/CSV/PDF integrity only; no traffic or gradient validation",
+  "documents_checked": 16,
+  "local_links_checked": 184,
+  "queries": 6,
+  "batches": 2,
+  "source_records": 7,
+  "new_bibliographic_leads": 2,
+  "newly_obtained_full_method_sources": 0,
+  "historical_inventories_preserved": {
+    "search/rm12_bp_r_stage3_query_log.csv": 4,
+    "screening/rm12_bp_r_stage3_records.csv": 7,
+    "search/rm12_bp_r_stage3_A_qualification_query_log.csv": 10,
+    "screening/rm12_bp_r_stage3_A_qualification_records.csv": 7,
+    "search/rm12_bp_r_stage3_meter_clarification_log.csv": 2,
+    "screening/rm12_bp_r_stage3_meter_clarification_records.csv": 3
+  },
+  "reference_route": "S3-G2.A approved",
+  "meter_boundary": "S3-G2-M.A approved",
+  "next_checkpoint": "S3-E1.C-ACCESS: original motion/allocation source input",
+  "local_admission_accounting_transcribed": true,
+  "joined_source_law_frozen": false,
+  "stage_3_complete": false,
+  "stage_4_opened": false,
+  "source_access": {
+    "thesis_sandbox_download": "DNS failed",
+    "same_escalated_download": "HTTP 403"
+  },
+  "pdf_pages": 3,
+  "pdf_bytes": 158393,
+  "pdf_sha256": "333e008ef99a0e7526bfc4bf43726e7831fb5bc3d9eae12a48d50b2a2eb099fd",
+  "pdf_raster_preview": false,
+  "latex_warnings": [],
+  "simulations_run": 0,
+  "numerical_derivatives_run": 0,
+  "production_changed": false,
+  "failures": []
+}

@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-14",
+  "status": "passed",
+  "step2_status": "Approved and closed; exact primary mathematical artifacts unchanged",
+  "step3_status": "Opened and executed to VSL-S3-G1 independent-reference choice; protocol remains draft",
+  "reference_status": "R-M and R-C unselected; neither evaluator admitted",
+  "step4_status": "not opened",
+  "checked_artifacts": [
+    "README.md",
+    "vsl_successor_00_opening_plan.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_t1_joined_model_and_gate.md",
+    "reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "reporting/research_readiness/vsl_b2_p1_joined_service_review_plan.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md",
+    "reporting/research_readiness/vsl_step2_model_closure.md",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md",
+    "reporting/research_readiness/vsl_step3_work_report.md",
+    "reporting/research_readiness/vsl_step3_validation.json",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md",
+    "synthesis/research_readiness/vsl_step3_information_and_sensitivity.tex",
+    "synthesis/research_readiness/vsl_step3_information_and_sensitivity.pdf",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.tex",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf"
+  ],
+  "local_markdown_links_checked": 315,
+  "markdown_anchors_checked": 14,
+  "failures": [],
+  "approved_primary_artifact_hashes": {
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "exact_reference_checks": {
+    "prefix_bounds": {
+      "lower_ending": {
+        "total_density": "6/5",
+        "initial_ending_density": "3/5",
+        "prefix_ending_upper_bound": "4/5",
+        "prefix_adjacent_lower_bound": "1/10",
+        "prefix_normalized_work_upper_bound": "17/10"
+      },
+      "higher_ending": {
+        "total_density": "6/5",
+        "initial_ending_density": "7/10",
+        "prefix_ending_upper_bound": "14/15",
+        "prefix_adjacent_lower_bound": "1/60",
+        "prefix_normalized_work_upper_bound": "113/60"
+      }
+    },
+    "fast_front_high": "125/352",
+    "slow_front_high": "7/20",
+    "fast_front_low": "3/10",
+    "high_front_speed_derivative_coefficient": "225/7744",
+    "normalized_service_branch_threshold_speed": "18/11",
+    "sustained_queue_work_factor_bound": "17/3",
+    "small_work_monotonicity_bound_coefficients": {
+      "timing_upper_bound": "-1/32",
+      "preparation_upper_bound": "1/128",
+      "total_upper_bound": "-3/128"
+    },
+    "complete_TST_Laurent_rearrangement": "passed exact coefficient equality; no alpha value evaluated",
+    "mathematical_proofs": "History equality, action certificate, small-work monotonicity and general sensitivity are analytical proofs in PDF; no traffic or AD experiment"
+  },
+  "pdf": {
+    "pages": 6,
+    "bytes": 189805,
+    "sha256": "843b6b531fd150678064dfea2266d6a03f5ef0bc32b681f90e59f72814a46eae",
+    "tex_sha256": "13a51ba5d19d41f4141652b8f24dc506bd5e27b8a49994f7b57073c6883e09ee",
+    "parser": "pypdf 6.15.0",
+    "all_pages_text_extracted": true,
+    "page_text_character_counts": [
+      2529,
+      3043,
+      2132,
+      2769,
+      2764,
+      1820
+    ],
+    "equation_tags": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "latex_layout_or_reference_warnings": false,
+    "raster_visual_inspection": "not performed"
+  },
+  "traffic_experiments": "not performed",
+  "time_integration_or_trajectory_rollouts": "not performed",
+  "parameter_sweeps_or_optimizer_runs": "not performed",
+  "AD_or_finite_difference_traffic_tests": "not performed",
+  "dependencies_installed": "none",
+  "primary_model_equations_changed": false,
+  "user_feedback_modified": false,
+  "scientific_authorities_preserved": [
+    "S13",
+    "urban closure",
+    "ramp closure"
+  ],
+  "unrelated_root_edits_left_unchanged": [
+    "AGENTS.md",
+    "PLANS.md",
+    "memo.txt"
+  ]
+}

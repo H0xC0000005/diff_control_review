@@ -1,0 +1,285 @@
+\section{Local causal construction and derived positive service}
+\label{sec:local}
+\subsection{The moving cutoff does not require a positive old rate}
+Compare two histories $(g_i,u_i,Y_i)$ with identical past through $t_0$,
+$0\leq g_i\leq G:=R/c_0$ and bounded marks. For fixed $t>t_0$, put
+\begin{equation}
+ \epsilon=\sup_{s\leq t}|Y_1(s)-Y_2(s)|
+ \leq\int_{t_0}^t|g_1-g_2|\dd s,\qquad
+ |a_{m,1}(t)-a_{m,2}(t)|\leq\epsilon. \label{eq:cutoffdiff}
+\end{equation}
+In \eqref{eq:renewaltime}, first hold one indicator fixed. Bounded $D$
+and its mark Lipschitz constant give
+$R\int|\Delta g|+k_jG\int|\Delta u|$. Where the indicators differ,
+$|Y_2(s)-a_{m,2}(t)|\leq2\epsilon$. The $g_2\,ds$ mass in this rank
+band is at most $4\epsilon$, including any zero-rate plateaus. Hence
+\begin{equation}
+ |\Delta\loss(t)|\leq\frac1m\left(
+ 5R\int_{t_0}^t|\Delta g_E|\dd s+
+ k_jG\int_{t_0}^t|\Delta u_E|\dd s\right). \label{eq:volterra}
+\end{equation}
+The argument also covers recorded old mark jumps. It avoids differentiating
+a rank inverse or assuming an unphysical lower bound on E flow.
+
+On a valid selected node regime, \eqref{eq:rootderiv} and bounded $U'$
+on $[0,R]$ give local uniform Lipschitz constants $L_g,L_u$ for the E
+flow and its mark as functions of $\budget$. The budget map is 1-Lipschitz.
+On a sufficiently short interval with the same past,
+\begin{equation}
+ \|\Delta\mathcal T\budget\|_\infty
+ \leq\frac{\tau}{m}(5RL_g+k_jGL_u)\|\Delta\budget\|_\infty.
+ \label{eq:contraction}
+\end{equation}
+Choose the proof interval short enough for contraction and to remain in
+a valid chart. Bounded increments give causal construction and continuous
+dependence until its next guard. This is a proof device, not a simulator
+time step. It does not by itself establish the validity or uniqueness of
+every queue switch; Section~\ref{sec:global} joins the selected regimes.
+
+\subsection{Positive budget is a consequence, not an added floor}
+Admitted E rate obeys $g_E\leq G$. Since $D(\theta;u)\leq D(\theta;0)$
+decreases with age, the maximal possible account fills the youngest ages
+at rate $G$ up to mass $m$. Rearrangement gives
+\begin{equation}
+ \loss\leq p_{\max}:=\frac Gm\int_0^{m/G}D(\theta;0)\dd\theta<R,
+ \qquad\budget\geq B_{\min}:=R-p_{\max}>0. \label{eq:budgetfloor}
+\end{equation}
+Strictness follows from $a_r>0$, making $D(\theta;0)<R$ for positive
+age. The bound also holds before the window fills. It is common across
+advice at fixed parameters, but can be very small. Clipping in
+\eqref{eq:renewal} is inactive in this domain.
+
+From \eqref{eq:renewalupdate}, the retained mass is at most $m$, each
+boundary term is bounded by $GR/m$ and $|D_\theta|\leq a_rk_j$.
+Therefore the account is Lipschitz with
+\begin{equation}
+ |\dot\budget|\leq L_B:=2GR/m+a_rk_j\quad\hbox{a.e.}
+ \label{eq:budgetrate}
+\end{equation}
+This allows mark jumps at queue events. Also the renewal integrand is a
+subset of the nonnegative all-history additive integrand, so Tonelli gives
+\begin{equation}
+ \int_0^\infty\loss(t)\dd t\leq
+ \overline M_E W_0/m,\quad
+ \overline M_E=P_E(L/v)\leq M,\quad W_0=W(0).
+ \label{eq:integratedloss}
+\end{equation}
+It is a bound, not adoption of the additive rival.
+
+\subsection{Two retained limits}
+For a constant free A offer $a<R$, $g_E\leq(\budget-a)/c_0$ and
+\eqref{eq:renewalupdate} gives $\dot\loss\leq Rg_E/m$. With
+$x=\budget-a$, $\dot x\geq-Rx/(mc_0)$, hence
+\begin{equation}
+ x(t)\geq(R-a)e^{-Rt/(mc_0)}>0. \label{eq:constantA}
+\end{equation}
+The selected smooth E source cannot generate a first A queue in finite
+time in that constant-A limit. H1's A arrivals increase, adding
+$-\dot a$ to $\dot x$; Section~\ref{sec:witness} constructs A delay there.
+
+For a constant E rate and mark across a filled renewal window,
+\begin{equation}
+ \loss=\frac{g_E}{m}W_{m/g_E}(u_E),\quad
+ W_h(u)=\int_0^hD(\theta;u)\dd\theta,\quad
+ g_A+c_Eg_E=R-\frac{g_E}{m}W_{m/g_E}(u_E). \label{eq:stationaryrenewal}
+\end{equation}
+This is a restricted stationary target for a simpler instantaneous rival,
+not an exact transient reduction or proof that history is necessary.
+
+\section{Whole-domain events, unique continuation and finite clearance}
+\label{sec:global}
+The result below is restricted to \eqref{eq:domain}--\eqref{eq:workdomain},
+the monotone H1 pulse, neutral initial account and selected causal guards.
+It is not a general invariant LTM junction theorem.
+
+\subsection{E has at most one waiting episode in this primary domain}
+Initially $\budget=R$ and A's offer is below $R$. Let
+\begin{equation}
+ W_f(v)=\lambda_A(t_f+)+c_0\lambda_E(t_f+). \label{eq:frontwork}
+\end{equation}
+If $W_f\leq R$, both free streams pass. Because $R\leq C(v_-)$,
+$v\geq u_R$, so free E has zero new loss. The free work
+$s_v+\delta\lambda_E$ decreases through the pulse; free passage persists.
+If $W_f>R$, E's free service test fails and the queued root satisfies
+$g_E\leq(R-\lambda_A)/c_0<\lambda_E$. This is a compatible strict
+E birth while A remains free.
+
+At a later first E zero hit during the pulse, if A is free, the pre-hit
+queued rate implies
+\begin{equation}
+ \lambda_E\leq g_E^Q\quad\Longrightarrow\quad
+ \lambda_A+c_0\lambda_E\leq\budget. \label{eq:EclearAfree}
+\end{equation}
+If A is queued, its half-work branch implies
+\begin{equation}
+ c_0\lambda_E\leq c_0g_E^Q\leq\budget/2. \label{eq:EclearAqueued}
+\end{equation}
+Thus free E is feasible. Its new profiles are zero; old profiles only age
+or retire, making $\budget$ nondecreasing. E's arrival offer keeps
+decreasing, so \eqref{eq:EclearAqueued} persists while A queues. At A
+clearance its former service $\budget-c_0\lambda_E$ admits joint free
+flow, and the joint free workload thereafter decreases. Simultaneous
+clearance also gives joint feasibility because both individual half-work
+offers fit. After the pulse rear there are no new arrivals. E therefore
+cannot re-form after clearing in this domain.
+
+\textbf{Scope is essential.} The proof uses the monotone H1 pulse,
+free-mark neutrality and selected recovery/priority law, not finiteness
+alone. Later/bursty E arrivals in another setting or native finite cohort
+can form another queue; that event is not automatically a failed evaluator.
+
+\subsection{A events cannot accumulate infinitely fast}
+While E queues during the pulse, A is born when its free offer first loses
+feasibility at $\lambda_A=\budget$. Switching to cooperation gives
+$\dot q_A=\budget/2\geq B_{\min}/2>0$. If A later clears before E,
+the pre-hit derivative requires $\lambda_A\leq\budget/2$.
+For $y=\budget-2\lambda_A$, birth has $y=-\budget\leq-B_{\min}$
+and clearance has $y\geq0$. By \eqref{eq:pulse} and
+\eqref{eq:budgetrate}, a birth-to-clearance interval is at least
+\begin{equation}
+ B_{\min}/(L_B+2L_A). \label{eq:birthclear}
+\end{equation}
+At clearance the free margin $x=\budget-\lambda_A\geq B_{\min}/2$.
+A later birth needs $x=0$, taking at least $B_{\min}/[2(L_B+L_A)]$.
+A common smaller separation is
+\begin{equation}
+ \tau_0=\frac{B_{\min}}{2(L_B+2L_A)}>0. \label{eq:eventseparation}
+\end{equation}
+It is derived, not imposed as a dwell timer. E clearance and the single
+pulse rear add finitely many exceptions. Once E is free, a cleared A cannot
+re-form because joint free work fits and decreases while service recovers.
+After the rear, positive queues only drain. Tangential zero hits use the
+same free-admission test and still have the post-clearance margin.
+
+\subsection{Joining the regimes and clearing the cohort}
+\begin{theorem}[Conditional complete forward evolution]
+For every constant advice in the original interval, under the retained
+primary assumptions and causal convention, the selected law has a unique
+causal piecewise-regime continuation through full cohort clearance.
+\end{theorem}
+\begin{proof}
+Use the local contraction in Section~\ref{sec:local} on each valid chart.
+At the front E birth has the strict compatible sign above. An A birth
+has positive right-hand derivative. At A zero hits free admission is
+feasible; at E zero hits use \eqref{eq:EclearAfree}--\eqref{eq:EclearAqueued}.
+Simultaneous hits admit both free streams. Equality alone retains maximal
+feasible free continuation, so an alternative queued root cannot create
+an untriggered queue. Flux values at individual switching instants do not
+alter cumulative mass.
+
+State and service remain bounded. The finite pulse admits at most one E
+episode, and \eqref{eq:eventseparation} prevents infinitely many A switches
+on it. After the rear no new queues arise, with at most two clearances.
+Thus local continuation joins into one unique causal history. No
+transversality condition or reduced advice neighborhood is imposed for
+this forward result. Smooth advice dependence is a separate claim.
+
+All mass is eligible by $t_r=L/v$. If $Q=q_A+q_E>0$ thereafter, available
+work is used, so
+$g_A+g_E\geq\budget/c_{\max}\geq B_{\min}/c_{\max}$.
+Consequently
+\begin{equation}
+ T_{\rm clear}(v)\leq\frac Lv+
+ \frac{c_{\max}Q(L/v)}{B_{\min}}
+ \leq T_{\max}:=\frac L{v_-}+\frac{c_{\max}M}{B_{\min}}<\infty.
+ \label{eq:clearance}
+\end{equation}
+The far lane clears without a queue. Remaining profiles then age out
+within their finite support. This finishes the forward construction.
+\end{proof}
+Another sufficient clearance bound follows by integrating current work
+and \eqref{eq:integratedloss} after the rear:
+\begin{equation}
+ T_{\rm clear}\leq\frac Lv+
+ \frac{c_{\max}Q(L/v)+\overline M_EW_0/m}{R}.
+ \label{eq:clearancearea}
+\end{equation}
+Neither estimate asserts a practical simulation runtime or physical realism
+of the sufficient parameter domain.
+
+\section{Conservation and the complete local objective}
+\label{sec:accounting}
+Combining \eqref{eq:upstreammass} and \eqref{eq:terminalcounts} gives
+\begin{equation}
+ s(t)\rho_0+\sum_jN_j(t)+\sum_jY_j(t)=M. \label{eq:mass}
+\end{equation}
+All quantities are continuous traffic mass. Work weights change available
+service, never the amount transferred or removed. Retiring a profile
+removes information weight, not population.
+
+Full local TST is
+\begin{equation}
+ J(v)=\int_0^{T_{\max}}\left[M-\sum_jY_j(t)\right]\dd t.
+ \label{eq:tst}
+\end{equation}
+By \eqref{eq:clearance}, using any larger bound adds only zero. Every
+initial position $x\in[0,\ell]$ has no-delay eligibility time $(L-x)/v$.
+Paired early transfers do not change the total eligibility history. Hence
+\begin{align}
+ \int_0^\infty\left[M-\sum_jP_j(t)\right]\dd t
+ &=\int_0^\ell\rho_0\frac{L-x}{v}\dd x
+ =\frac{M(L-\ell/2)}v,\nonumber\\
+ M-\sum_jY_j&=M-\sum_jP_j+\sum_jq_j,\nonumber\\
+ J(v)&=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E)\dd t.
+ \label{eq:tstqueue}
+\end{align}
+The far lane has $q_B=0$. Both A and E waiting are included exactly once.
+Eligible waiting area measures excess time; it is not a physical queue
+length or a declaration of when a vehicle first reaches a queue tail.
+
+Completion is at the choke. A crossed E unit can retain a causal restriction
+for following unfinished traffic, whose waiting is counted. The completed
+unit's own post-line travel is excluded. Adding a recovery-zone objective
+would be a separate G4 choice; it is not adopted by this accounting.
+
+\section{Initial information, negative controls and sensitivity limits}
+\label{sec:information}
+Known initial E mass $E_0$ and continuing symmetry reconstruct
+\begin{equation}
+ e_0=E_0/\ell,\qquad a_0=b_0=(M-E_0)/(2\ell). \label{eq:scalar}
+\end{equation}
+Together with fixed parameters and empty terminal/account histories,
+the forward theorem yields identical predictions for aggregate-plus-$E_0$
+and explicit lane state at the same information, for every permitted
+advice. Predicted recovery history is not an extra initial measurement;
+the current meter reading alone is not sufficient dynamic state.
+
+The archived predecision aggregate-history collision remains upstream of
+an empty terminal and is unaffected by the terminal substitution. Its
+reachability/observation assumptions remain conditional. No action split
+follows solely from that ambiguity: the amended objectives still require
+their own comparison. Strong aggregate/history, scalar, model-form and
+bounded-search rivals remain in scope.
+
+If $\delta=0$, the front free work is $s_v<R$. Equal free marks make the
+mismatch term zero; no queue or recovery activates. Therefore
+\begin{equation}
+ J(v)=M(L-\ell/2)/v \label{eq:negativecontrol}
+\end{equation}
+and fastest advice is common for every preparation. No E is another
+neutral limit. This is a property of the selected ordinary-underload
+member, not a universal explanation of congestion.
+
+With $z_f=L_p-\ell$ and $e_f(v)=e(z_f;v)$, H1 comparison makes $e_f$
+nondecreasing in $v$. Thus
+\begin{equation}
+ W_f(v)=v\{r+\delta e_f(v)\} \label{eq:frontthreshold}
+\end{equation}
+is strictly increasing for $r>0$. There is at most one initial queue
+threshold; it can lie outside the advice interval. Equality retains free
+passage. At an interior threshold with $a=\lambda_A>0$,
+$e=\lambda_E>0$, $a+c_0e=R$ and $\chi>0$,
+\begin{equation}
+ \He(e;a,v)-(R-a)=\chi a e\{v-U(e)\}>0. \label{eq:fluxgap}
+\end{equation}
+The queued-root limit is below the free E flow, so local flux/marks may
+change abruptly on activation. This is not a proof that full $J$ jumps.
+Forward uniqueness does not establish smooth derivatives across it.
+
+Within regular charts, \eqref{eq:localbenefit} and ordinary implicit
+derivatives describe local response. A full-objective derivative must
+also include H1 branch changes, action-dependent arrival times, recovery
+marks/aging/retirement and queue events through complete clearance. This
+report does not execute or finish that remaining gradient review; it
+records why S13's simpler derivative cannot be reused. No AD, numerical
+finite differences, policy optimization or useful-gradient claim follows.

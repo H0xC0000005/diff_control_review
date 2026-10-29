@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-23",
+  "task": "Open urban categories 3\u20135 principle discussion",
+  "status": "pass",
+  "snapshot": "/tmp/urban_categories345_before_20261023.json",
+  "snapshot_files": 751,
+  "unchanged_snapshot_files": 744,
+  "declared_existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_revision.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_categories345_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_categories345_work_report.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_3_5_principle_proposal.md"
+  ],
+  "outside_snapshot_changes": [],
+  "missing_snapshot_files": [],
+  "local_links_and_line_targets_checked": 128,
+  "stable_question_ids_retained": true,
+  "question_count": 15,
+  "candidate_count": 33,
+  "candidate_sets_unchanged": true,
+  "unrelated_and_settled_question_sections_unchanged": true,
+  "classification_owner_dependency_and_closure_tables_unchanged": true,
+  "completion_and_report_budget_tables_unchanged": true,
+  "stage_change_limited_to_S2_status": true,
+  "feedback_files_byte_identical": true,
+  "settled_categories12_proposal_byte_identical": true,
+  "root_authorities_approved_plans_M2_and_simulator_preserved": true,
+  "proposal_questions_and_provisional_status_checked": true,
+  "proposal_word_count": 1884,
+  "phase": "Phase B; categories 3\u20135 proposal ready for user discussion; recommendations unapproved",
+  "scientific_tests_or_runs": "none; documentation-only task",
+  "errors": []
+}

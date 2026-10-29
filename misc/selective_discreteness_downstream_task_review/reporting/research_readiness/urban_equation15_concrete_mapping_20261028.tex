@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=20mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\newcommand{\der}[1]{\frac{\mathrm d #1}{\mathrm d\alpha}}
+\begin{document}
+\begin{center}
+{\Large Equation 15: the concrete substitution map}
+\end{center}
+
+The upper line has already combined the lower cases. There is no remaining
+$\mathrm dx_\ell/\mathrm d\alpha$ slot in it. To see exactly how they connect,
+take two uncapped lanes, one capped lane, and an optional fourth lane
+that remains at zero:
+\[
+ \mathcal A=\{1,2\},\qquad \mathcal U=\{3\},\qquad x_4=0.
+\]
+
+\textbf{First map the categories to the upper formula.}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Upper-formula slot & Replacement & Reason\\
+\midrule
+$|\mathcal A|$ & $2$ & Lanes 1 and 2 are uncapped.\\
+$\displaystyle\sum_{\mathcal U}\der{u_\ell}$
+ & $\displaystyle\der{u_3}$ & Only lane 3 is capped.\\
+$\displaystyle\sum_{\mathcal A}\der{h_\ell}$
+ & $\displaystyle\der{h_1}+\der{h_2}$ & Only lanes 1 and 2 enter this sum.\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus the upper line becomes
+\[
+ \boxed{\der{\lambda}
+ =\frac12\left(\der{V}-\der{u_3}+\der{h_1}+\der{h_2}\right).}
+\]
+
+\textbf{Here is precisely where the lower cases were substituted.}
+The starting point is the derivative of $x_1+x_2+x_3+x_4=V$:
+\begin{align*}
+ \der{V}
+ &=\der{x_1}+\der{x_2}+\der{x_3}+\der{x_4}\\
+ &=\underbrace{\left(\der{\lambda}-\der{h_1}\right)}_{\text{lane 1: uncapped}}
+  +\underbrace{\left(\der{\lambda}-\der{h_2}\right)}_{\text{lane 2: uncapped}}
+  +\underbrace{\der{u_3}}_{\text{lane 3: capped}}
+  +\underbrace{0}_{\text{lane 4: zero}}\\
+ &=2\der{\lambda}-\der{h_1}-\der{h_2}+\der{u_3}.
+\end{align*}
+Rearranging this last line gives the boxed upper formula.
+
+\textbf{Now calculate: upper first, then lower.}
+Suppose the known input sensitivities are
+\[
+ \der{V}=0.3,\quad \der{u_3}=0.1,\quad
+ \der{h_1}=0.2,\quad \der{h_2}=0.
+\]
+The upper formula gives
+$\mathrm d\lambda/\mathrm d\alpha=(0.3-0.1+0.2+0)/2=0.2$.
+Insert this result into each lower case:
+\[
+ \underbrace{\der{x_1}=0.2-0.2=0}_{\text{uncapped: level minus load}},\quad
+ \underbrace{\der{x_2}=0.2-0=0.2}_{\text{uncapped: level minus load}},\quad
+ \underbrace{\der{x_3}=0.1}_{\text{follows its cap}},\quad
+ \underbrace{\der{x_4}=0}_{\text{stays zero}}.
+\]
+Check: the four individual gradients sum to $0+0.2+0.1+0=0.3$, exactly
+the given total-admission gradient. These are sensitivities, not mass
+values; the example assumes the lane categories remain unchanged.
+\end{document}

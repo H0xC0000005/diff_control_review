@@ -1,0 +1,585 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,longtable}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\pos}[1]{[#1]_+}
+\title{Urban effective-service control:\\a proposed timestep methodology}
+\author{Selective-discreteness urban review}
+\date{27 October 2026}
+\begin{document}
+\maketitle
+
+\textbf{Feedback 10 status.}
+This document preserves an earlier candidate transcription. The user selects
+shared left/through permission for the starting bay case, actual-admission
+commitment, unassigned movement-priority residuals and average receiving A.
+The logical allocator may inspect other movements after a failed allocation;
+its physical access/interface with the common feeder remains open.
+
+Frozen waiting targets and old-target rationing are unselected conditional
+material. Q4 is withdrawn. A still has sequential head-clearance and
+current-head-sharing dependencies. The updated coupled model is not yet
+defined by the old equations below. This is an answer/status update only;
+see the separate \href{urban_feedback10_response.md}{feedback 10 answer}.
+
+\section{The traffic question and admitted world}
+
+A vacant left-turn bay is useful only if a turner can reach it. A through
+block in the common feeder can prevent access: additional left service need
+not help, while through service can remove the obstacle. The question is
+whether continuous mass with exact local semantic order predicts useful
+control responses that sound aggregate explanations miss.
+
+Retain the accepted isolated four-leg task, V0--V4, fixed routes and four
+protected effective-service groups: NS through/right, NS left, EW through/right,
+EW left. Let
+\begin{equation}
+ g_p\geq0,\quad \sum_{p=1}^4g_p=1,\qquad
+ \mu_{\ell m}(g)=\min\{C_\ell,s_{\ell m}g_{p(m)}\}.
+ \label{eq:action-new}
+\end{equation}
+Fractions allocate average service, without defining executable phase
+intervals. Perturbations preserve the sum and nonnegativity. Saturation $s$
+and section capacity $C$ have units veh-eq/s. No phase waveform, microscopic
+lane change, route choice or network-wide lane expansion is introduced.
+
+V0 uses independent movement-exclusive paths. A through/right service class
+is order-neutral only if its members face equivalent receiving restrictions,
+or these are nonbinding. V1 has a shared stop-line lane. V2/V3 have the same
+finite-bay geometry: V2 is constructed so order does not restrict access;
+V3 retains access-sensitive order. V4 varies declared geometry, demand and
+receiving conditions on held-out cases. A V2 label alone does not prove an
+order-neutral trajectory.
+
+Physically split an approach into upstream aggregate section $U$, common
+local feeder $F$, and parallel downstream lanes $b$ beginning at an internal
+fork. Bay and through continuation have the same fork-to-stop-line distance
+in the symmetric core, with separately specified capacity/storage. Path
+length is $L_U+L_F+L_b$; these are disjoint storage owners. V1 omits the fork;
+V0 uses independent paths, without a synthetic common FIFO feeder. This
+internal-bay composition extends neutral M2; it is not implemented behavior.
+
+Permissions are an explicit structural input, not inferred from lane count.
+The exclusive-target illustration used for the matched closure below is
+$L\to B$ and $T/R\to T$. It is one candidate, not the selected primary
+matrix. The expanded decision appendix in the compact report also considers
+left turns in both bay and shared continuation; feedback 10 selects that
+configuration for the starting bay scenario. It requires a
+matching comparator, rather than silently applying the exclusive-target
+ablation. Both V2 and V3 must share the chosen permissions.
+
+\section{State, timing and exact order}
+
+Each physical section $e$ owns cumulative counts $N^+_{e,k},N^-_{e,k}$,
+occupancy $n_{e,k}=N^+_{e,k}-N^-_{e,k}$ and propagation history. A source
+owns waiting mass $Q_{o,k}$. Ordered ledgers retain route-table reference,
+route position, continuous mass and eligibility provenance. Route position
+advances at the actual junction crossing, not at internal $U/F/b$ crossings.
+
+\textbf{Historical state qualification.}
+The remaining-target vector described next belongs to the earlier waiting
+proposal. New unadmitted mass has no such binding vector under feedback 10;
+realized lane occupancy/order remain fixed.
+
+A canonical homogeneous cohort has mass $q$, one current movement and
+route reference/position, one owner and compatible contiguous timing. A
+remaining target vector $a_b\geq0$, $\sum_ba_b=q$, is a view of mass still
+upstream, not another physical queue. One cohort may split among legal lanes
+without an artificial order between its children. Different cohorts are
+processed in source order; every realized lane retains that subsequence.
+
+Storage fragments do not define traffic behavior. Before allocation/admission,
+coalesce exactly compatible adjacent fragments into maximal cohorts.
+Compatibility requires identical route/position, owner, permissions, affine
+eligibility and, for assigned cohorts, target proportions. Retain M1's exact
+affine-line test, without tolerance-based mixing. Different commitments or
+timing are not identical metadata. This canonicalization prevents an
+arbitrary storage split changing the homogeneous group seen by allocation.
+It is a proposed transcription requirement, not a new integer packet unit.
+
+The grid is a movement view, not the order authority. If ledger entry $r$
+occupies mass interval $I_r$ and cell $c$ is $B_c$,
+\begin{equation}
+ M_{cm}=\sum_{r:m(r)=m}|I_r\cap B_c|.
+ \label{eq:grid-new}
+\end{equation}
+Discharge consumes the ledger, not an inferred order from $M$. Rank is mass,
+not metres. Grid resolution cannot change the exact-ledger traffic law.
+
+\section{Inherited boundary-history propagation}
+
+Use $t_k=k\Delta t$, empty prehistory and triangular-FD sections with
+delays $\tau^f_e,\tau^b_e$, capacity $C_e$ and storage
+$K_e=C_e(\tau^f_e+\tau^b_e)$. Require
+$\Delta t\leq\min_e(\tau^f_e,\tau^b_e)$; a short-section violation requires
+reconsidering discretization, not clipping delays.
+For $\theta=(t-t_h)/\Delta t$,
+\begin{equation}
+ {\cal H}^{\pm}_e(t)=(1-\theta)N^\pm_{e,h}+\theta N^\pm_{e,h+1},
+ \quad t_h\leq t\leq t_{h+1}.
+ \label{eq:interpolation-new}
+\end{equation}
+Histories are zero for $t<0$. Compute pre-update allowances:
+\begin{align}
+ A_{e,k}&=\pos{{\cal H}^+_e(t_{k+1}-\tau^f_e)-N^-_{e,k}},\nonumber\\
+ S_{e,k}&=\min(C_e\Delta t,A_{e,k}),\label{eq:sending-new}\\
+ R_{e,k}&=\min\{C_e\Delta t,
+ \pos{K_e+{\cal H}^-_e(t_{k+1}-\tau^b_e)-N^+_{e,k}}\}.
+ \label{eq:receiving-new}
+\end{align}
+These are masses per update. The first $S_{e,k}$ resident ledger mass is the
+sending tranche; the first $A_{e,k}$ is available for logical assignment.
+This inherits discrete readiness; it does not assert that all the tranche
+was physically ready at every instant within the step. New admissions
+cannot receive same-section service in this update.
+
+For actual entrance $b_{e,k}$ and exit $y_{e,k}$,
+\begin{equation}
+ N^+_{e,k+1}=N^+_{e,k}+b_{e,k},\quad
+ N^-_{e,k+1}=N^-_{e,k}+y_{e,k},\quad
+ n_{e,k+1}=n_{e,k}+b_{e,k}-y_{e,k}.
+ \label{eq:state-new}
+\end{equation}
+Today's departure creates no immediate extra receiving room. Each internal
+transfer appears once with each sign in its two physical owners.
+
+After selecting flows, reconstruct each receiving lane's entrance segments
+from its boundary inflow and retained child order. For total inflow $b>0$,
+a child occupying entrance rank $[r,r+q']$ receives time segment
+$[t_k+\Delta t\,r/b,t_k+\Delta t(r+q')/b]$, with the receiving free-flow
+shift. This applies M1-style affine reconstruction to the new section graph.
+Do not retain internal service-event times as new propagation knots.
+Cross-input ties on outgoing links are disclosed bookkeeping; this isolated
+task has no later controlled junction where such a tie could confer an
+order advantage.
+
+\section{Known capability inside allocation}
+
+This is the proposed exact completion of feedback 9. Separate feasible entry
+now from remaining intention. Do not first fix a target without known limits.
+
+For this joined proposal, first new assignment occurs at the fork's
+eligible front, before physical admission is guaranteed. The older prototype
+placed assignment at entry to $F$; that location was not selected in the
+principle discussion. This proposed location change is explicit: it makes
+current branch limits available without forecasting travel through $F$.
+Existing valid waiting targets are still preserved.
+
+At the fork process canonical cohorts in physical source order. Lane-load
+estimate $h_b$ is pre-update resident branch mass plus target mass assigned
+by earlier cohorts processed this update, including pending mass. Later
+cohorts therefore see earlier assignments. Do not subtract predicted signal
+discharge to invent service-aware driver knowledge. Compare raw mass between
+matched legal lanes; other perception/cost models remain outside this draft.
+
+Let $s$ be remaining common sending, $u_b$ remaining receiving on reachable
+legal branches, and $q$ the available cohort mass. For a fresh cohort:
+\begin{align}
+ V&=\min\{q,s,\sum_bu_b\},\nonumber\\
+ x&=\underset{0\leq x_b\leq u_b,\ \sum_bx_b=V}{\arg\min}
+                    \frac12\sum_b(h_b+x_b)^2,\nonumber\\
+ x_b&=\min\{u_b,\pos{\lambda-h_b}\},\quad \sum_bx_b=V.
+ \label{eq:feasible-allocation}
+\end{align}
+The strictly convex objective selects unique $x$; the threshold itself need
+not be unique on a fully capped plateau. For $V=0$ set $x=0$. This is
+capped continuous queue filling for one cohort, not a heterogeneous equilibrium.
+
+\textbf{Unselected after feedback 10.}
+The following waiting-target and old-target formulas are preserved for
+traceability, not adopted as the current model. Their premise is absent
+under commitment only at actual admission.
+
+To retain logical assignment of waiting traffic, assign remaining intention
+only after feasible entry has been selected:
+\begin{equation}
+ z_b=\pos{\nu-h_b-x_b},\quad \sum_bz_b=q-V,\qquad a_b=x_b+z_b.
+ \label{eq:pending-allocation}
+\end{equation}
+Use only legal eventual targets. No current receiving is consumed by $z$,
+and it promises no current physical access. The new target $a$ then stays
+fixed. This second queue fill is an explicit proposed waiting-intent
+convention, not a user-approved unconstrained-first allocation law.
+
+For valid old remaining targets $a$, do not allocate again:
+\begin{equation}
+ \bar u_b=\min(u_b,a_b),\quad V=\min\{q,s,\sum_b\bar u_b\},\quad
+ x_b=\min\{\bar u_b,\pos{\lambda-h_b}\},\quad z_b=a_b-x_b,
+ \label{eq:old-commitment}
+\end{equation}
+with $\sum_bx_b=V$. The same proposed queue criterion selects feasible
+realization within fixed targets. It does not retarget when capacity changes;
+nor does it claim feedback 9 selected former Candidate B.
+
+\textbf{Scope of the old prefix gate.}
+The physical prefix statement below applies to an occupied single common
+lane. It is not the selected general rule for logical allocation-server
+processing. Reconciling movement-specific inspection with the physical
+interface remains open in this answer-only update.
+
+Append $x_b$ to branch $b$, reduce sending/receiving by actual entry, and
+set $h\leftarrow h+a$. Count $a=x+z$ once, not $x+a$. The residual $q-V$
+and targets $z$ remain with the upstream owner. On a genuine common feeder,
+any residual older mass closes the physical prefix gate for later cohorts
+this update. Later logical assignment can continue with $V=0$; it cannot
+authorize bypass. Independent paths have independent gates.
+
+Cut an unassigned cohort at the inherited eligibility boundary before
+creating targets, preserving the not-yet-eligible tail. Under empty loading
+and assignment at this fork, assigned mass was already eligible here;
+its residual remains eligible while waiting at the same owner. A sending
+quota can still restrict its actual entry through $V$. No extra
+proportional retargeting of a newly ready part is required. Within a
+homogeneous admitted prefix, lane amounts split that prefix; one target
+child is not artificially placed before another.
+
+\textbf{Why the dependency matters.}
+For $h=(0.2,0)$, $q=1$, $u=(0.3,0.5)$ and $s=0.6$,
+$x=(0.2,0.4)$, $z=(0.2,0.2)$, $a=(0.4,0.6)$:
+$0.4$ remains upstream. If $u=(0,1)$ and $s=1$ instead,
+$x=a=(0,1)$. A target $(0.4,0.6)$ frozen without those known limits would
+admit only $0.6$. Conversely, if that vector really is an older valid target,
+the $0.4$ cannot silently be reassigned.
+
+\section{Elapsed service and current-head receiving reuse}
+
+Expose only each lane's current ordered head in its pre-state sending
+tranche, with rate cap $c_\ell=\mu_{\ell m}(g)$. A zero-rate head blocks that
+lane. For the proposed timestep node solver define
+\begin{equation}
+ \rho_j=R_{j,k}/\Delta t.
+ \label{eq:interval-rate}
+\end{equation}
+This is an explicit step-average computational convention, not the physical
+availability curve inside the interval. It spends at most the inherited
+receiving allowance and writes endpoint history only. Event histories remain
+deferred.
+
+For outgoing link $j$, collect current heads from leg $i$. In this isolated
+topology each leg-to-output movement has one relevant service group:
+\begin{align}
+ C_{ij}&=\sum_{\ell\in{\cal L}_{ij}}c_\ell,\quad
+ w_{ij}=g_{p(i,j)},\quad V_j=\min(\rho_j,\sum_iC_{ij}),\nonumber\\
+ r_{ij}&=\min(C_{ij},\theta_jw_{ij}),\quad \sum_i r_{ij}=V_j,
+ \label{eq:leg-rates-new}\\
+ r_\ell&=\min(c_\ell,\eta_{ij}),\quad
+ \sum_{\ell\in{\cal L}_{ij}}r_\ell=r_{ij}.
+ \label{eq:lane-rates-new}
+\end{align}
+Remove zero-cap competitors; $V_j=0$ gives zero rates. Weight each leg once,
+with capped reuse; share equally among its lanes subject to individual caps.
+Independent outputs have independent solves because each lane has one
+current head/output.
+
+Hold rates until the earliest head/tranche exhaustion or step end:
+\begin{equation}
+ \delta=\min\left\{\Delta t-\sigma,\
+ \min_{\ell:r_\ell>0}\frac{\min(q_\ell,S_\ell^{\rm rem})}{r_\ell}\right\}.
+ \label{eq:head-step-new}
+\end{equation}
+Advance every active lane by $r_\ell\delta$, process tied events together,
+expose new heads and recompute sharing. Stop if all rates vanish. A finite
+canonical ledger gives finitely many head events; use no mass cutoff or
+software scan priority. This internal clock calculates one step's output;
+it creates no new observation grid.
+
+For ready left mass $q_L$ followed by sufficient through mass, with
+nonbinding receiving/capacity,
+\begin{equation}
+ y_L=q_L,\qquad y_T=s_Tg_T
+       \left(\Delta t-\frac{q_L}{s_Lg_L}\right),
+ \quad 0<\frac{q_L}{s_Lg_L}<\Delta t.
+ \label{eq:order-response-new}
+\end{equation}
+With $\Delta t=s_L=s_T=1$, $q_L=0.2$ and $(g_L,g_T)=(0.4,0.6)$,
+$y_T=0.3$. Transferring small $\epsilon$ from through to left gives
+$\dd y_T/\dd\epsilon=0.25$: faster head clearance outweighs the smaller
+through rate on this branch. This hand case is not a complete-TST or
+usefulness result. Other active constraints can change or nullify it.
+
+\section{Complete update and feasibility}
+
+Read pre-state histories/ledgers; compute all S/R and logical assignment
+fronts; process source/internal admissions and forks; solve stop-line service
+on pre-state tranches; commit paired flows; reconstruct boundary eligibility
+and grid views; update histories, sources, pending views and sinks.
+Independent calculations may be evaluated in either software order, but
+no mechanism spends another's allowance or serves new same-section inflow.
+
+A one-in/one-out internal connection transfers
+$f=\min(S_{\rm up},R_{\rm down})$ from its resident prefix.
+Release $D_{o,k}$ joins source waiting at the boundary; admission is bounded
+by $Q_{o,k}+D_{o,k}$ and first-section receiving, in source order. Independent
+source paths own separate queues. A sink removes $\min(S,\bar S_k)$,
+where $\bar S_k$ is its declared allowance. The central junction uses the
+current-head law above; there is no hidden additional conflict rule.
+
+The timestep restriction gives $S_{e,k}\leq n_{e,k}$ and
+$R_{e,k}\leq K_e-n_{e,k}$. Thus
+\begin{equation}
+ 0\leq n_{e,k}+b_{e,k}-y_{e,k}\leq K_e,\qquad
+ 0\leq b_{e,k}\leq R_{e,k},\quad0\leq y_{e,k}\leq S_{e,k}.
+ \label{eq:storage-proof-new}
+\end{equation}
+Internal paired flows and route-preserving splits cancel, giving
+\begin{equation}
+ \sum_oQ_{o,k}+\sum_en_{e,k}+Z_k=D_{<k},
+ \label{eq:population-new}
+\end{equation}
+with cumulative sink exit $Z_k$ and exogenous release $D_{<k}$.
+This holds route by route; pending commitments add no stock.
+These are definition-level arguments, not tested implementation evidence.
+
+\section{One-step derivatives}
+
+Work on a fixed order/structural and active-constraint signature. Differentiate
+continuous split masses, queues, pending targets and event durations, without
+differentiating route labels or permissions.
+
+For capped queue fill with free set $ {\cal A}$ and upper-capped set
+$ {\cal B}$, if $ {\cal A}\ne\varnothing$,
+\begin{align}
+ \lambda&=\frac{V-\sum_{{\cal B}}u_b+\sum_{{\cal A}}h_b}{|{\cal A}|},
+ &\dot\lambda&=\frac{\dot V-\sum_{{\cal B}}\dot u_b+
+                       \sum_{{\cal A}}\dot h_b}{|{\cal A}|},\nonumber\\
+ \dot x_b&=\dot\lambda-\dot h_b\ (b\in{\cal A}),&
+ \dot x_b&=\dot u_b\ (b\in{\cal B}),\quad
+ \dot x_b=0\ (\text{zero set}).
+ \label{eq:allocation-jacobian-new}
+\end{align}
+Use $\bar u$ for old targets, retaining $\dot a$ on active target caps.
+Differentiate $V$ through its active minimum. Fresh waiting intent uses
+the same free-set calculation with base $h+x$, total $q-V$, no finite
+upper caps; old intent has $\dot z=\dot a-\dot x$.
+On fully capped branches $\dot x=\dot u$; on a stable zero-volume branch
+$\dot x=0$. Transitions may be kinks, not ordinary derivatives.
+
+For leg sharing with uncapped set $ {\cal U}$ and capped set $ {\cal B}$,
+\begin{equation}
+ \dot\theta=
+ \frac{\dot V-\sum_{{\cal B}}\dot C_{ij}
+                -\theta\sum_{{\cal U}}\dot w_{ij}}
+      {\sum_{{\cal U}}w_{ij}},\qquad
+ \dot r_{ij}=
+ \begin{cases}\dot C_{ij},&i\in{\cal B},\\
+ w_{ij}\dot\theta+\theta\dot w_{ij},&i\in{\cal U}.
+ \end{cases}
+ \label{eq:priority-jacobian-new}
+\end{equation}
+Within-leg sharing uses the unweighted analogue. For an interior head event
+$\delta=q/r$, $\dot\delta=\dot q/r-q\dot r/r^2$.
+For total output $y=\sum_a r_a\delta_a$,
+\begin{equation}
+ \dot y=\sum_a(\dot r_a\delta_a+r_a\dot\delta_a).
+ \label{eq:service-jacobian-new}
+\end{equation}
+Do not freeze head-clearance times. The final interval's derivative is minus
+the sum of previous duration derivatives. Ties need compatible branches or
+explicit one-sided analysis.
+
+Differentiate propagation and conservation through their active branches.
+Fixed delayed query times have fixed interpolation weights, but the history
+values retain sensitivity. A cut within an affine eligibility segment
+$[a,b]$ uses fraction $(t-a)/(b-a)$ and its full derivative. Point segments,
+zero mass and changes in ledger topology require their boundary branches;
+the formula is not a global smoothness claim.
+
+\section{From discharge to complete TST}
+
+Collect all retained numerical state in $X_k$ and write the defined update as
+$X_{k+1}=F_k(X_k,u_k)$. The inherited left-interval objective is
+\begin{align}
+ J_{\Delta t}&=\Delta t\sum_{k=0}^{H-1}
+       \left[\sum_o(Q_{o,k}+D_{o,k})+\sum_en_{e,k}\right],
+ \label{eq:tst-new}\\
+ P_0&=0,\quad P_{k+1}=F_{k,X}P_k+F_{k,u}\dot u_k,\quad
+ \dot J=\sum_k(c_{k,X}P_k+c_{k,u}\dot u_k).
+ \label{eq:chain-new}
+\end{align}
+Within control $\dot u_k=d$; under candidate-independent continuation
+$\dot u_k=0$, while $P_k$ keeps propagating.
+Candidate-independent preparation gives $P_0=0$; otherwise differentiate it.
+No per-vehicle trajectory derivative is needed.
+
+At fixed state the direct partial of this step's cost with respect to service
+is zero. Changed service can still alter next queues, access, spillback,
+source waiting and eventual sink exit. Internal transfer, including a
+stop-line crossing into another road, does not itself remove system population.
+For fixed releases, an independent accounting identity is
+\begin{equation}
+ J_{\Delta t}=\Delta t\sum_{k=0}^{H-1}(D_{\leq k}-Z_k),\qquad
+ \dot J_{\Delta t}=-\Delta t\sum_{k=0}^{H-1}\dot Z_k.
+ \label{eq:tst-exit-new}
+\end{equation}
+This counts all affected mass without duplicate pending stock.
+
+Propose a common integer horizon $H$ qualified to clear every compared
+nearby feasible action, followed by zero occupancy. This chooses the earlier
+common-horizon option, not a numerical horizon or universal clearance
+theorem. Finite demand, acyclic routes, positive continuation service and
+eventually available sinks support clearance. The chosen horizon must still
+be qualified over the comparison neighborhood. A residual cutoff,
+nonclearing case or changing integer stop index is not complete-TST
+differentiability evidence.
+
+\section{Fair and reconstructible aggregate comparisons}
+
+Allow the original fine record through each rival's declared macro converter
+or estimator. Disclose states, retained memory, observation times and
+calibration data. Native subsets are legitimate; successful macro inference
+counts against needing explicit order. A persistent ordered ledger is meso
+information even inside a macro-labelled estimator. Separate retrospective
+replay, observation-updated prediction and forecasting from a common prefix.
+Each derivative claim also states which observed inputs are held fixed or
+regenerated under the candidate action. A later observed outcome cannot
+count as having been predicted before it was observed.
+
+Add one controlled matched aggregate ablation, $B_{\rm mix}$, alongside
+source-native B1/B2. It uses the same section graph, S/R, action, releases,
+loading, continuation and objective, but retains route/movement totals per
+section without an ordered ledger. Its following closure is defined here,
+not borrowed wholesale from a native source.
+
+At a common feeder use pre-state composition $\beta_m$. In the primary bay
+geometry each movement has its declared branch:
+\begin{equation}
+ f_m=\beta_m V,\qquad
+ V=\min\left\{S_F,\min_{m:\beta_m>0}\frac{R_{b(m)}}{\beta_m}\right\}.
+ \label{eq:mix-fork-new}
+\end{equation}
+Ignore zero fractions; add new inflow after removing this mixture. A
+homogeneous movement with multiple matched legal targets uses the same
+constrained queue fill, splitting route counts proportionally within that
+movement. Do not add permissions merely to create lane-choice freedom.
+
+At a mixed stop-line lane set
+\begin{equation}
+ c_\ell=\min\left\{C_\ell,
+ \left(\sum_{m:\beta_{\ell m}>0}
+       \frac{\beta_{\ell m}}{s_{\ell m}g_{p(m)}}\right)^{-1}\right\}.
+ \label{eq:mix-rate-new}
+\end{equation}
+A positive fraction at zero service makes $c_\ell=0$; pure lanes reduce to
+the selective cap. This is homogeneous elapsed work, not recovered order.
+Set positive priority
+$w_\ell=\sum_m\beta_{\ell m}g_{p(m)}$ and output fractions $\beta_{\ell j}$.
+For the primary topology, each leg has at most one competing lane per output.
+Starting at zero, increase unfrozen $r_\ell$ proportionally to $w_\ell$
+until a lane cap or output constraint
+$\sum_\ell\beta_{\ell j}r_\ell\leq\rho_j$ binds. Freeze capped lanes and
+all positively turning competitors of a bound output. Continue the remaining
+lanes, processing simultaneous ties together, until all are fixed. This
+defines a deterministic weighted progressive-fill rate law. Consume each
+lane's pre-state sending quota, recomputing on quota exhaustion. Extending
+this comparator to several same-leg competitors requires retaining the
+agreed leg-level sharing hierarchy; no such extension is assumed here.
+
+Neutral equivalence requires matched pure channels, or a single same-service
+class with equivalent receiving and readiness. Under the declared primary
+pure-channel cases both laws reduce to the same S/R/service minimum and
+current receiving priorities. Equal mixed totals alone do not imply
+equivalence. $B_{\rm mix}$ isolates a declared closure; it does not replace
+strong native rivals or establish macro impossibility.
+In particular, its full-FIFO mixture can restrict bay entry more than an
+unblocked ordered prefix. A V2 failure is then evidence against that
+aggregate closure, not proof that exact order is necessary. The principal
+storage-aware rival must first pass the relevant unblocked/storage checks
+before a V3 advantage can support the intended information claim.
+
+\section{Native rivals and independent/external references}
+
+B1's working preference is
+\href{https://arxiv.org/html/2310.12249v2}{Wei et al.'s link queue model}: moving/queued
+state with native effective green. Its complete causal link/node law,
+geometry and initialization must be instantiated. The source's
+short-free-flow-region limitation of its fixed-speed shortcut prevents
+treating that shortcut as an unconditional spillback model.
+
+B2's working preference is
+\href{https://www.sciencedirect.com/science/article/pii/S0191261525000578}
+{Gong et al.'s lane-exit allocation} anchor with a
+sourced finite-storage/access adaptation. Exit allocation is not finite-bay
+entry. \href{https://attap.umd.edu/wp-content/uploads/2022/05/TRC522.pdf}
+{Liu--Chang} supplies a concrete lane-group storage/blockage source;
+its native signal/timing and overflow variables need reconciliation before
+a combined B2 is qualified. Native theorems do not automatically transfer.
+These implementation-dependent choices stay pending under feedback 8;
+no new class-selection vote is required.
+
+R1 uses independent hand/reference cases: prefix obstruction, partial entry,
+receiving reuse, rotation, route-mass balance and neutral limits. They are a
+correctness floor, not external realism.
+
+For R2 declare a static executable program with fixed cycle $C^{\rm cyc}$,
+lost intervals $\ell_p$, $L=\sum_p\ell_p<C^{\rm cyc}$, order and offset. Propose
+\begin{equation}
+ G_p=(C^{\rm cyc}-L)g_p,\qquad
+ s^{\rm eff}_{\ell m}=s^{\rm phys}_{\ell m}
+                    (C^{\rm cyc}-L)/C^{\rm cyc}.
+ \label{eq:sumo-map-new}
+\end{equation}
+Keep these settings, lane behavior and calibration fixed across model
+directions and candidate actions. The mapping matches nominal average
+opportunity, not startup loss or realized microscopic discharge.
+
+Use a common finite route population and desired releases on declared
+common boundaries. Integer reference vehicles are exogenous population,
+not rounding of internal simulated mass. Every model receives that release
+list or its disclosed conversion. SUMO's fixed lane behavior determines
+realized occupancy; do not replay private selective assignments into only
+one competitor.
+
+External complete time is desired-release-to-arrival time: TripInfo
+\texttt{duration} plus \texttt{departDelay}, without adding waiting time.
+Track the master population so uninserted/unfinished demand cannot vanish
+from a completed-trip statistic. Clear all demand or report noncompletion.
+Common loading does not imply equal later states across simulators.
+Separate state-conditioned replay from common-input prediction.
+Test feasible perturbation signs/ranking externally before optimization.
+
+\section{Status, evidence limits and source boundaries}
+
+\textbf{Current qualification.}
+The summary below describes the earlier candidate. Its frozen-waiting
+construction is unselected after feedback 10, and the replacement physical
+access/interface has not been derived in this response.
+
+
+This proposal joins physical ownership, pre-state S/R, ordered allocation,
+fixed waiting intent, prefix admission, elapsed service, endpoint history,
+complete cost and conditional sensitivities. Newly explicit transcription
+choices are: feasible-entry-first filling with subsequent waiting intention;
+the same queue criterion within old targets; canonical cohorts; a
+fork assignment location and explicit permission subfamily; a step-average
+receiving clock; a qualified common horizon; and $B_{\rm mix}$.
+They remain proposed definitions for review, not newly approved decisions.
+
+Numerical geometry/FD parameters, timestep, grid resolution, horizon,
+native B1/B2 qualification and R2 program values remain later work. No
+simulator, AD/FD, optimization or SUMO experiment has run in this writing
+pass. Reference correctness, invariants, neutral equivalence, meso-sensitive
+forward behavior, derivative correctness and external usefulness need
+separate evidence. Finite gradients or a falling internal objective cannot
+establish useful control directions.
+
+\begin{itemize}
+\item M0 supplies repository LTM/history/TST; M1 supplies the route ledger,
+prefix reconstruction and exact merge rule; M2 supplies ownership/grid
+invariants. The approved M0 source basis is Yperman (2007) and UNsim
+v0.12.0. This pass checks repository transcription, not fresh reproduction
+of those complete originals.
+\item The primary links beside B1/B2 identify their sources, not adoption
+of their complete algorithms. Gong's indexed primary sections establish
+scope; its complete algorithm is not independently reproduced here.
+Liu--Chang's journal year is 2011; overflow notation needs verification.
+\item Official SUMO
+\href{https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html}{signal-program}
+and \href{https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html}{TripInfo}
+definitions.
+They support interface/accounting definitions, not empirical equivalence.
+\end{itemize}
+\end{document}

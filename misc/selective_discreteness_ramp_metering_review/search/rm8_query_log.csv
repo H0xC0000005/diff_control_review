@@ -1,0 +1,15 @@
+id,date,family,query,result_and_limit
+RM8-Q01,2026-10-01,empirical,"""Increasing the capacity of an isolated merge by metering its on-ramp"" pdf Cassidy Rudjanakanoknad",RM0014 report retrieved; method and aggregate counterevidence inspected
+RM8-Q02,2026-10-01,lane control,"""Lane Change Control Combined with Ramp Metering"" ""2021"" pdf",RM0004 repository PDF; identified actuator and ramp-priority assumptions
+RM8-Q03,2026-10-01,mechanism/derivative,ramp metering multilane merge lane distribution model gradients adjoint lane change capacity drop,macro/lane/hybrid leads; none admitted as full chain
+RM8-Q04,2026-10-01,information,ramp metering hidden lane distribution same density merge opportunity macroscopic model,no exact full-history certificate identified in screened sources
+RM8-Q05,2026-10-01,gap citation follow-up,"""Ramp Metering with Microscopic Gap Detection Algorithm"" Klomp Knoop Taale Hoogendoorn",RM8-P02 primary repository and final PDF
+RM8-Q06,2026-10-01,merge citation follow-up,"""Impacts of lane changes at merge bottlenecks"" Laval Cassidy Daganzo pdf",RM8-P01 author manuscript and institutional chapter metadata
+RM8-Q07,2026-10-01,macro/reference,"""Capacity Drop at Freeway Ramp Merges"" Wang 2050 2023 METANET",RM8-P04 primary indexed sections; direct page access error
+RM8-Q08,2026-10-01,recent frontier,"""ramp metering"" ""gradient"" ""lane"" ""2025"" ""2026""",recent joint-actuator lead RM8-P07; no exact-task result established
+RM8-Q09,2026-10-01,macro memory,"""Empirical observations of capacity drop"" ""integration"" ""pdf""",RM8-P05 publisher indexed abstract; no full-text law adoption
+RM8-Q10,2026-10-01,consistency,"""On the Consistency of Freeway Macroscopic Merging Models"" pdf",RM8-P06 abstract-level caution
+RM8-Q11,2026-10-01,reference methods,"""Capacity Drop at Freeway Ramp Merges"" site:mdpi.com/2071-1050/15/3/2050 ""4.""",RM8-P04 indexed methods 4.4.2–4.4.3
+RM8-Q12,2026-10-01,gradient frontier,"""ramp metering"" ""lane"" ""gradient"" ""finite differences""",no source answering the complete matched task identified
+RM8-Q13,2026-10-01,independent frontier,"""ramp metering"" ""gradient"" ""independent"" model",no independent one-step direction certificate identified in screened sources
+RM8-Q14,2026-10-01,information frontier,"""ramp metering"" ""lane distribution"" ""same"" density",additional broad leads; no exact declared history pair established

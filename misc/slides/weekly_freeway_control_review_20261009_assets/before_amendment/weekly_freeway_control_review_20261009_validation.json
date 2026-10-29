@@ -1,0 +1,136 @@
+{
+  "slides": 14,
+  "boilerplate": 2,
+  "substantive": 12,
+  "body_line_counts": [
+    {
+      "slide": 1,
+      "body_lines": 4,
+      "formula_lines": 0
+    },
+    {
+      "slide": 2,
+      "body_lines": 5,
+      "formula_lines": 0
+    },
+    {
+      "slide": 3,
+      "body_lines": 6,
+      "formula_lines": 0
+    },
+    {
+      "slide": 4,
+      "body_lines": 3,
+      "formula_lines": 1
+    },
+    {
+      "slide": 5,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 6,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 7,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 8,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 9,
+      "body_lines": 4,
+      "formula_lines": 0
+    },
+    {
+      "slide": 10,
+      "body_lines": 6,
+      "formula_lines": 0
+    },
+    {
+      "slide": 11,
+      "body_lines": 3,
+      "formula_lines": 2
+    },
+    {
+      "slide": 12,
+      "body_lines": 3,
+      "formula_lines": 2
+    },
+    {
+      "slide": 13,
+      "body_lines": 3,
+      "formula_lines": 0
+    },
+    {
+      "slide": 14,
+      "body_lines": 3,
+      "formula_lines": 1
+    }
+  ],
+  "grouped_diagrams_by_slide": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "embedded_vector_assets": 4,
+  "font": "Calibri",
+  "title_points": 32,
+  "body_points": 18,
+  "white_background": true,
+  "xml_zip_and_relationship_checks": "PASS",
+  "source_paths": "PASS",
+  "layout_checks": "PASS",
+  "preview": "Pillow layout proof using DejaVu Sans; not Office rendering",
+  "presentation_route": {
+    "group_meeting": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "technical_discussion": [
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  "scientific_execution": "None; existing source/static results synthesized only",
+  "pending_review_gate": "Q.J.F.R; neither candidate selected",
+  "protection_check": {
+    "existing_files_changed": [
+      "misc/selective_discreteness_ramp_metering_review/README.md",
+      "misc/selective_discreteness_ramp_metering_review/discussion/rm12/backtracking_planning_dialogue.md",
+      "temp_content/feedback/feedback.md"
+    ],
+    "preexisting_files_preserved": 492,
+    "deleted_existing_files": [],
+    "notes_and_handoff_local_links": 44,
+    "speaker_notes_pages": 14,
+    "last_week_deck_and_generator": "unchanged",
+    "pending_field_decision": "unselected",
+    "slide_format_and_layout": "PASS"
+  }
+}

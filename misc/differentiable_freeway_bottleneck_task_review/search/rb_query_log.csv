@@ -1,0 +1,32 @@
+query_id,date,query,purpose,outcome
+RBQ001,2026-09-17,"""lane drop"" ""variable speed"" ""lane distribution"" control",lane-drop shared speed control,FB0037 differential per-lane actuator lead and FB0038 lateral-control lead
+RBQ002,2026-09-17,"""variable speed limits"" ""speed history"" model sensitivity",strong aggregate response/history,existing FB0022 history baseline reidentified
+RBQ003,2026-09-17,"""multi-lane"" ""speed control"" ""aggregation"" gradient",matched information versus actuator,known multi-lane control and aggregate/class detector leads; no matched result adopted
+RBQ004,2026-09-17,"""variable speed limit"" ""gradient"" ""microscopic"" validation",independent gradient transfer,gradient-feedback terminology and microscopic CAV boundary leads; no direct gap closure
+RBQ005,2026-09-17,"""temporary lane closure"" ""speed control"" ""recovery"" delay",temporary recovery/accounting,no new decision-grade temporary recovery source adopted; reused FB0021
+RBQ006,2026-09-17,"""Effects of low speed limits on freeway traffic flow"" lane Soriguera",empirical shared speed and lane occupancy,FB0039 empirical common-limit lane response and counterevidence
+RBQ007,2026-09-17,"""Improving Traffic Flow Efficiency at Motorway Lane Drops"" pdf",nearest lane-model citation frontier,FB0038 lawful primary13-page copy
+RBQ008,2026-09-17,"""lane drop"" ""speed"" ""differentiable"" OR ""adjoint"" OR ""gradient fidelity""",recent exact sensitivity frontier,general gradient lineage; no new decision-grade matched result adopted
+RBQ009,2026-09-17,"""lane drop"" ""uniform"" ""speed limit"" ""multilane""",precise newer shared-advice prior,FB0037 per-lane actuator and public preprint lead
+RBQ010,2026-09-17,"""Variable speed limits in the link transmission model using an information propagation method""",strong deterministic information baseline frontier,FB0027 publisher abstract-introduction; full methods not inspected
+RBQ011,2026-09-17,"""variable speed"" ""gradient transfer"" OR ""action ranking"" traffic",external useful-gradient frontier,no direct matched independent useful-gradient result adopted
+RBQ012,2026-09-17,"""lane-drop bottleneck"" ""without capacity drop"" ""speed""",nearest baseline citation and recovery counterevidence,reused FB0001 no-drop limitation; advisory report lead not newly extracted
+RBQ013,2026-09-17,"site:arxiv.org ""variable speed"" ""lane"" ""differentiable""",recent arXiv/publication update,no new exact-task arXiv result adopted; not universal absence
+RBQ014,2026-09-17,"""lane drop"" ""speed control"" ""gradient"" ""2025"" OR ""2026""",recent lane-gradient frontier,recent boundary controls and no decision-grade gap closure adopted
+RBQ015,2026-09-17,"""Variable speed limit control method of freeway merging area in a car-truck mixed heterogeneous traffic environment""",nearest newer evaluator predecessor,FB0040 close2025 lane-class CTM MPC and SUMO predecessor identified
+RBQ016,2026-09-17,"""Roncoli_et_al_TrC_Part2_2015_manuscript.pdf""",nearest journal manuscript lawful access,existing Roncoli journal attachment access not resolved; 2014 methods suffice for building-block claim
+RBQ017,2026-09-17,"""10.1016/j.physa.2025.130876"" pdf",lawful full text closest new predecessor,FB0040 related SSRN19-page public author manuscript discovered
+RBQ018,2026-09-17,"""Variable speed limit control method of freeway merging area"" ""pdf""",lawful author/repository version,FB0040 SSRN and adjacent merging-control leads; no full methods obtained
+RBQ019,2026-09-17,"""130876"" ""Chen"" ""Cheng"" manuscript repository",lawful repository access check,no alternative repository full text located in this bounded check
+RBQ020,2026-09-17,"""Variable speed limit control strategy considering traffic flow lane assignment in mixed-vehicle driving environment""",FB0040 closest backward citation,FB0041 primary indexed PIT-CTM and differential-lane-action predecessor; E1 only
+RBQ021,2026-09-17,"""A linear Lagrangian model predictive controller of macro- and micro-variable speed limits to eliminate freeway jam waves""",FB0040 macro-micro citation,FB0042 primary abstract hierarchical CAV-acceleration boundary
+RBQ022,2026-09-17,"""10.1016/j.physa.2025.130876"" lane speed control 2026",closest source forward/update frontier,reidentified closest-source and adjacent speed-control leads; no exact prior answer adopted
+RBQ023,2026-09-17,"site:arxiv.org traffic ""lane"" ""speed"" ""differentiable"" 2025 2026",recent arXiv update,no exact-task new method claim adopted; mixed dated trajectory-control leads
+RBQ024,2026-09-17,"""lane drop"" ""common speed"" ""gradient"" traffic control",same-action useful sensitivity,individual-CAV and joint-control boundary leads; no inspected precise gap closure
+RBQ025,2026-09-17,"""variable speed limit"" ""lane"" ""state aggregation"" control",strong aggregate information sufficiency,new noise-control boundary and established lane-control leads; no state-sufficiency result adopted
+RBQ026,2026-09-17,"""variable speed limit"" ""gradient"" ""microscopic"" 2025 2026",recent evaluator and gradient frontier,FB0043 open2026 incident counterevidence and FB0044 CAV-CTM lead; policy-gradient terminology not native traffic AD
+RBQ027,2026-09-17,"""10.1016/j.physa.2025.130876"" -researchgate -sciencedirect -ssrn",source update/citation frontier,adjacent managed-lane and response-prediction leads; no new full exact-task evidence
+RBQ028,2026-09-17,"""variable speed limit"" ""lane occupancy"" ""aggregate"" control gradient",final frontier information-action link,FB0049 individualized speed-plus-lateral boundary; December2026 issue date not certified as-of review
+RBQ029,2026-09-17,"""lane drop"" ""gradient"" ""sensitivity"" ""model predictive control""",final frontier useful sensitivity,FB0047 infrastructure-free controller excerpt and known actuator boundaries; full method inaccessible
+RBQ030,2026-09-17,"""multi-lane"" ""adjoint"" ""speed limit""",final frontier multi-lane derivative,mostly unrelated adjoint-language and known macro control leads; no new decision category
+RBQ031,2026-09-17,"site:arxiv.org (""traffic flow"" OR ""traffic simulator"") (""speed limit"" OR ""lane drop"") (""differentiable"" OR ""automatic differentiation"")",final frontier recent arXiv native differentiation,no exact-task inspected new result; no global absence inferred

@@ -1,0 +1,276 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\title{RM9-R1: What does the aggregate observer measure?\\Source findings and a concrete contract decision}
+\author{Method-first ramp-metering review}
+\date{5 October 2026}
+\begin{document}
+\maketitle
+\textbf{Status.} The accepted source-first review has reached UG4-O.
+No speed map, new physical law or simulation is adopted. The new section-speed
+Candidate C and the historical passage Candidate A are distinct hypotheses.
+Physical passage realization Candidate P keeps the mapping unresolved until
+further analytic grounding. Detailed Pros/Cons and the decision are in the
+companion findings. This handout supplies the mathematical definitions.
+
+\section{Three different observation supports}
+Let $i$ identify a longitudinal road cell, $\ell\in\{1,2\}$ a mainline lane,
+$L_i$ its length, $h$ a common time step and $t_s=t_0+sh$.
+Stored continuous mass $n_{i\ell}^s$ is measured in vehicle equivalents.
+Define road-total mass and road-total density (summed over lanes):
+\begin{equation}
+N_i^s=n_{i1}^s+n_{i2}^s,\qquad K_i^s=N_i^s/L_i.
+\end{equation}
+An average density per lane would be $K_i^s/2$; the benchmark uses the summed
+normalization consistently. True spatial inventory is an idealized observation,
+not detector occupancy or density inferred from detector speed.
+
+At a labeled face $e$, let $q_{e\ell}^s$ be an actual accepted longitudinal
+lane rate during the completed interval $[t_s,t_{s+1})$; $Q_e^s$ is its road
+total and $B_e^s$ is cumulative passage mass:
+\begin{equation}
+Q_e^s=\sum_\ell q_{e\ell}^s,\qquad
+B_e^{s+1}-B_e^s=hQ_e^s.
+\end{equation}
+At a merge, the face label must distinguish donor-mainline passage from
+combined downstream passage including ramp entry. Counts and interval rates
+need not be independent information, but both are accounted for.
+
+\textbf{Passage time mean.} For vehicles $a$ crossing a station/window with
+longitudinal speeds $u_a$, the arithmetic passage mean is
+\begin{equation}
+V_{\rm pass}=\frac{1}{m}\sum_{a=1}^{m}u_a.
+\end{equation}
+If a lane has one representative passage speed, pooling lanes uses passage
+counts (equivalently constant interval rates) as weights. This is not the
+speed of the traffic remaining inside an upstream cell. At zero passage the
+statistic is unavailable, not a measured zero.
+
+\textbf{Instantaneous section mean.} A density-weighted longitudinal mean
+over the traffic present in a section is
+\begin{equation}
+V_{\rm sec}(t)=
+\frac{\sum_\ell\int_{\text{cell }i} k_\ell(x,t)u_\ell(x,t)\,dx}
+{\sum_\ell\int_{\text{cell }i} k_\ell(x,t)\,dx},\qquad N_i(t)>0.
+\end{equation}
+This remains meaningful when vehicles are present but no one crosses the
+face. Neither this definition nor the passage definition requires an
+upstream-cell-to-face equality.
+\newpage
+
+\section{Same-region identities are not arbitrary cell/face identities}
+For a rectangular longitudinal space--time region $\mathcal A$ of area
+$L\Delta t$, let $d_a$ be the longitudinal distance traveled by vehicle $a$
+inside it, and $r_a$ its time spent inside it. The generalized definitions are
+\begin{equation}
+q_{\mathcal A}=\frac{\sum_a d_a}{L\Delta t},\qquad
+k_{\mathcal A}=\frac{\sum_a r_a}{L\Delta t},\qquad
+u_{\mathcal A}=\frac{\sum_a d_a}{\sum_a r_a}
+=\frac{q_{\mathcal A}}{k_{\mathcal A}}.
+\end{equation}
+For multiple lanes, sum longitudinal distance and time across the lanes using
+the same normalization. Lateral motion itself is not extra longitudinal distance.
+These source definitions share the \emph{same region}. Their flow is a traveled
+distance average, not necessarily a single cell's downstream accepted rate.
+Their density is a time--space average, not necessarily $N_i^s/L_i$ at one
+instant. Therefore the identity does not justify defining independent passage
+speed as $Q_e^s/K_i^s$ during a transient or receiving-limited interval.
+
+For a section with no internal sources, conservation gives
+\begin{equation}
+N(t_b)-N(t_a)=B_{\rm in}(t_a,t_b)-B_{\rm out}(t_a,t_b).
+\end{equation}
+It determines inventory change, not every interior traveled distance or
+crossing-speed distribution. Ramp entry is an additional labeled input where
+present. Unpassed traffic inside the section must not disappear from estimation.
+
+\textbf{Source outcome.} FB0030 uses one-minute detector flow and speed to
+estimate density and acknowledges time/space-mean mismatch. FHWA distinguishes
+point passage and section means; dual loops can separately measure crossing
+speed. The inspected Jamshidnejad/De Schutter papers define generalized metrics
+and retain internal traffic across windows. The 2018 multilane procedure
+explicitly excludes lane changes in Section 4.2; a later trajectory approximation
+does not validate our adapted lane-changing CTM observer.
+
+\textbf{Evidence boundary.} These are metric and estimation precedents.
+No source proves our exact full-history information collision, useful-action
+distinction or combined gradient chain. First-order observation closures below
+are reviewer proposals, not newly validated field measurements.
+
+\section{Candidate C: section speed under a declared first-order closure}
+Let $v_{i\ell}$ be free-flow speed, $w_{i\ell}$ backward-wave speed,
+$C_{i\ell}$ capacity and $k_{i\ell}^{\rm jam}=M_{i\ell}/L_i$ jam density.
+Use the capacity-limited FD implied by these public parameters:
+\begin{equation}
+f_{i\ell}^{\rm eq}(k)=\min\{v_{i\ell}k,\ C_{i\ell},\
+w_{i\ell}(k_{i\ell}^{\rm jam}-k)\},\qquad
+U_{i\ell}^{\rm eq}(k)=f_{i\ell}^{\rm eq}(k)/k\quad(k>0).
+\end{equation}
+Candidate C assigns this one representative speed to each occupied lane cell
+at the stored-state epoch, with $k_{i\ell}^s=n_{i\ell}^s/L_i$:
+\begin{equation}
+V_i^s=\frac{\sum_\ell n_{i\ell}^s U_{i\ell}^{\rm eq}(k_{i\ell}^s)}{N_i^s},
+\quad N_i^s>0.
+\label{eq:section}
+\end{equation}
+An empty lane contributes zero to the numerator without evaluating $0/0$;
+an empty cell has an unavailable-speed flag. Occupied stationary traffic can
+give $V_i^s=0$. This closure does not add a dynamic speed state or modify G2.
+It is a spatially homogeneous/equilibrium observation hypothesis, not a
+guarantee about shocks, acceleration or actual detector speeds.
+\newpage
+
+\section{What C does and does not hide}
+Equation~\eqref{eq:section} equals
+$\sum_\ell f_{i\ell}^{\rm eq}(k_{i\ell}^s)/K_i^s$ under the homogeneous
+closure. The numerator is a constitutive \emph{within-cell equilibrium} flow
+sum, not the actual accepted downstream flow $Q_e^s$. Thus the proposed speed
+channel is computed from the lane state separately from accepted face counts;
+no statistical or algebraic independence of all observations is claimed.
+
+On the two-lane free-flow FD subcase with distinct known speeds,
+\begin{equation}
+N_i^s V_i^s=v_{i1}n_{i1}^s+v_{i2}n_{i2}^s,\qquad
+n_{i1}^s=N_i^s\frac{V_i^s-v_{i2}}{v_{i1}-v_{i2}},\quad
+n_{i2}^s=N_i^s-n_{i1}^s.
+\end{equation}
+This identifies the \emph{stored} split in that subcase, even if a downstream
+constraint caps the face flow, provided the proposed representative-speed
+closure still places both cell densities on their free-flow FD branches.
+It illustrates the information consequence of a new observation hypothesis;
+it is not a measured receiving-limited speed theorem, a full R2 audit or a
+matched-history example. Equal public lane speeds and other FD branches need
+their own analysis; do not select a symmetry to force a favorable conclusion.
+
+\section{Candidate A and the physical-passage alternative P}
+The historical idealized passage proposal uses post-lateral masses
+$n_{i\ell}^{L,s}$ and actual lane face flows during the completed step:
+\begin{equation}
+V_{e,\rm A}^s=
+\frac{\sum_\ell q_{e\ell}^s
+U_{i\ell}^{\rm eq}(n_{i\ell}^{L,s}/L_i)}{Q_e^s},\qquad Q_e^s>0.
+\end{equation}
+Besides equilibrium cell speed, this explicitly assumes that the upstream
+post-lateral representative speed is the representative crossing speed at
+that face. The source review does not validate that extra approximation in
+congestion. Zero passage gives an unavailable statistic. A stays viable as
+a conditional mathematical benchmark; its operational name is not proof
+of physical passage realization.
+
+Candidate P retains actual point passage speed as indispensable, but stops
+information testing until a physical/spatial reconstruction law is admitted.
+The current inventory/accepted-flow update alone does not provide that law.
+Initial conditions, internal queues and any added trajectory approximation
+must be reviewed; no microscopic state or simulator is automatically adopted.
+
+\textbf{Recommendation for discussion: C.} It matches the declared cell
+inventory's section support and removes the extra cell-to-face assumption.
+It remains an explicitly idealized first-order benchmark and may expose lane
+contrast. If physical point-detector fidelity is required now, choose P.
+Neither the selected source-first route nor this recommendation adopts C/A/P.
+\newpage
+
+\section{Causal history and initialization}
+Keep the approved ordering
+\begin{equation}
+n^s\ \xrightarrow{\rm lateral}\ n^{L,s}\
+\xrightarrow{\rm forward/merge}\ n^{s+1}.
+\end{equation}
+The decision epoch $t_*$ occurs at a stored-state epoch after all preceding
+steps have completed and before the next update. A future common open-loop
+schedule is selected then; this does not introduce repeated feedback control.
+With C, observe $(N_i^s,V_i^s)$ at stored epochs $t_s\leq t_*$ and counts/flows
+only for completed intervals ending no later than $t_*$. With A, passage speeds
+also belong only to those completed intervals. Exclude all future observations
+generated by any candidate schedule from the initial information set.
+
+Denote the admitted history by
+\begin{equation}
+\mathcal H_*=(\mathcal O_{[t_{\rm init},t_*]},\ p,\ b_{\rm public},\ u_{\rm past}).
+\end{equation}
+Here $\mathcal O$ contains the declared mainline/ramp observations, $p$ the
+public model parameters, $b_{\rm public}$ the common known forcing (including
+declared future forcing), and $u_{\rm past}$ the prior meter permissions.
+Every claimed latent initial state must match every initial and historical
+channel. The public graph specifies section lengths, face locations, boundary
+lane-allocation rules and downstream supplies. No lane-dependent exogenous
+input is kept private merely to create ambiguity.
+
+\textbf{Trivial sufficiency boundary.} If the complete initial physical state
+$x^0$, all forcing $b^s$, parameters and previous controls are known, deterministic
+recursion $x^{s+1}=F_B(x^s,b^s,u^s)$ already determines the full state. A known
+empty initialization is such a subcase when all modeled states are empty and
+all structural inputs are public. Hiddenness cannot be claimed there by
+ignoring the recursion. If only initial aggregate observations are admitted,
+unobserved lane coordinates remain candidates only within their full
+observation-consistent set. This is an initialization contract, not permission
+to invent private prehistory.
+
+\section{Ramp balances and geometry requirements}
+Let $W_r^s$ be external ramp waiting, $R_{\rm pre}^s$ traffic upstream of the
+meter inside finite ramp storage, and $R_{\rm post}^s$ traffic in any declared
+post-meter region. Let $A_r^s$ be external arrival rate, $b_r^s$ admitted entry,
+$g_r^s$ actual meter release and $r_r^s$ actual merge entry, all in mass/time.
+Where these compartments exist, conservation requires
+\begin{align}
+W_r^{s+1}&=W_r^s+h(A_r^s-b_r^s),\\
+R_{\rm pre}^{s+1}&=R_{\rm pre}^s+h(b_r^s-g_r^s),\\
+R_{\rm post}^{s+1}&=R_{\rm post}^s+h(g_r^s-r_r^s).
+\end{align}
+For several post-meter cells, the last line is their sum balance and internal
+flows cancel. The permission limits $g_r^s$; finite sending/storage/receiving
+can further restrict it. $r_r^s$ is set by the adopted shared receiver using
+the downstream ramp offer, not automatically by the current permission.
+\newpage
+
+\section{Minimum layout/accounting declaration before R2/G3}
+Declare a finite two-mainline-lane cell graph, the meter location, any finite
+pre/post-meter ramp regions, the ramp-entry receiver and every observed
+section/face. Before and after the merge, donor passage and combined passage
+must have distinct labels. At a simple shared receiver,
+\begin{equation}
+q_{\rm combined}^s=m^s+r_r^s
+\end{equation}
+for its two inputs; a second through lane is accounted for separately in the
+road-total downstream face. Ordinary through-lane transfers and ramp entry
+must jointly respect each receiving lane's approved supply. This is a required
+interface declaration, not adoption of a new topology or mandatory-merge law.
+
+If the meter and merge are truly co-located, omit nonexistent post-meter storage
+and specify that specialization explicitly. Do not impose co-location merely
+to identify release and entry. Conversely, storage/propagation cannot be
+silently omitted where the task includes them. Numerical cell counts are not
+a separate methodological gate, but the geometry must be coherent before
+a realized full-history/action certificate.
+
+The complete population includes mainline external waiting where present,
+mainline cell mass, $W_r$, $R_{\rm pre}$ and $R_{\rm post}$. All initial traffic
+and unserved demand remain counted. The accepted total-time objective and
+UG1--UG3 dynamics are unchanged. No gradient experiment was run.
+
+\section{Evidence and disposition}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.66\textwidth}}
+\toprule
+Established in R1 & Source-backed metric/support distinctions; conditional
+observer proposals; causal/ramp/initialization requirements.\\
+Still open & UG4-O observer adoption; source-grounded concrete layout; G3
+feasible equal-history/useful-action evidence; G4 validated useful gradients.\\
+Not authorized & Traffic runs, SUMO installation, new dynamics, extra lanes,
+noise/smoothing, successor or deferred extension execution.\\
+\bottomrule
+\end{tabular}
+
+\textbf{Primary references inspected.}
+\begin{itemize}
+\item \href{https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae}{FB0030: lane model}, printed 1768--1769.
+\item \href{https://www.fhwa.dot.gov/policyinformation/tmguide/tmg_2022/traffic-data-collection.cfm}{FHWA Traffic Monitoring Guide 2022}, speed and occupancy sections.
+\item \href{https://ops.fhwa.dot.gov/publications/fhwahop08038/04infoshare.htm}{FHWA Data Quality White Paper}, Section 4.3.2.
+\item \href{https://www.dcsc.tudelft.nl/~bdeschutter/pub/rep/15_035.pdf}{Jamshidnejad/De Schutter 2015}, Sections I--II.
+\item \href{https://www.dcsc.tudelft.nl/~bdeschutter/pub/rep/17_001.pdf}{Jamshidnejad/De Schutter 2018 author report}, Sections 2.1, 4.1--4.2 and 5.
+\end{itemize}
+\textbf{Stop.} Discuss C/A/P at UG4-O. No observer is adopted by this document.
+\end{document}

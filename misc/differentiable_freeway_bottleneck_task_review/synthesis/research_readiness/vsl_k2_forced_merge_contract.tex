@@ -1,0 +1,335 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\begin{center}
+{\Large K2: an arrival-aware compulsory merge}\\[4pt]
+14 October 2026 --- conditional candidate and interface gate, not adopted methods
+\end{center}
+
+\section*{1. Fixed geometry, information and the proposed handoff}
+Keep total road length $L$ fixed. Candidate T1 reserves a terminal reach
+$b\in(0,L)$ and applies homogeneous early preparation on $[0,L_p]$, where
+$L_p=L-b$. An initial uniform footprint $[0,\ell]$, $0<\ell\leq L_p$, has
+ending, adjacent and other-continuing densities $e_0,a_0,b_0$, with
+$a_0=b_0$ and $M=\ell(e_0+a_0+b_0)>0$. The terminal reach is initially empty.
+There are no later arrivals or internal lateral sources in that reach.
+All quantities and the handoff are fixed across advice actions and comparators.
+The geometry and cessation of early transfer at $L_p$ are proposals requiring
+adoption, not consequences of approving K2's review direction.
+
+Use one common action $v\in[v_-,v_+]$, $0<v_-<v_+$, and the H1 diagnostic
+family $k_c(v)=wk_j/(v+w)$, $C(v)=vk_c(v)$, with $w,k_j>0$. Preserve the H1
+initial bounds $0\leq e_0,a_0,b_0\leq k_c(v_+)$. Its homogeneous body evolves as
+\[
+ r=e_0+a_0=e(t)+a(t),\qquad
+ \dot e=-\frac{v}{h}\min\left\{e,\frac{k_c(v)-r+e}{\gamma}\right\},
+ \quad a=r-e,\quad b(t)=b_0,
+ \tag{1}
+\]
+with fixed physical interaction scale $h>0$ and early work weight $\gamma\geq1$.
+The H1 proof of nonnegative mass, common-speed free flow and lane-density
+invariance applies only while downstream admission does not hold the body.
+The adaptations in (1) remain as declared in the H1 note.
+
+Let $F_E,F_A,F_B$ be cumulative terminal-entry mass, initially zero. The
+preparation front and rear leave at $(L_p-\ell)/v$ and $L_p/v$. During that
+interval,
+\[
+ \dot F_E=ve(t),\qquad \dot F_A=va(t),\qquad \dot F_B=vb_0;
+ \tag{2}
+\]
+outside it all entry rates are zero. Early transfers into $A$ are already in
+$F_A$ and are not forced to merge a second time. Route-origin conservation
+may be checked by paired early transfers; service needs only the current
+completed/uncompleted class.
+
+\section*{2. Physical stock, eligible queue and receiving at the interface}
+The terminal reach has free-flow delay $\tau=b/v$, backward delay
+$\tau_b=b/w$ and per-lane jam storage $H=k_jb$. Let $Y_j$ be cumulative final
+departures for $j=E,A,B$. Extend initial histories as zero for negative time.
+The initially empty-link quantities are
+\[
+ N_j(t)=F_j(t)-Y_j(t),\quad
+ P_j(t)=F_j(t-\tau),\quad
+ q_j(t)=P_j(t)-Y_j(t).
+ \tag{3}
+\]
+$N_j$ is physical stock; $P_j$ is mass that could have reached the lane end
+without delay; $q_j$ is eligible but unserved mass. These are different
+objects. A virtual eligibility time is not the physical moment a traveler
+joins the back of a spatial queue.
+
+For $t>\tau_b$, the LTM vacancy is
+\[
+ V_j(t)=Y_j(t-\tau_b)+H-F_j(t).
+ \tag{4}
+\]
+Positive vacancy permits upstream receiving at capacity. At $0<t\leq\tau_b$,
+the empty-link vacancy is $k_jwt-F_j(t)$; capacity-bounded input makes it
+positive. The input rate must also respect $C(v)$. A conservative sufficient
+domain for all lanes and all actions is
+\[
+ M<H=k_jb,\qquad 0\leq\dot F_j(t)\leq C(v).
+ \tag{5}
+\]
+Indeed $F_j\leq M<H$ and $Y_j\geq0$ ensure (4) is strictly positive after
+the backward delay. Before it, $F_j(t)\leq C(v)t<k_jwt$. Thus terminal
+admission never restricts H1. This is a finite, deliberately conservative
+no-spillback domain, not an infinite buffer and not a test on $q_E$ alone.
+
+Eligible demand at the ending-lane exit is zero before $\tau$. Afterwards it
+is its new eligible-arrival rate when $q_E=0$ and its link capacity $C(v)$
+when $q_E>0$. This is the empty-link LTM queue/demand relation. The formulas
+are a restricted source-compatible reference; no assertion is made that
+the weighted node below equals Jin's general invariant junction model.
+
+\section*{3. One queue, own-lane priority and finite forced service}
+Let $R>0$ be declared constant available receiving-work rate for the adjacent
+exit and $R_B>0$ the other exit's capacity. Ordinary mass uses one work unit;
+unfinished ending mass uses $\alpha\geq1$. The late factor $\alpha$ is separate
+from $\gamma$. Select the elementary nominal domain
+\[
+ R>v_+r,\qquad R_B\geq v_+b_0.
+ \tag{6}
+\]
+This is stronger than merely fitting current continuing demand: the whole
+ordinary $E+A$ load fits $R$. Any forced queue arises from its extra receiving
+work, rather than an unacknowledged ordinary load excess. Source sending is
+respected because each lane's input is on the H1 free-flow branch.
+
+Own-lane-first service then gives $Y_A=P_A$, $Y_B=P_B$ and
+$u_A=\dot P_A$. The remaining ending-lane service limit is
+\[
+ c_E(t;v)=\min\left\{C(v),\frac{R-u_A(t)}{\alpha}\right\}>0.
+ \tag{7}
+\]
+The terminal flow and queue balance are
+\[
+ g_E(t)=\dot Y_E(t)=
+ \begin{cases}
+ c_E(t),&q_E(t)>0,\\
+ \min\{\dot P_E(t),c_E(t)\},&q_E(t)=0,
+ \end{cases}
+ \qquad \dot q_E=\dot P_E-g_E.
+ \tag{8}
+\]
+Hence $q_E\geq0$, $Y_E\leq P_E$, $g_E$ respects ending sending, and
+\[
+ u_A+\alpha g_E\leq R,\qquad
+ u_A+g_E\leq R.
+ \tag{9}
+\]
+Transferred/departed mass is $g_E\,dt$, not $\alpha g_E\,dt$. Forced mass
+has no forward escape branch. Failed requests remain in (3), and the source
+link represents their slower congested motion implicitly. Advice is still
+the free-flow parameter; queued terminal traffic is not asserted to travel
+at that speed.
+
+For the work-conserving diagnostic below, additionally require
+\[
+ R/\alpha\leq C(v_-).
+ \tag{10}
+\]
+Since $C(v)$ increases with $v$, the longitudinal cap in (7) cannot bind in
+that subdomain. It is retained in the general candidate instead of hidden.
+Conditions (5), (6) and (10) are restrictions to qualify over the whole action
+range, not post-action receiving curves.
+
+The entire finite cohort has become eligible by $t_*=L/v$. Thereafter own
+arrivals are zero and positive service is $\min\{C(v),R/\alpha\}$. Thus
+\[
+ T_{\rm clear}=t_*+
+ \frac{q_E(t_*)}{\min\{C(v),R/\alpha\}},
+ \tag{11}
+\]
+with the no-queue case interpreted as $T_{\rm clear}=t_*$. A positive native
+continuing density supplies the last physical tail; otherwise (11) is a
+finite upper bound. No unfinished mass is discarded at a horizon.
+
+\textbf{Source versus adaptation.} Local own-lane-first and gap-weighted
+residual receiving are Carey ingredients. The compulsory boundary extension,
+constant terminal work factor/rate, restricted priority domain, final reach
+and lack of lateral sources there are explicit adaptations. Cooperative or
+proportional service is a different terminal rule, not a harmless replacement
+of (8); it can introduce an $A$ queue. No field calibration or zipper law is
+claimed.
+
+\section*{4. A joined domain with positive waiting and no upstream restriction}
+All the nominal restrictions can hold together. Choose positive sufficiently
+sparse initial densities so (5), (6) and (10) have room. At an admitted speed
+$v_0$, ending density at the first terminal arrival is positive because its
+finite H1 exposure has not annihilated all mass. Let those eligible densities
+be $e_f,a_f$, with $e_f+a_f=r$.
+
+Positive initial queue growth occurs whenever
+\[
+ v_0r<R<v_0(a_f+\alpha e_f)
+       =v_0[r+(\alpha-1)e_f].
+ \tag{12}
+\]
+For $v_0=v_+$ and $\alpha>1$, this is a nonempty interval above the ordinary
+load bound. Sparse traffic can also make $R/\alpha<C(v_-)$ while $M<k_jb$.
+These are compatibility/existence inequalities, not fitted parameters or
+an interior-optimum certificate. Receiving at the upstream handoff remains
+slack under (5), even while the compulsory node has a queue under (12).
+
+If (5) or the actual vacancy criterion fails, H1's prescribed entry clock
+is no longer trusted. If (6) fails, the one-queue restriction may no longer
+hold. Those failures reopen the smallest interface/domain contract; neither
+clipping incoming mass nor adding an undocumented second queue is permitted.
+
+\section*{5. Complete TST, conservation and an arrival-pulse reference}
+All cohort mass is initially present at decision time. Total unexited mass
+and complete TST are
+\[
+ N_{\rm unexited}(t)=M-Y_E(t)-Y_A(t)-Y_B(t),\qquad
+ \mathrm{TST}=\int_0^{T_{\rm clear}}N_{\rm unexited}(t)\,dt.
+ \tag{13}
+\]
+Paired early transfer conserves upstream mass, (3) conserves each terminal
+stream's input/output stock, and node discharge removes exactly the accepted
+mass. Gap work is never multiplied into population counts.
+
+Because every initial position has free-flow eligibility time $(L-x)/v$
+and only $E$ is delayed in this domain,
+\[
+ \mathrm{TST}=M\frac{L-\ell/2}{v}
+                 +\int_0^{T_{\rm clear}}q_E(t)\,dt.
+ \tag{14}
+\]
+This is an identity for the admitted full trajectory. It counts physical
+travel through both regions and all excess terminal delay. It does not place
+a positive spatial queue after the road or claim that (3)'s eligible queue
+equals physical occupancy.
+
+For an isolated node reference, let masses $m_A=m_E=4$ arrive uniformly over
+duration $d$, set $R=4$, $\alpha=2$, and let sending be nonbinding. The
+reference clock starts at the first eligible arrival, not a newly chosen
+H1 decision boundary. During arrivals
+\[
+ u_A=m_A/d,\quad c_E=(R-m_A/d)/\alpha,\quad
+ q_{\rm peak}=\frac{m_A+\alpha m_E-Rd}{\alpha}
+ \tag{15}
+\]
+when the numerator is positive. If it is nonpositive, no queue forms.
+After arrivals the drain duration is $\alpha q_{\rm peak}/R$. The two
+triangular queue areas sum to
+\[
+ \Delta\mathrm{TST}=\frac{q_{\rm peak}d}{2}
+              +\frac{\alpha q_{\rm peak}^2}{2R}.
+ \tag{16}
+\]
+For $d=2$, $q_{\rm peak}=2$, drain duration is one, delay is three and the
+eligible-arrival-time sum $(m_A+m_E)d/2$ is eight: complete-time sum is eleven.
+For $d=4$, the delay is zero and the complete-time sum is sixteen. These are
+closed-form hand references, not traffic rollouts, calibrated actions, or a
+reachable H1 comparison. Any whole-road prefix must still be included.
+
+\section*{6. Priority reference: equal final work is not equal TST}
+Consider a different, already waiting batch with $m_A=m_E=2$, $R=2$ and
+$\alpha=2$; all sending limits are slack. This comparison deliberately allows
+an $A$ backlog and is outside the nominal one-queue input domain. Total work
+is six, so both following work-conserving allocations finish at time three.
+
+Own-lane-first clears $A$ at rate two over $[0,1]$, then $E$ at rate one over
+$[1,3]$. The remaining population integrates to
+\[
+ \int_0^1(4-2t)\,dt+\int_1^3(3-t)\,dt=3+2=5.
+ \tag{17}
+\]
+Proportional work allocation maintaining the batch fractions serves both
+mass classes at rate $2/3$ over $[0,3]$, and
+\[
+ \int_0^3 4(1-t/3)\,dt=6.
+ \tag{18}
+\]
+Thus S13's proportional batch is an actual conditional rule, not merely the
+name of a component. Its mean is not the mean of an own-lane-first queue.
+This reference neither calibrates priorities nor declares the cooperative
+alternative invalid. A full arrival-aware rival must specify its available
+demand, priority and own queue explicitly.
+
+\section*{7. Fixed-preparation speed diagnostic: fastest can remain best}
+Hold completed preparation outcomes fixed across actions: each initial
+position carries the same terminal service class for every $v$. This is a
+deletion/reference case, not an assumption for the actual H1 sensitivity.
+For $v_f>v_s$, all free-flow eligibility times are earlier, so for all $t$
+\[
+ P_{A,f}(t)\geq P_{A,s}(t),\quad
+ P_{E,f}(t)\geq P_{E,s}(t),\quad
+ P_{B,f}(t)\geq P_{B,s}(t).
+ \tag{19}
+\]
+Assume the same fixed $R,\alpha$ and domain (5), (6), (10). Put
+\[
+ W(t)=P_A(t)+\alpha P_E(t),\qquad
+ Z(t)=Y_A(t)+\alpha Y_E(t).
+\]
+The weighted server is work-conserving: whenever weighted backlog is positive,
+it serves work at $R$. With zero initial eligible mass its cumulative output is
+\[
+ Z(t)=\inf_{0\leq u\leq t}\{W(u)+R(t-u)\}.
+ \tag{20}
+\]
+This exact fluid reference follows from conservation and reflected queue
+service. Earlier cumulative input (19) implies $Z_f(t)\geq Z_s(t)$. Since
+$Y_A=P_A$, total completed mass is
+\[
+ Y_A+Y_E+Y_B=\frac{Z}{\alpha}
+                   +\left(1-\frac1\alpha\right)P_A+P_B.
+ \tag{21}
+\]
+Every coefficient is nonnegative. Hence faster advice has at least as much
+completed mass at every time, and its integral (13) is no greater:
+\[
+ \mathrm{TST}(v_f)\leq\mathrm{TST}(v_s).
+ \tag{22}
+\]
+Forced queueing alone therefore does not guarantee an interior minimum.
+Changed H1 preparation changes the input work/classes and invalidates the
+fixed-preparation premise of this proof. An actual interior optimum, if any,
+needs a full sensitivity/evidence pass and is not imposed as an acceptance
+criterion for this server.
+
+As a separate deletion, setting $\alpha=1$ under the ordinary-load bound (6)
+makes all arrivals fit the receiver and their own sending, so no ending queue
+forms. Complete time is then only the free-flow term in (14). This deletion
+does not claim aggregate equivalence in a broader domain that violates (6)
+or adds other receiver asymmetry, priorities or capacity-drop mechanisms.
+
+\section*{8. Scientific disposition and references}
+Initial symmetry and an empty terminal mean $M$ plus $E_0$ fixes
+$e_0=E_0/\ell$, $a_0=b_0=(M-E_0)/(2\ell)$ and all candidate initial states.
+The strong aggregate-plus-ending-statistic rival can predict the same histories
+and queue. It is given all fixed parameters and the same observation contract.
+No future receiving oracle or extra initial lane observable is introduced.
+
+The physical T1 construction and explicitly virtual T2 server are different
+methodological interpretations. T1 needs adoption of the terminal reach,
+early-transfer cutoff, proposed priority and joined domain; T2 needs acceptance
+of a deliberate no-feedback approximation. Neither exact law is adopted here.
+No applied joint calibration, reachable new information witness, AD/finite-
+difference evidence or independent usefulness result is claimed. The K2 pass
+stops at the original B2 interface gate; the modeling-chain stage remains open.
+
+\begin{itemize}
+\item Carey, Balijepalli and Watling (2013), Sections 5 / R1, R2 and Algorithms
+A1--A2: local receiving/priority ingredients.
+\href{https://eprints.whiterose.ac.uk/id/eprint/77315/7/Carey\%20et\%20al\%202013_with_coversheet.pdf}{Institutional manuscript}.
+\item Jin (2015), Sections 3.1--3.3, equations (23), (28)--(30): empty-link
+queue, vacancy and boundary counts.
+\href{https://arxiv.org/pdf/1405.7080}{Primary preprint}.
+\item Yperman, Logghe and Immers (2005), Sections 3--4: link/node decomposition
+and merge allocation.
+\href{https://www.mech.kuleuven.be/cib/verkeer/dwn/pub/P2005C.pdf}{Original LTM paper}.
+\end{itemize}
+All terminal geometry, no-lateral-source, weighted priority and action-domain
+adaptations are declared explicitly. The accepted S13 certificate remains
+unchanged.
+\end{document}

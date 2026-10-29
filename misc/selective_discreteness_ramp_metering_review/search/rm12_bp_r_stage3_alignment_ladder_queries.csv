@@ -1,0 +1,9 @@
+id,date,batch,query,purpose
+LQ01,2026-10-08,1,moving bottleneck conservative numerical scheme moving mesh PDE ODE Delle Monache Goatin cell reconstruction,Conservative own-field/motion precedents
+LQ02,2026-10-08,1,kinematic wave moving bottleneck zero passing rate multiple constraints front tracking numerical method,Multiple/zero-passing qualification
+LQ03,2026-10-08,2,"""A conservative scheme for non-classical solutions to a strongly coupled PDE-ODE problem"" pdf",Obtain primary CDG17
+LQ04,2026-10-08,2,"""A fast simulation algorithm for multiple moving bottlenecks"" pdf Laval Leclercq",Inspect SC17 interactions
+LQ05,2026-10-08,3,incremental transfer lane changing node model invariance proportional allocation demand non FIFO kinematic wave,Qualify direct node/source lift
+LQ06,2026-10-08,3,Jin continuous link transmission model invariant fair merging non FIFO diverging rule,Check continuum-node limits
+LQ07,2026-10-08,4,multiple moving bottlenecks zero passing rate well posed PDE ODE triangular fundamental diagram Delle Monache Goatin 2016,Scope of multiple/endogenous results
+LQ08,2026-10-08,4,"""Extended macroscopic node model for multilane traffic"" full text 2025 invariance lane changing",Potential node lead; not adopted

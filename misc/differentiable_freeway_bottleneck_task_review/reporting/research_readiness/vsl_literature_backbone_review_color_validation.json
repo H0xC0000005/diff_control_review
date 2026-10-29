@@ -1,0 +1,198 @@
+{
+  "status": "passed",
+  "scope": "document, mathematical-content preservation and color checks only",
+  "pdf_pages": 3,
+  "main_text_pages_equivalent": 2.2652235715999898,
+  "main_text_limit": 2.5,
+  "references_start_page": 3,
+  "references": 8,
+  "equations": 8,
+  "display_math_blocks_unchanged": 7,
+  "inline_math_expressions_unchanged": 62,
+  "bibliography_content_unchanged": true,
+  "v2_tex_pdf_byte_preserved": true,
+  "source_palette": {
+    "SrcJin": "56617B",
+    "SrcWei": "895B32",
+    "SrcNS": "317D37",
+    "SrcHan16": "7146A9",
+    "SrcHan17": "165CA7",
+    "SrcCarey": "947112",
+    "SrcThesis": "A5418A",
+    "SrcWright": "23828C",
+    "Own": "B53D36",
+    "Standard": "2A2A2A"
+  },
+  "white_background_contrast": {
+    "SrcJin": 6.191810833422492,
+    "SrcWei": 5.8233606876375035,
+    "SrcNS": 5.09806873130268,
+    "SrcHan16": 6.6642967075294655,
+    "SrcHan17": 6.724352681100301,
+    "SrcCarey": 4.535671090668293,
+    "SrcThesis": 5.640641398591811,
+    "SrcWright": 4.522735520776784,
+    "Own": 5.697979161745323,
+    "Standard": 14.353406478158625
+  },
+  "source_hls": {
+    "SrcJin": [
+      0.6171171171171171,
+      0.40980392156862744,
+      0.1770334928229665
+    ],
+    "SrcWei": [
+      0.078544061302682,
+      0.36666666666666664,
+      0.46524064171123
+    ],
+    "SrcNS": [
+      0.34649122807017546,
+      0.3411764705882353,
+      0.4367816091954022
+    ],
+    "SrcHan16": [
+      0.7390572390572391,
+      0.46862745098039216,
+      0.4142259414225941
+    ],
+    "SrcHan17": [
+      0.5862068965517242,
+      0.37058823529411766,
+      0.7671957671957671
+    ],
+    "SrcCarey": [
+      0.12179487179487176,
+      0.3254901960784314,
+      0.783132530120482
+    ],
+    "SrcThesis": [
+      0.8783333333333334,
+      0.45098039215686275,
+      0.4347826086956522
+    ],
+    "SrcWright": [
+      0.5158730158730159,
+      0.3431372549019608,
+      0.6000000000000001
+    ],
+    "Own": [
+      0.009186351706036747,
+      0.4607843137254902,
+      0.5404255319148936
+    ],
+    "Standard": [
+      0.0,
+      0.16470588235294117,
+      0.0
+    ]
+  },
+  "actual_text_drawing_color_counts_by_page": [
+    {
+      "SrcJin": 4,
+      "SrcWei": 5,
+      "SrcNS": 11,
+      "SrcHan16": 8,
+      "SrcHan17": 6,
+      "SrcCarey": 4,
+      "Own": 14,
+      "SrcThesis": 2,
+      "SrcWright": 2,
+      "Standard": 2
+    },
+    {
+      "SrcHan16": 75,
+      "SrcHan17": 21,
+      "Standard": 6,
+      "Own": 87,
+      "SrcNS": 56,
+      "SrcThesis": 4,
+      "SrcCarey": 14,
+      "SrcWright": 29
+    },
+    {
+      "Standard": 29,
+      "Own": 27,
+      "SrcJin": 5,
+      "SrcWei": 6,
+      "SrcNS": 6,
+      "SrcHan16": 5,
+      "SrcHan17": 6,
+      "SrcCarey": 5,
+      "SrcThesis": 5,
+      "SrcWright": 5
+    }
+  ],
+  "declared_main_font_pt": 10,
+  "minimum_regular_text_pdf_font_pt": 9.9626,
+  "math_scripts": "standard TeX sizes",
+  "build_issues": [],
+  "embedded_fonts": [
+    "/BZHDUL+CMBX10",
+    "/CJBDGH+CMMI7",
+    "/DHMNIJ+CMSY10",
+    "/DOAGFA+CMR10",
+    "/DRSFHC+CMSY5",
+    "/GRTOYT+CMEX10",
+    "/HYDLIE+CMR7",
+    "/JNHGWK+CMSS10",
+    "/LIXJHO+CMSY7",
+    "/LLFWNI+CMBX12",
+    "/PFSAOG+CMTI10",
+    "/PJOCGS+CMSSBX10",
+    "/UUMAWH+CMMI10",
+    "/XUJKNC+CMTT10"
+  ],
+  "current_local_pdf_links": [
+    "vsl_joined_candidate_contract_and_qualification.pdf"
+  ],
+  "markdown_links_checked": 29,
+  "existing_files_snapshot": 580,
+  "changed_existing_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_revision_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex",
+    "temp_content/vsl_review_report/report_structure_candidates.md"
+  ],
+  "preserved_existing_files": 574,
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_color_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_color_validation.json",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_color_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v2/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v2/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v2/vsl_literature_backbone_review_report.tex"
+  ],
+  "python": "3.11.9",
+  "pypdf": "6.15.0",
+  "tex_engine": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+  "visual_check": "palette preview inspected; PDF text/positions/fonts/colors and layout log checked; no raster PDF rendering",
+  "artifacts": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex": {
+      "bytes": 17884,
+      "sha256": "8b324bdbcbaad5778856753a7b47e6f1ae66dad7fb069996eafd00bc78240323"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 198394,
+      "sha256": "262f9530cdee077e2dd7ef391aecc8f111c3e09712fe35653b80569213d9c29a"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_color_build.log": {
+      "bytes": 19729,
+      "sha256": "79586d97bf731b8d3b91d3ef7c2e3ba0d18a0fc4874ebc07d2669457d638b18f"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_color_work_report.md": {
+      "bytes": 9639,
+      "sha256": "803f5bace9a601be17da764e4a9e39c1ebc0b32645bb12f2e02f34c1ddedf799"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v2/vsl_literature_backbone_review_report.tex": {
+      "bytes": 14771,
+      "sha256": "0ad4ef4aedc2c1f8f5c63483e6924034d6086590c07f99cb91d4b153c63e46aa"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v2/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 179640,
+      "sha256": "c83ce960b49b9e3e3f70afe64ff300aa15646ee344c56c84effd5f2cd968d3ac"
+    }
+  }
+}

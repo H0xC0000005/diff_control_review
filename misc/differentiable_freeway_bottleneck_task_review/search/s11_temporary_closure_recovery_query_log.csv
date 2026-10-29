@@ -1,0 +1,11 @@
+query_id,date,query,purpose,outcome
+S11Q001,2026-09-30,"site:trid.trb.org temporary lane closure reopening discharge lane changing freeway recovery capacity study",direct reopening state-to-discharge evidence,"No direct joint source; identified adjacent incident-discharge studies"
+S11Q002,2026-09-30,"site:fhwa.dot.gov variable speed limit temporary lane closure incident recovery freeway study",temporary-closure VSL evidence,"Official work-zone guidance and Woodrow Wilson Bridge leads"
+S11Q003,2026-09-30,"lane change induced capacity drop freeway bottleneck primary research paper gaps discharge flow DOI",lane/gap-to-discharge mechanism,"Oh and Yeo 2015; Chen and Ahn 2018; adjacent active-bottleneck evidence"
+S11Q004,2026-09-30,"temporary bottleneck removal traffic queue discharge recovery lane distribution research paper",post-removal transient recovery,"Banks et al. 2003 incident-recovery report; no matched VSL chain"
+S11Q005,2026-09-30,"after reopening freeway lane closure queue discharge traffic",literal reopening evidence,"No decision-grade joint source"
+S11Q006,2026-09-30,"lane reopening queue discharge freeway incident",post-clearance discharge evidence,"Incident-clearance sources; no hidden-state conditioning"
+S11Q007,2026-09-30,"incident clearance queue discharge freeway lane",lane-resolved post-clearance evidence,"Banks et al. 2003 and secondary ramp-metering guidance lead"
+S11Q008,2026-09-30,"temporary lane closure variable speed limit simulation recovery traffic",same-actuator domain evidence,"Fudala and Fontaine 2010 official report; closure VSL but no in-run reopening certificate"
+S11Q009,2026-09-30,"Field Implementation of Variable Speed Limits on the Capital Beltway PDF",work-zone VSL full report,"Official VTRC final report located"
+S11Q010,2026-09-30,"Impact of stop-and-go waves and lane changes on discharge rate in recovery flow pdf",microscopic discharge mechanism,"Publisher abstract/method snippets located; no open final full text adopted"

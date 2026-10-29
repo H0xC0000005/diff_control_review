@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-13",
+  "status": "passed",
+  "review_status": "bounded H1 qualification finished at original VSL-B2-G1; roadmap Pass 2 remains open",
+  "checked_artifacts": [
+    "README.md",
+    "vsl_successor_00_opening_plan.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "reporting/research_readiness/vsl_b2ah_history_service_findings_and_gate.md",
+    "reporting/research_readiness/vsl_b2_p1_joined_service_review_plan.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "reporting/research_readiness/vsl_h1_homogeneous_window_findings.md",
+    "extraction/research_readiness/vsl_h1_source_and_adaptation_audit.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_h1_work_report.md",
+    "synthesis/research_readiness/vsl_h1_homogeneous_window_contract.tex",
+    "synthesis/research_readiness/vsl_h1_homogeneous_window_contract.pdf",
+    "reporting/research_readiness/vsl_h1_validation.json"
+  ],
+  "local_markdown_links_checked": 227,
+  "markdown_anchors_checked": 9,
+  "failures": [],
+  "analytical_checks": {
+    "receiving_work_cases": [
+      {
+        "own_work_per_second": "2",
+        "lateral_mass_per_second": "2",
+        "consumed_work_per_second": "6"
+      },
+      {
+        "own_work_per_second": "6",
+        "lateral_mass_per_second": "1",
+        "consumed_work_per_second": "8"
+      }
+    ],
+    "service_and_donor_branch_closed_form_identities": "passed",
+    "footprint_mass_accounting_exact_fraction_cases": "passed",
+    "ending_mass_analytic_transfer_arrival_integral": "passed",
+    "numerical_integration": "not performed",
+    "traffic_experiments": "not performed",
+    "autograd_and_finite_difference_gradient_checks": "not performed"
+  },
+  "pdf": {
+    "pages": 5,
+    "bytes": 171135,
+    "sha256": "97be9062890375d5c9afa6a4b76eb4094aecbb4339a119b79ecf9e559a77d71e",
+    "parser": "pypdf 6.15.0",
+    "all_pages_text_extracted": true,
+    "page_text_character_counts": [
+      2551,
+      2743,
+      1999,
+      2697,
+      1909
+    ],
+    "latex_layout_or_reference_warnings": false,
+    "raster_visual_inspection": "not performed: no checked local raster renderer available"
+  },
+  "unchanged_scientific_authorities": [
+    "S13 closure and contract",
+    "urban closure",
+    "ramp closure"
+  ],
+  "unrelated_existing_root_edits": [
+    "AGENTS.md",
+    "PLANS.md",
+    "memo.txt"
+  ]
+}

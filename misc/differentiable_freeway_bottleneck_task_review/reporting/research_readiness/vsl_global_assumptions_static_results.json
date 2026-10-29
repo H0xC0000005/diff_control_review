@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "scope": "Exact static rechecks of already accepted analytical families",
+  "source_family": [
+    "vsl_as1_asymmetric_forward_contract.tex, Section 5",
+    "vsl_as2_information_and_history.tex, Section 2",
+    "vsl_as3_asymmetric_actions_and_gradients.tex, Sections 2-3"
+  ],
+  "arithmetic": "Python standard-library fractions.Fraction",
+  "normalization": "arbitrary positive u, kappa and ell; not calibrated task values",
+  "check_count": 31,
+  "checks": [
+    {
+      "name": "positive_speed_interval",
+      "passed": true,
+      "exact_value": "[1, 2]"
+    },
+    {
+      "name": "capacity_endpoint_order",
+      "passed": true,
+      "exact_value": "1"
+    },
+    {
+      "name": "critical_density_endpoint_order",
+      "passed": true,
+      "exact_value": "1/2"
+    },
+    {
+      "name": "fixed_ending_and_continuing_total",
+      "passed": true,
+      "exact_value": "11/20"
+    },
+    {
+      "name": "genuine_adjacent_imbalance",
+      "passed": true,
+      "exact_value": "3/20"
+    },
+    {
+      "name": "actual_total_mass_equal",
+      "passed": true,
+      "exact_value": "23/20"
+    },
+    {
+      "name": "independent_EA_loads",
+      "passed": true,
+      "exact_value": "3/20"
+    },
+    {
+      "name": "ending_initial_free",
+      "passed": true,
+      "exact_value": "9/10"
+    },
+    {
+      "name": "all_continuing_initial_free",
+      "passed": true,
+      "exact_value": "23/20"
+    },
+    {
+      "name": "ordinary_EA_underload_at_worst_endpoint",
+      "passed": true,
+      "exact_value": "1/20"
+    },
+    {
+      "name": "receiving_feasible_at_lowest_advice",
+      "passed": true,
+      "exact_value": "1/20"
+    },
+    {
+      "name": "EA_free_headroom_at_highest_advice",
+      "passed": true,
+      "exact_value": "11/20"
+    },
+    {
+      "name": "far_lane_service_margin",
+      "passed": true,
+      "exact_value": "3/10"
+    },
+    {
+      "name": "far_service_feasible_at_lowest_advice",
+      "passed": true,
+      "exact_value": "1"
+    },
+    {
+      "name": "total_mass_storage_margin",
+      "passed": true,
+      "exact_value": "23/60"
+    },
+    {
+      "name": "finite_footprint_inside_preparation",
+      "passed": true,
+      "exact_value": "1"
+    },
+    {
+      "name": "preparation_penalty_domain",
+      "passed": true,
+      "exact_value": "2"
+    },
+    {
+      "name": "strict_service_root_margin",
+      "passed": true,
+      "exact_value": "27/25"
+    },
+    {
+      "name": "fixed_physical_anchor_value",
+      "passed": true,
+      "exact_value": "1/600"
+    },
+    {
+      "name": "common_initial_donor_offer",
+      "passed": true,
+      "exact_value": "6/5"
+    },
+    {
+      "name": "lower_A_donor_limited",
+      "passed": true,
+      "exact_value": "13/10"
+    },
+    {
+      "name": "higher_A_receiving_limited",
+      "passed": true,
+      "exact_value": "23/20"
+    },
+    {
+      "name": "distinct_selected_transfer",
+      "passed": true,
+      "exact_value": "1/20"
+    },
+    {
+      "name": "loader_earliest_E",
+      "passed": true,
+      "exact_value": "18/25"
+    },
+    {
+      "name": "loader_positive_A_input",
+      "passed": true,
+      "exact_value": "2/25"
+    },
+    {
+      "name": "loader_donor_margin",
+      "passed": true,
+      "exact_value": "33/100"
+    },
+    {
+      "name": "loader_exposure_inside_accepted_interval",
+      "passed": true,
+      "exact_value": "2/15"
+    },
+    {
+      "name": "AS3_switch_before_first_exposure",
+      "passed": true,
+      "exact_value": "259/2420"
+    },
+    {
+      "name": "common_fastest_interval_nonzero",
+      "passed": true,
+      "exact_value": "132/2645"
+    },
+    {
+      "name": "common_fastest_high_A_boundary",
+      "passed": true,
+      "exact_value": "39/20"
+    },
+    {
+      "name": "common_fastest_low_A_fits",
+      "passed": true,
+      "exact_value": "635/2116"
+    }
+  ],
+  "traffic_rollout_or_ODE": false,
+  "numerical_gradient_or_optimization": false,
+  "whole_proof_machine_verified": false,
+  "physical_admission": false
+}

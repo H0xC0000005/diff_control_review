@@ -1,0 +1,282 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.78in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\head}[1]{\par\medskip\textbf{#1}\par}
+\newcommand{\Try}{\mathcal L}
+\begin{document}
+\begin{center}
+{\large\bfseries A conservative allocation completion for the VSL lane candidate}\\[3pt]
+2026-10-21 --- proposed adaptation; no model adoption or traffic experiment
+\end{center}
+
+\textbf{Result and boundary.} A small explicit allocator can satisfy common
+traffic and receiving budgets on the three-lane geometry. The choice between
+unsuccessful lane-change attempts continuing forward and committed directional
+fractions changes queue behavior. This note specifies the former and compares
+the latter. It establishes conditional algebraic admissibility, not a complete
+VSL/capacity-drop/task qualification or a calibrated lane-change law.
+
+\head{1. State, geometry and admissible inputs}
+Arrange lanes as $E,A,B$: ending lane, adjacent continuing lane, far continuing
+lane. Physical cell row $i$ sends to row $i+1$ through a storage-free allocation
+node. An allowed movement goes straight or to an adjacent lane; it advances
+exactly one row. All boundary flows are evaluated from the old time level
+before any stock is updated. This diagonal transport is motivated by Carey
+et al.~\cite{carey}; it replaces the principal source's same-cell lateral step
+followed by adjusted longitudinal flows~\cite{subraveti}.
+
+For one boundary, let $a$ index donor lanes and $j$ receiver lanes. Use amounts
+per fixed time step, not rates:
+\begin{equation}
+ d_a=\Delta t\,D_{i,a},\qquad r_j=\Delta t\,R_{i+1,j},\qquad
+ 0\leq d_a\leq n_{i,a},\quad
+ 0\leq r_j\leq J_{i+1,j}-n_{i+1,j}. \label{eq:inputs}
+\end{equation}
+$n$ is continuous vehicle-equivalent stock, $J$ jam storage, and $D,R$ have
+units of vehicle-equivalents per unit time. Thus $d,r,n,J$ have the same mass
+unit. Nothing is rounded. Source sending, receiving and any capacity-drop
+branches must actually satisfy \eqref{eq:inputs}; this is a condition, not a
+result of the allocator. Standard fixed-grid CTM bounds include
+\begin{equation}
+ v_{\max}\Delta t/\Delta x\leq1,\qquad
+ w_{\max}\Delta t/\Delta x\leq1. \label{eq:cfl}
+\end{equation}
+For a triangular FD, $D\leq v_{\max}k$ and
+$R\leq w_{\max}(k^{\rm jam}-k)$ then imply the stock bounds. Modified source
+branches and the eventual Han-type sending restriction~\cite{han} need their
+own compatibility check; \eqref{eq:cfl} alone does not certify every branch.
+
+\head{2. Proposed translation of incentives into requests}
+Let $P_{aj}\geq0$ be the principal source's finite lateral preference for an
+allowed adjacent direction, before its disputed realization equations.
+Mask forbidden directions first. For a continuing donor define
+\begin{align}
+ s_a&=\sum_{j\in\Try_a}P_{aj}, &
+ b_{aj}&=\frac{P_{aj}}{\max(1,s_a)}\quad(j\in\Try_a),\nonumber\\
+ b_{aa}&=1-\sum_{j\in\Try_a}b_{aj}, & m_{aj}&=d_a b_{aj}. \label{eq:requests}
+\end{align}
+$\Try_a$ is the set of allowed adjacent targets; $m_{aa}=d_ab_{aa}$.
+Hence $m_{aj}\geq0$ and $\sum_jm_{aj}=d_a$. Existing valid fractions are
+unchanged; only a jointly oversubscribed donor is rescaled. This normalization
+is a proposed interface rule, not a native source equation. For an empty
+donor all requests are zero; no empty-density preference ratio is evaluated.
+
+At the permanent end there is no $E$ receiver: remove movements into it.
+Set $b_{EA}=1$ for the last E donor. No $E\to B$ movement is permitted.
+Before the end, $E\to E$ remains a legal forward fallback even if its initial
+request happens to be zero. Fractions are evaluated anew from the next state;
+no persistent route/intention records are introduced.
+
+\newpage
+\head{3. Concrete candidate: allocate attempts, then allow forward fallback}
+\textbf{First pass: share each receiving budget.}
+For each target $j$, fix positive priorities $p_{aj}$ for its nonzero request
+contributors. The proposal uses the donor's \emph{reference geometric lane
+capacity} (times $\Delta t$, if a mass scale is desired), independently of
+advice and current demand. Equal reference capacities give equal priorities.
+This uses the capped fixed-priority sharing principle of Carey R3 and the
+MISO node literature~\cite{carey,wright}; the three-lane composition is ours.
+Define
+\begin{equation}
+ z_{aj}=\begin{cases}
+ m_{aj},& \sum_h m_{hj}\leq r_j,\\
+ \min(m_{aj},\lambda_jp_{aj}),&\sum_h m_{hj}>r_j,
+ \end{cases}
+ \quad\text{with}\quad
+ \sum_h\min(m_{hj},\lambda_jp_{hj})=r_j. \label{eq:share}
+\end{equation}
+No demand means zero flow. At zero supply take $\lambda_j=0$. In the
+constrained positive case the flow vector is unique: increase the common
+allocation level until all the available receiving budget is used. A request
+that is fully served drops out of further sharing, leaving space for others.
+In particular, $0\leq z_{aj}\leq m_{aj}$ and
+$\sum_a z_{aj}\leq r_j$. A small or absent request cannot retain an unused
+reserved entitlement.
+
+\textbf{Second pass: use otherwise unused forward space.}
+Define residual donor traffic and receiver space after \eqref{eq:share}:
+\begin{equation}
+ e_a=d_a-\sum_jz_{aj}\geq0,\qquad
+ h_j=r_j-\sum_az_{aj}\geq0. \label{eq:residuals}
+\end{equation}
+If the same-lane connection exists, send
+\begin{equation}
+ y_a=\min(e_a,h_a),\qquad
+ f_{aj}=z_{aj}+\mathbf1_{\{j=a\}}y_a. \label{eq:fallback}
+\end{equation}
+When it does not exist, set $y_a=0$. Each receiver has at most one such
+same-lane fallback donor. There is no second lateral reallocation and no
+same-step movement of newly arriving stock. The two passes decide one set
+of flows; they are not two physical time steps.
+
+The elementary proposal gives one entering mass unit one receiving-budget
+unit. It sets Carey's extra headway multiplier to $\alpha=1$ rather than
+adding another merging-loss law. This is an explicit modeling simplification.
+Extra gap consumption and slow-entry recovery are not thereby reproduced;
+the retained congestion/capacity-drop mechanism still needs qualification.
+
+\head{4. Strong rival: keep directional fractions as commitments}
+Instead feed $d_a$, $b_{aj}$, $r_j$ and fixed input priorities into the
+published general junction allocation framework~\cite{wright}. With full
+FIFO within an input lane, its directions are restricted together:
+\begin{equation}
+ f_{aj}=b_{aj}F_a,\qquad 0\leq F_a\leq d_a,
+ \qquad \sum_a b_{aj}F_a\leq r_j. \label{eq:fifo}
+\end{equation}
+The source's priority/redistribution rule, not these constraints or maximum
+flow alone, completes the multi-input solution. This is the alternative's
+published algorithmic contract; it is not an arbitrary LP tie break.
+Blocked turns can hold back all directions from their input lane. No-FIFO
+instead caps each movement by its own $m_{aj}$; this still does not add the
+forward fallback of \eqref{eq:fallback}. These fractions need only be fixed
+within one evaluation, not for a driver's entire trip.
+
+Both candidates require explicit normalized incentive and boundary mappings.
+Neither can silently import its source's general-node theorems into the full
+VSL plant. In particular the preferred candidate is \emph{not} the Wright
+MIMO solver. Demand-proportional priorities have a source invariance warning
+\cite[Remark 3.1]{wright}; using fixed priorities avoids that particular
+choice, but is not a proof of the preferred composition's nodal invariance.
+
+\newpage
+\head{5. Conditional admissibility proof for the preferred candidate}
+From \eqref{eq:requests}--\eqref{eq:fallback},
+\begin{align}
+ f_{aj}&\geq0, &
+ \sum_j f_{aj}&=\sum_jz_{aj}+y_a\leq d_a,\nonumber\\
+ \sum_a f_{aj}&=\sum_az_{aj}+y_j\leq r_j. \label{eq:budgetproof}
+\end{align}
+For a receiver without a legal same-lane donor, its added $y_j$ is zero.
+Thus every donor and receiver is shared once even with two lateral directions
+and simultaneous opposing changes. Individual desired fractions are not
+independent permissions to reuse mass. In the absence of lateral requests,
+the first pass gives the ordinary lane CTM flow $\min(d_a,r_a)$ and fallback
+adds zero.
+
+Let $O_{i,a}$ sum all movements from cell $(i,a)$ and $I_{i,a}$ sum all
+movements entering it from row $i-1$. The stock update is
+\begin{equation}
+ n^{+}_{i,a}=n_{i,a}-O_{i,a}+I_{i,a}. \label{eq:update}
+\end{equation}
+Because $O_{i,a}\leq d_{i,a}\leq n_{i,a}$ and
+$I_{i,a}\leq r_{i,a}\leq J_{i,a}-n_{i,a}$,
+\begin{equation}
+ 0\leq n_{i,a}-d_{i,a}\leq n^{+}_{i,a}
+ \leq n_{i,a}+r_{i,a}\leq J_{i,a}. \label{eq:storage}
+\end{equation}
+Every internal movement appears once as a departure and once as an arrival,
+so summing \eqref{eq:update} conserves mass up to recorded external flows.
+Only allowed connections carry requests or fallback. Unserved final-E mass
+remains in the stock update; reaching the end is not an exit.
+
+\textbf{What replaces the earlier obstruction?} There is no adjusted
+receiving term $R+L_{\rm in}-L_{\rm out}$ and no negative residual demand.
+Flows use nonnegative budgets, and realized outflow cannot exceed their
+shared donor. A departure's released storage becomes available through the
+next old-state evaluation. This changes the time/space stencil rather than
+asserting a sign correction to the native formula. The earlier source
+counterexamples remain unchanged; they are not relabeled as trajectories
+of this new model.
+
+\head{6. Local sensitivity and important missing guarantees}
+For a constrained receiver, fix the active sets $H$ of fully served requests
+and $U$ of requests limited by their priority entitlement. Then
+\begin{equation}
+ \lambda_j=
+ \frac{r_j-\sum_{a\in H}m_{aj}}{\sum_{a\in U}p_{aj}},\qquad
+ z_{aj}=\begin{cases}m_{aj},&a\in H,\\
+ \lambda_jp_{aj},&a\in U.
+ \end{cases} \label{eq:active}
+\end{equation}
+The denominator is positive. Hence the allocator is smooth on fixed positive
+request active sets wherever its input maps are smooth. Minima, the donor
+normalization threshold, empty requests and changes in these sets require
+branch-aware derivatives. This is a local algebraic observation, not finite
+difference validation, a mode-event treatment or useful-gradient evidence.
+
+The source incentive and capacity-drop branches may themselves have
+nonsmooth or discontinuous transitions; no complete derivative statement is
+made about that joined model. Nor are continuum convergence, invariance or
+global throughput maximization claimed for this two-pass adaptation. The
+next page gives a concrete throughput limit. Admissibility alone does not
+establish a realistic merge service or a useful VSL task.
+
+\newpage
+\head{7. Hand cases: direct answers rather than a rollout}
+All numbers below are nonnegative allocator input amounts per step. They
+test the proposed budget rules, not the existence of a complete density,
+incentive and control trajectory with exactly these values.
+
+\textbf{Two neighbors overbook one donor.} Set $d=10$ and two lateral
+preferences $P_1=P_2=7/10$. Equation~\eqref{eq:requests} gives
+\begin{equation}
+ (m_1,m_2,m_{\rm own})=(5,5,0).
+\end{equation}
+With no other contenders and receiving budgets $(2,8,10)$, the first pass
+serves $(2,5,0)$. The remaining three use the own-lane connection:
+\begin{equation}
+ (f_1,f_2,f_{\rm own})=(2,5,3),\qquad \sum_jf_j=10.
+\end{equation}
+No negative residual, mass multiplication or unused donor quota is hidden.
+
+\textbf{Failed attempt versus committed movement.} Before the lane end let
+$d_E=10$, $b_{EA}=b_{EE}=1/2$, $r_A=0$, $r_E=10$, with no other contenders.
+Then
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Rule & $E\to A$ & $E\to E$\\
+\midrule
+Attempts, then forward fallback & 0 & 10\\
+Fixed fractions, full FIFO & 0 & 0\\
+Fixed fractions, no FIFO, no fallback & 0 & 5\\
+\bottomrule
+\end{tabular}
+\end{center}
+At the permanent end remove $E\to E$ and set $b_{EA}=1$: with $r_A=0$
+all ten remain in the last E cell for either main candidate.
+
+\textbf{Cooperation under constrained receiving.} Let E and A each request
+10 units into A, with equal positive reference priorities and $r_A=8$.
+Equation~\eqref{eq:share} serves $(4,4)$. If E requests only 1 and A still
+requests 10, it serves $(1,7)$: unused entitlement is returned. This is fixed
+priority with demand caps, not a fixed realized merging fraction.
+
+\textbf{A real limitation: the preferred rule need not maximize total flow.}
+Let $d_E=d_A=10$, $b_{EA}=4/5$, $b_{EE}=1/5$, and $b_{AA}=1$ before the
+lane end. Set $r_A=r_E=10$ and use equal reference priorities. The first
+pass serves $E\to A=5$, $A\to A=5$, $E\to E=2$; E's fallback adds 3.
+The final total is $15$. If the eight lateral requests could instead all
+be waived before sharing, sending both complete donors forward would give
+$20$. Our rule gives initial requests precedence; the later fallback does
+not revoke space they already claimed. A maximal total-flow objective with
+freely adjustable desires would be a different behavioral model.
+
+\textbf{Decision implication.} The preferred rule offers a complete,
+deterministic allocation component with transparent limitations. Accepting
+its opportunity meaning and priority sequence is a substantive modeling
+choice. This proof does not choose it on the user's behalf or close the
+remaining task qualification.
+
+\begin{thebibliography}{9}\setlength{\itemsep}{0pt}
+\bibitem{carey} M. Carey, C. Balijepalli, and D. Watling, ``Extending the cell
+transmission model to multiple lanes and lane-changing,'' \emph{Netw. Spat.
+Econ.}, vol. 15, pp. 507--535, 2015, doi: 10.1007/s11067-013-9193-7.
+Methods read in the institutional 2013 author manuscript, pp. 4--12.
+\bibitem{wright} M. A. Wright, G. Gomes, R. Horowitz, and A. A. Kurzhanskiy,
+``On node models for high-dimensional road networks,'' \emph{Transp. Res. B},
+vol. 105, pp. 212--234, 2017, doi: 10.1016/j.trb.2017.09.001.
+Methods read in arXiv:1601.01054 HTML, secs. 2.1 and 3.1--3.3.
+\bibitem{subraveti} H. H. S. Nagalur Subraveti, V. L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model -- an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B},
+vol. 7, no. 1, pp. 1758--1779, doi: 10.1080/21680566.2019.1700846.
+\bibitem{han} Y. Han \emph{et al.}, ``Resolving freeway jam waves by discrete
+first-order model-based predictive control of variable speed limits,''
+\emph{Transp. Res. C}, vol. 77, pp. 405--420, 2017,
+doi: 10.1016/j.trc.2017.02.009.
+\end{thebibliography}
+\end{document}

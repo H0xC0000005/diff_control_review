@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mesoscopic Model &#8212; Polaris 26.03 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=7015e533" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../../../_static/documentation_options.js?v=922e8c99"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/table-toggle.js?v=b58e70d8"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory/traffic_flow/models/mesoscopic_model';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lagrangian Coordinates Model" href="lagrangian_model.html" />
+    <link rel="prev" title="Flow Models Available in POLARIS" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Polaris 26.03 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/index.html">Parameters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../parameters/scenario.html">Scenario File Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../parameters/demand.html">Demand Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../parameters/routing.html">Multimodal Routing Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../parameters/freight_model.html">Freight Model Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../parameters/shared_mobility.html">Shared Mobility Parameters</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../practice/index.html">Practice of running POLARIS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../practice/trajectory_sampling.html">Trajectory Sampling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../demand_model/index.html">Demand Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/population_synthesis.html">Population synthesis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/location_choice_work_school.html">Routine activity location choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/transit_pass_chooser.html">Transit Pass Chooser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/vehicle_chooser.html">Vehicle chooser model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/bicycle_ownership_level.html">Bicycle ownership level choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/telecommuting_choice.html">Telecommuting choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/escooter_adoption_choice.html">E-scooter adoption behavior model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/delivery_chooser.html">On Demand Delivery (ODD) choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/ecommerce_choice.html">E-commerce choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/activity_generation.html">Activity Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/activity_planning_order.html">Activity planning order model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/activity_timing_choice.html">Activity timing choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/destination_choice.html">Destination Choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/mode_choice.html">Mode Choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/vehicle_technology_choice.html">Vehicle Technology Choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/intrahousehold_av_assignment.html">Intra-Household AV Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../demand_model/household_job_relocation.html">Household and Job Relocation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../assignment_model/index.html">Assignment and Routing Models</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../assignment_model/routing.html">Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../assignment_model/transit.html">Multimodal Routing, Assignment, and Simulation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Traffic Flow Model</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Flow Models Available in POLARIS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Mesoscopic Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lagrangian_model.html">Lagrangian Coordinates Model</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../shared_mobility/index.html">Shared Mobility</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shared_mobility/tnc_demand/index.html">Demand for Shared Mobility Services</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_demand/tnc_request.html">Request Data Object in Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_demand/fixed_demand.html">Fixed Demand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_demand/delivery_types.html">Shared Mobility Delivery Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_demand/drs.html">Pooling (or Dynamic Ride-Sharing) Choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_demand/fmlm.html">First-Mile Last-Mile (FMLM)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shared_mobility/tnc_supply/index.html">Modeling Shared Mobility Operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_supply/tnc_operator.html">TNC Operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_supply/tnc_vehicle.html">TNC Vehicle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_supply/tnc_strategy/index.html">Operational Strategies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shared_mobility/tnc_model_files/index.html">Model Files</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_model_files/operator_file.html">Shared Mobility Fleet Model File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_model_files/fleet_distribution_file.html">Fleet Distribution File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shared_mobility/tnc_model_files/operator_chooser_file.html">Operator Chooser File</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../shared_mobility/micromobility_operations.html">Micromobility Operations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../freight_model/index.html">Freight</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../freight_model/firm_synthesis.html">Firm Synthesis and Asset Modeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../freight_model/channel_choice.html">Channel Choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../freight_model/logistics_formation.html">Logistics Formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../freight_model/daily_truck_operation.html">Daily Truck Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../freight_model/external_trip.html">External Trips Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../freight_model/freight_evcs_optimization.html">Freight EVCS Optimization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parking/index.html">Parking Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parking/parking_facility.html">Parking Facility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parking/parking_choice.html">Pre-Trip Parking Choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parking/parking_search.html">En-Route Parking Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parking/parking_tnc.html">TNC and Fleet Vehicle Parking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parking/parking_freight.html">Freight Vehicle Parking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parking/parking_results.html">Parking Results and Outputs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ev_energy/index.html">Electric Vehicle Energy Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ev_energy/ev_discharge.html">Battery Discharge Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ev_energy/ev_charging_station.html">EV Charging Station</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ev_energy/electricity_provider.html">Electricity Provider</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../simulation_engine/index.html">Simulation Engine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualizer/index.html">3D Visualizer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../pug/index.html">Polaris User Group (PUG)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../pug/io.html">Wrangling Inputs and Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pug/demand_and_supply.html">Demand and Supply in POLARIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pug/tf_routing.html">Traffic Flow, Network Representation, and Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pug/for_developers.html">For Developers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../development/index.html">Developing POLARIS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../development/setup/index.html">Getting setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/vs_studio.html">Visual Studio</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/TACC.html">TACC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/ubuntu.html">Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/wsl.html">WSL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/bebop.html">BEBOP and Crossover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/setup/centos.html">CentOS 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../development/dependencies/index.html">Dependencies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/dependencies/getting.html">Getting Pre-built Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/dependencies/building.html">Building Dependencies from source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/dependencies/adding.html">Adding new dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/compiling.html">Building Code</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../development/system_architecture/index.html">System Architecture</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/file_layout.html">C++ Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/design_101.html">Introduction to CRTP / Facade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/design_201.html">Advanced CRTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/random_choice/index.html">Random Choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/threading_model.html">Threading Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/simulation_engine.html">Simulation Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/simulation_time.html">Simulation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/units.html">Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/routing_engine.html">Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/memory_usage.html">Memory Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/adding_new_apps.html">Adding a new app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/system_architecture/model_outputs.html">Model Outputs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/libraries/index.html">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/software_dev_practices.html">Software Development Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/release_cycle.html">Release cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/how_to_git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/how_to_gitlab.html">Working with GitLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/logging.html">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/common_macros.html">Common Preprocessor Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/profiling.html">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development/stack_trace.html">Interpreting Stack Traces</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../development/debugging/index.html">Debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/debugging/gdb.html">GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/debugging/visual_studio.html">Visual Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../development/tutorial/index.html">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/tutorial/concepts.html">C++ Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/tutorial/my_first_agent.html">Designing your first agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development/tutorial/visualising.html">ANTARES Visualization</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+
+<div class="col py-1 d-flex header-article-main">
+   <div class="header-article__left w-100">
+      <div class="alert alert-primary w-100 pt-1 pb-1 mb-3 mt-0 text-center" role="alert">
+         You are viewing the documentation for the stable build of POLARIS. Click
+         <a href="https://polaris.taps.anl.gov/latest_dev/index.html">here</a> to view the development version.
+      </div>
+      <nav class="nav nav-pills">
+         <a class="nav-item nav-link active"
+            href="https://polaris.taps.anl.gov/polaris/index.html">POLARIS</a>
+         <a class="nav-item nav-link "
+            href="https://polaris.taps.anl.gov/polaris-studio/index.html">Polaris Studio</a>
+         <a class="nav-item nav-link "
+            href="https://polaris.taps.anl.gov/qpolaris/index.html">QPolaris</a>
+      </nav>
+   </div>
+</div></div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mesoscopic Model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-description">Model Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-models-link-inflows-and-outflows">Node models: Link Inflows and Outflows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traffic-signal-and-more-complex-intersections">Traffic Signal and More Complex Intersections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-features">Further features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="mesoscopic-model">
+<h1>Mesoscopic Model<a class="headerlink" href="#mesoscopic-model" title="Link to this heading">#</a></h1>
+<p>The mesoscopic model is an adaption of the computationally efficient Link Transmission Model (LTM). The adaptation consists of tracking vehicles individually by enforcing that flows at any time-step should stick to integer numbers.</p>
+<section id="model-description">
+<h2>Model Description<a class="headerlink" href="#model-description" title="Link to this heading">#</a></h2>
+<p><img alt="Baseline Mesoscopic Model" src="../../../_images/Baseline_Meso_Model.png" /></p>
+<p>Where $T_1$ is the travel time in free-flow speed and $T_2$ is the travel time in the shockwave speed.  The first term of demand is equivalent to all vehicles in the link that will have remained in the link for the free-flow travel time or more after the current step completion. In fact, POLARIS tracks each vehicle individually and compute that term by just counting those vehicles by looking into the entry step of each vehicle.</p>
+<p>The adapted model entails other relationships, first is the upstream and downstream capacity:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}     \hat{q}^{d}_a(i+1) = \min \{\hat{q}^{d}_a(i) +C_a\Delta t-\hat{g}_a(i),\lceil C_a\Delta t \rceil+1  \} \\
+     \hat{q}^{u}_a(i+1) = \min \{\hat{q}^{u}_a(i) +C_a\Delta t-\hat{f}_a(i),\lceil C_a\Delta t \rceil+1  \} \\\end{split}\]</div>
+<p>And then the demand and supply change accordingly:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}    \hat{D}_a(i) &amp;= \min \{\lfloor F_a(i-T_1+1)-G_a(i) \rfloor,\lfloor \hat{q}^{d}_a(i) \rfloor \} \\
+    \hat{S}_a(i) &amp;= \min \{\lfloor G_a(i-T_2+1)+K_a L_a-F_a(i) \rfloor, \lfloor \hat{q}^{u}_a(i) \rfloor, \} \\\end{split}\]</div>
+</section>
+<section id="node-models-link-inflows-and-outflows">
+<h2>Node models: Link Inflows and Outflows<a class="headerlink" href="#node-models-link-inflows-and-outflows" title="Link to this heading">#</a></h2>
+<p>The flow across links depends on the node models. For a trivial node with one upstream and one downstream connection, the minimum between demand and supply holds:</p>
+<div class="math notranslate nohighlight">
+\[\hat{g}_u(i)=\hat{f}_d(i) = \min \{\hat{D}_u(i), \hat{S}_d(i) \}.\]</div>
+<p>For diverge nodes, the FIFO discipline holds and it is done based on the (integer) demand of the upstream link and the (integer) supply of downstream links. Vehicles are checked in order and are released to the next link as long as the upstream and downstream links have remaining demand and supply greater or equal than one.</p>
+<p>The merge model (that is, multiple upstream links and one downstream link) is trickier. The documentation is on the paper. That each link has a number of priority tokens proportional on the number of lanes. If one link has priority and do not use because of not having demand or uses it (i.e., one vehicle “used” that priority), the priority token moves to the next in the list. In this way, this model resembles a distribution that is proportional to the capacity.</p>
+<section id="traffic-signal-and-more-complex-intersections">
+<h3>Traffic Signal and More Complex Intersections<a class="headerlink" href="#traffic-signal-and-more-complex-intersections" title="Link to this heading">#</a></h3>
+<p>For intersections with an arbitrary number of upstream and downstream links, the key dynamic derives from the merge model but with additional structures and rules, depending on the intersection control type.
+These intersections contain a conflicting map vector that signals whether a movement pair is conflicting. POLARIS builds this map based on the link direction and movement type (see Connections above). In addition, based on the intersection type there are three key scenario parameters:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">"threshold_conflicting_signalized_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
+<span class="w">		</span>
+<span class="w">        </span><span class="nt">"threshold_conflicting_all_stop_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span>
+<span class="w">		</span>
+<span class="w">        </span><span class="nt">"threshold_conflicting_two_way_stop_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.0</span>
+</pre></div>
+</div>
+<p>This means that if a movement with PERMITTED right of way conflicts with another movement that has protected right of way, it will be able to flow after the protected movement has no flow for more than &lt; threshold_conflicting_signalized_seconds&gt;. The behavior is similar for all-stop and two-way stops.</p>
+<p>Signalized intersections are straightforward in three steps, one for each right of way type (PROTECTED, PERMITTED, STOP_PERMITTED). Protected movements do not require conflicting movement checks whereas the others are able to flow based on upstream demand and downstream supply but also respecting the conflicting map thresholds.
+Two-way stop is similar but with two steps. First the connections with no stop sign can flow. Later, the approaches with stop signs needs to respect the conflicting map clearance.
+Finally, all-stop must always respect the conflicting map clearance.</p>
+</section>
+</section>
+<section id="further-features">
+<h2>Further features<a class="headerlink" href="#further-features" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Turn Movement Pockets: whenever vehicle has been in the link for the travel time, they are placed in a separate container for each connection/movement if the connection/movement has space for a new vehicle. The total pocket space is determined by the “pockets hold capacity”. These pockets serves as a link with capacity proportional to its number of lanes. Vehicles are processed in FIFO discipline and if one vehicle is not able to transfer to the connection/movement no vehicle that entered in the link after will be able to proceed, except though vehicles in some specific situation (see below).</p></li>
+<li><p>Through vehicles “jump” into Turn Movement pocket: in some situations, especially on roads with more than 2 lanes in which right or left turn can only be performed by one lane, the FIFO discipline does not hold. For instance, if we have two lanes and one vehicle is not able to access the right movement pocket, it ends up blocking the right lane. This would not prevent vehicles from accessing the through movement pocket using the left lane. In these situations, it is assumed that the through pocket has a decrease in capacity proportional to one lane, but if the two conditions met the first vehicle heading the through movement pocket can proceed: (i) the vehicle is in the link for longer than free flow travel time; (ii) Had elapsed the minimum headway based on the decreased capacity. In that case the vehicle “jump” to the through pocket directly.</p></li>
+<li><p>Automated vehicles: as a mesoscopic model with no inherent vehicle heterogeneity, there is no an inherent endogenous model for automated vehicles. Instead, automated vehicle is modeled based on a fundamental diagram that is modified according to the share of automated vehicles in the link. The share of automated vehicles are tracked by keeping a counter of how many automated vehicles entered the link. See Figure below.</p></li>
+</ul>
+</section>
+<section id="key-parameters">
+<h2>Key parameters<a class="headerlink" href="#key-parameters" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Num_vehicles_container_{type} (types=LOCAL, ARTERIAL, FREEWAY): the number of vehicles that fits in the movement container pocket by these attributes. A lower value for each pocket leads to a higher probability of pocket blockage and therefore increasing congestion. Note, however, that this usually do not have a drastic impact on overall speeds.</p></li>
+<li><p>Threshold_conflicting_{type}_seconds (type=signalized, two_way_stop, all_stop) : explained above. Increasing the threshold leads to vehicles needing a higher gap to cross the intersection whenever it does not have a protected priority and therefore leading to higher congestion.</p></li>
+<li><p>Jam density: Overall jam density is controlled by this parameter. Reducing it should lead to more queue spillbacks and increase congestion. Effect similar to the num_vehicles_container.</p></li>
+<li><p>Capacity_{type} (type=local, arterial, freeway): capacity in vehicles/hour/lane on each road type; the shock-wave speed of the link changes accordingly. This sets the capacity of all road types (they can be set specifically for each link as total capacity for all lanes if the resulting capacity/hour/lane is higher than set in the scenario file). Increasing capacity should lead to reduced congestion.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Flow Models Available in POLARIS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lagrangian_model.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lagrangian Coordinates Model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-description">Model Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-models-link-inflows-and-outflows">Node models: Link Inflows and Outflows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traffic-signal-and-more-complex-intersections">Traffic Signal and More Complex Intersections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-features">Further features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Polaris team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Argonne National Laboratory.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

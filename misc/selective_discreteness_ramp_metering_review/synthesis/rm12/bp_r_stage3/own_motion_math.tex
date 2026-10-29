@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large What count accuracy does and does not establish for own motion}\\[4pt]
+8 October 2026 --- source/static qualification; no joined law adopted
+
+\textbf{Scope.} Source-supported CM and conditional numerical checks, followed
+by reviewer-derived finite-birth and objective limits. These are not a traffic
+simulation, reached metering comparison, full endogenous theorem or gradient
+certificate. The source audit distinguishes the supplied 2005 journal from
+the nearest cited 2004 thesis and unverified geometry manuscript.
+
+\section*{1. The feedback quantity needs a definite operator}
+Use free speed $u>0$, backward-wave magnitude $w>0$, jam density $\kappa>0$,
+and continuous density $\rho$:
+\begin{equation}
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\quad
+ \rho_c=\frac{w\kappa}{u+w},\quad
+ V(\rho)=\begin{cases}u,&0\le\rho\le\rho_c,\\
+ w(\kappa/\rho-1),&\rho_c<\rho\le\kappa.\end{cases}
+\end{equation}
+Units: $u,w,V$ in m/s; $\rho,\kappa$ in equivalents/m; $F$ in equivalents/s.
+On a fixed interior downstream support of length $\ell>0$, compare
+\begin{equation}
+ v_{\rm density}=V\!\left(\frac1\ell\int_x^{x+\ell}\rho\,dy\right),\quad
+ v_{\rm speed}=\frac1\ell\int_x^{x+\ell}V(\rho)\,dy,\quad
+ v_{\rm ratio}=\frac{\int_x^{x+\ell}F(\rho)\,dy}
+ {\int_x^{x+\ell}\rho\,dy}.
+\end{equation}
+The last expression assumes positive mass and an instantaneous spatial
+diagnostic. It is not automatically the source's preceding-period Edie
+lane-choice estimate or a prescribed CM estimator.
+
+For equal support halves, $u=30$, $w=5$, $\kappa=3/20$,
+$\rho_1=1/100$ and $\rho_2=1/10$:
+\begin{equation}
+ F_1=3/10,\quad F_2=1/4,\quad
+ v_{\rm density}=95/11,\qquad v_{\rm speed}=65/4,\qquad
+ v_{\rm ratio}=5.
+\end{equation}
+Thus all three natural readings differ on the same own field. The example
+qualifies operator meaning; it is not hidden-information or control evidence.
+
+The supplied 2006 Appendix A gives a constrained realized speed, desired-speed
+recurrence and motion of the form
+\begin{equation}
+ v_j=\min\{v^{\rm dwn}_j,v^{\rm des}_j\},\qquad
+ v^{\rm des}_{j+1}=v_j+a(v_j,\phi_j)\Delta t,\qquad
+ \phi_{j+1}=\phi_j+v_j\Delta t.
+\end{equation}
+The own downstream estimate is the missing specification, not an extra
+population. D04 supplies a density-average numerical precedent, not the
+complete adapted mandatory-node/source/encounter law.
+
+\newpage
+\section*{2. A count bound alone does not close motion feedback}
+In a \emph{source-free prescribed-path} diagnostic, $N_x=-\rho$. Compare
+two compatible count fields on a common support with
+\begin{equation}
+ \|N_h-N\|_\infty\le\varepsilon_h,\qquad
+ \bar\rho=\frac{N(t,x)-N(t,x+\ell)}{\ell}.
+\end{equation}
+Endpoint subtraction gives
+\begin{equation}
+ |\bar\rho_h-\bar\rho|\le\frac{2\varepsilon_h}{\ell}.
+\end{equation}
+The triangular-FD speed function is globally Lipschitz on $[0,\kappa]$,
+with an admissible constant $L_V=w\kappa/\rho_c^2$: it is constant below
+$\rho_c$ and its congested derivative has magnitude $w\kappa/\rho^2$.
+Consequently
+\begin{equation}
+ |V(\bar\rho_h)-V(\bar\rho)|\le
+ \frac{2L_V\varepsilon_h}{\ell}.
+\end{equation}
+J01's piecewise prescribed-path theorem bounds count error by
+$\varepsilon_h\le3P\kappa\Delta x$ for its stated data class. For a
+mesh-dependent support $\ell=m\Delta x$, the resulting estimate is only
+\begin{equation}
+ |V(\bar\rho_h)-V(\bar\rho)|\le\frac{6P\kappa L_V}{m}.
+\end{equation}
+This bound does not tend to zero with the mesh. It \emph{does not prove}
+that actual speed errors fail to converge. A fixed positive physical support
+does make this particular bound vanish, but changes the support limit and
+cannot be silently interpreted as immediately downstream motion. Variable
+end supports, moving path errors and endogenous sources need additional work.
+Prescribed-path count convergence is not a joined feedback theorem.
+
+\section*{3. Check a direct stationary boundary transcription}
+Let an existing boundary-born restriction have prescribed speed $v=u$,
+$\phi(t)=ut$, with empty/free-compatible receiving road, free downstream,
+and attempted incoming flow $0<d\le Q=uw\kappa/(u+w)$. Ordinary compatible
+traffic has $F(\rho)\le u\rho$, so a zero-relative-passing condition at that
+moving path does not bind. Over the first interval the ordinary boundary can
+admit $d\Delta t$.
+
+The specific transcription that holds the restriction at $x=0$ with fixed
+boundary capacity zero for the entire interval instead admits zero:
+\begin{equation}
+ \Delta C_{\rm moving}=d\Delta t,\qquad
+ \Delta C_{\rm held}=0,\qquad
+ \Delta C_{\rm moving}-\Delta C_{\rm held}=d\Delta t>0.
+\end{equation}
+It is a finite-step count mismatch consistent with a vanishing mesh error,
+not a source-wide impossibility result. It exposes activation qualification
+for the candidate's mandatory-boundary transfer. No full-TST difference follows
+just from moving waiting mass outside versus inside before any exit occurs.
+
+\newpage
+\section*{4. Finite population bounds births, not clearance}
+Use the admitted finite, forward-directed cell graph: through and discretionary
+moves advance one section; the finite ramp joins the mainline once. Assign
+a remaining-step rank $r_a$ to each cell or external waiting location, with
+every accepted advance reducing rank by at least one and $0\le r_a\le K$.
+No cyclic or backward population movement is admitted in this deduction.
+
+For continuous masses $m_a$, define the nonnegative potential
+\begin{equation}
+ P(t)=\sum_a r_a m_a(t).
+\end{equation}
+Let $A_\infty<\infty$ be total offered mass after initialization and $H(T)$
+the cumulative mass counted across all advancing moves through time $T$.
+Conservation and decreasing ranks imply
+\begin{equation}
+ H(T)\le P(0)+K A(T)\le P(0)+K A_\infty.
+\end{equation}
+The constants $K$ and $S$ refer to the declared finite grid. This is not a
+uniform record-count bound under arbitrary mesh refinement.
+Moving waves do not move population backward. A flow split is debited once
+per actual advance, in accordance with the source IT update; it is not counted
+as both a same-cell lateral move and a second longitudinal move.
+
+Let $S$ be the finite number of descriptor-generating streams, threshold
+$\delta>0$, initial progress $r_s^0\in[0,\delta)$, and accepted generating
+transfer $\eta_s(T)$. E1's cumulative floor gives
+\begin{equation}
+ B_s(T)=\left\lfloor\frac{r_s^0+\eta_s(T)}{\delta}\right\rfloor,
+ \qquad \sum_s\eta_s(T)\le H(T).
+\end{equation}
+Hence, including all initial remainders and retaining all distinct births,
+\begin{equation}
+ B_{\rm new}(T)=\sum_s B_s(T)
+ \le\frac{P(0)+K A_\infty}{\delta}+S.
+\end{equation}
+No threshold integerizes traffic mass. The bound is a finite-geometry
+feasibility deduction, not a numerical cost or record-budget requirement.
+It does not prove that traffic or restrictions eventually leave; a stationary
+blocking update could still fail to clear despite finitely many births.
+
+\newpage
+\section*{5. Finite-time performance and derivatives are separate claims}
+Under the same offered arrivals and initial population, conservative
+full-system inventory includes outside waiting, ramp and mainline:
+\begin{equation}
+ M(t)=M_0+A(t)-E(t),\qquad
+ J_T=\int_0^T M(t)\,dt.
+\end{equation}
+$E$ counts all exits. If a conditional comparison establishes a uniform exit
+count error $|E_h-E|\le\varepsilon$ on $[0,T]$, then
+\begin{equation}
+ |J_{T,h}-J_T|\le T\varepsilon.
+\end{equation}
+This says nothing about the missing tail beyond $T$. Full $J$ requires
+clearance or a qualified integrable tail. Normalizing by common total offered
+and initial mass rescales the bound but does not remove that obligation.
+
+Even uniform objective convergence does not guarantee its gradients. For
+an arbitrary smooth $f$ and $h>0$, a generic calculus example is
+\begin{equation}
+ f_h(\theta)=f(\theta)+h\sin(\theta/h),\quad
+ |f_h-f|\le h,\quad
+ f_h'(\theta)=f'(\theta)+\cos(\theta/h).
+\end{equation}
+This is not a claimed traffic formula. It demonstrates the logical limit of
+promoting count/objective accuracy into derivative accuracy. Threshold births
+and active-set changes introduce additional obligations in the actual task.
+
+\textbf{Disposition.} The physical source family and a concrete numerical
+feedback precedent are supported. The displayed source-derived candidate is
+not frozen: activation, feedback support/phase, joined accepted sources and
+simultaneous paths require a declared completion. Finite births, finite-time
+count/TST checks and a causal interface do not establish full clearance,
+nontrivial metering leverage, record necessity or useful gradients.
+\end{document}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-07",
+  "status": "pass",
+  "scope": "methodology-only exact-information modeling chain",
+  "authorization": "Q-G closed as G1, exact-first cost/compression excluded; bounded pass performed to Q-E; E1/E2 unselected",
+  "protected_prior_files": 312,
+  "documents_checked": 17,
+  "local_links_checked": 278,
+  "static_checks": [
+    {
+      "name": "source_correct_lane_label",
+      "result": "pass",
+      "identity": "N_t=q-integral(s)",
+      "scope": "regular sourced conservation segment with declared boundary gauge"
+    },
+    {
+      "name": "moving_label_source_correction",
+      "result": "pass",
+      "identity": "h_dot=(q-v*rho)-integral(s)",
+      "scope": "zero relative flux implies h_dot=-integral(s); coincident source attachment not proved"
+    },
+    {
+      "name": "discrete_source_count_and_signs",
+      "result": "pass",
+      "identity": "dN=Fx-Lx",
+      "scope": "paired section bookkeeping only"
+    },
+    {
+      "name": "paired_continuous_mass_cancellation",
+      "result": "pass",
+      "scope": "algebraic conservation; not receiving/storage or solver qualification"
+    },
+    {
+      "name": "sampled_vs_event_clock_input",
+      "result": "pass",
+      "crossing_seconds": "1/2",
+      "sampled_birth_seconds": "1",
+      "births": 1,
+      "actual_transfer_mass": "1/2",
+      "scope": "prescribed counter, not joined common-control traffic or TST witness"
+    },
+    {
+      "name": "common_population_TST_difference_integrand",
+      "result": "pass",
+      "scope": "whole objective also requires clearing or certified tails"
+    }
+  ],
+  "pdf_pages": 4,
+  "numbered_equations": 21,
+  "final_latex_log": "clean",
+  "queries": 12,
+  "query_batches": 5,
+  "source_activity_rows": 11,
+  "technical_reads": 7,
+  "retained_unavailable_originals": 2,
+  "environment": {
+    "python": "3.11.9",
+    "sympy": "1.14.0",
+    "pypdf": "6.15.0"
+  },
+  "pdf_sha256": "17d71935fa43303e04252bd4997ca10e57b2cb38045a7213da23d9343ef3d037",
+  "tex_sha256": "24ff1964214a972ee89c26d0102d8fa60e0afc2d88f795a3455a82ef91a382d0",
+  "checks_script_source": "from pathlib import Path\nfrom urllib.parse import unquote\nimport csv\nimport hashlib\nimport json\nimport re\nimport sys\n\nimport pypdf\nimport sympy as sp\n\nroot = Path('/home/zpz/repos/diff_minimal_meso')\nbase = root / 'misc/selective_discreteness_ramp_metering_review'\noutput = base / 'reporting/rm12/bp_r_stage3/exact_information_execution_validation.json'\nsnapshot = json.loads(Path('/tmp/rm12_g1_exact_chain_preservation.json').read_text())\nfor name, expected in snapshot.items():\n    path = root / name\n    assert path.is_file(), f'Protected file missing: {name}'\n    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, f'Protected file changed: {name}'\n\ncurrent = [\n    'README.md', 'rm12_30_provisional_four_stage_roadmap.md',\n    'rm12_60_bp_r_stage3_protocol.md', 'rm12_61_bp_r_stage3_interface_continuation.md',\n    'rm12_62_bp_r_stage3_dual_review_arrangement.md', 'rm12_63_bp_r_stage3_event_memory_continuation.md',\n    'rm12_64_bp_r_stage3_grouped_recovery_continuation.md',\n    'rm12_65_bp_r_stage3_exact_information_continuation.md',\n    'reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md',\n    'reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md',\n    'reporting/rm12/bp_r_stage3/compact_closure_gate.md',\n    'reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md',\n    'reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md',\n]\nnames = current + [\n    'synthesis/rm12/bp_r_stage3/exact_information_chain_assessment.md',\n    'extraction/rm12/bp_r_stage3/exact_information_source_audit.md',\n    'discussion/rm12/backtracking_planning_dialogue.md',\n    'reporting/rm12/bp_r_stage3/work_report.md',\n]\nlinks = 0\nfor name in names:\n    path = base / name\n    text = path.read_text()\n    assert not re.search(r'\\]\\([^\\n)]+\\)\\+[a-z]', text), f'Accidental link joining: {name}'\n    for raw in re.findall(r'\\]\\(([^)\\n]+)\\)', text):\n        target = raw.strip().strip('<>')\n        if '://' in target or target.startswith('#'):\n            continue\n        target = unquote(target.split('#', 1)[0])\n        destination = (path.parent / target).resolve()\n        assert destination.is_file() or destination.is_dir() or destination == output, (name, raw)\n        links += 1\nfor name in current:\n    assert 'Q-E' in (base / name).read_text(), f'Missing successor: {name}'\nfacade = (base / current[-1]).read_text()\nassert 'Q-G is closed as G1.' in facade\nassert 'E1 and E2 are unselected.' in facade\nassert 'Approximate\\nrecovery reduction is unopened.' in facade\nassert 'Storage' not in facade or 'cost' in facade\nassert 'Every distinct restriction' in facade\nassert facade.count('**Pros:**') == 2 and facade.count('**Cons:**') == 2\nassert facade.count('**Dependency/consequence:**') == 2\nassert 'reopening S3-G2.A' in facade\nassert 'Stage 4 and experiments remain unopened.' in facade\nplan = (base / current[7]).read_text()\nassert 'cost are engineering considerations' in plan\nassert 'comparison remains a later research obligation' in plan\nassert 'No E option is adopted' in plan\n\nchecks = []\nt, x, y, x0, v = sp.symbols('t x y x0 v', real=True)\nq = sp.Function('q')\ns = sp.Function('s')\nrho = sp.Function('rho')\nsource_integral = sp.Integral(s(t, y), (y, x0, x))\nintegrated_q_gradient = sp.Integral(sp.diff(q(t, y), y), (y, x0, x)).doit()\nderived_Nt = q(t, x0) - source_integral + integrated_q_gradient\nexpected_Nt = q(t, x) - source_integral\nassert sp.simplify(derived_Nt - expected_Nt) == 0\nchecks.append({'name': 'source_correct_lane_label', 'result': 'pass', 'identity': 'N_t=q-integral(s)', 'scope': 'regular sourced conservation segment with declared boundary gauge'})\n\npath_derivative = expected_Nt - v * rho(t, x)\nrelative_flux = q(t, x) - v * rho(t, x)\nassert sp.expand(path_derivative - relative_flux + source_integral) == 0\nchecks.append({'name': 'moving_label_source_correction', 'result': 'pass', 'identity': 'h_dot=(q-v*rho)-integral(s)', 'scope': 'zero relative flux implies h_dot=-integral(s); coincident source attachment not proved'})\n\ndC, Fx, Lx = sp.symbols('dC Fx Lx', real=True)\ndP = dC - Fx + Lx\nassert sp.expand(dC - dP - (Fx - Lx)) == 0\nassert (Fx - Lx).subs({Fx: 0, Lx: 1}) == -1\nassert (Fx - Lx).subs({Fx: 0, Lx: -1}) == 1\nchecks.append({'name': 'discrete_source_count_and_signs', 'result': 'pass', 'identity': 'dN=Fx-Lx', 'scope': 'paired section bookkeeping only'})\n\nf12, f23, external_in, external_out = sp.symbols('f12 f23 I E', real=True)\nincrements = [external_in - f12, f12 - f23, f23 - external_out]\nassert sp.expand(sum(increments) - (external_in - external_out)) == 0\nchecks.append({'name': 'paired_continuous_mass_cancellation', 'result': 'pass', 'scope': 'algebraic conservation; not receiving/storage or solver qualification'})\n\nH = sp.Rational(3, 4) + t / 2\ncrossing = sp.solve(sp.Eq(H, 1), t)\nassert crossing == [sp.Rational(1, 2)]\nassert sp.floor(H.subs(t, 1)) - sp.floor(H.subs(t, 0)) == 1\nassert H.subs(t, 1) - H.subs(t, 0) == sp.Rational(1, 2)\nchecks.append({'name': 'sampled_vs_event_clock_input', 'result': 'pass', 'crossing_seconds': '1/2', 'sampled_birth_seconds': '1', 'births': 1, 'actual_transfer_mass': '1/2', 'scope': 'prescribed counter, not joined common-control traffic or TST witness'})\n\nM0, A, Ea, Eb = sp.symbols('M0 A Ea Eb', real=True)\nassert sp.expand((M0 + A - Ea) - (M0 + A - Eb) + Ea - Eb) == 0\nchecks.append({'name': 'common_population_TST_difference_integrand', 'result': 'pass', 'scope': 'whole objective also requires clearing or certified tails'})\n\nwith (base / 'search/rm12_bp_r_stage3_exact_information_queries.csv').open(newline='') as f:\n    queries = list(csv.DictReader(f))\nassert len(queries) == 12 and {r['batch'] for r in queries} == {'1', '2', '3', '4', '5'}\nwith (base / 'screening/rm12_bp_r_stage3_exact_information_sources.csv').open(newline='') as f:\n    sources = list(csv.DictReader(f))\nassert len(sources) == 11\nassert sum(r['activity'].startswith('technical') for r in sources) == 7\nassert sum(r['activity'] == 'retained unavailable' for r in sources) == 2\n\npdf_path = base / 'synthesis/rm12/bp_r_stage3/exact_information_chain_math.pdf'\npdf = pypdf.PdfReader(pdf_path)\npdf_text = '\\n'.join(p.extract_text() for p in pdf.pages)\nassert len(pdf.pages) == 4\nnumbers = {int(n) for n in re.findall(r'\\((\\d+)\\)', pdf_text) if int(n) < 50}\nassert set(range(1, 22)) <= numbers, numbers\nassert 'Disposition' in pdf_text and 'Source locations' in pdf_text\nassert 'dependent onset/inactive classification' in pdf_text\nlog = Path('/tmp/rm12_exact_information_tex/exact_information_chain_math.log').read_text()\nassert not re.search(r'LaTeX Warning|Package .* Warning|Overfull|Underfull|^!', log, re.M)\nassert pdf_path.read_bytes() == Path('/tmp/rm12_exact_information_tex/exact_information_chain_math.pdf').read_bytes()\n\ndata = {\n    'date': '2026-10-07', 'status': 'pass',\n    'scope': 'methodology-only exact-information modeling chain',\n    'authorization': 'Q-G closed as G1, exact-first cost/compression excluded; bounded pass performed to Q-E; E1/E2 unselected',\n    'protected_prior_files': len(snapshot), 'documents_checked': len(names),\n    'local_links_checked': links, 'static_checks': checks,\n    'pdf_pages': len(pdf.pages), 'numbered_equations': 21, 'final_latex_log': 'clean',\n    'queries': len(queries), 'query_batches': 5, 'source_activity_rows': len(sources),\n    'technical_reads': 7, 'retained_unavailable_originals': 2,\n    'environment': {'python': sys.version.split()[0], 'sympy': sp.__version__, 'pypdf': pypdf.__version__},\n    'pdf_sha256': hashlib.sha256(pdf_path.read_bytes()).hexdigest(),\n    'tex_sha256': hashlib.sha256(pdf_path.with_suffix('.tex').read_bytes()).hexdigest(),\n    'checks_script_source': Path(__file__).read_text(),\n    'traffic_simulation': False, 'optimizer_or_numerical_derivative': False,\n    'new_recovery_approximation': False, 'sampled_clock_reopened': False,\n    'source_download': False, 'production_or_package_change': False,\n    'limits': 'No joined solver/well-posedness, clearance, full-TST rate advantage, exact-state necessity or useful-gradient certificate.'\n}\nwith output.open('x') as f:\n    json.dump(data, f, indent=2)\nprint(f'PASS: {len(snapshot)} protected files; {len(names)} documents/{links} links; {len(checks)} static checks; 4-page/21-equation PDF; Q-E open.')\n",
+  "traffic_simulation": false,
+  "optimizer_or_numerical_derivative": false,
+  "new_recovery_approximation": false,
+  "sampled_clock_reopened": false,
+  "source_download": false,
+  "production_or_package_change": false,
+  "limits": "No joined solver/well-posedness, clearance, full-TST rate advantage, exact-state necessity or useful-gradient certificate."
+}

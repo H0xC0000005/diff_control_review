@@ -1,0 +1,336 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,array,booktabs}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large R-E selected: boundaries, recovery overlap and the next choice}\\[4pt]
+15 October 2026 --- analytical review; no traffic time stepping
+\end{center}
+
+\textbf{Status.} The user selects R-E, closing SEP-R1 at source-attribution
+scope. Ordinary A departures do not add independent recovery profiles.
+S-E-P remains selected. Exact work, marks, overlap and global event proofs
+remain open. This continuation stops at \textbf{RE-O1}, Type 2 G3: additive
+burdens O-S versus recent-mass renewal O-R. Neither overlap law is selected.
+
+\section*{1. Retained interface and the trial isolated profile}
+
+Retain H1's entrance histories $F_j$, advice $v\in[v_-,v_+]$, finite
+terminal length $b$, initially empty histories, and
+\begin{equation}
+ P_j(t)=F_j(t-b/v),\quad q_j=P_j-Y_j,\quad N_j=F_j-Y_j,
+ \quad \lambda_j=\dot P_j,\quad g_j=\dot Y_j. \tag{1}
+\end{equation}
+The B lane remains independent and unqueued; $B(t)$ below is instead the
+shared A/E budget. Write $K=wk_j$ and use
+\begin{equation}
+ c(u)=\frac{Ku}{w+u},\quad C(v)=c(v),\quad
+ U(f)=\frac{wf}{K-f},\quad 0<R\leq C(v_-),\quad u_R=U(R). \tag{2}
+\end{equation}
+The trial node has ordinary cost one, $c_0=1+\delta$, and
+\begin{equation}
+ c_E=c_0+\beta\frac{g_A}{C(v)}\frac{\pos{u_A-u_E}}v,
+ \quad g_A+c_Eg_E\leq B,\quad
+ \eta=c_0-\beta(1+v_+/w)>0. \tag{3}
+\end{equation}
+Here $\delta,\beta\geq0$. The sufficient $\eta$ condition and representative
+trace marks $u_j=v$ when free and $u_j=U(g_j)$ when queued remain trial
+assumptions. The earlier note proves selected-regime roots, not a complete
+hybrid law. S-E-P protects a free A offer that fits $B$; queued A uses the
+equal-work/unused-work redistribution template, even when E is free.
+
+For $a_r>0$, the proposed isolated recovery profile is
+\begin{align}
+ V(\theta;u)&=\sqrt{(w+u)^2+2wa_r\theta}-w,\nonumber\\
+ D(\theta;u)&=\pos{R-c(V(\theta;u))},\qquad \theta\geq0. \tag{4}
+\end{align}
+For $u<u_R$, its duration and integrated loss are
+\begin{equation}
+ \Theta(u)=\frac{u_R-u}{a_r}+\frac{u_R^2-u^2}{2a_rw},\quad
+ W(u)=\frac{k_c(u_R)(u_R-u)^2}{2a_r},\quad
+ k_c(z)=\frac{K}{w+z}. \tag{5}
+\end{equation}
+For $u\geq u_R$ both are zero. Put $\Theta_{\max}=\Theta(0)$,
+$W_0=W(0)$. Then $0\leq D\leq R$, $D$ decreases with age,
+$|D_\theta|\leq a_rk_j$, and $|D_u|\leq k_j$.
+The age includes backward propagation, not a numerical time step.
+
+\newpage
+\section*{2. What the additive R-E law now proves}
+
+O-S is the existing trial overlap family, with physical reference mass
+$m=m_{\rm ref}=1$ vehicle-equivalent:
+\begin{equation}
+ p_S(t)=\frac1m\int_0^tD(t-s;u_E(s))g_E(s)ds,\qquad
+ B_S(t)=\pos{R-p_S(t)}. \tag{6}
+\end{equation}
+This is one account. It does not create a vehicle queue or another
+constraint for each past passage. The initial account is neutral.
+
+\textbf{Strictly positive finite-time service, conditional on an admissible
+causal solution.} Since $c_E\geq c_0$, work feasibility gives
+$g_E\leq B_S/c_0$. Differentiating the nonincreasing profiles gives,
+almost everywhere,
+\begin{equation}
+ \dot p_S=\frac{g_E(t)D(0;u_E(t))}m+
+  \frac1m\int_0^tD_\theta(t-s;u_E(s))g_E(s)ds
+ \leq\frac Rm g_E\leq\frac{R}{mc_0}B_S. \tag{7}
+\end{equation}
+Before a hypothetical first zero of $B_S$, $B_S=R-p_S$ and
+\begin{equation}
+ \dot B_S\geq-\frac{R}{mc_0}B_S,\qquad
+ B_S(t)\geq R\exp[-Rt/(mc_0)]>0. \tag{8}
+\end{equation}
+Continuity rules out a finite first zero. This derives a bound; it does not
+insert a positive floor. An arbitrary externally prescribed admission
+history can exhaust (6); it need not be admissible in the coupled node.
+Neither (8) nor the earlier fixed-mode contraction proves global queue-event
+existence, uniqueness or empirical fidelity.
+
+\textbf{A reachable first loss, not just a possible source.} At the retained
+H1 fast-front example, translated so first eligibility is $t=0$,
+\begin{equation}
+ R=39/20,\quad \lambda_A=1047/880,\quad \lambda_E=125/176,
+ \quad \delta=\beta=1/10,\quad C=3. \tag{9}
+\end{equation}
+The earlier strict-onset calculation yields free A, queued E and
+\begin{equation}
+ g_* =\frac{16716-183\sqrt{5234}}{5189},\quad
+ \frac{2230}{3343}<g_*<\frac{669}{968}<\lambda_E<R. \tag{10}
+\end{equation}
+Thus $u_E=U(g_*)<u_R$ and, with empty history,
+\begin{equation}
+ \dot p_S(0+)=\frac{g_*(R-g_*)}m>0,\qquad
+ \dot B_S(0+)=-\frac{g_*(R-g_*)}m<0. \tag{11}
+\end{equation}
+The local fixed-mode causal construction and strict onset margin justify
+this initial right-hand effect. These numbers are inherited diagnostic
+values, not selected task calibration or a positive-control parameter set.
+No complete A-delay witness, preferred advice or interior optimum follows.
+The O-R candidate below agrees until the first reference mass has passed.
+
+\newpage
+\section*{3. Strict boundary compatibility and a benign full-task reduction}
+
+Write $a=\lambda_A$, $e=\lambda_E$. With queued E, its unique trial
+service solves $H_E(g_E)=B-g_A$ and satisfies
+$g_E\leq(B-g_A)/c_0$. With both queues active, $g_A=B/2$.
+With free E and queued A, E's entire offer fits if $c_0e\leq B/2$;
+then $g_A=B-c_0e$. These are current-state rules, not allocation latches.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.22\linewidth}p{0.30\linewidth}p{0.38\linewidth}}
+\toprule
+Strict event & Condition before switch & Compatible right-hand behavior\\
+\midrule
+E onset; A free & $a\leq B$, $e>(B-a)/c_0$ &
+Queued E has $g_E\leq(B-a)/c_0<e$, so its newborn queue grows.\\[4pt]
+A onset & $a>B$ & Queued allocation has $g_A\leq B<a$;
+if free E also fails its share, its queued root is below that free share.\\[4pt]
+E onset; A queued & $e>B/(2c_0)$ &
+Queued E has $g_E\leq B/(2c_0)<e$.\\[4pt]
+E clears; A free & $e<g_E^Q\leq(B-a)/c_0$ &
+Both free offers fit $a+c_0e<B$.\\[4pt]
+E clears; A queued & $e<g_E^Q\leq B/(2c_0)$ &
+Free E gets $e$; A gets $B-c_0e\geq B/2$. Cooperation persists.\\[4pt]
+A clears; E queued & $a<g_A^Q=B/2$ &
+Free A's offer fits $B$; E is recomputed against its residual.\\[4pt]
+A clears; E free & $a<g_A^Q=B-c_0e$ &
+Both free offers fit $a+c_0e<B$.\\
+\bottomrule
+\end{tabular}
+\end{center}
+For simultaneous strict clearance of both queues, $a<B/2$ and
+$e<g_E^Q\leq B/(2c_0)$ imply free admission is feasible. These statements
+check switch directions. They do not establish every grazing or simultaneous
+birth case, an absence of Zeno accumulation, or full hybrid uniqueness.
+The earlier no-spontaneous-birth guard remains required. A step size,
+queue epsilon, sliding convention or extra hysteresis has not been added.
+
+\textbf{Exact benign reduction.} For one H1 advice, translate its eligible
+pulse to $0<t<\ell/v$. On that interval
+\begin{equation}
+ a(t)+e(t)=s:=v(e_0+a_0)<R,\quad e(t)\ \text{nonincreasing},\quad
+ a(t)+c_0e(t)=s+\delta e(t). \tag{12}
+\end{equation}
+If $s+\delta e(0+)\leq R$, the free offers fit from the outset and only
+become easier to serve. Free E has $u_E=v\geq u_R$, so $D=0$ and no new
+account loss arises. Causal free-mode retention therefore gives
+\begin{equation}
+ q_A=q_E=0,\quad p=0,\quad B=R,\quad
+ J(v)=M(L-\ell/2)/v. \tag{13}
+\end{equation}
+If this holds for every admitted advice, all observers have the fastest
+optimum. This is a declared exact negative case for either overlap candidate,
+not a reason to force queueing or choose parameters for a positive result.
+
+\newpage
+\section*{4. A stronger simple rival and the overlap reference}
+
+\textbf{Stationary-equivalent work.} If $g_E$ and its mark $u_E$ have
+been constant over a full profile window, O-S gives
+\begin{equation}
+ p_S=\frac{g_EW(u_E)}m,\qquad
+ g_A+\left(c_E+\frac{W(u_E)}m\right)g_E=R
+ \quad\text{at saturated service}. \tag{14}
+\end{equation}
+A state-dependent instantaneous work relation therefore matches this
+stationary consequence. This is our deduction, not a new native invariant
+junction. Its transient selection and feasibility need their own contract.
+It is a serious simpler rival: a history benefit must concern consequential
+transients, not merely lower average discharge. Proper aggregate/history,
+scalar-statistic, native lane-aware and equal-information search rivals stay.
+
+\textbf{Point-reference screen.} The homogeneous point case in
+\href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{Leclercq et al. (2016), Section 2, equation (1)}
+evaluates cumulative passing over the interval to the next insertion.
+For a fixed mark $u<u_R$ and fixed headway $h_0$, capping our isolated
+service at $R$ gives the following own interval-mean deduction:
+\begin{equation}
+ \overline B_{\rm point}=R-\frac{W_{h_0}(u)}{h_0},\qquad
+ W_h(u):=\int_0^hD(\theta;u)d\theta. \tag{15}
+\end{equation}
+For $z_h=\min\{u_R,V(h;u)\}$,
+\begin{equation}
+ W_h(u)=\frac{k_c(u_R)}{2a_r}
+       \{(u_R-u)^2-(u_R-z_h)^2\}. \tag{16}
+\end{equation}
+Full-profile addition under the corresponding constant mean admission
+$g_E=m/h_0$ instead gives $\overline p_S=W(u)/h_0$. Hence
+\begin{equation}
+ \overline p_S-\frac{W_{h_0}(u)}{h_0}
+   =\frac1{h_0}\int_{h_0}^{\Theta(u)}D(\theta;u)d\theta>0
+ \quad(0<h_0<\Theta(u)). \tag{17}
+\end{equation}
+When $h_0\geq\Theta(u)$ the difference is zero. This compares an additive
+mean closure with a capped homogeneous interval reference. It is not an
+exact native transient law, a primary H1 trajectory, or a proof that the
+closed-loop O-S model exhausts its budget. Equation (8) prevents the latter
+at finite time in an admissible initially neutral solution.
+
+An exact constitutive diagnostic uses $w=2,k_j=3,R=2,u=1/2,a_r=1/2$,
+$m=h_0=1$. It gives $u_R=1$, $\Theta=11/8$, and
+\begin{equation}
+ W=1/2,\quad W_1=6\sqrt{33}-34,\quad
+ W-W_1=69/2-6\sqrt{33}>0. \tag{18}
+\end{equation}
+The mark and mean admissions are prescribed for this screen, not asserted
+to solve the trial node. No traffic is time stepped. Variable marks and
+interacting restrictions still require a physical overlap closure.
+
+\newpage
+\section*{5. A concrete recent-mass renewal alternative}
+
+For O-R, let $T_E(\xi)$ be a generalized inverse of the continuous
+admitted history $Y_E$. Endpoint choices at plateaus have zero mass measure.
+Keep the same profile and define
+\begin{equation}
+ p_R(t)=\frac1m\int_{\pos{Y_E(t)-m}}^{Y_E(t)}
+     D\bigl(t-T_E(\xi);u_E(T_E(\xi))\bigr)d\xi,
+ \qquad B_R=\pos{R-p_R}. \tag{19}
+\end{equation}
+Equivalently integrate (6) only over past mass with
+$0\leq Y_E(t)-Y_E(s)<m$. This uses predicted continuous mass, not integer
+vehicles, packets, a second traffic queue or initial hidden information.
+Only still-active profiles within the most recent reference mass contribute.
+At first admission and until $Y_E=m$, O-R and O-S give the same functional.
+Their later closed-loop trajectories need not be ordered.
+
+The physical interpretation is renewal of an average affected stream.
+An admitted portion contributes while replacing an equal amount of oldest
+profile weight after the window is full. The same $m=1$ reference unit now
+also sets a physical renewal mass. Its role must be defended, not changed
+as a harmless numerical resolution or tuned for a desired control result.
+
+\textbf{Bounds that follow immediately.} For any fixed admissible history,
+\begin{equation}
+ 0\leq p_R(t)\leq p_S[Y_E,u_E](t),\qquad
+ p_R(t)\leq R\min\{Y_E(t)/m,1\}. \tag{20}
+\end{equation}
+The comparison uses the same supplied history; it does not compare two
+endogenously different solutions. After last E admission, the retained
+window is fixed and its profiles decrease, expiring within
+$\Theta_{\max}$. A later fast E portion has zero new profile but can retire
+older slow weight. That is part of this renewal model and a material risk:
+it can release service too quickly when an older leader still controls it.
+
+For fixed $g_E>0$, mark $u$, and enough previous admissions,
+\begin{equation}
+ h_0=m/g_E,\qquad
+ p_R=\frac{g_E}{m}\int_0^{h_0}D(\theta;u)d\theta
+      =\frac{W_{h_0}(u)}{h_0}. \tag{21}
+\end{equation}
+Thus O-R reproduces (15)'s mean loss in that restricted reference. Equation
+(19) is our transient extension, not the source's native algorithm. Its
+window cutoff needs its own causal/event qualification. The O-S inverse
+and fixed-mode history proof do not automatically establish O-R uniqueness.
+
+Both candidates preserve one shared output and E-only new disturbance.
+O-S preserves every older physical aging tail but assumes independent
+addition. O-R limits repeated accounting but assumes recent-mass renewal
+adequately represents old restrictions. No new spatial field, longitudinal
+zone, approach-speed ODE or A-source penalty is introduced by either option.
+
+\newpage
+\section*{6. Joined accounting, proof limits and stopping gate}
+
+For either overlap law, let $\overline M_E=P_E(L/v)$ and assume an
+admissible causal solution. Nonnegative kernels and (20) give
+\begin{equation}
+ \int_0^\infty p(t)dt\leq\frac{\overline M_EW_0}{m},\qquad
+ R-B=\min\{R,p\}\leq p. \tag{22}
+\end{equation}
+Using the prior work-conserving trial node, $c_{\max}=c_0+\beta$, and
+last eligibility $t_*=L/v$, the existing clearance argument gives
+\begin{equation}
+ T_{\rm clear}\leq t_*+
+ \frac{c_{\max}(q_A(t_*)+q_E(t_*))+\overline M_EW_0/m}{R}. \tag{23}
+\end{equation}
+It uses an upper bound on available E mass before clearance, not an assumed
+successful final exit. This is a conditional bound, not proof of a full
+hybrid solution. No positive service floor is added.
+
+For $M<k_jb$ and $\dot F_j\leq C(v)$, the earlier finite-terminal vacancy
+proof is unchanged for nonnegative departures. Physical population and
+the complete local objective remain
+\begin{equation}
+ s(t)\rho_0+\sum_jN_j+\sum_jY_j=M,\qquad
+ J(v)=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E)dt. \tag{24}
+\end{equation}
+Early-merged mass belongs to A, not a second forced E merge. A retired
+recovery profile is not deleted traffic. Post-line recovery memory is not
+post-line vehicle-time. The independent B lane has no waiting in this domain.
+
+\textbf{State and evidence.} Current allocation uses current traffic and
+budget. Future recovery generally needs admission/speed history, not just
+the scalar reading. Under initial symmetry and known empty memory, total
+mass plus initial ending mass still reconstructs H1; unique reconstruction
+of the joined dynamics remains conditional on a qualified whole law.
+No full-lane-state necessity, new action split, gradient correctness or
+independent gradient usefulness is proved. The constant-A protection result
+remains; changing H1 arrivals need a consequential complete A-delay/MP6
+witness. A positive local loss derivative in (11) does not supply that.
+
+\textbf{Source and scope.} Carey's Section 5 own-lane/work ingredients and
+Jin's boundary consistency warning were rechecked at prior reading scope;
+neither supplies this trial node's full event proof. S13, the closed urban
+task, the closed ramp line and the model--SUMO S-P--SUMO S-L ladder retain
+their status. No reference simulator, fitting or numerical gradients ran.
+
+\textbf{Gate RE-O1.} Select independent additive fading burdens O-S, or
+recent-mass renewal O-R. R-E source attribution stays closed and S-E-P stays
+selected. Provisionally qualify O-R first for its explicit overlap treatment
+and restricted point-reference correspondence, retaining O-S as a serious
+phenomenological rival. Both are concrete formulas with different physical
+assumptions; neither is selected. Stop before adopting the new overlap law.
+The approved joined pass and Step 3 remain in progress; Step 4 is unopened.
+\end{document}

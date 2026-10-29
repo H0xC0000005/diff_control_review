@@ -1,0 +1,37 @@
+query_id,date,source,query,purpose
+S1,2026-09-14,web search,ALINEA local feedback ramp metering integral occupancy Papageorgiou 1991,controller lineage
+S2,2026-09-14,web search,Daganzo cell transmission model merge ramp metering first order capacity drop lane changing,backbone and objections
+S3,2026-09-14,web search,site.ops.fhwa.dot.gov ramp metering primer Minnesota 22 percent travel time,official operational evidence
+S4,2026-09-14,web search,Optimal freeway ramp metering pdf Gomes Horowitz,nearest aggregate task
+S5,2026-09-14,web search,ramp metering mesoscopic FIFO vehicle order merge lane access continuous model,order-sensitive counterexamples
+S6,2026-09-14,web search,ramp metering single bottleneck total time spent no capacity drop optimal metering invariant,simple-case diagnosticity
+S7,2026-09-14,web search,ramp metering off ramp blockage FIFO partial FIFO lane model weaving spillback,RM3-B route-sensitive mechanism and aggregate counterexamples
+S8,2026-09-14,web search,freeway merge capacity drop lane changing first order kinematic wave model ramp metering Laval Daganzo,RM3-B physical mechanism versus node adaptation
+S9,2026-09-14,web search,ramp metering merge ratio sequence continuous,RM3-B merge-order control relevance
+S10,2026-09-14,web search,merge arrival order kinematic traffic model,RM3-B order versus physical safety scope
+S11,2026-09-14,web search,Sufficient Optimality Conditions Ramp Metering,amendment multi-ramp aggregate and coordination counterexample
+S12,2026-09-14,web search,Lane Change Control Combined with Ramp Metering,amendment single-merge lane dynamics and author repository
+S13,2026-09-14,web search,The bottleneck mechanism of a freeway diverge,amendment route-sensitive empirical motivation
+S14,2026-09-14,primary-domain web search,The bottleneck mechanism of a freeway diverge Munoz Daganzo,metadata and related isolated-merge lead
+S15,2026-09-14,web search,Increasing the capacity of an isolated merge by metering its on-ramp,empirical single-meter benefit and scope qualification
+S16,2026-09-14,web search,ramp metering off ramp blocking destination composition FIFO optimal control,B1 direct mechanism and closest comparator
+S17,2026-09-14,web search,Munoz Daganzo on-ramp metering diverge,B1 backward literature search
+S18,2026-09-14,web search,Freeway On-Ramp Metering Delay Savings,B1 control accounting source
+S19,2026-09-14,web search,Destination-Aware Coordinated Ramp Metering,B1 closest destination-aware comparator
+S20,2026-09-14,web search,10.1109/MITS.2023.3323029 pdf,B1 open full-text access check
+S21,2026-09-14,web search,Freeway On-Ramp Metering Cassidy pdf berkeley,B1 author report access alternative
+S22,2026-09-14,web search,Destination-Aware Coordinated site:ieeexplore.ieee.org,B1 publisher access check
+S23,2026-09-14,web search,Destination-Aware Coordinated filetype:pdf,B1 open manuscript access check
+S24,2026-09-15,arXiv and primary-domain web search,On node models for high-dimensional road networks partial FIFO,source-backed node-local aggregate comparator
+S25,2026-09-15,publisher TRID and scholarly web search,Delays caused by a queue at a freeway exit ramp Newell,distributed lane-queue boundary
+S26,2026-09-15,UC Berkeley publisher and scholarly web search,Muñoz Daganzo bottleneck mechanism freeway diverge,one-pipe versus multi-pipe empirical boundary
+S27,2026-09-15,TRID author page and scholarly web search,Gibb traffic node capacity constraint queue spillback,check node-local queue alternatives
+S28,2026-09-15,scholarly web search,traffic diverge exact vehicle order FIFO sequence commodity flow,locate exact-cohort versus aggregate FIFO methods
+S29,2026-09-15,White Rose and publisher web search,Implementing first-in-first-out in the cell transmission model for networks,cell/link/route cohort order and merge limitation
+S30,2026-09-15,Springer primary full text,Merging and diverging operations benchmark point diverge lane change,reference geometry and richer-evaluator feasibility
+S31,2026-09-15,arXiv publisher and scholarly web search,ramp metering differentiable traffic simulation adjoint sensitivity automatic differentiation,locate direct freeway gradient-control predecessors
+S32,2026-09-15,Berkeley and Springer primary full text,Reilly coordinated ramp metering discrete adjoint; Goatin multiclass discrete adjoint,verify derivative contract scaling application and limitations
+S33,2026-09-15,publisher and agency web search,mesoscopic ramp metering DTA stochastic event based regional hybrid,identify actual mesoscopic behaviors and their value over macro models
+S34,2026-09-15,FHWA and NCHRP official web sources,traffic analysis toolbox mesoscopic ramp metering model selection,verify meso versus micro roles in route scale and junction physics
+S35,2026-09-15,publisher author-institution and scholarly web search,automatic differentiation CTM METANET ramp metering smoothing,distinguish AD calibration exact adjoint and smoothed ramp control
+S36,2026-09-15,publisher TRID and author-institution web search,Analysis of artificial neural network models for freeway ramp metering control,verify bibliographic identity and event-based mesoscopic method

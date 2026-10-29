@@ -1,0 +1,17 @@
+query_id,date,query,purpose,source_ids,outcome
+RM10-Q01,2026-10-05,"""Capacity drops at merges"" ""endogenous model"" pdf",endogenous capacity,RM10-P01,Author-uploaded proceedings methods inspected; journal metadata not transferred
+RM10-Q02,2026-10-05,"""Bounded acceleration traffic flow models"" ""unified approach"" pdf Jin",bounded acceleration,RM10-P03,Primary abstract; selected full methods not obtained
+RM10-Q03,2026-10-05,"""Combined Ramp-Metering and Variable Speed Limit"" Cho Laval pdf",control compatibility,RM9-L04,Reused combined-actuator lead; no rate-only certificate
+RM10-Q04,2026-10-05,"""ramp metering"" ""acceleration"" ""heterogeneity"" ""aggregate""",aggregate versus heterogeneous,S12A005,Nearest primary analytical capacity frontier followed
+RM10-Q05,2026-10-05,"""Bounded acceleration traffic flow models"" site:arxiv.org",full-text access,RM10-P03,No selected original full methods retrieved
+RM10-Q06,2026-10-05,"""Capacity Drops at Merges"" site:hal.science",primary access,RM10-P01,Direct alternatives failed; author-uploaded original selected
+RM10-Q07,2026-10-05,"""Capacity drops at merges"" ""New analytical"" pdf",heterogeneous transients,S12A005;RM10-P02,Institutional manuscripts inspected; versions separated
+RM10-Q08,2026-10-05,"""Combined Ramp-Metering"" site:sites.gatech.edu",author manuscript access,RM9-L04,No new full-method rate-only evidence
+RM10-Q09,2026-10-05,"""Capacity drops at merges"" ""2011"" site:sites.gatech.edu",original version,RM10-P01,Proceedings body used; journal not claimed inspected
+RM10-Q10,2026-10-05,"""Bounded acceleration"" ""Jin"" ""Laval"" ""2018"" arxiv",full-text access,RM10-P03,Abstract-level lead retained
+RM10-Q11,2026-10-05,"""bounded acceleration"" ""ramp metering"" ""gradient"" ""2024""",gradient compatibility,RM9-L04,No joined strong-history/rate/TST certificate established
+RM10-Q12,2026-10-05,"""Capacity drops at merges"" ""endogenous"" site:hal.science pdf",primary access,RM10-P01,No alternate selected full journal methods obtained
+RM10-Q13,2026-10-05,"""Jin"" ""Laval"" ""2018"" ""Bounded"" filetype:pdf site:its.uci.edu",author full-text access,RM10-P03,Institutional abstract retained
+RM10-Q14,2026-10-05,"""Bounded acceleration traffic flow models"" ""pdf"" author manuscript",nearby continuum frontier,RM10-P03;RM10-P04,PDE-ODE author-uploaded full methods obtained separately
+RM10-Q15,2026-10-05,"""ramp metering"" ""bounded acceleration"" ""adjoint"" OR ""gradient"" OR ""sensitivity""",control sensitivity,RM0024;RM0025;RM10-P04,Reuse gradient boundary; different actuator examples not imported
+RM10-Q16,2026-10-05,"""merge"" ""recovery"" ""ramp metering"" ""same"" ""speed"" ""heterogeneity""",history and aggregate closure,RM10-P05;RM8-P04,Publisher abstract/indexed primary evidence only; no full-history witness

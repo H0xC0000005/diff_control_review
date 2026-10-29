@@ -1,0 +1,23 @@
+id,date,query,outcome
+RM9-Q01,2026-10-01,"""lane aggregation"" ""traffic"" ""ramp"" ""model"" two lane receiving",source leads; no new law adopted
+RM9-Q02,2026-10-01,"""First order multi-lane traffic flow model"" incentive lateral supply demand",FB0030 primary final PDF and portal; methods/FD/sensor sections rechecked
+RM9-Q03,2026-10-01,"""Daganzo"" ""merge"" ""priority"" ""cell transmission"" pdf 1995",RM0018 published author-hosted node framework; historical source ID reused
+RM9-Q04,2026-10-01,"""ramp metering"" ""merging"" ""priority"" ""supply"" Gomes Horowitz asymmetric",finite-priority versus exogenous guaranteed-entry distinction screened
+RM9-Q05,2026-10-01,"""Roncoli Papageorgiou Papamichail 2015 first order multi lane model motorway traffic Part I pdf""",Part I primary metadata lead; complete methods not retrieved
+RM9-Q06,2026-10-01,"""First order multi-lane"" ""lateral"" ""17"" supply theta",FB0030 receiving/coupling rechecked
+RM9-Q07,2026-10-01,"""Roncoli_et_al_TrC_Part1_2015_manuscript.pdf""",No accessible Part I methods retrieved
+RM9-Q08,2026-10-01,"""Traffic flow optimisation"" ""Part I"" site:library.tuc.gr",Repository leads; no verified Part I file retrieved
+RM9-Q09,2026-10-01,"""Traffic flow optimisation"" ""Part I"" site:research.aalto.fi",Primary metadata verifies DOI 10.1016/j.trc.2015.06.014
+RM9-Q10,2026-10-01,"""Roncoli"" ""Part1"" ""2015"" pdf motorway model",No full-method admission; Part I/II differentiated
+RM9-Q11,2026-10-01,"""Traffic flow optimisation"" ""Part I"" filetype:pdf",Primary metadata and inspected 2014 predecessor retained at distinct evidence levels
+RM9-Q12,2026-10-05,site.fhwa.dot.gov traffic detector handbook time mean speed space mean speed occupancy density double loops,Official detector and monitoring guide leads; O01/O02 selected sections inspected
+RM9-Q13,2026-10-05,Edie traffic stream measurement definitions space mean speed flow density generalized definitions original paper pdf,Indirect leads only for original Edie; author research papers O03/O04 used for definitions
+RM9-Q14,2026-10-05,Daganzo cell transmission model speed density cell boundary flow congested first order 1994 pdf,CTM orientation; no new Daganzo method claim or source adoption
+RM9-Q15,2026-10-05,site.transportation.berkeley.edu Daganzo cell transmission model 1994 pdf,Berkeley network CTM metadata page opened; not admitted as new method evidence
+RM9-Q16,2026-10-05,site.dcsc.tudelft.nl Edie generalized definitions space time speed density 15_005,Author reports O03/O04 followed and selected methods inspected; point/section distinction and assumptions recorded
+RM9-Q17,2026-10-05,"""ramp metering"" ""lane"" ""initial conditions"" ""density"" observability",Bounded initial-state/observability leads; no unchanged-task full-history witness established
+RM9-Q18,2026-10-05,"""two lane"" ""ramp metering"" ""density"" ""lane changing"" model initial",RM9-L02 joint-control Section II inspected; not meter-only certificate
+RM9-Q19,2026-10-05,"""Modified Cell Transmission Model for Bounded Acceleration"" author pdf",RM9-L03 primary dissertation retrieved through content PDF after blocked landing; selected Chapters 3/4
+RM9-Q20,2026-10-05,"""Ramp Metering with Microscopic Gap Detection"" acceleration Klomp 2022",Existing RM8-P02 gap-timing source reused; different sensing/action contract
+RM9-Q21,2026-10-05,"""ramp metering"" ""acceleration lane"" ""model"" ""length"" merging site:repository.tudelft.nl",Existing RM0004 thesis lead surfaced; thesis access failed; final article Sections 2.1/4/6 rechecked for one-cell geometry and priority limits
+RM9-Q22,2026-10-05,"""ramp metering"" ""bounded acceleration"" ""capacity drop"" model",Existing mechanism/demand rival rechecked; RM9-L04 publisher abstract admitted only as combined-control lead

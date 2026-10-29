@@ -1,0 +1,6 @@
+query_id,date,stage,query,primary_results_used,disposition
+S06-Q1,2026-09-17,execution,"""Lane distribution of traffic near merging zones"" pdf",S06-S2,Author-uploaded paper inspected after author PDF route failed
+S06-Q2,2026-09-17,execution,"""Variable speed limit: A microscopic analysis"" Khondaker pdf",none,Discovery metadata only; no full-method claim or access request
+S06-Q3,2026-09-17,execution,"""speed harmonization"" ""lane changing"" bottleneck merging microscopic common speed advice",none,Changed CAV/merge-actuator leads not promoted; existing common-advice report reused
+S06-Q4,2026-09-17,execution,"""lane drop"" ""speed advisory"" ""aggregate"" merging",none,No new decision-critical source promoted from this query
+S06-Q5,2026-09-17,execution,"""lane drop"" ""variable speed"" ""microscopic"" lane distribution control",S06-S3,New institutional lane-drop manuscript inspected; FB0037 differential-action boundary reused

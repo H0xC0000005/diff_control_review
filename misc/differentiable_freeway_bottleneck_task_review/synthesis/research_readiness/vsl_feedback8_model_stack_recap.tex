@@ -1,0 +1,506 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false,pdftitle={From S13 to the current VSL model: a unified recap}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\budget}{\mathcal B}
+\newcommand{\loss}{p_{\mathrm{rec}}}
+\newcommand{\stackbox}[1]{\fbox{\parbox{66mm}{\centering #1}}}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\LARGE From S13 to the current VSL model}\\[5pt]
+{\large One traffic chain, with the changes made explicit}\\[5pt]
+Feedback 8 recap --- 16 October 2026
+\end{center}
+
+\section*{1. The backbone that remains}
+The task is still a permanent three-to-two lane drop with one finite traffic
+cohort and one constant speed advice shared by all lanes. The research asks
+whether information about unfinished mandatory merging helps predict a useful
+speed decision. It does not assume that a full lane representation, vehicle
+identity or discrete order is necessary.
+
+S13's central idea was simple: slower travel gives traffic more time to
+prepare for the lane drop; better preparation can reduce the work required
+at the final merge. The total-time objective charges the slower travel as
+well as subsequent service.
+
+The current stack keeps the control question while changing the traffic
+mechanism: progress and spare receiving govern early transfer; timed
+arrivals feed a coupled choke; admitted E can restrict later service.
+The two backbones can therefore be read side by side:
+\begin{center}
+\begin{minipage}[t]{0.48\textwidth}
+\centering\small
+\textbf{S13: preparation time and batch work}\\[7pt]
+\stackbox{Initial ending / continuing mass\\Common speed advice}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Preparation time\\$\to$ conservative early transfer}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Remaining ending mass\\$\to$ fixed receiving work}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Proportional batch service\\$\to$ uniform departures}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Complete cohort time\\$\to$ analytical sensitivity}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering\small
+\textbf{Current: traffic state and shared service}\\[7pt]
+\stackbox{Initial footprint and lane masses\\Common speed advice}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Progress-based E $\to$ A merging\\Limited by A's spare receiving}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Fixed cutoff; finite terminal travel\\$\to$ staggered eligible arrivals}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{\textbf{Coupled point merge}\\A/E queues, speed marks and work\\[2pt]
+\begin{tabular}{@{}c@{\,}c@{\,}c@{}}
+Service & $\xrightarrow{\text{E entries}}$ & recovery\\
+Service & $\xleftarrow{\text{available budget}}$ & recovery
+\end{tabular}}\\[3pt]
+$\downarrow$\\[3pt]
+\stackbox{Departures through full clearance\\$\to$ complete local time}
+\end{minipage}
+\end{center}
+E is the ending lane; A is its adjacent continuing lane. In the current
+choke, E entries update recovery, which changes the budget for later
+service. The arrows inside that box form a causal feedback loop.
+
+\textbf{Reading the status correctly.} This is a functionally complete
+\emph{conditional mathematical model}. The selected formulas and their
+forward arguments are assembled here; this recap changes none of them.
+Physical parameter admission, the amended information/action and gradient
+protocol, and the final SUMO correspondence remain unfinished. Step 3 stays
+open at MP6-Q1; Step 4 is unopened. No implementation or experiment is reported.
+
+\newpage
+\section*{2. What changed: setting, motion and early merging}
+The component numbers preserve the original nine-component audit. Several
+equations belong to the same component; they are not additional project stages.
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{31mm}>{\raggedright\arraybackslash}p{119mm}}
+\toprule
+Original component & Old $\to$ current; the core question it now answers\\
+\midrule
+\textbf{1. Geometry, population and preparation} &
+\textbf{Modified.} S13 grouped both continuing lanes and placed the cohort
+at one preparation entrance. The current model distinguishes ending E,
+adjacent A and far continuing B, with a uniform occupied footprint and an
+initially empty terminal. \emph{Which lane receives the merge, and where is
+the traffic when advice begins?} Initial A/B symmetry remains; their later
+states need not be equal.\\[7pt]
+\textbf{2. Advice and response} &
+\textbf{Retained with an explicit boundary.} One bounded, constant common
+advice remains. It sets the ideal free-motion speed in the admitted branch;
+queued boundary marks can be lower. \emph{Through which physical state can
+advice influence service?} The final work law has fixed coefficients and
+no direct advice multiplier. Instantaneous native compliance is unverified.\\[7pt]
+\textbf{3. Longitudinal timing} &
+\textbf{Replaced.} One shared traversal time followed by batch service becomes
+position-dependent free travel, a fixed early-merge cutoff, and finite
+terminal travel/storage represented by boundary histories. \emph{When does
+each part of the cohort become available at the choke, and can its queue
+reach preparation?} No new spatial grid is introduced.\\[7pt]
+\textbf{4. Mandatory preparation transfer} &
+\textbf{Replaced.} A constant completion fraction per second becomes a
+homogeneous offer limited by donor traffic and A's spare receiving.
+\emph{How much early merging can actually succeed?} A fixed physical
+opportunity length replaces an unqualified elapsed-time completion law.\\[7pt]
+\textbf{5. Preparation receiving} &
+\textbf{Made explicit.} S13 assumed it did not bind. A's own traffic now
+claims receiving first; E uses the remaining work opportunity. Conservative
+terminal storage bounds protect this homogeneous upstream calculation.
+\emph{Can A accommodate the attempted transfers without an omitted
+upstream queue?}\\
+\bottomrule
+\end{tabular}
+
+Components 4 and 5 form one joined preparation component in the present
+equations. They are listed separately to show which original assumptions
+changed. Distinguishing A from B does not create new initial information
+requirements under the retained initial symmetry.
+
+\newpage
+\section*{3. What changed: final merging, accounting and evidence}
+\begin{tabular}{>{\raggedright\arraybackslash}p{31mm}>{\raggedright\arraybackslash}p{119mm}}
+\toprule
+Original component & Old $\to$ current; the core question it now answers\\
+\midrule
+\textbf{6. Choke service and departures} &
+\textbf{Replaced and expanded.} Fixed receiving work and proportional
+batch service become a causal A/E node. It uses eligible queues, free/queued
+speed marks, current maneuver work, a priority/cooperation rule and recent
+E recovery history. \emph{Who can cross now, and how does an admitted slow
+merge affect later crossing?} A can now wait as well as E. B remains
+independent in the admitted domain.\\[8pt]
+\textbf{7. Complete-time objective} &
+\textbf{Meaning retained; calculation replaced.} Full affected-cohort time
+remains the objective, but the old batch formula is replaced by actual
+departure or queue-area integration. \emph{Does every unit's travel and
+waiting count exactly once?} Completion is at the choke; downstream
+physical influence may remain after that unit's own clock stops.\\[8pt]
+\textbf{8. Information and initialization} &
+\textbf{Retained and rechecked for the forward law.} Aggregate history,
+that history plus initial E mass, and equivalent explicit lane state remain
+the comparison ladder. \emph{What extra initial measurement is sufficient?}
+Known total mass plus initial E mass still reconstructs this member.
+Future queues and recovery history are predicted internally.\\[8pt]
+\textbf{9. Sensitivity and decision evidence} &
+\textbf{Standard retained; result must be requalified.} The physical common
+advice is still the differentiated variable. \emph{Does the complete
+objective's response support a useful decision?} S13's analytical action
+split remains valid for S13, but does not automatically transfer to these
+changed laws. The current stack may have nonsmooth activation events.\\
+\bottomrule
+\end{tabular}
+
+The genuinely new dynamic content is concentrated in component 6: A's
+waiting balance, the speed/work coupling, and the retained recovery account.
+Finite terminal histories also add timing and storage information to
+component 3. None of these is a microscopic gap or vehicle-identity model.
+
+SUMO is an external evidence layer, not a component needed to calculate
+the primary forward trajectory. The agreed ladder is primary-model
+verification/optimization, restricted SUMO S-P, then natural late-merging
+SUMO S-L transfer. Its amended protocol remains to be completed.
+
+\newpage
+\section*{4. The new preparation law: opportunity plus spare receiving}
+Use E for the ending lane, A for its adjacent continuing lane and B for
+the far lane. Let $e(t),a(t),b_0$ be densities in the homogeneous upstream
+body. Put $r=e_0+a_0$, with $a_0=b_0$, and let $h>0$ be a fixed physical
+opportunity length. Define
+\[
+ K=wk_j,\qquad k_c(v)=\frac{K}{w+v},\qquad C(v)=v k_c(v).
+\]
+Here $w$ is a backward-wave speed and $k_j$ jam density. These define the
+selected triangular traffic relation; they are not fitted in this recap.
+
+\textbf{The core rule.} A uses its own receiving first. E's accepted
+opportunity-equivalent rate $f$ is the smaller of its offer and the spare
+receiving available after that claim:
+\[
+ S(v,a)=\min\{C(v),w(k_j-a)\},\qquad
+ f=\min\left\{ve,\frac{S(v,a)-va}{\gamma}\right\},\qquad
+ \dot e=-f/h,\quad\dot a=f/h.
+\]
+$\gamma\geq1$ is early-merge receiving work. Equal mass leaves E and enters
+A. $f$ is not an extra longitudinal boundary flow: the actual lateral
+source per unit road length is $f/h$.
+
+In the admitted free upstream branch, $S=C$ and $e+a=r$. Expressed per
+distance traveled, $z=vt$, the same rule is
+\[
+ \frac{de}{dz}=-\frac1h\min\left\{e,
+          \frac{\Delta(v)+e}{\gamma}\right\},\qquad
+ \Delta(v)=k_c(v)-r.
+\]
+This exposes an important change from S13. If donor availability alone
+limits transfer, the residual is exponential in \emph{distance}, so slower
+motion alone gives no extra preparation over the same distance. A speed
+effect survives through the declared receiving headroom when that limit
+matters. Longer residence by itself is no longer assumed to guarantee
+better preparation.
+
+\textbf{How this becomes arrivals.} The preparation ends at $L_p$, before
+a terminal of length $b$, with $L=L_p+b$. Initial positions occupy
+$[0,\ell]$. Over the handoff interval
+$((L_p-\ell)/v,L_p/v)$,
+\[
+ \dot F_E=ve(t),\quad \dot F_A=v(r-e(t)),\quad\dot F_B=vb_0;
+ \qquad P_j(t)=F_j(t-b/v).
+\]
+$F_j$ counts terminal entries and $P_j$ counts traffic that has had time
+to reach the choke. Early merging stops at $L_p$; remaining E must merge
+at the choke. This is the selected opportunity restriction, not a claim
+that native drivers universally avoid late lateral opportunities.
+
+\newpage
+\section*{5. The new point service: traffic states determine current work}
+The terminal is a finite physical approach, represented by cumulative
+histories rather than interior cells. For each lane,
+\[
+ N_j=F_j-Y_j,\qquad q_j=P_j-Y_j,\qquad g_j=\dot Y_j.
+\]
+$N_j$ is traffic physically in the terminal. $q_j$ is traffic eligible
+to cross but still unserved. They are different quantities. Queues can
+have physical extent; a common service point does not make them vertical
+stacks or imply a stationary queue tail.
+
+\textbf{Speed marks.} Free traffic uses $u_j=v$. A queued approach uses
+the equilibrium boundary mark
+\[
+ u_j=U(g_j),\qquad U(g)=\frac{wg}{K-g}.
+\]
+This is a representative crossing-speed assumption, not a tracked vehicle
+speed or a whole-lane average. Its physical accuracy remains to be tested.
+
+\textbf{Immediate work.} With the available shared account $\budget(t)$,
+\[
+ c_A=1,\qquad c_E=c_0+\chi g_A\pos{u_A-u_E},\qquad
+ c_0=1+\delta\geq1,\qquad g_A+c_Eg_E\leq\budget.
+\]
+$c_E$ is work per E mass. It includes a baseline maneuver burden and extra
+work when passing A is faster than E. The coefficient $\chi$ is fixed:
+advice influences this expression through traffic state, not through a
+moving normalizer. There is no mismatch burden without passing A traffic.
+
+\textbf{Who gets the service?} If A is free and its offer fits, it receives
+its offer first. E takes feasible residual work. If A queues, cooperation
+gives each backlogged stream equal work; unused work goes to a stream that
+can use it. Equal work need not mean equal vehicle flow. For queued E,
+define the unique service root by
+\[
+ H(g;a,u)=g\{c_0+\chi a\pos{u-U(g)}\}=x.
+\]
+Free A uses $(a,u,x)=(\lambda_A,v,\budget-\lambda_A)$.
+Both queued use $(a,u,x)=(\budget/2,U(\budget/2),\budget/2)$.
+Here $\lambda_j=\dot P_j$.
+
+For example, free fast A beside queued slow E produces a large mismatch
+burden and scarce E service. If A also queues, both marks are lower and
+cooperation becomes active. A retains an advantage from E's maneuver
+cost. Cooperation remains applicable while A queues even if E clears
+first; it is not a literal two-positive-queues toggle.
+
+An empty approach stays free while its offer fits. A strict service
+shortfall starts waiting; true clearance retests free admission. Equality
+alone does not create a queue, and no numerical queue threshold is added.
+
+\newpage
+\section*{6. The new recovery account: one reading, sufficient history}
+Current entry and its later influence are two parts of the selected point
+model. After a slow E entry, following traffic can remain restricted even
+though that E traffic has crossed the completion line. The model retains
+this influence in one shared account:
+\[
+ \budget(t)=\pos{R-\loss(t)}.
+\]
+$R$ is undisturbed shared service. The current model derives a strictly
+positive lower budget bound in its conditional domain; it does not insert
+an artificial service floor.
+
+\textbf{A single entry's remaining influence.} With physical acceleration
+parameter $a_r>0$, an admitted speed mark $u$ generates
+\[
+ V(\theta;u)=\sqrt{(w+u)^2+2wa_r\theta}-w,\qquad
+ D(\theta;u)=\pos{R-c(V(\theta;u))},\quad c(s)=\frac{Ks}{w+s}.
+\]
+The profile decreases as it ages and becomes zero after a finite time.
+$V$ is a transformed boundary quantity used to calculate passing capacity;
+it is \emph{not} the vehicle's speed trajectory. $u$, by contrast, is the
+model's representative insertion-speed mark.
+
+\textbf{How entries combine.} Only E admissions create new profiles.
+Let $T(\xi)$ be the time E mass rank $\xi$ crossed. With fixed physical
+normalization $m=1$ vehicle-equivalent,
+\[
+ \loss(t)=\frac1m\int_{[Y_E(t)-m]_+}^{Y_E(t)}
+ D(t-T(\xi);u_E(T(\xi)))\,d\xi.
+\]
+New E mass adds its profile and retires equal oldest weight once the
+recent-mass window fills. Retained profiles continue aging. With no new
+E, recovery continues. There is no per-step reset, queue-clearance reset,
+or deletion of traffic when an old profile retires.
+
+This makes the service reading a singleton, but its future generally
+requires recent age/mark information. Two equal readings may recover
+differently. That memory is generated by the model and is not extra future
+information supplied to the controller.
+
+The approximation can retire an old strong restriction when newer fast E
+passes. A does not independently deposit a second restriction merely
+because it is slowed by the existing one. Both are selected simplifications
+whose physical credibility remains open. They are not exact microscopic
+leader or gap dynamics.
+
+\newpage
+\section*{7. What is counted, and what information initializes it?}
+\textbf{The objective remains complete cohort time.} Every initial unit
+is counted until it crosses the choke. With total mass $M$,
+\[
+ J(v)=\int_0^\infty\left(M-\sum_{j=E,A,B}Y_j(t)\right)dt
+ =\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E)\,dt.
+\]
+The first term is travel from the uniform initial footprint. The second
+counts all excess terminal waiting, including A's new delay. B stays
+unqueued under its adequate independent service condition. Dividing by
+$M$ gives mean time and preserves action rankings.
+
+The old S13 formula used half the batch clearance duration because its
+departures were uniform over that duration. The current model cannot
+replace queue area by half of final clearance: arrivals, priority and
+recovery now determine the departure curve.
+
+\textbf{Completion and physical influence are different.} Once an E unit
+crosses, its own local time is finished. Its retained recovery profile can
+still hold back unfinished A/E traffic. The waiting of those followers is
+counted. Post-line travel time of the completed unit is outside the chosen
+local objective. Recovery memory is not traffic mass.
+
+\textbf{One extra initial scalar is still sufficient.} Let $E_0$ be
+initial ending mass. Known $M,\ell$ and initial A/B symmetry give
+\[
+ e_0=E_0/\ell,\qquad a_0=b_0=(M-E_0)/(2\ell).
+\]
+Known empty terminal and recovery histories complete initialization. The
+model then generates its own preparation, arrivals, queues and recovery.
+Aggregate-plus-$E_0$ and explicit lane state therefore make the same
+forward prediction for this member. Full lane state is not established
+as a necessary remedy; the current meter reading alone is not sufficient
+evolving state.
+
+\textbf{Why the speed tradeoff is still an open result.} Speed affects
+free travel, preparation headroom, arrival times and potentially free-A
+entry mismatch. Recovery couples later service to earlier E admissions.
+These paths can oppose one another. A slower optimum or useful gradient
+does not follow merely because all paths are present. The earlier S13
+action-split certificate belongs to its original equations.
+
+\newpage
+\section*{8. What has been established, and at which level?}
+\begin{tabular}{>{\raggedright\arraybackslash}p{43mm}>{\raggedright\arraybackslash}p{107mm}}
+\toprule
+Question & Current answer\\
+\midrule
+Is there a complete forward law? & Yes conditionally: inputs and predicted
+history determine preparation, entry, service, queues, complete departures
+and TST throughout the original advice interval under the retained bounds.\\[6pt]
+Can merging delay A? & Yes in a constructed complete analytical family,
+with positive recovery and mismatch, ordinary underload and active renewal.
+This is not a calibrated parameter range or a preferred-action result.\\[6pt]
+Can storage protect homogeneous preparation? & Yes under the sufficient
+finite-storage and entry-capacity conditions. The model does not thereby
+solve arbitrary upstream spillback.\\[6pt]
+Is extra initial information compact? & Yes. Total mass plus initial E mass
+and symmetry reconstruct this member. A richer representation has no
+promised advantage at the same information.\\[6pt]
+Is the joined physical regime admitted? & No. Crossing-speed interpretation,
+preparation scales, current work and recovery need joint evidence with one
+parameter set. A good TST fit alone cannot qualify their separation.\\[6pt]
+Are useful actions and gradients proved for this stack? & No. Their amended
+review and independent evaluation remain. Forward uniqueness does not imply
+smooth sensitivity or an interior optimum.\\
+\bottomrule
+\end{tabular}
+
+The forward proof exploits the monotone H1 arrival pulse and selected
+recovery/priority rules. E can have at most one waiting episode in that
+domain; repeated A events have a positive separation. A finite cohort
+\emph{alone} does not imply that E cannot requeue. Bursty later E arrivals
+can requeue in a wider setting or native SUMO, which must be interpreted
+as possible model discrepancy rather than automatically rejected.
+
+A useful negative control is already established: remove the baseline
+extra maneuver work ($\delta=0$), and ordinary underload keeps the primary
+cohort free. Mismatch and recovery never activate, so fastest advice is
+common. Positive information or optimizer results are not required.
+
+\newpage
+\section*{9. Literature models that are serious rivals}
+The review has identified the following comparison candidates. They are
+established model families with relevant mechanisms, not yet a frozen set
+of benchmarks for this exact observation, action and objective contract.
+
+\textbf{Aggregate history and capacity drop ---}
+\href{https://doi.org/10.1111/mice.13492}{Wei, Han and Wang (2025)}.
+A first-order link model retains cumulative counts and entry-speed history,
+with VSL effects and traffic-state-dependent discharge loss. This is a close
+aggregate rival: useful memory and endogenous service need not require
+lane decomposition. It is stronger than a density-only, fixed-capacity peer.
+
+\textbf{Compact lane-drop capacity control ---}
+\href{https://arxiv.org/abs/1310.2658}{Jin and Jin}.
+An aggregate lane-drop model represents a discontinuous reduction in
+discharge and studies VSL control. It offers a simpler explanation of a
+speed benefit through avoiding capacity loss. Its idealized limits also
+help identify conditions where VSL has no benefit. Its capacity-drop
+branch needs its own treatment before gradient comparisons.
+
+\textbf{Dynamic aggregate speed and predictive control ---}
+\href{https://www.dcsc.tudelft.nl/~bdeschutter/pub/rep/03_016.pdf}{Hegyi,
+De Schutter and Hellendoorn (2005)}.
+METANET predicts segment density and mean-speed dynamics under speed limits;
+a predictive controller uses these to manage congestion. It provides an
+aggregate control rival with evolving speed rather than an instantaneous
+free-motion response. Its repeated decisions differ from our constant advice.
+
+\textbf{Lane-aware receiving and priority ---}
+\href{https://doi.org/10.1007/s11067-013-9193-7}{Carey, Balijepalli and Watling}.
+A multi-lane CTM couples longitudinal and lateral transfers through finite
+target receiving and extra lane-changing headway, with alternative priority
+rules. It is both a source lineage and a fuller continuous lane-aware rival.
+The published model does not itself supply our common-VSL comparison.
+
+\textbf{Density-driven mandatory merging ---}
+\href{https://doi.org/10.1080/21680566.2019.1700846}{Nagalur Subraveti,
+Knoop and van Arem}.
+Lane densities, lane-end incentives and receiving constraints determine
+realized transfers. This is a spatial continuous alternative to homogeneous
+preparation. Its inspected validation concerns lane-density prediction;
+common-advice response and gradient usefulness require separate qualification.
+
+\textbf{Analytical speed-control gradients ---}
+\href{https://arxiv.org/abs/1603.04785}{Delle Monache, Piccoli and Rossi}.
+An LWR speed-control formulation derives cost variations for outflow tracking.
+It is a gradient-method reference, rather than a matched lane-drop task:
+its control and objective differ. VSL gradients themselves are established.
+
+\textbf{Comparison principle.} Published models test alternative traffic
+explanations. Aggregate-plus-initial-E tests information sufficiency, while
+bounded scalar search and finite differences test optimization methods.
+Keep these roles distinct and match the admitted inputs, action and full
+time account before attributing a performance difference to information.
+
+\newpage
+\section*{10. How to use the two reports}
+This recap answers the framework and old-to-new questions. The companion
+report supplies the equations, units, admissible domain and derivations
+in one notation, including conservation, root uniqueness, recovery,
+event continuation, full clearance, the complete analytical A-delay
+construction and the physical-identification limits.
+
+\begin{center}
+\href{vsl_feedback8_full_mathematics.pdf}{\textbf{Companion: consolidated mathematical report}}
+\end{center}
+
+The mathematical report distinguishes the historical S13 certificate from
+the selected current law. Historical rejected alternatives are not silently
+combined into a primary model. It records $\budget$ for the shared budget
+and $\loss$ for its restriction; older reports often write $B$ and $p$.
+This is a notation clarification only, avoiding confusion with far lane B.
+
+\textbf{Source basis and adaptation.} The component chain draws on the
+already reviewed lane-conservation/mandatory-transfer literature, receiving-
+work and allocation literature, boundary-count traffic propagation and
+point-insertion recovery. H1's homogeneous law, the selected speed/work
+closure, priority guards and recent-mass renewal are declared adaptations.
+No cited paper supplies this complete joined stack. The detailed source
+and proof map is retained separately:
+
+\begin{center}
+\href{../../extraction/research_readiness/vsl_feedback8_model_stack_source_map.md}{Archived source, equation and decision map}
+\end{center}
+
+\textbf{For an eventual control study.} Compare full aggregate history,
+that history plus initial ending mass, and explicit lane state at the same
+information. Keep capable aggregate, history and capacity-drop models,
+analytical and finite-difference gradients, and bounded scalar search as
+serious rivals. Correct differentiation, improved internal cost and external
+policy usefulness remain different claims.
+
+\textbf{Immediate disposition.} Feedback 8 is a consolidation request, not
+authorization to resume the unfinished protocol reviews. This delivery
+finishes the recap and full mathematical reporting. The active scientific
+checkpoint remains MP6-Q1; applied MP6 and Step 3 stay open. After review,
+the next allowed review work is the information/action/full-objective
+gradient protocol and then the updated model $\to$ SUMO S-P $\to$ SUMO S-L
+contract. Step 4, simulator development, calibration and traffic experiments
+remain unopened. S13, the urban task and the ramp line retain their closure.
+\end{document}

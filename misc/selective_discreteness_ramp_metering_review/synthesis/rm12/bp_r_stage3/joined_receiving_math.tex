@@ -1,0 +1,208 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large From a moving restriction to merge receiving}\\[4pt]
+8 October 2026 --- ACT.A approved; local analytical qualification
+
+\textbf{Scope.} An isolated source-free receiving subproblem with a
+\emph{prescribed} zero-passing path, followed by conditional node/accounting
+checks. No endogenous metered scenario, complete joined solver, empirical
+calibration or useful gradient is certified. Future E1 births and lateral
+sources are absent from the diagnostic only; they are not removed from the
+admitted task. Full-source provenance is in
+\texttt{joined\_receiving\_source\_audit.md}.
+
+\section*{1. The state at a moving restriction is not the state at the merge}
+Let $x=0$ be the receiving-road entrance. Use a triangular fundamental diagram
+with free speed $u>0$, backward-wave magnitude $w>0$ and jam density $\kappa>0$:
+\begin{equation}
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\qquad
+ Q=\frac{uw\kappa}{u+w}.
+\end{equation}
+Units: $u,w,v$ in m/s; $\rho,\kappa$ in vehicle equivalents/m;
+$F,Q$ in vehicle equivalents/s. Start with an empty receiving road and one
+compatible boundary-born prescribed restriction $\phi(0)=0$,
+$\dot\phi=v(\tau)\in[0,u]$. The downstream boundary is outside the diagnostic's
+domain of dependence. Let
+\begin{equation}
+ N(t,x)=C(t)-\int_0^x\rho(t,y)\,dy,\qquad N(0,0)=0,
+\end{equation}
+where $C$ is total actual incoming cumulative mass, including both merge
+streams. The active zero-relative-passing condition has saturated congested
+and adjacent void traces
+\begin{equation}
+ F(\rho_U)-v\rho_U=0,\qquad
+ \rho_U=\frac{w\kappa}{w+v},\quad
+ q_U=\frac{w\kappa v}{w+v},\quad \rho_D=q_D=0.
+\end{equation}
+These are traces on the moving path. They are not an instantaneous universal
+receiving cap at $x=0$.
+
+In the congested triangular branch, all changes propagate at speed $-w$.
+A state emitted from $(\tau,\phi(\tau))$ reaches the entrance at
+\begin{equation}
+ t=T(\tau)=\tau+\frac{\phi(\tau)}{w},\qquad
+ T'(\tau)=1+\frac{v(\tau)}{w}\ge1.
+\end{equation}
+Thus $\tau(t)=T^{-1}(t)$ is unique. In the saturated, isolated subproblem the
+cumulative receiving envelope and its almost-everywhere derivative are
+\begin{equation}
+ B(t)=\kappa\phi(\tau(t)),\qquad
+ B'(t)=\frac{w\kappa v(\tau(t))}{w+v(\tau(t))}\le Q.
+\end{equation}
+The count formula also follows from a backward wave whose count cost is
+$w\kappa(t-\tau)=\kappa\phi(\tau)$ and the path's zero count anchor.
+It agrees with the following-wave construction under the stated saturated
+data. It is not a theorem for arbitrary sourced or multiple-path roads.
+
+\newpage
+\section*{2. A delayed speed change gives a concrete receiving check}
+Use diagnostic values $u=30$, $w=5$, $\kappa=3/20$ and a prescribed path:
+\begin{equation}
+ v(\tau)=
+ \begin{cases}5,&0\le\tau<10,\\15,&\tau\ge10,\end{cases}
+ \qquad
+ \phi(\tau)=
+ \begin{cases}5\tau,&\tau\le10,\\15\tau-100,&\tau\ge10.\end{cases}
+\end{equation}
+The change is emitted at position 50 m, so arrives at the entrance at
+$10+50/5=20$ s. Consequently
+\begin{equation}
+ \tau(t)=
+ \begin{cases}t/2,&t\le20,\\(t+20)/4,&t\ge20,\end{cases}
+ \qquad
+ B(t)=
+ \begin{cases}3t/8,&t\le20,\\9t/16-15/4,&t\ge20.\end{cases}
+\end{equation}
+At $t=15$ s the current path speed is 15 m/s, but $\tau=15/2$ s and the
+entrance still has saturated receiving $3/8$ vehicle equivalents/s.
+Using current speed instead would give $9/16$. Integrated to $t=15$, that
+shortcut yields
+\begin{equation}
+ B_{\rm shortcut}(15)=\frac38\,10+\frac9{16}\,5=\frac{105}{16},
+ \qquad B(15)=\frac{45}{8},\qquad
+ B_{\rm shortcut}(15)-B(15)=\frac{15}{16}.
+\end{equation}
+The prescribed jump illustrates transport delay. It is not the journal's
+sampled acceleration output, nor a pair of reached ramp-meter controls.
+For any admissible sampled piecewise-linear prescribed path, the same
+emission/arrival construction applies interval by interval.
+
+\section*{3. Unused receiving changes actual admission}
+Let $d(t)\ge0$ be a prescribed total attempted boundary rate in this
+diagnostic, with donors plentiful over the finite interval. Put
+$\bar d(t)=\min\{d(t),Q\}$ and $A(t)=\int_0^t\bar d(s)\,ds$.
+The maximal work-conserving admission below the cumulative envelope is
+\begin{equation}
+ L(t)=\max\left\{0,\sup_{0\le s\le t}[A(s)-B(s)]\right\},\qquad
+ C(t)=A(t)-L(t)
+      =\inf_{0\le s\le t}\{B(s)+A(t)-A(s)\}.
+\end{equation}
+The equivalence uses $A(0)=B(0)=0$. $L$ is cumulative held-back mass,
+not lost population. $0\le C\le B$; $C$ is nondecreasing and $C'\le Q$.
+Away from switching points,
+\begin{equation}
+ C'(t)=
+ \begin{cases}
+ \bar d(t),&C(t)<B(t),\\
+ \min\{\bar d(t),B'(t)\},&C(t)=B(t).
+ \end{cases}
+\end{equation}
+This is the boundary solution for this isolated road's cumulative receiving
+constraint, not a proposed universal replacement of native multilane KW.
+
+For constant $v=5$ m/s, $B(t)=3t/8$ and $Q=9/14$. Leave the entrance
+unused until $t=10$, then request at least $Q$:
+\begin{equation}
+ C(t)=
+ \begin{cases}
+ 0,&t\le10,\\
+ Q(t-10),&10\le t\le24,\\
+ 3t/8,&t\ge24.
+ \end{cases}
+ \qquad
+ \frac9{14}(24-10)=\frac38\,24=9.
+\end{equation}
+At second 12, actual admission rate is $9/14>3/8$: available space absorbs
+the flow before the induced congestion wave returns. A permanent trace-flow
+cap would therefore also be wrong, in the opposite direction.
+
+\newpage
+\section*{4. The approved priority uses one actual receiving resource}
+Write $R$ for the admissible instantaneous receiving budget supplied by the
+compatible field: in this diagnostic $R=Q$ while $C<B$, and $R=B'$ while
+$C=B$. Actual admission is $C'=\min\{d,R\}$; $R$ is not always $B'$.
+With ramp/non-ramp requests
+$d_r,d_m\ge0$ and fixed ramp share $p\in[0,1]$, if $d_r+d_m\le R$,
+serve both. Otherwise the already approved N.A scarcity rule is
+\begin{equation}
+ f_r=\min\{d_r,\max\{pR,R-d_m\}\},\qquad f_m=R-f_r.
+\end{equation}
+It satisfies $0\le f_r\le d_r$, $0\le f_m\le d_m$ and
+$f_r+f_m=R$. Subdivide $f_m$ by compatible non-ramp demand proportions.
+For $R=3/8$ and $p=1/3$, saturated demands receive $f_r=1/8$ and $f_m=1/4$.
+If the ramp asks only $1/20$ and mainline demand is sufficient, the awards
+are $1/20$ and $13/40$. Both use exactly $3/8$.
+
+For actual transfer rates $f_e$, donor and recipient changes are paired:
+\begin{equation}
+ \dot M_{\rm donor,e}=-f_e,\qquad \dot M_{\rm recipient,e}=f_e,\qquad
+ \dot M_{\rm all}=a_{\rm offered}-e_{\rm exits}.
+\end{equation}
+E1 creates descriptors after completed transfers and adds no mass. Its
+subsequent reset is outside the isolated diagnostic; omitting its future
+effects does not qualify a repeatedly iterated full task.
+
+\section*{5. Own motion, clearing and TST are still separate obligations}
+The selected source constrained-motion update has
+\begin{equation}
+ v^k=\min\{v_{\rm des}^k,\widehat v_{\rm dwn}^{\,k}\},\quad
+ \phi^{k+1}=\phi^k+v^k\Delta t,\quad
+ v_{\rm des}^{k+1}=v^k+a(v^k,\phi^k)\Delta t .
+\end{equation}
+The supplied journal identifies $\widehat v_{\rm dwn}^{\,k}$ as a numerical
+estimate over the \emph{ensuing} interval and cites Daganzo/Laval (2005b).
+The complete adapted own-field/node/source recipe for that estimate has not
+been transcribed. The fixed-priority operator does not supply it. Nor does
+exact retention select it automatically.
+
+A conditional local release bound illustrates the clearance distinction.
+On a level road with free traffic ahead, $a(v)=a_0(1-v/v_{\max})$,
+$v_{\max}\ge u$, $a_0>0$, initial $v^0=0$ and
+$0<a_0\Delta t/v_{\max}\le1$, subsequent free-motion sampled speeds are
+nondecreasing, and after the first update are at least
+$v_*=\min\{u,a_0\Delta t\}>0$. A finite segment of length $L_{\rm road}$ then
+has the sufficient bound
+\begin{equation}
+ t_{\rm path\ exit}\le\Delta t+\frac{L_{\rm road}}{v_*}.
+\end{equation}
+These are diagnostic sufficient conditions, not newly adopted task bounds.
+Free traffic ahead is the crucial condition; the bound does not prove
+clearance of an interacting lane/merge network.
+
+With shared cumulative offered population $A_o(t)$ and initial mass $M_0$,
+conservative full accounting gives
+\begin{equation}
+ M(t)=M_0+A_o(t)-E(t),\quad
+ J_{\rm TST}=\int_0^\infty M(t)\,dt,\quad
+ J_{\rm TST}^{(1)}-J_{\rm TST}^{(2)}
+ =\int_0^\infty[E^{(2)}(t)-E^{(1)}(t)]\,dt .
+\end{equation}
+The last identity requires finite objectives or a justified difference limit;
+normalization by shared offered mass does not change the comparison.
+Equal complete exits imply equal TST. No nontrivial metering-to-exit witness
+or full clearing/tail result follows from the local receiving examples.
+
+\textbf{Disposition.} ACT.A preserves the idealized rate task. Local receiving
+and conditional allocation/accounting are qualified. Full own-motion,
+accepted-source and simultaneous-restriction coupling remain unbound.
+At the source/input checkpoint, verify the cited full journal recipe first;
+an original same-family adaptation must be declared if that input remains
+unavailable. No physical pulse rule, record approximation, perturbation,
+replacement solver or numerical traffic experiment is adopted.
+\end{document}

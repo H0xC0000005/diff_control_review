@@ -1,0 +1,279 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\title{RM9: Approved separate-resource kernel\\and the strong-observation boundary}
+\author{Method-first ramp-metering review}
+\date{2 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Disposition.} RM9-UG3.B is approved for analytic review.
+It supersedes only the original residual longitudinal-rate coupling.
+UG1.A priorities remain Default; other UG2 clauses and deferred X1--X3 remain.
+The approved amendment passes conditional conservation/storage checks and
+removes the universal lateral-rate debit. This report does not establish an
+exact equal-history/action pair, physical calibration or useful gradients.
+RM9-UG4 requests the first explicit speed/observation contract; no observer
+alternative below is adopted.
+
+\section{Approved update and conditional physical bounds}
+For two lanes per longitudinal cell, let $n_{i\ell}$ be vehicle-equivalent
+mass, $L_i$ length, $h$ timestep and $M_{i\ell}$ maximum mass.
+Write $c_{i\ell}=v_{i\ell}/L_i$, $\gamma_{i\ell}=w_{i\ell}/L_i$ and
+\begin{equation}
+D_{i\ell}(n)=\min(c_{i\ell}n,C_{i\ell}),\quad
+S_{i\ell}(n)=\min(C_{i\ell},\gamma_{i\ell}(M_{i\ell}-n)).
+\end{equation}
+With $h c_{i\ell}\leq1$, $h\gamma_{i\ell}\leq1$, both satisfy mass/storage
+step bounds. The adopted bounded propensity and actual transfer remain
+\begin{align}
+A_{\ell j}&=\mu_{\ell j}\max\left(0,
+\frac{\kappa_{\ell j}k_\ell-k_j}{\kappa_{\ell j}k_\ell+k_j}\right),
+&\lambda_{\ell j}&=\min(A_{\ell j}D_\ell(n_\ell),S_j(n_j)),\\
+n_\ell^L&=n_\ell+h(\lambda_{j\ell}-\lambda_{\ell j}),
+&D_\ell^B&=D_\ell(n_\ell^L),\quad S_\ell^B=S_\ell(n_\ell^L).
+\end{align}
+Here $k_\ell=n_\ell/L_i$, $\mu\in[0,1]$, $\kappa\in(0,1]$; zero denominator
+means both lanes empty and $A=0$. At most one direction is positive.
+No original-budget-minus-lateral cap remains in the current law.
+
+Ordinary forward flows use $q_{i\ell}=\min(D_{i\ell}^B,S_{i+1,\ell}^B)$.
+Where ramp and mainline share a forward receiver, retain the approved
+positive-priority, unused-supply allocator, with mainline share $a\in(0,1)$:
+\begin{equation}
+r=\min(d_r,\max((1-a)S^B,S^B-d_m)),\qquad m=\min(d_m,S^B-r).
+\end{equation}
+It respects each offer and $m+r=\min(S^B,d_m+d_r)$. Meter permission limits
+upstream release; stored post-meter traffic can make downstream $d_r$ different.
+
+The lateral stage preserves lane storage and their total. If total accepted
+forward/ramp incoming rate $f_{i\ell}\leq S_{i\ell}^B$ and outgoing
+$q_{i\ell}\leq D_{i\ell}^B$, then
+\begin{equation}
+n_{i\ell}^{+}=n_{i\ell}^L+h(f_{i\ell}-q_{i\ell})\in[0,M_{i\ell}].
+\end{equation}
+Paired internal transfers cancel in the mass sum. Ramp storage, waiting and
+boundary transfers must obey corresponding balances; their exact geometry
+remains unspecified. This is a conditional kernel proof, not a completed
+network/ramp configuration or physical-fidelity validation.
+\newpage
+
+\section{The old debit is removed; useful control is still an open claim}
+On an ordinary interface with uncapped pre/post sending and ample downstream
+receiving, let lateral rate $\lambda$ move from donor $d$ to recipient $t$.
+The recomputed offers give
+\begin{equation}
+Q_B=c_d(n_d-h\lambda)+c_t(n_t+h\lambda)
+=Q_0+h(c_t-c_d)\lambda,\quad Q_0=c_d n_d+c_t n_t.
+\end{equation}
+Thus B has no universal $-\lambda$ term. The recipient's sending can increase;
+its physical capacity does not automatically increase. Actual receiving or
+capacity limits can prevent any realized flow increase.
+At fixed cell length and state, this step-local rate correction tends to zero
+as $h\to0$; the underlying continuous occupancy redistribution does not disappear.
+This is not a global convergence theorem or proof that maneuvers are costless.
+
+For the earlier hand example $L=1$, $h=1/4$, $(c_d,c_t)=(1,2)$,
+$(n_d,n_t)=(6,2)$, $\mu=1/2$, $\kappa=1$, $\lambda=3/2$:
+\begin{equation}
+(n_d^L,n_t^L)=(45/8,19/8),\quad
+(q_d,q_t)=(45/8,19/4),\quad Q_B=83/8=10+3/8.
+\end{equation}
+The original residual kernel gave $17/2$ instead. This compares two local
+operators on one input, not equal observable histories or a metering experiment.
+
+\paragraph{Sensitivity path.}
+On strict active branches away from ties and zero denominators, the lateral
+map, ordinary sending/receiving and priority allocator compose differentiably.
+For a full conserved state $x^{s+1}=F_B(x^s,\theta^s)$, its directional
+linearization is
+\begin{equation}
+z^{s+1}=F_{B,x}z^s+F_{B,\theta}\eta^s.
+\end{equation}
+This is a conceptual/analytic path. If the meter is demand- or storage-limited,
+its local action derivative may vanish. A saturated, continuously busy shared
+receiver can redistribute stream service without changing total departures.
+No smoothing, numerical gradient check or independent usefulness is inferred.
+
+Let $P^s$ count \emph{all} affected traffic still in the system, including
+external waiting, ramp storage and post-meter traffic. Under common arrivals
+$A^s$ and final exits $E^s$,
+\begin{equation}
+P^{s+1}=P^s+h(A^s-E^s),\qquad J_h=h\sum_{s=0}^{T-1}P^s.
+\end{equation}
+For a fixed common clearance horizon, fixed arrivals/initial mass and strict
+branches,
+\begin{equation}
+\partial_\theta J_h
+=-h^2\sum_{s=0}^{T-2}(T-1-s)\partial_\theta E^s.
+\end{equation}
+This accounting derivative is not a verified simulator gradient.
+If final departure histories agree, complete time agrees. A local merge-flow
+difference is not automatically a final-exit or useful-action difference.
+\newpage
+
+\section{What aggregate observations can recover on a free-flow branch}
+Distinguish the stored start-of-step state $n^s$, post-lateral state
+$n^{L,s}$, forward flows $q^s$, and end state $n^{s+1}$.
+Do not apply the old residual-kernel reconstruction to B: the observation law
+has changed. For an ordinary unimpeded interface under B,
+\begin{equation}
+q_\ell^s=c_\ell n_\ell^{L,s}.
+\end{equation}
+Because lateral exchange conserves the cell total,
+$N^s=n_1^s+n_2^s=n_1^{L,s}+n_2^{L,s}$. With known distinct mobilities,
+\begin{equation}
+n_1^{L,s}=\frac{Q^s-c_2N^s}{c_1-c_2},\qquad
+n_2^{L,s}=\frac{c_1N^s-Q^s}{c_1-c_2}.
+\label{eq:post}
+\end{equation}
+An independent passage-speed observation remains admitted. Under the additional
+free-flow diagnostic that lane passage speeds equal distinct known $v_\ell$,
+\begin{equation}
+V^s=\frac{v_1q_1^s+v_2q_2^s}{Q^s},\qquad
+q_1^s=\frac{Q^s(V^s-v_2)}{v_1-v_2},\quad q_2^s=Q^s-q_1^s.
+\end{equation}
+Equation~\eqref{eq:post} needs total and flow only on this subcase; it does
+\emph{not} discard or redefine independently observed speed elsewhere.
+No equal-speed symmetry or noisy inversion is used.
+
+\paragraph{A completed previous step can identify the current state.}
+If the declared prior observations identify $n^{L,s}$ and all actual per-lane
+incoming/outgoing rates, then
+\begin{equation}
+n_\ell^{s+1}=n_\ell^{L,s}+h(f_\ell^s-q_\ell^s)
+\end{equation}
+identifies the current state. Ramp entry must be observed or deduced from an
+audited ramp balance with common release/storage; unknown ramp mass cannot be
+silently ignored. These conditions can hold in an idealized slack/free-flow
+subcase. They do not cover a binding merge, missing stations or the entire
+congested domain. This is a conditional prior-history sufficiency result,
+not permission to observe a candidate action's future flow.
+
+\paragraph{Where the proof stops.}
+If $D(n^L)=C$ or downstream receiving/priority restricts flow, $q/c$ need not
+equal $n^L$. Knowing total lane flow is then not enough to apply the free-flow
+inverse. Independent speed and full past history may still identify occupancy;
+their actual measurement functions and support are needed to decide.
+The first-order mass/flow kernel alone has not specified that detector-speed
+statistic. Snapshot non-uniqueness is not an equal-history/action certificate.
+\newpage
+
+\section{A stage ambiguity that is not useful hidden information}
+Even exact identification of $n^L$ does not universally identify the preceding
+$n$ under the accepted step bounds. For a source-limited lateral branch with
+$\kappa=\mu=1$, fixed total $N$ and donor lane 1 mass $x>N/2$,
+\begin{equation}
+\lambda(x)=c_1x(2x-N)/N,\qquad
+\Phi(x)=x-h\lambda(x)=x(1+b)-2bx^2/N,\quad b=hc_1.
+\end{equation}
+Its slope is $1+b-4bx/N$, which need not remain positive when $b>1/3$.
+Mass/storage CFL bounds alone do not establish injectivity. This is not a
+violation of the bounds or automatic evidence of physical failure.
+
+\paragraph{Exact hand counterexample.}
+Take $N=10$, $h=1/2$, $(c_1,c_2)=(1,3/2)$, $\kappa=\mu=1$.
+Two strictly source-limited initial splits give
+\begin{align}
+(n_1,n_2)&=(6,4), &\lambda&=6/5,\\
+(n'_1,n'_2)&=(9,1), &\lambda'&=36/5.
+\end{align}
+Both become
+\begin{equation}
+(n_1^L,n_2^L)=(27/5,23/5).
+\end{equation}
+Finite compatible triangular-diagram parameters can be
+$(M_1,M_2)=(100,100)$, $(\gamma_1,\gamma_2)=(1,3/2)$ and
+$(C_1,C_2)=(50,75)$, with ample downstream receiving. All step bounds hold,
+both states are strictly free-flowing and recipient supplies exceed transfer
+rates. No symmetry of lane mobilities is imposed.
+
+If all remaining states/forcing agree and the candidate control acts only
+in the forward/ramp stage after this control-independent lateral map, these
+two pre-states produce identical responses to \emph{every} such action.
+Their post-transfer states are the same; the subsequent deterministic
+composition is therefore the same. No useful action distinction follows
+from this lost pre-stage coordinate. Earlier observable history may also
+distinguish them; no such history match has been established.
+
+This prevents two mistaken conclusions: that a post-transfer observer theorem
+automatically reconstructs the pre-transfer state, or that failure to reconstruct
+that pre-state automatically proves useful hidden information.
+Do not restrict the approved propensity or timestep simply to make an inverse
+proof succeed. A monotonicity/refinement requirement, if later needed for
+physical fidelity, is a separate declared amendment rather than a hidden fix.
+\newpage
+
+\section{RM9-UG4: define speed, support and measurement timing}
+\noindent\textbf{Problem.} Which strong observation map is used to decide
+whether lane information is hidden? The approved dynamics specify mass and
+accepted flow, but not an independent detector passage-speed statistic for
+congested or receiving-limited traffic. Density, flow and speed can refer to
+different locations, averaging periods and update stages.
+
+\paragraph{Model-chain function and core gap.}
+Completed observations, common forcing and past rates inform the decision;
+the common rate perturbation then propagates through the approved dynamics
+to all-stream departures/time. Choosing a speed map or moving a measurement
+across the lateral stage can change identifiability. It cannot be inferred
+as clerical transcription. No future candidate-action flow may enter its
+initial observation history.
+
+\paragraph{A: explicit idealized first-order observation benchmark (recommended).}
+Keep true road-total mass per declared cell, ramp history, counts, all past
+rates and known forcing from the common initial epoch. Report flow and speed
+for completed steps at explicitly declared faces, preserving their stage
+indices. Propose lane-local equilibrium FD speed $U_\ell(k)$ and a separate
+passage-weighted road statistic:
+\begin{equation}
+U_\ell(k)=\frac{\min(v_\ell k,C_\ell,w_\ell(k_\ell^{\rm jam}-k))}{k},
+\quad k>0,\qquad
+V=\frac{\sum_\ell q_\ell U_\ell(k_\ell^L)}{\sum_\ell q_\ell}.
+\end{equation}
+This assumes a single representative equilibrium speed within each lane and
+an explicit upstream-cell-to-face passage approximation. It is an observation
+hypothesis, not a detector theorem. At zero observed flow, passage speed is
+unavailable; do not fabricate an informative value. On free flow this reduces
+to the diagnostic already proved. On congested/transient faces it requires
+explicit source/model justification and may fail to represent actual passage
+speeds. No aggregate $Q/K$ replacement or speed-state extension is adopted.
+
+\emph{Pros:} concrete, compact, retains the independent speed moment and the
+strong total-state/history benchmark; supports bounded exact information
+analysis without new traffic dynamics.
+\emph{Cons:} idealized cell/station and within-lane speed assumptions; a result
+is conditional on this observer, not field validity.
+\emph{Dependencies:} approve this hypothesis before exact history/action
+construction; specify complete temporal support, ramp balances and common
+geometry consistently. If the passage approximation fails, report/reopen it.
+
+\paragraph{B: source/measurement-first speed-contract review.}
+Keep the accepted strong information requirements, but perform a targeted
+static review of station/window passage speeds and their relation to independent
+road-total density before choosing a map. Do not substitute detector-derived
+density for true cell storage or adopt extra speed dynamics automatically.
+
+\emph{Pros:} grounds the measured statistic and transient/congested support
+before exact information claims; can identify a required richer speed model.
+\emph{Cons:} delays the compact analytic test; may require a separately approved
+measurement/state amendment or leave the mapping unresolved.
+\emph{Dependencies:} bound the source review and stop before adding state,
+weakening information or executing a simulator. Existing first-order results
+remain conditional diagnostics.
+
+\textbf{Provisional recommendation: A} for the first idealized methodology
+benchmark, with its observer hypothesis explicit and physical transfer claims
+deferred. Choose B if physical detector interpretation must be secured first.
+This is a G1 contract choice, not a numerical-cost or parameter-value gate.
+
+\paragraph{Source boundary.}
+\href{https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae}{FB0030's primary PDF},
+printed pp.\ 1768--1769, distinguishes time/space means and uses
+detector flow/speed to estimate density; this does not provide independent true
+cell mass and our exact transient passage map.
+\href{https://horowitz.me.berkeley.edu/Publications_files/All_papers_numbered/Wright_node_models_transportation_networks_Transportation_research_B_2017.pdf}{RM0018's primary PDF}
+supports the retained
+node allocator, not this speed map. These limitations were rechecked in primary
+PDFs. All new results here are reviewer derivations, not source theorems.
+\end{document}

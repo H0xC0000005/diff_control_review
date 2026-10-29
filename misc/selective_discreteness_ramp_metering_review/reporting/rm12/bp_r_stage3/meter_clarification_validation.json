@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "scope": "Candidate/source/approval/link/CSV integrity; no traffic or gradient validation",
+  "documents_checked": 6,
+  "local_links_checked": 45,
+  "supplementary_queries": 2,
+  "supplementary_source_records": 3,
+  "new_official_layout_sources": 2,
+  "reused_model_papers": 1,
+  "reference_route": "S3-G2.A approved",
+  "next_gate": "S3-G2-M: neither placement approved",
+  "stage_3_complete": false,
+  "stage_4_opened": false,
+  "pdf_unchanged": true,
+  "pdf_sha256": "7a30d6b5529c5fd2939db52fea25f3cefef7395b2ee3968eb96db9430ea15bbf",
+  "caltrans_edition_date_verified": false,
+  "simulations_run": 0,
+  "numerical_derivatives_run": 0,
+  "production_changed": false,
+  "failures": []
+}

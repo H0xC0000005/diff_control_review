@@ -1,0 +1,2634 @@
+{
+  "date": "2026-10-21",
+  "status": "User-approved analytical review VC1\u2013VC3 complete and delivered at JM1; user acceptance pending",
+  "scope": "Primary-source reuse, interface reasoning and analytical proofs; no implementation or empirical study",
+  "prior_package_files": 555,
+  "protected_existing_files": 717,
+  "existing_files_changed": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md"
+  ],
+  "existing_files_deleted": [],
+  "other_prior_package_files_unchanged": 547,
+  "other_protected_files_unchanged": 709,
+  "files_added": [
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_validation.json",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_methodology_review_analytical_addendum.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_methodology_review_analytical_addendum.tex"
+  ],
+  "local_primary_sources_preserved": {
+    "/tmp/vsl_native_backbone_review/FB0030.txt": true,
+    "/tmp/vsl_lane_backbone_qualification/Lane_specific_Traffic_Flow_Control_Repository.pdf": true,
+    "/tmp/vsl_lane_backbone_qualification/Lane_specific_Traffic_Flow_Control_Repository.txt": true,
+    "/tmp/vsl_allocator_review/Carey_2013_author_manuscript.pdf": true,
+    "/tmp/vsl_allocator_review/Carey_2013_author_manuscript.txt": true
+  },
+  "model_equations_prior_proofs_accepted_report_and_source_audits_byte_preserved": true,
+  "accepted_analytical_scope_preserved_under_status_update": true,
+  "future_numerical_requirements_preserved": true,
+  "past_review_dialogue_preserved": true,
+  "production_root_feedback_withdrawn_proposal_and_urban_phase_B_preserved": true,
+  "relative_markdown_links_checked": 507,
+  "relative_markdown_links": [
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step4_scope_closure_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_congestion_selection.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_allocator_selection.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_congestion_join_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback14_review_scope_and_allocator_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_lane_backbone_qualification.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_lane_backbone_flow_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_lane_backbone_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_published_backbone_findings.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_published_backbone_sources.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback13_complexity_and_response_direction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback12_urban_readiness_and_agent_hygiene.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_clean_final_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_compact_methods_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_compact_methods_report.tex",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_global_assumptions_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_global_assumptions_statement.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_global_assumptions_audit_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_as3_findings_and_step3_closure_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_as3_asymmetric_actions_and_gradients.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_asymmetric_standalone_verification_protocol.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_as3_step3_consistency_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_as2_information_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_as2_information_and_history.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_as1_acceptance_and_as2_opening.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_as1_asymmetry_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_as1_asymmetric_forward_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_initial_ab_asymmetry_scope_correction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_ab_asymmetry_requalification_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_standalone_findings_and_closure_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_step3_standalone_verification_protocol.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_step3_standalone_information_and_gradient.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_feedback8_model_stack_recap.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_feedback8_full_mathematics.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_feedback8_model_stack_source_map.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_standalone_scope_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_mp6_physical_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_mp6_joint_physical_admission_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_wf_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_wf_forward_qualification_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_j4_speed_response_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_or_recovery_qualification_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_se_admission_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_se_fixed_queue_configuration_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_a1c_service_work_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_a1c_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_a1c_service_work_and_speed_closure.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback5_shared_service_meter_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_ph_recovery_work_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_ph_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_ph_recovery_work_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_cp_first_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_cp_qualification_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_coupled_point_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_merge_feedback_and_completion_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_reference_qualification_and_final_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_validation_ladder_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step2_model_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_step3_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_step3_information_and_sensitivity.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_t1_joined_model_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_k2_forced_merge_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_k2_forced_merge_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_k2_terminal_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_h1_homogeneous_window_findings.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_h1_homogeneous_window_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_h1_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b2ah_history_service_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_b2ah_source_and_compactness_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b2a_compact_closure_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_b2a_compact_closure_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b2_joined_service_findings_and_gate.md#post-gate-choice-try-the-compact-account-retain-the-spatial-return-route",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b2_joined_service_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback4_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_b2_source_and_reduction_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_b2_joined_service_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b2_p1_joined_service_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_p1_approval_and_review_readiness.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_p1_preparation_transfer_improvement_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_p1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback3_existing_framework_component_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback3_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b1_lane_change_model_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/research_readiness/vsl_b1_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_b1_interface_examples.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_b1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_r1_core_mechanism_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_r1_transfer_clock_and_service_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_r1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback2_contribution_priority.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback2_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_feedback1_starting_point_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "vsl_successor_00_opening_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_successor_methods_outline.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/vsl_successor_kernel_note.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/vsl_successor_opening_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/research_readiness/feedback27_paper_ready_transition_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/feedback27_fresh_agent_handoff.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/research_readiness/feedback27_new_agent_start_prompt.txt",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "01_review_recap_through_s06.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "00_review_sequence.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s10/s10_19_vsl_methodology_colleague_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s10/s10_19_vsl_methodology_colleague_report.tex",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s06/s06_19_colleague_progress_handout.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s12/s12_99_advice_merge_service_sprint_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s13/s13_20_m2_certificate_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s13/s13_35_study_sufficiency_and_extension_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s13/s13_99_m2_certificate_sprint_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s03/s03_99_rb_sprint_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "s04_00_rb_diagnostic_phase_A_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s04/s04_20_rb_diagnostic_methodology_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s04/s04_99_rb_diagnostic_methodology_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s05/s05_20_rb_certificate_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s05/s05_99_rb_certificate_sprint_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/s05/rb_certificate_analysis.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s05/s05_90_rb_certificate_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s09/s09_35_scope_correction_and_methodology_alternatives.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s08/s08_99_exact_prefix_planning_sprint_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "s08_00_exact_prefix_feasibility_planning_review.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/s08/s08_exact_prefix_feasibility_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s08/s08_90_exact_prefix_planning_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/s10/s10_post_closure_freeway_review_options.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/s10/s10_post_closure_next_step_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "../selective_discreteness_ramp_metering_review/README.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/s04/rb_diagnostic_technical_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "synthesis/s04/rb_diagnostic_question_inventory.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s04/s04_80_rb_diagnostic_phase_A_dialogue.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s04/s04_90_rb_diagnostic_planning_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "s03_00_rb_review_protocol_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s03/s03_20_rb_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "extraction/rb_source_studies/FB0040.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s03/s03_90_rb_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s02/s02_80_n2_phase_A_dialogue.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "archive/planning/n2_phase_A_protocol_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "archive/planning/route_B_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "s02_00_n2_review_protocol_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s02/s02_20_n2_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s02/s02_90_n2_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s01/s01_20_n1_findings_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "target": "reporting/s01/s01_30_n1_user_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "target": "../../archive/full_text/FB0030.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "target": "vsl_lane_backbone_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "target": "vsl_congestion_join_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "target": "vsl_allocator_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "target": "vsl_joined_candidate_sources_and_assumptions.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "target": "../../reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md",
+      "target": "vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md",
+      "target": "vsl_methodology_scope_correction_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "vsl_congestion_selection.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "vsl_joined_candidate_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+      "target": "vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+      "target": "../../extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+      "target": "vsl_methodology_scope_correction_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "target": "vsl_published_backbone_findings.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "target": "../../synthesis/research_readiness/vsl_methodology_review_analytical_addendum.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "target": "../../extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "target": "vsl_methodology_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+      "target": "vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+      "target": "../../extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+      "target": "../../synthesis/research_readiness/vsl_methodology_review_analytical_addendum.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+      "target": "../../synthesis/research_readiness/vsl_methodology_review_analytical_addendum.tex",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+      "target": "vsl_methodology_review_build.log",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_work_report.md",
+      "target": "vsl_methodology_review_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_joined_candidate_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step4_scope_closure_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_clean_final_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.tex",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_global_assumptions_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_global_assumptions_statement.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_feedback9_report_structure_discussion.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_global_assumptions_audit_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_as3_findings_and_step3_closure_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_as3_asymmetric_actions_and_gradients.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_asymmetric_standalone_verification_protocol.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_as3_step3_consistency_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_as2_information_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_as2_information_and_history.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_as1_acceptance_and_as2_opening.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_as1_asymmetry_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_as1_asymmetric_forward_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_initial_ab_asymmetry_scope_correction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_ab_asymmetry_requalification_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_standalone_findings_and_closure_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_standalone_verification_protocol.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_standalone_information_and_gradient.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_feedback8_model_stack_recap.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_feedback8_full_mathematics.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../extraction/research_readiness/vsl_feedback8_model_stack_source_map.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_standalone_scope_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_mp6_physical_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_mp6_joint_physical_admission_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_wf_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_wf_forward_qualification_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_j4_speed_response_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../vsl_successor_00_opening_plan.md#bounded-successor-review-sequence",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_b2_p1_joined_service_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_merge_feedback_and_completion_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_reference_qualification_and_final_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step2_model_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step4_scope_closure_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_ab_asymmetry_requalification_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_or_recovery_qualification_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_se_admission_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_sumo_bridge_and_terminal_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_validation_ladder_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_sumo_bridge_and_terminal_gate.md#methodological-consistency-with-the-closed-task",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_comparison_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "../../synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_step3_coupled_point_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_cp_first_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_ph_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_ph_recovery_work_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_feedback5_shared_service_meter_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_m2_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_m2_first_restriction_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_feedback6_joined_behavior_agreement_and_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_m2_admission_priority_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_feedback7_traffic_state_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_a1c_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md",
+      "target": "vsl_a1c_service_work_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../vsl_successor_00_opening_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_successor_opening_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback1_starting_point_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback2_contribution_priority.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback2_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_core_mechanism_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_r1_transfer_clock_and_service_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_core_mechanism_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_fixed_rate_justification_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_fixed_rate_justification_response.md#clarified-scope-of-candidate-b",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_modeling_problem_inventory.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_r1_modeling_problem_inventory.md#sprint-coverage-check--2026-10-13",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b1_lane_change_model_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_b1_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_b1_interface_examples.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b1_lane_change_model_and_gate.md#what-this-establishes-for-mp1mp6-and-the-simpler-rivals",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback3_existing_framework_component_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback3_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_p1_preparation_transfer_improvement_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_p1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_p1_approval_and_review_readiness.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2_p1_joined_service_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2_plan_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2_joined_service_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2_joined_service_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback4_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2_joined_service_findings_and_gate.md#post-gate-choice-try-the-compact-account-retain-the-spatial-return-route",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2a_compact_closure_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_b2a_compact_closure_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2a_compact_closure_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_b2ah_history_service_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_b2ah_source_and_compactness_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_h1_homogeneous_window_findings.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_h1_homogeneous_window_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_h1_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_k2_forced_merge_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_k2_terminal_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_k2_forced_merge_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_k2_forced_merge_findings_and_gate.md#the-two-options-as-traffic-pictures",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_t1_joined_model_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_t1_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step2_model_closure.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_information_and_sensitivity.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md#follow-up-capability-check-early-merging-and-prescribed-intention",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_sumo_bridge_and_terminal_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md#sumo-selected-bridge-qualification-and-terminal-evidence",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_sumo_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_sumo_bridge_and_terminal_gate.md#methodological-consistency-with-the-closed-task",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_sumo_bridge_and_terminal_gate.md#proposed-validation-ladder-and-its-claims",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_validation_ladder_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_review_progress.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_sumo_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_reference_qualification_and_final_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_resumed_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_resumed_review_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_merge_feedback_and_completion_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_merge_feedback_response_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_merge_feedback_response_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_coupled_point_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_coupled_point_decision_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_cp_qualification_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_cp_first_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_cp_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_cp_opening_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_cp_opening_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ph_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ph_recovery_work_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_ph_recovery_work_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ph_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ph_review_validation.json",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ph_recovery_work_findings_and_gate.md#vsl-cp-g2-what-updates-the-one-shared-service-meter",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ph_options_readability_revision_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback5_shared_service_meter_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md#feedback-5-recheck-one-shared-service-budget",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback5_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_m2_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_m2_first_restriction_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_m2_speed_and_activation_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_m2_speed_activation_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_m2_start_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback6_joined_behavior_agreement_and_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_feedback6_behavior_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback6_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_m2_admission_priority_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_m2_admission_priority_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_m2_admission_priority_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_m2_admission_priority_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback7_traffic_state_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_feedback7_traffic_state_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback7_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_a1c_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_a1c_service_work_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_a1c_service_work_and_speed_closure.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_a1c_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_a1c_service_work_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_se_fixed_queue_configuration_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_se_fixed_queue_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_se_admission_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_se_admission_and_transition_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_se_admission_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_se_admission_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_sep_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_sep_recovery_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_sep_recovery_and_clearance_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_sep_recovery_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_sep_recovery_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_sep_recovery_findings_and_gate.md#current-traffic-determines-the-split-recovery-determines-available-service",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_sep_recovery_findings_and_gate.md#why-asymmetric-disturbance-is-a-reasonable-simplification",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_re_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_re_overlap_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_re_overlap_and_boundary_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_re_overlap_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_re_overlap_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_re_overlap_findings_and_gate.md#renewal-sufficient-current-state-and-the-case-for-addition",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_or_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_or_recovery_qualification_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_or_recovery_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_or_qualification_source_and_adaptation_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_or_recovery_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_j4_speed_response_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_j4_speed_response_audit.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_j4_speed_response_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_j4_speed_response_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_wf_selection_and_scope.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_wf_forward_qualification_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_wf_forward_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_wf_forward_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_wf_forward_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_mp6_physical_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_mp6_joint_physical_admission_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_mp6_physical_identifiability.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_mp6_physical_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_mp6_physical_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_feedback8_model_stack_recap.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_feedback8_full_mathematics.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_feedback8_model_stack_source_map.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback8_reporting_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_feedback8_model_stack_recap.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_standalone_scope_decision.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_standalone_scope_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_standalone_findings_and_closure_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_standalone_verification_protocol.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_step3_standalone_information_and_gradient.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_standalone_consistency_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_step3_standalone_sources_and_derivations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step3_standalone_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_initial_ab_asymmetry_scope_correction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_initial_ab_asymmetry_correction_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_initial_ab_asymmetry_scope_correction.md#why-this-is-a-sound-and-structurally-small-direction",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ab_asymmetry_requalification_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_ab_asymmetry_plan_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as1_asymmetry_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_as1_asymmetric_forward_contract.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_as1_initialization_proof_map.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as1_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as2_information_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_as2_information_and_history.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_as2_history_channel_and_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as1_acceptance_and_as2_opening.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as2_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as3_findings_and_step3_closure_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_as3_asymmetric_actions_and_gradients.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_asymmetric_standalone_verification_protocol.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as3_step3_consistency_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_as3_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback9_report_structure_discussion.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback9_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback9_report_structure_discussion.md#global-modeling-assumptions-an-explicit-part-2-subsection",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback9_assumptions_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_global_assumptions_audit_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_global_assumptions_audit_planning_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_global_assumptions_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_global_assumptions_statement.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_global_assumptions_dependency_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_global_assumptions_audit_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.tex",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_compact_report_source_and_coverage_map.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback10_report_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_compact_report_source_and_coverage_map.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_report_reference_revision_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback11_report_amendments.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_sensitivity_notation_clarification.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_saltation_locations_clarification.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_compact_methods_report.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_clean_final_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_step4_scope_closure_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback12_urban_readiness_and_agent_hygiene.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "urban_report_refinement_fresh_agent_handoff.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "urban_refinement_standard_and_plan_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "urban_p8_override_scope_clarification.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "urban_review_order_selection_and_handoff_ready.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback13_complexity_and_response_direction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback13_complexity_and_response_direction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback13_complexity_and_response_direction.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_published_backbone_brief_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_published_backbone_findings.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_published_backbone_sources.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_published_backbone_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_lane_backbone_qualification.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_lane_backbone_flow_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_lane_backbone_source_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_lane_backbone_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback14_review_scope_and_allocator_response.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_lane_backbone_qualification.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_feedback14_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_allocator_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_allocator_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_allocator_selection.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_congestion_join_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_congestion_join_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_congestion_join_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_congestion_selection.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_joined_candidate_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_joined_candidate_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_joined_candidate_validation_handoff.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_joined_candidate_validation_handoff_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_joined_candidate_execution_plan_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../../../temp_content/milestone_vsl_joined_validation/phase_A_proposal.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../../../temp_content/milestone_vsl_joined_validation/phase_A_dialogue.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_methodology_scope_correction_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../synthesis/research_readiness/vsl_methodology_review_analytical_addendum.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "../../extraction/research_readiness/vsl_methodology_review_source_and_interface_audit.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "target": "vsl_methodology_review_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "target": "../../reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "target": "vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+      "target": "../../reporting/research_readiness/vsl_methodology_scope_correction_work_report.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "target": "../../reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "target": "vsl_joined_candidate_methodology_review_plan.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "target": "../../reporting/research_readiness/vsl_joined_candidate_validation_handoff.md",
+      "exists": true
+    },
+    {
+      "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "target": "vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    }
+  ],
+  "source_reference_list_IEEE_order": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "analytical_findings": [
+    "Existing common-budget/storage and complete-tail arguments fit the selected model",
+    "Uniform finite prefix and finite rational branches give regular advice intervals",
+    "Small-cohort free regime has common maximum-advice optimum and zero lane action value"
+  ],
+  "analytical_findings_checked_by": "Analytical reasoning and written proof, not this document checker or numerical experiments",
+  "pdf": {
+    "pages": 2,
+    "words_per_page": [
+      572,
+      551
+    ],
+    "bytes": 130892,
+    "sha256": "cfc44f94c8cef1dea00957009c25d053a8c0bc6becd3946d08244a7aaba93df7",
+    "latex_passes_after_final_edit": 2,
+    "warnings": [],
+    "relative_links": [
+      {
+        "target": "vsl_joined_candidate_contract_and_qualification.pdf",
+        "exists": true
+      }
+    ],
+    "image_rendered_visual_inspection": false
+  },
+  "document_environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "latex": "pdfTeX 3.141592653-2.6-1.40.25, TeX Live 2023/Debian"
+  },
+  "implementation_paths_not_created": [
+    "src/vsl_joined_validation",
+    "tests/vsl_joined_validation",
+    "configs/vsl_joined_validation",
+    "scripts/run_vsl_joined_validation.py",
+    "docs/milestones/milestone_vsl_joined_validation.md"
+  ],
+  "no_simulator_traffic_AD_FD_optimization_pytest_training_install_agent_or_external_message": true,
+  "urban_and_ramp_scope": "No write operations in either package",
+  "scientific_limits": [
+    "Only fixed finite closed-cohort member with positive constant advice and free outlets",
+    "Native switch jumps and zero derivatives remain possible; no global optimum certificate",
+    "Strict action-information value, full-lane/discrete-order necessity and optimizer advantage unproved",
+    "No numerical gradient correctness, calibration, continuum convergence or physical transfer claim"
+  ],
+  "snapshot": "/tmp/vsl_jm1_methodology_review/before.json",
+  "command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_jm1_methodology_review/document_checks.py",
+  "next_allowed_action": "User review at JM1; no automatic implementation, experiment, report replacement or later review"
+}

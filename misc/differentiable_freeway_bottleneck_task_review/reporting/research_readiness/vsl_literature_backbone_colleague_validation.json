@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "scope": "colleague-facing editorial and document checks only",
+  "title": "VSL task with established peer work as backbone & minimal adapted dependencies",
+  "subtitle_removed": true,
+  "internal_notes_and_tags_removed": true,
+  "display_math_blocks_unchanged": 7,
+  "numbered_equations": 8,
+  "inline_math_expressions_unchanged": 72,
+  "source_palette_unchanged": true,
+  "formula_color_markup_unchanged": true,
+  "pdf_palette_glyph_counts": {
+    "SrcJin": 175,
+    "SrcWei": 230,
+    "SrcNS": 533,
+    "SrcHan16": 373,
+    "SrcHan17": 329,
+    "SrcCarey": 474,
+    "SrcWright": 225,
+    "SrcThesis": 240,
+    "Own": 232,
+    "Standard": 169
+  },
+  "pdf_equation4_math_colors_verified": true,
+  "references": 8,
+  "bibliography_changes": "only archive/version dating notes removed; work identity and numbering unchanged",
+  "pdf_pages": 4,
+  "main_text_pages_equivalent": 3.0000000135579965,
+  "main_text_pages": 3,
+  "references_start_page": 4,
+  "minimum_regular_font_pt": 9.9626,
+  "assumptions_heading_with_list": true,
+  "build_issues": [],
+  "local_links_checked": 193,
+  "v5_archive_byte_preserved": true,
+  "changed_existing_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_peer_work_overview.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex"
+  ],
+  "preserved_existing_files": 596,
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_colleague_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_colleague_finalization.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_colleague_validation.json",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v5/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v5/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_report_versions/v5/vsl_literature_backbone_review_report.tex"
+  ],
+  "python": "3.11.9",
+  "pypdf": "6.15.0",
+  "visual_check": "PDF text/fonts/positions/color operators and LaTeX log; no raster visual audit",
+  "artifacts": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex": {
+      "bytes": 21864,
+      "sha256": "5d52d9e1fe368325b99f8c06ab72462a17c5fba0407d8104ef1430c4954b05f3"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 187848,
+      "sha256": "dac37352b863a2c6b0ce31f65ea0369e848f359a12e80530bdcfe859215d40d6"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_colleague_build.log": {
+      "bytes": 19575,
+      "sha256": "c47df9d5100059e9ceea225b36b5baf65d8506f5512f95ec98137308cf786860"
+    }
+  }
+}

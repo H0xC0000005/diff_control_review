@@ -1,0 +1,4 @@
+source_id,date,url,route,outcome,evidence_level,decision_critical,disposition
+AC-L1,2026-09-17,https://pure.tudelft.nl/ws/portalfiles/portal/85682830/NagalurSubraveti2020_Chapter_Multi_laneTrafficFlowModelSpee.pdf,primary institutional search excerpt then direct open,excerpt available; direct open cache miss,E1,no,no method adoption or paper request
+AC-L2,2026-09-17,https://www.sciencedirect.com/science/article/pii/S0968090X26004298,primary publisher search excerpt then direct open,abstract available; direct open403,E1,no,individualized speed plus lane actuator outside scope; indexed future issue date unverified
+FB0037,2026-09-17,https://www.sciencedirect.com/science/article/pii/S0378437123009214,primary publisher search result,abstract available; earlier E1 boundary retained,E1,no,differential lane action not common infrastructure advice

@@ -1,0 +1,18 @@
+date,channel,family,query,disposition
+2026-09-16,web/repository,reuse,"existing pre-review and ramp-metering IDs RM0024 RM0025 RM0026",mapped before new discovery
+2026-09-16,web,F1 aggregate,"lane drop variable speed limit LWR link queue capacity drop",FB0001 and FB0002 retained
+2026-09-16,web,F1 macro richer,"macroscopic variable speed limits compliance METANET",FB0003 retained
+2026-09-16,web,F1 lane interaction,"integrated variable speed limits lane changing control freeway lane drop",FB0004 retained
+2026-09-16,web,F1 operations,"variable speed advisory field experiment compliance freeway",FB0005 retained
+2026-09-16,web,F4 recovery,"incident lane closure reopening recovery ramp closure strategy",FB0006 retained
+2026-09-16,web,F1 mixed traffic,"dynamic speed limit CAV traffic composition uncertainty LTM",FB0007 retained as different-actuator evidence
+2026-09-16,web,F2 recent baseline,"fair coordinated ALINEA ramp metering SUMO storage",FB0008 retained
+2026-09-16,web,F2 recent baseline,"coordinated ramp metering nonlinear dynamics model discovery MPC",FB0009 retained
+2026-09-16,web,F1/F5 boundary,"mixed CAV speed harmonization merge priority highway closure",FB0010 retained
+2026-09-16,web,official guidance,"FHWA work zone variable speed limit lane closure",FB0011 retained
+2026-09-16,web,official guidance,"FHWA ramp metering queue override finite ramp storage",FB0012 retained
+2026-09-16,web,F1 lane group,"optimal variable lane group speed limits freeway lane drops",FB0013 logged E1
+2026-09-16,web,F1 lane actuator,"lane-level speed control CAV moving actuator lane drop",FB0014 retained E2
+2026-09-16,web,derivatives,"differentiable traffic simulation adjoint CTM VSL ramp metering",reused RM0024 RM0025 SEO2026; no direct lane-VSL gradient-transfer study found
+2026-09-16,web,counterevidence,"macro sufficiency feedback VSL ALINEA freeway bottleneck",supported strong-baseline judgments
+2026-09-16,web,new candidate,"continuous freeway lane closure control differentiable",no admissible distinct candidate found

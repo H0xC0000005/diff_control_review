@@ -1,0 +1,3 @@
+query_id,date,query,domains,purpose,batch_id,source_ids,outcome
+RM12-S3-MQ01,2026-10-06,site.ops.fhwa.dot.gov ramp metering handbook stop line acceleration distance merge meter placement,,Check physical meter versus effective merge-entry boundary,S3-MB1,RM12-S3-M01;RM12-S3-M02,Official FHWA and Caltrans layout sources found; selected body sections subsequently read
+RM12-S3-MQ02,2026-10-06,ramp metering handbook stop line acceleration distance merge meter placement,ops.fhwa.dot.gov;dot.ca.gov,Confirm official-source distinction and preserve primary-only attribution,S3-MB2,RM12-S3-M01;RM12-S3-M02,Official results confirm queue storage before stop line and acceleration before merge; no new physical law inferred

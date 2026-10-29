@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-26",
+  "task": "Close principles batch and open concrete lane allocation/access/storage/service discussion",
+  "status": "pass",
+  "snapshot": "/tmp/urban_coupled_model_opening_before_20261026.json",
+  "snapshot_files": 776,
+  "unchanged_snapshot_files": 768,
+  "declared_existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/comparison_sensitivity_and_credit_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_decisions.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_plan.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_coupled_lane_model_candidates.pdf",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_coupled_lane_model_candidates.tex",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_coupled_model_opening_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_coupled_model_opening_work_report.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/coupled_lane_access_and_service_discussion.md"
+  ],
+  "outside_snapshot_changes": [],
+  "missing_snapshot_files": [],
+  "local_links_and_cited_lines_checked": 140,
+  "question_count": 15,
+  "high_level_candidate_count": 34,
+  "named_concrete_subvariant_count": 10,
+  "stable_ids_and_high_level_candidate_text_preserved": true,
+  "unrelated_question_sections_byte_identical": true,
+  "scientific_relationships_completion_criteria_report_budget_preserved": true,
+  "all_ten_named_variants_covered": true,
+  "closed_principles_scientific_body_preserved": true,
+  "agreed_traffic_semantics_preserved": true,
+  "closure_and_new_topic_status_recorded": true,
+  "feedback_root_implementation_and_historical_records_preserved": true,
+  "pdf_build_source_and_text_integrity": true,
+  "pdf_info": {
+    "pages": 6,
+    "characters": [
+      2564,
+      3380,
+      3150,
+      2859,
+      2633,
+      1428
+    ],
+    "pypdf_version": "6.15.0"
+  },
+  "current_topic": "Concrete traffic model: lane allocation, bay access, storage and service",
+  "previous_batch": "Closed explicitly by user; agreed principles preserved",
+  "new_choices": "All provisional; target chronology/profile and joint receiving remain unfinished directions",
+  "scientific_tests_or_runs": "None; document build and analytical hand explanations only",
+  "errors": []
+}

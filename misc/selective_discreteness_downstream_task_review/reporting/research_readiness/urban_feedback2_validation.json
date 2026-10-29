@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-21",
+  "task": "Urban refinement feedback 2 readability rewrite",
+  "status": "pass_with_outside_changes_recorded",
+  "snapshot": "/tmp/urban_feedback2_before_20261021.json",
+  "snapshot_files": 696,
+  "declared_existing_files_changed": [
+    "AGENTS.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_category_first_discussion.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_question1_clarification_work_report.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_revision.md",
+    "temp_content/feedback/urban_refinement_feedback.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback2_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback2_work_report.md"
+  ],
+  "outside_snapshot_changes": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "missing_snapshot_files": [],
+  "local_links_and_line_targets_checked": 86,
+  "question_ids": [
+    "UR-C1-Q1",
+    "UR-C2-Q1",
+    "UR-C3-Q1",
+    "UR-C4-Q1",
+    "UR-C4-Q2",
+    "UR-C5-Q1",
+    "UR-C6-Q1",
+    "UR-C7-Q1",
+    "UR-G0",
+    "UR-G1",
+    "UR-G2",
+    "UR-G3",
+    "UR-G4",
+    "UR-G5"
+  ],
+  "candidate_sets_unchanged": true,
+  "candidate_count": 29,
+  "technical_tables_retained_verbatim": true,
+  "former_template_removed_from_active_questions": true,
+  "agents_reporting_block_only": true,
+  "feedback_heading_annotation_only": true,
+  "phase": "Phase B; current categories 1\u20132 proposal rewritten; no scientific candidate selected",
+  "scientific_runs": "none",
+  "errors": []
+}

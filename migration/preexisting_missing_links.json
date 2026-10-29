@@ -1,0 +1,576 @@
+[
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../../temp_content/feedback/feedback.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/temp_content/feedback/feedback.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../../temp_content/feedback/feedback.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/temp_content/feedback/feedback.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "weekly_freeway_control_review_20261002_notes.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/slides/weekly_freeway_control_review_20261002_notes.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../../temp_content/feedback/feedback.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/temp_content/feedback/feedback.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../../temp_content/feedback/feedback.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/temp_content/feedback/feedback.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "weekly_freeway_control_review_20261002_notes.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/slides/weekly_freeway_control_review_20261002_notes.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "resolution": "unique existing target in ancestor context"
+  },
+  {
+    "source": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "target": "../selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "preexisting": true,
+    "recovered_source_target": "/home/zpz/repos/diff_minimal_meso/misc/selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "resolution": "unique existing target in ancestor context"
+  }
+]

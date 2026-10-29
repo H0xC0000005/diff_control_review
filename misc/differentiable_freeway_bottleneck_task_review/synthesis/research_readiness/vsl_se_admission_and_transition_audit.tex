@@ -1,0 +1,333 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,array,booktabs}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large S-E: local admission, causal transitions and an allocation gate}\\[4pt]
+15 October 2026 --- analytical qualification, no traffic experiment
+\end{center}
+
+\textbf{Status.} S-E is the user-selected first qualification direction.
+The common trial constitutive law and the S-E-P/S-E-W allocations below
+are proposals, not approved task equations. Stop at \textbf{S-E-A2}, the
+free-A allocation interpretation. The whole three-part review and Step 3
+remain unfinished. No source theorem is transferred to this node.
+
+\section*{1. Retained interface and a concrete trial state-to-work law}
+
+H1 supplies terminal entrance histories $F_j$ with the accepted common
+constant advice $v\in[v_-,v_+]$. The terminal has length $b$, initially
+empty histories, and no internal lateral source. Put
+\begin{equation}
+ C(v)=\frac{wk_jv}{w+v},\quad
+ P_j(t)=F_j(t-b/v),\quad q_j=P_j-Y_j,\quad N_j=F_j-Y_j,
+ \quad j=A,E,B. \tag{1}
+\end{equation}
+Let $\lambda_j=\dot P_j$ denote eligible arrival rates. B retains
+$Y_B=P_B$ on its independent adequate-service domain. For A/E, let $B(t)$
+denote available shared work, $0\leq B\leq R\leq C(v_-)$.
+Here $B$ is an input to an instantaneous audit, not an externally supplied
+future receiving trace. Its eventual law must be autonomous and causal.
+
+Use mode $m_j=F$ for free/unqueued admission and $m_j=Q$ for a selected
+queued boundary trace. Initially $q_j=0,m_j=F$. An active queue has demand
+$C(v)$; an empty free approach offers $\lambda_j$. The proposed equilibrium
+trace identification is
+\begin{equation}
+ u_j=v\ (m_j=F),\qquad
+ u_j=U(g_j):=\frac{wg_j}{wk_j-g_j}\ (m_j=Q),\quad
+ 0\leq g_j\leq C(v),\quad U(C(v))=v. \tag{2}
+\end{equation}
+An absent free stream's formal $v$ is not a measured speed. Equation (2)
+is an upstream boundary trace, not mean lane speed. Identifying that trace
+with a representative insertion/recovery mark remains an adaptation.
+
+One concrete trial constitutive family is
+\begin{equation}
+ c_A=1,\qquad
+ c_E=1+\delta+\beta\frac{g_A}{C(v)}
+          \frac{\pos{u_A-u_E}}v,\qquad \delta,\beta\geq0,
+ \qquad g_A+c_Eg_E\leq B. \tag{3}
+\end{equation}
+$c_j$ is work per admitted mass. $\delta$ represents immediate maneuver
+work; it may be zero. The additional one-sided term represents harder
+entry when A is faster, weighted by A's actual passing flow. No absent A
+stream produces a mismatch penalty. This is not an empirically identified
+formula or a universal sign theorem. The finite late work and its separation
+from post-entry recovery need physical qualification. $c_A=1$ normalizes
+ordinary current work; it does not forbid a justified A recovery influence.
+
+\newpage
+\section*{2. What is unique inside a selected regime}
+
+Retain the proposed fair-work allocator as a \emph{comparison template}:
+for demands $d_A,d_E$, costs $1,c_E$ and budget $B$, choose minimal $z\geq0$
+such that
+\begin{equation}
+ \min(d_A,z)+\min(c_Ed_E,z)
+   =\min(B,d_A+c_Ed_E),\quad
+ g_A=\min(d_A,z),\quad g_E=\min(d_E,z/c_E). \tag{4}
+\end{equation}
+This is equal work with unused-work redistribution, not Carey's
+demand-proportional R2 or a literature-derived fairness theorem.
+
+When E is free, $u_E=v$ and $c_E=c_0:=1+\delta$ for either A trace.
+Thus (4) has the previously proved unique fixed-input allocation.
+When E is queued, its work offer reaches $B$. Under (4),
+\begin{equation}
+ a:=g_A=\min(d_A,B/2),\qquad x:=B-a,\qquad
+ H_E(g):=g\!\left[c_0+\beta\frac a{C(v)}
+                    \frac{\pos{u_A-U(g)}}v\right]=x. \tag{5}
+\end{equation}
+For a free-A-priority branch with A still served freely, instead take
+$a=\lambda_A\leq B$ and $x=B-a$ in (5).
+In both cases $u_A$ is fixed by that selected A mode and $a$.
+
+A conservative sufficient condition for a unique feasible root is
+\begin{equation}
+ \eta:=1+\delta-\beta(1+v_+/w)>0. \tag{6}
+\end{equation}
+Indeed $U'(g)=w^2k_j/(wk_j-g)^2$ and
+$gU'(g)\leq v(1+v/w)$ on $[0,C(v)]$. On the active positive-part branch,
+\begin{equation}
+ H_E'(g)=c_0+\beta\frac a{C(v)v}
+                  \{u_A-U(g)-gU'(g)\}\ \geq\eta; \tag{7}
+\end{equation}
+off it $H_E'=c_0$. At the kink the continuous function remains strictly
+increasing. Also $H_E(0)=0$ and $H_E(C(v))=c_0C(v)\geq B\geq x$.
+Consequently (5) has exactly one root in $[0,C(v)]$, with
+\begin{equation}
+ \frac{x}{c_0+\beta}\leq g_E\leq\frac{x}{c_0},\qquad
+ 0\leq g_A+g_E\leq B. \tag{8}
+\end{equation}
+Condition (6) is a mathematical sufficient domain, not an approved
+parameter restriction on real traffic. It need not be necessary.
+No parameter is fitted or chosen for a positive control result.
+
+\textbf{Limit check.} With both streams queued under (4), $a=B/2$ and
+$g_E\leq a$. If $\delta=0$, the unique solution is $g_E=a$ with matched
+traces and $c_E=1$. If traces match with $\delta>0$, the mismatch term
+vanishes but the declared maneuver work remains. Recovery may still reduce
+$B$. Comparable speeds do not by themselves prove high total service.
+
+\newpage
+\section*{3. Two allocations and the causal transition rules}
+
+\textbf{S-E-W, immediate cooperation.} Apply (4) in every mode. Free A
+does not have an additional protection rule. Its service can be reduced
+while all E arrivals pass. Both queued streams retain positive service
+when $B>0$.
+
+\textbf{S-E-P, free-A priority then queued cooperation.} While A is empty
+and its free offer fits $B$, put
+\begin{equation}
+ g_A=\lambda_A,\quad
+ g_E=\begin{cases}
+ \min\{\lambda_E,(B-\lambda_A)/c_0\},&m_E=F,\\
+ H_E^{-1}(B-\lambda_A),&m_E=Q.
+ \end{cases} \tag{9}
+\end{equation}
+If A cannot fit $B$, its strict shortfall triggers its queued mode.
+Whenever A is queued, use (4)--(5), including a free E offer if applicable.
+This proposed regime adaptation is not strict A priority in all states:
+with both queues nonempty, A does not consume all available service.
+
+For either allocation the proposed S-E transition semantics are:
+\begin{enumerate}
+\item Test admission in the current free modes. If every empty approach's
+eligible offer is met, keep those approaches free. An alternative queued
+root is not an activation condition.
+\item A strict free-mode shortfall selects the affected queued trace;
+recompute the coupled node and require nonnegative right-hand queue growth
+for a newly active empty queue. In the strict onset examples below, this
+condition holds. No external seed or numerical queue epsilon is used.
+\item While $q_j>0$, evolve $\dot q_j=\lambda_j-g_j$ and
+$\dot Y_j=g_j$. At a true zero hit, test free admission again. Never serve
+unavailable mass. Equality alone does not trigger a new queued branch.
+\item Retain the common recovery history across queue clearance. At load
+jumps use physical right-hand data. Simultaneous events and grazing need
+qualification in the complete coupled law.
+\end{enumerate}
+
+These rules reject the old arbitrary-birth diagnostic: its free work demand
+is $7/10<4/5$, so no activation is available under the constant local inputs.
+That is a local exclusion of the specific delayed births, not a global
+well-posedness theorem. The fixed-regime inverse bound (6) and strict-event
+checks do not prove uniqueness through every coupled switching event.
+
+The distinction between (9) and (4) selects which stream first waits and
+which departure speeds feed later recovery. S-E direction approval does
+not select that allocation, an exact equal-work convention, or (3).
+
+\newpage
+\section*{4. A reachable H1 front exposes the allocation difference}
+
+Reuse the accepted joined H1/T1 algebraic family, in units with its reference
+speed and density equal to one:
+\begin{equation}
+ \begin{gathered}
+ v\in[1,2],\quad w=2,\quad k_j=3,\quad
+ e_0=7/10,\quad a_0=b_0=1/4,\quad\gamma=2,\\
+ R=39/20,\quad R_B=1,\quad b=\ell>0,\quad
+ L_p=\ell+h\log2,\quad L=L_p+b,\quad h>0.
+ \end{gathered} \tag{10}
+\end{equation}
+The existing exact H1 preparation gives front ending density
+$e_f(2)=125/352$. At the first eligible front for $v=2$,
+\begin{equation}
+ C=3,\quad \lambda_E=125/176,\quad
+ \lambda_A=1047/880,\quad\lambda_A+\lambda_E=19/10<R. \tag{11}
+\end{equation}
+The terminal and history are empty, hence $B=R$ for an initially neutral
+continuous recovery account. For this exact static comparison only, take
+$\delta=\beta=1/10$ in (3); these values are not selected task parameters.
+Then $\eta=9/10>0$ and
+\begin{equation}
+ c_0\lambda_E=25/32<R/2,\qquad
+ \lambda_A+c_0\lambda_E-R=37/1760>0. \tag{12}
+\end{equation}
+
+\textbf{S-E-W.} All E arrivals fit their fair-work share. The causal onset
+is A waiting, with
+\begin{equation}
+ g_E=125/176,\quad g_A=187/160,\qquad
+ \dot q_A=37/1760>0,\quad\dot q_E=0. \tag{13}
+\end{equation}
+The queued A trace becomes $374/773$, while free E retains $v=2$ and
+$c_E=c_0$. This is a compatible right-hand regime for the trial law.
+
+\textbf{S-E-P.} Free A first passes its full offer. The free-E test gives
+\begin{equation}
+ g_E^{F}=669/968<125/176,\qquad
+ \lambda_E-g_E^{F}=37/1936>0. \tag{14}
+\end{equation}
+Thus the declared maneuver-work shortfall activates queued E. Its rate solves
+\begin{equation}
+ g\left[\frac{11}{10}+\frac1{10}\frac{1047/880}{3}
+                  \left(1-\frac{g}{6-g}\right)\right]=\frac{669}{880},
+ \quad 5189g^2-33432g+20070=0. \tag{15}
+\end{equation}
+Only
+\begin{equation}
+ g_* =\frac{16716-183\sqrt{5234}}{5189},\quad
+ \frac{2230}{3343}<g_*<\frac{669}{968}<\frac{125}{176} \tag{16}
+\end{equation}
+is feasible. A remains free; E has a strictly positive queue-growth margin.
+The strict inequalities persist locally under continuous histories and
+right-continuous arrival data. This is an H1-reachable local onset check,
+not a time-stepped traffic trajectory or complete cohort result.
+
+\newpage
+\section*{5. A simpler demand-proportional graft fails the mode test}
+
+Carey's R2 and demand-based merge models are important simpler rivals.
+Their native discretization and a properly invariant LTM junction cannot
+be identified with the following naive graft. Test, only for this audit,
+\begin{equation}
+ g_A=\sigma d_A,\quad g_E=\sigma d_E,\quad
+ \sigma=\min\!\left\{1,\frac{B}{d_A+c_Ed_E}\right\},\quad
+ d_j=\begin{cases}\lambda_j,&m_j=F,\\ C,&m_j=Q.\end{cases} \tag{B1}
+\end{equation}
+At the same initially empty H1 front (11), there is no compatible strict
+right-hand mode under these binary demand/trace rules:
+\begin{itemize}
+\item Both free: $\sigma=3432/3469<1$. Both arrivals are restricted,
+so neither empty approach can stay free with zero waiting derivative.
+\item Only A queued: E is free, so $c_E=c_0$ and
+$g_A=936/605>1047/880=\lambda_A$. A's newly active empty queue would
+have a negative derivative. E's free offer is also restricted.
+\item Only E queued: $1.1\leq c_E\leq1.2$ gives
+\begin{equation}
+ g_E=\frac{3B}{\lambda_A+3c_E}
+       \geq\frac{1716}{1405}>\frac{125}{176}=\lambda_E. \tag{B2}
+\end{equation}
+The newly active empty E queue would have a negative derivative.
+\item Both queued: equal mass demands give equal actual flows and hence
+equal congested traces. Thus $c_E=c_0$ and
+\begin{equation}
+ g_A=g_E=\frac{B}{1+c_0}=\frac{13}{14}
+                   >\frac{125}{176}=\lambda_E. \tag{B3}
+\end{equation}
+Again E's newborn queue cannot have that negative derivative.
+\end{itemize}
+The change from an empty demand to the capacity offer immediately alters
+the proportional allocation. Merely saying ``activate the queue on a
+shortfall'' does not complete (B1). A numerical method might alternate
+between branches, but its step must not select a scientific flux law.
+
+This excludes the specific binary-demand graft, not all demand-based
+merging, native R2 or every possible generalized solution. An explicit
+interior-state/selection law would be an additional model. The primary
+LTM source itself distinguishes invariant and non-invariant fair merges
+and gives a stationary counterexample for the latter in section 6.
+Our transient work example is a separate deduction; its proof is not
+attributed to that paper. Neither S-E-P nor S-E-W is declared generally
+invariant or globally well posed on the strength of this test.
+
+\newpage
+\section*{6. Joined implications, proof limits and the stopping gate}
+
+\textbf{Physical interface.} In (10), $M=6\ell/5<3\ell=k_jb$ and
+all H1 entrance rates fit $C(v)$ across $[1,2]$. For any eventual admissible
+departures, the retained finite-terminal vacancy bound gives
+$V_j(t)\geq k_jb-M>0$ after $b/w$; the early-time bound follows as before
+from $\dot F_j\leq C(v)<wk_j$. The handoff protection does not depend
+on which allocation is selected. No point-buffer substitution is made.
+Conservation and complete local TST retain
+\begin{equation}
+ N_j=F_j-Y_j,\qquad
+ J(v)=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E+q_B)dt. \tag{17}
+\end{equation}
+Completed mass leaves once; service memory is not physical stock.
+
+\textbf{Recovery is not closed by the admission check.} The two onsets
+place slow boundary traces in different streams. E-only recovery would
+be neutral at the initial S-E-W onset; that does not prove its whole shared
+account neutral. A's actual slow passage may have a justified continuing
+influence. Neither deleting that influence nor charging every queued A
+departure independently is permitted without qualification. Both allocations
+retain one account, not independent ceilings per past departure.
+
+For orientation, the earlier isolated kernel may be marked by a justified
+actual insertion speed $u$, rather than a fixed E speed. If only a separately
+justified E source were present, a candidate $D(\theta;u)$ would satisfy
+\begin{equation}
+ p_E(t)=m_{\rm ref}^{-1}\!\int_0^tD(t-s;u_E(s))dY_E(s),\quad
+ 0\leq D(\theta;u)\leq D(\theta;0),\quad
+ \int_0^\infty p_E(t)dt\leq\frac{MW(0)}{m_{\rm ref}}. \tag{18}
+\end{equation}
+This is a conditional extension bound, not an adopted E-only meter,
+overlap rule or full M2 proof. If an admitted full account establishes
+$\int(R-B)dt\leq\Lambda$ and $c_E\leq c_{\max}=1+\delta+\beta$,
+either work-conserving allocation clears after last eligibility $t_*=L/v$
+by the previously derived sufficient bound
+\begin{equation}
+ t_*+\frac{c_{\max}(q_A(t_*)+q_E(t_*))+\Lambda}{R}. \tag{19}
+\end{equation}
+No positive service floor or transferred M1 uniqueness proof is used.
+
+\textbf{Evidence disposition.} Proved: unique fixed-regime roots under (6),
+specific causal-onset consistency, rejection of the old spontaneous-birth
+diagnostic, and a reachable local H1 allocation contrast. Retained:
+conditional storage/accounting/clearance interfaces. Not proved: whole-law
+uniqueness through simultaneous/grazing events, the actual joint recovery
+law, complete-cohort MP6, observed merge credibility, an action split or
+gradient usefulness. Conditional scalar reconstruction remains a strong rival.
+
+\textbf{Gate S-E-A2 (Type 2 G3).} Choose whether free A first claims its
+offer until reduced shared service makes it queue (S-E-P), or cooperation
+may slow A from the first conflict (S-E-W). Provisional first qualification:
+S-E-P, retaining S-E-W as a serious comparator. Neither allocation is selected.
+This
+does not reopen S-E versus S-V, H1, the primary demand domain or the local
+objective. The exact trial cost/trace identification remains a hypothesis.
+Stop before selecting the allocation and dependent shared recovery.
+\end{document}

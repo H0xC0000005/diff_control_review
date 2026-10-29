@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-23",
+  "task": "Urban refinement feedback 4",
+  "status": "pass_with_outside_changes_recorded",
+  "snapshot": "/tmp/urban_feedback4_before_20261023.json",
+  "snapshot_files": 745,
+  "declared_existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_response.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_revision.md",
+    "temp_content/feedback/urban_refinement_feedback.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback4_response.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback4_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback4_work_report.md"
+  ],
+  "outside_snapshot_changes": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "missing_snapshot_files": [],
+  "local_links_and_line_targets_checked": 115,
+  "question_ids_unchanged": true,
+  "question_count": 15,
+  "candidate_count": 33,
+  "candidate_sets_preserved_with_C_D_added_to_G3_Q1": true,
+  "classifications_unchanged": true,
+  "declared_dependency_refinement_verified": true,
+  "completion_stage_and_report_tables_retained": true,
+  "feedback_heading_token_only": true,
+  "root_scientific_authorities_and_simulator_preserved": true,
+  "phase": "Phase B, categories 1\u20132; four broad principles settled; concrete coupled laws remain open",
+  "default": "Established lane commitment retained; provisional retargeting deferred",
+  "scientific_runs": "none",
+  "errors": []
+}

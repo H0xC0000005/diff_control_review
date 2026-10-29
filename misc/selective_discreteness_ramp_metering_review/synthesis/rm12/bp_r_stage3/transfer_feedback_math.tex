@@ -1,0 +1,325 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\emergencystretch=3em
+\begin{document}
+\begin{center}
+{\Large Actual transfers on the restriction's own field}\\[4pt]
+8 October 2026 --- analytical continuation and source-time decision
+\end{center}
+\textbf{Conclusion.} Specified one-interval fields close the traffic/receiving/
+transfer/motion/count loop, including a local ramp extension. A nonuniform
+donor exposes two different temporal interpretations of sampled requests.
+No full multi-port numerical construction or useful-gradient result is claimed.
+
+\section*{1. Common units, field and sampled requests}
+Distance is metres, time seconds, and population continuous vehicle-equivalent
+mass. Density $\rho$ has units eq/m; flow $F$ has units eq/s. Use
+\begin{align}
+ F(\rho)&=\min\{u\rho,w(\kappa-\rho)\},&
+ u&=30,& w&=5,& \kappa&=3/20,\\
+ \rho_c&=\frac{w\kappa}{u+w}=3/140,&
+ Q&=u\rho_c=9/14,& L&=30,& T&=1.
+\end{align}
+Each section obeys $\partial_t\rho+\partial_xF(\rho)=0$ away from the
+fixed ports and moving restrictions. Source IT moves from $(i,\ell)$ to
+$(i+1,b)$ once. $\bar\rho_a=n_a/L$ is the donor section's average density;
+$n_a$ is its mass. Native sampled sending/oriented requests are
+\begin{align}
+ S_a&=T\min(u\bar\rho_a,Q)=\min(n_a,QT),\\
+ \theta_{ab}&=\pi_{ab}T\ (b\ne a),\quad
+ \theta_{aa}=1-\sum_{b\ne a}\theta_{ab},\qquad d_{ab}=\theta_{ab}S_a.
+\end{align}
+$d_{ab}$ is desired interval mass, whereas $r_{ab}=d_{ab}/T$ is its nominal
+rate. The source choice rate is $\pi_{ab}=(\bar v_b-\bar v_a)_+/(u\tau)$;
+$\bar v$ denotes the approved past-period lookahead Edie observation, not
+present point FD speed. Hold these choice observations and birth speeds at
+the public clock. Numerical internal events do not introduce new births or
+positive recovery. All records carry zero population.
+
+For a fixed recipient port, its own right trace gives supply
+$R(t)=\min\{w(\kappa-\rho(t,0+)),Q\}$. Donor own traces bound physically
+available sending. Old-record actual speeds use their own one-sided ahead
+traffic and the K.A running-minimum cap. In the examples below, that cap never
+falls below the held desired speeds. Both candidate source-time interpretations
+agree in these examples because donors stay available at the relevant rates.
+
+Let $C(t)=n(0)+\int_0^t q_{\rm in}(s)ds$ be the local count gauge and define
+\begin{equation}
+ N(t,x)=C(t)-\int_0^x\rho(t,y)dy.
+\end{equation}
+Then $N(t,L)$ is cumulative local exit, $N_x=-\rho$, $N_t=F$, and along
+an old record $z(t)$, $dN(t,z(t))/dt=F-\dot z\rho=0$ under zero relative
+passing. These are the counts used below, not independently assigned labels.
+
+\newpage
+\section*{2. Constrained through/lateral entry: exact whole interval}
+Initially the target section has $\rho_c$ throughout. An old zero-passing
+record starts at $z(0)=1$ with held desired speed $s=5$. Own ahead traffic
+is free or vacuum, so $z(t)=1+5t$. Its congested upstream state and flow are
+\begin{equation}
+ \rho_U=\frac{w\kappa}{w+s}=3/40,\qquad q_U=s\rho_U=3/8.
+\end{equation}
+The ordinary shock from $\rho_c$ to $\rho_U$ has speed
+\begin{equation}
+ \sigma=\frac{q_U-Q}{\rho_U-\rho_c}=-5,\quad
+ b(t)=1-5t,\quad t_b=1/5.
+\end{equation}
+The downstream vacuum front is $e(t)=1+30t$, reaching $L$ at $t_e=29/30$.
+For $0<t<t_b$, the own field consists of $\rho_c$ on $[0,b(t)]$,
+$\rho_U$ on $[b(t),z(t)]$, vacuum on $[z(t),e(t)]$, and $\rho_c$ from
+$e(t)$ to the exit when $e(t)<L$. For $t\ge t_b$, the queue starts at zero.
+Thus the derived boundary fluxes, not externally supplied histories, are
+\begin{equation}
+ R(t)=q_{\rm in}(t)=
+ \begin{cases}9/14,&0<t<1/5,\\3/8,&1/5<t<1,\end{cases}
+ \quad
+ q_{\rm out}(t)=\begin{cases}9/14,&0<t<29/30,\\0,&29/30<t<1.\end{cases}
+\end{equation}
+The two sampled donor demands are through $r_1=Q$ and lateral $r_2=Q/3$.
+The lateral donor has choice fraction $1/3$ toward this target and $2/3$
+toward its own next lane. For example $\tau=2$, Edie target observation 30
+and donor observation 10 give this fraction. The fast donor's sampled staying
+fraction is one. These are supplied history inputs; their reached-policy
+origin is not asserted. Both donors start congested, with own sending $Q$.
+IT gives
+\begin{equation}
+ f_1(t)=\tfrac34R(t),\quad f_2(t)=\tfrac14R(t),\quad
+ f_{2\to\mathrm{own}}=\tfrac23Q=3/7.
+\end{equation}
+The parallel recipient starts free at density $1/70$ with free exit, so its
+inflow and outflow are both $3/7$. No second advance is counted. Integrated
+accepted masses and the target state are
+\begin{align}
+ I&=\int_0^1R(t)dt=3/7,& I_1&=9/28,& I_2&=3/28,& O&=87/140,\\
+ n(1)&=9/14+3/7-87/140=9/20,\quad C(1)=15/14,\\
+ z(1)&=6,\quad N(1,6)=15/14-9/20=87/140=N(0,1).
+\end{align}
+The ending field is $3/40$ on $[0,6]$ and vacuum ahead. The native coarse
+step with initial receiving $Q$ would transfer $Q$ mass; the own causal
+field transfers $3/7$. This is the declared receiving adaptation being
+qualified, not a claim of identical coarse-step trajectories.
+
+\newpage
+\section*{3. Donor fields and a fully available receiving case}
+To verify physical donor availability in section 2, start each 30 m donor
+at density $1/10$, with inlet flow $1/4=F(1/10)$. Their downstream flows
+are $f_1(t)$ and $f_2(t)+3/7$. Every flow is below $Q$. The congested
+port density is $\rho^*(f)=\kappa-f/w$. On the congested branch all
+resulting waves travel upstream at $-5$. At $t=1$ each donor has initial
+density on $[0,25]$, first-period port density on $[25,26]$, and final-period
+port density on $[26,30]$:
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Donor & First port density & Final port density & Ending mass\\
+\midrule
+Through & $3/56$ & $3/32$ & $41/14$\\
+Lateral + own through & $9/280$ & $51/1120$ & $19/7$\\
+\bottomrule
+\end{tabular}
+\end{center}
+All port densities are at least $\rho_c$ and below $\kappa$, hence sending
+stays $Q$. Wave positions stay away from the inlet. The masses also equal
+$3+1/4-I_a$, with $I_a=9/28$ and $15/28$. No unavailable mass is debited.
+
+\textbf{Available case.} Use through/lateral rates $3/20$ and $1/10$; total
+$q_0=1/4$. The target starts uniformly at $\rho_0=q_0/u=1/120$, with the
+same old record at 1 m and desired speed 5. Its queue rear moves at
+\begin{equation}
+ \sigma_0=\frac{3/8-1/4}{3/40-1/120}=15/8>0.
+\end{equation}
+Consequently the inlet stays free: $R(t)=Q$, $q_{\rm in}=1/4$, both
+requests are fully served. At the end its field is $1/120$ on $[0,23/8]$,
+$3/40$ on $[23/8,6]$, and vacuum ahead; the original downstream free tail
+has exited. Direct integration and conservation agree:
+\begin{align}
+ I&=1/4,\quad O=(1/4)(29/30)=29/120,\\
+ n(1)&=(1/120)(23/8)+(3/40)(25/8)=31/120,\\
+ C(1)&=1/2,\qquad N(1,6)=29/120=N(0,1).
+\end{align}
+The through donor is uniformly free at density $1/200$ and supplies $3/20$.
+The lateral donor has saturated demand and choice fraction $7/45$, yielding
+lateral $1/10$ and own through $19/35$. With the same $\tau=2$, target
+Edie observation 30 and donor observation $62/3$ produce $7/45$. Its total
+outflow is $Q$; a congested initial field can sustain that with upstream
+waves. Its parallel recipient starts free at $(19/35)/30=19/1050$ and
+receives/exits $19/35$. Both cases honor the separate past-speed convention.
+
+\newpage
+\section*{4. Local ramp, multiple records and sampled births}
+Return to section 2's target. Add a saturated finite ramp. Let its fixed
+priority be illustratively $p=1/3$, unchanged within the calculation.
+Non-ramp total desired rate is $4Q/3$; it includes both through and lateral
+traffic. Ramp demand is $Q$. The approved shared node gives
+\begin{equation}
+ f_r=R/3,\quad f_m=2R/3,\quad
+ f_{\rm through}=R/2,\quad f_{\rm lateral}=R/6.
+\end{equation}
+All three still total $R$; receiving is spent once. Integrated masses are
+$1/7,3/14,1/14$. With 30 m congested donors initially at $1/10$ and
+inlets $1/4$, all resulting port states are congested and admissible.
+Their ending masses are, respectively, $87/28,85/28,11/4$; the lateral
+donor's $11/4$ also debits its parallel through transfer $3/7$.
+The ramp's upstream receiving stays $1/4$ because its downstream waves
+cannot reach the upstream boundary in one second. M.A may supply $1/4$
+there under adequate offered flow and permission. This is compatible upstream
+admission, not a new contemporaneous cap on actual merge entry.
+
+\textbf{A second old record.} Put another zero-passing record at 2 m, with
+held desired speed 15. Its own upstream state is $\rho_{U2}=3/80$.
+Initially its queue rear is $2-5t$, front $z_2(t)=2+15t$, downstream vacuum
+front $2+30t$. The first record's vacuum front meets this queue rear at
+\begin{equation}
+ 1+30t=2-5t\quad\Longrightarrow\quad t_*=1/35.
+\end{equation}
+At that contact, the ordinary vacuum-to-$\rho_{U2}$ shock has speed 15;
+its continuing rear is $b_2(t)=10/7+15t$. Its queue therefore has constant
+length $4/7$ and mass $3/140$ after $t_*$. No passing or coincident-record
+jitter is introduced. The first record stays at speed 5; any encountered
+second queue moves at 15 and does not require slower braking. The second's
+ahead traffic is free/vacuum, so its own cap permits 15. The inlet wave in
+section 2 is unaffected. Exit flow is $Q$ until $14/15$, then zero.
+At the end the target field is
+\begin{equation}
+ \rho(1,x)=\begin{cases}
+ 3/40,&0<x<6,\\3/80,&115/7<x<17,\\0,&\text{elsewhere in }(0,30),
+ \end{cases}
+ \quad n(1)=9/20+3/140=33/70.
+\end{equation}
+Conservation gives $9/14+3/7-3/5=33/70$. The count labels are
+\begin{equation}
+ C(1)=15/14,\quad h_1=N(1,6)=87/140=N(0,1),\quad
+ h_2=N(1,17)=3/5=N(0,2).
+\end{equation}
+All queue and gap masses agree with these counts.
+
+\textbf{Completed E1 attachment.} For illustrative threshold one equivalent,
+past ramp/lateral counters $9/10$ and $19/20$ become $73/70$ and $143/140$.
+Each crosses one threshold; remainders $3/70$ and $3/140$ stay recorded.
+At $t=1$ insert two distinct records at the recipient inlet, both with count
+$N(1,0)=15/14$, retaining request-phase desired speeds (e.g. 5 and 10).
+They add no mass and do not change preceding receiving. The own queue ahead
+has speed 5, so its trace supplies the immediate next-interval cap. Neither
+arbitrary later contact continuation nor section crossings are proved here.
+
+\newpage
+\section*{5. Nonuniform sending: a causal bound and two distinct completions}
+Take a finite ramp approach of length 30 with initial $\rho=3/20$ on
+$[0,3]$ and vacuum on $(3,30)$. Close upstream admission this interval.
+Give its merge ample receiving, with no competing mainline demand; N.A then
+reallocates the unused mainline share. Initial mass is $n_0=9/20$ and
+the source average gives
+\begin{equation}
+ S=T\min(u n_0/L,Q)=9/20.
+\end{equation}
+The ordinary jam-to-vacuum triangular fan has edges $3-5t$ and $3+30t$,
+with critical density between. The first traffic reaches the exit at
+\begin{equation}
+ t_a=(30-3)/30=9/10,\qquad
+ \int_0^1 f(t)dt\le Q(1-t_a)=9/140<9/20.
+\end{equation}
+This bound follows from the own field; an interpolation cannot physically
+deliver the full coarse accepted $S$ in this interval. CTM's original uniform
+internal approximation is not refuted by this comparison.
+
+\textbf{T.A: interval mass ceiling.} Let actual flow be the available own
+flow until total request $S$ is spent, also respecting receiving. Here
+$f_A(t)=0$ before $t_a$ and $Q$ after; the ceiling never binds. Thus
+\begin{equation}
+ I_A=9/140,\quad n_A(1)=9/20-9/140=27/70.
+\end{equation}
+With the closed inlet, the rear fan reaches $x=0$ at $3/5$ s. The ensuing
+vacuum-to-critical rear moves at $u$, reaching $x=12$ at $t=1$. The ending
+field is $\rho_c$ on $[12,30]$, vacuum before. Its mass is $(18)(3/140)=27/70$.
+
+\textbf{T.B: held nominal request rate.} Impose additionally $f_B\le S/T$,
+while never exceeding own availability. Here $f_B=0$ until $t_a$, then
+$9/20$ instead of $Q$. Its own outlet queue state is
+\begin{align}
+ \rho_B^*&=\kappa-(S/T)/w=3/50,\quad
+ I_B=(9/20)(1/10)=9/200,\\
+ n_B(1)&=9/20-9/200=81/200.
+\end{align}
+The queue rear travels at $-5$ from the exit after $t_a$; it reaches
+$x=59/2$ at $t=1$. The ending field is $\rho_c$ on $[12,59/2]$ and
+$3/50$ on $[59/2,30]$, with vacuum before. Its mass is exactly $81/200$.
+Both completions are conservative, causal and jam-bounded; the second has
+an additional nominal-rate constraint. They differ by $27/1400$ mass.
+An initially empty 30 m recipient with free exit contains the transferred
+traffic on $[0,3]$ at the ending clock: density $3/140$ under T.A or $3/200$
+under T.B. Its mass is respectively $I_A$ or $I_B$, with no exit yet. Thus
+these are paired completed merge entries, not merely donor debits.
+
+For an eligible actual ramp-entry counter initially $H_0=47/50$, E1 yields
+\begin{equation}
+ H_A(1)=703/700>1,\qquad H_B(1)=197/200<1.
+\end{equation}
+T.A creates one next-clock effect (remainder $3/700$), whereas T.B creates
+none. This is an operator diagnostic of the approved birth threshold, not
+an optimized-control witness or a proposal to manufacture hidden information.
+
+\newpage
+\section*{6. Why the mass ceiling is natural, and what it does not settle}
+For a section with $L=uT$, all upstream-port admissions strictly after the
+current clock need at least $T$ to traverse its full length because actual
+forward speeds do not exceed $u$. They cannot leave this section within the
+same regular interval. Lane transfers also enter its upstream port. With
+conservation and ordinary stationary-port capacity $Q$,
+\begin{equation}
+ \text{actual total outgoing mass}\le \min\{n(0),QT\}=S.
+\end{equation}
+This excludes interior sources and zero-length shortcuts, neither of which
+is approved here. It supports T.A's total sending ceiling without requiring
+a second held rate. It does not assign exact movement-specific allowances
+under selective target blockage: $d_{ab}=\theta_{ab}S_a$ still needs
+explicit unspent-claim accounting, donor joint availability and target
+competition. A naive repeated use of instantaneous choice fractions may
+retry the same traffic and exceed a movement's sampled desired mass.
+
+For T.A, proposed numerical claim state is
+\begin{equation}
+ b_{ab}(t)=d_{ab}-\int_0^t f_{ab}(s)ds\ge0.
+\end{equation}
+It is not extra population or a vehicle identity. The common constraints
+include $\sum_b f_{ab}\le D_a^{\rm own}$, target shared receiving, and zero
+flow when its claim is exhausted. N.A and IT competition must have a declared
+meaning while positive claims are temporarily unavailable or become depleted.
+Those constraints alone do not define the full multi-port allocation. T.B
+instead holds $r_{ab}=d_{ab}/T$ as nominal rates, additionally reducing them
+for unavailable donor traffic or constrained receiving; it likewise needs a
+qualified shared-port transcription. No new upstream control is proposed.
+
+The methods differ at finite public resolution. Their relation to the
+source's approximation/refinement and their coupled motion/birth histories
+must be qualified, not asserted from dimensional conversion. Because they
+change those histories, Q.J.F.T is a shared methodological choice rather
+than a private solver setting. T.A is provisionally preferred, not adopted.
+
+\section*{7. Primary basis and evidence limits}
+Laval and Daganzo (2006), \emph{Lane-changing in traffic streams},
+sections 2.1--2.2, equations 5--13 and footnote 2, supplies desired sampled
+advancing masses, Edie observations and IT. Its original numerical/source
+recipe is not claimed to prove the present adaptation.
+
+Jin, arXiv:0810.3952v2, sections 3--5, distinguishes discrete local merge
+fluxes and continuous Riemann solutions. Interior states can represent the
+limit; section 4.1 proves the fixed-priority flux's invariance. A simple
+two-incoming-road theorem does not establish the present oriented multilanes.
+No new priority is inferred for IT from that theorem.
+
+\href{https://doi.org/10.1016/j.trb.2005.04.003}{Lane-changing journal DOI}
+\quad
+\href{https://arxiv.org/pdf/0810.3952}{Continuous merge primary manuscript}
+
+The examples use admissible specified initial/history state; no reached
+public scenario, arbitrary contact/crossing solver, clearance, full TST or
+useful gradient is inferred. The four-step pass stops at Q.J.F.T. A complete
+qualified finite construction can still meet Q.J.F without a universal
+continuum existence theorem. Existing M.A/N.A/G1/E1/K.A remain approved;
+representation A1/A2/C and the complete law remain unadopted. Stage 4 unopened.
+\end{document}

@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\setlength{\emergencystretch}{2em}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ve}{\text{veh-eq}}
+\begin{document}
+\begin{center}
+{\Large VSL objective: what the symbols mean and why the formula holds}\\[0.4em]
+2 October 2026 --- explanation of the accepted analytical contract
+\end{center}
+
+\section*{1. The quantity being minimized}
+Yes: the VSL slide's \(J\) is \textbf{mean complete time per unit traffic mass}.
+If \(\mathcal T\) is total system time for the affected cohort, then
+\[
+ J=\frac{\mathcal T}{M}
+   =\tau+\frac{M+(\alpha-1)e(\tau)}{2\mu},
+ \qquad \tau=\frac{L}{v},\qquad e(\tau)=pM\exp(-\lambda\tau).
+\]
+It includes travel through the preparation zone and all subsequent time until
+exit from the modeled choke. It is neither the time of the last departure nor
+merely a queue-delay score relative to a free-flow baseline.
+
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.675\textwidth}p{0.14\textwidth}@{}}
+\toprule
+Symbol & Meaning & Units\\
+\midrule
+\(M\) & Total continuous vehicle-equivalent mass in the cohort. & \(\ve\)\\
+\(p\) & Initial fraction of that mass in the lane that ends. & dimensionless\\
+\(L,v\) & Preparation-zone length and common advice speed. The chosen branch assumes travel at this speed. & km; km/h\\
+\(\tau\) & Common preparation-zone traversal time. & h\\
+\(\lambda\) & Fixed fractional transfer rate from ending to continuing lanes. & h\(^{-1}\)\\
+\(e(\tau)\) & Mass still in the ending lane when the cohort reaches the choke; it still needs to merge. & \(\ve\)\\
+\(c(\tau)\) & Mass already in continuing lanes: \(M-e(\tau)\). & \(\ve\)\\
+\(\alpha\) & Receiving work per unit residual merging mass, relative to one unit for continuing-lane mass. \(\alpha>1\). & dimensionless\\
+\(W\) & Total receiving workload: \(c+\alpha e\). & work\\
+\(\mu\) & Constant available receiving-work rate, not a fixed vehicle exit rate. & work/h\\
+\(T\) & Time to discharge the batch after arrival: \(W/\mu\). & h\\
+\(\mathcal T,J\) & Total cohort system time; that total divided by \(M\). & \(\ve\cdot\)h; h\\
+\bottomrule
+\end{tabular}
+
+The work unit is normalized so ordinary continuing-lane mass uses one unit per
+vehicle-equivalent. \(\alpha\) is the \emph{total} merge-work multiplier;
+\(\alpha-1\) is its extra part. Neither creates extra vehicles.
+\(e(\tau)\) names a mass; \(\exp\) denotes the exponential function.
+All units may instead use seconds, provided rates and speeds are converted
+consistently. The derivative holds \(M,p,L,\lambda,\alpha,\mu\) fixed.
+
+\newpage
+\section*{2. Why travel time plus half the clearance time?}
+\textbf{First, the action changes what remains to merge.}
+The admitted fixed transfer branch satisfies
+\[
+ \frac{\dd e}{\dd t}=-\lambda e,
+ \qquad \frac{\dd c}{\dd t}=+\lambda e,
+ \qquad e(0)=pM.
+\]
+Paired transfer conserves \(e+c=M\). Longer traversal gives more opportunity
+for early transfer, leaving \(e(\tau)=pM\exp(-\lambda\tau)\) at the choke.
+Preparation-zone receiving is assumed nonbinding on this branch.
+
+\textbf{Second, remaining merging mass costs additional receiving work.}
+Continuing-lane mass costs one work unit; remaining merging mass costs
+\(\alpha\). Hence
+\[
+ W=c+\alpha e=(M-e)+\alpha e=M+(\alpha-1)e,
+ \qquad T=\frac{W}{\mu}.
+\]
+The continuing lanes do not bypass the scarce receiving resource. Both classes
+consume it, under homogeneous proportional batch service. Their exit rates are
+\[
+ q_c=\frac{\mu c}{W},\qquad q_e=\frac{\mu e}{W},\qquad
+ q=q_c+q_e=\frac{\mu M}{W}=\frac{M}{T},\qquad
+ q_c+\alpha q_e=\mu.
+\]
+The last identity is work accounting; actual exiting mass is \(q\), not
+\(\mu\). The homogeneous rule preserves composition as the batch drains.
+
+\textbf{Third, integrate the traffic still in the system.}
+In this analytical reduction all mass starts together at time zero, travels
+for \(\tau\), then becomes a batch at the choke. If \(N(t)\) is remaining
+cohort mass and \(u\) is time since batch arrival,
+\[
+ N(t)=M\quad(0\le t<\tau),\qquad
+ N(\tau+u)=M\left(1-\frac{u}{T}\right)\quad(0\le u\le T).
+\]
+The area is a rectangle during travel followed by a triangle during discharge:
+\[
+ \mathcal T=\int_0^{\tau+T}N(t)\dd t
+   =M\tau+\int_0^T M\left(1-\frac{u}{T}\right)\dd u
+   =M\tau+\frac{MT}{2}.
+\]
+Dividing by \(M\) gives
+\[
+ \boxed{J=\tau+\frac{T}{2}
+ =\underbrace{\tau}_{\text{travel}}
+ +\underbrace{\frac{M}{2\mu}}_{\text{ordinary batch discharge}}
+ +\underbrace{\frac{(\alpha-1)e(\tau)}{2\mu}}_{\text{additional merge work}}.}
+\]
+The factor \(1/2\) is a consequence of linear discharge, \emph{not} a universal
+queueing identity. The last mass exits at \(\tau+T\); the mean is \(\tau+T/2\).
+Common action-independent prefix or downstream time can be added as a constant.
+
+\textbf{Illustration, not calibration.} With \(M=100\) veh-eq,
+\(e=20\) veh-eq, \(\alpha=2\), \(\mu=10\) work/s and \(\tau=30\) s,
+\(W=120\) work and \(T=12\) s. Thus \(J=36\) s and
+\(\mathcal T=3600\) veh-eq\(\cdot\)s; the last departure is at 42 s.
+
+\newpage
+\section*{3. Deriving and interpreting the speed derivative}
+Suppressing the fixed hidden-state index, the complete dependence on the action
+is
+\[
+ v\longrightarrow\tau(v)=L/v
+ \longrightarrow e(\tau)=pM\exp(-\lambda\tau)
+ \longrightarrow W\longrightarrow J.
+\]
+\textbf{Step 1: differentiate remaining merging mass with respect to time.}
+\[
+ \frac{\dd e}{\dd\tau}=-\lambda e(\tau).
+\]
+\textbf{Step 2: differentiate the mean-time objective with respect to time.}
+Since \(M,\alpha,\mu\) are fixed,
+\[
+ \frac{\dd J}{\dd\tau}
+ =1+\frac{\alpha-1}{2\mu}\frac{\dd e}{\dd\tau}
+ =1-\frac{(\alpha-1)\lambda e(\tau)}{2\mu}.
+\]
+\textbf{Step 3: convert traversal-time sensitivity to speed sensitivity.}
+\[
+ \frac{\dd\tau}{\dd v}=-\frac{L}{v^2},\qquad
+ \boxed{\frac{\dd J}{\dd v}
+ =\frac{\dd J}{\dd\tau}\frac{\dd\tau}{\dd v}
+ =-\frac{L}{v^2}\left[1-
+ \frac{(\alpha-1)\lambda e(\tau)}{2\mu}\right].}
+\]
+Equivalently, direct differentiation gives
+\(\dd e/\dd v=\lambda e L/v^2>0\): faster advice leaves more mass to merge
+at the choke. The cost derivative is the negative travel-time derivative
+plus the positive receiving-work derivative.
+
+\textbf{What the bracket means.} An additional second of preparation time
+costs one second of mean travel time. To first order, it transfers
+\(\lambda e\) additional mass per unit time and saves
+\((\alpha-1)\lambda e/(2\mu)\) units of mean choke time per unit preparation time.
+\begin{itemize}
+\item If this saving is less than one, travel cost dominates:
+\(\dd J/\dd\tau>0\), \(\dd J/\dd v<0\). Increasing speed locally helps.
+\item If the saving exceeds one, merge-work relief dominates:
+\(\dd J/\dd\tau<0\), \(\dd J/\dd v>0\). Reducing speed locally helps.
+\item Equality is the interior stationary condition, if reached within the
+allowed speed interval. Since
+\(\dd^2J/\dd\tau^2=(\alpha-1)\lambda^2e/(2\mu)>0\), it is the unique
+minimum in traversal time. Otherwise the relevant boundary action is optimal.
+\end{itemize}
+Hidden \(p\) changes \(e\) and therefore this marginal balance. It is an
+initial-state property, not a variable changed by the controller.
+
+\textbf{Scope.} This derivative is exact for the stated analytical member:
+constant parameters, nonbinding preparation transfer, a common traversal time,
+homogeneous proportional discharge and fixed active branch. Uneven batch
+composition, staggered arrivals, changing receiving, or speed-dependent
+transfer/service parameters require recomputing the population-time integral
+and derivative. This explanation does not amend the closed contract.
+
+\textbf{A notation issue in the deck.} The ramp slide's \(J=\int_0^T P(t)\dd t\)
+is \emph{total} system time. The VSL \(J\) here is \emph{mean} time. For a fixed
+total affected mass \(M_0\), the ramp mean and its derivative are obtained by
+dividing both total quantities by \(M_0\). With fixed mass this does not change
+optimal actions or gradient signs. The slides now label this distinction.
+
+\small Source: accepted \texttt{s13\_m2\_model\_contract.tex}, Sections 3--6;
+\texttt{s13\_m2\_certificate\_analysis.tex}, gradient section. The exponential
+law and batch reduction are analytical review assumptions, not a calibrated
+combined literature model.
+\end{document}

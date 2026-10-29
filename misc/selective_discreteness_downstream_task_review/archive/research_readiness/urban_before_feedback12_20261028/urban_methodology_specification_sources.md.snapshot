@@ -1,0 +1,113 @@
+# Consolidated urban model: sources, definitions and coverage
+
+28 October 2026. Feedback 11 authorizes the first accumulated report revision: parallel two-feeder/three-stop-line-lane geometry, causal explanations before equations and plain language for research colleagues. The current main report and companion describe the same model. The VSL section order remains; alternative structures are proposed separately. This is a written methodology, not implementation or empirical validation.
+
+[Compact report](../../reporting/research_readiness/urban_compact_methods_report.pdf)
+
+[Detailed specification](../../reporting/research_readiness/urban_methodology_specification.pdf)
+
+[Specification source](../../reporting/research_readiness/urban_methodology_specification.tex)
+
+[Archived previous candidate and source map](../../archive/research_readiness/urban_methodology_before_feedback10_application_20261027/README.md)
+
+## How processing and physical order now fit together
+
+The unassigned input record governs allocation-server processing. The blocked-movement set prevents later traffic of that movement from overtaking its residual; other movements are considered. Only actually admitted amounts update lane load and membership. At a physical occupied lane, the access predicate additionally prevents passage past a resident blocker.
+
+The representative geometry is U to parallel F1/F2, F1 to left-only B and through-only T1, and F2 to shared through/right T2. The bay opening and corresponding cross-section stay inside the local zone. Through traffic chooses feeders on actual admission using their current local loads and feasible room. Resident traffic cannot switch feeders; a blocked F1 head does not close independent F2. Section ownership, propagation, source priority and route identity remain explicit. This is the user-requested geometry extension, not a native literature theorem.
+
+The ready list uses eligible mass A; sending S is a total transfer budget. At an independently accessible pool, truncating candidates to the first S mass would reintroduce the rejected cross-movement blocking. M1's prefix extraction is therefore explicitly adapted at unassigned pools. Physical lanes still serve prefixes. Retained cohorts preserve eligibility provenance, and past departures were all already eligible, so scalar ready-residual mass remains delayed entrance minus cumulative exit.
+
+This applies processing order and physical lane order without choosing a new lane-change mechanism or permitting cross-feeder overtaking. The former open point is resolved at the definition level. It still needs implementation conformance evidence later.
+
+## Presentation and equation preservation
+
+The user's exact [VSL reference PDF](../../reporting/research_readiness/vsl_compact_methods_report.pdf) is used for exposition and typography only. Its SHA-256 is 5c7e81bb15d2b64b3094926c0c153775eae8ba08b62213a776428d85a5dde960 and it exactly matches the canonical VSL report whose retained TeX was inspected.
+
+The urban main report now follows: research questions; concrete task and global assumptions; traffic model in causal order; information/decision tests and complete objective; complete sensitivity. Compact headings, assumption bullets, adjacent source credit and numbered references follow the example. The three research-question headings reorganize existing urban aims rather than opening a new policy batch.
+
+The 27 October presentation revision promoted existing equations into the main report. Feedback 11 now preserves all 18 main labels and their equation blocks byte-for-byte. The companion retains 27 equation blocks unchanged and changes only eq:geometry to the two-feeder layout. Its permissions, example movements and access prose are synchronized. Every main display now has a preceding causal explanation; V and lambda are defined as admitted mass and a queue-load filling level. No VSL traffic assumptions, speed-response family, recovery state, scalar information ladder or scalar-search choice is imported.
+
+## Equation/source map
+
+Labels refer to the current detailed specification. “Inherited” means checked against the approved repository transcription, without claiming a fresh full reproduction of its original literature basis.
+
+| Current labels / definition | Origin | Status and limits |
+|---|---|---|
+| eq:action | [Accepted task](../../synthesis/experiment_formulation.md), [T6/T7 authority](urban_authority_and_gap_audit.md), [four-group suite](../../synthesis/primary_green_allocation_suite.md) | Accepted effective-service action with physical capacity reconciliation; numerical values later. |
+| eq:geometry; representative permissions | [Internal geometry](../../temp_content/research_readiness/coupled_lane_access_and_service_discussion.md), [feedback 10](../../reporting/research_readiness/urban_feedback10_response.md) | Feedback 11 extends the internal geometry to U→F1/F2, F1→B/T1, F2→T2. Left is bay-only; T1 is through-only; F2/T2 share through/right. Source: user geometry request and [recorded realization](../../temp_content/research_readiness/approach_geometry_review.md). Same permissions across matched models and V2/V3 cases. |
+| eq:history, eq:sending, eq:receiving | [M0 component 0.2](../../../../docs/milestones/milestone_0_ltm_baseline.md), [actual LTM](../../../../src/diff_minimal_meso/ltm.py) | Inherited boundary interpolation and limits; internal section composition declared; compatible delay/timestep domain explicit. |
+| Route ownership, canonical compatible cohorts, eq:grid | [Project invariants](../../../../PROJECT_CONTEXT.md), [M1](../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md), [M2 contracts](../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md) | Route/rank/merge principles inherited. No future-lane vector for unadmitted mass. Exact-compatible serialization must preserve behavior. |
+| Eligible-pool non-prefix selection | User's link-order/server-order distinction and [feedback 10](../../reporting/research_readiness/urban_feedback10_response.md); M1 timing/ledger basis | Explicit urban adaptation, not current M1 implementation. Scan all ready candidates up to total S; preserve within-movement priority and original residual provenance. |
+| eq:allocation, eq:allocation-update | [Progressive allocation](../../reporting/research_readiness/urban_feedback7_amendment_response.md), [capability-aware direction](../../reporting/research_readiness/urban_feedback9_response.md), feedback 10 | Defined-here transcription of agreed ideal balancing and actual-admission commitment. Unique convex allocation vector. Update h by x only; no waiting-target derivative or phantom stock. |
+| eq:physical-access | [Selected real common-feeder blockage](../../reporting/research_readiness/urban_feedback6_response.md), exact realized-lane order, topology | Explicit access predicate: no earlier physical residual may be passed on one lane. Independent access requires actual paths; movement labels alone are insufficient. |
+| eq:receiving-rate | Feedback 10 Q5 | Selected constant average receiving convention; not a theorem that instantaneous physical supply is uniform. |
+| eq:leg-sharing, eq:lane-sharing, eq:head-time | [Current-ready-head agreement](../../temp_content/research_readiness/receiving_priority_timing.md), elapsed-service selection | Capped leg-weighted/within-leg-equal reuse, then head/quota events. Sequential head dependencies retained; no interval-total compensation. |
+| eq:head-example | Direct calculation from the elapsed law in V1 | Shared left/through diagnostic, not representative T1 left permission. Derived one-step amount and local response, not complete-TST benefit or numerical-gradient evidence. |
+| eq:state-update, eq:storage-bound, eq:mass-identity | Cumulative updates, paired transfers, compatible timestep | Derived storage/route/population feasibility reasoning; pending mass counted only at its actual owner. |
+| eq:entry-time | [M1 reconstruction](../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md), [actual ledger timing](../../../../src/diff_minimal_meso/ledger.py) | Affine boundary reconstruction adapted to selected admission subsequences. No new propagation-event knots. Macro outgoing records use interval-start/input-leg/lane/cohort order for serialization only, without granting traffic priority; there is no later controlled junction here. |
+| eq:allocation-derivative, eq:scan-derivative | Calculus of current allocation and residual updates | Actual-admission chain; upper/lower/free and zero/fully capped cases explicit. No unselected old-target sensitivities. |
+| eq:sharing-derivative, eq:service-derivative | Calculus of current capped sharing and head intervals | Includes head-duration response; empty free sets use cap branches, not division by zero. Fixed-signature/directional scope only. |
+| eq:eligibility-derivative, eq:entry-derivative | Affine segment and quotient calculus | Includes control-dependent mass/timing provenance; zero-flow/point cases explicit, without epsilon repairs. |
+| eq:tst | [Accepted total-time task](../../synthesis/experiment_formulation.md), [actual objective](../../../../src/diff_minimal_meso/objectives.py) | Inherited source-available plus road-occupancy quadrature; it is not an exact integral of every possible substep profile. |
+| eq:state-sensitivity, eq:exit-objective | Chain rule, current update and whole-population conservation | Continued response through fixed clearance; sink-exit identity independently checks accounting. Common horizon must clear the local action neighbourhood. |
+| eq:reference-action | Common external-test obligation; official [signals](https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html) | Nominal fixed-cycle mapping retained; actuator admissibility, calibration and switch convention qualified later. No exact waveform equivalence claimed. |
+| Reference population time | Official [TripInfo](https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html) | Duration plus departure delay for the complete master population; no completed-only omission or duplicate waiting-time charge. |
+
+The compact report's five labels map as follows: eq:compact-action to eq:action; eq:compact-allocation to eq:allocation; eq:compact-service to eq:head-example; eq:compact-tst to eq:tst; eq:compact-chain to eq:state-sensitivity.
+
+Additional compact labels are presentation copies of the existing detailed laws:
+
+| Compact-report label | Existing detailed source |
+|---|---|
+| eq:compact-sending | eq:sending |
+| eq:compact-receiving | eq:receiving |
+| eq:compact-leg-sharing | eq:leg-sharing |
+| eq:compact-lane-sharing | eq:lane-sharing |
+| eq:compact-head-time | eq:head-time |
+| eq:compact-update | eq:state-update |
+| eq:compact-entry | eq:entry-time |
+| eq:compact-allocation-derivative | eq:allocation-derivative |
+| eq:compact-sharing-derivative | eq:sharing-derivative |
+| eq:compact-service-derivative | eq:service-derivative |
+| eq:compact-entry-derivative | eq:entry-derivative |
+| eq:compact-objective-derivative | eq:exit-objective |
+| eq:compact-domain | Physical parameter/timestep domain restated from detailed specification section 2. |
+
+
+The approved M0 record attributes its backbone to Yperman (2007) and UNsim v0.12.0, commit 5c396357cc540f2433c3e33689b415b1df1f6e79. This consolidation checks local approved equations/code; it does not newly reproduce those full original sources. Neither Gong nor another paper is credited with the whole new urban scan/access operator.
+
+## Native rival and evidence limits
+
+[Native-rival source record](urban_aggregate_rival_source_notes.md)
+
+[Closed selection policy](../../temp_content/research_readiness/aggregate_rival_questions.md)
+
+The B1 working source remains [Wei et al., arXiv v2](https://arxiv.org/html/2310.12249v2), section 2. The B2 working direction retains [Gong et al.](https://www.sciencedirect.com/science/article/pii/S0191261525000578) with a sourced storage/access adaptation, for which [Liu–Chang (2011)](https://attap.umd.edu/wp-content/uploads/2022/05/TRC522.pdf) remains a candidate.
+
+These are working sources, not qualified current implementation instances. No full native algorithm reproduction or theorem transfer to a new bay-entry composition is claimed. The source-specific causal, storage/signal and notation qualifications in the existing notes still apply. Feedback 8 permits implementation-dependent instantiation later. Strong legal macro inference remains eligible.
+
+The earlier exclusive-target mixture ablation remains unselected and archived. Changing the representative permissions does not qualify or resurrect that comparator: the new topology also has parallel through access. The agreed native baseline policy remains; no weaker benchmark is introduced.
+
+The current checks are exact local arithmetic and definition-level reasoning. The previous sixteen hand checks belong to the earlier consolidated report and are not rerun or relabeled as validation of the new topology. The changed F1/F2 access example, feasible receiving values, mass accounts and through-feeder balancing are checked directly in this revision. There is no simulator, AD/finite-difference, optimization or SUMO experiment in this consolidation. Forward correctness, derivative correctness and external usefulness still require separate evidence.
+
+## Current coverage of the completion standard
+
+| Criterion | Consolidated result | Limit retained |
+|---|---|---|
+| U1–U2: task/world | Fixed task and representative F1/F2 geometry/permissions; disjoint ownership, route state, eligibility and numerical domain explicit | Numerical geometry/FD calibration and complete scenario-bank values later. |
+| U3–U4: evolution/interfaces | Actual-admission allocation, movement-specific residual scan, physical-lane access, elapsed service and endpoint histories form one update | Written realization for review; production implementation and conformance evidence are not supplied. |
+| U5: objective | Full source/road population, fixed continuation, clearance domain and sink-exit identity explicit | Numerical horizon qualification and noncompletion handling need later execution. |
+| U6: provenance | All current labels and consequential adaptations mapped above | Primary native implementation qualification remains distinct from citation. |
+| U7: comparisons | Same physical task, model-owned fine-to-macro conversion, conditioning protocols and common reference mapping/accounting | Exact native B1/B2 adapters, schedules/calibration and program values remain implementation-dependent as agreed. |
+| U8: sensitivity | Current local branches, sequential residual effects, timing response and full cost composition given | Numerical derivative correctness, kinks and usefulness remain evidence tasks. |
+| U9: joined checks | Explicit scan/access, partial-entry, mass/storage, service and objective hand checks; uniqueness/neutral-domain reasoning | No empirical validation or implementation tests are claimed. |
+| U10: explanation | Peer-facing traffic explanations precede every main equation; solver variables and examples are explicit; VSL section order retained | User review of the consolidation is still needed. |
+
+The policy question set is closed. The mathematical transcription and its limits are now reviewable without inventing a waiting-target rule or confusing processing with physical lane access.
+
+[Feedback-11 response](../../reporting/research_readiness/urban_feedback11_response.md)
+
+[Structural alternatives, proposals only](../../temp_content/research_readiness/report_structure_options.md)
+
+[Pre-feedback-11 report and source archive](../../archive/research_readiness/urban_before_feedback11_20261028/README.md)

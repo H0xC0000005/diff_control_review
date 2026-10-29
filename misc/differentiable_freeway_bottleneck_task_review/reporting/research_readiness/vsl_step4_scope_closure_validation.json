@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "scope": "New second feedback-11 heading: Step 4 closure amendment only",
+  "step4_status": "closed under user-amended task-definition/reporting scope",
+  "formal_step3_acceptance": "separate recorded pending entry preserved",
+  "modified_existing_package_files": [
+    "README.md",
+    "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "vsl_successor_00_opening_plan.md"
+  ],
+  "added_package_files": [
+    "reporting/research_readiness/vsl_step4_scope_closure_response.md",
+    "reporting/research_readiness/vsl_step4_scope_closure_validation.json"
+  ],
+  "deleted_files": [],
+  "protected_existing_package_files_unchanged": 486,
+  "accepted_report_hashes": {
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf": "5c7e81bb15d2b64b3094926c0c153775eae8ba08b62213a776428d85a5dde960",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex": "3415847b5fb39032d6985e998e00920fbd7520ab856222a9cec67a3c05703319"
+  },
+  "local_links_checked": 566,
+  "local_heading_targets_checked": 22,
+  "link_errors": [],
+  "feedback_only_new_heading_answered_token": true,
+  "earlier_report_amendment_heading_and_items_preserved": true,
+  "protected_root_files_unchanged": [
+    "AGENTS.md",
+    "PROJECT_CONTEXT.md",
+    "PLANS.md",
+    "memo.txt"
+  ],
+  "equations_model_semantics_or_evidence_claims_changed": false,
+  "scientific_tests_experiments_installations_or_pdf_rebuild": false,
+  "next_task_started": false,
+  "command": "python3 /tmp/vsl_step4_scope_checks.py",
+  "snapshot": "/tmp/vsl_step4_scope_before.json"
+}

@@ -1,0 +1,244 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.78in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,xcolor,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+
+\title{S07 reachable near-drop preparation analysis}
+\author{Documentary and analytical review artifact}
+\date{29 September 2026}
+
+\begin{document}
+\maketitle
+
+\section{Question and claim boundary}
+
+The accepted task is a $2{,}400\unit{m}$ three-lane approach followed by a
+three-to-two lane reduction.  Common desired-speed advice applies on
+$[800,2000]\unit{m}$; the hidden-lane contrast is required in the final
+$400\unit{m}$, $R=[2000,2400]\unit{m}$, immediately before the narrowing.
+The preparation starts from an empty road and the strong lane-blind channel
+retains complete spatial count, density, mean-speed, cumulative-count, source-
+waiting, and advice histories through decision time.
+
+This analysis asks when a nontrivial contrast can reach $R$, how a small
+outcome-blind bank can avoid obvious insertion confounding, and why exact
+aggregate-history equality still cannot be certified without a native reference
+run.  It does not supply such a run, approve revised settings, or establish that
+lane information changes useful advice.
+
+\section{Arrival bounds}
+
+Let the default base insertion put a $5\unit{m}$ vehicle's front at
+$x_0=5\unit{m}$.  Define
+\[
+x_z=800\unit{m},\qquad x_R=2000\unit{m},\qquad
+v_{100}=\frac{100}{3.6}=27.7778\unit{m/s},\qquad
+v_{95}=\frac{95}{3.6}=26.3889\unit{m/s},
+\]
+where $95\unit{km/h}$ is the nominal free speed induced by baseline advice
+$90\unit{km/h}$ and response gain $0.5$.  The declared acceleration is
+$a=2.6\unit{m/s^2}$.
+
+Two strict kinematic screens ignore all safety, interaction, insertion, and
+advice delays.  Instantaneous travel at $v_{100}$ gives
+\[
+\tau_{\mathrm{inst}}=\frac{x_R-x_0}{v_{100}}=71.8200\unit{s}.
+\]
+Starting from rest, accelerating to $v_{100}$, and then maintaining it gives
+\[
+\tau_{\mathrm{acc}}=\frac{v_{100}}{a}+
+\frac{x_R-x_0-v_{100}^2/(2a)}{v_{100}}
+=77.1619\unit{s}.
+\]
+These reproduce S06's robust exclusion of the $40\unit{s}$ and $60\unit{s}$
+decisions.
+
+For planning rather than proof, two nominal free-flow travel times respect the
+$95\unit{km/h}$ advice-zone speed.  Insertion at desired freeway speed gives
+\[
+\tau_{\mathrm{des}}=
+\frac{x_z-x_0}{v_{100}}+\frac{x_R-x_z}{v_{95}}
+=74.0937\unit{s}.
+\]
+Insertion from rest, acceleration to $v_{100}$ before $x_z$, and nominal
+$v_{95}$ travel through the advice zone gives
+\[
+\tau_0=\frac{v_{100}}{a}+
+\frac{x_z-x_0-v_{100}^2/(2a)}{v_{100}}
++\frac{x_R-x_z}{v_{95}}=79.4356\unit{s}.
+\]
+The latter is not a guaranteed upper bound: following, insertion delay, lane
+changing, and downstream interaction can make travel later.
+
+After $x_R$, advice no longer lowers desired speed.  Nominal acceleration from
+$v_{95}$ to $v_{100}$ gives a region residence estimate
+\[
+\delta_R=\frac{v_{100}-v_{95}}{a}+
+\frac{400-\tfrac12(v_{95}+v_{100})(v_{100}-v_{95})/a}{v_{100}}
+=14.4134\unit{s}.
+\]
+
+\section{Demand transition and nominal region population}
+
+For intended departure times $d_i$, a free-flow population screen is
+\[
+N_R(T;\tau,\delta_R)=
+\sum_i \mathbf{1}\{T-\tau-\delta_R<d_i\leq T-\tau\}.
+\]
+The fixed demand schedule has $4\unit{s}$ headway from $0$ to $120\unit{s}$
+($900\unit{veh/h}$), then $8/9\unit{s}$ headway from $120$ to $480\unit{s}$
+($4050\unit{veh/h}$).  Thus the peak cohort first reaches $R$ nominally at
+$194.0937\unit{s}$ under desired-speed insertion and $199.4356\unit{s}$ under
+zero-speed insertion.  A full region-residence interval of peak arrivals begins
+near $208.5070\unit{s}$ or $213.8489\unit{s}$, respectively.
+
+\begin{table}[h]
+\centering
+\caption{Nominal vehicles in $R$; these are arithmetic screens, not reference outcomes.}
+\begin{tabular}{@{}rcc@{}}
+\toprule
+Decision $T$ (s) & desired-speed insertion & zero-speed insertion \\
+\midrule
+80  & 2  & 1 \\
+120 & 4  & 4 \\
+200 & 9  & 4 \\
+210 & 16 & 12 \\
+220 & 17 & 17 \\
+240 & 16 & 16 \\
+260 & 17 & 17 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The old $80\unit{s}$ snapshot is sparse even under the faster insertion
+convention.  The grid $T\in\{220,240,260\}\unit{s}$ lies beyond the nominal
+peak-fill time under both conventions and preserves three stages for a later
+prefix screen.  Actual counts remain audit outputs, not acceptance assumptions.
+
+\section{Why the old quota bank is poorly conditioned}
+
+At peak demand, assigning $k$ of every six intended vehicles to the ending lane
+creates the following nominal lane rates; the two continuing-lane rates may swap
+with phase.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}rccc@{}}
+\toprule
+Ending quota $k/6$ & ending lane & continuing lane A & continuing lane B \\
+\midrule
+1/6 & 675  & 2025 & 1350 \\
+2/6 & 1350 & 1350 & 1350 \\
+3/6 & 2025 & 1350 & 675  \\
+4/6 & 2700 & 675  & 675  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Units are vehicles per hour.  SUMO's official capacity examples show that
+insertion throughput depends strongly on departure speed, step length, and
+placement; zero departure speed is specifically the weakest example.  The table
+above is therefore not compared to a universal capacity threshold.  It does show
+that the unbalanced quotas impose very different lane-specific insertion burdens.
+Because source waiting and actual cumulative entries are part of the strong
+history, preparation-dependent insertion delay can reveal the preparation before
+the lane-drop mechanism is tested.
+
+The cleanest small-bank structure uses one common balanced background and changes
+only one six-vehicle contrast block.  All six permutations below give two
+departures to each lane and separate same-lane departures by three intended
+headways:
+\[
+\begin{array}{lll}
+P_0=(0,1,2,0,1,2), & P_1=(0,2,1,0,2,1),\\
+P_2=(1,0,2,1,0,2), & P_3=(2,0,1,2,0,1),\\
+P_4=(1,2,0,1,2,0), & P_5=(2,1,0,2,1,0).
+\end{array}
+\]
+Lane $0$ is the ending lane.  Outside the contrast block every preparation uses
+$P_0$; from decision time onward every preparation also uses the same frozen
+pattern.  This localizes the hidden input and holds the block's per-lane totals
+fixed, but it does not guarantee equal actual insertion or trajectories.
+
+Let peak index $j=0$ depart at $120\unit{s}$ with headway $8/9\unit{s}$.
+For the three proposed decisions, the following complete six-vehicle blocks fall
+inside $R$ at decision under both nominal travel conventions:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}rcc@{}}
+\toprule
+$T$ (s) & peak indices $j$ & intended departure interval (s) \\
+\midrule
+220 & 16--21 & 134.222--138.667 \\
+240 & 38--43 & 153.778--158.222 \\
+260 & 61--66 & 174.222--178.667 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This yields $3\times6=18$ prefix preparations, down from the old
+$3\times16=48$, without selecting by action outcome.
+
+\section{Anticipation and exact observability}
+
+The native lane-change model prevents an analytical equality certificate.
+Erdmann's primary LC2013 description states that strategic lane changing may
+occur well before a dead lane and that urgency depends on remaining distance,
+current/historical speed, lane offset, and target-lane occupation.  Blocked
+changes may alter the ego and neighboring vehicles' speeds.  Those changes feed
+the exact per-step counts and mean-speed histories retained by the comparator.
+
+Current official SUMO documentation lists a default
+\texttt{lcStrategicLookahead} of $3000\unit{m}$ and a left-change lookahead
+factor of $2$.  This rolling documentation is not a claim about an uninspected
+future execution version, but its $3000\unit{m}$ scale exceeds the entire
+$2400\unit{m}$ approach.  Consequently, it is not defensible to assume a long
+upstream interval in which ending-lane assignments are dynamically irrelevant.
+Nor may S07 shorten lookahead or disable strategic changes merely to manufacture
+an exact collision.
+
+The localized balanced block therefore improves the preparation audit without
+proving success.  A later native prefix run must first require exact equality of
+the declared arrays and metadata.  Any mismatch stops the action test.  A failed
+bank would show that this contract did not produce a collision; it would not show
+that aggregate histories are universally sufficient.
+
+\section{Preparation-family implications}
+
+\textbf{Extended road-start warm-up.}  Keep the accepted demand clock.  Set
+\texttt{departPos} to \texttt{base} and \texttt{departSpeed} to
+\texttt{desired}; retain all
+insertion safety and delays, use $T=220,240,260\unit{s}$, and use the localized
+balanced block.  This is the smallest repair and is the provisional
+recommendation.  Its exact-match probability remains unknown.
+
+\textbf{Shift peak demand earlier.}  Starting the balanced peak at time zero can
+populate $R$ near $90\unit{s}$, reducing warm-up length.  It changes the demand
+regime and removes the original low-demand lead-in without reducing strategic
+anticipation or exact-observability risk.  It is therefore a broader amendment
+with no established scientific advantage.
+
+\textbf{Closer or nonempty initialization.}  Numeric mid-link departure positions
+are supported by the reference interface and could create a lane-blind collision
+immediately.  In this task they introduce an artificial near-drop source or a
+hidden initial state, changing the known-empty/full-history contract and shifting
+the physical-reachability burden outside the model.  This is not an admissible
+Candidate A repair unless DG-G1/DG-G2 are explicitly reopened.
+
+\section{Source boundary}
+
+Primary/native basis: J. Erdmann, ``SUMO's Lane-Changing Model,'' 2015,
+\href{https://elib.dlr.de/102254/1/Springer-SUMOs_Lane_changing_model.pdf}{DLR manuscript};
+SUMO official
+\href{https://sumo.dlr.de/docs/Definition_of_Vehicles,_Vehicle_Types,_and_Routes.html}{vehicle/type/route documentation},
+\href{https://sumo.dlr.de/docs/Simulation/VehicleInsertion.html}{vehicle insertion documentation}, and
+\href{https://sumo.dlr.de/docs/Simulation/RoadCapacity.html}{road-capacity methodology}.
+Rolling documentation supports capability and design-risk statements only; no
+installed version or empirical scenario result is inferred.
+
+\end{document}

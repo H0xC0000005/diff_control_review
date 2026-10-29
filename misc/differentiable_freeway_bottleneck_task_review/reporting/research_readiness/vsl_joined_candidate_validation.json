@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-21",
+  "status": "LF1/LF2 selected; bounded conditional qualification complete for declared member; confirmation checkpoint JQ1",
+  "scope": "source reuse, analytical proofs and exact static hand arithmetic; no traffic trajectory, AD, finite-difference, training or optimization experiment",
+  "package_before_files": 539,
+  "existing_files_changed": [
+    "README.md",
+    "extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+    "extraction/research_readiness/vsl_lane_backbone_source_audit.md",
+    "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+    "reporting/research_readiness/vsl_allocator_selection.md",
+    "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+    "reporting/research_readiness/vsl_lane_backbone_qualification.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "existing_files_deleted": [],
+  "other_prior_package_files_unchanged": 530,
+  "files_added": [
+    "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+    "reporting/research_readiness/vsl_congestion_selection.md",
+    "reporting/research_readiness/vsl_joined_candidate_build.log",
+    "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+    "reporting/research_readiness/vsl_joined_candidate_validation.json",
+    "reporting/research_readiness/vsl_joined_candidate_work_report.md",
+    "synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+    "synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.tex",
+    "synthesis/research_readiness/vsl_joined_candidate_verification_contract.md"
+  ],
+  "protected_root_and_feedback_unchanged": {
+    "AGENTS.md": true,
+    "PROJECT_CONTEXT.md": true,
+    "PLANS.md": true,
+    "memo.txt": true,
+    "temp_content/feedback/vsl_refinement_feedback.md": true
+  },
+  "protected_old_reports_source_and_math_unchanged": {
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf": true,
+    "synthesis/research_readiness/vsl_compact_methods_report.tex": true,
+    "synthesis/research_readiness/vsl_lane_backbone_flow_checks.pdf": true,
+    "synthesis/research_readiness/vsl_lane_backbone_flow_checks.tex": true,
+    "synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf": true,
+    "synthesis/research_readiness/vsl_allocator_contract_and_checks.tex": true,
+    "synthesis/research_readiness/vsl_congestion_join_contract_and_checks.pdf": true,
+    "synthesis/research_readiness/vsl_congestion_join_contract_and_checks.tex": true,
+    "archive/full_text/FB0030.pdf": true
+  },
+  "new_markdown_relative_links": [
+    {
+      "file": "synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "target": "vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "target": "../../archive/full_text/FB0030.pdf",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "target": "vsl_congestion_join_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "target": "vsl_allocator_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "target": "../../reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_selection.md",
+      "target": "../../synthesis/research_readiness/vsl_congestion_join_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_selection.md",
+      "target": "vsl_joined_candidate_findings_and_checkpoint.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_joined_candidate_work_report.md",
+      "target": "vsl_joined_candidate_validation.json",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "vsl_congestion_selection.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "../../extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+      "target": "vsl_joined_candidate_work_report.md",
+      "exists": true
+    }
+  ],
+  "pdf": {
+    "pages": 6,
+    "model_pages": 2,
+    "qualification_pages": 4,
+    "words_per_page": [
+      543,
+      505,
+      464,
+      468,
+      498,
+      527
+    ],
+    "bytes": 177818,
+    "sha256": "7107d497a2cef6037a0434942104c3a9069d380173070b2f0a01ae87b37c5d52",
+    "latex_passes": 2,
+    "final_latex_warnings": [],
+    "required_text_markers": true,
+    "numeric_reference_order_matches_first_citation": true,
+    "image_rendered_visual_inspection": false
+  },
+  "exact_static_cases": {
+    "initial_total_mass": "153/4",
+    "X_terminal_rates": {
+      "E_to_A": "1755/2",
+      "A_to_A": "1755/2",
+      "B_to_A": "450",
+      "B_to_B": "1800",
+      "total_exit": "4005"
+    },
+    "Z_terminal_rates": {
+      "E_to_A": "2145/2",
+      "A_to_A": "2145/2",
+      "A_to_B": "450",
+      "B_to_B": "1755",
+      "total_exit": "4350"
+    },
+    "next_total_mass": [
+      "1263/40",
+      "31"
+    ],
+    "small_mass_threshold": "15/4",
+    "tail_value_Bellman_identity": "1/100",
+    "tail_first_derivative_identity": "-1/3000",
+    "status": "all exact rational assertions passed"
+  },
+  "analytical_claim_limits": [
+    "information witness concerns selected model, not physical generality",
+    "strict action-information value and richer-state necessity unproved",
+    "tail result is conditional on closed cohort, common FD, positive common advice and free exits",
+    "regular branch-trace derivatives only; native incentive switches remain",
+    "no numerical gradient correctness or usefulness claim"
+  ],
+  "environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "latex": "pdfTeX 3.141592653-2.6-1.40.25; TeX Live 2023/Debian"
+  },
+  "no_simulator_code_or_traffic_gradient_experiments": true,
+  "urban_scope": "no writes performed; changes by other actors are outside this preservation claim",
+  "next_allowed_action": "user review of joined candidate/defaults at JQ1; no automatic report replacement, implementation or experiments"
+}

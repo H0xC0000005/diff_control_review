@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "scope": "Feedback 11 readability/notation revision",
+  "pdf_pages": 4,
+  "methodology_page_extent_excluding_references": 3.37817,
+  "methodology_page_target": 3.5,
+  "nominal_main_text_pt": 10,
+  "page_geometry_and_colors": [
+    {
+      "page": 1,
+      "height_pdf_pt": 841.89,
+      "body_endpoint_fraction": 0.89765,
+      "red_text_draws": 71,
+      "other_text_draws": 168
+    },
+    {
+      "page": 2,
+      "height_pdf_pt": 841.89,
+      "body_endpoint_fraction": 0.46542,
+      "red_text_draws": 24,
+      "other_text_draws": 190
+    },
+    {
+      "page": 3,
+      "height_pdf_pt": 841.89,
+      "body_endpoint_fraction": 0.94169,
+      "red_text_draws": 151,
+      "other_text_draws": 299
+    },
+    {
+      "page": 4,
+      "height_pdf_pt": 841.89,
+      "body_endpoint_fraction": 0.65495,
+      "red_text_draws": 61,
+      "other_text_draws": 160,
+      "methodology_endpoint_fraction": 0.37817
+    }
+  ],
+  "red_highlights_in_pdf": true,
+  "normal_color_conversion_authorized": false,
+  "three_original_question_bullets": true,
+  "five_global_assumption_bullets": true,
+  "ten_feedback_items_answered_individually": true,
+  "feedback_tab_left_open": true,
+  "feedback_edit": "Only ten appended answered tokens",
+  "displayed_equation_groups": 11,
+  "byte_identical_equation_groups": 10,
+  "work_equation_change": "Existing concrete function made explicit with multiplication dot and allocated-work equality",
+  "service_table_unchanged": true,
+  "adjacent_equation_source_credit_checked": true,
+  "ieee_references": 7,
+  "citation_order": [
+    "jin",
+    "subraveti",
+    "carey",
+    "leclercq2011",
+    "leclercq",
+    "wei",
+    "kong"
+  ],
+  "unique_doi_targets": 7,
+  "embedded_fonts": 13,
+  "font_resources": {
+    "/NZTNSX+CMBX12": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/PJJPDI+CMTI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/AAXWQB+CMBX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/SHTWXN+CMR10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/OJFTZP+CMSY10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ZCSNCS+CMMI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/BUACOS+CMMI7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ROZUSQ+CMR7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/LUYYYY+CMSY7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/WWUDGK+CMEX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/JYIAMT+CMMI5": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UZQLUM+CMR5": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/DRSFHC+CMSY5": {
+      "subtype": "/Type1",
+      "embedded": true
+    }
+  },
+  "final_latex_warnings": [],
+  "pypdf_version": "6.15.0",
+  "raster_visual_inspection": false,
+  "changed_existing_files": [
+    "README.md",
+    "extraction/research_readiness/vsl_compact_report_source_and_coverage_map.md",
+    "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "vsl_successor_00_opening_plan.md"
+  ],
+  "new_files": [
+    "reporting/research_readiness/vsl_feedback11_report_amendments.md",
+    "reporting/research_readiness/vsl_feedback11_report_build.log",
+    "reporting/research_readiness/vsl_feedback11_report_validation.json",
+    "synthesis/research_readiness/vsl_report_versions/v2/README.md",
+    "synthesis/research_readiness/vsl_report_versions/v2/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_report_versions/v2/vsl_compact_methods_report.tex",
+    "synthesis/research_readiness/vsl_report_versions/v2/vsl_compact_report_source_and_coverage_map.md.txt"
+  ],
+  "deleted_files": [],
+  "protected_existing_artifacts_unchanged": 457,
+  "v2_archive_exact": true,
+  "changed_new_markdown_checked": 9,
+  "local_links_checked": 575,
+  "heading_anchors_checked": 22,
+  "report_source_sha256": "3fd4f7588fd28d0fdef37a3ac0c54ef6dd5b1cd82ad8a9312f6918f85504fc8f",
+  "report_pdf_sha256": "1b01ab5af2c80bfa5e78b5af49eac1c626e0a7e04c7fd0aa9d4b506ec02e423c",
+  "snapshot": "/tmp/vsl_feedback11_before.json",
+  "check_command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_feedback11_report_checks.py",
+  "simulator_changes_installations_or_traffic_experiments": false,
+  "new_methodological_decision": false,
+  "overall_step4_closed": false
+}

@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-14",
+  "status": "passed",
+  "review_status": "K2 evidence pass finished at original VSL-B2-G1; full Pass 2 remains open at terminal-contract adoption",
+  "checked_artifacts": [
+    "README.md",
+    "vsl_successor_00_opening_plan.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_h1_homogeneous_window_findings.md",
+    "reporting/research_readiness/vsl_b2_p1_joined_service_review_plan.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "reporting/research_readiness/vsl_k2_forced_merge_findings_and_gate.md",
+    "extraction/research_readiness/vsl_k2_terminal_source_and_interface_audit.md",
+    "synthesis/research_readiness/vsl_k2_forced_merge_contract.tex",
+    "synthesis/research_readiness/vsl_k2_forced_merge_contract.pdf",
+    "reporting/research_readiness/vsl_k2_work_report.md",
+    "reporting/research_readiness/vsl_k2_validation.json"
+  ],
+  "local_markdown_links_checked": 244,
+  "markdown_anchors_checked": 10,
+  "failures": [],
+  "reference_checks": {
+    "closed_form_pulses": [
+      {
+        "duration": "2",
+        "own_mass_rate": "2",
+        "ending_arrival_mass_rate": "2",
+        "ending_service_limit": "1",
+        "queue_peak": "2",
+        "drain_duration": "1",
+        "queue_area_delay": "3",
+        "eligible_arrival_time_sum": "8",
+        "complete_time_sum": "11"
+      },
+      {
+        "duration": "4",
+        "own_mass_rate": "1",
+        "ending_arrival_mass_rate": "1",
+        "ending_service_limit": "3/2",
+        "queue_peak": "0",
+        "drain_duration": "0",
+        "queue_area_delay": "0",
+        "eligible_arrival_time_sum": "16",
+        "complete_time_sum": "16"
+      }
+    ],
+    "batch_priority": {
+      "clearance": "3",
+      "own_lane_first_tst": "5",
+      "proportional_tst": "6"
+    },
+    "stock_vs_eligible_queue": "passed",
+    "finite_storage_vacancy_and_initial_capacity_bounds": "passed",
+    "ordinary_load_fits_but_extra_work_can_bind": "passed",
+    "general_no_spillback_and_arrival_dominance": "analytical proofs in the PDF; not numerical simulator tests"
+  },
+  "pdf": {
+    "pages": 5,
+    "bytes": 160816,
+    "sha256": "2a27b9ace41c443c747743d2f0d43f36bbb617472575d4a06a2b83ed38d1529f",
+    "parser": "pypdf 6.15.0",
+    "all_pages_text_extracted": true,
+    "page_text_character_counts": [
+      2845,
+      2691,
+      2793,
+      2525,
+      2364
+    ],
+    "latex_layout_or_reference_warnings": false,
+    "raster_visual_inspection": "not performed"
+  },
+  "traffic_experiments": "not performed",
+  "time_stepped_simulation": "not performed",
+  "autograd_or_finite_difference_gradient_checks": "not performed",
+  "dependencies_installed": "none",
+  "scientific_authorities_preserved": [
+    "S13",
+    "urban closure",
+    "ramp closure"
+  ],
+  "unrelated_existing_root_edits": [
+    "AGENTS.md",
+    "PLANS.md",
+    "memo.txt"
+  ]
+}

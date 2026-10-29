@@ -1,0 +1,1557 @@
+[
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/00_review_sequence.md",
+    "old_target": "reporting/",
+    "new_target": "reporting"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/00_review_sequence.md",
+    "old_target": "synthesis/",
+    "new_target": "synthesis"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s01/",
+    "new_target": "s01"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s02/",
+    "new_target": "s02"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s03/",
+    "new_target": "s03"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s04/",
+    "new_target": "s04"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s05/",
+    "new_target": "s05"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s06/",
+    "new_target": "s06"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s07/",
+    "new_target": "s07"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s08/",
+    "new_target": "s08"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s09/",
+    "new_target": "s09"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s10/",
+    "new_target": "s10"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s11/",
+    "new_target": "s11"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s12/",
+    "new_target": "s12"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "s13/",
+    "new_target": "s13"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/README.md",
+    "old_target": "shared/",
+    "new_target": "shared"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/feedback27_fresh_agent_handoff.md",
+    "old_target": "../../../../temp_content/feedback/baseline_novelty_audit_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/baseline_novelty_audit_feedback.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../AGENTS.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/AGENTS.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../PLANS.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PLANS.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../temp_content/feedback/vsl_refinement_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/vsl_refinement_feedback.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../temp_content/feedback/baseline_novelty_audit_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/baseline_novelty_audit_feedback.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/urban_report_refinement_fresh_agent_handoff.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_component_question_register.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_component_question_register.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "old_target": "../../../../temp_content/feedback/vsl_refinement_feedback.md#9-answered",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/vsl_refinement_feedback.md#9-answered"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_literature_backbone_review_draft_work_report.md",
+    "old_target": "../../../../temp_content/vsl_review_report/report_structure_candidates.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_scope_correction_work_report.md",
+    "old_target": "../../../../temp_content/milestone_vsl_joined_validation/archive/phase_A_executable_proposal_withdrawn_20261021.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/phase_A_executable_proposal_withdrawn_20261021.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_scope_correction_work_report.md",
+    "old_target": "../../../../temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_ph_options_readability_revision_work_report.md",
+    "old_target": "../../../../AGENTS.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/AGENTS.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_to_development_bridge_proposal.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_to_development_bridge_proposal.md",
+    "old_target": "../../../../.gitignore",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/.gitignore"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "old_target": "../../../../temp_content/milestone_vsl_joined_validation/phase_A_proposal.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/phase_A_proposal.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "old_target": "../../../../temp_content/milestone_vsl_joined_validation/phase_A_dialogue.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/phase_A_dialogue.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "old_target": "../../../../temp_content/vsl_review_report/report_structure_candidates.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s01/",
+    "new_target": "s01"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s02/",
+    "new_target": "s02"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s03/",
+    "new_target": "s03"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s04/",
+    "new_target": "s04"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s05/",
+    "new_target": "s05"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s07/",
+    "new_target": "s07"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s08/",
+    "new_target": "s08"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s10/",
+    "new_target": "s10"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s11/",
+    "new_target": "s11"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s12/",
+    "new_target": "s12"
+  },
+  {
+    "file": "misc/differentiable_freeway_bottleneck_task_review/synthesis/README.md",
+    "old_target": "s13/",
+    "new_target": "s13"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../AGENTS.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/AGENTS.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../PLANS.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PLANS.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../temp_content/feedback/baseline_novelty_audit_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/baseline_novelty_audit_feedback.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../temp_content/feedback/vsl_refinement_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/vsl_refinement_feedback.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_component_question_register.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_component_question_register.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_dialogue.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_dialogue.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../src/diff_minimal_meso/signals.py:100",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/signals.py#L100"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../src/diff_minimal_meso/nodes.py:235",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/nodes.py#L235"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../tests/test_nodes.py:277",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/tests/test_nodes.py#L277"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_authority_and_gap_audit.md",
+    "old_target": "../../../../src/diff_minimal_meso/objectives.py:23",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/objectives.py#L23"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../temp_content/feedback/urban_refinement_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/urban_refinement_feedback.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:249",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L249"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:270",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L270"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:121",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L121"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/baseline_realization_matrix.md:6",
+    "new_target": "../../synthesis/baseline_realization_matrix.md#L6"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/baseline_realization_matrix.md:48",
+    "new_target": "../../synthesis/baseline_realization_matrix.md#L48"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:34",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L34"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:186",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L186"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:24",
+    "new_target": "../../synthesis/project_impact_matrix.md#L24"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation.md:34",
+    "new_target": "../../synthesis/experiment_formulation.md#L34"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation.md:40",
+    "new_target": "../../synthesis/experiment_formulation.md#L40"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:60",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L60"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation.md:64",
+    "new_target": "../../synthesis/experiment_formulation.md#L64"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:77",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L77"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:109",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L109"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:142",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L142"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:34",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L34"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../src/diff_minimal_meso/objectives.py:22",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/objectives.py#L22"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../src/diff_minimal_meso/gradients.py:112",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/gradients.py#L112"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../tests/test_objectives.py",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/tests/test_objectives.py"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../../../tests/test_gradients.py",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/tests/test_gradients.py"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation.md:70",
+    "new_target": "../../synthesis/experiment_formulation.md#L70"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:18",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L18"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:55",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L55"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:63",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L63"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../src/diff_minimal_meso/simulation.py:279",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/simulation.py#L279"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:19",
+    "new_target": "../../synthesis/project_impact_matrix.md#L19"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../synthesis/primary_green_allocation_suite.md:81",
+    "new_target": "../../synthesis/primary_green_allocation_suite.md#L81"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:12",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L12"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_component_question_register.md:257",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_component_question_register.md#L257"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:264",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L264"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../src/diff_minimal_meso/ltm.py:116",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/ltm.py#L116"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:426",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L426"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../../../src/diff_minimal_meso/signals.py:25",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/signals.py#L25"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_coupled_model_source_and_assumption_notes.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:18",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L18"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback12_component_provenance.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback12_component_provenance.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback12_component_provenance.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback12_component_provenance.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback12_component_provenance.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:178",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L178"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:19",
+    "new_target": "../../synthesis/project_impact_matrix.md#L19"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:35",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L35"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:40",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L40"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:60",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L60"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:162",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L162"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:16",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L16"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:123",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L123"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:126",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L126"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:40",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L40"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:78",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L78"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:16",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L16"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:178",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L178"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:19",
+    "new_target": "../../synthesis/project_impact_matrix.md#L19"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:12",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L12"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:60",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L60"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback4_evidence_notes.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:40",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L40"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_formula_provenance.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_formula_provenance.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_formula_provenance.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../synthesis/experiment_formulation.md:28",
+    "new_target": "../../synthesis/experiment_formulation.md#L28"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:124",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L124"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:12",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L12"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:34",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L34"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:264",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L264"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../src/diff_minimal_meso/ltm.py:116",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/ltm.py#L116"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:264",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L264"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../src/diff_minimal_meso/ltm.py:116",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/ltm.py#L116"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../synthesis/experiment_formulation.md:34",
+    "new_target": "../../synthesis/experiment_formulation.md#L34"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../src/diff_minimal_meso/objectives.py:22",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/objectives.py#L22"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_unified_methodology_sources.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:651",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L651"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback1_work_report.md",
+    "old_target": "../../../../temp_content/feedback/urban_refinement_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/urban_refinement_feedback.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback2_work_report.md",
+    "old_target": "../../../../AGENTS.md:76",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/AGENTS.md#L76"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_response.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:178",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L178"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_response.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:162",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L162"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_work_report.md",
+    "old_target": "../../../../AGENTS.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/AGENTS.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_response.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:649",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L649"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_response.md",
+    "old_target": "../../../../src/diff_minimal_meso/objectives.py:22",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/objectives.py#L22"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback7_amendment_response.md",
+    "old_target": "../../../../PROJECT_CONTEXT.md:127",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/PROJECT_CONTEXT.md#L127"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback7_response.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:426",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L426"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback9_response.md",
+    "old_target": "../../../../src/diff_minimal_meso/simulation.py:279",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/src/diff_minimal_meso/simulation.py#L279"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_methodology_draft_work_report.md",
+    "old_target": "../../reporting/research_readiness/urban_compact_methods_report_formula_provenance_citation_fix.pdf",
+    "new_target": "urban_compact_methods_report_formula_provenance_citation_fix.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_methodology_draft_work_report.md",
+    "old_target": "../../reporting/research_readiness/urban_compact_methods_report_formula_provenance_citation_fix.tex",
+    "new_target": "urban_compact_methods_report_formula_provenance_citation_fix.tex"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_methodology_draft_work_report.md",
+    "old_target": "../../reporting/research_readiness/urban_compact_methods_report_clean.pdf",
+    "new_target": "urban_compact_methods_report_clean.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_methodology_draft_work_report.md",
+    "old_target": "../../reporting/research_readiness/urban_methodology_specification_clean.pdf",
+    "new_target": "urban_methodology_specification_clean.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_question1_clarification_work_report.md",
+    "old_target": "../../temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md:18",
+    "new_target": "../../temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md#L18"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:44",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L44"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:19",
+    "new_target": "../../synthesis/project_impact_matrix.md#L19"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:161",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L161"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:156",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L156"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:33",
+    "new_target": "../../synthesis/project_impact_matrix.md#L33"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:260",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L260"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:34",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L34"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:25",
+    "new_target": "../../synthesis/project_impact_matrix.md#L25"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:270",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L270"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:109",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L109"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:37",
+    "new_target": "../../synthesis/project_impact_matrix.md#L37"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:121",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L121"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "old_target": "../../synthesis/literature_adoption_matrix.md:18",
+    "new_target": "../../synthesis/literature_adoption_matrix.md#L18"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_dialogue.md",
+    "old_target": "../../../../temp_content/feedback/urban_refinement_feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/urban_refinement_feedback.md"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:44",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L44"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:25",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L25"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../synthesis/primary_green_allocation_suite.md:109",
+    "new_target": "../../synthesis/primary_green_allocation_suite.md#L109"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:49",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L49"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:121",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L121"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:165",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L165"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:26",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L26"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:19",
+    "new_target": "../../synthesis/project_impact_matrix.md#L19"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:161",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L161"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:40",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L40"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:426",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L426"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:182",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L182"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:33",
+    "new_target": "../../synthesis/project_impact_matrix.md#L33"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:44",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L44"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:25",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L25"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../synthesis/primary_green_allocation_suite.md:109",
+    "new_target": "../../synthesis/primary_green_allocation_suite.md#L109"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md:49",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_1_ordered_route_mass_ledger.md#L49"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:121",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L121"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:165",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L165"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md:26",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md#L26"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:19",
+    "new_target": "../../synthesis/project_impact_matrix.md#L19"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:161",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L161"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../synthesis/experiment_formulation_formal.tex:40",
+    "new_target": "../../synthesis/experiment_formulation_formal.tex#L40"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../../docs/milestones/milestone_0_ltm_baseline.md:426",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/docs/milestones/milestone_0_ltm_baseline.md#L426"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:182",
+    "new_target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex#L182"
+  },
+  {
+    "file": "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/traffic_principles.md",
+    "old_target": "../../synthesis/project_impact_matrix.md:33",
+    "new_target": "../../synthesis/project_impact_matrix.md#L33"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/README.md",
+    "old_target": "../../AGENTS.md#review-reporting-for-the-user",
+    "new_target": "../../context_snapshots/diff_minimal_meso/AGENTS.md#review-reporting-for-the-user"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/alignment_ladder_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/alignment_ladder_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/On the numerical treatment of moving bottlenecks.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/On%20the%20numerical%20treatment%20of%20moving%20bottlenecks.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/control_birth_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/dual_qualification_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/event_memory_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/exact_information_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/grouped_recovery_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/sampled_insertion_source_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/supplied_originals_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/supplied_originals_audit.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/A SIMPLE PHYSICAL PRINCIPLE FOR THE SIMULATION OF FREEW A YS WITH SPECIAL LANES AND PRIORITY VEHICLES.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/A%20SIMPLE%20PHYSICAL%20PRINCIPLE%20FOR%20THE%20SIMULATION%20OF%20FREEW%20A%20YS%20WITH%20SPECIAL%20LANES%20AND%20PRIORITY%20VEHICLES.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/Lane-changing%20in%20traffic%20streams.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/own_motion_findings_and_gate.md",
+    "old_target": "<../../../archive/user_supplied/rm12_bp_r_stage3/On the numerical treatment of moving bottlenecks.pdf>",
+    "new_target": "../../../archive/user_supplied/rm12_bp_r_stage3/On%20the%20numerical%20treatment%20of%20moving%20bottlenecks.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/feedback27/method_first_review_closure.md",
+    "old_target": "../../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "new_target": "../../../synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/feedback27/method_first_review_closure.md",
+    "old_target": "../../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.pdf",
+    "new_target": "../../../synthesis/rm12/bp_r_stage3/d2_forward/forward_math.pdf"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm7_current_handoff.md",
+    "old_target": "../reporting/rm9_current_handoff.md",
+    "new_target": "rm9_current_handoff.md"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm8_20_findings_and_gate.md",
+    "old_target": "../reporting/rm9_current_handoff.md",
+    "new_target": "rm9_current_handoff.md"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/reporting/rm8_current_handoff.md",
+    "old_target": "../reporting/rm9_current_handoff.md",
+    "new_target": "rm9_current_handoff.md"
+  },
+  {
+    "file": "misc/selective_discreteness_ramp_metering_review/rm12_63_bp_r_stage3_event_memory_continuation.md",
+    "old_target": "../../AGENTS.md#review-reporting-for-the-user",
+    "new_target": "../../context_snapshots/diff_minimal_meso/AGENTS.md#review-reporting-for-the-user"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261002_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "weekly_freeway_control_review_20261002_notes.md",
+    "new_target": "../../weekly_freeway_control_review_20261002_notes.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "weekly_freeway_control_review_20261002_notes.md",
+    "new_target": "../../weekly_freeway_control_review_20261002_notes.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm9_99_scoped_closure.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_separate_resource_and_observer_audit.tex"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm10/rm10_70_findings_and_conclusion.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm11/c0_findings_and_disposition.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_i/findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r/semantic_position_in_review_tree.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/findings_and_reference_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/meter_boundary_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/merge_allocation_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/exact_information_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/alignment_ladder_findings.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/transfer_feedback_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/quota_allocation_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/fixed_share_completion_findings_and_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/d2_forward/findings_and_field_gate.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_math.tex"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/d2_forward/forward_contract_and_qualification.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/baseline_review_scope_check.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_assets/before_amendment_2/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "new_target": "../../../selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "misc/slides/weekly_freeway_control_review_20261009_notes.md",
+    "old_target": "../../temp_content/feedback/feedback.md",
+    "new_target": "../../context_snapshots/diff_minimal_meso/temp_content/feedback/feedback.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_review_findings_and_gate.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_published_backbone_findings.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_published_backbone_findings.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/vsl_review_report/report_structure_candidates.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.pdf",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.pdf"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/phase_A_executable_proposal_withdrawn_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/phase_A_executable_proposal_withdrawn_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.tex",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.tex"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/phase_A_executable_proposal_withdrawn_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/phase_A_executable_proposal_withdrawn_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_findings_and_checkpoint.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.pdf"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.tex",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_contract_and_qualification.tex"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_joined_candidate_sources_and_assumptions.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_verification_contract.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/archive/validation_handoff_before_scope_correction_20261021.md",
+    "old_target": "../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff_work_report.md",
+    "new_target": "../../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_validation_handoff_work_report.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/phase_A_proposal.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/phase_A_dialogue.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_joined_candidate_methodology_review_plan.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/phase_A_dialogue.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_joined_candidate_execution_plan_gate.md"
+  },
+  {
+    "file": "context_snapshots/diff_minimal_meso/temp_content/milestone_vsl_joined_validation/phase_A_dialogue.md",
+    "old_target": "../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_scope_correction_work_report.md",
+    "new_target": "../../../../misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_methodology_scope_correction_work_report.md"
+  }
+]

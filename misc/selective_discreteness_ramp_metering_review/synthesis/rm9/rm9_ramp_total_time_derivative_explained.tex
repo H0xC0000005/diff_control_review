@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.7in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlength{\emergencystretch}{2em}
+\newcommand{\dd}{\,\mathrm{d}}
+\begin{document}
+\begin{center}
+{\Large Ramp metering: the general total-time derivative}\\[0.3em]
+2 October 2026 --- explanation of the current accounting identity
+\end{center}
+
+Let \(\theta\) be one parameter of the open-loop meter-rate schedule. Let
+\(P(t;\theta)\) count \emph{all} traffic still in the accounting system:
+mainline, ramp, post-meter storage and external waiting. Let \(A(t)\) be
+fixed exogenous arrival rate and \(E(t;\theta)\) total \emph{final exit rate}.
+\(E\) is neither cumulative exits nor local ramp merge entry. Compare the same
+initial population and arrivals over a fixed common horizon \(T\) that clears
+all compared plans. Here \(J\) is total system time, not mean time.
+
+\textbf{1. Start with conservation and complete time accounting.}
+Internal transfers cancel in the population total, so
+\[
+ \dot P(t;\theta)=A(t)-E(t;\theta),\qquad
+ J(\theta)=\int_0^T P(t;\theta)\dd t.
+\]
+Because initial mass and exogenous arrivals do not depend on the meter setting,
+\[
+ \frac{\partial P(t;\theta)}{\partial\theta}
+ =-\int_0^t\frac{\partial E(u;\theta)}{\partial\theta}\dd u.
+\]
+Counting external waiting is essential: metering changes internal release,
+not the exogenous arrival population \(A\).
+
+\textbf{2. Differentiate the cost and reverse the integration order.}
+An exit-rate change at time \(u\) changes remaining population at every later
+time from \(u\) to \(T\), giving duration weight \(T-u\):
+\begin{align*}
+ \frac{\partial J}{\partial\theta}
+ &=-\int_0^T\int_0^t
+       \frac{\partial E(u;\theta)}{\partial\theta}\dd u\dd t\\
+ &=-\int_0^T\int_u^T
+       \frac{\partial E(u;\theta)}{\partial\theta}\dd t\dd u
+ =\boxed{-\int_0^T(T-u)
+       \frac{\partial E(u;\theta)}{\partial\theta}\dd u.}
+\end{align*}
+This is the continuous accounting formula on slide 13. For CTM timestep
+\(h\), \(K\) steps and left-endpoint accounting, the exact discrete companion is
+\[
+ P^{k+1}=P^k+h(A^k-E^k),\qquad J_h=h\sum_{k=0}^{K-1}P^k,
+ \qquad
+ \frac{\partial J_h}{\partial\theta}
+ =-h^2\sum_{k=0}^{K-2}(K-1-k)\frac{\partial E^k}{\partial\theta}.
+\]
+
+\textbf{3. Obtain exit sensitivity by the chain rule through the traffic model.}
+The accounting identity does not itself determine how exits respond. In the
+CTM, the meter schedule \(r^k(\theta)\) feeds release/storage, lateral exchange,
+forward cell flows and merge allocation. Write the whole state update as
+\(x^{k+1}=F(x^k,r^k)\) and final exit rate as \(E^k=H(x^k,r^k)\).
+With \(z^k=\partial x^k/\partial\theta\) and fixed initial state,
+\[
+ z^0=0,\qquad
+ z^{k+1}=F_xz^k+F_r\frac{\partial r^k}{\partial\theta},\qquad
+ \frac{\partial E^k}{\partial\theta}
+ =H_xz^k+H_r\frac{\partial r^k}{\partial\theta}.
+\]
+These sensitivities go into the weighted-exit formula. Moving final departures
+earlier reduces total time. Moving waiting between ramp and mainline while
+leaving total final exits unchanged gives zero total-time change.
+
+\textbf{Limits.} Derivatives above assume an integrable sensitivity and fixed
+smooth active branches; min/max ties require separate event treatment. A
+blocked rate change can have zero sensitivity. Mean time divides both cost and
+derivative by fixed total mass. This is an analytical explanation, not numerical
+gradient verification or independent usefulness evidence.
+
+\small Sources: current RM9 separate-resource/observer audit, sensitivity
+section; RM8 task/gradient screen.
+No model or review-gate decision is changed.
+\end{document}

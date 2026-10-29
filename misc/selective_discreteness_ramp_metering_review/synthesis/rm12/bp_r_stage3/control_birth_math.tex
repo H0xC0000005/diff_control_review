@@ -1,0 +1,146 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large Effective rate, physical green service and descriptor births}\\[4pt]
+8 October 2026 --- continuation 67; qualification-scope gate Q.ACT
+
+\textbf{Scope.} Local analytical diagnostics. They do not solve the joined
+traffic model, exhibit reachable common-control scenarios, prove complete TST
+benefit or certify gradients. Traffic mass remains continuous. No alternative
+actuator or birth law is adopted.
+
+\section*{1. Averaging permission and limiting receiving need not commute}
+Let $s>0$ be fully open entrance service (vehicle equivalents/s), $R\ge0$
+constant receiving (same units), and $\eta\in[0,1]$ a fixed green fraction.
+Assume enough waiting mass to saturate entrance demand throughout this diagnostic.
+Let $b(t)\in\{0,1\}$ be a periodic signal with cycle $c>0$ and green duration
+$\eta c$. Its nominal rate is $r=\eta s$. The current ideal cap gives
+\begin{equation}
+q_A=\min\{\eta s,R\}.
+\end{equation}
+With instantaneous first-order release and no startup loss, the pulse gives
+\begin{equation}
+q_P(t)=\min\{s b(t),R\},\qquad
+\overline q_P=\frac1c\int_0^c q_P(t)\,dt=\eta\min\{s,R\}.
+\end{equation}
+Hence the discrepancy is
+\begin{equation}
+q_A-\overline q_P=
+\begin{cases}
+(1-\eta)R,&0\le R\le\eta s,\\
+\eta(s-R),&\eta s<R<s,\\
+0,&R\ge s.
+\end{cases}
+\end{equation}
+It is positive for $0<\eta<1$ and $0<R<s$, with maximum
+\begin{equation}
+\max_{R\ge0}(q_A-\overline q_P)=\eta(1-\eta)s
+\quad\text{at }R=\eta s.
+\end{equation}
+For $s=1$, $R=0.4$ and $\eta=0.5$, $q_A=0.4$ but
+$\overline q_P=0.2$ vehicle equivalents/s. Over one diagnostic ten-second
+cycle, they admit four and two equivalents respectively. These are uncalibrated
+local inputs, not a traffic simulation. The averaged discrepancy is independent
+of $c$; decreasing cycle length does not repair the wrong operator.
+
+With finite bin duration $\Delta t$, available mass $B$ and receiving mass
+$\mathsf R$, M.A is
+\begin{equation}
+A_A=\min\{B,r\Delta t,\mathsf R\}.
+\end{equation}
+Pair its debit/credit: $W^+=W+I-A_A$, $n_{\rm app}^+=n_{\rm app}+A_A$
+before other transfers. Conservativity does not prove pulse equivalence.
+
+\newpage
+\section*{2. What the inspected continuum-signal source actually averages}
+For the controlled incoming road in Han et al.'s author preprint,
+$D(t)$ is demand (veh/s), $C$ its capacity, and $S(t)$ target supply.
+Its equations 2.7--2.8 distinguish
+\begin{equation}
+q_{\rm on/off}(t)=\min\{D(t),b(t)\min(C,S(t))\},\qquad
+q_{\rm cont}(t)=\min\{D(t),\eta\min(C,S(t))\}.
+\end{equation}
+This is not $\min\{D(t),\eta C,S(t)\}$. Its continuum signal scales
+effective receiving, not merely nominal capacity before receiving.
+The preceding section's saturated example matches the distinction. This is
+source evidence for candidate B's family, not a verified full ramp adaptation.
+
+Under the source's no-spillback hypotheses, its Theorem 4.4 bounds the
+on/off--continuum cumulative count difference by
+\begin{equation}
+\left|N^{c}(t,x)-N^0(t,x)\right|
+\le \eta(1-\eta)c\min(C_1,C_3).
+\end{equation}
+Both counts use that source's link, boundary and signal conditions. Its
+spillback sections give distinct limitations; its first-order signal model
+does not include our endogenous bounded-acceleration merge descriptors.
+This bound therefore proves neither M.A equivalence nor descriptor/gradient
+equivalence. No error tolerance or guaranteed study regime is inferred.
+
+\section*{3. The deterministic birth remainder is independent of time refinement}
+For a directed generating stream, let $H(t)$ be cumulative actual transferred
+mass, $m_*>0$ the fixed descriptor threshold, and $K(t_k)$ the cumulative
+generated count at sample $t_k$ (with declared public initial progress).
+For zero initial progress,
+\begin{equation}
+K(t_k)=\lfloor H(t_k)/m_*\rfloor,\qquad
+e(t_k)=H(t_k)-m_*K(t_k),\quad 0\le e(t_k)<m_*.
+\end{equation}
+At a fixed terminal $H(T)$, refining the sampled time mesh leaves
+$\lfloor H(T)/m_*\rfloor$ and $e(T)$ unchanged. At $H(T)=0.4m_*$,
+no record is generated. The transferred $0.4m_*$ is still in the field,
+exits and complete inventory accounting. No physical fractional vehicle is
+asserted to lack a real blockage.
+
+\newpage
+\section*{4. A small count error is not automatically a small event error}
+For $0<\epsilon<m_*/2$, a local threshold diagnostic gives
+\begin{equation}
+H_-=m_*-\epsilon,\quad H_+=m_*+\epsilon,\qquad
+\lfloor H_-/m_*\rfloor=0,\quad\lfloor H_+/m_*\rfloor=1.
+\end{equation}
+The difference $2\epsilon$ can be arbitrarily small while the record count
+differs. This disproves an unconditional inference from small flow/count
+error to identical descriptor sets. It supplies no lower bound on TST error:
+a generated record may be nonbinding or its effect may be small.
+
+For a finite declared sample set, one possible conditional statement is
+\begin{equation}
+\max_k|\widetilde H(t_k)-H(t_k)|<\gamma,\qquad
+\min_k\operatorname{dist}(H(t_k),m_*\mathbb Z)>\gamma
+\ \Longrightarrow\ 
+\lfloor\widetilde H(t_k)/m_*\rfloor=\lfloor H(t_k)/m_*\rfloor.
+\end{equation}
+Here $\gamma>0$ is a hypothetical mass margin, not an adopted tolerance or
+an exclusion of threshold cases. Equal sampled counts still do not imply
+equal speeds, effects, intermediate timing or derivatives.
+
+For completeness, the source's reported Poisson alternative at mean increment
+$\lambda=\Delta H/m_*$ has
+\begin{equation}
+\Pr(B=0)=e^{-\lambda}>0,\qquad \mathbb E[B]=\lambda.
+\end{equation}
+It does not guarantee a record for every positive increment. No randomness,
+new seed contract or control-dependent event differentiation is adopted.
+
+\section*{5. Scope of the gate}
+Candidate A retains M.A's effective-rate operator and the selected source
+birth/reset as an explicitly idealized reference to qualify further. Candidate
+B changes the operator to a source-supported supply-scaled continuum signal
+family. Candidate C qualifies finite pulses and launch response. The decision
+is scientific scope/actuation, not storage or computation cost.
+
+Exact retention applies after generation. None of these local identities
+closes the own-speed/traffic/node feedback or clearance. A useful physical
+gradient remains a separate research claim.
+
+\textbf{Evidence:} supplied Laval--Daganzo journal, Section 2.2/Appendix A;
+Han et al., author preprint arXiv:1309.3461v2, equations 2.7--2.8, Theorems
+4.1/4.4 and Sections 5--6; FHWA Handbook Section 5.3.6. Source versions,
+access boundaries and screening are in the linked Markdown audit.
+\end{document}

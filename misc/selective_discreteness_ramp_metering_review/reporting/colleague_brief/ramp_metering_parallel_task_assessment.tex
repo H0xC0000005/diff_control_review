@@ -1,0 +1,214 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs,tabularx,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{soft}{HTML}{EEF4F8}
+\definecolor{rulegray}{HTML}{A7B2BA}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent,
+  citecolor=accent,
+  pdftitle={Ramp metering should not become a parallel task in the current project}
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4.2pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\decisionbox}[1]{%
+  \noindent\fcolorbox{accent}{soft}{%
+    \begin{minipage}{0.955\linewidth}\textbf{Position.} #1\end{minipage}}}
+
+\title{\vspace{-1.2em}\textbf{Ramp metering should not become a parallel task\\in the current project}}
+\author{Technical assessment for project discussion}
+\date{15 September 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.7em}
+
+\decisionbox{The review shows that adopting ramp metering as a parallel new task is not acceptable for the current project. A formulation that remains faithful to the project's present traffic model has little distinctive scientific value beyond strong macroscopic ramp-control methods. A formulation with a more convincing freeway-specific mesoscopic contribution would require substantial new behavior and engineering that the project deliberately does not support.}
+
+\section{The proposal fails the joint test of value and compatibility}
+
+The project is not trying to show only that a traffic simulator can be differentiated or that a controller can reduce an internal objective. Its narrower question is whether continuous traffic mass augmented by selected discrete semantic information---especially route-labelled order near a restriction---produces more useful traffic-control gradients than well-matched aggregate models. The current primary application is fixed-time traffic-signal control, where signal phases and heterogeneous route movements can make local service depend directly on ordered access.
+
+A second application should therefore satisfy two conditions at the same time:
+
+\begin{enumerate}
+  \item \textbf{Compatibility:} it should use the current first-order, continuous-mass propagation model, fixed routes and localized ordered metadata without requiring microscopic car-following, lane-changing trajectories or a new freeway dynamics stack.
+  \item \textbf{Distinct value:} it should expose a different, literature-supported reason why the selected mesoscopic information changes forward outcomes or useful control sensitivities beyond strong aggregate, class-based or cohort-memory alternatives.
+\end{enumerate}
+
+Ramp metering does not currently meet both conditions. In its compatible form, it is mainly an aggregate admission, queue and merge-supply problem. In its potentially more distinctive form, its value comes from freeway mechanisms that require additional modeling. This is the central reason the parallel-task proposal is unacceptable; it is not a claim that ramp metering itself is unimportant.
+
+\section{Macroscopic models already cover the compatible task well}
+
+Ramp metering is an established control problem. Classical feedback such as ALINEA regulates ramp admission from measured downstream occupancy \cite{papageorgiou1991}. Cell-transmission and conservation-law formulations represent mainline density or cumulative flow, ramp queues, downstream supply and continuous metering rates without individual vehicles. They support optimal, predictive and distributed feedback control under explicit assumptions \cite{gomes2006,schmitt2017}.
+
+The relevant point is not merely that macroscopic models exist. They already support efficient gradients and demanding control formulations:
+
+\begin{itemize}
+  \item Reilly et al. derive a discrete adjoint for a first-order network model and apply it directly to coordinated ramp metering on I--15 \cite{reilly2015}.
+  \item Gu et al. smooth cell-transmission-model minimum operators to solve ramp-metering model-predictive-control problems with gradients \cite{gu2022}.
+  \item Goatin et al. compute discrete-adjoint gradients for multiclass network conservation laws with merges, diverges and buffers \cite{goatin2026}.
+  \item Poole and Kotsialos use automatic differentiation through a macroscopic freeway model for calibration and sensitivity analysis \cite{poole2016}.
+\end{itemize}
+
+These derivative constructions are not interchangeable: a manual adjoint, automatic differentiation and a smoothed surrogate have different forward and gradient contracts. Collectively, however, they establish that freeway-specific gradient computation does not itself require selectively retained fine order. For a simple one-ramp task, demonstrating another differentiable optimizer would mainly confirm engineering reuse rather than test the project's scientific hypothesis.
+
+Destination information also does not automatically create a need for exact order. Destination-aware ramp control can be formulated with aggregate class densities, flows, ramp queues and split information \cite{zhang2024}. Route-composition memory or partial-FIFO node models can represent important off-ramp interactions without retaining one realized total sequence \cite{salehi2017,wright2017}. These are serious competitors, not weak baselines that may be omitted merely because an ordered representation is available.
+
+\section{Published mesoscopic value usually comes from different state and behavior}
+
+The word \emph{mesoscopic} does not identify one model. Published ramp-metering studies use it for event-based vehicle progression, stochastic realization, dynamic traffic assignment, route and departure-time response, or larger regional simulation. Lee et al., for example, evaluate active traffic management with mesoscopic dynamic assignment over a large regional network \cite{lee2019}; Wei uses a stochastic event-based mesoscopic test bed for freeway ramp control \cite{wei2001}. Federal guidance likewise places mesoscopic models mainly between aggregate corridor analysis and detailed microscopic treatment, with dynamic routing and network scale as prominent benefits \cite{fhwa2013}.
+
+Those contributions are legitimate, but they do not align with the current project's selective state. Dynamic route choice, stochastic individual vehicles and network-wide assignment are outside its initial formulation. The reviewed literature does not establish exact downstream route-mass rank as a characteristic source of ramp-metering improvement.
+
+The freeway behaviors most likely to make individual realization operationally decisive occur near merges and diverges: gap acceptance, lane anticipation and access, lane changing, acceleration and heterogeneous driver response. Hybrid lane/particle models make that additional physics explicit \cite{laval2004}. Microscopic benchmark evidence also shows that an elementary one-lane point diverge can reproduce aggregate FIFO behavior, while real multilane diverges introduce anticipation and lane-changing effects absent from the point construction \cite{boukhellouf2023}. Even phenomena representable without microscopic trajectories, such as capacity drop, require an explicit boundary law or added state; they do not emerge automatically from route labels or queue order \cite{jin2013}.
+
+\begin{center}
+\small
+\textbf{Table 1. Why the literature creates a value--compatibility dilemma.}\\[3pt]
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.205\linewidth}Y Y@{}}
+\toprule
+Formulation & What it can establish & Why it does not justify a parallel task \\
+\midrule
+First-order aggregate ramp control & Admission, ramp queues, merge supply, spillback, coordinated gradients & Strong macroscopic controllers and adjoints already cover the core problem; selective order has no demonstrated independent role \\
+Destination/class or cohort memory & Route-sensitive queues, partial FIFO, delayed composition & Retains much of the relevant information more simply than an exact realized sequence \\
+Restricted ordered-stream example & Whether order survives an upstream-control, propagation and downstream-service chain & Reuses the same ordered-service idea as the signal task and requires artificial non-overlap or point-geometry restrictions \\
+Richer freeway mesoscopic or microscopic model & Lane access, gaps, acceleration, heterogeneous interactions and realistic merge behavior & Requires new state, equations, calibration and validation beyond the present architecture \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{The strongest favorable arguments do not change the decision}
+
+The colleague's suggestion was reasonable to investigate. Ramp metering is operationally important, has documented deployments \cite{fhwa2005}, and creates an appealing upstream-control/downstream-effect chain. With many coordinated meters, gradients can be computationally valuable. A second traffic domain could also test whether a simulator implementation generalizes.
+
+None of those points supplies the missing scientific role. Practical importance does not show that selected mesoscopic information changes the decision. A longer causal chain tests propagation and software composition, but the decisive downstream mechanism remains ordered access at a restriction---the same representation question already exercised by traffic-signal control. Gradient scalability is strongly supported by macroscopic predecessors. Application diversity improves external validity, but it is not an independent hypothesis.
+
+A deliberately restricted example can make the distinction concrete: admit one metered stream upstream, carry it along a first-order link, and let its route-labelled order affect a downstream one-stream/two-output restriction. This is coherent only under careful chronology and geometry restrictions. It can test whether order metadata survive propagation, but it is a transfer or ablation test, not a natural parallel ramp-metering task. Making the example representative of overlapping, multilane freeway traffic would reintroduce the unsupported merge and lateral behaviors that the restriction was designed to avoid.
+
+\section{What remains defensible}
+
+Two narrow uses may be retained without changing the conclusion:
+
+\begin{itemize}
+  \item A simple aggregate ramp example may serve as a low-cost check of ramp-queue accounting, metering bounds, merge conservation and aggregate-limit gradients.
+  \item The restricted upstream-meter/downstream-diverge example may later serve as an optional transfer check if long-range preservation of ordered route information needs independent verification.
+\end{itemize}
+
+Neither use should be described as a second scientific task. The first has little distinctive research value; the second is narrow, dependent on the same ordered-service mechanism as the signal application, and nontrivial to validate fairly against aggregate class, partial-FIFO and time-cohort alternatives.
+
+\section{Conclusion}
+
+The evidence therefore supports rejecting the proposal to treat ramp metering as a parallel new task in the current project. Keeping the task compatible reduces it to a domain where macroscopic traffic models and gradient methods already provide strong coverage, leaving little evidence that selectively retained order adds decision value. Seeking a stronger mesoscopic case shifts the task toward lane-changing, gap, acceleration, heterogeneous-driver or additional freeway-state modeling, which would be a substantial methodological and engineering expansion rather than a parallel application of the existing simulator.
+
+This is a bounded project decision, not a general verdict against ramp metering, differentiable freeway control or mesoscopic simulation. The evidence reviewed is targeted rather than exhaustive, but the rejection does not depend on proving that no other paper or freeway model exists. It follows from the unresolved joint requirement: no reviewed formulation is both compatible with the current architecture and independently diagnostic of the project's selective-discreteness hypothesis.
+
+\clearpage
+\small
+\begin{thebibliography}{99}
+
+\bibitem{papageorgiou1991}
+M. Papageorgiou, H. Hadj-Salem, and J.-M. Blosseville,
+``ALINEA: A local feedback control law for on-ramp metering,''
+\emph{Transportation Research Record}, no. 1320, 1991.
+
+\bibitem{gomes2006}
+G. Gomes and R. Horowitz,
+``Optimal freeway ramp metering using the asymmetric cell transmission model,''
+\emph{Transportation Research Part C}, 2006.
+\href{https://doi.org/10.1016/j.trc.2006.08.001}{doi:10.1016/j.trc.2006.08.001}.
+
+\bibitem{schmitt2017}
+M. Schmitt, C. Ramesh, and J. Lygeros,
+``Sufficient optimality conditions for distributed, non-predictive ramp metering in the monotonic cell transmission model,'' 2017.
+\href{https://arxiv.org/abs/1611.06766}{arXiv:1611.06766}.
+
+\bibitem{reilly2015}
+J. Reilly, S. Samaranayake, M. L. Delle Monache, W. Krichene, P. Goatin, and A. M. Bayen,
+``Adjoint-based optimization on a network of discretized scalar conservation laws with applications to coordinated ramp metering,''
+\emph{Journal of Optimization Theory and Applications}, 2015.
+\href{https://doi.org/10.1007/s10957-015-0749-1}{doi:10.1007/s10957-015-0749-1}.
+
+\bibitem{gu2022}
+C. Gu, C. Wu, K. L. Teo, Y. Wu, and S. Wang,
+``A smoothing method for ramp metering,''
+\emph{IEEE Transactions on Intelligent Transportation Systems}, 2022.
+\href{https://doi.org/10.1109/TITS.2021.3123815}{doi:10.1109/TITS.2021.3123815}.
+
+\bibitem{goatin2026}
+P. Goatin, A. Klar, and C. Mezquita-Nieto,
+``Discrete adjoint gradient computation for multiclass traffic flow models on road networks,''
+\emph{Optimization and Engineering}, 2026.
+\href{https://doi.org/10.1007/s11081-026-10122-4}{doi:10.1007/s11081-026-10122-4}.
+
+\bibitem{poole2016}
+A. Poole and A. Kotsialos,
+``Second order macroscopic traffic flow model validation using automatic differentiation with resilient backpropagation and particle swarm optimisation algorithms,''
+\emph{Transportation Research Part C}, 2016.
+\href{https://doi.org/10.1016/j.trc.2016.07.008}{doi:10.1016/j.trc.2016.07.008}.
+
+\bibitem{zhang2024}
+C. Zhang, W. Ma, J. Zhao, C. Ma, Y. Su, and X. Yang,
+``Destination-aware coordinated ramp metering for preventing off-ramp queue spillover and mainstream congestion,''
+\emph{IEEE Intelligent Transportation Systems Magazine}, vol. 16, no. 1, pp. 40--61, 2024.
+\href{https://doi.org/10.1109/MITS.2023.3323029}{doi:10.1109/MITS.2023.3323029}.
+
+\bibitem{salehi2017}
+N. Salehi, J. Somers, and B. Seibold,
+``Off-ramp coupling conditions devoid of spurious blocking and re-routing,'' 2017.
+\href{https://arxiv.org/abs/1708.00529}{arXiv:1708.00529}.
+
+\bibitem{wright2017}
+M. A. Wright, G. Gomes, R. Horowitz, and A. A. Kurzhanskiy,
+``On node models for high-dimensional road networks,''
+\emph{Transportation Research Part B}, 2017.
+\href{https://doi.org/10.1016/j.trb.2017.09.001}{doi:10.1016/j.trb.2017.09.001}.
+
+\bibitem{lee2019}
+M. Lee, C. Xiong, Z. Zhu, W. Zhou, and L. Zhang,
+``Analyzing simulation-based active traffic management impact on a large-scale regional network,''
+\emph{Transportation Research Record}, 2019.
+\href{https://doi.org/10.1177/0361198119845650}{doi:10.1177/0361198119845650}.
+
+\bibitem{wei2001}
+C.-H. Wei,
+``Analysis of artificial neural network models for freeway ramp metering control,''
+\emph{Artificial Intelligence in Engineering}, 2001.
+\href{https://doi.org/10.1016/S0954-1810(01)00019-X}{doi:10.1016/S0954-1810(01)00019-X}.
+
+\bibitem{fhwa2013}
+Federal Highway Administration,
+\emph{Traffic Analysis Toolbox Volume XIV: Guidebook on the Utilization of Dynamic Traffic Assignment in Modeling}, 2013.
+\href{https://ops.fhwa.dot.gov/publications/fhwahop13015/sec3.htm}{FHWA publication FHWA-HOP-13-015}.
+
+\bibitem{laval2004}
+J. A. Laval and C. F. Daganzo,
+``Multi-lane hybrid traffic flow model: Quantifying the impacts of lane-changing maneuvers on traffic flow,'' working paper, 2004.
+\href{https://escholarship.org/uc/item/8w70q261}{UC Berkeley eScholarship}.
+
+\bibitem{boukhellouf2023}
+M. Boukhellouf, C. Buisson, and N. Chiabaut,
+``Merging and diverging operations: Benchmark of three European microscopic simulation tools and comparison with analytical formulations,'' 2023.
+\href{https://doi.org/10.1186/s12544-023-00586-1}{doi:10.1186/s12544-023-00586-1}.
+
+\bibitem{jin2013}
+W.-L. Jin, Q.-J. Gan, and J.-P. Lebacque,
+``A kinematic wave theory of capacity drop,'' 2013.
+\href{https://arxiv.org/abs/1310.2660}{arXiv:1310.2660}.
+
+\bibitem{fhwa2005}
+Federal Highway Administration,
+``Localized Bottleneck Reduction Program case study: Minneapolis--St. Paul, Minnesota.''
+\href{https://ops.fhwa.dot.gov/bn/resources/case_studies/minnstp_mn.htm}{FHWA Office of Operations}.
+
+\end{thebibliography}
+
+\end{document}

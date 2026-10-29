@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "date": "2026-10-08",
+  "scope": "Source/static exact-rational and document/build checks; no traffic simulation, optimization or numerical gradient.",
+  "protected_files": 350,
+  "checked_documents": 15,
+  "local_links": 275,
+  "analytical_groups": [
+    {
+      "group": "Distinct averaging operators and global triangular-FD speed Lipschitz bound",
+      "cases": 2602
+    },
+    {
+      "group": "Endpoint-error amplification and shrinking-window count-bound inference",
+      "cases": 85
+    },
+    {
+      "group": "Nonbinding free-speed path and specified stationary-boundary discrepancy",
+      "cases": 153
+    },
+    {
+      "group": "Finite-birth bound including initial remainders and rank-potential decrement",
+      "cases": 746
+    },
+    {
+      "group": "Conditional finite-horizon TST bound, not full-tail or gradient verification",
+      "cases": 12
+    }
+  ],
+  "pdf_pages": 4,
+  "pdf_equations": 16,
+  "source_queries": 11,
+  "source_query_batches": 4,
+  "source_activity_rows": 13,
+  "supplied_j01_sha256": "efa3ee8b5aa9c647bcab685960f99c580dcf56f393f0548555ddd6b5c26afece",
+  "supplied_j01_pdf_pages": 16,
+  "pdf_inspection": "Extracted text and clean build log; no raster visual inspection.",
+  "python_version": "3.11.9 (main, Apr 19 2024, 16:48:06) [GCC 11.2.0]",
+  "pypdf_version": "6.15.0",
+  "latex_version": "pdfTeX 1.40.25 / TeX Live 2023 Debian",
+  "snapshot": "/tmp/rm12_67_own_motion_20261008__oefurqg/before.json",
+  "source_text_extraction": "/tmp/rm12_j01_journal_20261008_122658_488972/journal_text.txt",
+  "checker_path": "/tmp/validate_rm12_own_motion.py",
+  "checker_sha256": "a7621a8cc253689c025c4c6cf18e6637c51ebe07b59df3cf2eb50b7fc0021a0b",
+  "checker_source": "from pathlib import Path\nfrom fractions import Fraction as F\nimport csv, hashlib, json, re, sys\nfrom pypdf import PdfReader\n\nROOT = Path('/home/zpz/repos/diff_minimal_meso')\nBASE = ROOT / 'misc/selective_discreteness_ramp_metering_review'\nTEMP = Path('/tmp/rm12_67_own_motion_20261008__oefurqg')\nsnapshot = json.loads((TEMP / 'before.json').read_text())\ndigest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()\nprotected = {p: h for p, h in snapshot['files'].items() if p not in snapshot['allowed']}\nfor rel, h in protected.items():\n    assert (ROOT / rel).is_file() and digest(ROOT / rel) == h, rel\n\nnew_md = ['reporting/rm12/bp_r_stage3/own_motion_findings_and_gate.md',\n          'extraction/rm12/bp_r_stage3/own_motion_source_audit.md',\n          'synthesis/rm12/bp_r_stage3/own_motion_qualification.md']\ndocuments = [ROOT / p for p in snapshot['allowed']] + [BASE / p for p in new_md]\nlinks = 0\nfor p in documents:\n    content = p.read_text()\n    for match in re.finditer(r'\\[[^\\]\\n]*\\]\\((<[^>]+>|[^)\\n]+)\\)', content):\n        target = match.group(1).strip('<>')\n        if re.match(r'https?://|mailto:', target):\n            continue\n        path, _, fragment = target.partition('#')\n        destination = (p.parent / path).resolve() if path else p\n        pending_output = BASE / 'reporting/rm12/bp_r_stage3/own_motion_execution_validation.json'\n        assert destination.exists() or destination == pending_output, (str(p), target)\n        links += 1\n        if fragment and destination.suffix == '.md':\n            headings = set()\n            for line in destination.read_text().splitlines():\n                if re.match(r'^#{1,6} ', line):\n                    heading = re.sub(r'^#{1,6} ', '', line).lower()\n                    heading = re.sub(r'[^a-z0-9 _-]', '', heading).strip()\n                    headings.add(heading.replace(' ', '-'))\n            assert fragment in headings, (str(p), target)\n\noverview = (BASE / new_md[0]).read_text()\nfor token in ['S3-G2-Q.J', 'No further paper upload', 'not a negative result',\n              'not a replacement', '**Pros:**', '**Cons:**', 'No candidate']:\n    # The source law approval limit is phrased lower-case in the facade.\n    if token == 'No candidate':\n        assert 'no candidate is selected' in overview.lower()\n    elif token == 'not a replacement':\n        assert 'not a replacement' in overview\n    else:\n        assert token in overview, token\nplan = (BASE / 'rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md').read_text()\nassert 'Q.ACT closed as A' in plan and 'SRC.A is executed' in plan\nassert 'ACT.C is deferred' in plan and 'Type 2 / user' in plan\nassert 'Neither\\ncandidate is selected' in plan\n\nu, w, k = F(30), F(5), F(3,20)\nrhoc = w*k/(u+w)\nQ = u*rhoc\nflux = lambda r: min(u*r,w*(k-r))\nspeed = lambda r: u if r <= rhoc else w*(k/r-1)\nLv = w*k/rhoc**2\ngroups = []\nr1, r2 = F(1,100), F(1,10)\nassert flux(r1) == F(3,10) and flux(r2) == F(1,4)\nassert speed((r1+r2)/2) == F(95,11)\nassert (speed(r1)+speed(r2))/2 == F(65,4)\nassert (flux(r1)+flux(r2))/(r1+r2) == 5\ncases = 0\ndensities = [k*F(i,50) for i in range(51)]\nfor a in densities:\n    for b in densities:\n        assert abs(speed(a)-speed(b)) <= Lv*abs(a-b)\n        cases += 1\ngroups.append({'group':'Distinct averaging operators and global triangular-FD speed Lipschitz bound','cases':cases+1})\n\ncases = 0\nfor eps in [F(1,100),F(1,20),F(1,10)]:\n    for ell in [F(1),F(4),F(20)]:\n        for e0 in [-eps,F(0),eps]:\n            for e1 in [-eps,F(0),eps]:\n                assert abs((e0-e1)/ell) <= 2*eps/ell\n                cases += 1\nfor dx in [F(1),F(1,2),F(1,10),F(1,100)]:\n    assert 2*Lv*(3*2*k*dx)/(4*dx) == 6*2*k*Lv/4\n    cases += 1\ngroups.append({'group':'Endpoint-error amplification and shrinking-window count-bound inference','cases':cases})\n\ncases = 0\nfor r in densities:\n    assert flux(r) <= u*r\n    for dt in [F(1,10),F(1,2),F(1)]:\n        d = Q/2\n        discrepancy = d*dt\n        assert discrepancy > 0 and discrepancy <= Q*dt\n        cases += 1\ngroups.append({'group':'Nonbinding free-speed path and specified stationary-boundary discrepancy','cases':cases})\n\ncases = 0\nfloor = lambda x: x.numerator // x.denominator\nfor delta in [F(1),F(3,2),F(2)]:\n    for a in range(11):\n        for b in range(11):\n            eta = [F(a,5),F(b,5),F(a+b,10)]\n            for rr in [[F(0),F(0),F(0)], [delta*F(9,10),delta*F(1,10),delta*F(1,2)]]:\n                births = sum(floor((r+e)/delta) for r,e in zip(rr,eta))\n                assert births <= sum(eta)/delta+3\n                assert sum(eta) == F(3,10)*(a+b)\n                cases += 1\nfor rank in range(1,6):\n    for mass in [F(0),F(1,3),F(1),F(5,2)]:\n        assert rank*mass-(rank-1)*mass == mass\n        cases += 1\ngroups.append({'group':'Finite-birth bound including initial remainders and rank-potential decrement','cases':cases})\n\ncases = 0\nfor T in [F(1),F(5),F(20)]:\n    for eps in [F(0),F(1,10),F(1),F(3)]:\n        # Exact integral of a linear exit-count discrepancy on a fixed horizon.\n        exact_objective_difference = eps*T/2\n        assert exact_objective_difference <= eps*T\n        cases += 1\ngroups.append({'group':'Conditional finite-horizon TST bound, not full-tail or gradient verification','cases':cases})\n\npdf = BASE / 'synthesis/rm12/bp_r_stage3/own_motion_math.pdf'\ntex = pdf.with_suffix('.tex')\nassert pdf.read_bytes() == (TEMP / 'build/own_motion_math.pdf').read_bytes()\nreader = PdfReader(pdf)\npdf_text = '\\n'.join(page.extract_text() for page in reader.pages)\nassert len(reader.pages) == 4 and all(len(p.extract_text()) > 500 for p in reader.pages)\nassert tex.read_text().count(r'\\begin{equation}') == 16\nfor token in ['Finite population', 'Count', 'Disposition', '(16)']:\n    if token == 'Count':\n        assert 'count' in pdf_text.lower()\n    else:\n        assert token in pdf_text, token\nassert not re.search(r'Warning|Overfull|Underfull|^!', (TEMP/'build/own_motion_math.log').read_text(),re.M)\n\nsource = BASE / 'archive/user_supplied/rm12_bp_r_stage3/On the numerical treatment of moving bottlenecks.pdf'\nassert digest(source) == 'efa3ee8b5aa9c647bcab685960f99c580dcf56f393f0548555ddd6b5c26afece'\nassert len(PdfReader(source).pages) == 16\nqueries = list(csv.DictReader((BASE/'search/rm12_bp_r_stage3_own_motion_queries.csv').open()))\nactivities = list(csv.DictReader((BASE/'screening/rm12_bp_r_stage3_own_motion_sources.csv').open()))\nassert len(queries) == 11 and len({r['batch'] for r in queries}) == 4\nassert len(activities) == 13\nassert sum(row['access_class'].startswith('failed') for row in activities) == 4\n\nnew_allowed = set(new_md + ['synthesis/rm12/bp_r_stage3/own_motion_math.tex',\n    'synthesis/rm12/bp_r_stage3/own_motion_math.pdf',\n    'search/rm12_bp_r_stage3_own_motion_queries.csv',\n    'screening/rm12_bp_r_stage3_own_motion_sources.csv',\n    'reporting/rm12/bp_r_stage3/own_motion_execution_validation.json'])\ncurrent = {str(p.relative_to(ROOT)) for p in BASE.rglob('*') if p.is_file()}\nnew_files = {str((ROOT/p).relative_to(BASE)) for p in current-set(snapshot['files'])}\nassert new_files <= new_allowed, new_files-new_allowed\nmodified = [p for p,h in snapshot['files'].items() if digest(ROOT/p) != h]\nassert set(modified) <= set(snapshot['allowed'])\n\nresult = {'status':'PASS','date':'2026-10-08',\n    'scope':'Source/static exact-rational and document/build checks; no traffic simulation, optimization or numerical gradient.',\n    'protected_files':len(protected),'checked_documents':len(documents),'local_links':links,\n    'analytical_groups':groups,'pdf_pages':4,'pdf_equations':16,\n    'source_queries':11,'source_query_batches':4,'source_activity_rows':13,\n    'supplied_j01_sha256':digest(source),'supplied_j01_pdf_pages':16,\n    'pdf_inspection':'Extracted text and clean build log; no raster visual inspection.',\n    'python_version':sys.version,'pypdf_version':__import__('pypdf').__version__,\n    'latex_version':'pdfTeX 1.40.25 / TeX Live 2023 Debian',\n    'snapshot':str(TEMP/'before.json'),'source_text_extraction':'/tmp/rm12_j01_journal_20261008_122658_488972/journal_text.txt',\n    'checker_path':__file__,'checker_sha256':digest(Path(__file__)),'checker_source':Path(__file__).read_text(),\n    'commands':['pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory='+str(TEMP/'build')+' '+str(tex.relative_to(ROOT)),\n                '/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/validate_rm12_own_motion.py'],\n    'current_status':'SRC.A executed/source-input resolved; Q.ACT A closed; Q.J candidates unselected; Step 67/Stage 3 open; final Q/G3 pending; Stage 4 unopened.',\n    'limitations':['Targeted thesis methods only; exact geometry manuscript unavailable.',\n                  'Unqualified source-derived candidate; no complete endogenous solver, clearance, control-leverage or gradient claim.',\n                  'Local stationary-boundary diagnostic is not a blanket failure of every source implementation.'],\n    'modified_existing_files':modified,\n    'changed_and_new_hashes':{str(p.relative_to(ROOT)):digest(p) for p in documents+[BASE/r for r in sorted(new_allowed) if (BASE/r).is_file()]},\n}\noutput=BASE/'reporting/rm12/bp_r_stage3/own_motion_execution_validation.json'\nif sys.argv[1:] != ['--check-only']:\n    assert not sys.argv[1:] and not output.exists(), 'Historical/current validation evidence is never silently overwritten.'\n    with output.open('x') as f:json.dump(result,f,indent=2)\n    assert output.is_file() and json.loads(output.read_text())['status'] == 'PASS'\nprint(json.dumps({key:result[key] for key in ['status','protected_files','checked_documents','local_links','analytical_groups','pdf_pages','pdf_equations']},indent=2))\n",
+  "commands": [
+    "pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=/tmp/rm12_67_own_motion_20261008__oefurqg/build misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/own_motion_math.tex",
+    "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/validate_rm12_own_motion.py"
+  ],
+  "current_status": "SRC.A executed/source-input resolved; Q.ACT A closed; Q.J candidates unselected; Step 67/Stage 3 open; final Q/G3 pending; Stage 4 unopened.",
+  "limitations": [
+    "Targeted thesis methods only; exact geometry manuscript unavailable.",
+    "Unqualified source-derived candidate; no complete endogenous solver, clearance, control-leverage or gradient claim.",
+    "Local stationary-boundary diagnostic is not a blanket failure of every source implementation."
+  ],
+  "modified_existing_files": [
+    "misc/selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_66_bp_r_stage3_sampled_insertion_qualification.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_60_bp_r_stage3_protocol.md",
+    "misc/selective_discreteness_ramp_metering_review/README.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/work_report.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_receiving_findings.md",
+    "misc/selective_discreteness_ramp_metering_review/archive/user_supplied/rm12_bp_r_stage3/own_motion_source_request.md",
+    "misc/selective_discreteness_ramp_metering_review/archive/user_supplied/rm12_bp_r_stage3/README.md",
+    "misc/selective_discreteness_ramp_metering_review/discussion/rm12/backtracking_planning_dialogue.md"
+  ],
+  "changed_and_new_hashes": {
+    "misc/selective_discreteness_ramp_metering_review/README.md": "8674ed39bc88e98fc1fca3a0ba08c632c77742d92cfbb0c0b3e410e98b4567a9",
+    "misc/selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md": "bbcbf932ce7ad481141f6f707e0f0bfd5af1d7b051057afcc66c0e5145f05933",
+    "misc/selective_discreteness_ramp_metering_review/rm12_60_bp_r_stage3_protocol.md": "ccd1237c901be0abd25cfdcd84831e9574b21983a33b0429bca8d0c460fa3a69",
+    "misc/selective_discreteness_ramp_metering_review/rm12_66_bp_r_stage3_sampled_insertion_qualification.md": "fef11223d3066722d767704615795ef8b28ad94d6a374b8cef26462105aac4d1",
+    "misc/selective_discreteness_ramp_metering_review/rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md": "96964a5ce725740ac2ae760e20d8fedd3452bc1404d953cba51faedab3780480",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md": "327d10e05eae8e7107b916acc6812fca743f0125fc09c6370c68166b319b5020",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md": "432051aa4458f08d7aa15335ba4156e298b58957b9a333d30390fe8a6603bcae",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_receiving_findings.md": "aaf05b5fa4f0b0ed2bbe448c8b8afcd9460bd5476343c6e67d255c727d192569",
+    "misc/selective_discreteness_ramp_metering_review/discussion/rm12/backtracking_planning_dialogue.md": "7ee4304d06b0cce01bdda7556f6f73e00de2541c7c4bbd706892fd38ddf77c7f",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/work_report.md": "11c3468092fad56a644ed2bfcd04683c67ad5759c83c11341fa501e4867a1d07",
+    "misc/selective_discreteness_ramp_metering_review/archive/user_supplied/rm12_bp_r_stage3/README.md": "79c451ffbcbc6b38de8373f884ab14c478d95a271892e3f5e75d29ec294a617f",
+    "misc/selective_discreteness_ramp_metering_review/archive/user_supplied/rm12_bp_r_stage3/own_motion_source_request.md": "33f07edbfb5ee29fd3461bf9e129b55817fe84f7ceac51079af680103863bea0",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/own_motion_findings_and_gate.md": "af83318fbd3794c27d16623b6e2f219ddf385948c248c84ca0f03986b6f25ba5",
+    "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/own_motion_source_audit.md": "862d2e6e4d0a1f098a60f9d4b9c1baff100803fcfb48a22cca2b23916bc7f981",
+    "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/own_motion_qualification.md": "07a3362c026cf1f36073ad59200c775adb767ce82013f2b0d54a0ffa1aa93deb",
+    "misc/selective_discreteness_ramp_metering_review/screening/rm12_bp_r_stage3_own_motion_sources.csv": "54a4b13824d8ed62b21325a90fd1268c9db0362523c9557ddf7e3f929470bdf7",
+    "misc/selective_discreteness_ramp_metering_review/search/rm12_bp_r_stage3_own_motion_queries.csv": "a86bed2d549c0bfed25e7f2f54cd2a3453f77562e8abad047925c6436dd33da9",
+    "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/own_motion_math.pdf": "cff09b34d424a0e42e84eb4f2f64c281a789f5b050c55559e70e906121c1325d",
+    "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/own_motion_math.tex": "38a86bfea77b8daba9c956088a7fc1c4636054476f96185c6d2ddeec44dc61e3"
+  }
+}

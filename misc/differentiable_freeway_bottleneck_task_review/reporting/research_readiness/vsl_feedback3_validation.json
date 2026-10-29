@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "date": "2026-10-13",
+  "scope": "feedback-3 existing-framework diagnosis; no replacement proposal",
+  "snapshot": "/tmp/vsl_feedback3_20261013_preservation_snapshot.json",
+  "snapshotted_files": 1066,
+  "unchanged_snapshotted_files": 1058,
+  "modified_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/README.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_b1_lane_change_model_and_gate.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_modeling_problem_inventory.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md",
+    "temp_content/feedback/vsl_refinement_feedback.md"
+  ],
+  "created_files": [
+    "reporting/research_readiness/vsl_feedback3_existing_framework_component_audit.md",
+    "reporting/research_readiness/vsl_feedback3_work_report.md",
+    "reporting/research_readiness/vsl_feedback3_validation.json"
+  ],
+  "original_nine_component_numbering_preserved": true,
+  "accepted_mp1_mp6_definitions_ownership_and_dependencies_unchanged": true,
+  "b1_findings_results_table_and_gate_alternative_bodies_unchanged": true,
+  "candidate_bodies_and_inherited_methods_unchanged": true,
+  "closed_s13_urban_ramp_sources_math_and_previous_records_preserved": true,
+  "inbox_change_exactly_answered_heading_3_token": true,
+  "dialogue_append_only": true,
+  "local_links_resolved": 143,
+  "preexisting_git_changes_preserved": [
+    " M AGENTS.md",
+    " M PLANS.md",
+    " M memo.txt"
+  ],
+  "scientific_tests_and_experiments": "none; document checks only",
+  "phase": "method-only discussion at VSL-B1-G1",
+  "next_allowed_action": "discuss original component responsibilities before a separately opened old/new proposal"
+}

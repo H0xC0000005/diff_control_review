@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-21",
+  "task": "Question 1 initialization clarification",
+  "status": "pass",
+  "snapshot": "/tmp/urban_question1_before_20261021.json",
+  "snapshot_files": 693,
+  "declared_existing_urban_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_dialogue.md"
+  ],
+  "declared_urban_files_added": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_question1_clarification_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_question1_clarification_work_report.md"
+  ],
+  "outside_snapshot_changes": [],
+  "missing_snapshot_files": [],
+  "local_links_checked": 62,
+  "scientific_question_ids": [
+    "UR-G0",
+    "UR-G1",
+    "UR-G2",
+    "UR-G3",
+    "UR-G4",
+    "UR-G5",
+    "UR-C1-Q1",
+    "UR-C2-Q1",
+    "UR-C3-Q1",
+    "UR-C4-Q1",
+    "UR-C4-Q2",
+    "UR-C5-Q1",
+    "UR-C6-Q1",
+    "UR-C7-Q1"
+  ],
+  "cited_authorities_feedback_and_root_files_unchanged": true,
+  "scientific_runs": "none; prose clarification only",
+  "phase": "Phase B; UR-G1 open; scientific candidates unapproved",
+  "errors": []
+}

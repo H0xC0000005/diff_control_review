@@ -1,0 +1,252 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large A merger follows its own queue: local motion and kinetic memory}\\[4pt]
+8 October 2026 --- Q.J-A approved; analytical completion, no new law adopted
+
+\textbf{Scope.} Source-free local triangular KW with held desired speeds,
+one-sided initial states and an explicitly resolved finite queue encounter.
+Records describe restrictions and add \emph{zero} traffic population. Results
+are conditional mathematical references, not the complete lane-source/node/E1
+solver, a reached metering comparison, clearance proof or gradient evidence.
+Source and adoption boundaries are in \texttt{motion\_contact\_source\_audit.md}.
+
+\section*{1. Ordinary traffic already supplies the inactive limit}
+With speed units m/s, density in equivalents/m and flow in equivalents/s, let
+\begin{equation}
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\quad
+ \rho_c=\frac{w\kappa}{u+w},\quad
+ V(\rho)=\begin{cases}u,&0\le\rho\le\rho_c,\\
+ w(\kappa/\rho-1),&\rho_c<\rho\le\kappa.\end{cases}
+\end{equation}
+Vacuum speed is $V(0)=u$. The ordinary relative flow seen by a path of speed
+$v$ is $g_v(\rho)=F(\rho)-v\rho$. Thus
+\begin{equation}
+ g_u(\rho)\le0\quad(0\le\rho\le\kappa),\qquad
+ R(u)=\sup_{0\le\rho\le\kappa}g_u(\rho)=0.
+\end{equation}
+A zero-passing upper bound along a free-speed path adds no restriction to
+ordinary KW. Replacing it by a stationary zero entrance capacity for an entire
+step does not preserve this exact limit.
+
+At an initial point take constant left/right traffic states $\rho_L,\rho_R$
+and a held desired speed $s\in[0,u]$. Write
+\begin{equation}
+ c=V(\rho_R),\qquad v=\min\{s,c\}.
+\end{equation}
+If $c\le s$, the path rides the right stream. For congested $\rho_R$,
+a left-to-right shock when $\rho_L<\rho_R$ has speed
+\begin{equation}
+ \sigma=\frac{F(\rho_R)-F(\rho_L)}{\rho_R-\rho_L}\le c,
+ \qquad F(\rho_L)\ge c\rho_L\quad(\rho_L\le\rho_R).
+\end{equation}
+The latter inequality follows branchwise from $F(\rho)/\rho\ge V(\rho_R)$.
+If $\rho_L>\rho_R$ both states are congested and their contact moves at $-w$.
+Consequently the ordinary solution's right trace on the path is $\rho_R$,
+and $g_c(\rho_R)=0$. The case of vacuum on the left gives the queue rear
+itself. For free right traffic with $c=u$, equation (2) covers the degenerate
+case. There is no extra service deduction when the path merely follows the
+existing stream. An already existing queue is not erased.
+
+\newpage
+\section*{2. The active local fan is conservative and one-sided}
+If $s<c$, then $s<u$. Zero relative passing and triangular KW give
+\begin{equation}
+ \rho_U(s)=\frac{w\kappa}{w+s}\ge\rho_c,\quad
+ q_U(s)=s\rho_U(s),\quad \rho_D=q_D=0.
+\end{equation}
+The saturated following trace and vacuum are separated by a path of speed
+$s$, since
+\begin{equation}
+ q_U-s\rho_U=0=q_D-s\rho_D.
+\end{equation}
+This is the mass jump condition on a moving boundary, not a new population.
+Because $s<c$, $\rho_R<\rho_U$. The vacuum-to-right front has speed
+\begin{equation}
+ \sigma_R=\frac{F(\rho_R)}{\rho_R}=c>s
+ \quad(\rho_R>0);
+\end{equation}
+for $\rho_R=0$ there is simply vacuum. When $\rho_L<\rho_U$, the left shock
+is behind the path:
+\begin{equation}
+ \sigma_L=\frac{q_U-F(\rho_L)}{\rho_U-\rho_L}
+ =s-\frac{g_s(\rho_L)}{\rho_U-\rho_L}\le s,
+ \qquad g_s(\rho_L)\ge0.
+\end{equation}
+These density-increasing shocks satisfy the concave-FD entropy condition.
+For $\rho_L>\rho_U$, the two congested states join by a contact at $-w$.
+For $\rho_L=\rho_U$ no left wave is needed. For $\rho_L=0$, $\sigma_L=s$:
+the following saturated state has zero width until traffic catches up. It
+does not manufacture a queue or positive service without incoming traffic.
+The $s=0$ limit is a stationary jam/void interface, with the same conservation
+identity. This gives a local solution with no arbitrary anticipation window.
+
+\section*{3. Same-count coincident records can separate without added mass}
+For finitely many records born at the same lane point/count, hold desired
+speeds $s_i$ and put $v_i=\min\{s_i,c\}$, $v_0=\min_i v_i$.
+If $v_0<c$, the preceding fan for $v_0$ gives vacuum between its path and
+the front moving at $c$. All faster records lie in that vacuum or on the
+front; their constant-speed segments are compatible with the own field.
+If all desired speeds exceed $c$, all records ride the original right stream.
+Coincident equal-speed records remain retained.
+
+In this source-free local problem, define $N_x=-\rho$, $N_t=F(\rho)$.
+For any two separating paths $\phi_i\le\phi_j$ in the void,
+\begin{equation}
+ N(t,\phi_i)-N(t,\phi_j)=\int_{\phi_i}^{\phi_j}\rho(t,x)\,dx=0,
+ \qquad \frac{d}{dt}N(t,\phi_i)=0.
+\end{equation}
+No rank spacing, vehicle identifiers or integer vehicle mass is implied.
+This establishes compatibility for held local segments; later sources and
+kinetic changes require retaining all records, not deleting the faster ones.
+
+\newpage
+\section*{4. A restriction catches its own queue}
+Take $u=30$, $w=5$, $\kappa=3/20$, an empty gap of length $d=20$ and a
+queue ahead with $\rho_J=3/40$. Then
+\begin{equation}
+ F(\rho_J)=3/8,\qquad c=V(\rho_J)=5,
+ \qquad b(t)=20+5t.
+\end{equation}
+Let an already present restriction start at the entrance with held desired
+speed $s=15$. The finite queue extends far enough downstream (e.g. to a free
+outlet at 200 m) that its far-end release wave cannot affect the four-second
+example. The vacuum/queue rear $b(t)$ is a forward shock. Catch time and
+own motion follow from the intersection, not from prescribed external paths:
+\begin{equation}
+ t_* = \frac{d}{s-c}=2,\qquad
+ \phi(t)=\begin{cases}15t,&0\le t\le2,\\
+ 30+5(t-2),&2\le t\le4.\end{cases}
+\end{equation}
+Thus
+\begin{equation}
+ \phi(4)=40,\qquad
+ \frac{\phi(4)-\phi(0)}4=10,\qquad v(4^-)=5.
+\end{equation}
+The four seconds are an analytical illustration window, not a selected CTM
+timestep. For any regular interval of length $\Delta t$, an old record with
+gap $d=(s-c)\Delta t/2$ reaches the queue halfway through the interval. Such
+an old record may lie arbitrarily close to a queued cell face even when
+$u\Delta t\le\Delta x$; no CFL violation is needed for an interior contact.
+
+Holding 15 throughout puts the record at 60 m, beyond the queue rear.
+Holding 5 puts it at 20 m and brakes too early. The straight path $10t$ has
+the correct endpoint but does not reach the queue until second four.
+
+With plentiful ordinary entrance demand behind the record, the following
+state before contact is $\rho_U(15)=3/80$, $q_U(15)=9/16$. Upon contact the
+following density becomes $\rho_U(5)=3/40=\rho_J$. A congested wave carrying
+this change travels backward at $-w$, so
+\begin{equation}
+ t_{\rm entrance}=t_*+\frac{\phi(t_*)}{w}=2+30/5=8.
+\end{equation}
+For $t\le4$ the entrance has not yet felt that slowdown. Its cumulative
+count and the own population behind the restriction at second four agree:
+\begin{equation}
+ C(4)=\frac9{16}\,4=\frac94,
+ \qquad \int_0^{40}\rho(4,x)\,dx
+ =\frac3{80}\,20+\frac3{40}\,20=\frac94.
+\end{equation}
+The backward wave at second four is at $30-5(4-2)=20$ m. By contrast, a
+constant 10 m/s restriction has $\rho_U(10)=1/20$ and $C(4)=2$. The two
+paths share an endpoint but differ by $1/4$ equivalent in entrance count.
+No control pair or complete-TST difference is inferred. The existing-record,
+no-lateral-source diagnostic is not a change to E1 in the full task.
+
+\newpage
+\section*{5. The proposed fixed-clock completion needs two different outputs}
+The source sampled kinetics use one interval speed in both updates:
+\begin{equation}
+ \phi^{j+1}=\phi^j+v^j\Delta t,\qquad
+ d^{j+1}=\min\{u,v^j+a(v^j,\phi^j)\Delta t\}.
+\end{equation}
+At an interior contact, an interval-average speed and the ending kinetic
+speed are different. An average can encode distance, but cannot also encode
+the exact state from which the next acceleration begins. This does not refute
+a single-speed \emph{numerical approximation}; it identifies a motion/kinetic
+error that such an approximation must qualify. Exact information retention
+does not demand an exact continuum field.
+
+\textbf{Candidate K.A (not adopted).} Regular public updates and E1 births
+stay at $t_j$. Positive acceleration is refreshed only at those times.
+Within the interval let $W_i(t)=V(\rho(t,\phi_i(t)+))$ be the immediate
+own ahead trace speed. A braking-only running cap defines, conditionally on
+a resolved local field/contact sequence,
+\begin{equation}
+ v_i(t)=\min\left\{d_i^j,\inf_{t_j\le r\le t}W_i(r)\right\},\qquad
+ \phi_i^{j+1}=\phi_i^j+\int_{t_j}^{t_{j+1}}v_i(t)\,dt.
+\end{equation}
+Instant braking uses the source idealization; the running cap prevents
+instantaneous recovery if the queue vanishes later in the same interval.
+Keep the true $v_i(t_{j+1}^-)$ and refresh
+\begin{equation}
+ d_i^{j+1}=\min\{u,v_i(t_{j+1}^-)
+       +a_i(v_i(t_{j+1}^-),\phi_i^j)\Delta t\}.
+\end{equation}
+The old start position in the grade argument preserves the original spatial
+phase; the example is level road. Other grade semantics must not be silently
+changed. New E1 records are initialized by their approved donor speed, without
+this old-record increment or retroactive movement. On a no-contact interval
+these equations reproduce (15); on contact intervals they are an explicit
+adaptation. They do not by themselves define the accepted-source/node update.
+
+In the example, using average speed 10 instead of final speed 5 would initialize
+the next desired speed from the wrong kinetic state. On a level road with
+$a(v)=a_0(1-v/v_{\max})$ the difference before the common free-speed cap is
+\begin{equation}
+ [10+a(10)\Delta t]-[5+a(5)\Delta t]
+ =5\left(1-\frac{a_0\Delta t}{v_{\max}}\right).
+\end{equation}
+This is a kinetic-memory diagnostic, not a claim of a reached control gradient.
+
+\newpage
+\section*{6. Continuous kinetics is a distinct alternative}
+\textbf{Candidate K.B (not adopted).} Integrate $\dot\phi=v$ and the source
+acceleration function continuously while motion is unconstrained. Enforce the
+own ahead speed cap by instantaneous braking; after release, positive
+acceleration resumes immediately rather than waiting for $t_{j+1}$. Meter
+updates and E1 births can remain regular. For level free road put
+$\lambda=a_0/v_{\max}$; before reaching $u$,
+\begin{equation}
+ v(t_j+h)=v_{\max}-(v_{\max}-v(t_j))e^{-\lambda h},\qquad
+ \phi(t_j+h)-\phi(t_j)
+ =v_{\max}h-\frac{v_{\max}-v(t_j)}{\lambda}(1-e^{-\lambda h}).
+\end{equation}
+Its free-motion samples differ from the source Euler recurrence even without
+a queue. The acceleration family is supported; this integration and the
+joined timing contract need explicit adoption. No existing full endogenous
+theorem is asserted for either alternative.
+
+\textbf{Candidate K.C (unqualified, not adopted).} Keep the source sampled
+single-speed recurrence and the explicit own density-window predictor; use a
+moving-relative prescribed-segment field construction rather than the direct
+stationary zero mask. Qualify its endogenous motion/wave errors against the
+local contact reference. This is an admissible numerical review route, not
+record compression. No tolerance, convergence or gradient claim is established.
+
+\section*{7. Where this result sits in the review}
+Q.J-A authorized completion work, not adoption of either timing law. The
+local activation/motion and coincidence compatibility above are positive
+bounded results. The remaining choice K concerns how interior contacts alter
+the sampled kinetic state. K.A minimally amends the interval transcription;
+K.B also changes unconstrained recovery. Both preserve exact records, M.A,
+N.A and E1. No cost or approximation criterion selects between them.
+
+Lateral sources still prevent using a globally constant source-free count:
+for $\rho_t+F_x=S$ and $N=C-\int_0^x\rho$, away from point-source ambiguity,
+\begin{equation}
+ \frac{d}{dt}N(t,\phi(t))
+ =F(t,\phi)-\dot\phi\rho(t,\phi)-\int_0^{\phi(t)}S(t,x)\,dx.
+\end{equation}
+A source on the path needs a one-sided attachment. The completed node must
+share receiving once, pair all population transfers and apply E1 afterward.
+The current local result supplies none of the missing arbitrary-source or
+clearance theorems. Full-population TST, meaningful reached metering leverage,
+gradient correctness/usefulness and necessity against aggregate/memory
+competitors remain unestablished. Stage 3 stays open; Stage 4 stays unopened.
+\end{document}

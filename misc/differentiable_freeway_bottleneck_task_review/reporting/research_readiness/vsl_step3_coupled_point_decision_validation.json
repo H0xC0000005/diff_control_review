@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-14",
+  "status": "Passed closure consistency, local-link/anchor and unchanged-contract checks",
+  "markdown_files_checked": 20,
+  "local_links_checked": 387,
+  "heading_anchors_checked": 29,
+  "current_file_sha256": {
+    "README.md": "b0f7ba18cc2588aaf040198d1b6d360dd9eecd4618c1bbf5d1c28fe695ed02c3",
+    "vsl_successor_00_opening_plan.md": "67f6407b19dbdb68c9d3fc0b0d96057ea1b7ccfb2216813fe23cc5fc50330a14",
+    "reporting/research_readiness/vsl_step2_model_closure.md": "cbdf7ba5663bd063593001138f7c6b1adde86ff0fb0d28ebe34159465e4adba5",
+    "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md": "aa07e56b8e1a5d10e5fbe0f02455847349ae06dd77920bd3e0516144b9de55c9",
+    "reporting/research_readiness/vsl_step3_validation_ladder_decision.md": "cd48abe3e2b50b544132d6f6e77c69c1da5f1584e7d66af34d16f1ea44a3487e",
+    "reporting/research_readiness/vsl_step3_sumo_work_report.md": "2f77063ebe987b5879a6b52096d0b2b7448ea66c14f227bef944078d72674ea2",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md": "59db0d6b8cf03fbf26a828f25cdaa7092fb6283901fd9fe266d74a780470109b",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md": "4954b66eb474193e4a90046e35b10073efb6023c4f20f28d0982b51722a03e9f",
+    "reporting/research_readiness/vsl_review_progress.md": "034f2eaa0e0d18da1d1d7fbe554f6db166ec1c010c96a494406ab07f007736b0",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "2c05f42d9b53cbde63f7c150ad2ce3e6dc528f60fda28cc5d5b4d635714d816b",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md": "41bd3d0b1038a7ed6bf6bd630b61263553c0ff818e64ac83f41393ff5a3fba1c",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "216458781f78b17d00921c56aeef5d65661fc69618b7d5f9096244de6c06c55d",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md": "579cdf648072b029148e218572403d48b860a5ffe38a24b21d618dc3a5614782",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md": "fb11d2e0962b210d1337b41dbeef6d862bcdf1ff07f48cd643cf6185a396fb7a",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "0eca927f29aabd84e0b900e5604b01ce62b9affcbf26f4d94411843a72b28f97",
+    "reporting/research_readiness/vsl_step3_reference_qualification_and_final_gate.md": "f5b4e8ec6be5e481a48e83e183cc51ef0ccfc55ccb0705c4f7b0bf768c4e88a1",
+    "reporting/research_readiness/vsl_step3_resumed_review_work_report.md": "967980878906a77fd2b4091246fdf2743f2ce5e0525b26ae3d059ed971774cf7",
+    "reporting/research_readiness/vsl_step3_merge_feedback_and_completion_response.md": "b8b83a558310ea17253b5e7519095581a33d4a034f97f091c646e6cd0abd9188",
+    "reporting/research_readiness/vsl_step3_merge_feedback_response_work_report.md": "f48c149be56f0a7dd3ed16466f3255a222056f04a42e7c3a00fe787b622e79f8",
+    "reporting/research_readiness/vsl_step3_coupled_point_decision.md": "353bd6ccded17717ac0776697b893c597cff17b9e7c05d7669b41a22aac97519"
+  },
+  "accepted_h1_t1_sha256_unchanged": {
+    "vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "s3_m1": "Approved and closed; model -> S-P -> S-L ladder unchanged",
+  "s3_m2": "Approved and closed for C-P representation / choke-line local completion",
+  "g3_terminal": "Nominal zero-A-delay restriction narrowly reopened for successor qualification; no replacement law approved",
+  "c_z": "Unselected/deferred return route; explicit reopening required",
+  "step_3": "Open for exact law, dependent evidence and full protocol freeze",
+  "step_4": "Unopened",
+  "new_source_reading": false,
+  "traffic_runs": false,
+  "simulator_code_or_network_build": false,
+  "installation_or_binary_probe": false,
+  "gradient_or_optimization_execution": false,
+  "new_qualification_review_started": false,
+  "limits": [
+    "Direction and local objective accepted; no unspecified equation approved.",
+    "No traffic, derivative or evaluator admission check performed.",
+    "Predecessor mathematical artifacts are unchanged."
+  ]
+}

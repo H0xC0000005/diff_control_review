@@ -1,0 +1,258 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\emergencystretch=3em
+\raggedright
+\begin{document}
+{\Large Alignment ladder: exact local certificates and the remaining shared update}\\[4pt]
+8 October 2026 --- methodology review; no traffic simulation or model adoption
+
+\textbf{Conclusion.} The unchanged uniform field fails a local compatibility
+test. Restriction-aware and continuous-wave descriptions have exact local
+constructions, including own motion. Neither a completed numerical update nor
+an applicable full continuum result has yet been supplied for all approved
+lane-transfer, node, record and reset interactions. This is not a theorem that
+the model cannot be constructed. A full arbitrary-data continuum theorem is
+not required if an admissible, coherent finite numerical model is qualified.
+
+\section*{1. Quantities and the unchanged projection obstruction}
+Traffic density $\rho$ and jam density $\kappa$ have units equivalents/m.
+Free speed $u$, backward-wave magnitude $w$ and restriction speed $s$ have
+units m/s. Road flux $f$ has units equivalents/s. The triangular diagram is
+\begin{equation}
+ f(\rho)=\min\{u\rho,w(\kappa-\rho)\},\qquad
+ \rho_c=\frac{w\kappa}{u+w},\qquad Q=u\rho_c.
+\end{equation}
+Let $C(t)$ be a local cumulative incoming count (with a fixed gauge offset),
+and $N(t,x)$ the count remaining after subtracting traffic upstream of $x$:
+\begin{equation}
+ N(t,x)=C(t)-\int_0^x\rho(t,\xi)\,d\xi,\qquad
+ N_x=-\rho,\quad N_t=f(\rho).
+\end{equation}
+The last identity is for a source-free segment with its correctly accounted
+upstream port. A restriction position $z_j(t)$ has count $h_j=N(t,z_j(t))$.
+Its speed $v_j=\dot z_j$ gives
+\begin{equation}
+ \dot h_j=f(\rho)-v_j\rho=0
+\end{equation}
+on the approved zero-relative-passing path. Records are effect metadata;
+they add no population to these integrals.
+
+Recheck the earlier 30 m cell, $\Delta t=1$, $u=30$, $w=5$, $\kappa=3/20$,
+initial density $1/100$, free exit, sufficient input, and coincident old
+records with $h_1=h_2=0$, desired speeds 5 and 15. The own fan at one second
+has $\rho=3/40$ on $[0,5]$ and vacuum on $(5,30)$; positions are 5 and 15.
+The initial $3/10$ mass exits and $3/8$ enters. Consequently
+\begin{equation}
+ m(1)=C(1)=\frac38,\qquad N(1,5)=N(1,15)=N(1,30)=0.
+\end{equation}
+Uniform projection instead uses $\bar\rho=(3/8)/30=1/80$ and yields
+\begin{equation}
+ \bar N(1,5)=\frac5{16},\qquad \bar N(1,15)=\frac3{16},\qquad
+ \int_5^{15}\bar\rho\,dx=\frac18.
+\end{equation}
+Thus positions, old labels and uniform reconstruction cannot all hold.
+The parent CFL equality $u\Delta t=30$ is satisfied. The example is local,
+not a reached metering witness or a proof against every CTM realization.
+
+\newpage
+\section*{2. A new exact two-restriction own-field evolution}
+Use the same diagram in $[0,30]$. At time zero the field consists of two
+congested blocks separated by vacuum. Let
+\begin{equation}
+ r_1=\frac{w\kappa}{w+5}=\frac3{40},\qquad
+ r_2=\frac{w\kappa}{w+10}=\frac1{20}.
+\end{equation}
+For $0\le t\le1/2$, prescribe only the external upstream demand needed to
+maintain the own admissible inflow $q_0=5r_1=3/8$; exit is free. The explicit
+solution, with old desired speeds 5 and 10, is
+\begin{equation}
+ \rho(t,x)=\begin{cases}
+ r_1,&0\le x<5+5t,\\
+ 0,&5+5t<x<15+10t,\\
+ r_2,&15+10t<x<20+10t,\\
+ 0,&20+10t<x\le30,
+ \end{cases}\qquad
+ z_1(t)=5+5t,\quad z_2(t)=20+10t.
+\end{equation}
+There are no interior lateral sources, encounters or exits in this local
+window. Ordinary shocks at the rear of the second block and the nonclassical
+zero-passing jumps at each restriction determine the same motion and field.
+Ahead of each restriction is vacuum, so K.A permits its held desired speed;
+no positive interior recovery is used. Within a block, $f(r_i)/r_i=s_i$.
+
+The second block's left jump is an ordinary entropy shock: its speed is
+$(f(r_2)-0)/(r_2-0)=10$, between the triangular diagram's slopes 30 and $-5$.
+At each right jump,
+\begin{equation}
+ f(r_1)-5r_1=0,\qquad f(r_2)-10r_2=0.
+\end{equation}
+Take gauge $C(0)=m(0)=5r_1+5r_2=5/8$. Then
+\begin{align}
+ m(t)&=(5+5t)r_1+5r_2=\frac58+\frac38t=C(t),\\
+ h_1(t)&=C(t)-(5+5t)r_1=\frac14,\\
+ h_2(t)&=C(t)-m(t)=0.
+\end{align}
+At $t=1/2$, positions are $15/2$ and 25, the second block begins at 20,
+and $m=C=13/16$. The intervening mass between the records is exactly $1/4$.
+All flow, storage, position and count calculations agree in one own field.
+
+\textbf{Scope.} This is an analytic local construction, not a public
+E1/metering trajectory or the complete sourced update. It proves more than
+reset interpolation, but not the full task. The exact field has two downward
+density jumps and cannot be represented by a single internal discontinuity.
+That does not exclude extending a subcell method to multiple pieces, or a
+qualified numerical approximation that preserves all required anchors.
+
+\newpage
+\section*{3. What a genuine bridge must advance}
+For moving interval edges $a(t)$ and $b(t)$, conservation gives the Reynolds
+balance
+\begin{equation}
+ \frac{d}{dt}\int_{a(t)}^{b(t)}\rho\,dx
+ = [f-\dot a\rho]_{a(t)}-[f-\dot b\rho]_{b(t)}.
+\end{equation}
+At an active zero-passing record boundary, its relative flux is zero. At a
+fixed transfer port, the flux comes from the same accepted node/source solve,
+not a second budget. This balance determines mass \emph{after the boundary
+fluxes and paths have been solved}; it is not itself that solve.
+
+For completed compatible anchors $(x_i,N_i)$, ordered by position,
+\begin{equation}
+ 0\le N_i-N_{i+1}\le\kappa(x_{i+1}-x_i),\qquad
+ \rho_i=\frac{N_i-N_{i+1}}{x_{i+1}-x_i}.
+\end{equation}
+Coincident positions must have equal count. Distinct kinetic records remain.
+The interpolation conserves counts and preserves vacuum when adjacent counts
+are equal. It does not prescribe the next moving flux or its convergence.
+
+Source IT uses a regular-step sending mass $S_a=\Delta t D_a$, lane-choice
+rate $\pi_{ab}$ (s$^{-1}$), and dimensionless oriented fraction
+\begin{equation}
+ \theta_{ab}=\pi_{ab}\Delta t\quad(b\ne a),\qquad
+ \theta_{aa}=1-\sum_{b\ne a}\theta_{ab},\qquad
+ d_{ab}=\theta_{ab}S_a.
+\end{equation}
+The geometry advances $(i,a)$ to $(i+1,b)$ once. The source sampling, sending
+and available receiving define a finite numerical step. Replacing $D_a$ by
+an instantaneous boundary trace while keeping the same fractions is an
+explicit attempted adaptation, not a proved equivalence. Internal numerical
+steps must not silently resample $\theta$ or E1/positive recovery.
+
+For accepted transfer mass $F_{ab}$, paired balances give
+\begin{equation}
+ m_a^+=m_a+\sum_bF_{ba}-\sum_bF_{ab}.
+\end{equation}
+After including outside waiting, external offers and exits, internal transfers
+cancel. This is conditional conservation: it does not establish the own
+admissibility or correctness of every $F_{ab}$.
+
+K.A uses a held desired speed and the running minimum of encountered own
+traffic caps within a public interval, with position obtained by integration.
+Ending speed is retained separately. E1 attaches records to the completed
+own count at the next public clock. A complete numerical bridge must specify
+the moving/source/port solve preceding those operations. A continuous count
+formula supplied with external paths does not replace this requirement.
+
+\newpage
+\section*{4. A direct continuous proportional-merge transplant fails consistency}
+This is an independent local junction diagnostic. It is \emph{not} a reached
+oriented-IT/metering case and does not refute native CTM. It identifies why
+the step from a finite source rule to a boundary-trace rule needs qualification.
+
+Let $d_1=1/5$, $d_2=2/5$ be demands on two independent incoming roads,
+$R=3/10$ the single receiving supply, and both lane capacities
+$Q=9/14$. Direct demand-proportional allocation gives
+\begin{equation}
+ g_i=\frac{d_i}{d_1+d_2}\min\{d_1+d_2,R\},\qquad
+ (g_1,g_2)=\left(\frac1{10},\frac15\right).
+\end{equation}
+Both roads are restricted: $g_i<d_i$. Their initial free densities are
+$\rho_i=d_i/u$. The admissible boundary traces for the restricted flows are
+congested,
+\begin{equation}
+ \rho_i^*=\kappa-\frac{g_i}{w},\qquad
+ \rho_1^*=\frac{13}{100},\quad \rho_2^*=\frac{11}{100},\quad
+ D(\rho_1^*)=D(\rho_2^*)=Q.
+\end{equation}
+Each connecting shock has negative speed because
+\begin{equation}
+ \sigma_i=\frac{g_i-d_i}{\rho_i^*-\rho_i}<0.
+\end{equation}
+These are appropriate upstream congestion waves. Reapplying the direct node
+formula to the states it generated instead returns
+\begin{equation}
+ (g_1^*,g_2^*)=\left(\frac3{20},\frac3{20}\right)
+ \ne\left(\frac1{10},\frac15\right).
+\end{equation}
+Therefore this boundary rule is not invariant under its own Riemann states.
+Continuous LTM literature requires a suitable invariant realization, and also
+distinguishes CTM interior-state interpretations. The calculation does not
+prove that such a source-equivalent completion is impossible.
+
+\textbf{Do not attribute this failure to N.A.} With fixed priority $p=1/2$,
+the selected work-conserving two-input rule is
+\begin{equation}
+ g_1=\min\{d_1,\max\{pR,R-d_2\}\},\qquad
+ g_2=\min\{d_2,R-g_1\}.
+\end{equation}
+For the same demands it gives $(3/20,3/20)$, and the restricted traces with
+demands $(Q,Q)$ give that same split. Another case $d_1=1/10$, $d_2=2/5$
+gives $(1/10,1/5)$, unchanged after only restricted road 2 raises its demand
+to $Q$. These checks are not a proof for all multi-input IT/moving-path nodes.
+
+\newpage
+\section*{5. Qualification, not a fabricated global obstruction}
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{.18\textwidth}>{\raggedright\arraybackslash}p{.32\textwidth}>{\raggedright\arraybackslash}p{.38\textwidth}}
+\toprule
+Route & Established & Still required for full success\\
+\midrule
+Interface & Uniform projection contradiction & A richer own field, not only renamed labels\\
+Adaptation & Anchor consistency and the explicit two-restriction wave evolution & Complete admissible moving/node/source numerical update for the accepted phases\\
+Representation & Continuous local count/wave construction & Endogenous paths and source-equivalent transfer ports, not externally supplied histories\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+An acceptable finite numerical model need not solve the continuum exactly.
+It must nevertheless state its own source/flux update, conditions and how it
+preserves the required metadata/field meaning. Ordinary field truncation error
+does not justify an arbitrary mismatch at retained count boundaries.
+Likewise a continuum method must specify how its paths and source histories
+are obtained from its own field. Conservation alone does not do this.
+
+\textbf{Source versus original calculation.} Sections 1--2 recheck/extend
+the reviewer-derived local constructions under the previously selected
+triangular diagram and zero passing. Section 4 is an original exact diagnostic
+of a direct proportional-merge transplant, consistent with the source's
+invariance distinction. It is not presented as a literature proof against
+the entire approved IT graph. Section 3 records the source-time dependence
+and conditional balances; no new physical source rule is adopted.
+
+\textbf{Numerical alternatives.} A1 retains moving anchor boundaries. A2
+retains internal discontinuities inside fixed cells. C supplies a continuous
+count/wave reference. They can represent the same physics. Single-restriction
+coupled schemes and existence results are method precedents, not automatically
+the multiple-record, zero-passing, sampled-recovery/source task. A single-shock
+source formula cannot reproduce the exact two-jump field above unchanged;
+multi-piece extension remains possible.
+
+\textbf{Final status.} No full success step; step 2 has the strongest local
+positive. Step 1 is refuted only on its audited domain; steps 2--3 are
+unestablished full constructions, not mathematical impossibility. The bounded
+ladder is reviewed. Q.J.F / Stage 3 / continuation 67 remain open; Stage 4 is
+unopened. Existing M.A, N.A, G1, E1 and K.A remain approved. Clearance, full
+TST response, useful gradients and necessity of retained information are not
+established by this companion.
+
+\textbf{Supporting sources.} Full identities, access limits and extraction
+are in the source audit. Main junction reference:
+\href{https://arxiv.org/pdf/1405.7080}{Jin, continuous LTM, section 6}.
+The proposed fixed-cell alternative uses
+\href{https://ems.press/content/serial-article-files/36595}{Chalons et al., 2017}.
+These links are evidence provenance, not replacement update laws.
+\end{document}

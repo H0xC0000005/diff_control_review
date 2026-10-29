@@ -1,0 +1,231 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large A primary + B companion: conditional analytical checks}\\[4pt]
+7 October 2026 --- Stage 3 open; S3-G2-Q-T transient-comparison decision
+
+\textbf{Status and interpretation.} These are reviewer deductions and a
+proposed local mean construction, not traffic simulation or a theorem for the
+joined multilane reference. Source basis: the point-renewal construction in
+\href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{S12A005, Section 2};
+the native boundary in
+\href{https://arxiv.org/pdf/1310.2660}{RM0010, Section 6 equation (15)};
+and the supplied 2006 motion rule. No new task law is adopted by this document.
+
+\section*{1. A: a bounded point-renewal candidate}
+Let $u,w>0$ be free speed and backward wave-speed magnitude (m/s), $\kappa>0$
+jam density (vehicle-equivalents/m), $q\ge0$ an actual insertion rate, and
+$m_*=1$ vehicle-equivalent the source descriptor-frequency unit. $h=m_*/q$
+is a renewal interval, not a rounding of transferred mass. For fixed own-model
+entry-speed/kinetic inputs, let $V(s)$ be a nondecreasing free-motion speed,
+$0\le V(s)\le u$, approaching $u$, and $X(s)=\int_0^s V(a)\,da$.
+
+In a repeating point-insertion subcase, the next backward characteristic and
+the current free-motion path intersect at a unique $T=T(h)$:
+\begin{equation}
+ X(T)+wT=wh,\qquad h=m_*/q,\qquad
+ Q=\frac{uw\kappa}{u+w}.
+\end{equation}
+The left side is continuous and strictly increasing from zero, so
+$0<T\le h$. Define the candidate renewal mean and its zero-rate extension:
+\begin{equation}
+ C_A(q)=w\kappa\left(1-\frac{T(h)}{h}\right)\quad(q>0),
+ \qquad C_A(0)=Q.
+\end{equation}
+This extends the local construction to a declared free-motion curve. It does
+not claim that the curve remains free under all reference interactions.
+The space-time renewal assumption, fixed entry inputs and one insertion
+location are explicit approximation conditions.
+
+Since $0\le X(T)\le uT$,
+\begin{equation}
+ \frac{w}{w+u}\le\frac{T}{h}\le1,
+ \qquad 0\le C_A(q)\le Q,\qquad
+ \lim_{q\downarrow0}C_A(q)=Q.
+\end{equation}
+For the limit, $T\to\infty$ and $X(T)/T\to u$ in (1). If $V\equiv u$,
+$C_A=Q$ at every rate. These are properties of the defined local closure;
+they are not exact equivalence through transient recovery of old constraints.
+
+\textbf{Excluded from this proof:} distributed insertion positions, downstream
+restriction of the free path, neighbor interference, heterogeneity and a
+multilane spatial port. Applying a penalty repeatedly at successive cells is
+not justified. The restricted point task has not been selected.
+
+\newpage
+\section*{2. Conditional sensitivity and unique priority coupling}
+At smooth points, differentiate (1) at fixed kinetic/entry-speed inputs:
+\begin{equation}
+ T_h=\frac{w}{w+V(T)},\qquad
+ \frac{dC_A}{dq}=\frac{w\kappa}{m_*}\bigl(hT_h-T\bigr)\le0.
+\end{equation}
+The inequality follows because $X(T)\le TV(T)$ for nondecreasing $V$:
+$hT_h=(X(T)+wT)/(w+V(T))\le T$. Piecewise motion has the same monotonicity;
+ordinary derivatives are only asserted away from its corners.
+For a speed parameter $b$ with $X_b(T)\ge0$,
+\begin{equation}
+ T_b=-\frac{X_b(T)}{w+V(T)},\qquad
+ \partial_b C_A=\frac{w\kappa X_b(T)}{h(w+V(T))}\ge0.
+\end{equation}
+Along metering changes, entry speed may also change. The total response has
+both contributions; neither partial sign proves an optimal control policy.
+
+Let $D_r,D_m\ge0$ be own-state ramp/mainline demands, $0<p<1$ fixed ramp
+priority, and $0\le R_0\le Q$ ordinary receiving. All are rates. Define
+\begin{equation}
+ R(q)=\min\{R_0,C_A(q)\},\qquad
+ G(R)=\min\{D_r,\max\{R-D_m,pR\}\},\qquad q=G(R(q)).
+\end{equation}
+Here birth speed is prescribed from the current own-state support, not obtained
+by inverting the accepted flow. $R(q)$ is continuous and nonincreasing; $G$ is
+continuous and nondecreasing. Thus
+\begin{equation}
+ \phi(q)=G(R(q))-q\text{ is strictly decreasing},\qquad
+ \phi(0)\ge0,\quad \phi(D_r)\le0.
+\end{equation}
+There is exactly one root in $[0,D_r]$ (including the singleton $D_r=0$).
+Using the same receiving award, mainline service is
+\begin{equation}
+ f_m=\min\{D_m,\max\{R(q)-D_r,(1-p)R(q)\}\},\qquad
+ q+f_m=\min\{D_r+D_m,R(q)\}\le R_0.
+\end{equation}
+Actual accepted flows are debited/credited once in the conserved spatial state.
+This closes one scalar algebraic loop under its assumptions. It does not prove
+a multidimensional fixed point when speed, lateral transfers and several
+capacities are implicit unknowns. No root was numerically solved.
+
+\textbf{Interpretation.} The upstream permission acts at the entrance of a
+finite ramp approach. Its effect on $D_r$, the speed inputs and this node occurs
+after propagation. Replacing $q$ by contemporaneous meter permission in (2)
+would change the selected actuator.
+
+\newpage
+\section*{3. Recovery duration does not determine recovery distance}
+This is a continuum free-motion illustration of the supplied level-road
+kinetics, not a replacement of its sampled motion/birth convention. Suppose
+$v_{\max}>u>v_0\ge0$, $a_0>0$, and $\lambda=a_0/v_{\max}$:
+\begin{equation}
+ \dot v=a_0(1-v/v_{\max}),\qquad
+ v(t)=v_{\max}-(v_{\max}-v_0)e^{-\lambda t},\qquad
+ T_{\rm rec}=\frac1\lambda\log\frac{v_{\max}-v_0}{v_{\max}-u}.
+\end{equation}
+Set $V(t)=v(t)$ until $T_{\rm rec}$ and $V(t)=u$ afterwards. Its free-speed
+distance deficit $d$ has units of metres:
+\begin{equation}
+ d_{\rm curve}=\int_0^{T_{\rm rec}}(u-v(t))\,dt
+ =(u-v_{\max})T_{\rm rec}+\frac{u-v_0}{\lambda}.
+\end{equation}
+A constant acceleration matching only the duration is
+$a_{\rm eff}=(u-v_0)/T_{\rm rec}$. Its linear speed curve gives
+\begin{equation}
+ d_{\rm linear}=\tfrac12(u-v_0)T_{\rm rec},\qquad
+ 0<d_{\rm curve}<d_{\rm linear}.
+\end{equation}
+Indeed the nonlinear speed curve is strictly concave and lies above its
+endpoint chord. For small enough insertion rate that the intersection occurs
+after recovery, $X(T)=uT-d$, and (1)--(2) yield
+\begin{equation}
+ C_A(q)=Q-\frac{w\kappa}{w+u}\frac{q}{m_*}\,d.
+\end{equation}
+Consequently equal recovery times need not produce equal renewal service.
+Matching $a_{\rm eff}$ solely by duration is an additional constitutive
+approximation. This is not evidence that the nonlinear reference is empirically
+superior, or that detailed identity is necessary.
+
+\textbf{Spatial qualification remains separate.} The original multilane mean
+model uses a particular spatial partition and multiple coupled flows. The
+present point construction supplies no theorem for those interactions. A
+qualified spatial construction is required before this local result is promoted
+to the primary task's model. Restricting geometry alone does not resolve the
+transient-admission issue on page 5.
+
+\newpage
+\section*{4. B: trigger plateau and inactive checks}
+Let $D_r,D_m,R_0,Q,p$ have the meanings above, and $0<\delta<1$ be a fixed
+calibrated drop fraction. The native phenomenological boundary uses
+\begin{equation}
+ R_B=\min\{R_0,Q(1-\delta\,\mathbf1_{\{D_r+D_m>R_0\}})\},
+ \qquad F_B=f_r+f_m=\min\{D_r+D_m,R_B\}.
+\end{equation}
+The same fixed-priority allocation gives $0\le f_j\le D_j$ and $F_B\le R_0$.
+There is no new recovery timer. If the trigger stays active, $R_0\ge Q(1-\delta)$
+and enough demand is present, then
+\begin{equation}
+ F_B=Q(1-\delta).
+\end{equation}
+Changing ramp demand can redistribute this total without changing it. This is
+a local fixed-regime result; future receiving, availability, trigger timing
+and exits can still respond. It is not a full-TST invariance theorem.
+
+\textbf{New conditional onset check.} Take a descriptor-free sampled reference
+and enough target space for the first ordinary update. At that update let
+\begin{equation}
+ R_0=Q,\quad D_m=Q,\quad D_r=\varepsilon Q,\quad
+ 0<\varepsilon<p(1-\delta),\quad
+ \Delta t\,\varepsilon Q<m_*(1-z),\quad 0\le z<1.
+\end{equation}
+$z$ is public initial transfer-threshold progress. Both nodes award the full
+small ramp request. With no other descriptor-generating transfers, the source
+threshold is not reached during this bin, so no new moving restriction exists
+to reduce the ordinary reference node. Under these explicit conditions,
+\begin{equation}
+ F_{\rm ordinary}=Q,\quad F_B=(1-\delta)Q,\quad
+ f_r^{\rm ordinary}=f_r^B=\varepsilon Q.
+\end{equation}
+This is a local activation/binning mismatch, not a calibrated freeway witness
+or an end-to-end reachability proof. It does not justify claiming necessary
+hidden information. The earlier check $D_r=0,D_m=Q,R_0=0.9Q,\delta=0.2$
+also remains $F_B=0.8Q$ versus ordinary $0.9Q$.
+
+For any model with common arrivals $A(t)$, initial population $P_0$ and exits
+$E(t)$, conservation of all waiting/ramp/road mass gives
+\begin{equation}
+ M(t)=P_0+A(t)-E(t),\qquad
+ J=\int_0^\infty M(t)\,dt,\qquad
+ J_a-J_b=\int_0^\infty\bigl(E_b(t)-E_a(t)\bigr)\,dt.
+\end{equation}
+Assume finite objectives or a certified tail. Identical complete exits imply
+identical TST; identical instantaneous merge output alone does not. Joined
+event integration, clearance, intervention leverage and useful gradients remain
+unproved. A/B coordination is approved; neither Q-T candidate is selected.
+
+\newpage
+\section*{5. A's steady limit does not certify sampled startup}
+Consider the proposed present-entry point mean, not every possible A closure.
+Keep $R_0=Q,D_m=Q$, prescribe a slow own-state birth speed $v_0<u$, and assume
+$D_r\ge pQ$. The fixed point in (6) reduces to $q=pC_A(q)$. Its unique root
+is positive, and $V(s)<u$ for an initial nonzero interval implies
+\begin{equation}
+ q=pC_A(q)>0,\qquad X(T)<uT,\qquad
+ F_A=C_A(q)<Q.
+\end{equation}
+This state can correspond to a slow queued ramp donor; it does not require
+a small sending demand to imply a slow free-flow speed. Start with no existing
+descriptors and public threshold progress $z<1$, no other descriptor-generating
+transfers, and a sufficiently small admissible bin:
+\begin{equation}
+ \Delta t\,pQ<m_*(1-z),\qquad
+ F_{\rm ordinary}=Q>F_A,\qquad F_B=(1-\delta)Q.
+\end{equation}
+No reference descriptor is created in this bin. The ordinary node awards $pQ$
+to the ramp; A and B award less, and all remain below the threshold. The
+reference is unconstrained by descriptor kinetics during this local update,
+whereas both present-condition service approximations can already penalize it.
+Target storage and sending feasibility are assumed as in the previous check.
+
+\textbf{Conclusion and limits.} This is a conditional local onset/averaging
+check, not an end-to-end reachable scenario or refutation of mean models. It
+shows why $C_A(0)=Q$ and free-speed equality are weaker than the entire sampled
+reference's transient inactive requirement. Future traffic, old descriptors,
+spatial interactions and overall TST have not been solved.
+
+Adding an independently evolved event/recovery summary would change A's
+retained-state contract; accepting the known discrepancy for a definitive
+predictive rival would change comparator admission. Q-T presents those two
+boundaries. Neither is adopted, and the reference birth sampling is unchanged.
+\end{document}

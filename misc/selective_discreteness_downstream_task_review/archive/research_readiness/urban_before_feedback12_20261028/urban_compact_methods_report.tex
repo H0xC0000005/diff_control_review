@@ -1,0 +1,588 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage{cite}
+\renewcommand{\citepunct}{], [}
+\renewcommand{\citedash}{]--[}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={An urban signal-control task: model and sensitivity},
+ pdfauthor={Urban traffic methods},pdfsubject={Compact methodology}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\widowpenalty=10000
+\clubpenalty=10000
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\head}[1]{\par\vspace{4pt}\noindent\textbf{#1}\par\nobreak\vspace{1pt}}
+\newenvironment{points}{\begin{list}{$\bullet$}{%
+ \setlength{\leftmargin}{1.4em}\setlength{\labelwidth}{0.7em}%
+ \setlength{\labelsep}{0.4em}\setlength{\itemsep}{2pt}%
+ \setlength{\parsep}{0pt}\setlength{\topsep}{3pt}}}{\end{list}}
+\begin{document}
+\begin{center}
+{\large\bfseries An urban signal-control task: model and sensitivity}
+\end{center}
+\vspace{-5pt}
+
+\head{1. Research questions}
+A signal can offer more left-turn service while a turner remains unable
+to reach the bay. The relevant obstruction depends on which traffic is
+in front, which lane it occupies, and whether another lane remains usable.
+The task asks how much of that ordered information is needed for useful
+signal-control sensitivities:
+\begin{points}
+\item \textbf{Information:} Can retained lane order explain reachable
+service beyond sound aggregate models using movement counts, storage
+and their own inference from traffic histories?
+\item \textbf{Decision:} Does that additional information change which
+effective green allocation reduces total time for the complete demand?
+\item \textbf{Gradient:} Does the predicted response to a small service
+reallocation agree with actual changes and help choose a better control?
+\end{points}
+These are separate claims: a more detailed state can improve a forward
+prediction without necessarily providing a more useful control direction.
+
+\head{2. Task and global assumptions}
+\textbf{Control and population.} Consider one isolated, initially symmetric
+four-leg junction with a finite set of releases and fixed routes.
+One constant vector $g\geq0$, $\sum_{p=1}^4g_p=1$, allocates effective
+service to NS through/right, NS left, EW through/right and EW left.
+Green fractions represent average service, rather than the active phase
+at a particular instant. Traffic is loaded from empty; any preparation
+period is the same for every candidate control. After the control window,
+a common fixed allocation clears all released demand.
+
+\textbf{Representative approach.} There are two lanes before the bay
+opening and three at the stop line. Aggregate upstream road $U$ feeds
+parallel local lanes $F_1$ (left/through) and $F_2$ (through/right).
+At the opening, $F_1$ branches into left-only bay $B$ and through-only
+continuation $T_1$; $F_2$ continues into shared through/right lane $T_2$:
+\[
+ U\longrightarrow\{F_1,F_2\},\qquad
+ F_1\longrightarrow\{B,T_1\},\qquad F_2\longrightarrow T_2.
+\]
+The bay opening lies inside the local zone. Its cross-section also
+separates $F_2$ from $T_2$, so the two feeders cover the same upstream
+length. In the symmetric core $B,T_1,T_2$ have the same remaining length.
+Every section owns distinct road space and storage.
+
+Left traffic enters $F_1$ and must use $B$; right traffic uses $F_2,T_2$.
+Through traffic can choose $F_1$ or $F_2$ when first admitted from $U$.
+Once in a feeder it stays in that lane: $F_1$ through traffic continues
+to $T_1$, and $F_2$ through traffic continues to $T_2$.
+The admission solver compares current feeder loads and feasible entry;
+it does not move resident traffic between lanes or predict a future
+signal plan. A blocked $F_1$ therefore need not stop traffic already
+using $F_2$. An occupied $F_1$ head still blocks traffic behind it.
+The smaller single-feeder layout remains a mechanism diagnostic;
+compared models always receive the same declared geometry and permissions.
+
+\textbf{Modeling assumptions.}
+\begin{points}
+\item \textbf{MA1: continuous quantity, fixed routes.} Traffic mass is
+continuous vehicle-equivalent quantity. Routes, movements, lane permissions
+and topology are fixed metadata. Each realized lane retains an ordered
+record. Its cumulative-mass coordinate measures order, not physical metres.
+\item \textbf{MA2: average signal service.} Green fractions change movement
+service and downstream sharing. Road capacities, travel times, backward
+wave speeds, storage and saturation parameters are fixed. The model does
+not resolve red/green switching within a cycle.
+\item \textbf{MA3: physical access.} An unassigned input list determines
+which packet the allocator examines first. A packet already occupying a
+lane also has a physical position: traffic behind a blocked head cannot
+pass. Independent movement requires an independently reachable lane.
+\item \textbf{MA4: entry establishes lane occupancy.} Each packet is
+allocated using current receiving-lane loads and known physical limits.
+Later packets see earlier actual admissions. Unadmitted mass remains
+where it is, with no binding future-lane target and with priority over
+later packets of its movement.
+\item \textbf{MA5: causal timesteps.} Sending and receiving limits use
+histories available at the start of the update. New inflow cannot leave
+the same section in that update, and current departures do not instantly
+create entrance room. Boundary histories are interpolated linearly.
+\item \textbf{MA6: complete demand accounting.} Releases, routes and
+preparation are fixed across controls. Source waiting, moving traffic and
+queues all contribute until every released trip clears. Queue differences
+continue to matter after the control window ends.
+\end{points}
+
+\begin{samepage}
+\textbf{Travel and storage.} For each section $e$, capacity $C_e$ is a
+mass rate and $K_e$ is maximum stored mass. Free-flow travel time
+$\tau^f_e$ is the time to cross the section downstream. Backward-wave
+time $\tau^b_e$ is the time for a congestion or space-release effect to
+cross upstream. The triangular fundamental diagram relates these
+quantities, and the timestep must respect both travel directions:
+\begin{equation}
+ K_e=C_e(\tau^f_e+\tau^b_e),\qquad
+ 0<\Delta t\leq\min_e\{\tau^f_e,\tau^b_e\}.
+ \label{eq:compact-domain}
+\end{equation}
+For example, downstream departures release space, but the entrance can
+use that space only after the backward wave reaches it. Numerical
+lengths, demands and clearance horizons must satisfy this domain;
+they are not calibrated by the equations alone.
+\par\end{samepage}
+
+\head{3. Traffic model}
+The model follows a traffic journey. First determine which resident
+mass has travelled far enough and where new mass can fit. Then assign
+accessible traffic to lanes. Stop-line heads use their movement's service
+and compete for downstream room. Finally update each physical section
+and retain the histories needed for the next timestep.
+Cumulative propagation and ordered route bookkeeping provide the
+backbone~\cite{m0,m1}; the lane allocation and access rules below specify
+the local urban interaction.
+
+\textbf{3.1. Propagation and eligible arrivals.}
+A section can send traffic only after it has travelled far enough, and
+can receive traffic only when room is available at its entrance.
+At $t_k=k\Delta t$, let $N^+_{e,k}$ count all earlier entries and
+$N^-_{e,k}$ all earlier departures. Their difference
+$n_{e,k}=N^+_{e,k}-N^-_{e,k}$ is resident mass.
+The functions ${\cal H}^{\pm}_e$ read those cumulative histories between
+stored boundaries by linear interpolation:
+${\cal H}^{\pm}_e((k+\theta)\Delta t)
+=(1-\theta)N^\pm_{e,k}+\theta N^\pm_{e,k+1}$.
+Histories are zero before empty loading.
+
+The sending calculation first counts entries early enough to reach the
+exit by $t_{k+1}$ under free flow, then subtracts mass that has already
+left. This gives eligible resident mass $A$. Only capacity $C_e\Delta t$
+can cross during the update, so sending $S$ is the smaller amount.
+Receiving uses the corresponding space account: start with storage
+$K_e$, add departures whose space-release effect can reach the entrance
+by $t_{k+1}$, and subtract all previous entries. The LTM limits are~\cite{m0}
+\begin{align}
+ A_{e,k}&=\pos{{\cal H}^+_e(t_{k+1}-\tau^f_e)-N^-_{e,k}},
+ &S_{e,k}&=\min(C_e\Delta t,A_{e,k}),\label{eq:compact-sending}\\
+ R_{e,k}&=\min\{C_e\Delta t,\,
+ \pos{K_e+{\cal H}^-_e(t_{k+1}-\tau^b_e)-N^+_{e,k}}\}.
+ \label{eq:compact-receiving}
+\end{align}
+Here $[z]_+=\max(z,0)$. In the first line, the delayed entrance history
+sets travel-time eligibility; in the second, the delayed exit history
+sets entrance-accessible room. Both $S$ and $R$ are mass allowances for
+this update, not instantaneous flow rates or guaranteed actual transfers.
+Signals, access and neighbouring sections can reduce realized flow.
+The timestep condition makes both delayed queries no later than $t_k$.
+
+\textbf{3.2. Lane allocation and physical access.}
+The allocation problem is to admit as much of the current ready packet
+as feasible, then distribute that mass toward the less loaded legal lanes.
+Existing traffic is left in place. A packet is a homogeneous portion of
+continuous mass carrying a route reference, current movement and original
+entry/travel history~\cite{m1}.
+
+For this packet, $q$ is its eligible mass and $s$ the sending owner's
+remaining transfer allowance. For each legal, reachable receiving lane,
+$u_\ell$ is its remaining admission allowance and $h_\ell$ its current
+load estimate: start-of-step resident mass plus earlier actual admissions.
+Thus $V$ answers ``how much can enter in total?'' It is limited by the
+packet, the source and the combined receiving room. The lane solver then
+chooses a common filling level $\lambda$ and additions $x_\ell$:
+\begin{equation}
+ V=\min(q,s,\sum_\ell u_\ell),\qquad
+ x_\ell=\min\{u_\ell,[\lambda-h_\ell]_+\},\quad
+ \sum_\ell x_\ell=V .
+ \label{eq:compact-allocation}
+\end{equation}
+The unknown $\lambda$ is a queue-load level, measured in vehicle-equivalent
+mass. The gap $\lambda-h_\ell$ is how much that lane would need to reach
+the level. Add nothing to a lane already above it, and never exceed its
+individual bound $u_\ell$. Choose the level so that all additions sum to
+$V$. This is the specified ideal lane-balancing rule, not a stop-line
+service cap. With initial loads $0.2,0$, admitted mass $V=0.6$ and
+nonbinding lane bounds, $\lambda=0.4$ gives additions $0.2,0.4$.
+A capped lane can remain below the common level. The additions are unique;
+$\lambda$ itself can be nonunique when every usable lane is capped.
+
+In the representative geometry, through packets have two alternatives
+at $U\to\{F_1,F_2\}$. Left and right packets have one legal feeder each,
+and movement fixes the branch at the bay opening. The same equation
+therefore covers both responsive choice and forced entry. Lane-entry
+room is separate from stop-line service: zero green does not immediately
+prevent a vehicle from joining a lane that it can reach and that has room.
+
+Only admitted amounts establish new lane occupancy. Update the receiving
+loads by $h\leftarrow h+x$ and subtract those transfers from the remaining
+sending and receiving allowances. The remainder $q-V$ stays at its current
+location without a binding future-lane target. Inspect packets in recorded
+order; if one movement remains partly unserved, its later packets wait,
+while other movements with physical access can still be examined.
+
+\begin{samepage}
+The sending allowance limits total mass actually admitted, not how many
+ready packets may be inspected. For example, an unassigned pool may list
+one blocked left-turn unit before a through unit with an independently
+reachable lane. With sending allowance one, inspecting only the first
+unit would miss the feasible through admission. Examining the through
+packet uses the same one-unit limit without moving it past a physical
+blocker. Unserved mass keeps its original entry/travel history and its
+relative position among the remaining entries; waiting does not restart
+its travel delay.
+\par\end{samepage}
+
+Physical lane order remains binding. A residual at the front of $F_1$
+prevents following traffic from reaching either $B$ or $T_1$, even if
+the allocator examines its record. Traffic already in $F_2$ has its own
+path to $T_2$. No traffic can jump from an occupied feeder into the
+parallel lane or enter $B,T_1$ directly from $U$.
+
+\textbf{3.3. Stop-line service and downstream sharing.}
+Once a packet reaches the head of a stop-line lane, its movement sets
+how quickly it can discharge. Saturation rate $s_{\ell m}$ times green
+fraction $g_{p(m)}$ gives its average signal service, bounded by the
+physical lane capacity $C_\ell$:
+\begin{equation}
+ g_p\geq0,\qquad \sum_{p=1}^4g_p=1,\qquad
+ \mu_{\ell m}(g)=\min\{C_\ell,s_{\ell m}g_{p(m)}\}.
+ \label{eq:compact-action}
+\end{equation}
+For a current ready head set $c_\ell=\mu_{\ell m}$.
+Available service can still be reduced by the receiving road. Represent
+output $j$'s timestep receiving allowance by the constant average rate
+$\rho_j=R_{j,k}/\Delta t$. If several lanes compete for that output,
+share first between inbound legs in proportion to their relevant green
+fractions, then equally between ready lanes of the same leg. A lane or
+leg unable to use its share releases that room to the other competitors.
+
+Let ${\cal L}_{ij}$ contain current ready heads with positive remaining
+sending, from leg $i$ to output $j$. Their combined cap is $C_{ij}$, their leg weight is $w_{ij}$,
+and $W_j$ is the total rate that can be used. Common levels $\theta_j$
+and $\eta_{ij}$ are chosen to satisfy the respective rate totals:
+\begin{align}
+ C_{ij}&=\sum_{\ell\in{\cal L}_{ij}}c_\ell,\quad
+ w_{ij}=g_{p(i,j)},\quad W_j=\min(\rho_j,\sum_iC_{ij}),\nonumber\\
+ r_{ij}&=\min(C_{ij},\theta_jw_{ij}),\quad
+                    \sum_i r_{ij}=W_j,\label{eq:compact-leg-sharing}\\
+ r_\ell&=\min(c_\ell,\eta_{ij}),\quad
+                    \sum_{\ell\in{\cal L}_{ij}}r_\ell=r_{ij}.
+ \label{eq:compact-lane-sharing}
+\end{align}
+All quantities in these sharing equations are rates. The first level
+scales the green weights; the second fills uncapped lane rates equally.
+This uses the same capped-filling idea as lane allocation, but allocates
+\emph{discharge rate} rather than new lane mass. Zero-cap heads do not
+compete, and zero receiving gives zero rates. Counting the green weight
+once per leg prevents an artificial priority gain from subdividing lanes.
+Shares apply to the heads ready now; later heads join when exposed.
+
+Order determines when another movement becomes the head. Hold current
+rates until a head clears, a sending allowance is exhausted, or the
+update ends. With elapsed time $\sigma$, remaining head mass $q_\ell$
+and remaining sending $S_\ell^{\rm rem}$, that next interval is
+\begin{equation}
+ \delta=\min\left\{\Delta t-\sigma,\
+ \min_{\ell:r_\ell>0}
+       \frac{\min(q_\ell,S_\ell^{\rm rem})}{r_\ell}\right\}.
+ \label{eq:compact-head-time}
+\end{equation}
+During this interval, lane $\ell$ transfers $r_\ell\delta$. Then expose
+new heads and recompute rates, processing simultaneous events together.
+A zero-rate head blocks its own lane. This is an internal calculation of
+the timestep total; it neither introduces an active signal phase clock
+nor replaces the linearly interpolated propagation histories.
+
+\textbf{3.4. Mass conservation and travel histories.}
+Every internal transfer must leave one physical section and enter the
+next with the same mass and route identity. If $b_{e,k}$ enters and
+$y_{e,k}$ leaves section $e$, update both cumulative counts and occupancy:
+\begin{equation}
+ N^+_{e,k+1}=N^+_{e,k}+b_{e,k},\quad
+ N^-_{e,k+1}=N^-_{e,k}+y_{e,k},\quad
+ n_{e,k+1}=n_{e,k}+b_{e,k}-y_{e,k}.
+ \label{eq:compact-update}
+\end{equation}
+The source first adds released mass $D_{o,k}$ to its waiting mass $Q_{o,k}$;
+admission then moves it onto the road. Sink exit removes it from the
+road population. The bounds $b\leq R\leq K-n$ and $y\leq S\leq n$
+keep occupancy between zero and storage. Unadmitted mass is counted
+only where it physically remains. New admissions are appended after
+resident service has been selected.
+
+\begin{samepage}
+The next update also needs to know when admitted mass entered. Rather
+than reconstruct a microscopic trajectory, spread the total entrance
+$b>0$ uniformly across the timestep in its actual admission order.
+A child packet of mass $q'$ starting at entrance rank $r$ is assigned
+this entry-time interval~\cite{m1}:
+\begin{equation}
+ \left[t_k+\Delta t\,\frac r b,\
+       t_k+\Delta t\,\frac{r+q'}b\right],
+ \qquad\text{eligibility shifted by }\tau^f_e .
+ \label{eq:compact-entry}
+\end{equation}
+Here $r$ is cumulative admitted mass before the child. The fractions
+$r/b$ and $(r+q')/b$ locate its front and tail within the update; adding
+free-flow time gives its earliest exit times. No entry segment exists
+when inflow is zero. Internal section crossings retain route position;
+the junction crossing advances it. Exact-compatible adjacent records
+may merge while preserving route, order and timing. A movement grid
+summarizes mass along that order without replacing the exact head record.
+\par\end{samepage}
+
+\head{4. How the task tests information and decisions}
+The question is whether two states with the same aggregate quantities
+can respond differently because their traffic is ordered differently.
+For a local bay-opening example, take ready $F_1$ traffic
+$[T(0.4),L(0.6)]$, sending allowance $1$, and receiving allowances
+$R_{T_1}=0.2$, $R_B=1$. Only $0.2$ through mass enters: its residual
+blocks left access. Reverse the order, keeping all lane loads and
+movement totals unchanged, and $0.6$ left mass enters $B$ before $0.2$
+through mass enters $T_1$. Meanwhile an independently ready $0.3$ in
+$F_2$ can enter $T_2$ in either case. Total entry across the opening is
+therefore $0.5$ versus $1.1$: the obstruction is selective, while the
+parallel lane remains usable. This is a local arithmetic contrast,
+not yet proof of different full-trip time or failure of aggregate inference.
+
+The control objective counts everyone still travelling or waiting, not
+only those who finish early. At each update charge one timestep to all
+available source mass and all road mass. Summing through a common
+horizon $H$ beyond complete clearance gives total system time~\cite{m0}:
+\begin{equation}
+ J_{\Delta t}
+ =\Delta t\sum_{k=0}^{H-1}
+ \left[\sum_o(Q_{o,k}+D_{o,k})+\sum_en_{e,k}\right].
+ \label{eq:compact-tst}
+\end{equation}
+Release $D_{o,k}$ is available before that update's admission, so it is
+included in that update's source charge. Transfers between road sections
+do not remove anyone from the population. This is a timestep quadrature;
+a nonclearing trip cannot disappear from a completed-trip-only score.
+
+The scenario families separate simpler explanations before testing their
+interaction:
+\begin{center}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}p{0.07\linewidth}p{0.86\linewidth}@{}}
+\toprule
+Case & Traffic contrast\\
+\midrule
+V0 & Movement-exclusive paths: matched propagation and service.\\
+V1 & Shared lane: head-order effects without a finite bay.\\
+V2 & Finite bay: storage with order-sensitive obstruction suppressed.\\
+V3 & The same bay geometry and permissions: order and access interact.\\
+V4 & Held-out variation of the declared families and conditions.\\
+\bottomrule
+\end{tabular}
+\end{center}
+V2/V3 use the representative parallel-lane geometry. The smaller
+single-feeder case can isolate the mechanism, but cannot establish how
+an alternative lane moderates it. V0 equivalence requires matched
+service and nonbinding or equivalent receiving. A different propagation
+law or an unsuccessful storage model must be understood before attributing
+a V3 advantage to retained order. The shared through/right lane alone
+does not guarantee an order effect: its movements share green, and
+become service-distinct only when their effective caps or receiving differ.
+
+Compare B0 aggregate, B1 structured movement queues, B2 responsive
+lane/storage aggregates and B3 selective ordered state under the same
+population, geometry, action and time account. These roles describe
+models, not a universal hierarchy of information. A macro model may
+read the original fine time series through its own converter or estimator.
+Its retained variables, memory, observation schedule and calibration
+must be declared. Successful aggregate inference is a valid explanation;
+an estimator retaining the full ordered ledger uses mesoscopic state.
+Equal current counts do not imply equal information in all histories.
+Distinguish a one-step test conditioned on observations, prediction with
+later observations, and forecasting without them; state which data remain
+fixed under a proposed service change.
+
+The working B1 source is the link queue model~\cite{wei}; the working
+B2 direction combines lane-exit allocation~\cite{gong} with a sourced
+finite-storage/access adaptation, for which~\cite{liu} is a candidate.
+Each complete baseline must be checked for physical soundness and task
+fit. Citation alone does not establish a valid bay-entry composition.
+
+First test the same prescribed feasible service perturbations in all
+models. Then distinguish the value of the traffic representation from
+the value of an optimization algorithm by matching optimization budgets.
+A richer reference simulator uses one fixed mapping from effective
+service to executable signals, matched releases/routes, fixed calibration
+and predeclared seeds. Its population time includes insertion delay and
+travel duration~\cite{sumo}, including all unfinished demand in the account.
+Correct internal derivatives and a falling internal objective are
+insufficient to establish useful traffic-control guidance.
+
+\head{5. Complete sensitivity}
+Start with the traffic question: if a little service is moved from one
+group to another, which heads discharge more, which queues remain, and
+who can reach the bay next? The start-of-step state is already fixed;
+service first changes discharge and the next state. Queue and history
+changes then affect later admission, spillback and total time.
+
+Consider a feasible change $g+\epsilon d$, with $\sum_p d_p=0$.
+A dot denotes its derivative at $\epsilon=0$, holding road parameters,
+routes and permissions fixed. The expressions below apply while the
+same heads and constraints remain active. A change in the blocking head
+or binding capacity can create a kink requiring one-sided treatment.
+
+\textbf{Lane-allocation response.} A previous service change can alter
+both lane loads and the room available for entry. Among lanes receiving
+an uncapped positive addition, the common filling level must adjust so
+the additions still total $V$. Let ${\cal A}$ be these free lanes and
+${\cal U}$ the lanes at their upper admission bounds. Differentiating
+the mass balance gives
+\begin{align}
+ \lambda&=\frac{V-\sum_{\cal U}u_\ell+\sum_{\cal A}h_\ell}
+                  {|{\cal A}|},\qquad
+ \dot\lambda=\frac{\dot V-\sum_{\cal U}\dot u_\ell+
+                                  \sum_{\cal A}\dot h_\ell}
+                  {|{\cal A}|},\nonumber\\
+ \dot x_\ell&=
+ \begin{cases}
+ \dot\lambda-\dot h_\ell,&\ell\in{\cal A},\\
+ \dot u_\ell,&\ell\in{\cal U},\\
+ 0,&\text{inactive lower branch}.
+ \end{cases}
+ \label{eq:compact-allocation-derivative}
+\end{align}
+An uncapped lane responds through the common level minus its own load
+change; a capped lane follows its available room. Differentiate $V$
+through its limiting argument, then carry the additions into receiving
+loads, remaining allowances and retained mass
+$\dot q^{\rm rem}=\dot q-\dot V$ before processing the next packet.
+With no free lanes, use the cap or stable zero branches directly.
+A zero current admission does not erase the response of waiting mass.
+At a fixed pre-state this admission law has no direct green input;
+its control response arrives through the preceding traffic evolution.
+
+\textbf{Service and shared receiving.} Green directly changes a head's
+service cap: $\dot\mu_{\ell m}=s_{\ell m}d_{p(m)}$ when signal-limited,
+and zero when physical capacity limits it. It also changes the leg's
+sharing weight. Receiving changes through previous road states, with
+$\dot\rho_j=\dot R_{j,k}/\Delta t$. The shared rate balance must reflect
+all of these changes. For uncapped legs ${\cal F}$ and capped legs
+${\cal C}$, its response is
+\begin{equation}
+ \dot\theta=
+ \frac{\dot W-\sum_{\cal C}\dot C_{ij}
+               -\theta\sum_{\cal F}\dot w_{ij}}
+      {\sum_{\cal F}w_{ij}},\qquad
+ \dot r_{ij}=
+ \begin{cases}
+ \dot C_{ij},&i\in{\cal C},\\
+ w_{ij}\dot\theta+\theta\dot w_{ij},&i\in{\cal F}.
+ \end{cases}
+ \label{eq:compact-sharing-derivative}
+\end{equation}
+Within a leg use the corresponding equal-share response. If no competitor
+is uncapped, follow cap branches without dividing by an empty weight sum.
+
+Faster service can also expose the next head sooner. For an interior
+interval $\delta=q/r$, its time response is
+$\dot\delta=\dot q/r-q\dot r/r^2$. Total discharge changes through both
+the rates and the durations for which they apply:
+\begin{equation}
+ y=\sum_a r_a\delta_a,\qquad
+ \dot y=\sum_a(\dot r_a\delta_a+r_a\dot\delta_a).
+ \label{eq:compact-service-derivative}
+\end{equation}
+Index $a$ runs over internal service intervals. The final interval changes
+by the negative sum of the earlier duration changes so the whole update
+still lasts $\Delta t$. Freezing head-clearance times would omit this
+physical route by which one movement's service affects another.
+
+For illustration, V1's shared left/through diagnostic has a ready left
+block $q_L$ before sufficient through traffic. With nonbinding receiving
+and physical caps, left service first clears that block; through service
+uses only the remaining time:
+\begin{equation}
+ y_T=s_Tg_T\left(\Delta t-\frac{q_L}{s_Lg_L}\right),
+ \qquad 0<\frac{q_L}{s_Lg_L}<\Delta t.
+ \label{eq:compact-service}
+\end{equation}
+With unit timestep and saturations, $q_L=0.2$ and
+$(g_L,g_T)=(0.4,0.6)$ give through discharge $0.3$. Moving a small fraction
+from through to left has through-discharge derivative $0.25$ on this
+branch: earlier head clearance outweighs the reduced through rate.
+This is a V1 service illustration, not left-turn permission in the
+representative through-only $T_1$, nor a claim about complete-time benefit.
+
+\textbf{Arrival timing and the full state.} Earlier discharge also changes
+boundary counts and the entry times assigned to subsequent traffic.
+Differentiate the delayed histories and the reconstruction, so that
+later readiness changes with both packet mass and arrival time.
+For a positive-inflow branch the front-time response is
+\begin{equation}
+ \dot t_{\rm front}
+ =\Delta t\left(\frac{\dot r}{b}-\frac{r\dot b}{b^2}\right),
+ \label{eq:compact-entry-derivative}
+\end{equation}
+The tail has the analogous response. If fraction $f$ of a packet's
+entry/travel segment is ready, ready mass responds as
+$f\dot q+q\dot f$. Zero inflow creates no timing segment.
+
+Collect road masses, histories, ordered records and sources in state
+$X_k$, and write $P_k=\dot X_k$. If $u_k$ is the green allocation applied
+in update $k$, the chain rule propagates the effect of a service change:
+\begin{equation}
+ X_{k+1}=F_k(X_k,u_k),\qquad
+ P_{k+1}=F_{k,X}P_k+F_{k,u}\dot u_k .
+ \label{eq:compact-chain}
+\end{equation}
+The first term carries earlier state differences forward; the second
+adds the current control change. Preparation is common and has zero
+candidate response. During control $\dot u_k=d$; after switching to fixed
+clearance $\dot u_k=0$, but $P_k$ continues to evolve. Switching the knob
+back does not undo the queue differences it created.
+
+Finally, all released mass is either still waiting/travelling or has
+exited. With cumulative releases $D_{\leq k}$ through update $k$ and
+sink exits $Z_k$ before that update, the same objective and its response
+can be written
+\begin{equation}
+ J_{\Delta t}=\Delta t\sum_{k=0}^{H-1}(D_{\leq k}-Z_k),
+ \qquad
+ \dot J_{\Delta t}=-\Delta t\sum_{k=0}^{H-1}\dot Z_k .
+ \label{eq:compact-objective-derivative}
+\end{equation}
+The sign is causal: earlier additional exits reduce population time.
+Use a common horizon that clears the compared control neighbourhood.
+This complete sensitivity is distinct from proving its numerical accuracy
+or downstream usefulness. Implementation, numerical derivative checks,
+baseline qualification and richer-reference tests remain necessary evidence.
+The \href{urban_methodology_specification.pdf}{mathematical companion}
+gives full boundary cases and the derivation; source/adaptation records
+identify the origin of each operator.
+
+\makeatletter
+\renewcommand{\section}{\@ifstar{\head}{\head}}
+\makeatother
+\begin{thebibliography}{6}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\bibitem{m0} Cumulative-count LTM and population-time discretization,
+repository methods specification:
+\href{../../../../docs/milestones/milestone_0_ltm_baseline.md}{milestone plan}.
+Its recorded original basis is Yperman (2007) and UNsim v0.12.0;
+the equations here use the verified repository transcription.
+\bibitem{m1} Ordered route-mass representation, conservation and affine timing,
+repository methods specification:
+\href{../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md}
+{milestone plan}. Urban pool selection/access is the explicit adaptation
+defined in this report.
+\bibitem{wei} Wei et al., link queue model,
+\href{https://arxiv.org/html/2310.12249v2}{arXiv:2310.12249v2};
+journal version doi:
+\href{https://doi.org/10.1016/j.trc.2024.104937}{10.1016/j.trc.2024.104937}.
+\bibitem{gong} Gong et al., lane-based macroscopic node model (2025),
+doi: \href{https://doi.org/10.1016/j.trb.2025.103208}
+{10.1016/j.trb.2025.103208}.
+\bibitem{liu} Liu and Chang, lane-group storage/blockage model,
+\emph{Transportation Research C}, vol. 19, pp. 130--144, 2011,
+\href{https://attap.umd.edu/wp-content/uploads/2022/05/TRC522.pdf}
+{author-hosted article}; doi: 10.1016/j.trc.2010.04.005.
+\bibitem{sumo} SUMO official documentation,
+\href{https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html}
+{traffic-light programs} and
+\href{https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html}
+{TripInfo population-time fields}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-14",
+  "status": "Passed documentary links/status and unchanged accepted-contract checks",
+  "markdown_files_checked": 19,
+  "local_links_checked": 368,
+  "heading_anchors_checked": 29,
+  "current_file_sha256": {
+    "README.md": "c189866b6d0586ddd32e2009de7adb554260d488e2057967452f670c27b57c51",
+    "vsl_successor_00_opening_plan.md": "2a3af4033e0fb84a632a87f097e379becce9f32102d6f5b65b1690dc746d3eb3",
+    "reporting/research_readiness/vsl_step2_model_closure.md": "bcced8539cca86f9b46a7f620632adbd90ed14c339724eae23fbe1e79844948c",
+    "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md": "f524e389af00790e94f37e4b32db7622bbbd3a8f2517f7625e45cddb2e90d694",
+    "reporting/research_readiness/vsl_step3_validation_ladder_decision.md": "6b4ff8ca235cab381c6cfcfbeb71ef17f487a4e3eeca3aeb5868d65493467192",
+    "reporting/research_readiness/vsl_step3_sumo_work_report.md": "2f77063ebe987b5879a6b52096d0b2b7448ea66c14f227bef944078d72674ea2",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md": "35c2290fcca977cc2d48cae6f4560f3949240f6a25484e957a77d0a755d9ad81",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md": "d8d2830db0a3e873d9d55e3c122fc9bd32168d2079232ac810cb5e3d57ddcca2",
+    "reporting/research_readiness/vsl_review_progress.md": "54f2df3e21ebd5e31bcafe9ebb1d5e5c3ded4821c2249defe42b195a96befca1",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "8f73b32236f73dc86c5570a75684075e99b24d8c304212745361d09fdccc73f7",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md": "8070466458eb00e6b2d70cc3a5b826ac8ced7f0279f4bf903d7ced5177d90524",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "4275ee73537a8bf3504b4384e8474576dfd93feea83562105a3fc4562d0649a0",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md": "4ee57150a1649853a2c8cb4c17e053dad78fb882b1c08d9ff9b4f06e17745fa6",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md": "90a7ea5fafbf609a9e2f99a5ede93bf3376d92cf7f1ecfa0ddf57d14b73183d3",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "0eca927f29aabd84e0b900e5604b01ce62b9affcbf26f4d94411843a72b28f97",
+    "reporting/research_readiness/vsl_step3_reference_qualification_and_final_gate.md": "6214931c26152b027f1d174c24ee167fb24f8e7b205e05379b01c38716828ffd",
+    "reporting/research_readiness/vsl_step3_resumed_review_work_report.md": "967980878906a77fd2b4091246fdf2743f2ce5e0525b26ae3d059ed971774cf7",
+    "reporting/research_readiness/vsl_step3_merge_feedback_and_completion_response.md": "cb2ca54cd23d8b7a2ebc0ffd64321cf72894fc6ccb228d6574aeb0e50c0fd2bf",
+    "reporting/research_readiness/vsl_step3_merge_feedback_response_work_report.md": "f48c149be56f0a7dd3ed16466f3255a222056f04a42e7c3a00fe787b622e79f8"
+  },
+  "accepted_h1_t1_sha256_unchanged": {
+    "vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "primary_diagnosis_source": "Frozen source explicitly sets Y_A=P_A and u_A=dot P_A",
+  "s3_m1": "Approved and closed: model -> S-P -> S-L evidence ladder",
+  "s3_m2": "Open, reframed as A continuing-service coupling / B completion domain",
+  "candidate_status": {
+    "C-P": "Unselected; compact qualification provisionally recommended for a local task",
+    "C-Z": "Unselected; recovery-inclusive alternative/return route"
+  },
+  "primary_amendment": "Proposed G3 terminal reassessment; conditional G4; no equation change approved",
+  "step_3": "Open; previous bounded evidence delivered; freeze readiness withdrawn",
+  "step_4": "Unopened",
+  "source_reading": "Four paper references rechecked/viewed only to the stated abstract/selected-section limits; SUMO docs rechecked",
+  "traffic_runs": false,
+  "simulator_code_or_network_build": false,
+  "installation_or_binary_probe": false,
+  "gradient_or_optimization_execution": false,
+  "latex_build": false,
+  "limits": [
+    "No new service/recovery law is derived or selected.",
+    "No empirical effect size or gradient usefulness has been tested.",
+    "Document checks do not certify forward traffic dynamics.",
+    "Old analytical certificates remain scoped to their frozen member."
+  ]
+}

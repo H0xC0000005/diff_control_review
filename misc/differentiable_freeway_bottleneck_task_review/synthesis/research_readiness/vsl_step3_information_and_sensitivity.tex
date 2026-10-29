@@ -1,0 +1,407 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\begin{center}
+{\Large Step 3: information and full-time sensitivity}\\[4pt]
+14 October 2026 --- analytical review under the approved H1/T1 family
+\end{center}
+
+Step 2 is user-approved and closed. This note derives review references
+without changing its equations, running traffic trajectories or selecting
+calibrated traffic parameters. It separates an exact model-relative
+information/action possibility from externally useful advice.
+
+\section*{1. Fixed inputs and one analytical comparison family}
+Use the closed H1/T1 contract: $E$ ends, $A$ receives early transfers and
+$B$ is the other continuing lane. Total road length is $L=L_p+b$, initial
+footprint $[0,\ell]$, and the terminal starts empty. The common action is
+$v\in[v_-,v_+]$; continuous mass is $M=\ell\rho$.
+Initial current continuing densities satisfy $a_0=b_0$.
+The scalar early-preparation law in physical progress is
+\[
+ e_z=-\frac1h\min\{e,(\delta(v)+e)/\gamma\},\quad
+ \delta(v)=k_c(v)-r,\quad r=e_0+a_0,\quad
+ k_c(v)=\frac{wk_j}{v+w}.
+ \tag{1}
+\]
+The final domain has $v_+r<R\leq C(v_-)$, $v_+b_0\leq R_B\leq C(v_-)$
+and $M<k_jb$. Consequently $r<k_c(v_+)$, $\delta(v)>0$, and terminal
+ending sending does not bind the weighted server.
+
+For reference speed $u>0$ and density $\kappa>0$, retain one shared geometry
+and parameter family:
+\[
+ \begin{gathered}
+ v_-=u,\quad v_+=2u,\quad w=2u,\quad k_j=3\kappa,\quad
+ \gamma=2,\quad R=\frac{39}{20}\kappa u,\quad R_B=\kappa u,\\
+ b=\ell,\quad L_p=\ell+h\log2,\quad L=2\ell+h\log2,\quad
+ 0<\eta=\ell/h<\log(4/3),\quad \alpha\geq1 .
+ \end{gathered}
+ \tag{2}
+\]
+Compare two initial preparations:
+\[
+ \begin{array}{c|cccc}
+ &e_0&a_0=b_0&r&\rho\\ \hline
+ \mathcal L&3\kappa/5&3\kappa/10&9\kappa/10&6\kappa/5\\
+ \mathcal H&7\kappa/10&\kappa/4&19\kappa/20&6\kappa/5 .
+ \end{array}
+ \tag{3}
+\]
+All actions and both preparations satisfy the closed initial, ordinary-load,
+exit-capacity and storage bounds: $C(v_-)=2\kappa u$ and
+$M/(k_jb)=2/5$. Only initial ending mass differs as the one latent degree
+under symmetry. The late work parameter is shared across preparations and
+actions; no numerical $\alpha$ is selected for control experiments.
+
+\section*{2. A reachable complete pre-decision aggregate history}
+The post-decision task still has no arrivals after time zero.
+To qualify initial reachability, introduce only this disclosed pre-decision
+loading history, using the same H1 local balance law and a common past speed
+$u$. Let $T=\ell/u$; the road is empty before $-T$.
+For each preparation, during $-T\leq t\leq0$, prescribe upstream lane
+density traces
+\[
+ e^{\rm in}_i(t)=e_{0,i}\exp(-ut/h),\quad
+ a^{\rm in}_i(t)=r_i-e^{\rm in}_i(t),\quad
+ b^{\rm in}_i(t)=b_{0,i}.
+ \tag{4}
+\]
+They are exogenous preparation data, not another optimized control or future
+receiving trace. The common recipe and its parameters may be given to all
+predictors; the unobserved initial ending statistic selects the member.
+
+Because $\exp(\eta)<4/3$,
+\[
+ e_{\mathcal H}^{\rm in}<14\kappa/15<19\kappa/20=r_{\mathcal H},
+ \quad
+ e_{\mathcal L}^{\rm in}<4\kappa/5<9\kappa/10=r_{\mathcal L}.
+ \tag{5}
+\]
+All input lane densities are nonnegative and below $k_c(u)=2\kappa$.
+The early donor branch is feasible throughout loading since
+$a+2e=r+e<2\kappa$; the larger bound is
+$19/20+14/15=113/60<2$.
+
+At time $t$, the occupied front is $x_f=u(t+T)\leq\ell<L_p$.
+Within $0<x<x_f$, the three lane densities equal the common time traces
+in (4); they solve the same-coordinate H1 transport balances.
+For example $e_t=-ue/h$, $e_x=0$, exactly matching the donor-limited
+source. Boundary entries have those same traces, so each newly entering
+characteristic joins the common homogeneous body. At time zero this
+construction yields (3), the required uniform footprint and empty terminal.
+Initial continuing symmetry holds at the decision instant; the loading
+lane inputs are not separately asserted symmetric.
+
+Give the aggregate observer the stronger lane-blind envelope of density,
+longitudinal flow, traffic speed and cumulative counts at every cross-section
+for the entire pre-decision history. In both preparations,
+\[
+ \begin{split}
+ K_\Sigma(x,t)&=\rho\,{\bf1}_{0<x<u(t+T)},\\
+ Q_\Sigma(x,t)&=uK_\Sigma(x,t),\\
+ N_\Sigma(x,t)&=\rho[\,u(t+T)-x\,]_+,\qquad -T\leq t\leq0 .
+ \end{split}
+ \tag{6}
+\]
+Speed is $u$ where traffic is present; empty-channel masks are identical.
+Earlier histories are empty in both cases, and all terminal counts are zero.
+Thus every standard lane-blind channel above, and any function or deterministic
+filter of it, is identical for all pre-decision times. A finite sensor/history
+subset cannot distinguish the pair if even this stronger envelope cannot.
+
+Lane counts, lane inputs and lateral-event counts are additional channels,
+not secretly discarded longitudinal aggregate data. A lateral-event channel
+could identify the preparation under this recipe. If it is actually admitted,
+it must be given to A and its inference reassessed.
+This is a constructed analytical reachability certificate, not evidence that
+real or microsimulated data have these exact histories.
+
+The shared pre-decision population-time prefix is
+$\int_{-T}^0\rho u(t+T)\,dt=MT/2$. It is identical and independent of the
+future action; excluding it from the decision-time objective changes no
+comparison. No action-dependent travel or waiting is removed.
+
+\section*{3. The compact rival exactly closes prediction}
+Given $M$, $\ell$ and initial ending mass $E_0$,
+\[
+ e_0=E_0/\ell,\qquad
+ a_0=b_0=(M-E_0)/(2\ell),\qquad r=e_0+a_0.
+ \tag{7}
+\]
+The closed law then predicts all early densities, terminal entry/eligibility
+histories, queue and departures. A+E and explicit lane representation G
+therefore have identical objectives and sensitivities under this member.
+Predicted histories do not constitute extra initial information.
+An aggregate-only deterministic predictor receives identical inputs in
+(6); an arbitrary learned prior can express uncertainty but cannot identify
+both actual preparations from these channels.
+
+\section*{4. When preparation becomes action-dependent}
+For $\gamma=2$ and $\delta>0$, if $e_0\leq\delta$ the donor branch applies
+for all progress and $e=e_0e^{-z/h}$. Otherwise the initial service branch
+switches to the donor branch at
+\[
+ z_s=2h\log\frac{e_0+\delta}{2\delta},\qquad
+ e(z;v)=\frac{(e_0+\delta)^2}{4\delta}e^{-z/h}
+ \quad(z\geq z_s).
+ \tag{8}
+\]
+Preparation $\mathcal L$ is donor-limited throughout every action because
+$\delta_{\mathcal L}(v)\geq3\kappa/5=e_{0,\mathcal L}$.
+Its completed preparation per initial position is action-independent.
+
+For $\mathcal H$, the service branch starts when $v>v_c=18u/11$.
+It ends before the first handoff exposure $z_0=L_p-\ell=h\log2$ throughout
+that interval. Indeed $z_s$ is largest at $v_+$, where
+$(25/22)^2<2$. The front residual $B(v)=e(v,z_0)$ is
+\[
+ B_{\mathcal H}(v)=
+ \begin{cases}
+ 7\kappa/20,&v\leq v_c,\\
+ (e_{0,\mathcal H}+\delta_{\mathcal H})^2/(8\delta_{\mathcal H}),
+       &v>v_c .
+ \end{cases}
+ \tag{9}
+\]
+At fastest advice,
+\[
+ B_{\mathcal H}(v_+)=125\kappa/352,\qquad
+ B'_{\mathcal H}(v_+)=225\kappa/(7744u)>0,\qquad
+ B_{\mathcal L}=3\kappa/10,\quad B'_{\mathcal L}=0.
+ \tag{10}
+\]
+The derivative in (10) is the feasible left derivative at the upper action
+bound. At $v_c$, preparation's first derivative is zero on both sides.
+Different residual merging alone is not yet a different speed optimum.
+
+\section*{5. An exact full-time reference with sustained terminal waiting}
+Every handoff exposure in (2)--(3) is beyond the applicable initial service
+switch. Eligible lane-end arrivals begin at $t_f=(L-\ell)/v$ and last
+$d=\ell/v$. Writing $s=t-t_f$ during that pulse,
+\[
+ \dot P_E=vB(v)e^{-vs/h},\quad
+ \dot P_A=v[r-B(v)e^{-vs/h}],\quad
+ \dot P_B=vb_0,\qquad 0<s<d.
+ \tag{11}
+\]
+Define final forced mass and a pulse-area quantity
+\[
+ k=1-e^{-\eta},\quad m(v)=hB(v)k,\quad
+ J(v)=hB(v)\ell-hm(v),\quad D_0(v)=\ell r-Rd.
+ \tag{12}
+\]
+$m$ is mass; $J$ has units veh-eq m; $D_0$ has ordinary-work-equivalent
+mass units. On the branch with positive queue throughout the eligible pulse,
+\[
+ q_E(s)=\frac{(vr-R)s+(\alpha-1)hB(v)(1-e^{-vs/h})}{\alpha},
+ \qquad q_E(d)=\frac{D_0+(\alpha-1)m}{\alpha}.
+ \tag{13}
+\]
+After the pulse, only ending traffic remains and it drains at $R/\alpha$.
+The exact queue area and complete TST are
+\[
+ \begin{split}
+ Q_{\rm pulse}&=\frac{D_0d}{2\alpha}
+                    +\left(1-\frac1\alpha\right)\frac Jv,\\
+ Q_{\rm tail}&=\frac{[D_0+(\alpha-1)m]^2}{2\alpha R},\\
+ F(v)&=\frac{M(L-\ell/2)}v+Q_{\rm pulse}+Q_{\rm tail}.
+ \end{split}
+ \tag{14}
+\]
+Travel of every class and the full clearance tail are counted.
+These are closed-form references, not numerically integrated traffic runs.
+
+A simple sufficient branch condition for both preparations and all actions
+in this family is $\alpha>17/3$. The donor bound gives ending density at
+the latest exposure at least $9\kappa/40$ and $r\geq9\kappa/10$.
+Thus the whole pulse satisfies
+\[
+ v[r+(\alpha-1)e]\geq
+ u\kappa\left[\frac9{10}+(\alpha-1)\frac9{40}\right]>R .
+ \tag{15}
+\]
+This branch restriction is not an empirical work-factor range.
+
+\section*{6. A conditional information/action possibility, with an explicit limit}
+Rearrange (14) exactly as
+\[
+ \begin{split}
+ F(v)&=\frac{\alpha m(v)^2}{2R}+I_0(v)+I_1(v)/\alpha,\\
+ I_0&=\frac{M(L-\ell/2)+J}{v}+\frac{(D_0-m)m}{R},\\
+ I_1&=\frac{D_0d}{2}-\frac Jv+\frac{(D_0-m)^2}{2R}.
+ \end{split}
+ \tag{16}
+\]
+For $\mathcal H$ at $v_+$, $A_+=m(v_+)m'(v_+)/R>0$.
+$I'_0,I'_1$ there are finite and independent of $\alpha$.
+Consequently
+\[
+ F'_{\mathcal H}(v_+)=\alpha A_+
+       +I'_0(v_+)+I'_1(v_+)/\alpha>0
+ \tag{17}
+\]
+for the nonempty analytical parameter range
+\[
+ \alpha>\max\left\{\frac{17}{3},
+       \frac{|I'_0(v_+)|+|I'_1(v_+)|}{A_+}\right\}.
+ \tag{18}
+\]
+No numerical value is chosen from this range. Increasing the late work
+cost eventually amplifies the extra unfinished mass at faster advice enough
+to outweigh its travel advantage.
+
+For $\mathcal L$, preparation is fixed across actions. The closed member's
+earlier-arrival dominance therefore makes faster advice no worse for its
+$A+E$ streams. Positive unqueued $B$ mass has strictly decreasing travel
+time, so $v_+$ is its unique optimum.
+For $\mathcal H$, its preparation derivative is zero near $v_-$; the same
+strict travel improvement applies there. Under (18), fastest advice is not
+optimal because a feasible decrease reduces $F$. Continuity on the compact
+action interval therefore places its global minimizers strictly inside that
+interval; uniqueness is not asserted.
+
+The pair has identical complete aggregate histories but disjoint optimal
+action sets, and opposite one-sided cost slopes at $v_+$. A common observable
+policy cannot be optimal for both. The initial ending scalar resolves this
+ambiguity and G adds no further predictive information.
+
+\textbf{Limit.} This is a new conditional certificate within the approved
+family, not a calibrated work-factor result, practical gradient or empirical
+prevalence. The small-work result below is deliberately retained alongside it.
+Intermediate work factors and other admitted geometries need their own
+complete-objective classification; no positivity filter is authorized.
+
+\subsection*{A common fastest decision for $1\leq\alpha\leq2$ in this reference family}
+This negative result does not assume sustained waiting or use (14) outside
+its branch. Split the local speed sensitivity into changing arrival timing
+with the prepared mass profile fixed, and changing that profile at fixed
+arrival times. The first part cannot increase $A+E$ time by earlier-arrival
+dominance. Positive unqueued $B$ mass gives
+\[
+ F'_{{\rm timing},\mathcal H}\leq
+ -\frac{b_{0,\mathcal H}\ell(L-\ell/2)}{v^2}
+ <-\frac{\kappa h^2}{u^2}\frac{\eta}{32},
+ \tag{19}
+\]
+using $v\leq2u$, $b_{0,\mathcal H}=\kappa/4$ and $\log2>1/2$.
+
+For a positive queue episode, onset is the first eligible arrival because
+weighted inflow decreases. At fixed clocks its preparation sensitivity is
+$(\alpha-1)\partial_{v,\mathrm{prep}}P_E/\alpha$, bounded by
+$(\alpha-1)m'/\alpha$. The queue episode lasts at most
+$d+\alpha m/R$. A moving emptying endpoint adds no queue-area term
+because its queue is zero. With no queue the local preparation contribution
+is zero; the one-sided limit obeys the same bound.
+
+In (9), $B'_{\mathcal H}$ increases from zero to its value in (10).
+Indeed, putting $K_0=wk_j$, its positive-branch expression is
+$(e_0^2/\delta^2-1)(\delta+r)^2/(8K_0)$; its derivative with respect to
+$\delta$ is negative. Thus $m'\leq h k B'(v_+)$.
+For $1\leq\alpha\leq2$, $k<\eta$, $\eta<1/3$,
+$225/7744<1/32$ and $625/1716<1/2$ give
+\[
+ \begin{split}
+ 0\leq F'_{{\rm prep},\mathcal H}
+ &\leq\frac12 m'_{\max}\left(\frac{\ell}{u}+\frac{2m_{\max}}R\right)\\
+ &<\frac{\kappa h^2}{u^2}\frac{3\eta^2}{128}
+ <\frac{\kappa h^2}{u^2}\frac{\eta}{128}.
+ \end{split}
+ \tag{20}
+\]
+Combining (19)--(20) makes complete $F_{\mathcal H}$ strictly decrease
+through the action interval, including the continuous event-boundary
+limits. $\mathcal L$ already has the same strict preference for every
+$\alpha$. Both therefore uniquely prefer $v_+$ for $1\leq\alpha\leq2$.
+This classifies the history-matched subfamily, not every H1/T1 parameter set.
+Hidden preparation remains a prediction ambiguity but is not needed to
+choose the optimum there.
+
+\section*{7. The sensitivity path and later numerical evidence}
+Each initial position $x$ becomes eligible at $(L-x)/v$ before terminal delay.
+Let this time be $t_x(v)$; the cumulative arrival histories are
+\[
+ P_E(t;v)=\int_0^\ell e(v,L_p-x)
+       {\bf1}_{\,t_x(v)\leq t}\,dx,\quad
+ P_A(t;v)=\int_0^\ell[r-e(v,L_p-x)]
+       {\bf1}_{\,t_x(v)\leq t}\,dx .
+ \tag{21}
+\]
+$P_B$ uses constant density $b_0$. This retains both preparation sensitivity
+and moving arrival times. For interior pulse times, $x_{\min}=L-vt$,
+\[
+ \partial_vP_E=\int_{x_{\min}}^\ell e_v(v,L_p-x)\,dx
+                        +t\,e(v,vt-b).
+ \tag{22}
+\]
+Freezing travel lags or arrival endpoints would remove the second term.
+Holding initial traffic, geometry and work parameters fixed is part of
+the physical control derivative.
+
+Let $W=P_A+\alpha P_E$. The ending-queue reflection is
+\[
+ q_E(t;v)=\frac1\alpha\left[
+ W(t;v)-Rt-\min_{0\leq s\leq t}\{W(s;v)-Rs\}\right].
+ \tag{23}
+\]
+Eligible weighted inflow decreases during the pulse because $e$ decreases.
+Therefore it admits at most one positive ending-queue excursion.
+The review event inventory comprises the possible preparation branch switch,
+first/last eligibility, queue onset/emptying and the pulse-end/service change.
+Grazing or coincident events are not assumed smooth. Capacity and spillback
+boundaries are admission boundaries, not extra clipped branches.
+
+Choose a common fixed integration horizon larger than
+$L/v_-+\alpha M/R$ for each fixed parameter case. All mass has cleared there.
+Inside a differentiable event regime,
+\[
+ \frac{dF}{dv}=-\frac{M(L-\ell/2)}{v^2}
+                   +\int_0^{H_*}\partial_v q_E(t;v)\,dt.
+ \tag{24}
+\]
+Moving queue endpoints contribute no separate queue-area boundary term
+because $q_E=0$ there, but their timing effects must already enter queue
+sensitivity through (21)--(23). The final population is zero, so the
+clearance endpoint does not license dropping the tail.
+
+Later execution must first verify forward conservation/admission/clearance
+and A+E/G equality. Compare the continuous analytical reference, the numerical
+forward model's directional differences and its AD derivative separately.
+Internal AD/difference agreement is not continuous-model convergence.
+Use double precision, a stable feasible step ladder, recorded event signatures
+and numerical forward/derivative convergence. At action bounds use feasible
+one-sided tests. Report events separately; neither smoothing nor removal of
+forward boundary cases is authorized.
+
+Numerical tolerances, time/solver resolution and perturbation sizes must be
+fixed in a later approved execution plan using the reference conditioning and
+error budget. No arbitrary values or urban defaults are transplanted here.
+
+\section*{8. External evidence and present disposition}
+The proof of matched histories belongs to H1's conditional loading construction.
+It is not automatically a matched-history proof for another traffic model.
+The large-work range (18) has no independent empirical admission.
+An independently coded use of (1), (14) or (23) is a correctness reference,
+not traffic-validity or independent-usefulness evidence.
+
+SUMO's official speed-sign, vehicle-behavior, insertion, state and trip-output
+documentation was screened. It supports a potential operational speed-limit
+reference with distinct vehicle interactions; it does not supply this task's
+population realization, exact observer match, terminal handoff/priority,
+work-factor calibration or complete evaluation mapping. A native continuous
+lane-aware source model is another candidate, with different response and
+service qualifications. Neither reference is adopted here.
+
+The Step 3 source/evaluator audit and conceptual report carry the genuine
+remaining choice: which independent reference meaning to qualify first.
+Step 2 remains closed. Step 3 has substantive analytical findings and a
+draft evidence protocol, but its full evaluation contract is not frozen.
+No simulator, dependency installation, traffic experiment, AD or optimization
+run was performed.
+\end{document}

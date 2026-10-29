@@ -1,0 +1,183 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=21mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\raggedright\emergencystretch=3em
+\begin{document}
+\begin{center}{\Large D2: node consistency, spatial state and the next clock}\\[4pt]
+9 October 2026 --- methodology-only qualification\end{center}
+\textbf{Status.} D2 is approved. P.A/T.A/N.A/G1/E1/K.A remain fixed.
+This note qualifies a static node block and explicit field/reset diagnostics.
+The complete endogenous field, clearance and control/gradient claims are not
+proved. The regular-clock field contract Q.J.F.R remains open.
+
+\section*{1. Definitions and the selected static map}
+Population is continuous vehicle-equivalents (eq); distance is m and time s.
+For the diagnostic triangular first-order flux,
+\[
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\quad
+ u=30,\ w=5,\ \kappa=3/20,\quad
+ \rho_c=3/140,\quad Q=9/14\ \mathrm{eq/s}.
+\]
+At the public request clock, $S_a$ is a sampled sending \emph{amount} and
+$\theta_{ab}$ is its direction fraction. The original amount allowance and
+competition weight are $d_{ab}=\mu_{ab}=\theta_{ab}S_a$ (eq).
+An active port has unspent allowance. During physical evolution,
+\[
+ b_{ab}(t)=d_{ab}-\int_{t_j}^{t}f_{ab}(r)\,dr\ge0.
+\]
+Here $f_{ab}$ is a rate (eq/s); fulfilled ports remain inactive until the
+next public refresh. $D_a$ is current physical donor sending (eq/s),
+$R_b$ current receiving, and $Q_a$ donor capacity. D2 imposes
+\[
+ f_{ab}\ge0,\qquad \sum_b f_{ab}\le D_a\le Q_a,\qquad
+ \sum_a f_{ab}\le R_b,
+\]
+without the D1 inequality $f_{ab}\le\theta_{ab}Q_a$.
+
+For the ramp target $A$, let $D_r$ be available ramp sending and
+$p\in[0,1]$ its fixed priority. The resource available to the mainline
+subgroup and the completed ramp award are
+\[
+ C_A=R_A-\min\{pR_A,D_r\},\qquad
+ f_r=\min\{D_r,R_A-m_A\},\quad m_A=\sum_a f_{aA}.
+\]
+Thus $m_A+f_r\le R_A$, with unused mainline space returned to the ramp.
+The mainline allocation uses $C_A$ and the other receivers' supplies.
+Starting from zero, increase rates of all live ports proportionally to their
+fixed positive $\mu_{ab}$. Stop at the first saturated row or column,
+freeze every incident live port at all ties, and repeat. Each pass freezes
+at least one port, so the static calculation terminates in at most the
+number of active ports. Its water level has units $1/\mathrm{s}$ and is
+\emph{not physical execution time}. No FIFO/throughput theorem is imported.
+
+\newpage
+\section*{2. Why own boundary-state changes do not alter this allocation}
+\textbf{Incoming demand lift.} Let $q_a=\sum_b f_{ab}<D_a$ after allocation.
+The row constraint was slack throughout all monotone increments. Replacing
+$D_a$ by $Q_a$ therefore cannot affect any first saturation or freeze.
+Induction over the finite passes leaves every $f_{ab}$ unchanged.
+For the ramp, if $f_r<D_r$, then $f_r=R_A-m_A$. This cannot occur when
+$D_r<pR_A$, since then $m_A\le R_A-D_r$. Hence $D_r\ge pR_A$,
+$C_A=(1-p)R_A$, and raising $D_r$ to capacity leaves both $C_A$ and
+$f_r$ unchanged. Multiple strict demand lifts may be made together.
+
+\textbf{Unfilled receiving lift.} A slack ordinary column cannot have caused
+a freeze; raising its bound leaves the same increment sequence. If the ramp
+target is slack, $m_A+f_r<R_A$, then $f_r=D_r$ and
+\[
+ m_A<R_A-D_r\le C_A.
+\]
+The mainline resource is slack too. Since
+$C_A(R_A)=R_A-\min\{pR_A,D_r\}$ is nondecreasing, raising $R_A$ cannot
+change the mainline allocation or the fully served ramp award.
+
+In triangular KW, a strictly restricted sender admits a congested boundary
+trace with demand $Q_a$; an unfilled receiver admits a free inlet trace with
+supply $Q_b$. These lifts are therefore the relevant stationary-boundary
+consistency checks. Original weights and active requests must remain fixed.
+An amount exhaustion, new clock or restriction encounter is a genuine
+physical event, not covered by this fixed-mode proof.
+
+\textbf{Supplementary exact checks.} The declared two-donor/two-recipient/ramp
+layout was checked on 5,832 rational configurations: zero resources,
+asymmetric fixed weights, two ramp priorities and exhausted fork ports.
+All 8,292 strict demand lifts and 3,716 slack supply lifts leave the allocation
+unchanged. Enumeration supplements the argument; it is not whole-model validation.
+
+\section*{3. What the regular clock still needs}
+Restriction anchors constrain the mass between selected points, not every
+ordinary density piece. If local count has gauge
+\[
+ N(t,x)=n(0)+\int_0^t q_{\rm in}(r)dr-\int_0^x\rho(t,y)dy,
+\]
+two fields can share $N(t,0)$, $N(t,L)$ and all record anchors while having
+different density near the exit. Replacing both by a linear count interpolation
+preserves selected counts but is not an identity map on traffic fields.
+
+\newpage
+\section*{4. Exact early/late profiles under the same D2 request data}
+Let $L=30$ m, $T=1$ s, the through receiver be blocked and the lateral
+receiver empty/free. There are no donor records in this diagnostic.
+Both initial fields contain $n_0=3\kappa=9/20$ eq and use the same already
+sampled $\theta_L=1/4$, giving $d_L=9/80$ eq. They have identical fixed-end
+counts and any shared records outside this donor can be held identical.
+They are admissible field/request inputs, not proven equal-history policies.
+
+\textbf{Early: jam on $[27,30]$.} The exit can send $Q$ immediately.
+The allowance is exhausted at
+\[
+ t_e=d_L/Q=7/40,\qquad M_e=Q t_e=9/80=0.1125\ \mathrm{eq}.
+\]
+The initial release contact travels left at $-w$, reaching 27 m at $3/5$ s.
+Afterward the void/critical rear moves at $u$. The quota-stop contact from
+the exit also moves left at $-w$. They meet at
+\[
+ 27+30(t-3/5)=30-5(t-7/40),\qquad t=5/8,\quad x=111/4.
+\]
+The remaining field at $T$ is stationary jam on $[111/4,30]$ and void behind.
+The lateral recipient contains critical density on $[99/4,30]$:
+\[
+ n_e(T)=\kappa(30-111/4)=27/80=n_0-M_e,
+ \qquad \rho_c(30-99/4)=9/80=M_e.
+\]
+
+\textbf{Late: jam on $[0,3]$.} The leading void/critical front travels at
+$u$ and reaches the exit at $t_a=(30-3)/30=9/10$. Hence
+\[
+ M_l=Q(1-t_a)=9/140\simeq0.064286<d_L.
+\]
+The release contact reaches the inlet at $3/5$, after which the free rear
+travels to $x=30(1-3/5)=12$ at $T$. The completed donor is critical on
+$[12,30]$; its recipient is critical on $[0,3]$:
+\[
+ n_l(T)=18\rho_c=27/70=n_0-M_l,\qquad 3\rho_c=9/140=M_l.
+\]
+Both conserve the common population exactly. Their accepted mass differs by
+$M_e-M_l=27/560$ eq. Anchor-only uniform reconstruction instead maps both
+initial donors to $\rho=n_0/L=3/200$. It cannot be equivalent to both fields.
+No positive traffic has exited the diagnostic recipient before $T$; the
+one-step total population integral is identical. Thus this is a field-state
+non-equivalence result, not a full-TST benefit or mesoscopic-necessity witness.
+
+\newpage
+\section*{5. Completed-state E1 is compatible with the next input}
+E1 reads completed transfers and creates zero-population records at the
+declared ports. Every record at the same lane/time/point attaches to the same
+$N(t,x)$; different signatures remain distinct. It does not alter $\rho$,
+population, boundary counts or exits. For two source-free records,
+\[
+ x_1\le x_2,\quad h_i=N(t,x_i),\quad
+ h_1-h_2=\int_{x_1}^{x_2}\rho(t,x)dx,
+ \quad x_2-x_1\ge\frac{h_1-h_2}{\kappa}.
+\]
+Unequal counts cannot coincide at finite jam density. Equal counts enclose
+void and admit the prior local coincident fan without new ranks or compression.
+This is conditional reset compatibility, not proof of all later contacts.
+
+For the earlier common one-step A-section certificate,
+\[
+ \rho=9/100\text{ on }[0,13/3],\quad n=39/100,
+ \quad N(1,0)=39/100,\quad N(1,13/3)=0.
+\]
+Both new inlet records receive $39/100$, while the old record keeps zero.
+This gauge includes initial mass $9/100$ and actual entry $3/10$; it is not
+a claim that $39/100$ new mass entered. Their initial separation is $13/3$ m,
+above $(39/100)/(3/20)=13/5=2.6$ m. Own queue speed is $10/3$ m/s;
+birth speeds are capped by that same own field, with distinct signatures retained.
+
+\textbf{Remaining reference decision.} R.A carries the completed full density
+or equivalent count profile to the next interval. R.B declares a numerical
+mass-and-anchor reconstruction and separately qualifies its field/timing error.
+Both must retain all records and selected anchors. The early/late pair refutes
+calling the R.B projection an exact identity; it does not refute a qualified
+finite-grid approximation or macro modeling. No representation is adopted here.
+
+\textbf{Whole-model limit.} Static node consistency and E1 compatibility do
+not prove endogenous motion/port existence for every admitted encounter,
+indefinite continuation, clearance, intervention-dependent full TST or useful
+gradients. A coherent finite numerical construction at a declared accuracy
+could qualify the chain without a universal continuum theorem. Its contract
+must be bound before using it as a competing baseline.
+\end{document}

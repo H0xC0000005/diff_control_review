@@ -1,0 +1,266 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\argminset}{\operatorname*{arg\,min}}
+\newcommand{\dd}{\mathrm{d}}
+\setlength{\emergencystretch}{2em}
+\title{S13 M2 Conditional Certificate Analysis\\\large Hidden lane allocation, endogenous receiving service, and common VSL}
+\author{Methodology review artifact}
+\date{30 September 2026}
+
+\begin{document}
+\maketitle
+
+\section{Question and result}
+
+S05 established two separate facts: lane allocation can be hidden by an exact
+aggregate-history collision in a homogeneous conservative branch, and fixed
+advice-independent service cannot convert such hidden information into a
+different useful common speed action when fastest advice dominates arrivals.
+
+S13 asks whether the admitted M2 class can bridge those facts without selecting
+one favorable numerical coefficient. Under the model contract in the companion
+document, the answer is conditionally positive:
+
+\begin{quote}
+There is a nonempty open parameter regime in which two states with identical
+declared predecision aggregate histories have different unique optimal actions
+over the same continuous lane-uniform VSL family. The difference arises because
+advice changes preparation-zone residence time, which changes remaining
+mandatory transfer and hence finite-receiving workload at the choke.
+\end{quote}
+
+This is a model-class existence certificate. It is not field validation,
+calibration, or proof that real lane contrast is necessary for VSL control.
+
+\section{Contract recalled}
+
+Let total cohort mass be \(M>0\). Hidden state \(s\in\{L,H\}\) has ending-lane
+fraction \(p_s\), with \(0<p_L<p_H<1\). Both states have the same aggregate
+predecision history and total mass. One lane-uniform advice speed \(v\) acts
+through preparation-zone traversal time
+\[
+ \tau=L/v\in[\tau_{\min},\tau_{\max}].
+\]
+On a fixed continuous mandatory-transfer branch, ending-lane mass remaining at
+the choke is
+\[
+ e_s(\tau)=p_sM e^{-\lambda\tau},\qquad \lambda>0.
+\]
+Remaining mandatory-transfer mass consumes receiving-work factor \(\alpha>1\)
+at a choke with receiving-work rate \(\mu>0\). The complete per-mass time score is
+\begin{equation}
+ J_s(\tau)=\tau+\frac{M}{2\mu}+Kp_s e^{-\lambda\tau},
+ \qquad K=\frac{(\alpha-1)M}{2\mu}>0.
+ \label{eq:J}
+\end{equation}
+
+The first term is full preparation delay. The constant is ordinary cohort
+clearance. The last term is additional finite-receiving time caused by mandatory
+merging still present at the choke. Thus slower advice pays travel time but can
+reduce service workload.
+
+\section{Exact observer handoff}
+
+\begin{proposition}[Conditional exact predecision collision]
+Suppose the S05 homogeneous conservative preparation reaches the entrance of the
+fixed M2 preparation zone at the decision time. If lane transfers before that
+time preserve aggregate mass, cumulative counts, and common mean speed, then two
+states with ending-lane fractions \(p_L\ne p_H\) have identical declared strong
+aggregate histories at the decision boundary.
+\end{proposition}
+
+\begin{proof}
+The S05 construction gives pointwise equality of every declared aggregate
+history channel while allowing lane-transfer terms to cancel in the lane sum.
+Choose the spatial entrance to the M2 zone as the decision boundary and require
+the common cohort front to reach it first at that time. The roadway geometry and
+M2 zone exist in both cases; only the already-hidden lane decomposition differs.
+No M2 postdecision evolution has yet occurred, so it cannot leak information
+into the predecision history. Therefore the observer histories are equal while
+\(p_L\ne p_H\). This proposition remains conditional on the S05 reachability
+assumptions; it does not certify a native simulator trajectory.
+\end{proof}
+
+\section{Action-split certificate}
+
+Differentiate equation~\eqref{eq:J} with respect to traversal time:
+\begin{align}
+ J_s'(\tau)&=1-K\lambda p_s e^{-\lambda\tau},
+ \label{eq:first}\\
+ J_s''(\tau)&=K\lambda^2p_s e^{-\lambda\tau}>0.
+ \label{eq:second}
+\end{align}
+Each state therefore has a strictly convex score over the full action interval.
+
+\begin{proposition}[Different unique useful common actions]
+If
+\begin{equation}
+ K\lambda p_L<e^{\lambda\tau_{\min}}
+ <K\lambda p_H<e^{\lambda\tau_{\max}},
+ \label{eq:regime}
+\end{equation}
+then the low-ending-lane state uniquely selects fastest advice,
+\begin{equation}
+ \argminset_{\tau\in[\tau_{\min},\tau_{\max}]}J_L(\tau)
+ =\{\tau_{\min}\},
+ \label{eq:low}
+\end{equation}
+while the high-ending-lane state uniquely selects the slower interior action
+\begin{equation}
+ \argminset_{\tau\in[\tau_{\min},\tau_{\max}]}J_H(\tau)
+ =\left\{\tau_H^*\right\},\qquad
+ \tau_H^*=\frac{1}{\lambda}\log(K\lambda p_H)>
+ \tau_{\min}.
+ \label{eq:high}
+\end{equation}
+The optimal-action sets are disjoint.
+\end{proposition}
+
+\begin{proof}
+For state \(L\), the first inequality in~\eqref{eq:regime} gives
+\(J_L'(\tau_{\min})>0\). Equation~\eqref{eq:second} shows that the derivative is
+strictly increasing, so \(J_L'(\tau)>0\) throughout the interval. The unique
+minimum is \(\tau_{\min}\), equivalent to \(v_{\max}\).
+
+For state \(H\), the middle inequality gives
+\(J_H'(\tau_{\min})<0\), while the final inequality gives
+\(J_H'(\tau_{\max})>0\). Strict convexity yields one zero of the derivative in
+the interior. Solving equation~\eqref{eq:first} gives~\eqref{eq:high}. Since
+\(\tau_H^*>\tau_{\min}\), the action sets are disjoint.
+\end{proof}
+
+The inequalities are strict, so the result persists under small parameter
+perturbations. It is therefore an open-regime certificate rather than a
+one-point favorable example. A normalized illustration such as
+\(\lambda\tau_{\min}=0.2\), \(\lambda\tau_{\max}=2\),
+\(K\lambda=4\), \(p_L=0.2\), and \(p_H=0.5\) satisfies the inequalities; these
+numbers demonstrate nonemptiness and are not traffic calibration.
+
+\section{Why the S05 obstruction no longer applies}
+
+In S05, advice changed cumulative arrivals while each hidden state's service
+process remained fixed with respect to advice. Here service workload is
+\[
+ W_s(\tau)=M+(\alpha-1)p_sM e^{-\lambda\tau},
+\]
+so the action changes service through remaining mandatory transfer. Faster
+advice shortens travel but leaves more ending-lane mass to consume scarce
+receiving work. Slower advice can reduce that work. The arrival-only monotonicity
+premise is therefore false inside the M2 regime.
+
+The certificate does not contradict work conservation. Lateral transfer is
+paired, all mass clears, and the action-induced travel time is fully charged.
+The benefit arises from changing receiving work, not moving uncounted waiting
+upstream.
+
+\section{Observer-only aggregate decision limit}
+
+\begin{proposition}[Positive observer-only regret]
+At the decision boundary, any deterministic controller whose input is limited to
+the declared strong aggregate history must select the same action for states
+\(L\) and \(H\). Under~\eqref{eq:regime}, no one action is optimal for both, and
+the minimum worst-state regret is strictly positive.
+\end{proposition}
+
+\begin{proof}
+The observer histories and feasible action family are identical, so a
+deterministic observer-only rule returns the same \(\tau\) in both states. Define
+\[
+ R_s(\tau)=J_s(\tau)-\min_x J_s(x)\ge0.
+\]
+Strict convexity implies \(R_s(\tau)=0\) only at state \(s\)'s unique minimizer.
+The two zero sets are disjoint. Hence the continuous function
+\(\max\{R_L(\tau),R_H(\tau)\}\) is positive everywhere on the compact action
+interval and has a strictly positive minimum.
+\end{proof}
+
+A source-backed deterministic aggregate capacity-drop model receiving the same
+history and action likewise produces one prediction at the decision point. It
+can match one hidden case, an average, or later observed divergence, but it
+cannot condition the initial action on \(p_s\) without adding information outside
+the declared observer. This is an information result, not a claim that every
+possible feedback controller remains blind after postdecision measurements
+diverge.
+
+\section{Conditional gradient path}
+
+The action-to-outcome chain is
+\[
+ v\longrightarrow \tau=L/v
+ \longrightarrow e_s=p_sM e^{-\lambda\tau}
+ \longrightarrow W_s=M+(\alpha-1)e_s
+ \longrightarrow J_s=\tau+W_s/(2\mu).
+\]
+Inside the fixed active regime,
+\begin{equation}
+ \frac{\dd J_s}{\dd v}
+ =-\frac{L}{v^2}\left(1-K\lambda p_s e^{-\lambda L/v}\right).
+ \label{eq:gradient}
+\end{equation}
+
+\begin{corollary}[State-relevant gradient direction]
+Under~\eqref{eq:regime}, at fastest advice the low-ending-lane state has
+\(\dd J_L/\dd v<0\): increasing speed toward the endpoint reduces cost. The
+high-ending-lane state has \(\dd J_H/\dd v>0\): reducing speed from the endpoint
+reduces cost. Thus the hidden state changes the locally useful gradient direction
+inside the conditional model.
+\end{corollary}
+
+This establishes conceptual downstream relevance in the analytical member, not
+automatic-differentiation correctness for a future implementation. At receiving,
+demand/supply, zero-mass, endpoint, or priority active-set changes, the smooth
+derivative may need one-sided or piecewise treatment.
+
+\section{Status against the core review questions}
+
+\begin{center}
+\begin{tabular}{p{0.33\textwidth}p{0.57\textwidth}}
+\toprule
+Question & Conditional S13 answer \\
+\midrule
+What hidden macro-omitted information can alter control? & Ending-lane fraction,
+because it determines remaining mandatory-transfer receiving work while the
+declared aggregate history is identical. \\
+Can it alter the controller result? & Yes within the open M2 regime: the two
+states have different unique optimal actions and positive observer-only minimax
+regret. \\
+Can it provide relevant gradient information? & Yes conceptually within a fixed
+active regime: the hidden state can reverse the locally useful gradient direction
+at fastest advice. \\
+Is lane contrast empirically necessary? & Not established. The contract is a
+conditional analytical model, not calibrated or cross-fidelity evidence. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Falsification and limits}
+
+The positive result disappears in aggregate/fixed-service limits
+\(\alpha\to1\), \(\lambda\to0\), equal hidden fractions, or nonbinding receiving.
+It also fails outside~\eqref{eq:regime}, where both states may choose fastest
+advice or the same interior action.
+
+The decisive unsupported empirical join remains the constant positive transfer
+branch under common VSL. It is source-compatible but not calibrated. The batch
+and homogeneous proportional service assumptions remove order and transient
+wave detail. The exact observer collision is inherited conditionally from S05,
+not demonstrated in native traffic. Therefore the result establishes
+methodological feasibility and a complete conditional chain, not field truth or
+minimum mesoscopic state.
+
+\section{Verdict}
+
+Under the approved S13 contracts, the result is
+\textbf{M2C-A---conditional decision-relevant certificate}. All six planned
+analytical conditions pass inside a nonempty open parameter regime. The
+remaining gap is empirical/model-validity support for the selected response
+closure, followed by implementation-level derivative correctness only if a
+future project chooses to build it.
+
+\end{document}

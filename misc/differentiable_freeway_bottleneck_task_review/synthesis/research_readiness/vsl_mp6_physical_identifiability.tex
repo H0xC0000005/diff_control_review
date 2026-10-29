@@ -1,0 +1,216 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large Physical qualification: what can be identified?}\\[4pt]
+16 October 2026 --- MP6-Q1; no traffic experiment or parameter selection
+\end{center}
+
+\textbf{Status.} The selected conditional model is unchanged. Its forward
+domain is qualified at WF-Q1. This note separates its physical meanings
+and gives exact, conditional observation identities. It does not establish
+an empirical parameter range, noisy-data identifiability or applied MP6.
+
+\section*{1. A boundary recovery quantity is not a vehicle trajectory}
+Retain $K=wk_j$, $c(s)=Ks/(w+s)$, $U(f)=wf/(K-f)$ and
+$0<R\leq C(v_-)=c(v_-)<K$. In the selected node,
+\begin{equation}
+ c_E=1+\delta+\chi g_A\pos{u_A-u_E},\quad c_A=1,\quad
+ B=R-p,\qquad g_A+c_Eg_E\leq B. \tag{1}
+\end{equation}
+The previously proved positive-budget domain makes clipping inactive.
+Free marks are $u_j=v$; queued marks are $u_j=U(g_j)$. Their use as actual
+entry/passage speed is an equilibrium approximation, not a consequence of
+conservation. $\chi$ is fixed in physical units across advice.
+
+For an isolated entry with mark $u\geq0$, define
+\begin{align}
+ S(\theta;u)&=\sqrt{(w+u)^2+2wa_r\theta},\quad
+ V(\theta;u)=S(\theta;u)-w,\nonumber\\
+ Q_{\rm iso}(\theta;u)&=K\left[\theta-
+        \frac{S(\theta;u)-w-u}{a_r}\right],\nonumber\\
+ \partial_\theta Q_{\rm iso}&=K(1-w/S)=c(V),\quad
+ D(\theta;u)=\pos{R-c(V)}. \tag{2}
+\end{align}
+The derivative identity explains the retained profile. $V$ parametrizes
+the boundary passing rate; it is not the admitted vehicle's speed.
+For comparison, a vehicle accelerating constantly before a cap has speed
+$u+a_r\theta$ along its own trajectory, which differs from $V$.
+Actual acceleration observations constrain the source interpretation of
+$a_r$; observed discharge tests (2). Fitting $V$ directly to measured vehicle
+speeds would test a different assertion.
+
+This distinction is explicit in the accompanying interpretation of equation
+(1) of Leclercq et al. (2016). Their congested insertion-speed assumption in
+Section 3.2 gives a restricted precedent for a flow-to-speed relation, not
+a proof of every transient stream mark used here.
+
+Units: $g_j,B,p,D,K$ are veh-eq/s; $u_j,w,V$ are m/s; $a_r$ is m/s$^2$;
+$\delta$ is dimensionless; $\chi$ is s$^2$/(veh-eq m). The reference
+mass $m=1$ veh-eq is physical normalization, not an integer service packet.
+
+\newpage
+\section*{2. What distinguishes recovery from current maneuver work?}
+With the selected recent-mass renewal, $Y_E$ is cumulative admitted E and
+$T(\xi)$ its mass-rank admission time:
+\begin{equation}
+ p(t)=\frac1m\int_{[Y_E(t)-m]_+}^{Y_E(t)}
+ D(t-T(\xi);u_E(T(\xi)))\,d\xi. \tag{3}
+\end{equation}
+If E has finished entering and A remains queued, $g_E=0$ and its current
+maneuver work vanishes. Work conservation in the selected node gives
+\begin{equation}
+ g_A=B=R-p,\qquad p=R-g_A. \tag{4}
+\end{equation}
+This identifies the account's value on that ideal saturated tail if $R$ is
+independently known. It does not identify every profile parameter from one
+tail, guarantee such a tail exists in the primary cohort, or make a
+microscopic individual headway a continuous instantaneous rate. The later
+execution proposal must specify observation scale and uncertainty.
+If A is free, low $g_A$ alone does not identify $B$.
+
+At a binding mixed-service observation with $g_E>0$, set
+\begin{equation}
+ X=g_A\pos{u_A-u_E},\qquad
+ Z=\frac{R-p-g_A}{g_E}-1.
+ \quad\Longrightarrow\quad Z=\delta+\chi X. \tag{5}
+\end{equation}
+After recovery and marks are constrained separately, two distinct covariate
+values have determinant $X_2-X_1$ and give
+\begin{equation}
+ \chi=\frac{Z_2-Z_1}{X_2-X_1},\qquad
+ \delta=\frac{X_2Z_1-X_1Z_2}{X_2-X_1}. \tag{6}
+\end{equation}
+Admissible estimates must still obey the selected nonnegative and
+monotone-root conditions. Equal $X$ values do not separate the coefficients;
+all $X=0$ gives no information about $\chi$. With nonbinding service,
+the counterpart of (5) is only an inequality.
+
+At a single observation without independent recovery information, the
+accounting ambiguity is explicit:
+\begin{equation}
+ \delta^\prime=\delta+\varepsilon,\qquad
+ p^\prime=p-\varepsilon g_E
+ \quad\Longrightarrow\quad
+ p^\prime+g_A+(1+\delta^\prime+\chi X)g_E
+ =p+g_A+(1+\delta+\chi X)g_E. \tag{7}
+\end{equation}
+This is not a second admissible O-R trajectory or a global
+non-identifiability theorem: the primed account need not satisfy (3).
+It shows why discharge accounting alone does not establish the physical
+partition. Distinct tails, mixtures and joint predictions are needed.
+
+The profile already removes service through (3). Adding its integrated
+loss again to $c_E$ would charge that same modeled loss twice.
+Whether fitted immediate work represents a distinct real burden still
+requires evidence; algebra alone cannot establish that physical fact.
+
+\newpage
+\section*{3. Which preparation and longitudinal scales are visible?}
+For one constant advice, use traveled preparation distance $z$, remaining
+ending density $e(z)$ and the selected H1 relation
+\begin{equation}
+ \frac{de}{dz}=-\frac1h\min\left\{e,
+                  \frac{\Delta+e}{\gamma}\right\},\qquad
+ \Delta=\frac{K}{w+v}-r. \tag{8}
+\end{equation}
+$h$ is an opportunity length and $\gamma$ is dimensionless receiving
+penalty. On an informative donor-limited interval,
+\begin{equation}
+ e(z)=e(z_0)e^{-(z-z_0)/h},\qquad
+ -\frac{d\log e}{dz}=\frac1h. \tag{9}
+\end{equation}
+On a receiving-limited interval with fixed $v,r$,
+\begin{equation}
+ e(z)+\Delta=[e(z_0)+\Delta]e^{-(z-z_0)/(\gamma h)},\qquad
+ -\frac{d\log(e+\Delta)}{dz}=\frac1{\gamma h}. \tag{10}
+\end{equation}
+Thus that branch identifies a product. The transformation
+$h^\prime=s h$, $\gamma^\prime=\gamma/s$ preserves (10), as long as the
+branch and admissibility remain unchanged. Donor-limited observations can
+constrain $h$ first. If no receiving-limited behavior is observed, the
+penalty may only be bounded. A single final E count generally cannot
+identify the whole law. These are ideal branch-conditional statements,
+not statistical estimators for arbitrary noisy spatial observations.
+
+For the earlier stationary correspondence, let $d$ be vehicle length plus
+standing gap and $\tau_d$ a desired time gap. In the documented ideal
+constant-speed Krauss case,
+\begin{equation}
+ k_{\rm ideal}(s)=\frac1{d+\tau_d s},\qquad
+ f_{\rm ideal}(s)=\frac{s}{d+\tau_d s}. \tag{11}
+\end{equation}
+Choosing $k_j=1/d$ and $w=d/\tau_d$ gives
+\begin{equation}
+ \frac{K}{w+s}=\frac1{d+\tau_d s},\qquad
+ c(s)=\frac{s}{d+\tau_d s}. \tag{12}
+\end{equation}
+This is a stationary curve identity at actual speed $s$. It does not prove
+that native transient waves propagate at this $w$, that advice is instantly
+realized, or that a separately served lane stream has speed $U(g_j)$.
+SUMO's documented headway variations and insertion effects matter to
+any later admission. No runtime capacity was measured in this review.
+
+\newpage
+\section*{4. Recovery scale and joint-domain implications}
+For $u<u_R=U(R)$ the isolated active-profile duration and integrated loss are
+\begin{equation}
+ \Theta(u)=\frac{(w+u_R)^2-(w+u)^2}{2wa_r},\qquad
+ W(u)=\int_0^{\Theta(u)}D(\theta;u)\,d\theta
+      =\frac{K}{w+u_R}\frac{(u_R-u)^2}{2a_r}. \tag{13}
+\end{equation}
+For $u\geq u_R$, both are zero. While the profile is active,
+\begin{equation}
+ \frac{\partial D}{\partial\theta}=-\frac{Kw^2a_r}{S^3},\quad
+ \frac{\partial D}{\partial u}=-\frac{Kw(w+u)}{S^3},\quad
+ \frac{\partial D}{\partial a_r}=-\frac{Kw^2\theta}{S^3}. \tag{14}
+\end{equation}
+At fixed admission times and marks, stronger acceleration reduces each
+surviving profile and the account in (3). In the coupled traffic model,
+admissions and marks also change. This is not a theorem that complete TST
+or optimal advice varies monotonically with acceleration.
+
+$W$ has units veh-eq and $\Theta$ has units s. They are profile descriptors,
+not new current E charges. They constrain different aspects of recovery:
+a total loss alone confounds low insertion speed with slow acceleration;
+independent marks and time-resolved tails are more informative. O-R's
+retirement may truncate an older profile before acceleration removes it,
+so the isolated area is not the integrated account of an arbitrary history.
+
+\textbf{Joint admission.} Require one common parameter set that explains
+preparation, actual speed marks, mixed discharge and recovery, and lies in
+the existing full-advice forward domain. In particular retain
+\begin{equation}
+ v_+r<R\leq C(v_-),\qquad M<k_jb,\qquad
+ c_0-\beta(1+v_+/w)>0,\qquad a_r>0. \tag{15}
+\end{equation}
+Other H1/T1 and far-lane assumptions remain as previously declared.
+$\chi=\beta/[C_\star v_\star]$ is anchored once, never refitted by advice
+or search box. $m$ remains the selected physical normalization. (15) is
+mathematical admission, not an observed physical range. A good objective
+fit cannot replace the mechanism checks. No numerical value, tolerance,
+positive policy result or theory-only primary is selected here.
+
+\textbf{Queue-scope clarification.} The earlier E non-requeue conclusion
+uses the monotone H1 pulse, free-speed/recovery rules and retained domain.
+Finiteness alone is insufficient: a bursty later E wave can requeue in a
+different model or a native finite cohort. Such an event cannot by itself
+be used to reject the independent reference.
+
+\textbf{Source ownership.} Carey Section 5 motivates receiving work;
+Leclercq Sections 2 and 3.2 constrain the recovery and speed interpretations;
+official SUMO road-capacity documentation supports only the stationary
+correspondence. Equations (4)--(10), the admission order and joined-law
+qualification are our deductions. No source validates the complete node.
+See the accompanying viewed-reference list and physical admission contract.
+Applied MP6 and Step 3 remain open; Step 4 is unopened.
+\end{document}

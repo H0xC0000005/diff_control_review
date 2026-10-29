@@ -1,0 +1,176 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large Aligning the update without losing retained traffic counts}\\[4pt]
+8 October 2026 --- K.A approved; field/count interface F proposed
+
+\textbf{Scope.} Conditional own-field bookkeeping, two analytical diagnostics,
+and a constructive local reconstruction. Restriction records carry zero extra
+traffic mass. No full endogenous solver, reached metering/TST comparison,
+clearance theorem or gradient claim is inferred. Primary-source boundaries
+are in \texttt{joined\_step\_source\_audit.md}.
+
+\section*{1. The selected timing uses two different outputs}
+Let an old record start at $x_j^k$ with sampled desired speed $s_j^k$.
+Write $c_j(\tau)$ for equilibrium speed of its own one-sided ahead traffic
+at elapsed time $\tau$. Conditional on that jointly determined trace, K.A is
+\begin{equation}
+ v_j(\tau)=\min\left\{s_j^k,\inf_{0\le r\le\tau}c_j(r)\right\},\quad
+ x_j^{k+1}=x_j^k+\int_0^{\Delta t}v_j(\tau)\,d\tau,\quad
+ v_{j,\mathrm{end}}=v_j(\Delta t-).
+\end{equation}
+The essential infimum can be used for merely measurable traces; one-sided
+contact values determine braking. Positive recovery is refreshed only at the
+next regular update, by the selected source recurrence from ending speed,
+with its existing old-position grade convention. Interior release does not
+increase $v_j$ in this interval. This formal phase rule is not an existence
+proof for the own trace. E1 births follow completed transfers and start acting
+in the next interval.
+
+\section*{2. Priority belongs to the same receiving history}
+For ramp and mainline demands $d_r,d_m$ and shared receiving rate $R$, all in
+equivalents/s, fixed ramp priority $p\in(0,1)$ with reallocation gives
+\begin{equation}
+ f_r=\min\{d_r,\max(pR,R-d_m)\},\qquad
+ f_m=\min\{d_m,\max((1-p)R,R-d_r)\}.
+\end{equation}
+Thus $0\le f_a\le d_a$ and $f_r+f_m=\min(d_r+d_m,R)$. If requests evolve,
+accepted masses are
+\begin{equation}
+ T_a=\int_{t_k}^{t_{k+1}} f_a(d_r(t),d_m(t),R(t))\,dt.
+\end{equation}
+Allocation and time integration generally do not commute. With $p=1/2$,
+two one-second windows have $(d_r,d_m,R)=(0.4,0,0.4)$ and $(0,0.4,0.2)$.
+They accept $(T_r,T_m)=(0.4,0.2)$. Allocating once to the integrated demands
+$(0.4,0.4)$ and receiving $0.6$ gives $(0.3,0.3)$ instead. The latter assigns
+early unused mainline opportunity to mainline traffic that arrives later.
+This is a conditional node diagnostic, not a reached control witness. A native
+frozen-request CTM step is a separately declared numerical transcription.
+
+For each section/lane $b$, let $T_{a b}$ be completed transfers, $B_b$ admitted
+external entry and $E_b$ boundary exit. Conditional admissible ledgers satisfy
+\begin{equation}
+ n_b^{k+1}=n_b^k+B_b+\sum_a T_{a b}-E_b-\sum_c T_{b c},\qquad
+ \sum_b(n_b^{k+1}-n_b^k)=\sum_b(B_b-E_b).
+\end{equation}
+Internal transfers cancel. The same balances apply to the finite approach
+and outside waiting. Nonnegativity/storage require compatible sending and
+receiving bounds; cancellation alone does not prove a valid traffic solver.
+
+\newpage
+\section*{3. Local count coordinates avoid counting an entry twice}
+For a section $[0,L]$, all declared lane/ramp transfers enter at its upstream
+port. Let $C_b(t)$ be cumulative \emph{all} accepted incoming traffic plus an
+initial count gauge. With no interior source in this section, define
+\begin{equation}
+ N_b(t,x)=C_b(t)-\int_0^x\rho_b(t,\xi)\,d\xi,\qquad
+ \partial_xN_b=-\rho_b,\quad \partial_tN_b=F_b(\rho_b).
+\end{equation}
+The time identity is for the own conservative field, since
+$C_b'=F_b(\rho_b(t,0+))$ is its accepted boundary flux. Along a restriction,
+\begin{equation}
+ \frac{d}{dt}N_b(t,x_j(t))=F_b(\rho_b)-v_j\rho_b=0
+\end{equation}
+on a compatible zero-relative-passing path. Such a path has a constant local
+count anchor until crossing a section boundary or a separately declared source.
+At an actual crossing time $t_*$, the new local label is
+\begin{equation}
+ h_j^{\mathrm{new}}=N_{b'}(t_*,0).
+\end{equation}
+This rebase changes coordinates, not restriction inventory or traffic mass.
+Port entries already occur in $C_{b'}$ and must not also be inserted as an
+interior source. A global-lane formulation needs its corresponding source-prefix
+corrections. A stationary restriction at a node uses the common receiving
+constraint for every incoming stream. These identities do not settle all
+physical node/path interactions.
+
+\section*{4. A conservative cell projection can contradict exact records}
+Use triangular KW
+\begin{equation}
+ F(\rho)=\min\{u\rho,w(\kappa-\rho)\},\quad
+ u=30,\quad w=5,\quad\kappa=0.15,\quad L=30,\quad\Delta t=1.
+\end{equation}
+Units are m, s and vehicle equivalents. Initial density is $0.01$ throughout
+the cell, with a free outlet and sufficient upstream demand. Two old records
+start at $x=h=0$, with desired speeds 5 and 15 m/s. This obeys $u\Delta t=L$.
+The established local coincident fan has the slow record holding back traffic,
+while the faster record separates through vacuum. Behind the slow record,
+\begin{equation}
+ \rho_U(5)=\frac{w\kappa}{w+5}=0.075,\qquad q_U(5)=5\rho_U(5)=0.375.
+\end{equation}
+At $t=1$, $x_1=5$, $x_2=15$ and the original free traffic has exited. The
+remaining field is $0.075$ on $[0,5]$ and zero on $(5,30)$. Initial mass is
+0.3, inflow is 0.375 and outflow is 0.3. Hence
+\begin{equation}
+ n(1)=0.3+0.375-0.3=0.375,\quad C(1)=0.375,\quad
+ N(1,5)=N(1,15)=N(1,30)=0.
+\end{equation}
+The initial free-traffic tail moves at 30 m/s, so no conflict with the fast
+record is introduced. These are local initial data, not a reached E1/meter
+case. Neither record adds traffic population.
+
+\newpage
+Uniform cell projection instead gives
+\begin{equation}
+ \bar\rho=\frac{0.375}{30}=0.0125,\quad
+ \bar N(5)=0.3125,\quad\bar N(15)=0.1875,\quad
+ \int_5^{15}\bar\rho\,dx=0.125.
+\end{equation}
+Cell total and boundary counts are correct, but the two old zero-count
+anchors disagree with the field. Relabeling them changes source-free count
+histories; repositioning them changes selected motion. The conclusion is
+about this projection's joint compatibility, not every CTM scheme and not
+the impossibility of a qualified numerical error contract.
+Indeed for one projection, both densities lie in $[0,\kappa]$, so
+$|N(x)-\bar N(x)|\le\kappa L$ follows by integrating their difference.
+This bound shrinks as cell length shrinks for a fixed field, but does not
+control one-sided traces, successive endogenous updates or derivatives.
+
+\section*{5. Existing anchors permit an exact local reconstruction}
+Include cell boundaries and retained record locations, all expressed in the
+completed own local count gauge. Sort unique locations $z_0<\cdots<z_m$ with
+counts $a_0,\ldots,a_m$. Coincident records must have equal counts; merging
+their \emph{field location} does not merge their distinct kinetic metadata.
+Compatibility requires
+\begin{equation}
+ 0\le a_i-a_{i+1}\le\kappa(z_{i+1}-z_i)\quad(0\le i<m).
+\end{equation}
+If it holds, define the candidate F.A field on each interval by
+\begin{equation}
+ \rho_i=\frac{a_i-a_{i+1}}{z_{i+1}-z_i},\qquad
+ N(x)=a_i-\rho_i(x-z_i),\quad z_i\le x\le z_{i+1}.
+\end{equation}
+Then $0\le\rho_i\le\kappa$, every anchor is matched, and
+\begin{equation}
+ \int_{z_0}^{z_m}\rho\,dx=\sum_{i=0}^{m-1}(a_i-a_{i+1})=a_0-a_m.
+\end{equation}
+Thus completed cell mass is unchanged. Equal adjacent counts produce vacuum.
+The example's nodes $(0,0.375),(5,0),(15,0),(30,0)$ reproduce its field. With
+only cell boundaries, this is ordinary uniform cell reconstruction.
+
+This proves reconstruction only. Invalid inputs require diagnosis, without
+clipping or relabeling. Averaging between anchors is still numerical. F.A is
+unadopted; F.B needs joint field/count/motion error qualification. K.A stays
+fixed. These intervals are not new CTM cells using the old timestep: next
+fluxes need their own CFL/stability or appropriate interior wave resolution.
+
+\section*{6. A clearing tail needs more than asymptotic stability}
+Finite descriptor births do not imply traffic clearance. Conditional on an
+ordinary free-flow single-cell regime with no external entry and positive
+progress $\gamma=u\Delta t/L\in(0,1]$, its remaining mass satisfies
+\begin{equation}
+ n_{k+1}=(1-\gamma)n_k,\qquad
+ \Delta t\sum_{k=0}^{\infty}n_k=\frac{\Delta t\,n_0}{\gamma}.
+\end{equation}
+This is discrete left-endpoint TST, which can differ from the continuous-time
+integral. For $\gamma<1$, traffic approaches zero without finite-step emptiness,
+yet TST converges. In contrast, $n(t)=1/(1+t)$ tends to zero with divergent
+integral. No result proves entry into this free regime. Ordinary CTM theorems
+do not certify the coupled task; complete TST, metering response and gradients
+remain pending.
+\end{document}

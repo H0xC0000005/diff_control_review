@@ -1,0 +1,5 @@
+query_id,date,query,domains,purpose,batch_id,source_ids,outcome
+RM12-S3-Q01,2026-10-06,"Jorge Laval Daganzo Lane-changing in traffic streams 2006 pdf quantized particles continuous vehicle count",,Qualify original event-to-continuum coupling,S3-B1,RM0011,"2006 journal lead located; direct CiteSeer fetch failed; original 2004 working-paper methods rechecked"
+RM12-S3-Q02,2026-10-06,"Cho Laval 2020 joint ramp metering variable speed limits bounded acceleration model pdf JTEPBS 0000350",,Nearest local metering source transfer,S3-B1,RM9-L04;RM12-S3-P01,"Joint-control abstract and institutional report lead; no article full methods obtained"
+RM12-S3-Q03,2026-10-06,"""Cho"" ""Laval"" ""0000350""",,Check direct article methods availability,S3-B2,RM9-L04,"Publisher abstract retained; methods not upgraded; secondary citing works excluded"
+RM12-S3-Q04,2026-10-06,"""Implementation of a Variable Speed Limit/Ramp Metering Strategy"" pdf Laval Xu",,Check closest primary metering/accounting report,S3-B2,RM12-S3-P01,"Institutional original report OCR obtained; selected methods/results read; PDF link failed"

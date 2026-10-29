@@ -1,0 +1,39 @@
+record_id,title,year,status,doi_or_id,source_url,discovery_role
+T0001,"End-to-end differentiable network traffic simulation with dynamic route choice",2026,preprint,arXiv:2604.11380,https://arxiv.org/abs/2604.11380,differentiable_macro
+T0002,"Differentiable Agent-Based Simulation for Gradient-Guided Simulation-Based Optimization",2021,peer_reviewed,10.1145/3437959.3459261,https://arxiv.org/abs/2103.12476,differentiable_signal_optimization
+T0003,"Differentiable Hybrid Traffic Simulation",2022,peer_reviewed,10.1145/3550454.3555492,https://arxiv.org/abs/2210.08046,differentiable_hybrid_and_signal
+T0004,"Differentiable Modeling of Traffic Signals for Gradient-based Parameter Optimization in Microscopic Traffic Simulations",2022,bachelor_thesis,repository:759,https://eprints.mosi.informatik.uni-rostock.de/759/,differentiable_signal_task
+T0005,"Linear MPC-Based Urban Traffic Control Using the Link Transmission Model",2020,peer_reviewed,10.1109/TITS.2019.2938795,https://trid.trb.org/View/1744667,ltm_mpc_task
+T0006,"A Hierarchical Control Framework for Coordination of Intersection Signal Timings in All Traffic Regimes",2019,peer_reviewed,10.1109/TITS.2018.2837162,https://research.monash.edu/en/publications/a-hierarchical-control-framework-for-coordination-of-intersection/,signal_realization
+T0007,"Hierarchical Predictive Control of Network Traffic Signals Using Link Transmission Model With Queue Dynamics",2025,peer_reviewed,10.1109/TITS.2025.3568869,https://ieeexplore.ieee.org/document/11010837,ltm_turn_queue_control
+T0008,"An arterial signal optimization model for intersections experiencing queue spillback and lane blockage",2011,peer_reviewed,10.1016/j.trc.2010.04.005,https://doi.org/10.1016/j.trc.2010.04.005,lane_blockage_task
+T0009,"Lane-Based Traffic Signal Simulation and Optimization for Preventing Overflow",2020,peer_reviewed,10.3390/math8081368,https://www.mdpi.com/2227-7390/8/8/1368,lane_overflow_task
+T0010,"A Node Model Capturing Turning Lane Capacity and Physical Queuing for the Dynamic Network Loading Problem",2012,peer_reviewed,10.1155/2012/542459,https://doi.org/10.1155/2012/542459,turning_lane_physics
+T0011,"The continuous signalized (COS) node model for dynamic traffic assignment",2023,peer_reviewed,10.1016/j.trb.2022.12.003,https://doi.org/10.1016/j.trb.2022.12.003,signal_node_semantics
+T0012,"On the continuum approximation of the on-and-off signal control on dynamic traffic networks",2014,peer_reviewed,10.1016/j.trb.2014.01.001,https://doi.org/10.1016/j.trb.2014.01.001,continuum_signal_error
+T0013,"Continuum signalized junction model for dynamic traffic networks: Offset, spillback, and multiple signal phases",2015,peer_reviewed,10.1016/j.trb.2015.03.005,https://doi.org/10.1016/j.trb.2015.03.005,continuum_signal_scope
+T0014,"On node models for high-dimensional road networks",2017,peer_reviewed,10.1016/j.trb.2017.09.001,https://doi.org/10.1016/j.trb.2017.09.001,partial_fifo_baseline
+T0015,"A link-based flow model with turn-level queue transmission and time-varying free-flow speed for urban road networks",2025,peer_reviewed,10.1016/j.trc.2024.104937,https://doi.org/10.1016/j.trc.2024.104937,turn_queue_baseline
+T0016,"Simulating link-level interrupted flow traffic dynamics and the comparison between different models for urban road networks",2026,peer_reviewed,10.1016/j.simpat.2026.103252,https://www.sciencedirect.com/science/article/pii/S1569190X26000018,richer_meso_evaluator
+T0017,"A mesoscopic link-transmission-model able to track individual vehicles",2025,peer_reviewed,10.1016/j.simpat.2025.103088,https://doi.org/10.1016/j.simpat.2025.103088,identity_order_reference
+T0018,"MESCOP: A Mesoscopic Traffic Simulation Model to Evaluate and Optimize Signal Control Plans",2015,peer_reviewed,10.3141/2488-01,https://doi.org/10.3141/2488-01,meso_signal_task
+T0019,"Network Traffic Control Based on a Mesoscopic Dynamic Flow Model",2016,peer_reviewed,10.1016/j.trc.2015.10.002,https://doi.org/10.1016/j.trc.2015.10.002,meso_network_control
+T0020,"Optimization of Actuated Traffic Signal Plans Using a Mesoscopic Traffic Simulation",2020,peer_reviewed,10.1061/JTEPBS.0000363,https://doi.org/10.1061/JTEPBS.0000363,meso_signal_optimization
+T0021,"Structure-free model-based predictive signal control: A sensitivity analysis on a corridor with spillback",2023,peer_reviewed,10.1016/j.trc.2023.104174,https://doi.org/10.1016/j.trc.2023.104174,spillback_control_sensitivity
+T0022,"Simulation-Based Optimization: Achieving Computational Efficiency Through the Use of Multiple Simulators",2017,peer_reviewed,10.1287/trsc.2016.0673,https://pubsonline.informs.org/doi/10.1287/trsc.2016.0673,cross_fidelity_optimization
+T0023,"Urban transportation emissions mitigation: Coupling high-resolution vehicular emissions and traffic models for traffic signal optimization",2015,peer_reviewed,10.1016/j.trb.2014.12.007,https://doi.org/10.1016/j.trb.2014.12.007,structured_metamodel_task
+T0024,"Optimizing green splits in high-dimensional traffic signal control with trust region Bayesian optimization",2025,peer_reviewed,10.1111/mice.13293,https://onlinelibrary.wiley.com/doi/10.1111/mice.13293,green_split_black_box_baseline
+T0025,"sumoITScontrol: Traffic Controller Collection for SUMO Traffic Simulations",2026,preprint,arXiv:2604.23240,https://arxiv.org/abs/2604.23240,evaluator_benchmarking
+T0026,"The use of common random numbers to reduce the variance in network simulation of traffic",1992,peer_reviewed,10.1016/0191-2615(92)90031-Q,https://doi.org/10.1016/0191-2615%2892%2990031-Q,stochastic_fairness
+T0027,"Reliable simulation-optimization of traffic lights in a real-world city",2019,peer_reviewed,PII:S1568494619301346,https://www.sciencedirect.com/science/article/pii/S1568494619301346,scenario_reliability
+T0028,"Multi-intersection Traffic Optimisation: A Benchmark Dataset and a Strong Baseline",2021,preprint,arXiv:2101.09640,https://arxiv.org/abs/2101.09640,benchmark_context
+T0029,"Dynamic network loading: A stochastic differentiable model that derives link state distributions",2011,peer_reviewed,10.1016/j.trb.2011.05.014,https://doi.org/10.1016/j.trb.2011.05.014,differentiable_dnl
+T0030,"Extended macroscopic node model for multilane traffic",2025,peer_reviewed,10.1016/j.trb.2025.103208,https://doi.org/10.1016/j.trb.2025.103208,lane_allocation_baseline
+T0031,"With spatial queueing, the P0 responsive traffic signal control policy may fail to maximise network capacity even if queue storage capacities are very large",2023,peer_reviewed,10.1016/j.trb.2023.102814,https://doi.org/10.1016/j.trb.2023.102814,spatial_queue_control
+T0032,"SUMO Traffic Lights documentation",2026,official_documentation,official:SUMO-TLS,https://eclipse.dev/sumo/docs/Simulation/Traffic_Lights.html,evaluator_realization
+T0033,"OverFlowLight: Real-Time Gridlock Prevention and Traffic Signal Optimization for Urban Intersections",2026,preprint,arXiv:2606.27381,https://arxiv.org/abs/2606.27381,blockage_control_context
+T0034,"Second-order macroscopic modelling of stop-and-go traffic under fixed and feedback-based signal control",2026,peer_reviewed,10.1016/j.rineng.2026.111323,https://doi.org/10.1016/j.rineng.2026.111323,signal_model_context
+T0035,"Traffic-Aware Autonomous Driving with Differentiable Traffic Simulation",2022,preprint,arXiv:2210.03772,https://arxiv.org/abs/2210.03772,adjacent_differentiable_task
+T0036,"Gradient-based Trajectory Optimization with Parallelized Differentiable Traffic Simulation",2024,preprint,arXiv:2412.16750,https://arxiv.org/abs/2412.16750,adjacent_differentiable_task
+T0037,"A Deep Reinforcement Learning Approach for Traffic Signal Control Optimization",2021,preprint,arXiv:2107.06115,https://arxiv.org/abs/2107.06115,rl_signal_context
+T0038,"IoT-Simulated Digital Twin with AI Traffic Signal Control for Real-Time Traffic Optimization in SUMO",2026,peer_reviewed,10.3390/s26061880,https://doi.org/10.3390/s26061880,digital_twin_context

@@ -1,0 +1,273 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\title{RM9: Accepted lane-flow kernel audit\\and the next physical-resource decision}
+\author{Method-first ramp-metering review}
+\date{2 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Disposition.} The user accepted the previous handout and
+RM9-UG2.A for analytic review. RM9-X1--X3 remain deferred. This audit establishes
+conditional mathematical consequences of the accepted kernel, not traffic
+calibration, an identical-history action certificate, or independently useful
+gradients. A new gate, RM9-UG3, reopens only the resource interpretation of the
+residual longitudinal budgets in RM9-G2. No equation has been changed silently.
+
+\section{Scope, notation and what acceptance established}
+Use two physical lanes per local longitudinal cell. Mass $n_{i\ell}$ is continuous
+vehicle equivalents; $L$ is cell length, $h$ the timestep, and
+$N^{\max}_{i\ell}=L k^{\rm jam}_{i\ell}$ its finite storage. Distinguish total
+observed cell mass $N_i=n_{i1}+n_{i2}$ from lane maximum storage.
+Let $c_\ell=v_\ell/L$, $\gamma_\ell=w_\ell/L$. Ordinary lane sending/receiving are
+\begin{equation}
+ D_\ell(n)=\min(c_\ell n,C_\ell),\qquad
+ S_\ell(n)=\min(C_\ell,\gamma_\ell(N^{\max}_\ell-n)).
+\end{equation}
+The accepted step bounds $h c_\ell\leq1$, $h\gamma_\ell\leq1$ imply
+$hD_\ell(n)\leq n$ and $hS_\ell(n)\leq N^{\max}_\ell-n$.
+The bounded discretionary propensity generates at most one positive direction
+in a two-lane cell, with actual lateral rate
+$\lambda_{\ell j}\leq\min(D_\ell(n_\ell),S_j(n_j))$.
+After conservative exchange,
+\begin{equation}
+ n_\ell^L=n_\ell+h(\lambda_{j\ell}-\lambda_{\ell j}).
+\end{equation}
+The accepted kernel then limits longitudinal movement by
+\begin{align}
+ \bar D_\ell&=\min\{D_\ell(n_\ell^L),D_\ell(n_\ell)-\lambda_{\ell j}\},\\
+ \bar S_\ell&=\min\{S_\ell(n_\ell^L),S_\ell(n_\ell)-\lambda_{j\ell}\}.
+ \label{eq:residual}
+\end{align}
+Ordinary forward interfaces and the Default priority merge use these budgets.
+An upstream meter still bounds upstream release; it is not automatically a
+bound on instantaneous downstream entry. Ramp and external waiting need their
+corresponding conserved states. Exact local geometry and observer support are
+not yet frozen by handout acceptance.
+
+\paragraph{Preserved decisions.}
+Common bounded open-loop action, complete all-stream time through clearance,
+strong aggregate density/flow/speed/count plus ramp history, known parameters/
+forcing, and Default positive structural priorities remain unchanged. No
+acceleration, end-position rule, extra actuator or source repair is opened.
+\newpage
+
+\section{What passes mathematically; a lossless information coordinate}
+The lateral step keeps each lane in $[0,N^{\max}_\ell]$ and conserves their sum.
+Residual budgets are nonnegative. With accepted forward/merge incoming rate
+$f^{\rm in}_{i\ell}\leq\bar S_{i\ell}$ and outgoing rate
+$q_{i\ell}\leq\bar D_{i\ell}$,
+\begin{equation}
+ n^+_{i\ell}=n^L_{i\ell}+h(f^{\rm in}_{i\ell}-q_{i\ell})
+ \quad\Longrightarrow\quad 0\leq n^+_{i\ell}\leq N^{\max}_{i\ell}.
+\end{equation}
+Every internal accepted transfer appears once with each sign. Thus the
+operator is conservative and storage-bounded, conditional on corresponding
+ramp/boundary balances. This is a proof of an update, not complete-task geometry
+or physical-fidelity acceptance.
+
+For two lanes, one lane coordinate together with road total retains the entire
+cell's lane information:
+\begin{equation}
+ z_i=(N_i,b_i),\qquad b_i=n_{i1},\qquad
+ (n_{i1},n_{i2})=(b_i,N_i-b_i).
+\end{equation}
+Equivalently use $\delta_i=n_{i1}-n_{i2}$, giving
+$n_{i1}=(N_i+\delta_i)/2$, $n_{i2}=(N_i-\delta_i)/2$.
+This is a lossless reparameterization of the accepted two-lane reference,
+not compression of several longitudinal cells into one zone-wide scalar,
+proof that contrast is hidden, or necessity of individual vehicle identity.
+
+With positive density denominators and fixed strict branches of min/max,
+the propensity, conservation and priority operators are differentiable
+compositions. At a switch or empty-state denominator, an ordinary derivative
+is not asserted. Correct branch algebra alone does not verify the full task's
+gradient or independent one-step usefulness.
+
+\section{The new consequence: an implicit forward-service debit}
+Consider an ordinary cell away from the ramp-entry interface. Both pre/post
+sending functions are on uncapped free-flow branches, and downstream residual
+receiving is sufficient for both forward offers. Suppose lateral transfer
+$\lambda>0$ goes from lane $d$ to lane $t$:
+\begin{equation}
+ n_d^L=n_d-h\lambda,\qquad n_t^L=n_t+h\lambda.
+\end{equation}
+The accepted residual law yields
+\begin{align}
+ \bar D_d&=\min(c_d n_d-hc_d\lambda,c_d n_d-\lambda)
+           =c_d n_d-\lambda,\\
+ \bar D_t&=\min(c_t n_t+hc_t\lambda,c_t n_t)=c_t n_t,
+ \label{eq:free}
+\end{align}
+since $hc_d\leq1$. Consequently the total longitudinal rate is
+\begin{equation}
+ Q=c_d n_d+c_t n_t-\lambda.\label{eq:debit}
+\end{equation}
+The comparison with lateral movement disabled has the same initial state
+and ordinary sending parameters: $Q_0=c_d n_d+c_t n_t$.
+This is a local ablation diagnostic, not two identical-observation histories.
+\newpage
+
+\section{Meaning, a hand calculation, and source limits}
+Equation~\eqref{eq:debit} does not require receiving congestion, lane-speed
+equality, a speed-dependent ramp cost or an explicit capacity-drop coefficient.
+The donor loses one unit of forward-rate budget per unit lateral-rate transfer;
+the target cannot increase sending beyond its original budget.
+The debit persists as $h\to0$ at fixed cell state/length/propensity. It is
+therefore not merely a disappearing finite-timestep truncation effect.
+
+\paragraph{Hand-calculated feasible branch.}
+Use illustrative consistent units, $L=1$, $h=1/4$, $c_d=1$, $c_t=2$,
+$n_d=6$, $n_t=2$, $\mu=1/2$, $\kappa=1$. Select finite capacities, storage
+and downstream receiving sufficiently large that all stated branches are strict.
+The propensity and transfer are
+\begin{equation}
+ A=\frac12\frac{6-2}{6+2}=\frac14,\qquad \lambda=A c_d n_d=\frac32.
+\end{equation}
+Post-lateral masses are $45/8$ and $19/8$. Their ordinary sending rates are
+$45/8$ and $19/4$, but the residual budgets impose
+\begin{equation}
+ q_d=\min(45/8,6-3/2)=9/2,\qquad
+ q_t=\min(19/4,4)=4,\qquad Q=17/2.
+\end{equation}
+The no-lateral initial offer is $Q_0=10$; the difference is exactly $3/2$.
+Mass is still conserved. No traffic trajectory or numerical experiment was run.
+The lane mobilities are different, avoiding a symmetry selected to conceal state.
+
+\paragraph{Scientific interpretation.}
+A common movement resource can be a deliberately stipulated model: sideways
+and forward transfers compete for that resource. This is not mathematically
+impossible. But the accepted proposal's conservation proof does not establish
+that within-cell lane changing consumes longitudinal service one for one in
+physical traffic. The earlier phrase ``no capacity-drop penalty'' must be read
+narrowly as no \emph{explicit} acceleration/capacity-drop law. It is not a
+no-throughput-cost claim: \eqref{eq:debit} demonstrates an implicit debit.
+The earlier explanation was insufficiently explicit about its magnitude.
+
+Source FB0030 [1], printed equations 20--22, adjusts sending with both lateral
+inflow and outflow; the accepted target's old-sending cap is not that complete
+source coupling. Its unresolved branches are not repaired here. RM0018 [2]
+specifies sharing at an input-to-output node; it does not establish the debit
+for a transverse within-cell transfer. Neither inspected source validates
+\eqref{eq:debit} as this task's physical lane-changing cost.
+
+A meter perturbation could alter lane contrast, hence $\lambda$ and this debit.
+A resulting internal gradient may be correct for the stipulated resource law,
+but does not independently prove a real metering benefit, hidden information,
+or total-time improvement through common clearance. Different final departure
+history is still required; a local flow difference is not sufficient.
+\newpage
+
+\section{Conditional strong-observer reconstruction, not a certificate}
+This diagnostic retains an \emph{independent} speed channel rather than silently
+replacing speed with total flow divided by density. On the ordinary strict
+free-flow branch above, suppose known distinct lane speeds $v_1\ne v_2$ are
+also the lane passage speeds at the co-supported observation. Let the observer
+receive $N=n_1+n_2$, $Q=q_1+q_2>0$ and passage-weighted speed
+\begin{equation}
+ V=\frac{v_1 q_1+v_2 q_2}{Q}.
+\end{equation}
+Then the two individual realized flows reconstruct algebraically:
+\begin{equation}
+ q_1=\frac{Q(V-v_2)}{v_1-v_2},\qquad
+ q_2=\frac{Q(v_1-V)}{v_1-v_2}.
+\end{equation}
+Define $x_\ell=q_\ell/c_\ell$ and $\epsilon=N-x_1-x_2$.
+Assume both lane masses are positive, and only the discretionary coefficient
+$\mu\in[0,1]$, $\kappa\in(0,1]$ operates. If $\lambda=0$, then $\epsilon=0$
+and $n_\ell=x_\ell$. If lateral flow is active, \eqref{eq:free} gives
+\begin{equation}
+ \epsilon=\lambda/c_d>0,\qquad x_d=n_d-\epsilon,\qquad x_t=n_t.
+\end{equation}
+The active propensity is bounded by the unbiased density difference:
+\begin{equation}
+ \epsilon=A n_d\leq\frac{n_d(n_d-n_t)}{n_d+n_t}<n_d-n_t,
+ \qquad n_d>n_t>0.
+\end{equation}
+Hence $x_d>x_t$ and the donor is identifiable from normalized realized flows.
+Recover the original state without knowing the hidden branch in advance:
+\begin{equation}
+ d=\mathop{\rm argmax}_{\ell\in\{1,2\}}x_\ell,\qquad
+ n_d=x_d+\epsilon,\quad n_t=x_t.
+\end{equation}
+At zero transfer, $n=x$ directly; no argmax is needed.
+Thus, under this explicitly stated speed map and branch, even a snapshot of
+aggregate mass/flow/independent speed identifies lane occupancy. A full equal
+history cannot conceal different current lane masses in this subcase.
+
+This is a \textbf{conditional reviewer theorem}: the accepted kernel does not
+itself supply a calibrated independent detector-speed map, so the diagnostic is
+not adopted as the complete observer. It excludes capacity/supply-bound cells,
+empty recipients, equal lane speeds, different observation supports and changing
+lane passage speeds. No conclusion of global congested-state or field
+reconstruction follows. No weaker speed channel or exact history pair was
+substituted to make the research answer positive.
+\newpage
+
+\section{The concrete alternative for RM9-UG3.B}
+\noindent\textbf{Proposed, not adopted.} Keep the bounded lateral exchange and
+its finite mass/storage proof. Treat it as a transverse occupancy transfer,
+separate from the longitudinal face's flow capacity. After it, recompute
+\begin{equation}
+ D^B_{i\ell}=D_{i\ell}(n^L_{i\ell}),\qquad
+ S^B_{i\ell}=S_{i\ell}(n^L_{i\ell}).\label{eq:B}
+\end{equation}
+Ordinary longitudinal flows use these limits. Mainline and ramp offers still
+share the same longitudinal receiving budget via the Default allocator.
+No lateral transfer is also charged against the original longitudinal-rate
+budget. This changes the physical resource interpretation; it is not a clerical
+removal of a redundant min or an approved correction.
+
+With incoming longitudinal/ramp rate $f^B\leq S^B(n^L)$ and outgoing
+$q^B\leq D^B(n^L)$, the same step bounds give
+\begin{equation}
+ n^+=n^L+h(f^B-q^B)\in[0,N^{\max}].
+\end{equation}
+Internal transfer signs still cancel. Ramp/external balances remain mandatory.
+Total accepted transverse-plus-longitudinal incoming rate need not be below the
+\emph{original} longitudinal $S$; it is not being claimed to use one flow-capacity
+resource. Both stages do respect mass/storage at their respective states.
+This distinction resolves the earlier ``double capacity'' concern only by
+explicitly changing which resource the two movements share. It requires approval.
+
+On the same uncapped, unimpeded ordinary branch,
+\begin{equation}
+ Q_B=c_d(n_d-h\lambda)+c_t(n_t+h\lambda)
+     =Q_0+h(c_t-c_d)\lambda.
+\end{equation}
+There is no universal $-\lambda$ forward debit; changes follow the redistributed
+state and differing lane mobilities. At fixed state as $h\to0$, this local step
+rate approaches $Q_0$. This is not proof of perfect traffic fidelity, a globally
+best unmetered policy, or a positive hidden-state result. The propensity's physical
+spatial scale, step splitting, full observer and geometry still require review.
+No restored source branch, acceleration state or deferred X1--X3 mechanism is
+added. Only the residual flow-capacity debits are proposed for reconsideration.
+
+\section{Gate and claim status}
+RM9-UG2 is closed by the user's acceptance, preserved in its approval record.
+RM9-UG3 explicitly reopens the smallest RM9-G2 resource contract:
+retain the accepted common movement resource as a declared debit model (A), or
+adopt separate transverse/longitudinal resources with conservative recomputation
+for the continued review (B, provisional recommendation).
+Neither choice proves hidden-information necessity. The full observation and
+initialization contract is unfinished; no feasible equal-history useful-action
+pair, whole-chain gradient check or independent one-step usefulness is established.
+No experiment, implementation or successor is open.
+
+\section*{Primary source boundary}
+\begin{enumerate}
+\item Existing FB0030, final primary PDF, printed pp. 1762--1766 and 1768--1769,
+\href{https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae}{source PDF}.
+Selected transfer/coupling and sensor-support sections rechecked. No full source
+scheme repaired or validated.
+\item Existing RM0018, Wright et al. (2017), published primary author-hosted
+node paper, Section 3.1,
+\href{https://doi.org/10.1016/j.trb.2017.09.001}{DOI 10.1016/j.trb.2017.09.001}.
+It establishes node-allocation antecedents, not within-cell physical debit.
+\end{enumerate}
+\noindent Conservation, free-flow debit, hand calculation, conditional
+reconstruction and alternative-operator proofs are reviewer derivations under
+explicit conditions. They are not joint source findings or a combined
+literature proof of the core review questions.
+\end{document}

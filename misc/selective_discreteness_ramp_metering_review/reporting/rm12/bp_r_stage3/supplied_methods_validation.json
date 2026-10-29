@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-06",
+  "scope": "Document/source provenance and static equation-artifact checks; no traffic or gradient validation",
+  "status": "passed",
+  "documents": 19,
+  "local_links": 207,
+  "queries": 4,
+  "batches": 2,
+  "source_records": 6,
+  "new_primary_antecedents": 2,
+  "supplied_sources": [
+    {
+      "id": "RM12-S3-A01",
+      "pages": 14,
+      "sha256": "ac4a032d7e9df4baa2daa5b0546c8c22d95bb84f6320eb97463d12cad33c2b58",
+      "path": "user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf"
+    },
+    {
+      "id": "RM12-S3-A02",
+      "pages": 23,
+      "sha256": "512befe8666bbdb17a23386d76d499b85a5a6918ae99d51b7f247c882f7e2895",
+      "path": "user_supplied/rm12_bp_r_stage3/A SIMPLE PHYSICAL PRINCIPLE FOR THE SIMULATION OF FREEW A YS WITH SPECIAL LANES AND PRIORITY VEHICLES.pdf"
+    }
+  ],
+  "historical_counts": {
+    "search/rm12_bp_r_stage3_query_log.csv": 4,
+    "screening/rm12_bp_r_stage3_records.csv": 7,
+    "search/rm12_bp_r_stage3_A_qualification_query_log.csv": 10,
+    "screening/rm12_bp_r_stage3_A_qualification_records.csv": 7,
+    "search/rm12_bp_r_stage3_meter_A_query_log.csv": 6,
+    "screening/rm12_bp_r_stage3_meter_A_records.csv": 7
+  },
+  "pdf": {
+    "path": "synthesis/rm12/bp_r_stage3/source_laws_and_merge_choices.pdf",
+    "pages": 3,
+    "sha256": "a0a5c1ac903b415644e0135120c8102e1cb0a0524553e1bdae54a115c9e63b32",
+    "clean_latex_log": true,
+    "visual_inspection": false
+  },
+  "existing_accounting_pdf_unchanged": true,
+  "gate": "S3-G2-N open; neither candidate adopted",
+  "stage3": "incomplete",
+  "stage4": "unopened",
+  "tracked_status": "M ../../AGENTS.md\n M ../../PLANS.md"
+}

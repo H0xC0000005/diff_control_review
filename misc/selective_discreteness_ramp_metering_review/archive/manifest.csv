@@ -1,0 +1,31 @@
+id,date,path,source,version_or_status,sha256
+RM0002,2026-09-14,full_text/RM0002.pdf,https://arxiv.org/pdf/1611.06766,v2 identifier; printed date discrepancy documented,3b814fd7cd3fe581acaa29a125656f1f5e8216bf6c95e4a767572b7d1dae1021
+RM0003,2026-09-14,full_text/RM0003.pdf,https://arxiv.org/pdf/2106.10347,v1,066f0589c6a4f91e5b3236dcddb958ff6d0a0ed793e2206599bf15dae523c9dd
+RM0005,2026-09-14,full_text/RM0005.html,https://ops.fhwa.dot.gov/bn/resources/case_studies/minnstp_mn.htm,official page snapshot,ae8601d30ecf4c592aa77735124b94fd1f985629292e1cacf6ef0c700d29564d
+RM0007,2026-09-14,full_text/RM0007.html,https://polaris.egs.anl.gov/polaris/theory/traffic_flow/models/mesoscopic_model.html,26.03 official documentation snapshot,74f7e8b0190d6672646a70b4e5953c152e185dabb39427d6ce5e5dd7e1841ce1
+RM0001,2026-09-14,metadata/retrieval_notes.md,https://doi.org/10.1016/j.trc.2006.08.001,indexed excerpts only; metadata in screening records,
+RM0004,2026-09-14,metadata/retrieval_notes.md,https://doi.org/10.1155/2021/8638523,browser full text read; local summary only; download 403,
+RM0006,2026-09-14,metadata/retrieval_notes.md,https://onlinepubs.trb.org/Onlinepubs/trr/1991/1320/1320-008.pdf,bibliographic record only; full text fetch failed,
+RM0008,2026-09-14,metadata/retrieval_notes.md,https://arxiv.org/abs/2207.02360,v3 metadata and abstract screen only,
+RM0009,2026-09-14,full_text/RM0009.pdf,https://arxiv.org/pdf/1708.00529,v1,52801350f2e2b47d311e618a4f1e06635af385c3c66c76d3bfb95eb03fc2c0b9
+RM0010,2026-09-14,full_text/RM0010.pdf,https://arxiv.org/pdf/1310.2660,v1 inspected preprint; journal version not asserted identical,431d788867db643e5d9eb8e9b548642395ff80466b40ea326465e26920819ff5
+RM0011,2026-09-14,metadata/retrieval_notes.md,https://escholarship.org/uc/item/8w70q261,2004 working paper read via browser; download empty,
+RM0012,2026-09-14,metadata/retrieval_notes.md,https://doi.org/10.1016/j.trc.2012.06.005,publisher abstract lead only,
+RM0013,2026-09-14,metadata/feedback_19_amendment_sources.md,https://doi.org/10.1016/S0965-8564(01)00017-9,publisher-indexed abstract/introduction; no full text,
+RM0014,2026-09-14,metadata/feedback_19_amendment_sources.md,https://doi.org/10.1016/j.trb.2004.12.001,publisher-indexed abstract/introduction; related 2004 report metadata; no full text,
+RM0015,2026-09-14,metadata/b1_initial_pass_sources.md,https://doi.org/10.3141/1856-01,metadata and abstract; no full journal text,
+RM0016,2026-09-14,user_supplied/RM0016_Zhang_et_al_destination_aware_ramp_metering.pdf,https://doi.org/10.1109/MITS.2023.3323029,user-supplied final publisher PDF; 22 pages; full-text audited,6e773613f0b4761089bf0d0de6917b9e9b3d7f342561ccbfdad8776688d303d6
+RM0017,2026-09-14,metadata/b1_initial_pass_sources.md,https://escholarship.org/content/qt804724nd/qt804724nd.pdf,2002 report browser inspected; local download empty and placeholder removed,
+RM0018,2026-09-15,full_text/RM0018.pdf,https://arxiv.org/pdf/1601.01054,arXiv v3 full preprint; 31 PDF pages,3e55c553738eafb49ca5bdadd13ff109032e249b6464b10901d1e027bef4f477
+RM0021,2026-09-15,full_text/RM0021.pdf,https://eprints.whiterose.ac.uk/82755/3/balijepalli.pdf,open accepted manuscript; 20 PDF pages,0f6683e66a6d9d79cf2f03d5454abf59579af45ac60c2e40bbcd91d469b7394a
+RM0022,2026-09-15,full_text/RM0022.pdf,https://link.springer.com/content/pdf/10.1186/s12544-023-00586-1.pdf,open-access version of record; 20 PDF pages,8f59f88683943196a47eb3bb6fd051103941f6bd6eaff5a847ff65cc0ec11c37
+RM0023,2026-09-15,metadata/d1_sources.md,https://doi.org/10.1016/S0191-2615(98)00039-3,publisher abstract and introduction plus TRID metadata; no local full text,
+RM0024,2026-09-15,full_text/RM0024.pdf,https://doi.org/10.1007/s10957-015-0749-1,public 23-page Berkeley manuscript; readable with pypdf,db07df20fcb9671a7e75b5a7e92dd113bcd3a5a05de6476862d7dd5d48dd747b
+RM0025,2026-09-15,full_text/RM0025.pdf,https://doi.org/10.1007/s11081-026-10122-4,open-access 33-page version of record; readable with pypdf,14b19ed4794e020fafa20709215cdf8785c9fbde5588c2dbdcf7f193a8055fb5
+RM0026,2026-09-15,metadata/feedback20_sources.md,https://doi.org/10.1109/TITS.2021.3123815,author-institution abstract and bibliographic metadata; no local full text,
+RM0027,2026-09-15,metadata/feedback20_sources.md,https://doi.org/10.1177/0361198119845650,publisher abstract and references; no local full text,
+RM0028,2026-09-15,metadata/feedback20_sources.md,https://doi.org/10.1016/S0954-1810(01)00019-X,publisher-indexed abstract and method excerpts; no local full text,
+RM0029,2026-09-15,metadata/feedback20_sources.md,https://ops.fhwa.dot.gov/publications/fhwahop13015/sec3.htm,official FHWA page and NCHRP report evidence inspected; no duplicate local archive,
+RM0030,2026-09-15,metadata/feedback20_sources.md,https://doi.org/10.1016/j.trc.2016.07.008,author-repository text and bibliographic metadata; no local full text,
+RM12-S3-A01,2026-10-06,user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf,https://doi.org/10.1016/j.trb.2005.04.003,2006 final journal TRB40 251-264; 14 pages,ac4a032d7e9df4baa2daa5b0546c8c22d95bb84f6320eb97463d12cad33c2b58
+RM12-S3-A02,2026-10-06,user_supplied/rm12_bp_r_stage3/A SIMPLE PHYSICAL PRINCIPLE FOR THE SIMULATION OF FREEW A YS WITH SPECIAL LANES AND PRIORITY VEHICLES.pdf,https://doi.org/10.1016/S0191-2615(96)00032-X,1997 final journal TRB31 103-125; 23 pages; older citations give105-125,512befe8666bbdb17a23386d76d499b85a5a6918ae99d51b7f247c882f7e2895

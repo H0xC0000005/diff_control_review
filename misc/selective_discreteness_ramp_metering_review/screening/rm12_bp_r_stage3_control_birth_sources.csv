@@ -1,0 +1,10 @@
+source_id,activity,title,url_or_local_path,read_scope,limits
+RM12-S3-A01,technical recheck,Laval/Daganzo supplied journal,archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf,"Section 2.2 and Appendix A; PDF 6,11-12",Local existing text only; no new source download
+RM7-FHWA-H,technical recheck,FHWA Ramp Management and Control Handbook,https://ops.fhwa.dot.gov/publications/ramp_mgmt_handbook/manual/manual/5_1.htm,Section 5.3.6,Physical actuation guidance; no continuous-cap equivalence theorem
+RM12-S3-H01,new technical read,Han et al. author preprint arXiv:1309.3461v2,https://arxiv.org/pdf/1309.3461,Section 2 eqs2.7-2.8 Remark2.1; Section4 Thms4.1/4.4; Sections5-6,Version-specific author preprint; inconsistent header year not propagated; no full publisher-journal read
+RM8-P01,technical recheck,Impacts of lane changes at merge bottlenecks,https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/f/3571/files/2023/03/merges.pdf,"Section2 and Discussion; PDF2-3,7-8",No priority calibration or complete-TST theorem imported
+RM12-S3-S02,technical recheck,Moving Bottlenecks: A Numerical Method that Converges in Flows,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,Sections2-4; PDF3-5,Cover/body override incorrect browser title; scoped source methods only
+RM12-S3-H01,publisher access failed,Linked signal-continuum journal page,https://www.sciencedirect.com/science/article/pii/S0191261514000022,403 Forbidden,Use inspected author preprint; no inference from access failure
+RM12-S3-A03,retained unavailable,Previously unavailable gridlock original,,No new attempt,Prior source boundary preserved
+RM12-S3-Q01,retained unavailable,Previously unavailable EPFL memory original,,No new attempt,Prior source boundary preserved
+CB-DISCOVERY,discovery/excluded,"Secondary mirrors, overview metadata, unrelated/newer traffic methods",,Search metadata only,"No new methods claim, full read or adoption"

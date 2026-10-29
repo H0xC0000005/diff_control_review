@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "date": "2026-10-19",
+  "scope": "Feedback 9 follow-up: explicit global modeling assumptions in report plan",
+  "snapshot_file_count": 441,
+  "changed_existing_files": [
+    "README.md",
+    "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "vsl_successor_00_opening_plan.md"
+  ],
+  "new_files": [
+    "reporting/research_readiness/vsl_feedback9_assumptions_validation.json",
+    "reporting/research_readiness/vsl_feedback9_assumptions_work_report.md"
+  ],
+  "deleted_files": [],
+  "protected_existing_files_unchanged": 435,
+  "feedback_unchanged": true,
+  "markdown_files_checked": 7,
+  "local_links_checked": 513,
+  "heading_anchors_checked": 22,
+  "link_errors": [],
+  "assumption_and_status_content_checks": "passed",
+  "model_equations_pdfs_sources_historical_evidence_unchanged": true,
+  "traffic_and_gradient_experiments_run": false,
+  "command": "python /tmp/vsl_feedback9_assumptions_checks.py",
+  "snapshot": "/tmp/vsl_feedback9_assumptions_before.json"
+}

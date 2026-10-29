@@ -1,0 +1,24 @@
+source_id,decision,relevance,reason,next_action
+FB0001,reuse,G2-G4,strong aggregate reference but hard discharge transition,qualified reference not complete chosen model
+FB0003,reuse,G2-G3,macroscopic mean-response predecessor and DOI verified,consider stronger2019 extension same lineage
+FB0013,include-critical-resolved,G1-G2,closest full predecessor shows objective search and action confounds,retain strong link-wide micro counterevidence
+FB0020,include-boundary,G1-G4,qualitative macro-micro transfer concern but joint control actuator,do not attribute joint-control improvement to state alone
+FB0021,include-critical-resolved,G1-G2-G3,recovery-tail and analytical sensitivity already covered,reference logic not moving-front action implementation
+FB0022,include-baseline,G2-G3-G4,aggregate history and SUMO forward comparison with threshold hazards,continue adoption and derivative screen after access
+FB0023,retain-lead,G2,heterogeneous corridor baseline lead optimizer outside task,verify version and inspect deterministic traffic model only if useful
+FB0024,include-transferable,G2-G4,deterministic endogenous lane-group transfer but on-ramp disturbance,conditional adaptation and unit-budget audit
+FB0002,include-derivative-boundary,G1-G4,free-flow road-wide control with analytical speed variations,do not claim independent gradient usefulness
+FB0004,include-actuator-boundary,G1-G2-G4,lane-class model joint CAV speed and LC commands,accounting ideas not state-only necessity
+FB0005,include-response,G2-G3,field advisory response with aggregate compliance metric,not immutable class identification
+FB0026,include-strong-baseline,G2-G3,calibrated homogeneous response dynamics,baseline-family amendment proposed at user gate
+FB0027,retain-access-gap,G2-G3,LTM history lineage exact methods not inspected,no second batch or source-specific equation adoption
+FB0028,retain-boundary-lead,G2,urban mixed response multiclass energy model,abstract only not class necessity evidence
+FB0029,include-advice-context,G2-G3,official cooperative speed-harmonization methodology,not matched state gradient evidence
+FB0030,include-transferable,G2-G4,mandatory route incentives continuous-mass endogenous transfer,branch empty-state and budget audit needed
+FB0031,retain-lead,G3,stochastic capacity estimation not candidate random transitions,abstract only no causal gradient inference
+FB0032,retain-actuator-boundary,G1-G4,joint CAV-RHV control with gradient-free solver,not plain shared-advice state ladder
+FB0033,include-evaluator-calibration,G2-G3-G4,recent fixed-limit work-zone compliance calibration,not dynamic advice or useful-gradient evidence
+RM0025,reuse-derivative-lineage,G1-G4,general class speed controls but actual numerical routing derivative target,no task-level transfer inference
+FB0034,include-qualified,G1-G2,multi-lane continuous speed and lateral control predecessor differs from shared-advice endogenous merging,do not claim lane-control novelty
+FB0035,include-qualified,G1-G4,aggregate speed-control discrete adjoint established with smoothing and grid limitations,do not claim generic speed-gradient novelty or adopt smoothing
+FB0036,include-abstract-boundary,G1-G4,AD METANET established for parameter calibration not advice-gradient usefulness,limit claim to inspected abstract no new paper request needed

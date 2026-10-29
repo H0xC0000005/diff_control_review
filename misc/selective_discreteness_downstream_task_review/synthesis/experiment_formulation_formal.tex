@@ -1,0 +1,225 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,hyperref,xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newcommand{\veh}{\mathrm{veh}}
+\newcommand{\secnd}{\mathrm{s}}
+\newcommand{\R}{\mathbb{R}}
+\title{Formal Contract for the Primary Effective-Service Allocation Task}
+\author{Selective-Discreteness Downstream-Task Review --- T6 Proposal}
+\date{10 September 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Technical summary}
+The task allocates continuous effective signal service among four protected movement groups at one rotationally symmetric four-leg junction. It tests whether continuous traffic mass augmented by exact order and route/movement metadata yields more faithful and useful control sensitivities than homogeneous, movement-queue, and lane/storage-aware aggregate representations. The action is not claimed to be an executable phase schedule. Geometry and traffic variants are defined separately in \texttt{primary\_green\_allocation\_suite.md}.
+
+\paragraph{Notation convention.} Fix one arbitrary model realization $M$ before the following within-model definitions and derivations. To avoid carrying an unchanging superscript or subscript through every equation, write $X$, $F$, $J$, $f$, $S$, $A$, and $B$ without $M$. The equations apply separately to every model realization. A model label is restored only where different models or a richer evaluator are explicitly compared.
+
+\section{Scenario and model contract}
+For the fixed model, scenario $\xi$, and service decision $g$, let
+\[
+  X_{0:K}(g;\xi)=\mathcal{S}(g;\xi)
+\]
+denote the complete simulated trajectory. The scenario contains topology, link and lane geometry, fundamental-diagram parameters, phase--movement permissions, saturation flows, boundary demand, downstream supply, route table, fixed route shares, ordered route-mass realization, initial state, and (for an external evaluator) a fixed replication seed. These quantities are structural during differentiation.
+
+Traffic quantity is continuous vehicle-equivalent mass. For every step $k$, total accounted mass satisfies
+\[
+  A_k = N^{\mathrm{src}}_k + N^{\mathrm{net}}_k + D_k,
+\]
+where $A_k$ is cumulative demand released up to step $k$, $N^{\mathrm{src}}_k$ is released mass still waiting in source queues, $N^{\mathrm{net}}_k$ is all mass physically present on modeled links and lane zones, and $D_k$ is cumulative completed mass. In particular, $N^{\mathrm{net}}_k$ includes both moving and queued traffic; it is not a queue-length variable. No representation may drop mass to satisfy storage or service constraints.
+
+The core scenario is invariant under a 90-degree rotation $\rho$: corresponding inbound/outbound geometry, traffic parameters, demand profiles, route shares, initial aggregate state, and downstream supply are identical. For V1 and V3, the ordered route-mass pattern is also copied by rotation. If $P_\rho$ permutes the four service groups under that rotation, a conforming model must satisfy
+\[
+  f(P_\rho g;\rho\xi)=f(g;\xi),\qquad
+  \nabla_g f(P_\rho g;\rho\xi)=P_\rho\nabla_g f(g;\xi).
+\]
+This is a construction and implementation check. V4 may add explicitly labeled asymmetric held-out cases after the symmetric core is established.
+
+\section{Effective-service decision}
+Let $p\in\{1,\ldots,P\}$ index fixed protected effective-service groups, with $P=4$. Groups 1 and 2 serve north--south through/right and protected-left movements respectively; groups 3 and 4 serve the corresponding east--west movements. The physical allocation is
+\[
+  g_p \ge \underline g_p, \qquad \sum_{p=1}^{P}g_p=G, \qquad 0<G\le 1,
+\]
+where $g_p$ and $G$ are dimensionless effective-service fractions. A differentiable default parameterization uses free logits $z\in\R^P$:
+\[
+  g_p(z)=\underline g_p+
+  \left(G-\sum_{q=1}^{P}\underline g_q\right)
+  \frac{e^{z_p}}{\sum_{q=1}^{P}e^{z_q}}.
+\]
+The movement service-capacity rate is
+\[
+  c_m(g)=s_m\sum_{p=1}^{P}a_{mp}g_p,
+\]
+where $s_m$ has units $\veh/\secnd$ and $a_{mp}\in\{0,1\}$ is fixed phase--movement compatibility. This is a continuum capacity constraint. It does not specify green, yellow, or all-red intervals within a cycle.
+The four groups are therefore allocation categories, not an executable four-stage controller. Clearance time is neither a fifth group nor part of $g$; it belongs to a later timing-realization contract.
+
+Physical comparisons should be reported in feasible tangent directions $d$ satisfying $\sum_p d_p=0$ and preserving lower bounds locally. Logit gradients are optimization coordinates, not the traffic-engineering result.
+
+\section{Objective and terminal treatment}
+The primary objective is clearance-complete total system time, including source queues:
+\[
+  J(g;\xi)=\Delta t\sum_{k=0}^{K-1}
+  \left(N^{\mathrm{src}}_k + N^{\mathrm{net}}_k\right),
+  \qquad [J]=\veh\,\secnd.
+\]
+This is the discrete-time area under the number-in-system curve: every released unit of traffic contributes one unit of time at each step until it completes, whether it is waiting at a source, moving on a link, or queued. Therefore, when all released demand completes, the sum equals the total elapsed source-to-destination time of that traffic, up to the ordinary time-discretization convention. Summing only stopped or queued mass would instead define total waiting/queue time and is not the proposed objective.
+
+Demand is released during a declared control/inflow window. The simulation then applies a fixed, model-common clearance policy until all scenario demand has completed. A run that fails to clear by a predeclared safety cap is a failed/censored evaluation, not a silently truncated low objective.
+
+When every trip completes, free-flow-subtracted delay is reported as
+\[
+  D(g;\xi)=J(g;\xi)-J^{\mathrm{ff}}(\xi),
+\]
+where $J^{\mathrm{ff}}$ is independent of $g$ for a fixed scenario. Thus $\nabla_gD=\nabla_gJ$, while delay has a more familiar traffic interpretation. Queue length, throughput, blocked mass, bay occupancy, and spillback duration are secondary mechanism diagnostics and do not replace the common primary objective.
+
+\section{Derivative contract}
+The colleague-facing notation is fixed as follows. The scalar function is the clearance-complete total system time produced by model $M$ in fixed scenario $\xi$,
+\[
+   f(x;\xi) \equiv J(g;\xi),
+\]
+and the scientific input is the physical phase-service allocation,
+\[
+   x\equiv g=(g_1,g_2,g_3,g_4)^\top.
+\]
+Thus the reported scientific gradient is $df/dx=\nabla_gJ$ with units $\veh\,\secnd$ per unit service fraction. If an optimizer uses logits $z$, those are only internal coordinates and
+\[
+   \nabla_z f = \left(\frac{\partial g}{\partial z}\right)^\top \nabla_gJ.
+\]
+Here $z=(z_1,z_2,z_3,z_4)^\top\in\R^4$ is the dimensionless, unconstrained score vector introduced by the simplex parameterization in Section 2: $g=g(z)$. It has no direct traffic-engineering meaning. Because adding the same constant to all softmax logits leaves $g$ unchanged, an implementation may center $z$ or fix one reference logit to remove that redundant coordinate. Gradients across models are compared in the common physical $g$ coordinates or as feasible directional derivatives, never as raw logit gradients.
+
+For a fixed scenario and a stable local event/active-set signature, the model derivative in feasible direction $d$ is
+\[
+  \mathrm{D}J(g;\xi)[d]=\nabla_gJ(g;\xi)^\top d.
+\]
+Automatic differentiation is checked in double precision against the central directional difference
+\[
+  \widehat{\mathrm{D}}_hJ[d]=
+  \frac{J(g+hd;\xi)-J(g-hd;\xi)}{2h}.
+\]
+A check is interpretable only when $g\pm hd$ are feasible and the compared trajectories retain the declared stable signature. Event-boundary cases are reported separately; they are not smoothed away or removed from forward evaluation.
+
+For models $M_i$ and a richer evaluator $R$, local decision usefulness is tested using identical feasible perturbations $\delta d_i$, selected without observing the evaluator outcome:
+\[
+  \Delta J_R^{(i)} = J_R(g+\delta d_i;\xi)-J_R(g;\xi).
+\]
+Directional sign, rank, and realized improvement are distinct measurements. Internal gradient correctness does not imply $\Delta J_R^{(i)}<0$.
+
+\section{Full gradient path from objective to control}
+Let $X_k$ collect all continuous state of the fixed model at step $k$: aggregate link mass and cumulative counts, source mass, lane-zone occupancy, ordered ledger masses, and any continuous service bookkeeping used by that model. Structural topology, route identifiers, movement/lane labels, and the ordering skeleton belong to $\xi$ rather than $X_k$. Write
+\[
+   X_{k+1} = F_k(X_k,g;\xi),
+   \qquad
+   f(g;\xi)=\sum_{k=0}^{K-1}\ell_k(X_k;\xi),
+\]
+where $\ell_k=\Delta t(N_k^{\mathrm{src}}+N_k^{\mathrm{net}})$. With $S_k=\partial X_k/\partial g$ and an initial state independent of $g$, the forward sensitivity recursion is
+\[
+   S_0=0,\qquad
+   S_{k+1}=A_kS_k+B_k,
+\]
+\[
+   A_k=\frac{\partial F_k}{\partial X_k},
+   \qquad
+   B_k=\frac{\partial F_k}{\partial g},
+   \qquad
+   \nabla_g f=\sum_{k=0}^{K-1}S_k^\top\nabla_{X_k}\ell_k.
+\]
+Reverse-mode AD computes the same chain in adjoint form and is the intended implementation. The recursion defines what must be connected; it does not require forward-mode storage in production.
+
+At traffic-process level, the chain is
+\[
+g \longrightarrow c_m(g) \longrightarrow y_{m,k}
+\longrightarrow X_{k+1}
+\longrightarrow (N_{k+1}^{\mathrm{src}},N_{k+1}^{\mathrm{net}})
+\longrightarrow f,
+\]
+where $y_{m,k}$ is realized movement discharge. V1--V3 insert additional state-dependent bounds and updates between movement capacity and future occupancy. Within a stable signature, active minima, capped transfers, prefix splits, and storage constraints use their ordinary branch derivatives. At ties or signature changes the classical derivative may not exist; no derivative through a branch choice, route label, or order permutation is invented.
+
+\section{Variant-specific gradient propagation}
+The variants share $f=J$ and $x=g$. What changes is the state transition $F_k$ and therefore the path by which a service change affects future occupancy.
+
+\subsection*{V0: movement-exclusive lanes, no bay}
+For each movement, realized discharge has the schematic form
+\[
+  y_{m,k}=\min\{D_{m,k},\ R_{m,k},\ c_m(g)\Delta t\},
+\]
+where $D_{m,k}$ is available movement demand and $R_{m,k}$ is downstream receiving allowance, both in $\veh$ for the step. The direct path is $g\to c_m\to y_{m,k}\to X_{k+1}\to f$. Because each lane is movement-exclusive and full length, there is no cross-movement ordered-access derivative. V0 requires the macro, lane, and selective realizations to recover the same active-branch sensitivity.
+
+\subsection*{V1: shared-lane order, no bay}
+The shared lane adds an eligible ordered-prefix bound $E_{m,k}(X_k;\xi_{\mathrm{ord}})$:
+\[
+  y_{m,k}=\min\{E_{m,k},\ R_{m,k},\ c_m(g)\Delta t\}.
+\]
+The ordering skeleton and movement labels $\xi_{\mathrm{ord}}$ are fixed. Gradients propagate through continuous prefix masses and partial removal: $g$ changes discharge, which changes the residual head and eligible prefix at later steps, which changes future discharge and $f$. No gradient is taken with respect to swapping vehicles or changing labels. Aggregate-matched V1 pairs therefore have the same $x$ but different fixed structural scenarios and separate values of $df/dx$.
+
+\subsection*{V2: finite turning-bay storage, order homogenized}
+Let $O_k^{\mathrm{bay}}$ be bay occupancy, $K^{\mathrm{bay}}$ fixed storage, $r_k^{\mathrm{bay}}$ available bay receiving mass, $b_k$ bay admission, and $y_k^{\mathrm{bay}}$ bay discharge. Schematically,
+\[
+ r_k^{\mathrm{bay}}=\mathcal{R}(K^{\mathrm{bay}}-O_k^{\mathrm{bay}}),\quad
+ b_k=\min\{D_k^{\mathrm{LT}},r_k^{\mathrm{bay}}\},\quad
+ O_{k+1}^{\mathrm{bay}}=O_k^{\mathrm{bay}}+b_k-y_k^{\mathrm{bay}}.
+\]
+The added temporal path is $g\to y_k^{\mathrm{bay}}\to O_{k+1}^{\mathrm{bay}}\to r_{k+1}^{\mathrm{bay}}\to b_{k+1}$, with a further path from rejected admission to feeder occupancy, upstream receiving restriction, source/network time, and $f$. Ordering is homogenized or deliberately nonbinding, so this derivative measures finite storage and spillback rather than exact access order.
+
+\subsection*{V3: finite bay with ordered accessibility}
+V3 replaces unconstrained aggregate bay demand by an ordered-access operator
+\[
+  b_k=\mathcal{A}(L_k^{\mathrm{ord}},I_k^{\mathrm{lane}},r_k^{\mathrm{bay}}),
+\]
+where $L_k^{\mathrm{ord}}$ contains continuous ordered route masses and $I_k^{\mathrm{lane}}$ is continuous realized lane occupancy/access state under fixed permissions and order skeleton. The full added feedback path is
+\[
+ g\to y_k\to(O_{k+1}^{\mathrm{bay}},I_{k+1}^{\mathrm{lane}},L_{k+1}^{\mathrm{ord}})
+ \to \mathcal{A}_{k+1}\to b_{k+1}\to y_{k+1}\to f.
+\]
+Within a fixed scan/prefix/active-set signature, gradients propagate through continuous admitted, residual, split, and discharged masses. They do not propagate through route identity, movement labels, lane permissions, or a discrete permutation. V3 is the decisive test because the lane/storage aggregate baseline can share $O^{\mathrm{bay}}$ and $r^{\mathrm{bay}}$ but lacks the exact $L^{\mathrm{ord}}$-conditioned accessibility path.
+
+\subsection*{V4: held-out combined family}
+V4 introduces no new local traffic equation. For a fixed bank $\mathcal{B}$ of V1--V3 scenarios,
+\[
+  f(g;\mathcal{B})=\frac{1}{|\mathcal{B}|}\sum_{\xi\in\mathcal{B}}f(g;\xi),
+  \qquad
+  \nabla_g f(g;\mathcal{B})=\frac{1}{|\mathcal{B}|}\sum_{\xi\in\mathcal{B}}\nabla_g f(g;\xi).
+\]
+Each scenario retains its own fixed structural order and active-set qualification. Development-bank gradients may drive optimization; held-out scenarios and richer-evaluator seeds are evaluation only and do not feed gradients back into the optimizer.
+
+\section{Aggregate-matched order pairs}
+An order pair $(\xi^a,\xi^b)$ must match topology, geometry, demand time series, total approach mass, movement totals, nominal lane intent, initial aggregate occupancy, service decision, and downstream supply. Let $\Pi_{\mathrm{agg}}$ remove order/access detail. Then
+\[
+  \Pi_{\mathrm{agg}}(\xi^a)=\Pi_{\mathrm{agg}}(\xi^b),
+  \qquad \xi^a_{\mathrm{ord}}\ne\xi^b_{\mathrm{ord}}.
+\]
+The central selective-information test asks whether the richer reference exhibits a material contrast
+\[
+  J_R(g;\xi^a)-J_R(g;\xi^b)
+  \quad\text{or}\quad
+  \mathrm{D}J_R(g;\xi^a)[d]-\mathrm{D}J_R(g;\xi^b)[d],
+\]
+and whether the selective-order model captures it more faithfully than aggregate alternatives. A pair with no richer-reference contrast is evidence that order is immaterial in that regime, not a failed dataset to discard.
+
+\section{Scenario-bank and optimization contract}
+For a fixed scenario bank $\mathcal{B}$, the sample-average task is
+\[
+  \bar J(g;\mathcal{B})=\frac{1}{|\mathcal{B}|}
+  \sum_{\xi\in\mathcal{B}}J(g;\xi).
+\]
+Related members of an aggregate-matched pair remain in the same tuning or held-out split. Scenario identities, route/order realizations, and evaluator seeds are fixed before model comparison. Full optimization begins only after forward and derivative checks. Representation comparisons hold the action fixed; optimizer comparisons hold the model, feasible set, initialization policy, information, and evaluation budget fixed.
+
+\section{Result interpretation}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\linewidth}p{0.71\linewidth}}
+\toprule
+Result class & Required interpretation \\
+\midrule
+Macro equivalence & V0 representations agree within an approved numerical tolerance; failure blocks later attribution. \\
+Storage sufficiency & The lane/storage aggregate model matches selective and richer results in V2; exact order is unnecessary for that regime. \\
+Selective value & V3 richer-reference contrasts are captured more faithfully by the selective model, and its directions or actions transfer more usefully. \\
+Partial value & Improvement occurs only in declared demand, storage, or ordering strata; claims remain conditional. \\
+Negative transfer & Internal derivatives are correct but do not improve richer outcomes; differentiability is valid but downstream usefulness is unsupported. \\
+Model failure & Conservation, service, feasibility, or derivative-reference checks fail; optimization evidence is inadmissible until corrected. \\
+\bottomrule
+\end{tabular}
+
+\section{Decision status and boundary}
+The effective-service family and fixed structural differentiation boundary were accepted at T5. The equations above, clearance-complete objective, scenario matching, and evidence logic are proposed for T6 approval. Exact numeric geometry, demand, horizon, perturbation, tolerance, seed-count, and budget values remain defaults to calibrate and freeze in later implementation/experiment plans. Executable timing, offsets, cycle optimization, actuated control, endogenous route choice, and microscopic lane-changing dynamics remain deferred.
+
+\end{document}

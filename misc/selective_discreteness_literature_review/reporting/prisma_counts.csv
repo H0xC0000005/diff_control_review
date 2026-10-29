@@ -1,0 +1,7 @@
+stage,count,note
+candidate_records_after_targeted_discovery,32,"deduplicated R2 corpus"
+title_abstract_excluded,1,"learned AV behavior simulator outside the operational scope"
+full_text_assessed_R5,31,"30 R4 includes plus one uncertain"
+full_text_excluded,0,"targeted conservative corpus"
+citation_snowball_additions,6,"two generations"
+final_synthesis_studies,37,"36 primary and one secondary review"

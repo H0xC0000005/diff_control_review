@@ -1,0 +1,306 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large Selected W-F: joined forward qualification}\\[4pt]
+16 October 2026 --- the original constant-advice domain; no traffic experiment
+\end{center}
+
+\textbf{Status.} The user selects W-F and closes J4-W1: merging work has
+no direct advice dependence at fixed represented physical state. The
+conditional whole-model forward argument below is delivered at
+\textbf{WF-Q1}, an evidence checkpoint. Physical MP6 and the dependent
+action, gradient and reference contracts remain open. Earlier proofs keep
+their stated scope; this is a new deduction for the selected joint member.
+
+\section*{1. Primary-domain assumptions and selected expression}
+Retain the accepted H1 preparation and initially empty finite T1 terminal:
+fixed $L=L_p+b$, initial footprint $[0,\ell]$, $0<\ell\leq L_p$,
+initial densities $e_0,a_0=b_0\geq0$, $r=e_0+a_0$, and
+$M=\ell(e_0+2a_0)>0$. There are no postdecision external arrivals.
+One constant common action lies in the original interval $[v_-,v_+]$.
+In addition to H1's admitted initial and handoff conditions, retain
+\begin{equation}
+ v_+r<R\leq C(v_-),\quad v_+b_0\leq R_B\leq C(v_-),
+ \quad M<k_jb,\quad w,k_j,h>0.\tag{1}
+\end{equation}
+With $K=wk_j$, define
+\begin{equation}
+ C(v)=\frac{Kv}{w+v},\quad U(f)=\frac{wf}{K-f},\quad
+ P_j(t)=F_j(t-b/v),\quad q_j=P_j-Y_j,\quad N_j=F_j-Y_j.\tag{2}
+\end{equation}
+The far lane retains $Y_B=P_B$. For A/E, $g_j=\dot Y_j$ and
+$\lambda_j=\dot P_j$. Write $B(t)$ for shared service, distinct from
+the far-lane index. Free marks are $u_j=v$; queued marks are $U(g_j)$.
+
+Set fixed $v_\star=v_+$ and $C_\star=C(v_\star)$ once, and use
+\begin{equation}
+ c_A=1,\quad c_E=c_0+\chi g_A\pos{u_A-u_E},\quad
+ c_0=1+\delta\geq1,\quad \chi=\frac{\beta}{C_\star v_\star},\quad
+ \eta=c_0-\beta(1+v_+/w)>0.\tag{3}
+\end{equation}
+$\beta\geq0$ and all physical coefficients are fixed. $\chi$ has units
+s$^2$/(veh-eq m); $c_j$ is dimensionless work per unit mass. The anchor
+is a fixed coefficient convention, not a variable to recompute with advice
+or an optimizer's search interval. At fixed $g_j,u_j$, (3) has zero direct
+advice derivative. The prior conservative root bound and
+$c_0\leq c_E\leq c_{\max}:=c_0+\beta$ remain sufficient.
+
+\newpage
+\section*{2. The retained causal node and recovery account}
+For a queued E, let $\mathcal H(g;a,u)$ denote
+\begin{equation}
+ \mathcal H(g;a,u)=g\{c_0+\chi a\pos{u-U(g)}\},\qquad
+ \partial_g\mathcal H\geq\eta>0.\tag{4}
+\end{equation}
+Its unique root for available work $x$ lies between
+$x/c_{\max}$ and $x/c_0$, and below $C(v)$. The selected S-E-P
+branches, on their feasible domains, are:
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{28mm}>{\raggedright\arraybackslash}p{115mm}}
+\toprule
+Current conditions & Actual service\\
+\midrule
+A and E free & $g_A=\lambda_A$, $g_E=\lambda_E$ when
+  $\lambda_A+c_0\lambda_E\leq B$.\\[3pt]
+A free, E queued & $a=\lambda_A\leq B$, $g_A=a$ and
+  $\mathcal H(g_E;a,v)=B-a$.\\[3pt]
+A and E queued & $g_A=B/2$ and
+  $\mathcal H(g_E;B/2,U(B/2))=B/2$.\\[3pt]
+A queued, E free & $g_E=\lambda_E$, $g_A=B-c_0\lambda_E$ when
+  $c_0\lambda_E\leq B/2$; otherwise E's offer also has a shortfall.\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are the existing equal-work/unused-service template and free-A
+priority, not a new allocation. A positive queue follows
+$\dot q_j=\lambda_j-g_j$; at zero, only available mass can pass.
+An empty stream stays free while that continuation is feasible. A strict
+loss of free feasibility initiates its queued branch. At a zero hit, test
+free admission again. Equality alone is not a queue-birth cause. This is
+the previously selected causal guard, stated as first loss of feasibility
+for the proof; no queue floor, latch or numerical selection is introduced.
+
+R-E and O-R remain unchanged. With positive acceleration $a_r$ and fixed
+$m=m_{\rm ref}=1$ vehicle-equivalent, use
+\begin{align}
+ c(u)&=\frac{Ku}{w+u},\quad u_R=U(R),\quad
+ D(\theta;u)=\pos{R-c(\sqrt{(w+u)^2+2wa_r\theta}-w)},\nonumber\\
+ p(t)&=\frac1m\int_{[Y_E(t)-m]_+}^{Y_E(t)}
+       D(t-T(\xi);u_E(T(\xi)))d\xi,\quad B(t)=\pos{R-p(t)}.\tag{5}
+\end{align}
+$T$ is the admitted E mass-rank inverse; zero-rate plateaus have zero
+admission measure. New mass adds profiles and retires oldest weight after
+the window fills; all retained profiles age physically. Only E deposits
+new loss. All marked history is predicted local state. Releasing a queue
+does not reset that history, and retiring history does not remove traffic.
+
+\newpage
+\section*{3. The H1 pulse limits E to one waiting episode}
+Eligible arrivals start at $t_f=(L-\ell)/v$ and end at $t_r=L/v$.
+Inside this interval H1 implies
+\begin{equation}
+ \lambda_A+\lambda_E=s_v:=vr<R,\quad
+ \lambda'_A=-\lambda'_E\in[0,L_A],\quad
+ L_A:=v_+^2e_0/h.\tag{6}
+\end{equation}
+Indeed $\lambda_E=v e_{H1}(t-b/v)$ and
+$\dot e_{H1}=-f/h$, $0\leq f\leq v e_{H1}\leq ve_0$.
+There are only the front and rear jumps; H1 branch switches preserve
+continuous rates. No new initial/demand restriction is used in (6).
+
+Initially $B=R$ and A's offer is below $R$. If
+\begin{equation}
+ W_f(v):=\lambda_A(t_f+)+c_0\lambda_E(t_f+)\leq R,\tag{7}
+\end{equation}
+all free traffic passes. Since $v\geq u_R$, free E has $D=0$.
+Then $B=R$ and $\lambda_A+c_0\lambda_E=s_v+\delta\lambda_E$
+is nonincreasing; the free solution persists through the cohort. If (7)
+fails strictly, A still fits, and E's queued root satisfies
+$g_E\leq(R-\lambda_A)/c_0<\lambda_E$. E therefore begins waiting
+at the front with a compatible positive right-hand derivative.
+
+Suppose that positive E queue later first reaches zero, during the pulse.
+If A is free, its pre-clearance root $g_E^Q$ gives
+\begin{equation}
+ \lambda_E\leq g_E^Q\quad\Longrightarrow\quad
+ \lambda_A+c_0\lambda_E\leq B.\tag{8}
+\end{equation}
+If A remains queued, $\mathcal H(g_E^Q;B/2,U(B/2))=B/2$ gives
+\begin{equation}
+ c_0\lambda_E\leq c_0g_E^Q\leq B/2.\tag{9}
+\end{equation}
+Thus free E is feasible in either case. New free E profiles are zero.
+In (5), aging and retirement can only reduce existing loss; hence $B$
+is nondecreasing as long as E stays free. Since $\lambda_E$ decreases,
+(9) remains valid while A queues. If A clears, its queued service before
+clearance was $B-c_0\lambda_E$, so free joint admission satisfies (8).
+Thereafter the joint offered work decreases while $B$ increases. This
+continuation is self-consistent and cannot activate E again.
+
+Simultaneous A/E clearance also gives joint free feasibility: before the
+hit $\lambda_A\leq B/2$ and $c_0\lambda_E\leq B/2$. After the rear
+there are no arrivals, so neither queue can re-form. Consequently E has
+at most one waiting episode: it is absent, or begins at the front and
+eventually clears. This is specific to the retained monotone H1 pulse,
+neutral initial account and R-E; arbitrary traffic is not covered.
+
+\newpage
+\section*{4. Positive budget and finite A switching}
+From (3), admitted E rate is at most $G=R/c_0$. The unchanged profile
+is nonincreasing in age and mark, bounded by $R$, and strictly less than
+$R$ at positive age when $a_r>0$. The earlier rearrangement argument gives
+\begin{equation}
+ p\leq p_{\max}:=\frac Gm\int_0^{m/G}D(\theta;0)d\theta<R,
+ \qquad B\geq B_{\min}:=R-p_{\max}>0.\tag{10}
+\end{equation}
+This is derived, not an added floor. $B_{\min}$ is common to all actions
+for fixed physical parameters. Its value can be very small.
+
+The injection, aging and retirement update in the earlier O-R note yields
+an a.e. Lipschitz bound
+\begin{equation}
+ |\dot B|\leq L_B:=2GR/m+a_rk_j.\tag{11}
+\end{equation}
+The retained mass is at most $m$, $|D_\theta|\leq a_rk_j$, and each
+boundary term is at most $GR/m$. No inverse-rate lower bound is needed.
+This bound permits speed-mark jumps at queue events.
+
+Before E clears, any A birth inside the pulse occurs when the free offer
+first loses feasibility, at $\lambda_A=B$. Switching to queued cooperation
+gives $\dot q_A=B/2\geq B_{\min}/2>0$. If A subsequently clears
+while E still queues, continuity of the pre-clearance derivative gives
+$\lambda_A\leq B/2$. For $y=B-2\lambda_A$, its value at birth is
+$-B\leq-B_{\min}$ and its value at clearance is nonnegative. By
+(6),(11), a birth-to-clearance interval is at least
+\begin{equation}
+ \frac{B_{\min}}{L_B+2L_A}.\tag{12}
+\end{equation}
+At A clearance, the free margin $x=B-\lambda_A$ is at least
+$B_{\min}/2$. The next A birth needs $x=0$; thus a clearance-to-birth
+interval is at least $B_{\min}/[2(L_B+L_A)]$. A common smaller bound is
+\begin{equation}
+ \tau_0=\frac{B_{\min}}{2(L_B+2L_A)}>0.\tag{13}
+\end{equation}
+The bound applies to consecutive A events while E queues and the arrival
+pulse continues. E clearance and the one external pulse end add finitely
+many exceptions. Once E is free, the previous section excludes further E
+births, and a cleared A cannot re-form because joint free work fits and
+decreases. After the rear, positive queues only drain.
+
+Therefore A events cannot accumulate in finite time. Tangential zero hits
+use the already selected free-admission test; the post-clearance margin
+still holds. The positive separation is a proof consequence, not an
+implemented dwell timer or additional historical allocation preference.
+
+\newpage
+\section*{5. Global continuation, storage and complete clearance}
+\textbf{Causal construction.} On each valid branch, (4) and the bounded
+derivative of $U$ on $[0,R]$ make flows and speed marks locally Lipschitz
+in $B$ and continuous arrival data. The earlier moving-cutoff O-R estimate
+for histories with the same past is
+\begin{equation}
+ |\Delta p(t)|\leq\frac1m\left(
+ 5R\int|\Delta g_E|ds+k_jG\int|\Delta u_E|ds\right).\tag{14}
+\end{equation}
+This gives short-interval Volterra contraction on a valid branch, including
+cutoff movement and old mark jumps. Continue to its next guard. At the
+front E shortfall, queue birth has the strict compatible sign shown above.
+At A birth, the new right-hand derivative is positive. A zero hit admits
+free A; E zero hits admit free E by (8)--(9). Simultaneous clearance admits
+both. Equality contacts do not themselves cause birth; keep the maximal
+feasible free continuation, as the selected guard requires. Point values
+of flux at a switch do not alter continuous cumulative mass.
+
+Boundedness prevents finite-time blow-up within branches. Before the rear,
+E switches at most twice and repeated A events are separated by (13), so
+branch continuation cannot require infinitely many switches on that finite
+pulse. After the rear, no new queues can be born; there are at most two
+clearances. This proves a unique causal, piecewise-branch continuation for
+every original advice under (1)--(3) and the selected causal convention.
+No transversality assumption or advice subinterval is needed for forward
+existence; smooth dependence on advice is a separate issue.
+
+If $Q=q_A+q_E>0$ after $t_r$, the node uses the available work and
+$g_A+g_E\geq B/c_{\max}\geq B_{\min}/c_{\max}$. Therefore
+\begin{equation}
+ T_{\rm clear}(v)\leq\frac Lv+
+        \frac{c_{\max}Q(L/v)}{B_{\min}}
+ \leq T_{\max}:=\frac L{v_-}+\frac{c_{\max}M}{B_{\min}}<\infty.\tag{15}
+\end{equation}
+Thus the entire cohort clears. Afterwards profiles simply age out within
+the unchanged finite support. The bound does not assert practical runtime.
+
+H1 entrance flows fit $C(v)$ and $M<k_jb$. The retained T1 vacancy proof
+therefore protects the handoff for these admissible departures. Physical
+stock remains $N_j=F_j-Y_j$, with $0\leq Y_j\leq P_j\leq F_j$.
+If $s_{\rm occ}$ is upstream occupied length and $\rho_0=e_0+2a_0$,
+\begin{equation}
+ s_{\rm occ}\rho_0+\sum_jN_j+\sum_jY_j=M,\qquad
+ J(v)=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E)dt.\tag{16}
+\end{equation}
+No work weight changes traffic mass, and post-exit recovery is not local
+vehicle-time. The result is not a general invariant LTM network theorem.
+
+\newpage
+\section*{6. Information, negative controls and sensitivity limits}
+Known $M,\ell,E_0$ and continuing symmetry reconstruct
+\begin{equation}
+ e_0=E_0/\ell,\qquad a_0=b_0=(M-E_0)/(2\ell).\tag{17}
+\end{equation}
+Together with known empty terminal/account and fixed parameters, uniqueness
+now gives identical full forward prediction for A+E and explicit lane G
+for every original advice. Their predicted history is not an observation.
+This does not imply that the current meter alone is sufficient dynamic
+state. The earlier pre-decision collision stays upstream of an empty
+terminal and is unchanged; no old action/gradient certificate is transferred.
+
+\textbf{A sharper negative control.} If $\delta=0$, (7) always holds
+since $\lambda_A+\lambda_E=s_v<R$. Hence no terminal queues or recovery
+are activated, regardless of $\beta$: free A and E have equal marks.
+The entire primary objective is $M(L-\ell/2)/v$, so fastest advice is
+common to all preparations. No E is another such control. Immediate
+maneuver work is therefore the trigger in this particular underloaded
+model, not a universally necessary congestion mechanism.
+
+\textbf{Front threshold.} With fixed $z_f=L_p-\ell$, H1 comparison gives
+$e_f(v)=e_{H1}(z_f;v)$ nondecreasing in $v$: $k_c(v)$ decreases, so
+the receiving-limited reduction becomes no stronger. Thus
+\begin{equation}
+ W_f(v)=v\{r+\delta e_f(v)\}
+ \text{ is strictly increasing for }r>0.\tag{18}
+\end{equation}
+There is at most one transition between a free and initially queued cohort
+as advice increases. It may lie outside the action interval. Equality
+belongs to free passage under the selected guard.
+
+Forward uniqueness does not imply differentiability at that threshold.
+If it is interior, with $a=\lambda_A>0$, $e=\lambda_E>0$ and
+$a+c_0e=R$, then for $\chi>0$,
+\begin{equation}
+ \mathcal H(e;a,v)-(R-a)=\chi a e\{v-U(e)\}>0.\tag{19}
+\end{equation}
+The queued-root limit is strictly less than the free flow $e$. Speed marks
+and later recovery can therefore change abruptly across activation.
+Equation (19) is a local flux statement, not a proof of a jump in complete
+$J$. An ordinary smooth derivative across it must not be presumed. Stable
+event sensitivities, grazing/boundary cases, cutoff motion and full-objective
+tests remain in the next evidence work; no AD/FD run is performed here.
+
+\textbf{Scope/checkpoint.} The planned forward block is complete at WF-Q1.
+The older regular A-delay/active-renewal witness is exactly preserved at the
+fixed reference advice. Physical speed identification, work/recovery
+partition, joint scales/applied MP6 and independent usefulness remain open.
+Carey's work interpretation, Leclercq's isolated recovery context and Jin's
+separate discontinuous-boundary model motivate ingredients, not this proof.
+Step 3 is open; Step 4 and implementation/experiments remain unopened.
+\end{document}

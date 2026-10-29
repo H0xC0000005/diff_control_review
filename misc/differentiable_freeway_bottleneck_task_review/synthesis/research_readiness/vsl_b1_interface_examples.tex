@@ -1,0 +1,162 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\begin{center}
+{\Large VSL-B1: information and departure-time examples}\\[4pt]
+13 October 2026 --- original conditional deductions, not an adopted model
+\end{center}
+
+\section*{1. Combined continuing mass need not determine adjacent receiving}
+Consider equal-length local sections in three lanes: ending $E$, adjacent
+continuing $A$, and farther continuing $F$. Length is $\ell$ [m]; densities
+$k_E,k_A,k_F$ are in vehicle-equivalents/m. For this diagnostic only, use the
+standard receiving relation
+\[
+R(k)=\min\{C,\;w(k_j-k)\},
+\]
+where $C$ is a rate [vehicle-equivalents/s], $w>0$ is a backward-wave speed
+[m/s], and $k_j$ is jam density. This is a source-compatible receiving
+ingredient, not a selected VSL or lane-transfer update.
+
+Choose $0\leq k_L<k_H\leq k_j$ with $R(k_H)<R(k_L)$. The two snapshots
+\[
+ (k_E,k_A,k_F)=(k_E,k_H,k_L),\qquad
+ (k_E,k_A,k_F)=(k_E,k_L,k_H)
+\]
+have the same ending mass $\ell k_E$ and combined continuing mass
+$\ell(k_H+k_L)$, but different receiving opportunity in the adjacent lane.
+With identical positive merge requests and an allocation in which that
+receiving difference binds, completed transfer can differ.
+
+\textbf{Conclusion.} No function of ending and combined continuing mass alone
+can recover adjacent receiving for every snapshot in this set. This does not
+establish a reachable equal-full-history pair, a different optimal VSL, or
+necessity of a full lane profile. A restricted domain or compact receiving
+statistic may remove the ambiguity.
+
+\textbf{Initial symmetry is a separate issue.} Let $a,f$ be adjacent and farther
+continuing masses and let $h>0$ be a transfer rate from $E$ to $A$. If the two
+continuing lanes have equal net longitudinal contributions $b$ at a comparison
+instant and no compensating redistribution, then
+\[
+ \dot a=b+h,\qquad \dot f=b,\qquad
+ \frac{d}{dt}(a-f)=h>0.
+\]
+Thus $a=f$ initially does not imply continued equality. A dynamically valid
+grouped model needs an explicit equivalence condition. These equations are
+local conservation diagnostics, not proposed traffic evolution laws.
+
+\vfill
+Primary receiving lineage: Carey--Balijepalli--Watling, Sections 3--5.\\
+\href{https://eprints.whiterose.ac.uk/id/eprint/77315/7/Carey\%20et\%20al\%202013_with_coversheet.pdf}{institutional manuscript};
+FB0030, equations 13--15, archived in the review package.
+
+\newpage
+\section*{2. Equal final work can give different mean completion times}
+This example examines the exit interface only. All class demand is exposed at
+time zero. Initial continuing mass is $c_0=1$ and merge mass is $e_0=1$
+[vehicle-equivalents]. Ordinary service costs one resource unit per unit mass;
+merge service costs $\alpha=2$. Constant receiving work rate is
+$\mu=1$ [resource units/s]. Mass is continuous; no integer vehicle process is
+being introduced.
+
+Every work-conserving allocation uses total work
+\[
+ W=c_0+\alpha e_0=3,
+ \qquad T=W/\mu=3\ \text{s}.
+\]
+Let $N(t)$ be total mass not yet exited. Complete population time is
+$F=\int_0^T N(t)\,dt$ [vehicle-equivalent seconds]; mean time is
+$\bar T=F/(c_0+e_0)$.
+
+\textbf{Continuing first.} Ordinary traffic clears during the first second;
+merge traffic then clears over two seconds:
+\[
+ N_{C}(t)=
+ \begin{cases}2-t,&0\leq t\leq1,\\(3-t)/2,&1\leq t\leq3.\end{cases}
+ \qquad F_C=\frac52,\quad \bar T_C=\frac54\ \text{s}.
+\]
+\textbf{Merge first.} Merge traffic clears during the first two seconds;
+ordinary traffic then clears over one second:
+\[
+ N_{E}(t)=
+ \begin{cases}2-t/2,&0\leq t\leq2,\\3-t,&2\leq t\leq3.\end{cases}
+ \qquad F_E=\frac72,\quad \bar T_E=\frac74\ \text{s}.
+\]
+\textbf{Proportional co-clearance.} S13's conditional proportional resource
+projection preserves the class ratio, giving
+\[
+ N_P(t)=2\left(1-\frac{t}{3}\right),\quad
+ F_P=3,\quad \bar T_P=\frac32\ \text{s}=T/2.
+\]
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Allocation & Final work & Final clearance [s] & Mean time [s]\\
+\midrule
+Continuing first & 3 & 3 & 1.25\\
+Merge first & 3 & 3 & 1.75\\
+Proportional & 3 & 3 & 1.50\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Conclusion.} Final work or clearance time alone does not determine the
+complete-time objective under general priorities. This is a hand-derived
+counterexample, not a result attributed to a source experiment. Source priority
+alternatives motivate checking allocation; they do not select these schedules
+as the proposed freeway model.
+
+\newpage
+\section*{3. What these examples do and do not qualify}
+The examples establish two interface risks: loss of consequential receiver
+information and loss of consequential departure timing. Neither selects a
+replacement lane-transfer model, validates its common-speed response, or proves
+an information-to-optimal-action split.
+
+For the fixed finite cohort with mass $M$, count the mass $N_{\mathrm{sys}}(t)$
+still at sources or in the modeled system. With a common decision/accounting
+origin, complete exit at $T(v)$ gives
+\[
+ F(v)=\int_0^{T(v)}N_{\mathrm{sys}}(t;v)\,dt,
+ \qquad \bar T(v)=F(v)/M.
+\]
+If admitted trips have later release times, subtract their fixed release-time
+prefix in interpreting trip elapsed times. It is action-independent; it may
+not be confused with omitted action-dependent source waiting. No new demand
+release regime is selected here. The objective meaning remains the accepted
+complete population-time meaning even if its reduced formula changes.
+
+\textbf{Ideal travel is conditional.} $L/v$ is a traversal time only when the
+declared common advice $v$ actually determines the relevant progress over
+length $L$. Binding receiving can invalidate this ideal mapping. The review
+does not supply an alternative speed/fundamental-diagram law.
+
+\textbf{MP6 is a joint qualification.} One admitted regime must support the
+same geometry, finite cohort, advice response, receiving and grouping,
+early/late cost accounting, lane-end boundary and departures throughout its
+declared action range. Source-compatible ingredients and correct algebra alone
+do not establish that regime, calibration, or useful external gradients.
+
+\textbf{Minimal-state and comparison limits.} S13's autonomous initial-ending-
+mass scalar remains exactly sufficient under S13. The receiver diagnostic
+does not invalidate that result; it concerns a different state domain. A new
+candidate must compare against a compact predictor given the same admissible
+initial information. Native reachable history matching and independent
+perturbation usefulness are still unproved.
+
+\textbf{Current gate.} VSL-B1-G1 asks whether qualification must preserve the
+restricted sequential scalar/batch reduction (B1-R), or may propose the
+smallest local receiving and within-cohort timing amendment (B1-L). No source
+law or new state is adopted by this note. No simulation or parameter sweep
+was run.
+
+\vfill
+Companion files in the review package:\\
+\texttt{vsl\_b1\_lane\_change\_model\_and\_gate.md}\\
+\texttt{vsl\_b1\_source\_and\_interface\_audit.md}.
+\end{document}

@@ -1,0 +1,415 @@
+# AGENTS.md
+
+## Purpose
+
+This repository develops and evaluates a differentiable mesoscopic traffic simulator for fixed-time signal-control optimization.
+
+The main scientific question is deliberately narrower than "build a differentiable traffic simulator":
+
+> How much traffic discreteness must be retained to preserve useful mesoscopic gradients for downstream traffic-control decisions?
+
+The working hypothesis is that signal-relevant mesoscopic effects can be represented with **continuous traffic mass plus selectively retained discrete semantic order/route metadata**, without integerizing vehicle mass or implementing full microscopic agent dynamics.
+
+Before planning or editing code, read:
+
+1. `PROJECT_CONTEXT.md`
+2. `PLANS.md`
+3. the applicable approved milestone plan under `docs/milestones/`, if one exists
+4. the existing source, tests, configs, and environment files
+
+Authority hierarchy:
+
+- `AGENTS.md` defines repository-wide agent behavior and approval workflow.
+- `PROJECT_CONTEXT.md` defines current scientific intent, stable model semantics, methodological decisions, and invariants.
+- `PLANS.md` defines the project roadmap, milestone status, and high-level gates.
+- an approved `docs/milestones/milestone_<N>_<short_name>.md` is authoritative for that implementation pass.
+- code and tests define current implemented behavior, but they do not override an explicit scientific invariant.
+
+If implementation evidence conflicts with `PROJECT_CONTEXT.md`, do not silently change the methodology. Record the conflict in the current phase archive, propose the smallest amendment, and wait for explicit user approval before changing scientific behavior.
+
+## Decision-status vocabulary
+
+Interpret project statements using these labels:
+
+- **Fixed**: must be implemented as written unless the user explicitly approves a methodological change.
+- **Default**: use unless evidence, numerical constraints, or an API limitation justify reconsideration.
+- **Hypothesis**: an empirical claim to test, not an assumed truth.
+- **Open**: requires a documented decision before implementation if it affects scientific meaning.
+- **Deferred**: outside the current mainline.
+
+Do not silently convert a default or hypothesis into a fixed requirement.
+
+## Scientific invariants
+
+The following are fixed for the initial mainline unless explicitly amended by the user:
+
+1. Long-link traffic propagation uses an aggregate first-order LWR/LTM/Newell-style backbone rather than microscopic car-following.
+2. Traffic quantity is represented as continuous vehicle-equivalent mass. Do not round or floor traffic flow to integer vehicles in the mainline simulator.
+3. Routes, current movement labels, lane permissions, network topology, and fixed phase order are structural metadata in V1; they are not variables to differentiate through.
+4. Persistent route identity is stored by route-table reference plus route position and continuous mass; do not duplicate a full future movement sequence in every local state.
+5. Current node movement is projected from route metadata by a fixed route-to-movement mapping.
+6. The local mesoscopic refinement is per lane near the downstream node. Do not silently replace it with a per-link mixed representation.
+7. The local ordered coordinate is cumulative traffic mass/FIFO rank, not physical distance. Physical queue length and spillback remain governed by traffic density/storage and LTM/Newell propagation.
+8. Exact local FIFO semantics are represented by ordered metadata. Do not infer exact head-of-line order only from a mixed movement-composition bin.
+9. Lane-choice intent and realized lane occupancy/accessibility are distinct. Finite lane or turn-pocket storage may prevent desired allocations from being realized.
+10. No traffic mass may be created, destroyed, or silently dropped by packet/grid/ledger operations.
+11. Exact lossless adjacent merging of structurally identical ledger entries is allowed. Lossy behavioral compression, route mixing, or order relaxation requires an approved milestone decision.
+12. Initial signal control uses fixed phase topology/order and continuous fixed-time service parameters. Green split is the first optimization variable. Cycle length is not a meaningful first target unless startup/clearance lost-time or another within-cycle effect is explicitly modeled.
+13. Forward fidelity, gradient fidelity, and downstream gradient usefulness are distinct claims and require distinct validation evidence.
+14. Do not claim a gradient is useful solely because the simulator is differentiable, finite gradients exist, or an internal optimization objective decreases.
+15. Do not silently broaden the initial project into dynamic route choice, stochastic route choice, explicit microscopic lane changing, actuated signal sequence control, reinforcement learning, or a full network-wide lane-expansion model.
+
+## Implementation workflow and independent research reviews
+
+User clarification, 2026-10-26: the milestone/phase structure below governs project implementation. Independent literature reviews, methodology reviews, task-definition discussions and report refinement, including the current urban review, do not inherit its A–F phases, phase-named files, component checkpoints or plan-freezing gates.
+
+Organize a review around its scientific questions, traffic mechanisms, evidence, alternatives and recorded conclusions. Use descriptive topic documents, a decision record and a discussion log. Dependencies describe what must be understood to support a conclusion; they do not impose the implementation workflow on the discussion. Retain any review order the user actually selected, without adding implementation-derived gates or a substitute numbered phase pipeline. In a review work report, state the current topic, agreed conclusions and remaining questions instead of a milestone/phase status.
+
+Accepted scientific decisions, faithful source interpretation, feedback preservation and the reporting preferences below still apply. Keep recommendations distinct from user decisions. Review work does not by itself authorize simulator changes or experiments. Historical phase-named review records may be preserved for traceability, with current descriptive documents clearly identified.
+
+## Mandatory implementation milestone workflow
+
+Every scientifically distinct implementation milestone follows a gated human-in-the-loop workflow. Planning and implementation are separate Codex tasks unless the user explicitly waives the gate for a narrowly mechanical change.
+
+### Temporary planning and feedback files
+
+Use `temp_content/` for editable planning/discussion material.
+
+The global user feedback file is:
+
+`temp_content/feedback/feedback.md`
+
+Treat that file as a user-facing feedback inbox. Feedback is organized by Markdown milestone and phase tabs/headings. For the active task, read the corresponding milestone/phase tab and use its latest entry as the default feedback unless the user's current interactive instruction overrides it. Read any supplementary files linked from that entry. Do not overwrite or delete user feedback merely to mark it handled. Archive the interpreted feedback and response in the active milestone's phase dialogue file, or the topic-based discussion log for an independent review.
+
+Reporting instruction, updated by the user on 2026-10-21 in feedback 2 of `temp_content/feedback/urban_refinement_feedback.md`, applies to the current report and all later reports, question statements and candidates. It supersedes the former mandatory question template.
+
+Prioritize ease of human reading and logical understanding. Explain the concrete traffic problem, why it matters and what the user needs to decide in short, connected prose. Use examples when they make the reasoning easier to see. Do not require separate “Problem statement,” “Assumed model-chain function,” “Core gap,” or similar sections, or substitute renamed procedural headings for that structure. Precise definitions are useful when they help the reader; they are not a required checklist for a question statement.
+
+Keep candidates explicit, but explain each at the conceptual level: its core idea, how it would work in the traffic example, why it could address the problem, and its meaningful advantages and limitations. Compare distinct assumptions or predictions directly and make the provisional recommendation and its reason clear. Separate Pros/Cons/Dependencies labels are not required. Distinguish a modeling direction from a concrete model without making procedural detail carry the explanation. Place detailed interfaces, formal definitions, ownership and dependencies in supporting records when needed.
+
+User preference, 2026-10-22: collect follow-up questions in the written material together with the response. Do not use interactive console question prompts for review discussions unless the user explicitly requests that format. Keep unanswered choices open rather than treating dismissal of a prompt as a scientific decision.
+
+Candidate inventories are living discussion records: Phase A/B records for implementation milestones, or topic-based records for independent reviews. By default, when later discussion, evidence, or clarification exposes a materially distinct viable candidate, corrects the interpretation of an existing candidate, changes its dependencies or consequences, or invalidates part of its rationale, update the active proposal and question inventory promptly and archive the reason in the applicable discussion log. Do not wait for a separate user instruction to synchronize the candidate text. Preserve decision status: revising a candidate does not approve it, and a revision that would alter an already closed decision must explicitly reopen that decision rather than silently rewriting it. The user may explicitly waive candidate synchronization for a discussion.
+
+Use this approach whenever the user asks to list or review open questions. Keep recommendations provisional until the user approves them, and preserve consequential dependencies in the supporting record.
+
+### Formula-heavy answer artifacts
+
+For human-facing answers containing multiple formulas, a complex derivation, or substantial superscript/subscript notation, render the main mathematical explanation as a LaTeX-generated PDF rather than placing the main formulas in console/chat text. Verify the local LaTeX toolchain before relying on it, retain the `.tex` source beside the PDF, and link the PDF in the response. Keep the chat response to a short plain-language conclusion and artifact link. A single short inline formula or notation definition does not require a PDF unless the user requests one. Record generated artifact paths and build commands in the applicable phase dialogue/work report. If LaTeX is unavailable or compilation fails, report that limitation and provide the clearest available fallback without silently omitting the mathematics.
+
+### Project-wide open-question classification
+
+Every Phase A proposal for an implementation-dominant or multi-component scientific milestone must inventory unresolved questions and classify their decision ownership before Phase B:
+
+- **Type 1 — component-local:** one component can resolve the question without changing another component's scientific meaning, shared interface, or milestone acceptance contract.
+- **Type 2 — milestone-global:** the question spans components, establishes a shared scientific/API/data-flow/differentiability contract, or governs milestone-wide reproducibility, comparison fairness, or validation.
+- **Mixed:** split the question into an explicit Type 2 global contract and one or more Type 1 local transcription or evidence details. Do not leave a mixed question under a single ambiguous owner.
+
+The Phase A proposal must include, where applicable:
+
+1. a complete question inventory with stable IDs, classification, owner, and dependencies;
+2. a milestone-global backbone set such as `G1`, `G2`, and so on;
+3. component-local sets such as `C<N>.<i>-Q<j>` assigned to the applicable component;
+4. explicit mixed-question splits;
+5. a discussion/closure order in which global contracts close before dependent component questions;
+6. reopen conditions identifying which smallest global contract must be reconsidered if component work exposes a conflict.
+
+Phase B proceeds **global-first, then component-serial** by default:
+
+1. confirm the inventory, classification, ownership, and dependencies;
+2. discuss and close the milestone-global backbone;
+3. consolidate those decisions in the milestone's Phase B revision record;
+4. treat closed global contracts as inputs not to reopen inside component discussions;
+5. discuss component-local questions in dependency order and record them in component-specific studies or dialogue sections;
+6. perform a final global/component consistency audit before Phase C.
+
+A component may not silently change a closed global contract through a local API, adapter, tolerance, fallback, reference case, or implementation convention. If evidence requires such a change, explicitly reopen the smallest affected global decision and its dependent component questions.
+
+For each active milestone, create:
+
+`temp_content/milestone_<N>_<short_name>/`
+
+Archive the current milestone discussion in phase-specific files. For an implementation-dominant milestone with component checkpoints, a useful pattern is:
+
+- `phase_A_proposal.md`
+- `phase_A_dialogue.md`
+- `phase_B_revision.md`
+- `phase_B_dialogue.md`
+- `phase_C_candidate_plan.md`
+- `phase_D/phase_D1_<component>_worklog.md`
+- `phase_E/phase_E1_<component>_validation.md`
+- `phase_D/phase_D2_<component>_worklog.md`
+- `phase_E/phase_E2_<component>_validation.md`
+- `phase_D/phase_D_integration_worklog.md`
+- `phase_E/phase_E_integration_validation.md`
+- `phase_F_closure.md`
+
+The exact number of component files follows the approved milestone plan. The phase archive should capture useful methodological/implementation reasoning, user decisions, rejected alternatives, component-checkpoint decisions, integration anomalies, and unresolved items. Do not dump a raw chat transcript when a concise decision record preserves the needed information.
+
+### Phase A — inspect and propose
+
+For the current milestone:
+
+1. Read `AGENTS.md`, `PROJECT_CONTEXT.md`, `PLANS.md`, applicable approved milestone plans, and relevant code/tests/configs.
+2. Inspect actual dependency APIs and current repository behavior before proposing interfaces.
+3. Do not edit production project files, install packages, or run environment-modifying commands unless the user explicitly authorizes those actions for the planning task.
+4. Write the proposal to the milestone's `temp_content/` folder rather than relying on console-only planning.
+5. The proposal must include, where relevant:
+   - verified current state and dependency behavior;
+   - scope and explicit non-goals;
+   - equations and traffic semantics being implemented;
+   - state definitions, units, shapes, dtypes, and update order;
+   - files/modules to create or modify and their responsibilities;
+   - differentiability path and structural/non-differentiated metadata;
+   - tests, numerical tolerances, commands, and acceptance criteria;
+   - unresolved scientific and engineering choices;
+   - the project-wide Type 1/Type 2/mixed question inventory, ownership, dependencies, and global-first discussion order;
+   - risks and expected consequences of each unresolved option.
+6. Stop after the proposal. Do not implement.
+
+### Phase B — discuss and revise
+
+1. Treat the proposal as unapproved until the user explicitly accepts it.
+2. Read the latest applicable entry from the active milestone/phase tab in `temp_content/feedback/feedback.md`, inspect its linked supplementary files, and archive the relevant discussion in the current milestone's phase dialogue file.
+3. Answer questions and revise the proposal without starting implementation.
+4. Do not silently resolve choices that can change model fidelity, gradient semantics, experimental meaning, or comparison fairness.
+5. When alternatives exist, present the smallest viable options and their scientific/engineering consequences.
+6. Resolve the confirmed milestone-global question set before dependent component-local questions. Consolidate the accepted global contracts as fixed inputs to serial component discussion.
+7. If a component discussion conflicts with a closed global contract, reopen the smallest affected global decision explicitly rather than adapting locally.
+8. Continue until global and component scope, semantics, validation, acceptance criteria, dependencies, and stop conditions are explicit and mutually consistent.
+
+### Phase C — freeze the approved milestone plan
+
+After explicit approval:
+
+1. Save the accepted plan under:
+
+   `docs/milestones/milestone_<N>_<short_name>.md`
+
+2. Include at least:
+   - status: `Approved`;
+   - approval date if known;
+   - scientific purpose;
+   - scope and non-goals;
+   - model semantics and equations affected;
+   - implementation and integration order;
+   - validation and acceptance criteria;
+   - stop conditions;
+   - unresolved or deferred items;
+   - plans superseded, if any.
+3. **Plan the milestone as a system before implementing components separately.** Freeze component responsibilities, interfaces, data flow, equations, units, differentiability boundaries, dependency order, component checks, and final integration checks together in shared Phases A–C.
+4. For implementation-dominant milestones, especially Milestones 0 and 1, organize the authoritative plan **component-first** rather than section-first. After a short milestone-wide scope/interface preamble, each component section should keep together its:
+   - responsibility and I/O;
+   - literature/reference basis and any approved adaptation;
+   - differentiability semantics;
+   - implementation work;
+   - local reference/unit/behavior checks;
+   - optional low-cost visual diagnostic where useful;
+   - component acceptance criteria and user checkpoint.
+   Do not scatter all component implementations into one section and all component tests into a later unrelated section.
+5. The approved milestone file is authoritative for that implementation pass.
+6. Do not overwrite high-level methodology in `PROJECT_CONTEXT.md` or the milestone sequence in `PLANS.md` with low-level implementation details.
+7. If the approved plan conflicts with `AGENTS.md` or a fixed scientific invariant, stop and report the conflict before implementation.
+
+### Component implementation/validation cycle — D_i -> E_i -> user checkpoint
+
+After shared Phases A–C approve the complete subsystem architecture, implementation-dominant milestones proceed one approved component at a time in dependency order.
+
+For each component `i`:
+
+1. **Phase D_i — implement only that component.** Re-read the approved system plan and implement the component against the already planned interface. Do not begin the next component merely because coding succeeds.
+2. **Phase E_i — validate immediately.** Run the component-specific hand/reference, unit, conservation, behavior, and gradient checks required by the approved plan. Produce any approved low-complexity diagnostic figure/trace intended for manual inspection.
+3. **User checkpoint.** Report the component evidence and stop. The user decides whether the component is accepted as the trusted dependency for the next component, needs correction, or requires a plan/interface amendment.
+4. Component acceptance means **correct under the currently approved interface and semantics**, not permanently immutable. If later integration exposes a genuine coupling defect, reopen the smallest affected component/interface explicitly and repeat its D_i/E_i evidence rather than hiding the fix in integration glue.
+5. A scientifically meaningful ambiguity discovered during D_i or E_i still triggers the ordinary change-control rule: document the evidence, propose the smallest amendment, and wait for approval before changing behavior.
+
+Default component-pass reporting and error handling:
+
+- After every authorized D_i implementation, proceed directly to its E_i checks unless the user limits the task further, and always write the component's validation report under the active milestone's `phase_E/` folder.
+- Codex may diagnose and fix syntactic, procedural, test-harness, and implementation-conformance errors within the approved component plan, rerunning the affected E_i checks and recording the corrections.
+- If a failure shows that the approved method, scientific semantics, or acceptance contract is invalid or cannot be implemented as specified, stop the component pass. Write a diagnosis report with the evidence, affected contract, and smallest viable amendment candidates for reopening D_i/E_i; do not silently change methodology or weaken the failed criterion.
+
+This cycle gives early component closure while preserving a system-level design. It does not create separate scientific milestones for each component.
+
+### Phase D_integration — compose accepted components
+
+After all required component checkpoints are accepted:
+
+1. Integrate the accepted components according to the Phase-C architecture.
+2. Add only the coupling/orchestration code required by the approved plan.
+3. Do not compensate for a component/interface defect with an undocumented adapter that changes traffic semantics. Reopen the smallest affected component if necessary.
+4. Do not begin a later milestone.
+
+### Phase E_integration — validate the complete milestone stack
+
+1. Run the approved pairwise/coupling and end-to-end integration checks.
+2. Re-run critical component invariants if integration could have affected them.
+3. Run the milestone-level conservation, reference/equivalence, behavior, and gradient checks applicable to the complete stack.
+4. Do not weaken, remove, or reinterpret a failed acceptance criterion merely to complete the milestone.
+5. Write durable validation evidence under `reports/milestone_<N>_<short_name>/` and a concise integration summary under the milestone's `temp_content/` folder.
+6. Report files changed, commands run, quantitative/visual results, acceptance status item by item, deviations/amendments, assumptions, and unresolved risks.
+7. Stop for Phase F. Do not start the next milestone.
+
+For milestones that are primarily a scientific experiment rather than multi-component construction, the approved Phase-C plan may use a single Phase D followed by a single Phase E instead of artificial component cycles.
+
+### Phase F — user review and closure
+
+The milestone is not complete merely because code was produced and tests passed.
+
+1. Wait for user review of the diff, evidence, and acceptance results.
+2. The user decides whether the milestone:
+   - passes and closes;
+   - needs a corrective implementation pass;
+   - requires a plan amendment;
+   - should be abandoned or deferred.
+3. Record the closure decision in the milestone plan or a closure section/report.
+4. Plan the next milestone only after explicit closure of the current one.
+
+### When the full gate may be skipped
+
+The user may explicitly waive the planning gate for a narrowly mechanical task, such as:
+
+- correcting a typo;
+- applying an already approved rename;
+- adding a precisely specified assertion;
+- rerunning an already approved experiment configuration;
+- making a local refactor with no behavioral or scientific effect.
+
+Changes to traffic equations, node semantics, queue/storage logic, route/order handling, differentiability construction, signal parameterization, objectives, scenario splits, experiment comparisons, dependencies, or acceptance tests require the full workflow unless the user explicitly states otherwise.
+
+## Operating rules
+
+1. Inspect before editing.
+2. Verify third-party APIs from installed packages/source or official documentation. Do not invent interfaces from memory.
+3. Before a choice that can change scientific meaning, report the missing decision, the smallest viable options, and the expected consequences.
+4. Prefer the smallest implementation that satisfies the approved milestone.
+5. Never begin the next milestone automatically.
+6. Do not add dependencies unless the current milestone requires them.
+7. Do not add clipping, smoothing, randomization, fallback branches, or regularization that changes traffic semantics without approval.
+8. Keep experiment settings centralized and configurable rather than duplicated across scripts.
+9. Set and record random seeds for any stochastic scenario generation or sampling.
+10. Use double precision for numerical gradient checks unless there is a documented reason not to.
+11. Run relevant tests after each material change.
+12. Never place secrets, credentials, or private data in the repository.
+13. Do not modify or delete user data or existing results unless explicitly asked.
+14. If a diagnostic may be blocked by sandbox/host permissions rather than true environment state, request the minimum required escalation before drawing conclusions.
+15. Preserve reproducibility: record environment, package versions/commits, config, seeds, commands, and output locations for scientific runs.
+
+## Validation discipline
+
+Validation is hierarchical. A later layer does not substitute for an earlier one.
+
+At minimum, applicable milestones should distinguish:
+
+1. **Mathematical/reference correctness**
+   - local LTM/node/grid updates agree with hand-computed or independently coded reference cases;
+   - units, time indexing, and conservation identities are explicit.
+2. **Forward invariants**
+   - traffic mass and route-mass conservation;
+   - sending/receiving and storage constraints respected;
+   - lane permissions and FIFO/order semantics respected;
+   - no silent mass loss under split/merge/defragment operations.
+3. **Macro-limit/equivalence checks**
+   - when local order/storage effects are disabled or homogenized by design, the mesoscopic implementation reproduces the matched aggregate baseline within declared tolerance.
+4. **Meso-sensitive forward checks**
+   - cases with the same aggregate state but different movement order can produce different realized service when they should;
+   - finite turn-pocket/shared-lane blockage and spillback behave causally.
+5. **Gradient correctness**
+   - autograd/differentiated directional derivatives agree with central finite differences on small fixed scenarios away from known event boundaries;
+   - gradients are finite and sensitivity paths are inspected, not assumed.
+6. **Gradient usefulness**
+   - compare matched macro and mesoscopic gradient directions under the same objective/scenarios;
+   - evaluate downstream improvement, not only gradient agreement internal to the simulator.
+7. **Cross-fidelity validation**
+   - when opened by an approved milestone, evaluate candidate signal perturbations/plans in a richer reference simulator such as SUMO using held-out scenarios.
+
+If a validation fails, report it rather than weakening the test.
+
+## Overnight and detached execution
+
+Long approved experiments may run detached only after the applicable milestone plan, implementation, tests, exact command, and output location are approved.
+
+Repository-wide protocol:
+
+1. Prepare and validate a repository-owned runner before detaching it.
+2. Prefer:
+   - immutable recorded configuration;
+   - unique output and log paths;
+   - independent atomic shards where appropriate;
+   - refusal to overwrite completed shards by default;
+   - explicit progress, timestamps, failure records, and exit-status files;
+   - a separate aggregation-only command that cannot start training/optimization.
+3. If `tmux` or another host-level persistence mechanism is used, verify it in the actual environment. Do not assume a sandbox-owned detached process will survive its owner.
+4. Use a stable milestone-qualified session name and durable repository logs. Record the exact command and session name in the work report.
+5. Verify the session and first expected output/progress artifact before telling the user the job is safely detached.
+6. A detached process may continue computing, but Codex does not continue reasoning, interpreting results, editing reports, or making scientific decisions while the conversation is suspended.
+7. On resumption, inspect exit status, logs, failures, shard completeness, and checksums before aggregation or interpretation. Do not silently retry failed or missing scientific runs.
+8. Destructive restarts, overwrites, forced termination, or deletion of results require explicit approval when they may discard work.
+9. Benchmark concurrency before a large CPU/GPU run. Resource scheduling may change for efficiency, but scenarios, seeds, precision, optimization budgets, and acceptance rules must not be reduced merely to shorten runtime.
+
+## Command escalation 
+
+By default, codex sessions are run inside the sandbox. This may render some resources by default unavailable, such as GPU. If you want to request resources that are 
+unavailable inside the sandbox, or find that a command cannot access required resources unless escalated, you should raise an escalation request upon manual approval.
+
+Default user preference: when an in-scope required command fails in a way that may be caused by the sandbox, retry the same required operation with the minimum justified escalation before proposing or attempting a behavior-changing alternative. In particular, do not replace required GPU execution with CPU execution merely because an un-escalated probe reports CUDA unavailable.
+
+## Implementation style
+
+Defaults unless an approved milestone says otherwise:
+
+- Language: Python.
+- Primary differentiation framework: PyTorch unless repository inspection establishes another existing choice.
+- Target platform: Linux/Ubuntu server; verify exact environment before relying on version-specific behavior.
+- Prefer typed, small, testable functions.
+- Keep network data, LTM physics, node logic, route/ledger state, local-zone state, signal control, objectives, gradients, experiments, and evaluation in separate modules.
+- Use explicit tensor shapes, units, dtypes, and device handling.
+- Avoid hidden global mutable state.
+- Keep structural metadata and differentiable continuous tensors clearly separated in APIs.
+- Save machine-readable results in CSV/JSONL/Parquet as appropriate and human-readable summaries in Markdown or plain text.
+- Do not use notebooks as the only implementation of core simulator or scientific experiments.
+
+## Review reporting for the user
+
+User preference, approved 2026-10-07, applies across all review branches:
+
+- The reader has textbook knowledge of freeway traffic and learns the specialist literature during the review. Do not require reading an audit or proof to understand the main finding.
+- Lead each review overview, handoff and decision-facing report with the traffic meaning, causal logic and significance to the research question. Favor human readability and semantic explanation over compactness, exhaustive coverage or procedural chronology.
+- Explain what an option is trying to achieve, why it might work, and what its outcome would mean before listing its work steps. Compare options through a shared example when that makes their differences clearer.
+- Introduce specialist terms in plain language at first use; use a concrete example when a definition alone leaves a learning gap. Stage IDs and formal status labels should follow the explanation rather than carry it.
+- Keep detailed extraction, equations, proofs, logs and reproducibility records in linked supporting documents. The overview must stand on its own while stating the important evidence limits and decision accurately.
+- User-facing console/chat artifact links start on a new line, preferably in their own paragraph with a short label; do not chain them into a long prose line. Approved 2026-10-08 to avoid console wrapping that makes links difficult to open.
+
+Additional user preference, approved 2026-10-13, applies across all review branches:
+
+- When proposing plan or model options, lead with the shared traffic problem and each option's core idea and modeling philosophy. State the main old/new change to traffic state, motion, service, information or timing in plain language before describing work steps.
+- Compare the options directly against the same concrete case when that helps the reader see what each predicts, preserves or risks. Make the tradeoff and provisional recommendation explicit. Procedural details should support this conceptual comparison rather than carry the explanation.
+
+Reporting preference reaffirmed and clarified by the user on 2026-10-15:
+
+- A decision-facing report should let the reader capture the core ideas and make the decision without a major misunderstanding. Explain the core problem, each option's philosophy and causal mechanism, the key changes or improvements, and a straight comparison before procedural steps or gate labels.
+- Make the level of specification explicit. Distinguish a concrete model from a direction that still needs a model; explain what each assumes, predicts, leaves unknown and commits the research to. Do not use “accept now” versus “review further” as a substitute for explaining the underlying scientific choice.
+
+## PowerPoint artifact conventions
+
+Unless the user gives request-specific overrides, presentation requests use these defaults:
+
+- produce exactly two boilerplate slides: a title slide and a contents slide;
+- target 8–12 substantive slides in addition to the two boilerplate slides;
+- use Calibri, with 32 pt titles and 18 pt main text on substantive slides;
+- keep non-title main text to at most eight lines per slide;
+- favor compact, precise explanation and clear element arrangement over decoration;
+- use only basic visual styling; include plots or images only when they materially improve explanation, and group any self-created plot as one slide object;
+- return a `.ppt` or `.pptx` artifact at the requested location.
+
+## Work report
+
+At the end of each Codex task, report:
+
+- files changed;
+- assumptions made;
+- commands run;
+- tests and results;
+- unresolved scientific or engineering risks;
+- current milestone/phase status;
+- the next allowed action, without starting it unless requested.

@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "scope": "exact-rational local analytical and documentation checks only; no traffic simulation, numerical gradient, full reference adoption or closure",
+  "date": "2026-10-08",
+  "protected_files": 410,
+  "documents_checked": 16,
+  "local_links_checked": 287,
+  "groups": [
+    {
+      "group": "Nonbinding free-speed relative-capacity limit",
+      "cases": 21
+    },
+    {
+      "group": "Local active/inactive Riemann branches and moving-wave conservation",
+      "cases": 5733,
+      "active": 1911,
+      "inactive": 3822,
+      "exact_jump_identities": 5163
+    },
+    {
+      "group": "Finite coincident same-count held-speed fan compatibility",
+      "cases": 500,
+      "limit": "void compatibility only; no arbitrary-source encounter theorem"
+    },
+    {
+      "group": "Own-queue contact, distance/ending speed, delayed entrance count and CFL-compatible interior contacts",
+      "cases": 5
+    },
+    {
+      "group": "Proposed fixed-clock phase: no-contact source recurrence, final-speed memory and no instant reacceleration",
+      "cases": 147,
+      "limit": "candidate algebra; law not adopted"
+    }
+  ],
+  "pdf": {
+    "pages": 5,
+    "equations": 20,
+    "sha256": "ca3d3b82a4525144420c9726ba1cd6eab78196927860237574f5131a7cbd8626",
+    "clean_final_build": true,
+    "text_parsed": true,
+    "raster_visual_inspection": false
+  },
+  "source_activity": {
+    "queries": 0,
+    "primary_open_find_operations": 8,
+    "new_downloads": 0
+  },
+  "method_status": {
+    "Q.J": "closed as A",
+    "Q.J.K": "open; K.A recommended; K.B and K.C alternatives; no law or accuracy contract adopted",
+    "Q": "whole-law adoption pending",
+    "G3": "Stage 3 disposition pending",
+    "Stage 4": "unopened"
+  },
+  "changed_existing_files": [
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/own_motion_findings_and_gate.md",
+      "before_sha256": "af83318fbd3794c27d16623b6e2f219ddf385948c248c84ca0f03986b6f25ba5",
+      "after_sha256": "c0b7e2a3e355e5160bfbe588f4b53192117c2a53f4c7481343eaa906fed006e0"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/rm12_60_bp_r_stage3_protocol.md",
+      "before_sha256": "ccd1237c901be0abd25cfdcd84831e9574b21983a33b0429bca8d0c460fa3a69",
+      "after_sha256": "2173943b791837758ae4484f12dd6b9184dd0c60c3090c5ceba8699cae8dfbeb"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+      "before_sha256": "432051aa4458f08d7aa15335ba4156e298b58957b9a333d30390fe8a6603bcae",
+      "after_sha256": "4fba926ce7d91c58d97e4da26079a1f85f57ed719894a127b09f9b5e7acf4045"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/work_report.md",
+      "before_sha256": "11c3468092fad56a644ed2bfcd04683c67ad5759c83c11341fa501e4867a1d07",
+      "after_sha256": "7cefd5a03de8ee88273ca31c39aced9753e940332eca533ba7163a93e9e0edee"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/own_motion_qualification.md",
+      "before_sha256": "07a3362c026cf1f36073ad59200c775adb767ce82013f2b0d54a0ffa1aa93deb",
+      "after_sha256": "39d07adcbd7d100edf7dab14157ea9058ac2537b0dbce2ce18d14c52418d6a99"
+    },
+    {
+      "path": "AGENTS.md",
+      "before_sha256": "04f3a1a6f96e78bea4b834ad4a734824d2e6450121a68ab36162ddd152d5ecfa",
+      "after_sha256": "39ffa4887ed07002a295c7519ce06c2a957369ece75ed4c348d1d97c600a0b92"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_receiving_findings.md",
+      "before_sha256": "aaf05b5fa4f0b0ed2bbe448c8b8afcd9460bd5476343c6e67d255c727d192569",
+      "after_sha256": "d38eb90d0b59abf237955d2eeb5a9b346dcea0da4688e2820f694cfa6be9c089"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/discussion/rm12/backtracking_planning_dialogue.md",
+      "before_sha256": "7ee4304d06b0cce01bdda7556f6f73e00de2541c7c4bbd706892fd38ddf77c7f",
+      "after_sha256": "a178ad4cc358de5dd24506122e034aef75cf9cf30c32da4636f7665c1894b47f"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/README.md",
+      "before_sha256": "8674ed39bc88e98fc1fca3a0ba08c632c77742d92cfbb0c0b3e410e98b4567a9",
+      "after_sha256": "04ebaf38259ced3cd6440b8b564abe1f4afa49f6c05c687a28901c1a0e3cdef7"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md",
+      "before_sha256": "96964a5ce725740ac2ae760e20d8fedd3452bc1404d953cba51faedab3780480",
+      "after_sha256": "1765238d8e0247b3291118c299857d9d3ad0b4b27f8043a1504ec01ae9e4d464"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md",
+      "before_sha256": "327d10e05eae8e7107b916acc6812fca743f0125fc09c6370c68166b319b5020",
+      "after_sha256": "c5431496a8fda729fbecbdf5291b323d19a245cb3ef8f37f1b618cb2a8beca6a"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+      "before_sha256": "bbcbf932ce7ad481141f6f707e0f0bfd5af1d7b051057afcc66c0e5145f05933",
+      "after_sha256": "eed84d7b2c11460015fa04ec13fce86cc40ee15d95a6570a2e2a5ffa91c01b19"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/rm12_66_bp_r_stage3_sampled_insertion_qualification.md",
+      "before_sha256": "fef11223d3066722d767704615795ef8b28ad94d6a374b8cef26462105aac4d1",
+      "after_sha256": "4f018a05b5bbe2465deb0431588122a7e3fbd633f77c912841e72fe445272401"
+    }
+  ],
+  "new_artifacts": [
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+      "sha256": "a0822613f38272ce7bfee952799ac84a11848f2bbd58918760dfe9473511d987"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/extraction/rm12/bp_r_stage3/motion_contact_source_audit.md",
+      "sha256": "3453da1a23fce85b06edeb6b4d34d3f0eeaf187e88d9cb59709506d043bf67d3"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/motion_contact_qualification.md",
+      "sha256": "6f4af519b586349ced68eb813fac92d7d2133a1020c99664aaa05617b3ae6077"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/motion_contact_math.tex",
+      "sha256": "6702edfb44cf843f7d99b2d17e7cafa77f4202cd971e0f72ad55c286155b0ed3"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/motion_contact_math.pdf",
+      "sha256": "ca3d3b82a4525144420c9726ba1cd6eab78196927860237574f5131a7cbd8626"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/search/rm12_bp_r_stage3_motion_contact_queries.csv",
+      "sha256": "23965a3fe045bfa9d6c0168f57f07edca37e9e5112c03831bc9833fc0efa39dc"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/screening/rm12_bp_r_stage3_motion_contact_sources.csv",
+      "sha256": "3427b567fc152a73612e15c3995bcc18afe7ee055397a3614dd70a89941f5797"
+    },
+    {
+      "path": "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_execution_validation.json",
+      "sha256": null
+    }
+  ],
+  "reproduction": {
+    "snapshot": "/tmp/rm12_67_motion_contact_20261008__yzxanek/before.json",
+    "snapshot_sha256": "6342750b91bb747b9c013dc9c9ccc5a84df24775466709cff0f44a9f03a471f8",
+    "checker": "/tmp/validate_rm12_motion_contact.py",
+    "checker_sha256": "3ce6fe7ea0ad767604c12bfb52a1a66c65e910c5d09570f0469e6382df5fe491",
+    "build_command": "pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=/tmp/rm12_67_motion_contact_20261008__yzxanek/build misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/motion_contact_math.tex",
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "pdflatex": "/usr/bin/pdflatex",
+    "raster_tools": {
+      "pdftoppm": null,
+      "mutool": null,
+      "gs": null
+    }
+  }
+}

@@ -1,0 +1,28 @@
+access_id,date,source_id,url,result,evidence
+RBA001,2026-09-17,FB0038,https://pure.tudelft.nl/ws/portalfiles/portal/85144218/0361198120948055.pdf,primary13-page PDF selected methods results and conclusion,E3
+RBA002,2026-09-17,FB0039,https://upcommons.upc.edu/server/api/core/bitstreams/271525be-078b-4297-8eeb-c262e2f04b3e/content,primary18-page PDF sections4.1 and5 and7 inspected,E3
+RBA003,2026-09-17,FB0037,https://www.sciencedirect.com/science/article/pii/S0378437123009214,direct open internal error; indexed publisher abstract only,E1
+RBA004,2026-09-17,FB0034,https://sndbx.library.tuc.gr/view/64760?locale=en&show=full,journal-extension metadata; attachment click internal error; 2014 methods reused,E1-companion
+RBA005,2026-09-17,FB0022,https://onlinelibrary.wiley.com/doi/10.1111/mice.13492,official full HTML methods selected and prior source study reused,E3
+RBA006,2026-09-17,FB0034,https://sndbx.library.tuc.gr/view/64760?locale=en&show=full,attachment19 click failed internal error; not full methods,E1
+RBA007,2026-09-17,SUMO-STATE,https://sumo.dlr.de/docs/TraCI/Change_Vehicle_State.html,official rolling docs speedFactor versus setSpeed and lane-change modes inspected,E3
+RBA008,2026-09-17,SUMO-TYPES,"https://sumo.dlr.de/docs/Definition_of_Vehicles,_Vehicle_Types,_and_Routes.html",official rolling vehicle-type docs opened; no new type-default claim adopted,E2
+RBA009,2026-09-17,SUMO-TRIPINFO,https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html,official departDelay and unfinished-trip sections inspected,E3
+RBA010,2026-09-17,SUMO-REROUTER,https://sumo.dlr.de/docs/Simulation/Rerouter.html,official lane closure and emergency-braking cautions inspected,E3
+RBA011,2026-09-17,FB0039,https://upcommons.upc.edu/server/api/core/bitstreams/271525be-078b-4297-8eeb-c262e2f04b3e/content,curl sandbox DNS failure; escalated same download succeeded;18pages verified,E3-archived
+RBA012,2026-09-17,FB0038,https://pure.tudelft.nl/ws/portalfiles/portal/85144218/0361198120948055.pdf,curl sandbox DNS failure; escalated same download succeeded;13pages verified with CC BY repository cover,E3-archived
+RBA013,2026-09-17,FB0027,https://www.sciencedirect.com/science/article/abs/pii/S0968090X2100200X,indexed publisher abstract and introduction; full methods not inspected,E1
+RBA014,2026-09-17,FB0040,https://www.sciencedirect.com/science/article/pii/S037843712500528X,indexed publisher abstract and section snippets; direct open403,E1
+RBA015,2026-09-17,FB0040,https://www.researchgate.net/publication/394325110_Variable_speed_limit_control_method_of_freeway_merging_area_in_a_car-truck_mixed_heterogeneous_traffic_environment,metadata no full text available; references for discovery only,E1
+RBA016,2026-09-17,FB0040,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5239608,related19-page May2-2025 author preprint metadata and abstract; version equivalence unverified,E1
+RBA017,2026-09-17,FB0040,https://papers.ssrn.com/sol3/Delivery.cfm/19ac0110-e600-4855-b049-448540ffe5b1-MECA.pdf?abstractid=5239608&mirid=1&type=2,browser download redirected to abstract; curl DNS failure then escalated403; no full manuscript obtained,E1
+RBA018,2026-09-17,FB0040,archive/user_supplied/FB0040.pdf,user-supplied final17-page PDF verified identity completeness hash and full decision-relevant methods; request1 resolved,E3
+RBA019,2026-09-17,FB0041,https://www.sciencedirect.com/science/article/pii/S0378437124007258,primary indexed abstract-sections inspected; direct open internal error; no full comparisons adopted,E1
+RBA020,2026-09-17,FB0042,https://www.sciencedirect.com/science/article/pii/S0968090X21001406,primary indexed abstract inspected; direct open internal error,E1
+RBA021,2026-09-17,FB0043,https://doi.org/10.1680/jtran.25.00185,official open full HTML selected sections3.3-3.8 4.3-4.4 5 inspected; no local PDF,E3
+RBA022,2026-09-17,FB0044,https://www.sciencedirect.com/science/article/pii/S0378437125003000,indexed primary abstract lead; direct open internal error; not gate-critical,E1
+RBA023,2026-09-17,FB0045,https://www.sciencedirect.com/science/article/pii/S0967070X25005153,indexed primary abstract managed-lane boundary; direct open internal error,E1
+RBA024,2026-09-17,FB0046,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5422079,indexed author abstract and revision metadata only; direct open internal error,E1
+RBA025,2026-09-17,FB0047,https://pmc.ncbi.nlm.nih.gov/articles/PMC13131206/,indexed excerpt only; direct open browser challenge; no bypass attempted,E1
+RBA026,2026-09-17,FB0048,https://doi.org/10.1155/2018/3610541,institutional abstract lead; direct DOI retrieval failed; gradient target unverified,E1
+RBA027,2026-09-17,FB0049,https://www.sciencedirect.com/science/article/abs/pii/S0968090X26004298,indexed abstract; direct403; issue dateDecember2026 beyond review; as-of availability unverified and excluded,E1

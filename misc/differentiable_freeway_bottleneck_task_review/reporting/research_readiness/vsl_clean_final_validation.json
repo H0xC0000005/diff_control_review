@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "scope": "User-accepted report: normal-color clean final",
+  "user_accepted_report": true,
+  "normal_color_authorized": true,
+  "all_pdf_text_black": true,
+  "revision_notice_removed": true,
+  "review_macros_removed_from_source": true,
+  "heading_pluralized": true,
+  "approved_content_preserved": true,
+  "displayed_equation_groups_preserved": 11,
+  "service_table_preserved": true,
+  "pdf_pages": 4,
+  "methodology_pages_excluding_references": 3.46266,
+  "methodology_target": 3.5,
+  "nominal_main_text_pt": 10,
+  "page_geometry_and_text": [
+    {
+      "page": 1,
+      "black_text_draws": 236,
+      "body_extent_fraction": 0.8799
+    },
+    {
+      "page": 2,
+      "black_text_draws": 211,
+      "body_extent_fraction": 0.46542
+    },
+    {
+      "page": 3,
+      "black_text_draws": 445,
+      "body_extent_fraction": 0.94169
+    },
+    {
+      "page": 4,
+      "black_text_draws": 247,
+      "body_extent_fraction": 0.73944,
+      "methodology_extent_fraction": 0.46266
+    }
+  ],
+  "embedded_fonts": 13,
+  "font_resources": {
+    "/NZTNSX+CMBX12": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/AAXWQB+CMBX10": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/SHTWXN+CMR10": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/OJFTZP+CMSY10": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/XRERUE+CMMI10": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/BUACOS+CMMI7": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/ROZUSQ+CMR7": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/LUYYYY+CMSY7": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/XCHWYI+CMEX10": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/JYIAMT+CMMI5": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/UZQLUM+CMR5": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/DRSFHC+CMSY5": {
+      "embedded": true,
+      "subtype": "/Type1"
+    },
+    "/WLUIQQ+CMTI10": {
+      "embedded": true,
+      "subtype": "/Type1"
+    }
+  },
+  "ieee_references": 7,
+  "doi_targets": [
+    "https://doi.org/10.1007/s11067-013-9193-7",
+    "https://doi.org/10.1016/j.sbspro.2011.04.505",
+    "https://doi.org/10.1016/j.trb.2014.12.006",
+    "https://doi.org/10.1016/j.trc.2015.06.025",
+    "https://doi.org/10.1080/21680566.2019.1700846",
+    "https://doi.org/10.1109/JPROC.2024.3440211",
+    "https://doi.org/10.1111/mice.13492"
+  ],
+  "resolved_internal_link_targets": 10,
+  "final_latex_warnings": [],
+  "changed_files": [
+    "README.md",
+    "extraction/research_readiness/vsl_compact_report_source_and_coverage_map.md",
+    "reporting/research_readiness/vsl_feedback9_report_structure_discussion.md",
+    "reporting/research_readiness/vsl_review_progress.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_compact_methods_report.tex",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md",
+    "vsl_successor_00_opening_plan.md"
+  ],
+  "new_files": [
+    "reporting/research_readiness/vsl_clean_final_build.log",
+    "reporting/research_readiness/vsl_clean_final_report.md",
+    "reporting/research_readiness/vsl_clean_final_validation.json",
+    "synthesis/research_readiness/vsl_report_versions/v5/README.md",
+    "synthesis/research_readiness/vsl_report_versions/v5/vsl_compact_methods_report.pdf",
+    "synthesis/research_readiness/vsl_report_versions/v5/vsl_compact_methods_report.tex",
+    "synthesis/research_readiness/vsl_report_versions/v5/vsl_compact_report_source_and_coverage_map.md.txt"
+  ],
+  "deleted_files": [],
+  "protected_artifacts_unchanged": 476,
+  "v5_archive_exact": true,
+  "feedback_unchanged": true,
+  "markdown_files_checked": 9,
+  "local_links_checked": 586,
+  "heading_anchors_checked": 22,
+  "source_sha256": "3415847b5fb39032d6985e998e00920fbd7520ab856222a9cec67a3c05703319",
+  "pdf_sha256": "5c7e81bb15d2b64b3094926c0c153775eae8ba08b62213a776428d85a5dde960",
+  "raster_visual_inspection": false,
+  "snapshot": "/tmp/vsl_clean_final_before.json",
+  "check_command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/vsl_clean_final_checks.py",
+  "new_methodological_law_or_experiment": false,
+  "report_writing_item_closed": true,
+  "broader_step4_companion_work_started": false
+}

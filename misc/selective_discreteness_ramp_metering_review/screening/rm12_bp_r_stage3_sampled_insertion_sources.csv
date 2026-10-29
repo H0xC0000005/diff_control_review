@@ -1,0 +1,12 @@
+source_id,activity,title,url_or_local_path,read_scope,limits
+RM12-S3-A01,technical recheck,Supplied 2006 journal,archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf,"Sections 2.1.2-2.2 and Appendix A; PDF 4-6,11-13",Journal original; existing local text only
+RM0011,technical recheck,2004 multilane working paper,https://escholarship.org/content/qt8w70q261/qt8w70q261.pdf,Section 3; PDF 6,Donor speed and sampled counters
+RM12-S3-S02,technical recheck,Moving bottlenecks RR-2003-2,https://escholarship.org/content/qt1hp588xx/qt1hp588xx.pdf,Sections 2-4; PDF 4-6,Cover/body supersede erroneous browser title; pairwise algorithm only
+RM12-S3-C01,technical recheck,Moving bottlenecks PWP-2003-10,https://escholarship.org/content/qt69r4t5pp/qt69r4t5pp.pdf,Sections 2.2-2.3; PDF 8-12,Compatible boundary/multiple prescribed constraints
+RM8-P01,technical recheck,Merge manuscript,https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/f/3571/files/2023/03/merges.pdf,Section 2; PDF 2-3,Point merge and simultaneous entrants; calibration not imported
+RM12-S3-V01,technical new read,Variational basic theory RR-2003-3,https://escholarship.org/content/qt02q9d45c/qt02q9d45c.pdf,Sections 1-3; PDF 4-8,May 2003 institutional antecedent; not full 2005 journal read
+RM12-S3-V02,technical new read,Variational solution methods RR-2003-7,https://escholarship.org/content/qt6683p9sj/qt6683p9sj.pdf,"Sections 2.1-2.3,4.1; PDF 7-11,17-19",November 2003; cover Variable/body Variational; finite-graph error not adopted
+RM12-S3-V03,technical new read,Variational well-posedness NHM 1(4) 601-619,https://www.aimspress.com/aimspress-data/nhm/2006/4/PDF/1556-1801_2006_4_601.pdf,"Section 2.1 Theorems 1-3; Section 5; PDF 3-5,11-12",Publisher 2006; prescribed-path results not complete endogenous ramp theorem
+RM12-S3-A03,retained unavailable,Previous gridlock original,,No retrieval attempted,User unavailable boundary preserved
+RM12-S3-Q01,retained unavailable,Previous EPFL memory original,,No retrieval attempted,Prior access boundary preserved
+E1-DISCOVERY,discovery/excluded,Newer diverge/continuum works; secondary mirrors; other model results,,Search metadata only,No new methods claims or candidate adoption

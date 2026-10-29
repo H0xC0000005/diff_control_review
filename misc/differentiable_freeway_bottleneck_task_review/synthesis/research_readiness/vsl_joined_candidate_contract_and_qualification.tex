@@ -1,0 +1,397 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.76in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\newcommand{\head}[1]{\par\medskip\textbf{#1}\par}
+\newcommand{\pos}[1]{\left[#1\right]_+}
+\begin{document}
+\begin{center}
+{\large\bfseries Joined lane-drop VSL candidate: contract and qualification}\\[3pt]
+2026-10-21 --- LF1/LF2 selected; concrete member delivered at JQ1
+\end{center}
+\textbf{Reading map.} Pages 1--2 specify the traffic member; pages 3--6 give
+information, complete-accounting and derivative qualifications. These are
+analytical results and declared defaults, not simulator or traffic experiments.
+The earlier accepted VSL report is unchanged.
+
+\head{1. Concrete member and global assumptions}
+There are $N=10$ road rows of length $\Delta x=0.1$ km, each with lanes
+$E,A,B$ in that left-to-right order. At the downstream boundary E ends;
+A and B have exit outlets. Traffic completes when it crosses that line.
+There are no physical downstream cells or recovery zone in this member.
+The whole finite cohort is present at time zero; later external inflow is
+zero. Its prescribed initial continuous stocks do not depend on the advice.
+Lane stocks and incentives retain the principal framework~\cite{ns}, with
+the explicit budget/allocation substitutions below.
+
+All lanes use nominal free speed $u_0=60$ km/h, backward wave-speed magnitude
+$w=20$ km/h, jam density $k_J=150$ veh/km and maximum capacity-drop fraction
+$\delta=0.1$. Let $\Delta t=1/600$ h (6 s). One common constant advice
+$v\in[30,60]$ km/h applies throughout the modeled road. These are illustrative
+review defaults, not field calibration or an experimentally selected regime.
+Use continuous vehicle-equivalent stock $n^k_{i\ell}=\Delta x\,\rho^k_{i\ell}$,
+$0\leq n^0_{i\ell}\leq J=\Delta x k_J$; time index is $k$.
+
+\head{2. Selected H budget and fixed boundaries}
+Define the common FD quantities and Han recovery slope~\cite{han16,han17}:
+\begin{align}
+ C&=\frac{u_0wk_J}{u_0+w}=2250, & \rho_c&=C/u_0=37.5,\nonumber\\
+ Q_J&=(1-\delta)C, & w_d&=\frac{Q_J}{k_J-Q_J/u_0}=\frac{540}{31}.
+ \label{eq:fd}
+\end{align}
+In rates (veh/h), use
+\begin{align}
+ Q(x)&=\min\left\{C,C\left(1-\delta\frac{x-\rho_c}{k_J-\rho_c}\right)\right\},\nonumber\\
+ R(x,y)&=\min\{Q(x),\ w(k_J-y),\ w(k_J-x)+w_d(x-y)\},\nonumber\\
+ D_{i\ell}&=\min\{v\rho_{i\ell},Q(\rho_{i-1,\ell})\}. \label{eq:H}
+\end{align}
+Set $\rho_{0\ell}=0$ for the no-inflow upstream boundary. For a target lane
+$j$ in row $i+1\leq N$, its \emph{one shared} receiving amount is
+$r_{ij}=\Delta t R(\rho_{ij},\rho_{i+1,j})$. At $i=N$, only $j=A,B$ exist;
+set $r_{Nj}=\Delta t R(\rho_{Nj},0)$ using free outlet ghost densities.
+Ghosts are boundary values, not stocks or additional traffic. Advice alters
+sending, not $Q,R$, priority weights, geometry or nominal $\rho_c$ directly.
+
+All movements advance one row, diagonally or in the same lane. Evaluate
+every flow from the old time level and then update all physical stocks
+together. At interior boundaries allow every adjacent movement and the
+same-lane movement. At $N$, E can only enter A; A/B may enter their own or
+the other continuing outlet. This is the selected flow-realization adaptation,
+not literal reuse of the principal paper's adjusted-flow formulas.
+
+The selected H proof gives $0\leq D_{i\ell}\leq v\rho_{i\ell}$ and
+$0\leq R(x,y)\leq w(k_J-y)$. Because $u_0\Delta t\leq\Delta x$ and
+$w\Delta t\leq\Delta x$, demand amounts $d_{i\ell}=\Delta t D_{i\ell}$
+cannot exceed stock and receiving amounts cannot exceed old available
+storage. The allocator below therefore preserves nonnegative stocks,
+storage, permissions and mass. Native calibration and wave fidelity do not
+follow from these inequalities.
+
+\newpage
+\head{3. Explicit lane preferences and their local conventions}
+Use the principal source's density/incentive framework~\cite{ns} and
+same-author lookahead weights $(a_0,a_1,a_2)=(2,2,1)$~\cite{thesis}:
+\begin{equation}
+ K_{i\ell}=\frac{\sum_{r\in\mathcal H_{i\ell}}a_r\rho_{i+r,\ell}}
+ {\sum_{r\in\mathcal H_{i\ell}}a_r},\quad
+ P_{i,\ell j}=\pos{\frac{I_{i,\ell j}K_{i\ell}-K_{ij}}{K_{i\ell}+K_{ij}}},
+ \quad I=1+I^r+I^{kr}+I^{coop}. \label{eq:pref}
+\end{equation}
+For A/B take $\mathcal H=\{0,1,2\}$ and use zero-density outlet values beyond
+$N$. For E retain only $r$ with $i+r\leq N$ and renormalize the remaining
+weights. This finite-domain average is a declared local convention; no
+imaginary E congestion or extra mass is introduced. Empty donors have zero
+requests without evaluating incentive ratios. A nonempty donor makes the
+denominator in \eqref{eq:pref} positive.
+
+Let $g_i=(N-i)\Delta x$, with $D_r=0.75$ km. Retain the displayed additive
+source form, with route and courtesy terms only in the stated directions:
+\begin{align}
+ I^r_{i,EA}&=(1-g_i/D_r)^3\quad(0\leq g_i\leq D_r),\nonumber\\
+ I^{coop}_{i,AB}&=(\rho_{iA}+\rho_{iB})/\rho_{iA}
+ \quad(\rho_{iA}<\rho_c,\ 0\leq g_i<D_r). \label{eq:incentives}
+\end{align}
+These terms are zero otherwise. In free-flow origin cells
+($0<\rho_{i\ell}<\rho_c$), use
+$I^{kr}_{i,\ell j}=-\rho_{ij}/\rho_{i\ell}$ for a leftward move or a move
+into rightmost B, and zero otherwise; disable it for the active E route move.
+In congested origin cells use the source's allowed $I^{kr}=0$ choice. Equality
+at $\rho_c$ belongs to that congested branch. The density-mode threshold is
+nominal and independent of advice. These explicit direction/vacuum/tie and
+domain conventions are part of the review member, not a recovered author
+implementation. Route bias is not substituted for a realized merge fraction.
+
+\head{4. Selected allocator, complete update and completion}
+Mask nonexistent destinations before forming desires. For each nonterminal-E
+donor, normalize its allowed lateral requests jointly:
+\begin{equation}
+ s_{i\ell}=\sum_{j\ne\ell}P_{i,\ell j},\qquad
+ b_{i,\ell j}=\frac{P_{i,\ell j}}{\max(1,s_{i\ell})},\quad
+ b_{i,\ell\ell}=1-\sum_{j\ne\ell}b_{i,\ell j},\quad
+ m_{i,\ell j}=d_{i\ell}b_{i,\ell j}. \label{eq:request}
+\end{equation}
+At last-E set $b_{N,EA}=1$. All equal reference capacities give equal positive
+priorities. For each target $j$, if requests fit its receiving amount, set
+$z_{i,\ell j}=m_{i,\ell j}$. Otherwise choose the common level $\lambda_{ij}$
+such that
+\begin{equation}
+ z_{i,\ell j}=\min(m_{i,\ell j},\lambda_{ij}),\qquad
+ \sum_\ell z_{i,\ell j}=r_{ij}. \label{eq:allocate}
+\end{equation}
+This capped sharing returns unused entitlement~\cite{carey,wright}; its
+three-lane composition is the selected adaptation. Give unused donor traffic
+one forward fallback:
+\begin{align}
+ y_{i\ell}&=\min\left\{d_{i\ell}-\sum_jz_{i,\ell j},\ 
+                r_{i\ell}-\sum_hz_{i,h\ell}\right\},\nonumber\\
+ f_{i,\ell j}&=z_{i,\ell j}+\mathbf1_{\{j=\ell\}}y_{i\ell},\qquad
+ n^{k+1}_{i\ell}=n^k_{i\ell}-\sum_jf^k_{i,\ell j}+\sum_hf^k_{i-1,h\ell}.
+ \label{eq:update}
+\end{align}
+Set $y_{NE}=0$, $f_0=0$; terminal $f_N$ leaves the cohort and is recorded as
+completion. No second lateral pass, extra headway multiplier, record history,
+lossy compression or separate recovery meter is added. Each row sum of $f$
+is at most its $d$, each target sum at most its $r$. The rule is deterministic
+but need not maximize unrestricted total flow.
+
+\newpage
+\head{5. An actual same-observation lane-loading witness}
+Use $v=60$. In row $N-1$, set all three lane densities to $\rho_c$; all
+earlier rows are empty. Last-row densities are
+\begin{equation}
+ X:\ (\rho_E,\rho_A,\rho_B)=(120,60,90),\qquad
+ Z:\ (\rho_E,\rho_A,\rho_B)=(120,90,60). \label{eq:states}
+\end{equation}
+The entire E profile and A+B profile coincide. Total initial mass is
+$M_0=\Delta x(3\rho_c+120+60+90)=153/4$ veh-equivalents in either case.
+The same observation equality holds for total row/link mass. These are
+prescribed initial states; no identical past history is asserted.
+
+All last-row donors have $Q(\rho_{N-1,\ell})=C$ and $D=C$. A/B are both
+congested: courtesy is off and the declared congested keep-right term is
+zero. Their route term is zero. The weighted A/B densities are proportional
+to their current densities because both future outlet values are zero.
+Thus the only continuing-lane lateral preference in X is $P_{BA}=1/5$;
+in Z it is $P_{AB}=1/5$. E has the selected forced movement to A.
+
+The receiving rates are
+\begin{equation}
+ (R_A,R_B)_X=(2205,2145),\qquad (R_A,R_B)_Z=(2145,2205).
+\end{equation}
+The selected allocation gives the following \emph{rates}; the update uses
+these values multiplied by $\Delta t$:
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+ & $X:\to A$ & $X:\to B$ & $Z:\to A$ & $Z:\to B$\\
+\midrule
+E & 877.5 & 0 & 1072.5 & 0\\
+A & 877.5 & 0 & 1072.5 & 450\\
+B & 450 & 1800 & 0 & 1755\\
+\midrule
+Total & \multicolumn{2}{c}{4005} & \multicolumn{2}{c}{4350}\\
+\bottomrule
+\end{tabular}
+\end{center}
+For example in X, B's 450-unit request into A is fully served; E and A
+share the remaining 1755 equally. B has used its whole donor budget, so
+its unused outlet entitlement does not create more fallback. In Z both
+receivers fill. E has no forward fallback in either case.
+
+Their next total masses are therefore
+\begin{equation}
+ M_1(X)=\frac{153}{4}-\frac{4005}{600}=\frac{1263}{40},\qquad
+ M_1(Z)=\frac{153}{4}-\frac{4350}{600}=31. \label{eq:nextmass}
+\end{equation}
+Hence the reduced observation does not close the actual service or next
+aggregate evolution. The far-lane redistribution matters; an A-only monotonic
+intuition is insufficient. This static one-step calculation is not a traffic
+rollout or an optimal-control result.
+
+For an equal-probability diagnostic pair, let $\mathcal J(v,x)$ be the full
+objective below. Ideal reduced and full-information values are
+\begin{align}
+ V_{red}&=\inf_{v\in[30,60]}\tfrac12[\mathcal J(v,X)+\mathcal J(v,Z)],\nonumber\\
+ V_{full}&=\tfrac12\inf_v\mathcal J(v,X)+\tfrac12\inf_v\mathcal J(v,Z),
+ \qquad V_{red}-V_{full}\geq0. \label{eq:infovalue}
+\end{align}
+Strict positivity is unproved. One extra scalar $\rho_{NA}$ distinguishes X
+and Z, so its augmented observer has exactly the full observer's ideal value
+on this pair. Neither full lane detail nor useful different advice is thereby
+necessary. Future aggregate flows reveal a distinction after the committed
+decision; the claim is not absolute unobservability under histories/feedback.
+
+\newpage
+\head{6. Full population-time and eventual unconstrained service}
+The objective is all remaining population-time from the initialized decision:
+\begin{equation}
+ M_k=\sum_{i,\ell}n^k_{i\ell},\qquad
+ \mathcal J(v,n^0)=\Delta t\sum_{k=0}^{\infty}M_k. \label{eq:J}
+\end{equation}
+Its units are veh-equivalent hours. No later arrivals, uncounted holding
+stock or residual deletion occurs. Trips complete at $f_N$, not upon merely
+arriving at last-E. Action-independent pre-episode travel is outside this
+remaining-time objective. Traffic after the free exit is outside the member.
+
+Define remaining distance in cell units and a safe residual mass:
+\begin{equation}
+ h_i=N-i+1,\qquad V(n)=\sum_{i,\ell}h_i n_{i\ell},\qquad
+ \eta=\Delta x\rho_c=15/4. \label{eq:potential}
+\end{equation}
+Each internal/exit movement advances one row and reduces $V$ by its mass.
+If $\Gamma_k$ is the sum of all boundary movement amounts, including exits,
+\begin{equation}
+ V(n^{k+1})=V(n^k)-\Gamma_k,\qquad M_k\leq V(n^k)\leq N M_k.
+ \label{eq:progress}
+\end{equation}
+
+\textbf{Why a nonempty state always makes progress.} Take its furthest
+occupied row. Its receiving row is empty, or consists of exit outlets.
+Every positive donor has positive $d$, because $v\geq30$ and $Q\geq Q_J>0$.
+Every allowed receiver there has positive $r$ at zero receiving density.
+Every donor has a permitted forward/adjacent destination, including E-to-A
+at the endpoint. Positive equal priorities give a positive realized movement.
+Thus $\Gamma>0$ whenever $V>0$, regardless of the desired fractions.
+
+\textbf{Why this implies reaching small mass in finitely many steps.}
+Allow the desired fractions $b$ to vary independently over the product of
+their allowed simplices; this compact set contains every native incentive
+output. For fixed $b$, the H budgets and capped-sharing/fallback flow amounts
+are continuous in $(n,b,v)$, including zero requests. State bounds form a
+compact set; advice belongs to $[30,60]$. On its closed subset $V\geq\eta$,
+$\Gamma$ is positive everywhere, so it has a strictly positive minimum.
+Equation~\eqref{eq:progress} therefore forces $V<\eta$ after finitely many
+updates. This argument does not require the native incentive map itself to
+be continuous, or an arbitrary convergence tolerance.
+
+\textbf{Why every movement then receives service.} Once $M<\eta$, every
+physical density and relevant upstream boundary density is below $\rho_c$.
+Then $Q=C$ and $R=C$. Total requests into any target are at most
+\begin{equation}
+ \sum_\ell d_{i\ell}\leq\frac{u_0\Delta t}{\Delta x}M
+ < C\Delta t=r_{ij}. \label{eq:tailspace}
+\end{equation}
+Thus $z=m$ at every target, no sending cap binds except $v\rho$, and each
+physical donor advances exactly $c(v)n_{i\ell}$, where
+\begin{equation}
+ c(v)=v\Delta t/\Delta x\in[1/2,1].
+\end{equation}
+Mass cannot increase, so the regime persists. Consequently
+$V^{k+1}=V^k-cM_k\leq(1-c/N)V^k$: the remaining mass decays geometrically.
+Exact finite-time emptying is not required or claimed for all advice values.
+The proof excludes continued arrivals, blocked exits, zero advice and a
+changed transport/priority contract.
+
+\newpage
+\head{7. Exact residual value and full regular-branch derivative}
+Choose any finite index $K$ inside the strict small-mass regime. Since
+$V_k-V_{k+1}=cM_k$ there, telescope to get
+\begin{equation}
+ \Delta t\sum_{k=K}^{\infty}M_k
+ =\frac{\Delta t}{c(v)}V(n^K)=\frac{\Delta x}{v}V(n^K).
+ \label{eq:tail}
+\end{equation}
+This is the exact residual value of the discrete evaluator. A unit of mass
+in row $i$ has mean remaining time $h_i\Delta x/v$; lane redistribution
+cannot delay it when all requests receive service. It is not an approximate
+terminal penalty or a rule deleting small stocks. Combining
+\eqref{eq:J} and \eqref{eq:tail} gives the finite representation
+\begin{equation}
+ \mathcal J(v,n^0)=\Delta t\sum_{k=0}^{K-1}M_k+
+                     \frac{\Delta x}{v}V(n^K). \label{eq:Jfinite}
+\end{equation}
+Later $K$ inside the same regime gives the same value. For example, with
+$v=30$ a small unit of mass in last-E has mean remaining time
+$\Delta t/c=0.1/30$ hours, including failed longitudinal advancement due to
+the advice rate. A unit one row farther upstream takes twice that time.
+
+Let the full state update in \eqref{eq:H}--\eqref{eq:update} be $F(n,v)$.
+Suppose a neighborhood of advice preserves a regular finite branch trace
+through time $K$. Let $F^{[k]}$ denote its selected smooth arithmetic formula
+at step $k$, and write $s^k=\partial n^k/\partial v$. Then
+\begin{equation}
+ s^0=0,\qquad s^{k+1}=F^{[k]}_n(n^k,v)s^k+F^{[k]}_v(n^k,v), \label{eq:sens}
+\end{equation}
+and the derivative of \eqref{eq:Jfinite} is
+\begin{equation}
+ \frac{\partial\mathcal J}{\partial v}=
+ \Delta t\sum_{k=0}^{K-1}\mathbf1^\top s^k+
+ \frac{\Delta x}{v}\,h^\top s^K-
+ \frac{\Delta x}{v^2}\,V(n^K). \label{eq:gradient}
+\end{equation}
+The three terms are finite-trajectory sensitivity, the residual stock's
+sensitivity, and the direct change in residual travel time. The derivatives
+$F^{[k]}_n,F^{[k]}_v$ include the source incentives, normalized requests, H budgets,
+active receiving allocations, fallback and conservation update. They are
+first derivatives of this complete new update, not the old report's service
+function or a Hessian. Fixed initialization ties may use the selected branch
+when all nearby advice follows that same choice; global differentiability
+in arbitrary state directions is not assumed. Policy parameters can use
+the subsequent chain rule through advice.
+
+Choose $K$ with strict $M_K<\eta$ and hold that integer fixed for the local
+derivative. A sufficiently small perturbation retains the exact terminal
+representation. No derivative of a tolerance-based stopping index is
+required. The tail already counts all future time and its dependence on $v$.
+Differentiating only the finite trajectory would omit the last two terms.
+
+\textbf{Regularity and events.} This result requires a stable finite sequence
+of native incentive modes and active min/max/allocation constraints. Source
+courtesy/keep-right changes can still be discontinuous at their state
+thresholds. Empty donors and structural zero movements have their exact
+mathematical treatment; no artificial density epsilon is assumed. At genuine
+switches, two-sided derivatives may fail or finite action changes may cross
+a jump. The evaluator uses a fixed time grid, so its regular derivative is
+the discrete chain rule. Continuous-time saltation matrices from the old
+point model do not apply to this different evaluator. No numerical gradient
+agreement or useful policy direction has been tested.
+
+\newpage
+\head{8. Scientific limits, comparisons and provenance}
+The observation ladder uses the same physical rows and forward law:
+aggregate total; E plus A+B; and all lane states. Add the single adjacent
+density statistic before attributing a need for all lane detail. The initial
+pair in \eqref{eq:states} establishes service/transition nonclosure, not a
+positive value in \eqref{eq:infovalue}. A model-aware reduced controller may
+reason over the known hidden-state distribution. Histories or repeated
+actions, if opened, require a fresh information comparison.
+
+For the scalar action, matched-information bounded search and maximum advice
+are mandatory strong references. A finite search does not certify a global
+optimum. Separate information value, derivative correctness and decision
+usefulness. Numerical derivative checks must include the complete residual
+value; physical validation requires evidence beyond a decrease in this
+same model's objective. SUMO is optional, as previously directed.
+
+\textbf{Global assumptions supporting the new proofs.} Continuous mass,
+fixed finite geometry and the common FD; closed initialized cohort and free
+outlets; once-chosen positive common advice independent of initialization;
+old-state conservative forward/diagonal movements with positive priorities;
+completion at the exit and complete population-time; ordinary derivatives
+only on regular traces. No microscopic order, driver records, integerization,
+additional recovery law or claim of their necessity is introduced. Continuing
+arrivals, heterogeneous FD mapping, blocked downstream traffic or different
+control timing are not covered by these proofs automatically.
+
+\textbf{Retained and new work.} Subraveti~\cite{ns} is the principal
+lane-density/incentive framework. The same-author weights~\cite{thesis}
+clarify its lookahead. Han~\cite{han16,han17}, already part of that congestion
+lineage, gives the explicit budget/VSL component. Carey/Wright principles
+\cite{carey,wright} support the selected conservative allocation adaptation.
+The finite-domain conventions, common-FD member, information diagnostic and
+complete-accounting/derivative arguments are explicitly our review work.
+The selected composition is not a native published turnkey three-lane model.
+No source calibration, continuum limit or maximal-throughput theorem transfers.
+
+\textbf{Status.} LF1 and LF2 are user-selected. This bounded qualification is
+complete for the declared member, delivered for confirmation at JQ1. It does
+not replace the accepted report automatically, close old pending historical
+gates, implement a simulator, or claim empirical/gradient success. No new
+model-family choice is opened by this result.
+
+\begin{thebibliography}{9}\setlength{\itemsep}{0pt}
+\bibitem{ns} H. H. S. Nagalur Subraveti, V. L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model -- an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B},
+vol. 7, no. 1, pp. 1758--1779, doi: 10.1080/21680566.2019.1700846.
+\bibitem{han16} Y. Han, Y. Yuan, A. Hegyi, and S. P. Hoogendoorn,
+``New extended discrete first-order model to reproduce propagation of jam
+waves,'' \emph{Transp. Res. Rec.}, vol. 2560, pp. 108--118, 2016,
+doi: 10.3141/2560-12.
+\bibitem{han17} Y. Han \emph{et al.}, ``Resolving freeway jam waves by
+discrete first-order model-based predictive control of variable speed limits,''
+\emph{Transp. Res. C}, vol. 77, pp. 405--420, 2017,
+doi: 10.1016/j.trc.2017.02.009.
+\bibitem{thesis} H. H. S. Nagalur Subraveti, \emph{Lane-specific Traffic
+Flow Control}, Ph.D. dissertation, TU Delft, 2021,
+doi: 10.4233/uuid:e405a549-b1fe-4fa1-8090-4429612359d9, chap. 4.
+\bibitem{carey} M. Carey, C. Balijepalli, and D. Watling, ``Extending the cell
+transmission model to multiple lanes and lane-changing,'' \emph{Netw. Spat.
+Econ.}, vol. 15, pp. 507--535, 2015, doi: 10.1007/s11067-013-9193-7.
+\bibitem{wright} M. A. Wright, G. Gomes, R. Horowitz, and A. A. Kurzhanskiy,
+``On node models for high-dimensional road networks,'' \emph{Transp. Res. B},
+vol. 105, pp. 212--234, 2017, doi: 10.1016/j.trb.2017.09.001.
+\end{thebibliography}
+\end{document}

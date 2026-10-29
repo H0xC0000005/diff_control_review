@@ -1,0 +1,410 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,array,booktabs}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\pos}[1]{[#1]_+}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\begin{document}
+\begin{center}
+{\Large Selected O-R: causal renewal and a complete analytical cohort}\\[4pt]
+15 October 2026 --- mathematical qualification; no traffic experiment
+\end{center}
+
+\textbf{Status.} The user selects renewal; RE-O1 closes. Qualify the
+previously specified recent-mass O-R formula, retaining R-E and S-E-P.
+No stateless replacement, step-dependent reset or new physical formula is
+introduced. The bounded recovery candidate/analytical pass is complete at
+\textbf{OR-Q1}. Whole-range event qualification, applied MP6 and Step 3
+remain open. Parameters and representative speeds remain hypotheses.
+
+\section*{1. The conditional member being qualified}
+
+Keep H1 preparation, cutoff, initially empty T1 and constant advice
+$v\in[v_-,v_+]$. For $j=A,E,B$,
+\begin{equation}
+ P_j(t)=F_j(t-b/v),\quad q_j=P_j-Y_j,\quad N_j=F_j-Y_j,
+ \quad \lambda_j=\dot P_j,\quad g_j=\dot Y_j. \tag{1}
+\end{equation}
+The B lane is independent and unqueued. $B(t)$ denotes instead the
+shared A/E budget. With $K=wk_j$,
+\begin{equation}
+ c(u)=\frac{Ku}{w+u},\quad C(v)=c(v),\quad U(f)=\frac{wf}{K-f},
+ \quad 0<R\leq C(v_-),\quad u_R=U(R). \tag{2}
+\end{equation}
+Use the existing trial work family and sufficient monotonicity domain:
+\begin{equation}
+ c_A=1,\quad c_E=c_0+\beta\frac{g_A}{C(v)}\frac{\pos{u_A-u_E}}v,
+ \quad c_0=1+\delta,\quad
+ \eta=c_0-\beta(1+v_+/w)>0. \tag{3}
+\end{equation}
+Here $\delta,\beta\geq0$, with free marks $u_j=v$ and queued marks
+$u_j=U(g_j)$. S-E-P gives a fitting free A offer priority; queued A
+uses the earlier equal-work/unused-work template. Its selected-regime
+inverse is unique under (3). These remain trial constitutive assumptions,
+not a field-calibrated fairness or crossing-speed law.
+
+For positive physical acceleration $a_r$,
+\begin{align}
+ V(\theta;u)&=\sqrt{(w+u)^2+2wa_r\theta}-w,\nonumber\\
+ D(\theta;u)&=\pos{R-c(V(\theta;u))},\quad \theta\geq0,\nonumber\\
+ W(u)&=\frac{k_c(u_R)\pos{u_R-u}^2}{2a_r},\quad
+ k_c(z)=\frac K{w+z}. \tag{4}
+\end{align}
+$D$ decreases with age and mark, $0\leq D\leq R$,
+$|D_\theta|\leq a_rk_j$, $|D_u|\leq k_j$, and expires within
+$\Theta_{\max}=u_R/a_r+u_R^2/(2a_rw)$. Write $W_0=W(0)$.
+The age includes backward propagation and is independent of numerical steps.
+
+\newpage
+\section*{2. The selected renewal formula and its physical-time update}
+
+Let $Y=Y_E$, $g=g_E$, and $m=m_{\rm ref}=1$ vehicle-equivalent. For
+the mass-rank inverse $T(\xi)$ of $Y$, define $a(t)=\pos{Y(t)-m}$ and
+\begin{equation}
+ p(t)=\frac1m\int_{a(t)}^{Y(t)}
+ D(t-T(\xi);u_E(T(\xi)))d\xi,\qquad B(t)=\pos{R-p(t)}. \tag{5}
+\end{equation}
+This is the previously proposed O-R law. The reference mass is physical,
+not a numerical bin or integer admission. Only E creates profiles; A
+still affects E admission and current sharing. Traffic mass is never
+removed when a profile retires.
+
+The equivalent time-history form is
+\begin{equation}
+ p(t)=\frac1m\int_0^t D(t-s;u_E(s))g(s)
+                  {\bf1}_{\{Y(s)>a(t)\}}ds. \tag{6}
+\end{equation}
+Flat portions of $Y$ have zero admission measure, so inverse choices and
+rank endpoints do not change the integral. The history can be restricted
+to both age $\Theta_{\max}$ and the latest admitted mass $m$.
+
+Where derivatives exist, let $T_o=T(Y(t)-m)$ when $Y(t)>m$. Then
+\begin{align}
+ \dot p={}&\frac{g(t)}mD(0;u_E(t))\nonumber\\
+ &+\frac1m\int_{a(t)}^{Y(t)}
+ D_\theta(t-T(\xi);u_E(T(\xi)))d\xi\nonumber\\
+ &-\frac{g(t)}m{\bf1}_{\{Y(t)>m\}}
+                    D(t-T_o;u_E(T_o)). \tag{7}
+\end{align}
+The three terms are new entry, aging of retained profiles, and retirement
+of oldest weight. No division by the oldest discharge rate is needed.
+At $Y=m$, use the a.e. version; the cumulative account is continuous.
+With $g=0$, only aging remains, so recovery continues without new discharge.
+
+The reading alone generally does not determine future aging or retirement:
+recent age/mark information is part of the state. New fast E has zero new
+loss but can retire an old slow profile. This is the accepted renewal
+approximation to qualify physically, not an exact moving-leader solver.
+It does not reset at queue clearance or each numerical step.
+
+\newpage
+\section*{3. Causal construction including the moving mass cutoff}
+
+Compare two admitted histories $(g_i,u_i,Y_i)$ with identical past through
+$t_0$, $0\leq g_i\leq G:=R/c_0$, and $0\leq u_i\leq v_+$.
+For fixed $t>t_0$, put
+\begin{equation}
+ \epsilon=\sup_{s\leq t}|Y_1(s)-Y_2(s)|
+       \leq\int_{t_0}^t|g_1-g_2|ds,\qquad
+ |a_1(t)-a_2(t)|\leq\epsilon. \tag{8}
+\end{equation}
+Use $f_i(s)=D(t-s;u_i(s))$ and the indicator $I_i$ from (6).
+The difference with $I_1$ held fixed is bounded by
+$R\int|\Delta g|+k_jG\int|\Delta u|$. Where $I_1\ne I_2$,
+$|Y_2(s)-a_2(t)|\leq2\epsilon$. The $g_2ds$ mass in that rank band
+is at most $4\epsilon$, including plateaus. Thus
+\begin{equation}
+ |p_1(t)-p_2(t)|\leq\frac1m\left[
+ 5R\int_{t_0}^t|\Delta g|ds+
+ k_jG\int_{t_0}^t|\Delta u|ds\right]. \tag{9}
+\end{equation}
+This estimate needs no positive lower admission rate or smooth inverse.
+It also allows bounded discontinuities in already recorded speed marks.
+
+On a valid selected node-regime chart, (3) gives local uniform Lipschitz
+constants $L_g,L_u$ for $g_E$ and its mark as functions of $B$ with
+the same arrival data. Since the budget map is 1-Lipschitz,
+\begin{equation}
+ \|\Delta\mathcal B\|_{\infty,[t_0,t_0+\tau]}
+ \leq\frac{\tau}{m}(5RL_g+k_jGL_u)
+             \|\Delta B\|_{\infty,[t_0,t_0+\tau]}. \tag{10}
+\end{equation}
+For sufficiently short $\tau$, this is a contraction on a small valid
+chart neighborhood. Bounded account increments preserve that neighborhood
+until its next guard. Successive local intervals give causal continuation
+while the chart stays valid, and the same estimates give finite-interval
+continuous dependence there. The interval length is a proof device.
+
+Equation (10) is not a proof of every endogenous queue switch or a claim
+that a free chart is valid when its offer fails. No fallback, numerical
+hysteresis or unapproved mode extension is used. The strict transition
+checks already established for S-E-P remain separate inputs. The finite
+event family below closes its own particular switching sequence.
+
+\newpage
+\section*{4. Derived uniform positive service and finite clearance}
+
+The retained E mass is at most $m$ and its rate at most $G=R/c_0$.
+Because $D(\theta;u)\leq D(\theta;0)$ decreases with age, its largest
+possible integral fills the most recent ages at rate $G$. Therefore
+\begin{equation}
+ p(t)\leq p_{\max}:=\frac Gm\int_0^{m/G}D(\theta;0)d\theta<R,
+ \qquad B(t)\geq B_{\min}:=R-p_{\max}>0. \tag{11}
+\end{equation}
+The strict inequality follows from $a_r>0$: $D(\theta;0)<R$ at every
+positive age. The rearrangement bound is valid even when less than $m$
+has passed. It is uniform in time and advice for the fixed parameters.
+It is derived, not an added service floor; it can approach zero as recovery
+becomes arbitrarily slow. The auxiliary $a_r=0$ limit below is excluded
+from this bound and the admitted model.
+
+Let $\overline M_E=P_E(L/v)$, $Q=q_A+q_E$ and $c_{\max}=c_0+\beta$.
+The O-R integrand is a subset of the additive one, so Tonelli gives
+\begin{equation}
+ \int_0^\infty p(t)dt\leq\overline M_E W_0/m. \tag{12}
+\end{equation}
+For any admissible joined solution, work conservation after $t_*=L/v$
+and (11)--(12) give either sufficient bound
+\begin{align}
+ T_{\rm clear}&\leq t_*+c_{\max}Q(t_*)/B_{\min},\nonumber\\
+ T_{\rm clear}&\leq t_*+
+       \{c_{\max}Q(t_*)+\overline M_EW_0/m\}/R. \tag{13}
+\end{align}
+These use available finite E mass before clearance, not assumed final
+completion. They do not prove existence of every joined solution.
+
+\textbf{Limits and simpler rivals.} With no E, $p=0$. When free offers
+fit from the H1 front, decreasing E offer keeps $p=q_A=q_E=0$ under the
+causal free-mode guard. For a constant free A offer $a<R$, (7) gives
+$\dot p\leq Rg_E/m$ and $g_E\leq(B-a)/c_0$. The gap $x=B-a$ therefore
+satisfies $\dot x\geq-Rx/(mc_0)$ and remains positive at finite times.
+Renewal preserves the constant-A protection limit; increasing A arrivals
+need a separate argument. For constant queued E rate and mark over the
+renewal window,
+\begin{equation}
+ p=\frac{g_E}{m}W_{m/g_E}(u_E),\quad
+ W_h(u):=\int_0^hD(\theta;u)d\theta,\quad
+ g_A+c_Eg_E=R-\frac{g_E}{m}W_{m/g_E}(u_E). \tag{14}
+\end{equation}
+This is the restricted stationary target for a simpler state-dependent
+instantaneous rival, not its complete transient selection theorem. O-S,
+fixed M1, aggregate/history/scalar and search rivals remain. History must
+earn a consequential transient role; no interior optimum is required.
+
+\newpage
+\section*{5. A nonempty H1 build-up with A delay: auxiliary prefix}
+
+This is an existence construction, not a chosen traffic scenario, calibration
+or optimization result. Fix one advice $v_0$ and the translated eligible
+pulse, initially with empty queues/account. Choose a donor-limited H1 front,
+so during the pulse
+\begin{equation}
+ e(t)=e_f e^{-kt},\quad a(t)=s-e(t),\quad k=v_0/h>0,\quad
+ s=v_0r<R,\quad \varepsilon=R-s>0. \tag{15}
+\end{equation}
+Here $a,e$ are \emph{arrival rates}; $h$ is the retained H1 opportunity
+length. Choose $c_0>1$, $e_f>0$, $a_f=s-e_f>0$ such that
+\begin{equation}
+ \varepsilon<\delta e_f/2,\quad
+ G_0=(\varepsilon+e_f)/c_0<R,\quad
+ d_0=R-G_0>\varepsilon+e_f,\quad \delta=c_0-1. \tag{16}
+\end{equation}
+Initially $a_f+c_0e_f=R-\varepsilon+\delta e_f>R$, so the strict
+S-E-P front activates E while A stays free.
+
+First set $a_r=\beta=0$ solely as a finite-prefix auxiliary limit. Before
+the renewal window fills and while A is free and E queued, (5) becomes
+\begin{equation}
+ g_E=\frac{B-a(t)}{c_0},\quad
+ \dot B=-\frac{g_E(R-g_E)}m,\quad
+ \dot q_E=e-g_E. \tag{17}
+\end{equation}
+The queued trace gives $D(0;U(g_E))=R-g_E$. While A is free,
+$g_E\leq G_0$ and $B\geq a\geq a_f$. Hence
+\begin{equation}
+ R-B\geq d_0Y_E/m,\quad
+ Y_E\leq m\frac{\varepsilon+e_f}{d_0}<m. \tag{18}
+\end{equation}
+This rules out a first window fill before A onset, validating the prefix.
+
+Until $B$ reaches $s$, if $e\geq e_f/2$, then
+\begin{equation}
+ -\dot B\geq\mu:=\frac{e_fd_0}{2mc_0}>0,\quad
+ \dot q_E\geq(\delta e_f/2-\varepsilon)/c_0>0. \tag{19}
+\end{equation}
+Choose $k$ sufficiently small that $k\varepsilon/\mu<\log2$.
+Then $B$ reaches $s$ by $\varepsilon/\mu$ while that bound holds and
+passes strictly below $s$. Thereafter, while A remains free,
+$g_E<e/c_0<e$, so E cannot clear. Since $B$ is nonincreasing and
+$a(t)\uparrow s$, a finite first A onset $t_A$ must occur. At that hit,
+\begin{equation}
+ x=B-a=0,\quad \dot x=-ke(t_A)<0,\qquad
+ \dot q_A(t_A+) =a(t_A)-B(t_A)/2=B(t_A)/2>0. \tag{20}
+\end{equation}
+The first equality uses the pre-onset side; the last uses queued cooperation.
+
+\newpage
+\section*{6. Ensuring an E backlog and a nontrivial renewal event}
+
+The construction must exercise renewal, not only its additive initial
+prefix. At $k=0$ in the same auxiliary input, A is constant $a_f$ and
+the usual barrier keeps $B>a_f$ at every finite time. E stays queued with
+\begin{equation}
+ \dot q_E\geq\sigma:=(\delta e_f-\varepsilon)/c_0>0,
+ \qquad Y_E<m. \tag{21}
+\end{equation}
+Choose finite $T_b$ with $\sigma T_b>3m$. On this fixed prefix the free-A
+gap is strictly positive. Continuous dependence of (17) on the input makes
+it possible to choose a sufficiently small \emph{positive} $k$ so A stays
+free through $T_b$ and $q_E(T_b)>2m$. Condition (19) can be retained.
+The finite A onset from (20) is later, with still larger E backlog.
+No constant-input or $k=0$ primary task is adopted.
+
+End the actual finite pulse at $T>t_A$ sufficiently close to $t_A$.
+Then $q_A(T)>0$, $q_E(T)>2m$, $Y_E(T)<m$ and $B(T)>0$.
+Choose $T$ closer if necessary so
+\begin{equation}
+ \frac{q_A(T)}{c_0}<m-Y_E(T),\quad
+ q_A(T)<c_0q_E(T),\quad
+ \frac{R q_A(T)}{mc_0}<B(T)/2. \tag{22}
+\end{equation}
+These inequalities are possible because $q_A(T)\downarrow0$ as
+$T\downarrow t_A$ while the other margins remain positive.
+
+In the auxiliary zero-recovery continuation, while both queues drain and
+the window is unfilled, $g_A=B/2$, $g_E=B/(2c_0)$. Thus A clears first,
+using at most $q_A(T)/c_0$ E mass, before window fill. Since
+$dB/dY_E=-(R-g_E)/m\geq-R/m$, (22) keeps $B\geq B(T)/2$ until
+that strict A clearance. Afterwards A has no arrivals and $g_E=B/c_0$.
+
+The first $Y_E=m$ is reached at finite time in this auxiliary E-only
+prefix. Before it, $B\geq R(1-Y_E/m)>0$. If $Y_E$ approached $m$
+only asymptotically, the additional identity
+\begin{equation}
+ B=R(1-Y_E/m)+\frac1m\int_0^{Y_E}g_E(T(\xi))d\xi \tag{23}
+\end{equation}
+would give a strictly positive limiting budget, since some earlier E has
+passed at positive rate. That contradicts asymptotic approach. Thus fill
+occurs with $g_E>0$ and a positive E backlog. The oldest profile then has
+positive loss $R-g_E(0+)>0$. Immediately after fill, the retirement term
+in (7) is genuinely nonzero. This finite auxiliary prefix is all that is
+needed; its nonrecovering infinite tail is not an admitted model.
+
+\newpage
+\section*{7. Positive recovery, positive mismatch and complete clearance}
+
+On every fixed finite interval, (4) approaches $\pos{R-c(u)}$ uniformly
+as $a_r\downarrow0$, with error at most $a_rk_j$ times the interval
+length. The node inverse is uniformly regular for sufficiently small
+$\beta\geq0$ under (3). Equations (9)--(10) give continuous dependence
+on these kernels/parameters within valid regimes.
+
+All prefix events used above have strict margins or transverse hits:
+E front shortfall, A birth in (20), fixed pulse end with positive queues,
+A clearance at positive service, and renewal fill at positive $g_E$.
+Between events local continuous dependence applies. At each hit a nonzero
+guard derivative bounds the hitting-time change; the compatible new regime
+then continues it. Induction through this finite event list preserves
+the strict inequalities for sufficiently small \emph{positive} $a_r$ and
+\emph{positive} $\beta$. Oldest-profile loss at first retirement also stays
+positive. This removes both auxiliary zero parameters, and preserves an
+interval with $q_A>0$ and nonzero continuing waiting area.
+
+O-S started from the same inputs agrees through first fill $t_R$. At that
+shared state, physical aging and injection agree, but only O-R retires old
+weight. Since both budgets are positive,
+\begin{equation}
+ (\dot B_{O\text{-}R}-\dot B_{O\text{-}S})(t_R+)
+   =\frac{g_E(t_R)}mD(t_R;u_E(0+))>0. \tag{23a}
+\end{equation}
+This is a consequential local difference, not a global trajectory or policy
+ordering. It does not establish that either closure is empirically correct.
+
+After the finite pulse there are no new arrivals. Nonnegative queues are
+nonincreasing; at most two clearances remain. Bounds (11)--(13) make them
+finite; the clearance directions are compatible. The chosen small A tail
+makes A clear first with E still positive. E alone then clears at positive
+service. Once both queues are zero, no birth is allowed without arrivals;
+the fixed retained profiles simply age to zero. This proves a complete
+unique regular trajectory for the constructed family, not every possible
+switch sequence in the full parameter/action domain.
+
+\textbf{Realizing the inputs with unchanged H1.} Choose $r=s/v_0$,
+$e_0+a_0=r$, $a_0=b_0>0$. A receiving-limited initial branch followed
+by a strictly donor-limited front is possible when
+\begin{equation}
+ k_c(v_0)-r<(\gamma-1)e_0,
+ \qquad e_f/v_0<\{k_c(v_0)-r\}/(\gamma-1). \tag{24}
+\end{equation}
+Choose the front progress $z_f$ after that switch. Increasing $h$ while
+holding $z_f/h$ fixed retains the same front density and makes $k=v_0/h$
+small. Put $\ell=v_0T$, $L_p=\ell+z_f$, and choose finite terminal
+length $b>M/k_j$, $M=\ell(r+b_0)$. This changes the common eligibility
+delay, not the translated node argument. Initial densities, $v_+r<R$,
+$R\leq C(v_-)$ and an adequate independent B lane can all be retained.
+
+The finite strict event sequence persists in a sufficiently small
+one-sided neighborhood of $v_0=v_+$, inside the declared action interval.
+This is local forward coverage, not permission to shrink that interval
+or assume the remaining advices are qualified. Long geometry and very
+slow recovery may be needed by this proof. No applied parameter range,
+preferred advice or interior optimum is established.
+
+\newpage
+\section*{8. Exact feasibility, accounting and the review checkpoint}
+
+An exact rational point verifies that the static inequalities are nonempty:
+\begin{equation}
+ R=m=1,\quad c_0=11/10,\quad e_f=1/8,\quad
+ \varepsilon=1/512,\quad s=511/512. \tag{25}
+\end{equation}
+Then
+\begin{align}
+ d_0&=2491/2816,\quad \mu=12455/247808,\quad
+ \varepsilon/\mu=484/12455,\nonumber\\
+ \sigma&=27/2816,\qquad
+ (\varepsilon+e_f)/d_0=715/4982<1. \tag{26}
+\end{align}
+Take $v_-=1,v_0=v_+=2,w=2,k_j=3$, $a_0=b_0=1/8$,
+$e_0=383/1024$, $r=511/1024$, $\gamma=5$, $R_B=1$.
+The fast initial receiving branch is strict; the slower one is donor-limited.
+A donor-limited fast front with density $1/16$ is obtained from
+\begin{equation}
+ \frac{z_f}{h}=5\log(5632/5125)+\log(1025/256). \tag{27}
+\end{equation}
+$k$ is subsequently chosen sufficiently small by the finite-prefix argument;
+no numerical traffic trajectory, terminal size or positive recovery/mismatch
+parameter set is selected. These values are algebraic feasibility evidence.
+
+For the resulting admissible family, T1's storage proof is unchanged:
+$M<k_jb$ and $\dot F_j\leq C(v)$ keep entrance vacancy positive.
+Early-merged mass enters A once. With remaining upstream occupied length
+$s_{\rm occ}$ and initial total density $\rho_0$,
+\begin{equation}
+ s_{\rm occ}\rho_0+\sum_jN_j+\sum_jY_j=M,\qquad
+ J(v)=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E)dt. \tag{28}
+\end{equation}
+Retiring recovery information is not removing traffic. Post-line influence
+is not post-line vehicle-time. Known empty memory and initial continuing
+symmetry retain conditional total-plus-ending-statistic sufficiency for
+uniquely qualified joined cases. Neither full-lane-state necessity nor a
+positive information/action/gradient result follows.
+
+\textbf{Source boundary.} The isolated point motivation is reused from
+Leclercq et al. (2016), Section 2; O-R and all proofs here are our adaptation
+and deductions. Jin's LTM boundary/node context does not make this a general
+invariant junction. The representative speed, renewal mass, maneuver/recovery
+partition and common-advice response still require physical qualification.
+
+\textbf{Checkpoint OR-Q1.} The bounded J3 candidate-and-analytical-check
+pass is complete. O-R, R-E and S-E-P remain selected. The regular cohort
+advances mathematical coexistence, not applied MP6. Stop for review before
+J4's original-action-range, provenance and information/sensitivity/native
+qualification. Step 3 remains open, Step 4 unopened. No simulator,
+installation, traffic experiment, numerical gradient or optimization ran.
+\end{document}

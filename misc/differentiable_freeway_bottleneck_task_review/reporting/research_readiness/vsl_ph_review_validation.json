@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-15",
+  "status": "Passed documentary, unchanged-contract, PDF and exact symbolic-identity checks",
+  "markdown_files_checked": 28,
+  "local_links_checked": 465,
+  "heading_anchors_checked": 30,
+  "current_file_sha256": {
+    "README.md": "0f9e307f035b0910bbb59d0071f9a4c141558585ff5771eee671fe200ff2334d",
+    "vsl_successor_00_opening_plan.md": "78602126507e1bbbcefd7d852310eaaf78798785588bd83138d467bf31debaa2",
+    "reporting/research_readiness/vsl_step2_model_closure.md": "cbdf7ba5663bd063593001138f7c6b1adde86ff0fb0d28ebe34159465e4adba5",
+    "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md": "aa07e56b8e1a5d10e5fbe0f02455847349ae06dd77920bd3e0516144b9de55c9",
+    "reporting/research_readiness/vsl_step3_validation_ladder_decision.md": "cd48abe3e2b50b544132d6f6e77c69c1da5f1584e7d66af34d16f1ea44a3487e",
+    "reporting/research_readiness/vsl_step3_sumo_work_report.md": "2f77063ebe987b5879a6b52096d0b2b7448ea66c14f227bef944078d72674ea2",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md": "59db0d6b8cf03fbf26a828f25cdaa7092fb6283901fd9fe266d74a780470109b",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md": "3fd65dd8d75ed140e5ee8986dea2c617f5b76ac8caba61395739674dc637b37f",
+    "reporting/research_readiness/vsl_review_progress.md": "43396211f90b2cdd3d9f00340618b9d9893fd176fa16472fcaef268781080dce",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "00aa70a9837a618865dab17565adbf804e131f9efc5e0d644f2cf2cd2b531a09",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md": "fbbf50e886dc7d0f7a1bf49b860e4a417233828e86006d12366849aecab681a6",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "bd6523e19884320bc382eaa16e95a935146351e6cc52b548a80d161a84974c65",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md": "9b8ea21e7799480cb7787aad4f1dae3fa18d4d8f9f8ce2da39e6a3ee23dd6ead",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md": "55452a8b044d2047375de1daa2bfdebd7a8b945d3a665c640de35abf77ef759a",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "0eca927f29aabd84e0b900e5604b01ce62b9affcbf26f4d94411843a72b28f97",
+    "reporting/research_readiness/vsl_step3_reference_qualification_and_final_gate.md": "f5b4e8ec6be5e481a48e83e183cc51ef0ccfc55ccb0705c4f7b0bf768c4e88a1",
+    "reporting/research_readiness/vsl_step3_resumed_review_work_report.md": "967980878906a77fd2b4091246fdf2743f2ce5e0525b26ae3d059ed971774cf7",
+    "reporting/research_readiness/vsl_step3_merge_feedback_and_completion_response.md": "b8b83a558310ea17253b5e7519095581a33d4a034f97f091c646e6cd0abd9188",
+    "reporting/research_readiness/vsl_step3_merge_feedback_response_work_report.md": "f48c149be56f0a7dd3ed16466f3255a222056f04a42e7c3a00fe787b622e79f8",
+    "reporting/research_readiness/vsl_step3_coupled_point_decision.md": "5e596d77d601e137e5371110e5b60c0676b1740767af75b918f09b6c559ece59",
+    "reporting/research_readiness/vsl_cp_qualification_review_plan.md": "f46ddb693b75e6af2d8890fa08d304847b76b7911cefda53f1ced9629b9732e6",
+    "reporting/research_readiness/vsl_cp_first_findings_and_gate.md": "98030b0cfa6ddf8bb12e7da81d1c53056b8053ecc89134b7c2e2b01b2f426b23",
+    "extraction/research_readiness/vsl_cp_source_and_interface_audit.md": "50610ef7de80e151bae922a6cc52c689777aaa0b27ec6fedfa41e0956e54c7b7",
+    "reporting/research_readiness/vsl_cp_opening_work_report.md": "8f02b90d429b6a6170e48d61fc25f5cd22ebe80558fc617e2b7e02ba474b994f",
+    "reporting/research_readiness/vsl_ph_selection_and_scope.md": "2f604a74bf43c3ae44c5ff39e2437d7a784c1618006db42e0e954aa6656def1c",
+    "reporting/research_readiness/vsl_ph_recovery_work_findings_and_gate.md": "16304f3979ebbf6b7abb591dea555afa0c0d4271eef85e6fb22a20c80131562c",
+    "extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md": "100480147a5669249a64965bfce60d1edaace719bbdb2ba2458ea25b1fbbb81a",
+    "reporting/research_readiness/vsl_ph_work_report.md": "4f95ff2e563bd089619a7bc4d1c5d67a7248400b14028eef10fcef575551dc21",
+    "synthesis/research_readiness/vsl_ph_recovery_work_contract.tex": "4a3a4af169bc951f6aea56e0dcbbdff70344ad921726c8172cf6d217105e4f68",
+    "synthesis/research_readiness/vsl_ph_recovery_work_contract.pdf": "be29c46651c043720131a5ad23e9469884b6b6e21b6bd2b836669348bb8240b1",
+    "reporting/research_readiness/vsl_ph_recovery_work_contract_build.log": "77bf2e1dab6b8525496d15bec6a001579d493d49e520fb839ae86fa63d4d5ca7"
+  },
+  "accepted_h1_t1_sha256_unchanged": {
+    "vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "cp_interface_foundations_unchanged": {
+    "synthesis/research_readiness/vsl_cp_interface_foundations.tex": "a05b7be3118b2c659572caf33f4b680bebc93d66c82ea0186c188c9d84cd473e",
+    "synthesis/research_readiness/vsl_cp_interface_foundations.pdf": "8bd7cc2edb2435986e648afe19be939e37f201b03662c73cba37eb98d57a2869"
+  },
+  "pdf": {
+    "pages": 8,
+    "bytes": 188361,
+    "strict_parse": true,
+    "text_checks": true,
+    "font_subtypes": {
+      "/Type1": 72
+    },
+    "overflow_duplicate_or_rerun_warnings": false,
+    "raster_visual_inspection": false
+  },
+  "exact_symbolic_identities": [
+    "neutral_speed_inverse",
+    "backward_wave_age_inverse",
+    "isolated_cumulative_derivative",
+    "loss_at_zero_age",
+    "neutral_at_recovery_horizon",
+    "work_change_of_variable",
+    "integrated_work",
+    "profile_derivative",
+    "stopped_prototype_is_finite"
+  ],
+  "versions": {
+    "pypdf": "6.15.0",
+    "sympy": "1.14.0"
+  },
+  "cp_d1": "Closed by user selection of P-H; P-E retained as strong simpler rival",
+  "cp_d2": "Open; exact conditional recovery-work candidate delivered, not approved",
+  "analytical_pass": "Candidate formulation and analytical checks complete at VSL-CP-G2",
+  "s3_m1_m2": "Closed; accepted ladder, point location and local completion unchanged",
+  "step_3": "Open; terminal-law confirmation and dependent action/sensitivity/SUMO evidence remain",
+  "step_4": "Unopened",
+  "traffic_experiments": false,
+  "simulator_code_or_network_build": false,
+  "installation_or_binary_probe": false,
+  "gradient_or_optimisation_execution": false,
+  "parameter_fit": false,
+  "limits": [
+    "Fixed recovery prototype and additive loss-history overlap are proposed constitutive assumptions.",
+    "Analytical uniqueness/clearance/MP6 arguments are not mechanically proved by this document checker.",
+    "The symbolic family is not a calibrated traffic regime or evidence of an interior optimum.",
+    "No native reference admission, action split, derivative computation or useful-gradient result."
+  ]
+}

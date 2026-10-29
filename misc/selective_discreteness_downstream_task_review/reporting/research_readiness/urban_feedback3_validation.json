@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-22",
+  "task": "Urban feedback 3 and allocation-order clarification",
+  "status": "pass_with_outside_changes_recorded",
+  "snapshot": "/tmp/urban_feedback3_before_20261022.json",
+  "snapshot_files": 717,
+  "declared_existing_files_changed": [
+    "AGENTS.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_categories_1_2_principle_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_B_revision.md",
+    "temp_content/feedback/urban_refinement_feedback.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_feedback3_evidence_notes.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_response.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback3_work_report.md"
+  ],
+  "outside_snapshot_changes": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "missing_snapshot_files": [],
+  "local_links_and_line_targets_checked": 109,
+  "original_14_ids_and_candidate_sets_retained": true,
+  "new_shared_question": "UR-G3-Q1",
+  "question_count": 15,
+  "candidate_count": 31,
+  "classification_and_declared_dependency_edits_verified": true,
+  "agents_written_followup_paragraph_only": true,
+  "feedback_heading_token_only": true,
+  "remaining_questions_collected_in_response": true,
+  "scientific_authorities_and_simulator_unchanged": true,
+  "phase": "Phase B, categories 1\u20132; phase-clock and blocked-front choices open for written discussion",
+  "scientific_runs": "none",
+  "errors": []
+}

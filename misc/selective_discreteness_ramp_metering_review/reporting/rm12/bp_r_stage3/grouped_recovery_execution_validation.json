@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-07",
+  "scope": "methodology-only grouped-state qualification",
+  "status": "pass",
+  "authorization": "M1 approved; bounded pass performed; Q-G open; no G selection",
+  "preserved_existing_files": 305,
+  "documents_checked": 15,
+  "local_links_checked": 253,
+  "static_checks": [
+    {
+      "name": "duplicate_constraint_idempotence",
+      "result": "pass",
+      "identity": "min(c0,c,c)=min(c0,c)"
+    },
+    {
+      "name": "identical_group_weighted_update_algebra",
+      "result": "pass",
+      "limit": "linear multiplicity bookkeeping only; coupled-flow equivalence remains conditional"
+    },
+    {
+      "name": "joint_association_local_input",
+      "result": "pass",
+      "speed_sum_A": "138/5",
+      "speed_sum_B": "27",
+      "difference": "3/5",
+      "limit": "not a joined reference trajectory or control witness"
+    },
+    {
+      "name": "count_mean_position_transport_obstruction",
+      "result": "pass",
+      "initial_count": 2,
+      "shared_initial_mean": "13/2",
+      "next_left_count_A": 2,
+      "next_left_count_B": 1,
+      "limit": "displayed projection only, not all finite summaries"
+    },
+    {
+      "name": "conditional_minimum_enclosure_illustration",
+      "result": "pass",
+      "values": [
+        3,
+        4,
+        8
+      ],
+      "limit": "does not construct bounds for coupled trajectories"
+    },
+    {
+      "name": "common_population_TST_integrand_identity",
+      "result": "pass",
+      "identity": "(I-E)-(I-Eh)=Eh-E",
+      "limit": "full objective still needs certified tails"
+    }
+  ],
+  "pdf_pages": 3,
+  "numbered_equations": 13,
+  "final_latex_log": "clean",
+  "queries": 13,
+  "query_batches": 4,
+  "source_activity_rows": 11,
+  "technical_reads": 6,
+  "retained_unavailable_originals": 2,
+  "environment": {
+    "python": "3.11.9",
+    "sympy": "1.14.0",
+    "pypdf": "6.15.0"
+  },
+  "pdf_sha256": "12200dbcb59b8eb5c561a196e401597de2419419436c6bf90a3d309a28e028a2",
+  "tex_sha256": "614dff6b539c6aa483e0a1f2d2bd4bc4e7b5140560f8dba6c2d3753cf48ae210",
+  "checks_script_sha256": "bf7bb7586765e4bc11899f08d5985e48b3b3d553734f7d56679f9d0919779992",
+  "checks_script_source": "from pathlib import Path\nfrom urllib.parse import unquote\nimport csv\nimport hashlib\nimport json\nimport re\nimport sys\n\nimport pypdf\nimport sympy as sp\n\nroot = Path('/home/zpz/repos/diff_minimal_meso')\nbase = root / 'misc/selective_discreteness_ramp_metering_review'\noutput = base / 'reporting/rm12/bp_r_stage3/grouped_recovery_execution_validation.json'\nsnapshot = json.loads(Path('/tmp/rm12_m1_grouped_recovery_20261007_preservation.json').read_text())\nfor name, expected in snapshot.items():\n    path = root / name\n    assert path.is_file(), f'Preserved file disappeared: {name}'\n    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, f'Preserved file changed: {name}'\n\ndocument_names = [\n    'README.md', 'rm12_30_provisional_four_stage_roadmap.md',\n    'rm12_60_bp_r_stage3_protocol.md', 'rm12_61_bp_r_stage3_interface_continuation.md',\n    'rm12_62_bp_r_stage3_dual_review_arrangement.md', 'rm12_63_bp_r_stage3_event_memory_continuation.md',\n    'rm12_64_bp_r_stage3_grouped_recovery_continuation.md',\n    'reporting/rm12/bp_r_stage3/event_memory_findings_and_gate.md',\n    'reporting/rm12/bp_r_stage3/compact_closure_gate.md',\n    'reporting/rm12/bp_r_stage3/dual_qualification_findings_and_scope_gate.md',\n    'reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md',\n    'synthesis/rm12/bp_r_stage3/grouped_recovery_qualification.md',\n    'extraction/rm12/bp_r_stage3/grouped_recovery_source_audit.md',\n    'discussion/rm12/backtracking_planning_dialogue.md',\n    'reporting/rm12/bp_r_stage3/work_report.md',\n]\nlink_count = 0\nfor name in document_names:\n    path = base / name\n    text = path.read_text()\n    for raw in re.findall(r'\\]\\(([^)\\n]+)\\)', text):\n        target = raw.strip().strip('<>')\n        if '://' in target or target.startswith('#'):\n            continue\n        target = unquote(target.split('#', 1)[0])\n        destination = (path.parent / target).resolve()\n        assert destination.is_file() or destination.is_dir() or destination == output, (name, raw)\n        link_count += 1\n\nfor name in document_names[:11]:\n    assert 'Q-G' in (base / name).read_text(), f'Missing current successor: {name}'\nfacade = (base / 'reporting/rm12/bp_r_stage3/grouped_recovery_findings_and_gate.md').read_text()\nassert 'M1 is approved and its bounded pass is performed.' in facade\nassert 'G1, G2 and G3 are unselected.' in facade\nassert 'Stage 4 and experiments remain unopened.' in facade\nassert facade.count('**Pros:**') == 3 and facade.count('**Cons:**') == 3\nassert facade.count('**Dependency/consequence:**') == 3\n\nchecks = []\nc0, c, m, z = sp.symbols('c0 c m z', real=True)\nassert sp.Min(c0, c, c) == sp.Min(c0, c)\nchecks.append({'name': 'duplicate_constraint_idempotence', 'result': 'pass', 'identity': 'min(c0,c,c)=min(c0,c)'})\nassert sp.expand(m * (z + 1) - (m * z + m)) == 0\nchecks.append({'name': 'identical_group_weighted_update_algebra', 'result': 'pass', 'limit': 'linear multiplicity bookkeeping only; coupled-flow equivalence remains conditional'})\n\nR = sp.Rational\ndesired = lambda v: R(3) + R(9, 10) * v\nsum_a = sp.Min(desired(R(10)), R(15)) + sp.Min(desired(R(14)), R(20))\nsum_b = sp.Min(desired(R(14)), R(15)) + sp.Min(desired(R(10)), R(20))\nassert sum_a == R(138, 5) and sum_b == R(27)\nassert sum_a - sum_b == R(3, 5)\nchecks.append({'name': 'joint_association_local_input', 'result': 'pass', 'speed_sum_A': str(sum_a), 'speed_sum_B': str(sum_b), 'difference': str(sum_a - sum_b), 'limit': 'not a joined reference trajectory or control witness'})\n\npositions_a = [R(11, 2), R(15, 2)]\npositions_b = [R(9, 2), R(17, 2)]\nassert sum(positions_a) == sum(positions_b) == R(13)\ncount_a = sum(int(bool(0 <= x + 2 < 10)) for x in positions_a)\ncount_b = sum(int(bool(0 <= x + 2 < 10)) for x in positions_b)\nassert (count_a, count_b) == (2, 1)\nchecks.append({'name': 'count_mean_position_transport_obstruction', 'result': 'pass', 'initial_count': 2, 'shared_initial_mean': '13/2', 'next_left_count_A': count_a, 'next_left_count_B': count_b, 'limit': 'displayed projection only, not all finite summaries'})\n\nlower = min(9, 3)\nexact = min(9, 4, 8)\nupper = min(9, 8)\nassert lower <= exact <= upper\nchecks.append({'name': 'conditional_minimum_enclosure_illustration', 'result': 'pass', 'values': [lower, exact, upper], 'limit': 'does not construct bounds for coupled trajectories'})\nI, E, Eh = sp.symbols('I E Eh', real=True)\nassert sp.expand((I - E) - (I - Eh) - (Eh - E)) == 0\nchecks.append({'name': 'common_population_TST_integrand_identity', 'result': 'pass', 'identity': '(I-E)-(I-Eh)=Eh-E', 'limit': 'full objective still needs certified tails'})\n\nwith (base / 'search/rm12_bp_r_stage3_grouped_recovery_queries.csv').open(newline='') as f:\n    queries = list(csv.DictReader(f))\nassert len(queries) == 13\nassert {row['batch'] for row in queries} == {'1', '2', '3', '4'}\nwith (base / 'screening/rm12_bp_r_stage3_grouped_recovery_sources.csv').open(newline='') as f:\n    sources = list(csv.DictReader(f))\nassert len(sources) == 11\nassert sum(row['activity'].startswith('technical') for row in sources) == 6\nassert sum(row['activity'] == 'retained unavailable' for row in sources) == 2\n\npdf_path = base / 'synthesis/rm12/bp_r_stage3/grouped_recovery_math.pdf'\npdf = pypdf.PdfReader(pdf_path)\npdf_text = '\\n'.join(page.extract_text() for page in pdf.pages)\nassert len(pdf.pages) == 3\nnumbers = {int(s) for s in re.findall(r'\\((\\d+)\\)', pdf_text) if int(s) < 50}\nassert set(range(1, 14)) <= numbers, numbers\nassert 'Disposition' in pdf_text and 'Source locations' in pdf_text\nlog = Path('/tmp/rm12_grouped_recovery_tex/grouped_recovery_math.log').read_text()\nassert not re.search(r'LaTeX Warning|Package .* Warning|Overfull|Underfull|^!', log, re.M)\n\ndata = {\n    'date': '2026-10-07', 'scope': 'methodology-only grouped-state qualification',\n    'status': 'pass', 'authorization': 'M1 approved; bounded pass performed; Q-G open; no G selection',\n    'preserved_existing_files': len(snapshot), 'documents_checked': len(document_names),\n    'local_links_checked': link_count, 'static_checks': checks,\n    'pdf_pages': len(pdf.pages), 'numbered_equations': 13, 'final_latex_log': 'clean',\n    'queries': len(queries), 'query_batches': 4, 'source_activity_rows': len(sources),\n    'technical_reads': 6, 'retained_unavailable_originals': 2,\n    'environment': {'python': sys.version.split()[0], 'sympy': sp.__version__, 'pypdf': pypdf.__version__},\n    'pdf_sha256': hashlib.sha256(pdf_path.read_bytes()).hexdigest(),\n    'tex_sha256': hashlib.sha256(pdf_path.with_suffix('.tex').read_bytes()).hexdigest(),\n    'checks_script_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),\n    'checks_script_source': Path(__file__).read_text(),\n    'traffic_simulation': False, 'numerical_derivative_or_optimizer': False,\n    'new_source_download': False, 'package_or_project_change': False,\n    'limits': 'No coupled-solver correctness, compression guarantee, common-control witness, full-TST advantage or useful-gradient claim.'\n}\nwith output.open('x') as f:\n    json.dump(data, f, indent=2)\nassert output.is_file()\nprint(f'PASS: {len(snapshot)} preserved files; {len(document_names)} documents/{link_count} links; {len(checks)} static checks; 3-page/13-equation PDF; Q-G open.')\n",
+  "traffic_simulation": false,
+  "numerical_derivative_or_optimizer": false,
+  "new_source_download": false,
+  "package_or_project_change": false,
+  "limits": "No coupled-solver correctness, compression guarantee, common-control witness, full-TST advantage or useful-gradient claim."
+}

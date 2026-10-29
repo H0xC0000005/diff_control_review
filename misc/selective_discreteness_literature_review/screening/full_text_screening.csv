@@ -1,0 +1,32 @@
+record_id,decision,role,exclusion_code,rationale,reviewer,date
+R0001,include,direct,,Foundational LTM definition and continuous cumulative-flow propagation,Codex,2026-09-07
+R0002,include,direct,,Generic first-order node requirements and algorithms define inherited node semantics,Codex,2026-09-07
+R0003,include,nearest,,Multi-commodity high-dimensional node model with parameterized partial FIFO,Codex,2026-09-07
+R0004,include,direct,,Continuum approximation of on-off signals supplies the fixed-time signal lineage,Codex,2026-09-07
+R0005,include,nearest,,Cycle-averaged signal node with explicit boundary and stage consistency,Codex,2026-09-07
+R0006,include,nearest,,Endogenous lane allocation and movement-based FIFO without lane-expanded routes,Codex,2026-09-07
+R0007,include,nearest,,LTM modified to move integer vehicle units with persistent individual identity,Codex,2026-09-07
+R0008,include,nearest,,Turn-specific queue-inflow state and spillback address homogeneous-link information loss,Codex,2026-09-07
+R0009,include,nearest,,Lane-group physical queues shared-lane interactions blockage and signal optimization,Codex,2026-09-07
+R0010,include,direct,,Queue-based mesoscopic DTA supplies a mature efficient mesoscopic comparator,Codex,2026-09-07
+R0011,include,direct,,Individual-vehicle mesoscopic signal-plan model supplies a task/model-class comparator,Codex,2026-09-07
+R0012,include,nearest,,Differentiable agent simulator smooths discrete logic and performs signal optimization,Codex,2026-09-07
+R0013,include,nearest,,Differentiable micro-macro hybrid and conversion mechanism,Codex,2026-09-07
+R0014,include,nearest,,Differentiable continuous LTM and route-choice computational graph,Codex,2026-09-07
+R0015,include,direct,,Aggregate link queue provides a low-state traffic-flow baseline,Codex,2026-09-07
+R0016,include,direct,,Finite lane/short-pocket overflow incorporated in fixed-time signal optimization,Codex,2026-09-07
+R0017,include,direct,,Discrete single-vehicle packets horizontal queues spillback and metaheuristic signal control,Codex,2026-09-07
+R0018,include,contextual,,MESCOP-based optimization of complex actuated plans demonstrates task maturity,Codex,2026-09-07
+R0019,include,contextual,,Tests sensitivity of model-based signal control to aggregation and prediction errors,Codex,2026-09-07
+R0020,include,contextual,,Queue-growth equalization supplies an oversaturated signal-task comparator,Codex,2026-09-07
+R0021,include,nearest,,Event-based LIFT uses vehicles/events backward-traveling spaces FIFO and micro comparison,Codex,2026-09-07
+R0022,include,nearest,,Distinct discrete-time mesoscopic LTM alternative to SUMO with backward spaces,Codex,2026-09-07
+R0023,include,contextual,,Trajectory-based calibration of a mesoscopic model informs validation and inverse-task evidence,Codex,2026-09-07
+R0024,include,contextual_secondary,,Independent systematic map and classification of 48 node-model studies,Codex,2026-09-07
+R0025,include,nearest,,Directional turning-lane physical queues with lane-level FIFO,Codex,2026-09-07
+R0026,include,direct,,Continuum signal extension covers offsets spillback dedicated lanes and multiple phases,Codex,2026-09-07
+R0027,include,nearest,,Continuous multi-commodity Link-Node CTM and commodity-aware MIMO node,Codex,2026-09-07
+R0028,include,direct,,Behavior-derived spillback node capacity allocation and physical-queue comparison,Codex,2026-09-07
+R0029,include,contextual,,Differentiable microscopic IDM used for a traffic-aware driving objective,Codex,2026-09-07
+R0030,include,contextual,,Parallel differentiable IDM supports trajectory calibration reconstruction and prediction,Codex,2026-09-07
+R0032,include,direct,,Runtime-changing micro-macro representation is early dynamic hybrid prior art,Codex,2026-09-07

@@ -1,0 +1,1372 @@
+
+
+===== PDF PAGE 1 =====
+
+IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025 16391
+Hierarchical Predictive Control of Network Traffic
+Signals Using Link Transmission Model With
+Queue Dynamics
+Lei Wei
+ , Konstantinos Ampountolas
+ , Member, IEEE, Angelika Hirrle,
+and Meng Wang
+ , Senior Member, IEEE
+Abstract— Network signal control is an effective way to mit-
+igate traffic congestion. However, most network signal control
+methods ignore the risk of queue spillback. Although local and
+decentralized control methods have the potential to address
+spillback, their performance at the system/network level is not
+guaranteed, making it challenging to achieve the global optimum.
+This study proposes a novel hierarchical model predictive control
+(MPC) approach that utilizes the link transmission model (LTM)
+with queue transmission at both road segment and turn levels
+to optimize traffic signals for road networks. At the network
+level, the controller employs a state-of-the-art LTM framework
+that can describe segment-level flow dynamics and uses quadratic
+programming to determine the effective fractions of green time
+for network throughput maximization. The network decisions of
+green time fractions are sent to the local layer as a reference.
+The local layer builds on a refined LTM with turn-level queue
+transmission and formulates a nonlinear programming problem
+to track the reference to ensure that the optimal network decision
+is realized at the individual intersections while eliminating
+potential spillback. Simulation experiments on both an arterial
+and a grid network are conducted to verify the performance
+of the proposed approach. The results reveal that the proposed
+MPC leads to substantial improvements in terms of throughput
+and queue length, especially in oversaturated conditions, and is
+robust against demand prediction errors.
+Index Terms— Model predictive control, traffic signal con-
+trol, link transmission model, macroscopic traffic flow, queue
+spillback.
+I. I NTRODUCTION
+T
+RAFFIC
+congestion in large-scale urban road networks
+leads to excessive economic losses and emissions. Among
+many measures to deal with urban congestion, traffic sig-
+nal control has been proven to be a cost-effective solution
+[1], [2]. However, signal control for urban road networks
+faces significant challenges due to the complex congestion
+phenomena, notably when spillback occurs [3]. Moreover,
+as the spatial or temporal scale of the network expands, signal
+Received 16 August 2024; revised 17 February 2025 and 7 May 2025;
+accepted 7 May 2025. Date of publication 22 May 2025; date of current
+version 21 October 2025. The Associate Editor for this article was R.
+Malekian. (Corresponding author: Meng Wang.)
+Lei Wei, Angelika Hirrle, and Meng Wang are with the Chair of Traffic
+Process Automation, Institute of Traffic Telematics, Technische Univer-
+sität Dresden, 01069 Dresden, Germany (e-mail: lei.wei@tu-dresden.de;
+angelika.hirrle@tu-dresden.de; meng.wang@tu-dresden.de).
+Konstantinos Ampountolas is with the Automatic Control and Autonomous
+Systems Laboratory, Department of Mechanical Engineering, University of
+Thessaly, 38334 V olos, Greece (e-mail: k.ampountolas@uth.gr).
+Digital Object Identifier 10.1109/TITS.2025.3568869
+control involves an exponentially growing number of state
+and decision variables. Searching optimal solutions for such
+high-dimensional problems is computationally prohibitive [4].
+Therefore, the development of effective signal control schemes
+to mitigate traffic congestion in urban road networks is still
+much needed.
+A. Related Work
+Among the network-wide traffic control, researchers and
+traffic engineers have explored various modeling and opti-
+mization methods, which can be broadly divided into three
+categories based on the control architecture: centralized, dis-
+tributed, and hierarchical.
+Centralized traffic control involves a control center that
+manages intersections across an entire network or a sub-
+stantial portion of it. Benefits of centralized control in
+reducing congestion and externalities have been shown in
+literature, e.g., perimeter control using macroscopic funda-
+mental diagrams (MFDs) [1], [5], store-and-forward modeling
+paradigm-based network-wide traffic signal control [6], [7],
+[8] and its extension to multi-commodity traffic signal control
+in the presence of connected vehicles [9]. However, cen-
+tralized real-time traffic signal control is only applicable to
+relatively small-scale networks due to the complexity of the
+involved optimization problem. Moreover, large-scale road
+networks using centralized control require a high-level infras-
+tructure investment and maintenance, and and is vulnerable
+to subsystem failures [10], [11]. Distributed control systems
+allow individual intersections to make independent control
+decisions based on the local conditions, e.g., max pressure
+or back pressure-based methods [12], [13], [14], but these
+methods face challenges in achieving network-wide optimiza-
+tion because limited coordination can be achieved among
+intersections. Hierarchical control offers a balance between
+centralized control’s holistic view and coordination capabilities
+and distributed control’s scalability, which has emerged as a
+promising choice for improving large-scale network perfor-
+mance. In this framework, the controlled systems are organized
+into hierarchies, with lower-level controllers making decisions
+for local intersections based on the local conditions and higher-
+level controllers coordinating and optimizing network traffic
+across intersections. The PRODYN [15] and SCATS [16]
+are typical bi-level approaches that have been successfully
+1558-0016 © 2025 IEEE. All rights reserved, including rights for text and data mining, and training of artificial intelligence
+and similar technologies. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 2 =====
+
+16392 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+implemented to coordinate the signals across the road network.
+Unfortunately, they are not suitable for oversaturated traffic
+conditions due to the rapidly changing flow operation and the
+false estimation or prediction of flow parameters (e.g., arrival
+rate) [6].
+Traffic flow models have been proven important in designing
+and testing network signal control strategies, especially model-
+based strategies such as model predictive control (MPC)
+[8], [17], [18], [19], [20]. The MPC-based network control
+methods usually used macroscopic traffic flow models to
+formulate the network flow propagation, and many existing
+studies rely on the MFDs [1], [17]. The MFDs-based meth-
+ods assume that the traffic state within a (sub-)network is
+homogeneous [21], [22], [23], [24], but this may not always
+hold for congested traffic states, especially under oversaturated
+conditions. Another group of studies used cell transmission
+models (CTMs) that divide a road segment (RS) into some
+spatial cells to formulate the flow dynamics, but the computa-
+tional complexity caused by the sophisticated spatiotemporal
+discretization poses challenges in terms of scalability and
+real-time implementation in large networks [19], [25]. This
+is particularly the case in oversaturated conditions where we
+need to trace the queue development and spillback. Employing
+CTMs to trace queue will entail fine discretization of road seg-
+ments, resulting in excessive computational overheads (more
+road cells involved in the optimization problem) [26], [27].
+van de Weg et al. [19], [25] have used standard link
+transmission models (LTMs) as the prediction model for
+network traffic control. The standard LTM does not explicitly
+model turn-level queue dynamics within the road. Instead,
+it focuses on calculating aggregated inflows and outflows at the
+upstream and downstream boundaries of each link. Although
+the standard LTM can estimate vehicle accumulation within
+a link over time, this is not equivalent to queue formation.
+In congested conditions, accumulation includes both queued
+vehicles and those still moving upstream of the queue. The
+queue density typically varies between critical density and jam
+density [27]. Therefore, the standard LTM, which assumes
+only a constant jam density, is less capable of estimating
+the varying queue density and queue length within the link.
+Moreover, they treat traffic as a fluid flowing along the road,
+without distinguishing between different turning movements
+(e.g., left, right, or straight). Wei et al. [28] formulates a
+link-based flow model with turn-level queue transmission to
+simulate traffic flow propagation and queue dynamics. The
+queue length is crucial for measuring signal control perfor-
+mance [29]. However, their study only focused on model
+development and verification.
+With the development of machine learning, intelligent con-
+trol methods have gained considerable attention in signal
+control. Model-free deep learning/reinforcement learning-
+based approaches are used to train the agent for signal
+control scheme [30], [31], [32]. Zhou et al. [33] introduced
+a novel distributed deep reinforcement learning method for
+the network-wide signal control coordination, reducing com-
+munication overhead while ensuring control collaboration in
+reducing queue length. Ren et al. [34] introduces multi-agent
+coordinated policy optimization (MACoPO), a coordination
+algorithm based on multi-agent RL, for multi-intersection sig-
+nal control. While these data-driven model-free signal control
+methods have shown the potential to improve traffic efficiency
+without the need for physical models, the interpretability of
+the controller is limited and safety constraints are difficult to
+address, raising concerns about trust and accountability in road
+environments. There is still a need to develop advanced model-
+based control methods.
+B. Contributions
+This study proposed a hierarchical MPC framework using
+LTM with queue transmission (MPC-Q) to optimize traffic
+signal for urban networks.The main contributions of this study
+are summarized as follows:
+Firstly, this study extends the general link-based MPC
+framework to involve turn-level queue dynamics. Unlike exist-
+ing link-based MPC methods that only consider aggregated
+flow dynamics at the segment level, the proposed MPC incor-
+porates flow dynamics and queue information at both the
+segment and turn levels, enabling fine-grained signal control
+optimization.
+Secondly, compared to existing link-based MPC methods,
+this study proposes a hierarchical control structure that allows
+modular design of the two layers at different spatial-temporal
+scales to adapt to real-time changes in turn-level queue lengths
+at local intersections, while keeping the property to seek
+system optimum over a long prediction horizon. This design
+enables the addition of turn-level queue transmission with
+computational tractability.
+Specifically, an upper-layer network controller predicts net-
+work flow propagation with segment-level aggregated flow
+dynamics and determines the optimal total fraction of green
+time for all turning movements of an approach. The objectives
+of the network controller are to maximize the network through-
+put and minimize the oscillations in the signal plan. The
+optimal green time fraction of an approach is sent to a lower-
+layer local intersection controller as the reference trajectory.
+The local layer predicts the turn-level queue length dynamics
+for each turning movement in an approach and determines the
+turn-level optimal fraction of green time. The objective of the
+local layer is to minimize the tracking error and queue length.
+Experiments on the arterial and grid network are performed
+to demonstrate the performance of the proposed approach.
+The rest of the paper is organized as follows. Section II-A
+provides the framework of the proposed MPC-Q. Then, Sec-
+tions II-B and II-C formulate the proposed MPC-Q in detail,
+in which the two-layer controller design is discussed explicitly.
+Section III illustrates the numerical experiments in different
+scenarios and compares our proposed method with the existing
+methods to demonstrate the superiority of our method.
+II. F ORMULATION OF THE HIERARCHICAL MPC U SING
+LTM W ITH QUEUE DYNAMICS
+The MPC-Q proposed in this study employs the LTM
+with queue transmission to optimize traffic signals for urban
+networks. This section first presents the framework of the
+proposed MPC-Q. Then, it discusses the concept of the LTM
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 3 =====
+
+WEI et al.: HIERARCHICAL PREDICTIVE CONTROL OF NETWORK TRAFFIC SIGNALS 16393
+TABLE I
+NOMENCLATURE
+with queue transmission to formulate the flow dynamics in
+the network. Finally, the controller design for the network
+and local layers of the MPC-Q is discussed in detail. Table I
+summarizes the description of the notations used in this study.
+A. Framework of the MPC-Q
+The proposed framework follows a hierarchical model pre-
+dictive control structure with a network layer residing on top of
+a local layer as shown in Fig. 1. The network layer predicts the
+flow propagation in the considered network over a prediction
+horizon Tn and decides on the optimal green time fraction
+b =
+[
+bseg
+1 , . . . ,bseg
+m
+]
+for each of the m road segments. The
+control objective of the network layer is to maximize network
+throughput and minimize oscillations in the signal plan. The
+LTM in this layer is able to capture flow dynamics without
+distinguishing the traffic states of different turning directions
+in a road segment.
+The optimal green time fraction is sent to the local layer
+as a reference point. The local layer predicts the queue
+transmission for different turning movements at a shorter
+horizon Tl < Tn and tracks the reference optimal green time
+fraction by optimally allocating the green time to different
+turning movements of a single intersection. The objective of
+the local layer is to decrease turn-level queue lengths at local
+intersections while maintaining network throughput optimized
+by the network layer.
+We assume the network layer to receive segment-level
+inflow and outflow estimates as well as demand prediction,
+and the local controller receives turn-level inflow, queue inflow
+and outflow from a state estimation and prediction module.
+B. Traffic Flow Dynamics
+The road network is represented by a directed graph, which
+contains a set of road segments 5 = 5O ∪5L connected by a
+set of nodes, where 5O is the set of fictitious road segments at
+the origins that keep the demand; 5L is the set of general road
+segments with multiple turning directions and 5O ∩ 5L = ∅.
+It is assumed that the through and right-turn directions share
+the same lane, but our model can be easily extended to other
+lane configurations due to its link-based formulation. A road
+segment i of length Li, combined with the adjacent upstream
+and downstream intersections, is divided into LT and TRT
+directions in this study. We assumed that the vehicle turning
+rates on each road segment are known.
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 4 =====
+
+16394 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+Fig. 1. Hierarchical framework of the proposed MPC-Q.
+b =
+[
+bseg
+1 , . . . ,bseg
+m
+]
+is the set of segment-level effective fractions of
+green time for all m road segments in the network; bi =
+[
+bLT
+i , bTRT
+i
+]
+is
+the set of turn-level effective fractions of green time for left-turn (LT) and
+through/right-turn (TRT) directions of road segment i, respectively. Note
+that the time index k is omitted from notations, but all the variables are
+time-dependent.
+Fig. 2. Illustration of flow dynamics determined by the LTM with queue
+transmission. An road segment with length Li is, for each in turning direction
+µ, divided into the free-flow and queueing parts of lengths L f,µ(k) and
+Lq,µ(k), respectively.
+We are now aiming at deriving state space representations
+for both, the local and the network layer. In the local layer, the
+flow dynamics are formulated in terms of cumulative turn-level
+queue inflow N que
+i,µ , cumulative link inflow N in
+i,µ and outflow
+N out
+i,µ as shown in Fig. 2 which we will derive as follows:
+1) Turn-Level Queue Inflow N que
+i,µ : For the queue inflow
+estimation, the queue density ρque
+µ (k) at time step k is firstly
+calculated based on the relationship between the flow rate and
+density, which can be characterized by a triangular fundamen-
+tal diagram [27]:
+ρque
+µ (k) = ρc
+µ +
+qc
+µ − qout
+i,µ (k)
+qcµ
+(
+ρ jam
+µ − ρc
+µ
+)
+, (1)
+where ρ jam
+µ represents the jam density of µ; ρc
+µ and qc
+µ
+represent the critical density and flow rate; qout
+i,µ (k) represents
+the link outflow rate of µ at k. The lengths of the queueing
+part and the free-flow part of µ at k is given by:
+Lq,µ(k) =
+(
+N que
+i,µ (k) − N out
+i,µ (k)
+)
+/ρque
+µ (k), (2)
+L f,µ(k) = Li − Lq,µ(k), (3)
+Assuming that the free-flow speed v f,µ is constant, the free-
+flow travel time can be calculated:
+t f,µ = L f,µ(k)/v f,µ. (4)
+Since the decisions in signal control are implemented in
+a discrete manner, the flow dynamics need to be represented
+using discrete time intervals. Here, 1t represents the sampling
+time interval:
+n f,µ = ⌈tf,µ/1t⌉, (5)
+γ f,µ = n f,µ − t f,µ/1t. (6)
+where n f,µ is the number of sampling time steps; γ f represents
+the residual of sampling time steps. Since the mathematical
+operator ⌈·⌉ rounds the argument of the function to the nearest
+integer that is greater than the argument of the function, γ f is
+thus in the range of [0,1]. Hence, the cumulative queue inflow
+of i is estimated by:
+Nque
+i (k) = (1 − γ f )Nin
+i (k − n f )
++ γ f Nin
+i (k + 1 − n f ), (7)
+where Nque
+i (k) = [ N que
+i,LT (k), N que
+i,TRT (k)]⊤; Nin
+i (k) =
+[N in
+i,LT (k), N in
+i,TRT (k)]⊤; γ f = [γ f,LT, γf,TRT]⊤; n f =
+[n f,LT, n f,TRT]⊤. Note that to simplify the formulation, we use
+a−[b, c]⊤ instead of [a−b, a−c]⊤; and [a, b]⊤[c, d]⊤ instead
+of [ac, bd]⊤.
+If γ f = [0,0]⊤, the formulation of Eq. (7) can be simplified
+as the following:
+Nque
+i (k) = Nin
+i
+(
+k − n f
+)
+(8)
+Consequently, the cumulative queue inflow at sampling time
+step k equals the cumulative link inflow at the n f -th step
+before k as shown in Eq. (8). This indicates that the link inflow
+will be transferred to queue inflow in the future.
+2) Turn-Level Link Inflow N in
+i,µ: Considering a wave that
+propagates the outflow change upstream along the link, the
+maximum link inflow N in ,max
+i,sh ,µ with the shockwave traveling
+can be estimated [25]:
+Nin ,max
+i,sh (k) = γ sh Nout
+i (k + 1 − nsh )
++ (1 − γ sh )Nout
+i (k − nsh ), (9)
+where Nin ,max
+i,sh (k) = [ N in ,max
+i,sh ,LT (k), N in ,max
+i,sh ,TRT (k)]⊤;
+γ sh = [γsh ,LT, γsh ,TRT]⊤; Nout
+i (k) = [N out
+i,LT(k), N out
+i,TRT(k)]⊤;
+nsh = [nsh ,LT, nsh ,TRT]⊤; nsh ,µ = ⌈(Lq,µ(k)/vsh )/1t⌉
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 5 =====
+
+WEI et al.: HIERARCHICAL PREDICTIVE CONTROL OF NETWORK TRAFFIC SIGNALS 16395
+is the constant number of sampling instants; γsh ,µ =
+nsh ,µ − (Lq,µ(k)/vsh )/1t is the fraction of sampling instants.
+The turn-leve link inflow limit N in ,max
+i,µ (k + 1) at k + 1
+includes the outflow-related released capacity and the max-
+imum number of stored vehicles on the link, which can be
+estimated as follows:
+N in ,max
+i,µ (k + 1) = N in ,max
+i,sh ,µ (k + 1)
++ ρq,µ(k)Lq,µ(k) + ρ jam
+µ L f,µ(k). (10)
+Therefore, the turn-level link inflow of road segment i from
+the links and origins directly upstream of i can be updated by
+Eq. (11), shown at the bottom of the next page, and should
+satisfy the constraint as shown in Eq. (12), at the bottom of
+the next page, where qout
+j,i (k) is link outflow rate from road
+segment j to i that will be formulated in the following; ei,µ is
+the turning rate; din
+i,µ(k) is the input demand; i up is the set of
+road segments directly upstream road segment i, respectively.
+3) Turn-Level Link Outflow N out
+i,µ : The turn-level maximum
+potential outflow N out ,max
+i,µ (k) depends on the link inflow and
+can be estimated as follows:
+Nout ,max
+i (k) = γ L Nin
+i (k + 1 − nL )
++ (1 − γ L )Nin
+i (k − nL ), (15)
+where Nout ,max
+i (k) = [N out ,max
+i,LT (k), N out ,max
+i,TRT (k)]⊤; γ L =
+[γL ,LT, γL ,TRT]⊤; nL = [n L ,LT, nL ,TRT]⊤; nL ,µ =
+⌈(Li /v f,µ)1t⌉ is the constant number of sampling instants;
+γL ,µ = nL ,µ(k) − (Li /v f,µ)1t is the fraction of sampling
+instants.
+If the downstream of road segment i has available supply,
+the turn-level desired cumulative outflow N out ,des
+i,µ (k) of i at
+time step k limited by the green time and its link inflow
+that quantified by N out ,max
+i,µ (k). Thus, the turn-level desired
+cumulative outflow N out ,des
+i,µ (k) is estimated by:
+Nout ,des
+i (k) =min
+(
+Nout
+i (k − 1) + qs
+i bi (k) 1t, Nout ,max
+i (k)
+)
+,
+(16)
+where Nout ,des
+i (k) = [N out ,des
+i,LT (k), N out ,des
+i,TRT (k)]⊤; qs
+i =
+[qs
+i,LT, qs
+i,TRT]⊤ is the saturation flow rate; bi (k) =
+[bLT
+i (k), bTRT
+i (k)]⊤; bµ
+i (k) is the turn-level effective fraction of
+green time of i at k, and bµ
+i (k) ∈ [0,1]; The link outflow of i
+can thus be updated by Eq. (13), shown at the bottom of the
+next page, and should satisfy the constraint as shown in
+Eq. (14), at the bottom of the next page, where qcap is the
+capacity of the origin.
+After having derived the local layer dynamics, we are now
+in the position to conclude quickly the network layer dynamics
+as follows:
+N in
+i,∑(k) =
+∑
+µ
+N in
+i,µ(k)
+=
+∑
+µ
+N in
+i,µ (k − 1) +
+∑
+µ
+qin
+i,µ(k)1t, (17)
+where N in
+i,∑(k) is the total inflow of road segmenti at time step
+k that can be calculated based on the turn-level link inflows;
+qin
+i,µ(k) = (N in
+i,µ(k) − N in
+i,µ(k −1))/1t is the link inflow rate at
+k. Similarly, the total outflow of road segment i at time step
+k can be calculated as follows:
+N out
+i,∑(k) =
+∑
+µ
+N out
+i,µ (k)
+=
+∑
+µ
+N out
+i,µ (k − 1) +
+∑
+µ
+qout
+i,µ (k)1t, (18)
+where qout
+i,µ (k) = (N out
+i,µ (k) − N out
+i,µ (k − 1))/1t is the link
+outflow rate at k.
+After having derived the dynamics in the local layer
+(Eqs. (11)-(14)) and the network layer (Eqs. (17)-(18)), respec-
+tively, we are now able to employ them in the corresponding
+MPC to predict the network flow propagation and turn-level
+queue length changes.
+C. MPC-Q Controller Design
+The extended LTM with queue transmission described in
+the previous section consists of state equations and constraints.
+This section details how these state equations and constraints
+can be included in the MPC so that the network throughput
+can be optimized while decreasing the queue lengths.
+1) Network Layer: The primary objective of the network-
+layer controller is to maximize the network throughput
+while adhering to the flow dynamic equations outlined in
+Section II-B. Maximizing the network throughput can be
+realized by minimizing the total travel time spent [19], [25].
+Existing methods usually take the independent green time at
+each simulation step as a control decision to optimize the travel
+time [19], [20], [25], which fails to guarantee the stability
+of the control plan, resulting in possible large oscillations
+in green time even over a short time interval. To address
+such limitation, this study minimizes the total travel time
+while considering the stability of the control plan, whereby
+formulating a quadratic programming (QP) problem with a
+quadratic objective function by involving the variations in
+decision variables. The objective still can be easily solved by
+any optimization solver, i.e., MATLAB, CPLEX.
+Let 1b (k) be the variation in decision variables between
+successive time steps as follows:
+1b (k) = b (k) − b (k − 1) , (19)
+and b(k) =
+[
+bseg
+1 (k), . . . ,bseg
+m (k)
+]⊤ be the set of system
+control inputs including segment-level green time fractions for
+all road segments in the network.
+The system state is defined as the travel time spent, and
+represented as follows:
+s(k) = [s1(k), s2(k), . . . ,sm(k)]⊤. (26)
+where si (k) =∑
+µ 1t(N in
+i,µ(k) − N out
+i,µ (k)).
+Then, the system state transition function is given by:
+s (k + 1) = s(k) + B(k)b(k) + C(k)din (k). (27)
+Eq. (27) indicates that the system state transition at k+1 relates
+to the current system state s(k) and the external disturbances
+at k caused by the input demands din (k) = [din
+1,LT(k) +
+din
+1,TRT(k), . . . ,din
+m,LT(k) + din
+m,TRT(k)]⊤ and the signal control
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 6 =====
+
+16396 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+b(k). B(k) ∈ Rm×m and C(k) ∈ Rm×m can be easily derived
+by the technical transformation of Eqs. (11), (13) and (26),
+and thus include saturation flow rates, the discrete-time step,
+and turning rates.
+Let Sk ∈ Rω×1 and Uk ∈ Rω×1 be the state and control
+vectors during the prediction horizon, respectively, where ω =
+(Tn +1)m is the number of effective fractions of green time at
+the segment level over the prediction horizon. We can have:
+Sk = [s (k|k), s (k + 1|k), . . . ,s (k + Tn|k)]⊤, (28)
+Uk = [b (k|k), b (k + 1|k), . . . ,b (k + Tn|k)]⊤, (29)
+Sk can also involve the difference between the predicted and
+actual states to ensure control performance in the presence of
+model errors. The idea now is to find an optimal control vector
+Uk to minimize the sum of Sk ∈ Rω×1 over the prediction
+horizon under the given initial system state s(k) considering
+the constraints on flow dynamics and signal timing. We can
+thus formulate the QP-based optimization problem in the
+network layer as shown in Eqs. (20)-(25), at the bottom of
+the page, where i ∈ 5, j ∈ 5O and ∀k ∈ {1, . . . ,Tn}, and the
+state vector Sk is determined by Eqs. (26)-(28); I c represents
+the set of signal phases whose moving directions conflict with
+each other, thus the constraint of Eq. (24) ensures that the
+fraction assignment of green time does not have overlapping
+parts in conflict phases. The variations in green time fractions
+and travel times have different scales. Therefore, this study
+assigns weights Q and R for these two quantities. We just
+set Q = R = diag {1, 1, . . .1}. Thus, the second term of the
+objective, which involves the minimization of the variations
+in green fractions, only takes effect when the first cost term
+of travel time Sk is reduced to the same scale. It should be
+clarified that a quadratic form increases the penalty for larger
+deviations in travel time. For instance, small increases in travel
+time have a smaller impact on the objective function, while
+large increases have a disproportionately larger effect, making
+it easier to find optimal solutions under congested conditions.
+Therefore, our approach transform the conventional node
+model of LTMs into some optimization constraints as defined
+in Eqs. (21)-(23), which allows connecting the road segments
+of the road network in a simple but effective way and facilitates
+the resolution of MPC-Q. It’s worth noting that although some
+MPC methods using LTMs without the node model have been
+proposed [19], [25], these methods still may violate the con-
+straints in Eqs. (21)-(23) due to their inadequate consideration
+of turn-level queue dynamics within the roads.
+2) Local Layer: The outputs of the network-layer controller
+are the optimized segment-level effective fractions of green
+time, as demonstrated in Eq. (20). The control task of the local
+layer is to assign the desired segment-level effective fraction
+of green time to each turning direction of the corresponding
+intersection based on the predicted turn-level queue lengths
+over the horizon Tl. The constraints are determined depending
+on whether the intersection has protected left-turn phases as
+shown in Fig. 3.
+a) Protected left-turn phases exist: Let δ and ¯δ denote
+the incoming road segments from the southern and northern
+directions or western and eastern directions of the intersection,
+respectively. We make the assumption that the green time for
+N in
+i,µ (k + 1) =
+
+
+
+N in
+i,µ(k) +
+∑
+j∈iup
+qout
+j,i (k)ei,µ1t i ∈ 5L
+N in
+i,µ(k) + din
+i,µ(k)1t i ∈ 5O
+(11)
+N in
+i,µ(k + 1) ≤ N in ,max
+i,sh ,µ (k + 1) + ρq,µ(k)Lq,µ(k) + ρ jam
+µ L f,µ(k) (12)
+N out
+i,µ (k + 1) =
+{
+N out
+i,µ (k) + bµ
+i (k) qs
+i,µ1t i ∈ 5L
+N out
+i,µ (k) + bµ
+i (k) qcap 1t i ∈ 5O (13)
+N out
+i,µ (k + 1) ≤
+{
+min(N out
+i,µ (k) + qs
+i,µbµ
+i (k) 1t, N out ,des
+i,µ (k + 1)) i ∈ 5L
+min(N out
+i,µ (k) + qcap bµ
+i (k) 1t, N out ,des
+i,µ (k + 1)) i ∈ 5O (14)
+min
+Uk
+S⊤
+k Q Sk + 1U ⊤
+k R1Uk (20)
+s.t. N in
+i,6(k + 1) −
+(
+N in ,max
+i,sh ,6 (k + 1) +
+∑
+µ
+(
+ρq,µ(k)Lq,µ(k) + ρ jam ,µ(k)L f,µ(k)
+)
+)
+≤ 0, (21)
+N out
+i,6 (k + 1) − min
+(
+N out
+i,6 (k) + bseg
+i (k)
+∑
+µ
+qs
+i,µ1t, N out ,max
+i,6 (k + 1)
+)
+≤ 0, (22)
+N out
+j,6(k) − N in
+j,6(k) ≤ 0, (23)
+∑
+bseg
+i ∈Ic
+bseg
+i (k) ≤ 1, (24)
+0 ≤ bseg
+i (k) ≤ 1. (25)
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 7 =====
+
+WEI et al.: HIERARCHICAL PREDICTIVE CONTROL OF NETWORK TRAFFIC SIGNALS 16397
+Fig. 3. Illustration of signal phases at the local intersection.
+the LT or TRT in the southern direction is equal to that in
+the northern direction, and the same holds for the western and
+eastern directions.
+Let bµ =
+[
+bµ(l), bµ (l + 1) , . . . ,bµ (l + Tl )
+]⊤ be the set of
+turn-level effective fractions of green time of all incoming road
+segments over the horizon Tl. The nonlinear programming
+(NLP) problem at the local layer can be expressed as:
+min
+bµ
+∑
+∀l∈Tl
+∑
+i
+∑
+µ
+⏐⏐⏐⏐
+⏐bµ
+i (l) − bseg
+i (l)
+Li
+q,µ(k)
+∑
+µ Liq,µ(k)
+⏐
+⏐⏐⏐⏐ (30)
+s.t. Eq. (12), Eq. (14),
+bLT
+δ (l) − bLT
+¯δ (l) = 0, (31)
+bTRT
+δ (l) − bTRT
+¯δ (l) = 0, (32)
+0 ≤ bµ
+i (l) ≤ 1. (33)
+The formulation of NLP may become computationally
+intensive. Therefore, to reduce the computational overhead,
+instead of setting the initial values of the decision variables in
+the local layer (e.g., turn-level green time fractions) to numer-
+ous random values, the NLP optimization is warm-started
+using predefined initial values as shown in Eq. (34). These ini-
+tial values are determined by assigning the segment-level green
+time fractions to the corresponding turning directions based
+on the queue lengths. Moreover, the local layer operates with
+distributed control at each intersection rather than centralized
+control. Its objective is to manage the queue length at indi-
+vidual intersections within a shorter horizon (e.g., 60s in this
+study), eliminating the need to measure flow dynamics across
+the entire network and thereby reducing the computational
+load of the NLP. Consequently, the complexity of the local-
+layer NLP remains unchanged as the number of controlled
+intersections increases. Note that the real-time feasibility in
+this study refers to the MPC calculation time being shorter
+than the model’s sampling time interval. The proposed MPC
+utilizes the macroscopic link-based flow model, which allows
+for a large sampling time interval to predict flow dynamics of
+10s and hence a maximum of 6 prediction steps.
+[bµ,0
+i (1), . . . ,bµ,0
+i (Tl )]
+= [bseg
+i (1)
+Li
+q,µ(k)
+∑
+µ Liq,µ(k) , . . . ,bseg
+i (Tl )
+Li
+q,µ(k)∑
+µ Liq,µ(k) ] (34)
+b) Protected left-turn phases do not exist: If there are
+no protected left-turn phases, we do not need to constrain
+the green times for related turning directions, as shown in
+Eqs. (31) and (32). The optimized effective fractions of green
+time at each intersection can be obtained by solving Eq. (30)
+constrained by Eq. (12), Eq. (14), and Eq. (33). The problems
+formulated in Eq. (20) and Eq. (30) can be easily solved by
+any optimization solver.
+III. S IMULATION EXPERIMENTS
+This section presents numerical simulation results showing
+the performance of the proposed method for network con-
+trol under different traffic conditions. Two case studies are
+considered: (1) An arterial with two successive intersections
+to demonstrate in detail the ability of the proposed MPC-
+Q to control the queues in the presence of spillbacks; (2)
+A road network is used to demonstrate the performance of
+the proposed MPC-Q under different traffic regimes and to
+compare it with state-of-the-art methods.
+A. Arterial With Successive Intersections
+The simulated arterial represents a typical urban signalized
+arterial structure, consisting of 14 road segments, 6 origins,
+and 6 destinations, as shown in Fig. 4. Each node’s incoming
+road segment is divided into LT and TRT directions. Table II
+describes the network parameters for the simulation. The road
+lengths can be easily adjusted for different implementation
+locations since the proposed MPC is link-based and does not
+require spatial discretization within the roads. In Table II, the
+decreased maximum outflow of D4 is set to trigger congestion
+within the network. The traffic flow parameters are set to
+reasonable default values.
+The time-varying traffic demand inputs for each turning
+direction of the origins are presented in Fig. 5. Taking the TRT
+direction as an example, the first 250 s serve as the warm-up
+stage, after which the input demand is increased to simulate the
+traffic peak period until the 620 s. After the 620 s, the demand
+gradually decreases. The turning rates for other general links
+are presented in Fig. 4.
+To demonstrate the superiority of MPC-Q considering the
+impacts of queue transmission on the network control, this
+section chooses the MPC without that as a benchmark method
+(MPC-B) [25] to compare with our MPC-Q. We use a
+macroscopic cell transmission model in combination with
+a supply-proportional node model as the system model to
+evaluate the performance of MPC-Q and MPC-B. This system
+model is different from the extended or standard LTM but
+ensures computational efficiency. Since the sampling interval
+is set to 10 s and free-flow speed is 10 m/s, the cell length is
+100 m. The horizons of the network-layer Tn and the local-
+layer Tl are set to 600 s and 60 s, respectively. The impacts
+of Tn and Tl settings will be discussed later.
+We will evaluate the proposed method by using density and
+queue length. Fig. 6 shows the evolution of space-time average
+density at three bottleneck-realted paths associated with MPC-
+Q and MPC-B. The intensity of the color reflects the level of
+congestion, with redder shades indicating higher congestion
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 8 =====
+
+16398 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+Fig. 4. Illustration of the arterial with successive intersections, where O 1 to
+O6 represent the origins; D 1 to D6 represent the destinations; the bottleneck
+is located on road segment 14; the paths related to the bottleneck are 1-6-14,
+9-14, and 11-14.
+TABLE II
+ROAD SEGMENT PARAMETERS FOR THE SIMULATED
+SIGNALIZED ARTERIAL
+Fig. 5. Demand inputs for each turning direction at the origins O 1 to O6.
+levels. It is clear that the proposed MPC-Q eliminates the
+spillbacks in Path 1-6-14, 9-14 and 11-14 caused by the
+outflow drop at the bottleneck on road segment 14. The
+baseline MPC-B failed to eliminate queue spillback along
+the path RS 14-6-1 because it uses the standard LTM to
+predict flow dynamics. With the spillback dissipating on road
+segment 14, there is a slight increase in density from road
+segments 1 to 6, but this can be acceptable because the density
+distribution along Path 1-6-14 eventually becomes uniform
+as shown in Fig. 6b. Fig. 7 compares the detailed turn-level
+queue length change at the road segments along Path 1-6-14
+before and after optimization. Since the MPC-B only focuses
+on optimizing network throughput, the queue length cannot
+be controlled and obtained by this approach, thus only the
+Fig. 6. Evolution of space-time average density (veh/m) on bottleneck-related
+paths using MPC-B and MPC-Q.
+proposed MPC-Q is compared against uncontrolled results in
+Fig. 7. The queue length of the link with spillback risk can be
+reduced after the control optimization.
+Fig. 8 presents the control stability in terms of the effective
+fraction of green time associated with MPC-B and MPC-Q
+during the peak period. Since the findings are similar for
+different nodes’ incoming road segments, only the results of
+road segment 1 are presented for analysis. To ensure a fair
+comparison, both MPC-Q and MPC-B are assigned a left-turn
+protected phase. Note that, since the flow model in MPC-B
+operates at the segment level without distinguishing between
+flow operations in different turning directions, we multiply the
+segment-level aggregated green time fraction by the turning
+rates to obtain the turn-level fractions when using MPC-B.
+As shown in Figs. 6 and 8, the proposed MPC-Q provides
+effective green time fractions for different turning directions,
+to eliminate spillback risks. MPC-Q finds more stable con-
+trol solutions that avoid the large oscillations in green time
+observed in MPC-B (e.g., 400 s to 550 s in Fig. 8), which
+obviously benefits road safety and fuel consumption. The
+reason for this is that the MPC-Q utilizes quadratic program-
+ming with the variations of controller decision variables to
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 9 =====
+
+WEI et al.: HIERARCHICAL PREDICTIVE CONTROL OF NETWORK TRAFFIC SIGNALS 16399
+Fig. 7. Comparison of turn-level queue length changes at Path 1-6-14 before
+and after the optimization, were RS represents road segment.
+include the control stability, while MPC-B chooses the linear
+programming with the controller decision variable at each time
+step, thus failing to quantify the impacts of the variations in
+signal timing on the network operation over the prediction
+horizon.
+Considering that the varying vehicle sizes and driver behav-
+iors impact the free-flow speed, we set different free-flow
+speeds for the system and prediction models in the proposed
+MPC framework. This adjustment introduces discrepancies
+in the prediction model compared to real traffic. The model
+sensitivity can thus be analyzed. The actual free-flow speed
+is assumed to be 10 m/s. Two cases on the arterial with
+consecutive intersections as shown in Fig. 4 are performed for
+comparison: a) case 1: the free-flow speed for the prediction
+model is set to 12 m/s, larger than the actual value; b) case 2:
+the free-flow speed for the prediction model is set to 8 m/s,
+smaller than the actual value. The comparison results are
+shown in Figs. 9 and 10.
+The proposed MPC framework can still mitigate spillback
+risks. The queue lengths at the bottleneck link as shown in
+Fig. 9 remain similar across different cases. The proposed
+model can address certain noise issues for the following
+Fig. 8. Comparison of control stability in terms of effective fraction of green
+time for road segment 1 associated with MPC-B and MPC-Q.
+Fig. 9. Comparison results of queue length at bottleneck link 14 under model
+errors.
+reasons: Firstly, the proposed LTM-based MPC does not
+require sophisticated spatiotemporal discretization, allowing
+for a larger sampling time interval to predict flow dynamics,
+which helps smooth fluctuations caused by noise, such as
+Gaussian white noise in the demand data. Secondly, by updat-
+ing control actions based on time-aggregated flow dynamics,
+the MPC can reduce the impact of time-lagged flow changes
+between predicted and actual traffic conditions caused by
+noise.
+Then, Table III summarizes the computational performance
+of the proposed MPC-Q, where network throughput is defined
+as O = 3600
+T
+∑m
+i
+∑
+µ N out
+i,µ (T ). Simulations were carried
+out by MATLAB on a laptop with an Intel i7-8550U CPU
+1.80 GHz and 16GB RAM. From Table III, we can find
+that increasing the prediction horizon results in increased
+computational time, but may without further improved network
+throughput. Therefore, a longer local-layer prediction horizon
+does not always correlate with better control performance. The
+prediction horizon should be determined based on the specific
+requirements of each case. Note that the network layer predicts
+the flow propagation over Tn and decides on the optimal
+green time fraction for each road segment. The optimal green
+time fraction is sent to the local layer as a reference point.
+To provide an effective reference, Tl should be smaller than
+Tn. Consequently, only the computational time for the case
+where Tl < Tn is compared in Table III. In this case, the
+greatest computational time is still smaller than the sampling
+interval of 10 s, thus the proposed MPC-Q can be real-time
+feasible.
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 10 =====
+
+16400 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+Fig. 10. Evolution of space-time average density (veh/m) on bottleneck-related paths by MPC-Q with model errors.
+TABLE III
+OVERVIEW OF THE COMPUTATIONAL TIME T (CPU S) PER STEP AND NETWORK THROUGHPUT O (V EH/H)
+UNDER DIFFERENT MPC-Q P REDICTION HORIZONS
+B. Road Network
+This section compares the control performance of the pro-
+posed MPC-Q in an urban road grid network under different
+traffic regimes. To this end, we generate a simulated network
+consisting of 48 road segments as depicted in Fig. 11. Bottle-
+necks are assumed downstream of road segment 13 and 36,
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 11 =====
+
+WEI et al.: HIERARCHICAL PREDICTIVE CONTROL OF NETWORK TRAFFIC SIGNALS 16401
+Fig. 11. Illustration of the simulated grid network.
+TABLE IV
+ROAD SEGMENT PARAMETERS FOR THE SIMULATED
+URBAN ROAD NETWORK
+respectively. Table IV presents the network parameters. The
+simulation experiments are analyzed for 1000 s using the same
+network parameters with only differences in traffic regimes:
+- Symmetrical undersaturated (traffic regime 1): 300 veh/h
+for TRT and 100 veh/h for LT in all directions including
+northern, southern, western and eastern directions.
+- Asymmetric undersaturated (traffic regime 2): 400 veh/h
+for TRT and 200 veh/h for LT in the northern/southern
+direction; 150 veh/h for TRT and 50 veh/h for LT in the
+western/eastern direction.
+- Symmetrical oversaturated (traffic regime 3): 1500 veh/h
+for TRT and 500 veh/h for LT in all directions.
+- Asymmetric near-oversaturation (traffic regime 4):
+250 veh/h for TRT and 150 veh/h for LT in the north-
+ern/southern direction; 1500 veh/h for TRT and 500 veh/h for
+LT in the western/eastern direction.
+It should be clarified that, in this study, we assume the
+network has bottlenecks with reduced maximum allowable
+outflow. The conditions of being oversaturated or under-
+saturated are determined by whether there are spillback risks
+at the bottleneck link. We assumed a bottleneck exists in the
+network as shown in Fig. 4. The MPC-Q controller aims to
+prevent bottleneck-related spillback at link 14. If spillback
+occurs, it significantly will reduce network throughput, so the
+MPC-Q will hold inflow to the bottleneck and allow more
+green time to long-queue links. The controller works as long as
+there is buffer space in the network to store queues. However,
+in gridlock situations, the current design is likely ineffective
+and the objective function should be refined to deal with this.
+Note that the vehicle turning rates on the origin links, e.g.,
+links 10, 11, 17, 29, 37, and 45 in Fig. 11, vary under different
+traffic regimes. These turning rates can be calculated based
+on the turn-level input demands. For example, in symmetrical
+undersaturated conditions (traffic regime 1), the vehicle turning
+rates for LT and TRT are 0.25 and 0.75, respectively.
+We compare our MPC-Q with the following methods: (a)
+the MPC-B approach [25]; (b) a max-pressure-based approach
+(MP) [35] for finding the dynamic signal timings to maximize
+the network throughput. This approach is chosen because
+it considers the impacts of the queueing process on the
+intersection control, which is associated with the pressure for
+each phase. Since the MPC-B only considers the link inflow
+and outflow at road segment boundaries, the queue length can
+not be obtained. We define the blocked vehicles at time step
+k as Aq = 1
+m
+∑m
+i=1
+∑
+µ
+(
+N in
+i,µ(k) − N out
+i,µ (k)
+)
+, to perform the
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 12 =====
+
+16402 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+TABLE V
+OVERVIEW OF THE COMPARISON RESULTS BY DIFFERENT METHODS
+Fig. 12. Evolution of blocked vehicles Aq for varied demand profiles with
+different methods.
+comparison. The higher the Aq is, the greater the congestion
+and the longer the travel time spent. The sampling intervals
+in MPC-B and MPC-Q are all set to 10 s. After comparing
+the results under different horizon values, we set Tn and Tl
+to 100 s and 60 s, respectively, to achieve the cost-efficient
+control purpose in this case.
+Fig. 12 describes the evolution of the blocked vehicles Aq
+under four traffic regimes using different methods. We observe
+that the performance of the three compared control approaches
+does not have obvious differences at the first 100s. During the
+simulation process, the variations between them become more
+and more apparent due to the increased network loads, espe-
+cially under traffic regimes 3 and 4. Specifically, Aq increases
+slowly under traffic regimes 1 and 2, and the performance of
+MPC-Q and MPC-B is similar and better than that of MP.
+In dense traffic conditions, i.e., regimes 3 and 4 the blocked
+vehicles Aq associated with MPC-B and MP, respectively is
+always higher than the one for MPC-Q. Thus, we conclude
+Fig. 13. Comparison of average blocked vehicles and throughput under
+different traffic regimes using different control methods.
+that MPC-Q provides more effective signal control plans that
+decreases the number of queueing vehicles in the oversaturated
+conditions.
+Fig. 13 and Table V provide an overview of the comparison
+results of MPC-Q, MPC-B and MP, where the average blocked
+vehicles is the mean value of Aq over the simulation period
+T . While for traffic regimes 1 and 2 the differences between
+the average blocked vehicles for the different control strate-
+gies are neglectable, they are significant for traffic regimes
+3 and 4 (cf. Fig. 13). In regimes 3 and 4, MPC-Q reduced
+the average blocked vehicles by at least 29%. The comparison
+of the throughput demonstrates similar improvements when
+utilizing MPC-Q (cf. Table V). Hence, incorporating the signal
+control impacts on the network’s future operation, both MPC-
+B and MPC-Q achieve better performance compared to MP.
+However, the lack of consideration of the queue transmission
+in MPC-B is unfavorable to effectively representing the queue
+length change under saturated conditions, resulting in lower
+average throughput and larger blocked vehicles compared
+to MPC-Q. Thus, the proposed MPC-Q achieves the most
+desirable performance.
+Simulations were carried out by MATLAB on a laptop
+with an Intel i7-8550U CPU 1.80 GHz and 16GB RAM.
+The average computational time for each simulation step of
+the proposed MPC-Q under different regimes is 0.35 CPU-s,
+which is obviously smaller than the LTM sampling interval.
+Hence, the MPC-Q is still real-time feasible in the simulated
+grid network with nine intersections.
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 13 =====
+
+WEI et al.: HIERARCHICAL PREDICTIVE CONTROL OF NETWORK TRAFFIC SIGNALS 16403
+IV. C ONCLUSION
+This study proposed a novel MPC approach that uses the
+LTM with queue transmission to optimize the traffic signals
+in urban road networks. In the network layer, a QP-based
+controller with inputs of the decision variations was formulated
+to improve the network-wide throughput. By converting the
+generally used time-step independent signal timing into signal
+timing variations, the proposed MPC-Q framework is capable
+of considering signal control stability. In the local layer,
+an NLP-based controller with reference tracking was devel-
+oped to track and refine the segment-level effective fractions of
+green time output by the network layer to the turn level. Thus,
+the proposed MPC-Q can be performed without assuming that
+flow operations in different turning directions are homoge-
+neous. Both arterial and network simulation experiments were
+performed to demonstrate the performance of the proposed
+algorithms. The obtained simulation results have demonstrated
+the superiority of the proposed framework compared to the
+existing rival methods.
+The main challenge is how to incorporate the traffic vari-
+ations in turn movements within the MPC, while ensuring
+that the MPC has less computational overheads to be real-
+time feasible. To this end, the LTM with turn-level link
+inflow, queue inflow and link outflow was integrated into a
+hierarchical MPC framework, which enables the controller
+to capture the detailed flow propagation in multiple turning
+directions within the road segment without imposing complex
+computational overheads on the network-layer coordination,
+since the computational overheads can be reduced by aggregat-
+ing turn-level flow dynamics into segment levels at the network
+layer. Moreover, in each road segment, the continuous turn-
+level effective fractions of green time are used as controller
+decision variables instead of widely used binary values, e.g.,
+0 for green and 1 for red, which eliminates the need for
+solving the cumbersome MILP problems and enables MPC to
+generate fine-grained yet real-time feasible outputs. Compared
+to the existing MPC-based methods using LTMs [19], [25], the
+proposed MPC-Q method addresses the limitation of being
+difficult to adapt to traffic variations at turn level in large
+networks and accounts for the queue transmission.
+Urban traffic involves multiple vehicle types, e.g., buses,
+bicycles, and trams, but the proposed MPC-Q does not account
+for the operational differences among them. Multimodal traffic
+should be considered in the future. Given the diversity of
+potential demand variations, the robust network-level MPC
+for general demand errors using LTM with queue dynamics
+requires further investigation. Besides, the impacts of sudden
+incidents, e.g., traffic accidents or moving bottlenecks, on flow
+propagation are not considered in the current MPC-Q method.
+Further research should be carried out to refine the controller
+design to deal with extreme congestion conditions.
+REFERENCES
+[1] K. Aboudolas and N. Geroliminis, “Perimeter and boundary flow control
+in multi-reservoir heterogeneous networks,” Transp. Res. B, Methodol.,
+vol. 55, pp. 265–281, Sep. 2013.
+[2] L. Wei, P. Chen, Y . Mei, and Y . Wang, “Turn-level network traffic
+bottleneck identification using vehicle trajectory data,” Transp. Res. C,
+Emerg. Technol., vol. 140, Jul. 2022, Art. no. 103707.
+[3] A. Agarwal, D. Sahu, R. Mohata, K. Jeengar, A. Nautiyal, and
+D. K. Saxena, “Dynamic traffic signal control for heterogeneous traffic
+conditions using max pressure and reinforcement learning,” Expert Syst.
+Appl., vol. 254, Nov. 2024, Art. no. 124416.
+[4] M. Tajalli, M. Mehrabipour, and A. Hajbabaie, “Network-level coor-
+dinated speed optimization and traffic light control for connected and
+automated vehicles,” IEEE Trans. Intell. Transp. Syst., vol. 22, no. 11,
+pp. 6748–6759, Nov. 2021.
+[5] O. Mousavizadeh and M. Keyvan-Ekbatani, “On the important features
+for a well-shaped reduced network MFD estimation during network
+loading and recovery,” Transp. Res. C, Emerg. Technol., vol. 161,
+Apr. 2024, Art. no. 104539.
+[6] C. Diakaki, M. Papageorgiou, and K. Aboudolas, “A multivariable
+regulator approach to traffic-responsive network-wide signal control,”
+Control Eng. Pract., vol. 10, no. 2, pp. 183–195, Feb. 2002.
+[7] K. Aboudolas, M. Papageorgiou, and E. Kosmatopoulos, “Store-and-
+forward based methods for the signal control problem in large-scale
+congested urban road networks,” Transp. Res. C, Emerg. Technol.,
+vol. 17, no. 2, pp. 163–174, Apr. 2009.
+[8] K. Aboudolas, M. Papageorgiou, A. Kouvelas, and E. Kosmatopou-
+los, “A rolling-horizon quadratic-programming approach to the signal
+control problem in large-scale congested urban road networks,”
+Transp. Res. C, Emerg. Technol., vol. 18, no. 5, pp. 680–694, Oct. 2010.
+[9] F. De Souza, R. C. Carlson, E. R. Müller, and K. Ampountolas, “Multi-
+commodity traffic signal control and routing with connected vehicles,”
+IEEE Trans. Intell. Transp. Syst., vol. 23, no. 5, pp. 4111–4121,
+May 2022.
+[10] Y . Wang, X. Yang, H. Liang, and Y . Liu, “A review of the self-adaptive
+traffic signal control system based on future traffic environment,” J. Adv.
+Transp., vol. 2018, pp. 1–12, Jun. 2018.
+[11] L. Wei, P. Chen, Y . Mei, J. Sun, and Y . Wang, “A hierarchical
+control framework for alleviating network traffic bottleneck congestion
+using vehicle trajectory data,” J. Intell. Transp. Syst., vol. 28, no. 6,
+pp. 988–1010, Nov. 2024.
+[12] P. Varaiya, “Max pressure control of a network of signalized inter-
+sections,” Transp. Res. C, Emerg. Technol., vol. 36, pp. 177–195,
+Nov. 2013.
+[13] M. W. Levin, J. Hu, and M. Odell, “Max-pressure signal control with
+cyclical phase structure,” Transp. Res. C, Emerg. Technol., vol. 120,
+Nov. 2020, Art. no. 102828.
+[14] L. Li and S. E. Jabari, “Position weighted backpressure intersection
+control for urban networks,” Transp. Res. B, Methodol., vol. 128,
+pp. 435–461, Oct. 2019.
+[15] J.-J. Henry, J. L. Farges, and J. Tuffal, “The prodyn real time traffic
+algorithm,” in Control in Transportation Systems. Amsterdam, The
+Netherlands: Elsevier, 1984, pp. 305–310.
+[16] P. Lowrie, “Scats, sydney co-ordinated adaptive traffic system: A traffic
+responsive method of controlling urbantraffic,” Roads Traffic Authority
+NSW, Sydney, NSW, Australia, Tech. Rep. 00772163, 1990. [Online].
+Available: https://trid.trb.org/view/488852
+[17] M. Hajiahmadi, J. Haddad, B. De Schutter, and N. Geroliminis, “Optimal
+hybrid perimeter and switching plans control for urban traffic net-
+works,” IEEE Trans. Control Syst. Technol., vol. 23, no. 2, pp. 464–478,
+Mar. 2015.
+[18] R. Mohebifard and A. Hajbabaie, “Optimal network-level traffic
+signal control: A benders decomposition-based solution algorithm,”
+Transp. Res. B, Methodol., vol. 121, pp. 252–274, Mar. 2019.
+[19] G. S. van de Weg, H. L. Vu, A. Hegyi, and S. P. Hoogendoorn, “A
+hierarchical control framework for coordination of intersection signal
+timings in all traffic regimes,” IEEE Trans. Intell. Transp. Syst., vol. 20,
+no. 5, pp. 1815–1827, May 2019.
+[20] Z. Zhou, B. De Schutter, S. Lin, and Y . Xi, “Two-level hierarchical
+model-based predictive control for large-scale urban traffic networks,”
+IEEE Trans. Control Syst. Technol., vol. 25, no. 2, pp. 496–508,
+Mar. 2017.
+[21] J. Zhang, H. Pei, X. J. Ban, and L. Li, “Analysis of cooperative driving
+strategies at road network level with macroscopic fundamental diagram,”
+Transp. Res. C, Emerg. Technol. , vol. 135, Feb. 2022, Art. no. 103503.
+[22] M. Saeedmanesh, A. Kouvelas, and N. Geroliminis, “An extended
+Kalman filter approach for real-time state estimation in multi-region
+MFD urban networks,” Transp. Res. C, Emerg. Technol., vol. 132,
+Nov. 2021, Art. no. 103384.
+[23] I. I. Sirmatel, D. Tsitsokas, A. Kouvelas, and N. Geroliminis, “Mod-
+eling, estimation, and control in large-scale urban road networks with
+remaining travel distance dynamics,” Transp. Res. C, Emerg. Technol.,
+vol. 128, Jul. 2021, Art. no. 103157.
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 
+
+===== PDF PAGE 14 =====
+
+16404 IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 26, NO. 10, OCTOBER 2025
+[24] S. Gao, D. Li, N. Zheng, R. Hu, and Z. She, “Resilient perimeter control
+for hyper-congested two-region networks with MFD dynamics,” Transp.
+Res. B, Methodol., vol. 156, pp. 50–75, Feb. 2022.
+[25] G. S. van de Weg, M. Keyvan-Ekbatani, A. Hegyi, and
+S. P. Hoogendoorn, “Linear MPC-based urban traffic control using the
+link transmission model,” IEEE Trans. Intell. Transp. Syst., vol. 21,
+no. 10, pp. 4133–4148, Oct. 2020.
+[26] D. Ngoduy, N. H. Hoang, H. L. Vu, and D. Watling, “Optimal
+queue placement in dynamic system optimum solutions for single
+origin-destination traffic networks,” Transp. Res. B, Methodol., vol. 92,
+pp. 148–169, Oct. 2016.
+[27] N. Raovic, O. A. Nielsen, and C. G. P. Carlo Giacomo Prato, “Dynamic
+queuing transmission model for dynamic network loading,” Transport,
+vol. 32, no. 2, pp. 146–159, Jul. 2015.
+[28] L. Wei, S. T. Waller, Y . Mei, P. Chen, Y . Wang, and M. Wang, “A
+link-based flow model with turn-level queue transmission and time-
+varying free-flow speed for urban road networks,” Transp. Res. C,
+Emerg. Technol., vol. 170, Jan. 2025, Art. no. 104937.
+[29] S. Hu et al., “High time-resolution queue profile estimation at signalized
+intersections based on extended Kalman filtering,” IEEE Trans. Intell.
+Transp. Syst., vol. 23, no. 11, pp. 21274–21290, Nov. 2022.
+[30] G. Zhang, F. Chang, J. Jin, F. Yang, and H. Huang, “Multi-objective
+deep reinforcement learning approach for adaptive traffic signal con-
+trol system with concurrent optimization of safety, efficiency, and
+decarbonization at intersections,” Accident Anal. Prevention, vol. 199,
+May 2024, Art. no. 107451.
+[31] T. Wang, Z. Zhu, J. Zhang, J. Tian, and W. Zhang, “A large-scale traffic
+signal control algorithm based on multi-layer graph deep reinforce-
+ment learning,” Transp. Res. C, Emerg. Technol., vol. 162, May 2024,
+Art. no. 104582.
+[32] R. Zhou, T. Nousch, L. Wei, and M. Wang, “Constrained traffic
+signal control under competing public transport priority requests via
+safe reinforcement learning,” Expert Syst. Appl., vol. 284, Jul. 2025,
+Art. no. 127676.
+[33] B. Zhou, Q. Zhou, S. Hu, D. Ma, S. Jin, and D.-H. Lee, “Cooperative
+traffic signal control using a distributed agent-based deep reinforcement
+learning with incentive communication,” IEEE Trans. Intell. Transp.
+Syst., vol. 25, no. 8, pp. 10147–10160, Aug. 2024.
+[34] F. Ren, W. Dong, X. Zhao, F. Zhang, Y . Kong, and Q. Yang, “Two-layer
+coordinated reinforcement learning for traffic signal control in traffic
+network,” Expert Syst. Appl., vol. 235, Jan. 2024, Art. no. 121111.
+[35] X. Sun and Y . Yin, “A simulation study on max pressure control
+of signalized intersections,” Transp. Res. Rec., J. Transp. Res. Board,
+vol. 2672, no. 18, pp. 117–127, 2018.
+Lei Wei received the Ph.D. degree from Bei-
+hang University, China, in 2022. He is currently
+a Post-Doctoral Researcher with the “Friedrich
+List” Faculty of Transport and Traffic Sciences,
+TU Dresden, Germany. His research interests include
+urban traffic operation and control and macroscopic
+traffic flow modeling and simulation.
+Konstantinos Ampountolas (Member, IEEE)
+received the Dipl.Ing. degree in production
+engineering and management, the M.Sc. degree
+in operations research, and the Ph.D. degree in
+engineering from the Technical University of Crete,
+Greece, in 1999, 2002, and 2009, respectively.
+He was a Post-Doctoral Researcher with the Centre
+for Research and Technology Hellas, Greece,
+in 2010, a Visiting Researcher Scholar with the
+University of California at Berkeley, Berkeley, CA,
+USA, in 2011, a Senior Lecturer with the James
+Watt School of Engineering, University of Glasgow, U.K., from 2013 to 2019,
+and a Research Fellow with EPFL, Switzerland, from 2012 to 2013.. Since
+2019, he has been an Associate Professor with the Department of Mechanical
+Engineering, University of Thessaly, Greece. His research interests include
+automatic control and optimization and their applications to transport
+systems. He served as an Editor for Transportation and Data in Brief
+(2018–2019), an Associate Editor for Data Science for Transportation
+(2018–2020), and on the Editorial Advisory Board for Transportation
+Research Part—C (2014–2021) and Transportation Research Procedia (since
+2014).
+Angelika Hirrle received the Ph.D. degree from TU
+Dresden in 2017. She is currently a Research Asso-
+ciate with the “Friedrich List” Faculty of Transport
+and Traffic Sciences, TU Dresden, Germany. Her
+research interests include sustainable multi-modal
+urban transport, in particular modeling, optimization,
+and control aspects.
+Meng Wang (Senior Member, IEEE) received
+the Ph.D. degree (Hons.) from TU Delft in
+2014. He was a Post-Doctoral Researcher with
+the Faculty of Mechanical Engineering, TU Delft,
+from 2014 to 2015, and an Assistant Professor
+with the Department of Transport and Planning,
+TU Delft, from 2015 to 2021. Since 2021, he has
+been a Full Professor and the Head of the Chair
+of Traffic Process Automation, TU Dresden. His
+research interests include traffic flow modeling and
+control, control design, and impact assessment of
+connected and automated transport systems. He is an Associate Editor of
+IEEE T RANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS and
+Transportmetrica B.
+Authorized licensed use limited to: Nanyang Technological University Library. Downloaded on September 10,2026 at 05:12:33 UTC from IEEE Xplore.  Restrictions apply. 

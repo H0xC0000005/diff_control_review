@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-05",
+  "status": "PASS",
+  "scope": "R1 document and explanatory formula checks only",
+  "local_links_checked": 135,
+  "csv_checks": {
+    "screening/rm9_records.csv": {
+      "rows": 11,
+      "new_ids": [
+        "RM9-O01",
+        "RM9-O02",
+        "RM9-O03",
+        "RM9-O04"
+      ],
+      "schema_and_unique_ids": "pass"
+    },
+    "search/rm9_query_log.csv": {
+      "rows": 16,
+      "new_ids": [
+        "RM9-Q12",
+        "RM9-Q13",
+        "RM9-Q14",
+        "RM9-Q15",
+        "RM9-Q16"
+      ],
+      "schema_and_unique_ids": "pass"
+    }
+  },
+  "pdf": {
+    "path": "synthesis/rm9/rm9_r1_observation_contract_audit.pdf",
+    "pages": 5,
+    "page_text_lengths": [
+      2370,
+      2866,
+      2484,
+      2639,
+      2204
+    ],
+    "sha256": "ea4f4d8b709615b06871270329dadd342f98744cd7288e7d8e36aeb7881428ab",
+    "latex_warnings": [],
+    "section_text_checks": "pass",
+    "raster_renderers": {
+      "gs": null,
+      "mutool": null,
+      "pdftoppm": null,
+      "pdftocairo": null
+    },
+    "visual_inspection": "not performed"
+  },
+  "definition_arithmetic": {
+    "section_speed": "7/5",
+    "passage_speed": "10/7",
+    "free_flow_inverse": "pass"
+  },
+  "contract_checks": "UG4-O open; C/A/P unapproved; G2 unchanged; R2 not executed; extensions deferred",
+  "scientific_experiments": "none",
+  "build_command": "latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=/tmp/rm9_r1_observation_latex misc/selective_discreteness_ramp_metering_review/synthesis/rm9/rm9_r1_observation_contract_audit.tex",
+  "validation_command": "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/rm9_r1_validate.py"
+}

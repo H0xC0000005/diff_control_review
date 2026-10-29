@@ -1,0 +1,173 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedright
+\begin{document}
+{\Large Compact event and recovery memory: analytical checks}\\[4pt]
+7 October 2026 --- T1 approved; Stage 3 open
+
+\textbf{Scope.} Reviewer deductions from the supplied 2006 journal,
+Section 2.2 and Appendix A. These are not a simulator, a reachable traffic
+witness, an adopted compact law, or gradient validation. The plain-language
+report is \texttt{event\_memory\_findings\_and\_gate.md}; source locations are
+in \texttt{event\_memory\_source\_audit.md}. Earlier mathematical artifacts
+are unchanged. The selected reference uses sampled descriptor births.
+
+\section*{1. Threshold progress is exact event bookkeeping}
+Let $e$ denote one source descriptor-generating transfer stream (origin cell,
+origin lane, target lane). At consecutive source sampling times, $g_e^k$ is
+its cumulative actual transferred vehicle-equivalent mass. Let $m_*>0$ be
+the source threshold unit, $\Delta n_e^k\ge0$ the actual mass transferred
+between these samples, and $z_e^k$ its dimensionless remainder. Then
+\begin{equation}
+ g_e^{k+1}=g_e^k+\Delta n_e^k,\quad
+ z_e^k=\frac{g_e^k}{m_*}-\left\lfloor\frac{g_e^k}{m_*}\right\rfloor,
+ \quad 0\le z_e^k<1.
+\end{equation}
+The new descriptor count $b_e^k$ and next remainder satisfy
+\begin{equation}
+ b_e^k=\left\lfloor\frac{g_e^{k+1}}{m_*}\right\rfloor-
+ \left\lfloor\frac{g_e^k}{m_*}\right\rfloor
+ =\left\lfloor z_e^k+\frac{\Delta n_e^k}{m_*}\right\rfloor,
+ \qquad z_e^{k+1}=z_e^k+\frac{\Delta n_e^k}{m_*}-b_e^k.
+\end{equation}
+The identity follows by removing the integer part of $g_e^k/m_*$.
+It handles more than one threshold crossing in a sample. No within-sample
+birth interpolation is added. Use the same placement of sampling times as
+the source's cumulative-transfer convention, not a new event scheduler.
+
+All traffic mass $\Delta n_e^k$ remains in the paired donor/receiver balance.
+The descriptor count is metadata. Zero new births does not imply zero old
+restrictions, and a descriptor's existence does not imply that it binds.
+Store a remainder for every generating stream, not just a single ramp total.
+The result is conditional on given own-model transfers; it does not force
+two independently evolving models to produce identical births.
+
+\newpage
+\section*{2. Source-sampled free motion admits age-based reconstruction}
+On a level road, the supplied acceleration is
+$a(v)=a_0(1-v/v_{\max})$, with $a_0>0$ (m/s$^2$) and vehicle parameter
+$v_{\max}>0$ (m/s). The KW free speed $u$ is a different quantity.
+Consider only the subcase in which downstream traffic offers speed $u$
+throughout a restriction's path, $0\le v_b<u<v_{\max}$, and
+$r=1-a_0\Delta t/v_{\max}\in(0,1)$.
+Let $v_n$ be realized speed after $n$ source motion steps since birth.
+The supplied desired-speed and downstream-cap operations reduce to
+\begin{equation}
+ v_{n+1}=\min\{u,rv_n+a_0\Delta t\},\qquad v_0=v_b.
+\end{equation}
+Induction gives
+\begin{equation}
+ v_n=\min\{u,v_{\max}-(v_{\max}-v_b)r^n\},\qquad
+ x_n=x_b+\Delta t\sum_{j=0}^{n-1}v_j.
+\end{equation}
+The position sum uses the supplied current-speed update, not the next speed.
+For the induction, the affine map is increasing and maps $u$ to a value
+above $u$. Once clipped to $u$, the subsequent clipped value remains $u$.
+The first source step attaining $u$ is
+\begin{equation}
+ n_* = \left\lceil
+ \frac{\log((v_{\max}-u)/(v_{\max}-v_b))}{\log r}
+ \right\rceil.
+\end{equation}
+The continuous free-motion calculation is only a diagnostic limit:
+\begin{equation}
+ V(s)=v_{\max}-(v_{\max}-v_b)e^{-a_0s/v_{\max}},\qquad
+ \tau_u=\frac{v_{\max}}{a_0}
+ \log\frac{v_{\max}-v_b}{v_{\max}-u}.
+\end{equation}
+It is not substituted for the reference's sampled update. If $u=v_{\max}$,
+finite exact attainment is not supplied by that expression; this boundary
+must not be hidden by a timeout or tolerance.
+
+Birth-step, position and speed records therefore reconstruct free kinetics,
+and groups with identical birth conditions share a path. Under general traffic,
+the realized speed uses a local downstream cap and the next desired speed
+starts from that realized speed. A free birth-age clock does not encode a
+later slowdown or its changed position. No transient flow/service map follows
+from this kinematic reconstruction alone.
+
+\newpage
+\section*{3. Count and mean speed do not generally close the capped update}
+This is a local algebraic test, not a constructed freeway experiment.
+Write the level-road desired update as $Y=\phi(v)=b+cv$, with
+$b=a_0\Delta t>0$, $c=r\in(0,1)$. With a common next-step downstream
+cap $d$, the realized next speed is $\min(d,Y)$.
+Choose symbolic $\varepsilon>0$ such that $b<d-2\varepsilon$ and
+$(d+2\varepsilon-b)/c\le u$. Two possible input lists have desired speeds
+\begin{equation}
+ (Y_1,Y_2)=(d-\varepsilon,d+\varepsilon),\qquad
+ (\widetilde Y_1,\widetilde Y_2)=(d-2\varepsilon,d+2\varepsilon).
+\end{equation}
+Their current speed lists are $(Y_i-b)/c$, so both have count two and
+the same current speed sum $2(d-b)/c$. However,
+\begin{equation}
+ \sum_{i=1}^2\min(d,Y_i)=2d-\varepsilon,\qquad
+ \sum_{i=1}^2\min(d,\widetilde Y_i)=2d-2\varepsilon.
+\end{equation}
+For any finite desired-speed counting measure $\mu$, the missing quantity is
+visible through
+\begin{equation}
+ \int\min(d,y)\,\mu(dy)
+ =\int y\,\mu(dy)-\int(y-d)_+\,\mu(dy).
+\end{equation}
+Knowing the first integral alone does not determine the cap-dependent tail.
+At a cap with no atom, the derivative of the left side with respect to $d$
+equals $\mu((d,\infty))$. A changing cap can query different parts of the
+distribution. Without capping, the affine sum would be closed by count and
+speed sum.
+
+\textbf{Limits.} This rules out that particular exact moment update over the
+displayed admissible local inputs. It does not establish their reachability
+under a common metering schedule, identical observed histories, a TST effect,
+or the impossibility of every finite summary. The relevant task may have an
+invariant restricted distribution or a different sufficient aggregate closure.
+
+\newpage
+\section*{4. An unlabelled configuration is an exact endpoint, not compression}
+Let $\mathcal K$ denote the ordinary continuous traffic field, waiting and
+any cumulative-count state required by the source solver. For lane $\ell$,
+let $\eta_\ell$ record retained descriptors with position $x_i$ and realized
+speed $v_i$ at a consistently chosen source step:
+\begin{equation}
+ \label{eq:measure}
+ \eta_\ell=\sum_{i:\ell_i=\ell}\delta_{(x_i,v_i)},\qquad
+ \eta_\ell(\mathbb R\times[0,u])=\hbox{descriptor count, not traffic mass}.
+\end{equation}
+If type parameters differ, include their fixed marks; no heterogeneity is
+introduced by this notation. Given a well-defined source update depending on
+physical positions/speeds and fixed structural marks, but not arbitrary names,
+its action on the measure can be written schematically as
+\begin{equation}
+ \label{eq:transport}
+ \eta_\ell^{k+1}
+ = (\Phi_{\mathcal K^k,\eta^k})_\#\eta_\ell^k
+   +\mathcal B_\ell^k-\mathcal D_\ell^k.
+\end{equation}
+$\Phi$ denotes the source motion map, $\#$ its push-forward (moving every
+record according to that map), $\mathcal B$ sampled own-transfer births,
+and $\mathcal D$ exits or removals proved permanently redundant under the
+declared domain. A temporary nonbinding observation is not by itself a
+permanent-removal proof. This is a representation identity, not a new PDE,
+histogram transport rule, or certified joined solver.
+
+Permuting descriptor names leaves $\eta$ unchanged and, under that coupling
+assumption, leaves physical constraints unchanged. Positions still encode
+spatial order. At atomic resolution this retains one record per descriptor,
+so it does not demonstrate a small fixed-dimensional memory.
+
+A grouped position/speed representation needs a declared projection,
+independent update and service law. Averaging trajectories, spreading a point
+restriction over a whole bin, or summing separate capacity penalties is not
+entailed by \eqref{eq:measure}--\eqref{eq:transport}. None is adopted here. The question about this broader
+state family is the next user discussion, S3-G2-Q-M.
+
+\textbf{Overall result.} Event progress is exact; free kinetic memory is
+conditionally supported; one general clock or count/mean-speed update is not
+qualified. A genuinely compressed source-consistent recovery/service law,
+joined events/clearance, complete TST response and all gradient claims remain
+open. Stage 4 and experiments remain unopened.
+\end{document}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-26",
+  "task": "Retire implementation framing from independent urban review",
+  "status": "pass",
+  "snapshot": "/tmp/urban_review_structure_followthrough_before_20261026.json",
+  "snapshot_files": 766,
+  "unchanged_snapshot_files": 758,
+  "declared_existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/README.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/comparison_sensitivity_and_credit_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_dialogue.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_review_structure_clarification_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_review_structure_clarification_work_report.md"
+  ],
+  "outside_snapshot_changes": [],
+  "missing_snapshot_files": [],
+  "local_links_and_cited_lines_checked": 143,
+  "stable_question_ids_preserved": true,
+  "question_count": 15,
+  "candidate_text_byte_identical": true,
+  "candidate_count": 33,
+  "settled_traffic_question_sections_byte_identical": true,
+  "scientific_relationships_retained": true,
+  "completeness_requirements_and_report_budget_preserved": true,
+  "numbered_stages_and_implementation_closure_instructions_retired": true,
+  "substantive_current_proposal_byte_identical": true,
+  "historical_phase_records_byte_identical": true,
+  "historical_phase_record_count": 6,
+  "preexisting_descriptive_guide_decisions_traffic_principles_byte_identical": true,
+  "protected_authorities_code_and_feedback_preserved": true,
+  "current_topic": "Fair comparison, complete sensitivity and scientific credit",
+  "agreed_conclusions": "Four traffic principles retained; commitment default unchanged",
+  "remaining_questions": "Current substantive recommendations provisional; concrete laws and evidence unresolved",
+  "scientific_tests_or_experiments": "none; organizational documentation change",
+  "errors": []
+}

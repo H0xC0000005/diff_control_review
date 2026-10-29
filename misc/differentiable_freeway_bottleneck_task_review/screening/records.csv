@@ -1,0 +1,22 @@
+source_id,year,title,candidate,evidence,access
+FB0001,2013,Control of a lane-drop bottleneck through variable speed limits,F1,E3,full
+FB0002,2016,Traffic regulation via controlled speed limit,F1,E3,full
+FB0003,2018,A new macroscopic model for Variable Speed Limits,F1,E3,full
+FB0004,2020,Integrated Variable Speed Limits and Lane-Changing Control for Freeway Lane-Drop Bottlenecks,F1/F5,E3,full-web
+FB0005,2018,Field Experiment of Variable Speed Advisory,F1,E3,full
+FB0006,2007,Ramp Closure Strategies for Incident Management,F2/F4,E3,full
+FB0007,2026,Dynamic Speed Limit Control of Connected Automated Vehicles in Freeway Networks Considering Traffic Composition Uncertainty,F1,E3,full-preprint
+FB0008,2026,C-EQ-ALINEA,F2,E3,full-preprint
+FB0009,2025,Coordinated Ramp Metering Control based on Scalable Nonlinear Traffic Dynamics Model Discovery in a Large Network,F2,E3,full-preprint
+FB0010,2020,Speed harmonisation and merge control using connected automated vehicles on a highway lane closure: a reinforcement learning approach,F1/F5,E3,full-web
+FB0011,2021,Work Zone ITS Implementation Guide supplement,F1/F4,E3,full-official
+FB0012,2006,Ramp Management and Control Handbook,F2,E3,full-official
+FB0013,2020,Optimal Variable Lane Group-Based Speed Limits at Freeway Lane Drops: A Multiobjective Approach,F1,E1,abstract
+FB0014,2023,Adaptive control with moving actuators at motorway bottlenecks with connected and automated vehicles,F1,E2,detailed-record
+FB0015,2010,Ramp metering and freeway bottleneck capacity,F2,E2,detailed-record
+FB0017,2024,DVS-RG lane and location specific DVSL,F1,E1,abstract
+FB0018,2020,Sentinel incident lane-change advisory,F5,E1,abstract
+RM0024,2015,Discrete adjoint ramp-metering optimization,F2,E3,reused-full
+RM0025,2026,Exact discrete adjoint for multiclass network flow,F2,E3,reused-full
+RM0026,2022,Smoothed CTM ramp-metering optimization,F2,E1/E2,reused-metadata
+SEO2026,2026,Differentiable LTM reverse-mode AD,method,E3,reused-full

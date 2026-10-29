@@ -1,0 +1,8 @@
+date,source_id,activity,locations,source,qualification_limit
+2026-10-07,RM12-S3-A01,supplied final original reread locally,Section2.1/2.2 PDFpp3-6; AppendixA PDFpp11-12,archive/user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf,Exact transfer-stream/event and realized-speed CM basis; no compact recovery law published
+2026-10-07,S12A005,institutional manuscript rechecked,Abstract; Section2; Section4.3; conclusion,https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6,Mean-capacity success separate from transient dynamics; no full own-state compact port
+2026-10-07,RM10-P04,author-uploaded original rechecked,2020 HALv4 Sections2-3; Theorem1; interaction time,https://www.researchgate.net/publication/346438282_A_Macroscopic_Traffic_Flow_Model_Accounting_for_Bounded_Acceleration,Constant acceleration and initial leaders; no nonlinear repeated-ramp-birth theorem
+2026-10-07,RM12-S3-T01,new primary antecedent full methods read,2018 IFAC Sections1.2 and2.1-2.2; theorem scope,https://www-sop.inria.fr/members/Guillaume.Costeseque/Laurent-Brouty-Costeseque-Goatin-2018.pdf,"6 pages; single-jump proof; same lineage as RM10-P04, not independent validation"
+2026-10-07,RM9-L03,institutional dissertation rechecked,2016 Chapter3.3.1; Chapter4.6; Chapter5.4,https://escholarship.org/content/qt7dx478g4/qt7dx478g4.pdf,Modified aggregate demand is a rival; ramp-merge extension remains future work
+2026-10-07,RM12-S3-A03,user-directed unavailability retained,Missing gridlock original,unavailable,No retrieval attempted
+2026-10-07,RM12-S3-Q01,prior access boundary retained,2013 memory-model lead,prior access record,No retrieval attempted; no unread transition law used

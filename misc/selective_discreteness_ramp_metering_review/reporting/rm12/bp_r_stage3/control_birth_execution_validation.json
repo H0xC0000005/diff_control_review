@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-08",
+  "scope": "Local source/analytical control-birth adequacy; documentary checks; no traffic experiment",
+  "prior_step": "66 accepted/closed by user",
+  "active_step": "67 open at S3-G2-Q.ACT",
+  "stage3": "open; complete own-update/clearance partial",
+  "stage4": "unopened",
+  "protected_file_count": 336,
+  "protected_hashes_match": true,
+  "documents_checked": 11,
+  "local_links_resolve": 239,
+  "scientific_diagnostics": [
+    {
+      "name": "admission operator regimes and maximum gap",
+      "rational_cases": 105,
+      "passed": true
+    },
+    {
+      "name": "constant receiving pulse integral and cycle independence",
+      "rational_cases": 5,
+      "passed": true
+    },
+    {
+      "name": "terminal descriptor remainder under time refinement",
+      "rational_cases": 8,
+      "passed": true
+    },
+    {
+      "name": "small count perturbation can change descriptor set",
+      "rational_cases": 8,
+      "passed": true
+    },
+    {
+      "name": "conditional threshold margin preserves sampled count",
+      "rational_cases": 162,
+      "passed": true
+    }
+  ],
+  "source_records": {
+    "queries": 5,
+    "batches": 2,
+    "activities": 9,
+    "technical_reads": 5,
+    "new_technical_reads": 1,
+    "retained_unavailable": 2,
+    "publisher_failure": 1
+  },
+  "pdf": {
+    "pages": 3,
+    "numbered_equations": 11,
+    "text_verified": true,
+    "raster_inspection": false,
+    "clean_final_log": true,
+    "matches_build": true
+  },
+  "environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "latex": "pdfTeX 3.141592653-2.6-1.40.25 / TeX Live 2023 (observed build)"
+  },
+  "snapshot": "/tmp/rm12_67_qualification_20261008_102053_528490/snapshot.json",
+  "new_artifacts": [
+    "extraction/rm12/bp_r_stage3/control_birth_source_audit.md",
+    "reporting/rm12/bp_r_stage3/control_birth_execution_validation.json",
+    "reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md",
+    "rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md",
+    "screening/rm12_bp_r_stage3_control_birth_sources.csv",
+    "search/rm12_bp_r_stage3_control_birth_queries.csv",
+    "synthesis/rm12/bp_r_stage3/control_birth_adequacy.md",
+    "synthesis/rm12/bp_r_stage3/control_birth_math.pdf",
+    "synthesis/rm12/bp_r_stage3/control_birth_math.tex"
+  ],
+  "updated_documents": [
+    "README.md",
+    "rm12_30_provisional_four_stage_roadmap.md",
+    "rm12_60_bp_r_stage3_protocol.md",
+    "rm12_66_bp_r_stage3_sampled_insertion_qualification.md",
+    "reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "discussion/rm12/backtracking_planning_dialogue.md",
+    "reporting/rm12/bp_r_stage3/work_report.md"
+  ],
+  "artifact_sha256": {
+    "extraction/rm12/bp_r_stage3/control_birth_source_audit.md": "5228643594aad78e289c14b0e020b7a2bae3617c3cf5df1bccf7f961b44f929d",
+    "reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md": "96adf9fe8498cad17fc00dd907f8979cb0bf27a919523011dc3bbd512f8596de",
+    "rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md": "a2043f7c8b8076035b0eaf98e7c402a6002c397ccaff3cb82453800c4c896b34",
+    "screening/rm12_bp_r_stage3_control_birth_sources.csv": "41132539830963d17dce66a9c26aff75a0019eb291ac5df454a5b55041ba7b11",
+    "search/rm12_bp_r_stage3_control_birth_queries.csv": "6440e2d47161befd8779760c87b4d2d6f3df55c61f333d828180d6c49bd0b2c1",
+    "synthesis/rm12/bp_r_stage3/control_birth_adequacy.md": "6f34e61a190eaf8d43678faa666683e807a2c08979667d4985677036bd9fb8a9",
+    "synthesis/rm12/bp_r_stage3/control_birth_math.pdf": "7a5b3c1481d47e318cd1f1e4aa7cfe5ff61d4dc593e6b6d1acdbba64f32c09d5",
+    "synthesis/rm12/bp_r_stage3/control_birth_math.tex": "ecd9b064908d056be7157fb1a439e9788a489f83ea3f576f1448e8475be4c860"
+  },
+  "root_status": " M AGENTS.md\n M PLANS.md\n",
+  "checker_source": "from pathlib import Path\nfrom fractions import Fraction as F\nfrom urllib.parse import unquote\nimport csv\nimport hashlib\nimport json\nimport platform\nimport re\nimport subprocess\nimport pypdf\n\nROOT = Path('/home/zpz/repos/diff_minimal_meso')\nBASE = ROOT / 'misc/selective_discreteness_ramp_metering_review'\nSNAP = Path('/tmp/rm12_67_qualification_20261008_102053_528490')\nsnapshot = json.loads((SNAP / 'snapshot.json').read_text())\n\nfor rel, expected in snapshot['protected'].items():\n    p = ROOT / rel\n    assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest() == expected, rel\n\nchecks = []\ncases = 0\nfor s in [F(1, 3), F(1), F(7, 3)]:\n    for eta in [F(0), F(1, 4), F(1, 2), F(3, 4), F(1)]:\n        for receiving in [F(0), s / 8, eta * s, s / 2, 3 * s / 4, s, 2 * s]:\n            gap = min(eta * s, receiving) - eta * min(s, receiving)\n            formula = ((1 - eta) * receiving if receiving <= eta * s\n                       else eta * (s - receiving) if receiving < s else F(0))\n            assert gap == formula\n            assert F(0) <= gap <= eta * (1 - eta) * s\n            if F(0) < eta < F(1) and F(0) < receiving < s:\n                assert gap > 0\n            cases += 1\n        peak = min(eta * s, eta * s) - eta * min(s, eta * s)\n        assert peak == eta * (1 - eta) * s\nchecks.append({'name': 'admission operator regimes and maximum gap', 'rational_cases': cases, 'passed': True})\n\nfor cycle in [F(1), F(2), F(4), F(10), F(30)]:\n    cap_mass = cycle * min(F(1, 2), F(2, 5))\n    green_mass = cycle * F(1, 2) * min(F(1), F(2, 5))\n    assert (cap_mass - green_mass) / cycle == F(1, 5)\n    if cycle == 10:\n        assert (cap_mass, green_mass) == (F(4), F(2))\nchecks.append({'name': 'constant receiving pulse integral and cycle independence', 'rational_cases': 5, 'passed': True})\n\nfor mesh_parts in [1, 2, 3, 5, 8, 16, 32, 64]:\n    endpoint = F(0)\n    generated = 0\n    for _ in range(mesh_parts):\n        previous = endpoint\n        endpoint += F(2, 5) / mesh_parts\n        generated += endpoint.numerator // endpoint.denominator - previous.numerator // previous.denominator\n    assert endpoint == F(2, 5) and generated == 0\nassert F(2, 5) + F(3, 5) == 1\nchecks.append({'name': 'terminal descriptor remainder under time refinement', 'rational_cases': 8, 'passed': True})\n\nfor power in range(1, 9):\n    epsilon = F(1, 10 ** power)\n    low, high = F(1) - epsilon, F(1) + epsilon\n    assert low.numerator // low.denominator == 0\n    assert high.numerator // high.denominator == 1\n    assert high - low == 2 * epsilon\nchecks.append({'name': 'small count perturbation can change descriptor set', 'rational_cases': 8, 'passed': True})\n\ncases = 0\nfor tenth in range(0, 31):\n    h = F(tenth, 10)\n    floor_h = h.numerator // h.denominator\n    distance = min(h - floor_h, floor_h + 1 - h)\n    for gamma in [F(1, 40), F(1, 20)]:\n        if distance <= gamma:\n            continue\n        for perturbation in [-gamma / 2, F(0), gamma / 2]:\n            altered = h + perturbation\n            assert abs(perturbation) < gamma\n            assert altered.numerator // altered.denominator == floor_h\n            cases += 1\nchecks.append({'name': 'conditional threshold margin preserves sampled count', 'rational_cases': cases, 'passed': True})\n\nnew_documents = [\n    'rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md',\n    'reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md',\n    'extraction/rm12/bp_r_stage3/control_birth_source_audit.md',\n    'synthesis/rm12/bp_r_stage3/control_birth_adequacy.md',\n]\ndocuments = list(snapshot['mutable']) + new_documents\nlink_count = 0\nfor rel in documents:\n    p = BASE / rel\n    body = p.read_text()\n    assert '\\n+##' not in body, rel\n    for target in re.findall(r'\\]\\(([^)]+)\\)', body):\n        target = target.strip().strip('<>')\n        if target.startswith(('https://', 'http://', 'mailto:')):\n            continue\n        location = unquote(target.split('#', 1)[0])\n        linked = (p.parent / location).resolve() if location else p\n        assert linked.exists(), (rel, target)\n        link_count += 1\n\nreport = (BASE / new_documents[1]).read_text()\nfor term in ['Problem statement', 'Model-chain function', 'Core gap',\n             'A \u2014', 'B \u2014', 'C \u2014', 'Provisional recommendation: A',\n             'Step 66', 'Step 67', 'Stage 3', 'Stage 4']:\n    assert term in report, term\nassert report.count('**Pros:**') == 3 and report.count('**Cons:**') == 3\nassert report.count('**Dependency/consequence:**') == 3\nprotocol = (BASE / new_documents[0]).read_text()\nfor term in ['S3-G2-Q.ACT', 'S3-I2.ACT.T', 'Type 2 / user',\n             'Type 1 / reviewer', 'No alternative actuator is adopted',\n             'Steps 2/3']:\n    if term == 'Steps 2/3':\n        continue\n    assert term in protocol, term\nassert 'accepted and closed by the user' in (BASE / 'rm12_66_bp_r_stage3_sampled_insertion_qualification.md').read_text()\nassert 'control_birth_findings_and_gate.md' in (BASE / 'README.md').read_text()\n\nwith (BASE / 'search/rm12_bp_r_stage3_control_birth_queries.csv').open(newline='') as f:\n    queries = list(csv.DictReader(f))\nwith (BASE / 'screening/rm12_bp_r_stage3_control_birth_sources.csv').open(newline='') as f:\n    activities = list(csv.DictReader(f))\ntechnical = [r for r in activities if r['activity'] in ['technical recheck', 'new technical read']]\nassert len(queries) == 5 and {r['batch'] for r in queries} == {'1', '2'}\nassert len(activities) == 9 and len(technical) == 5\nassert sum(r['activity'] == 'new technical read' for r in activities) == 1\nassert sum(r['activity'] == 'retained unavailable' for r in activities) == 2\nassert sum(r['activity'] == 'publisher access failed' for r in activities) == 1\n\npdf = BASE / 'synthesis/rm12/bp_r_stage3/control_birth_math.pdf'\ntex = pdf.with_suffix('.tex')\nbuild = SNAP / 'tex'\nassert pdf.read_bytes() == (build / pdf.name).read_bytes()\nreader = pypdf.PdfReader(pdf)\nextracted = '\\n'.join(page.extract_text() for page in reader.pages)\nassert len(reader.pages) == 3\nequations = tex.read_text().count('\\\\begin{equation}')\nassert equations == 11\nfor number in range(1, equations + 1):\n    assert f'({number})' in extracted, number\nfor text in ['0.4', '0.2', '0.4m', 'Poisson', 'M.A', 'Q.ACT']:\n    assert text in extracted, text\nlog = (build / 'control_birth_math.log').read_text()\nfor diagnostic in ['Overfull', 'Underfull', 'Warning', '! LaTeX Error']:\n    assert diagnostic not in log, diagnostic\n\nexpected_new = set(new_documents + [\n    'synthesis/rm12/bp_r_stage3/control_birth_math.tex',\n    'synthesis/rm12/bp_r_stage3/control_birth_math.pdf',\n    'search/rm12_bp_r_stage3_control_birth_queries.csv',\n    'screening/rm12_bp_r_stage3_control_birth_sources.csv',\n    'reporting/rm12/bp_r_stage3/control_birth_execution_validation.json',\n])\nknown = {str((ROOT / r).resolve()) for r in snapshot['protected']}\nknown.update(str((BASE / r).resolve()) for r in snapshot['mutable'])\nfound_new = {str(p.relative_to(BASE)) for p in BASE.rglob('*') if p.is_file() and str(p.resolve()) not in known}\nassert found_new <= expected_new, found_new - expected_new\n\nstatus = subprocess.check_output(['git', 'status', '--short'], cwd=ROOT, text=True)\nassert status == ' M AGENTS.md\\n M PLANS.md\\n', status\nresult = {\n    'date': '2026-10-08', 'scope': 'Local source/analytical control-birth adequacy; documentary checks; no traffic experiment',\n    'prior_step': '66 accepted/closed by user', 'active_step': '67 open at S3-G2-Q.ACT',\n    'stage3': 'open; complete own-update/clearance partial', 'stage4': 'unopened',\n    'protected_file_count': len(snapshot['protected']), 'protected_hashes_match': True,\n    'documents_checked': len(documents), 'local_links_resolve': link_count,\n    'scientific_diagnostics': checks,\n    'source_records': {'queries': 5, 'batches': 2, 'activities': 9, 'technical_reads': 5, 'new_technical_reads': 1, 'retained_unavailable': 2, 'publisher_failure': 1},\n    'pdf': {'pages': 3, 'numbered_equations': 11, 'text_verified': True, 'raster_inspection': False, 'clean_final_log': True, 'matches_build': True},\n    'environment': {'python': platform.python_version(), 'pypdf': pypdf.__version__, 'latex': 'pdfTeX 3.141592653-2.6-1.40.25 / TeX Live 2023 (observed build)'},\n    'snapshot': str(SNAP / 'snapshot.json'),\n    'new_artifacts': sorted(expected_new), 'updated_documents': snapshot['mutable'],\n    'artifact_sha256': {rel: hashlib.sha256((BASE / rel).read_bytes()).hexdigest() for rel in sorted(expected_new) if (BASE / rel).is_file()},\n    'root_status': status, 'checker_source': Path(__file__).read_text(),\n    'limits': ['Prescribed local receiving and saturated waiting, not a reached traffic case', 'No complete solver, clearing proof, TST benefit or derivative validated', 'A/B/C are unselected; selected M.A/N.A/E1 unchanged'],\n}\ntarget = BASE / 'reporting/rm12/bp_r_stage3/control_birth_execution_validation.json'\nwith target.open('x') as f:\n    json.dump(result, f, indent=2)\n    f.write('\\n')\nprint(f'PASS: {len(snapshot[\"protected\"])} protected files; {len(documents)} documents/{link_count} local links; {len(checks)} analytical checks; 3-page/11-equation PDF; step66 closed, step67 at Q.ACT.')\n",
+  "limits": [
+    "Prescribed local receiving and saturated waiting, not a reached traffic case",
+    "No complete solver, clearing proof, TST benefit or derivative validated",
+    "A/B/C are unselected; selected M.A/N.A/E1 unchanged"
+  ]
+}

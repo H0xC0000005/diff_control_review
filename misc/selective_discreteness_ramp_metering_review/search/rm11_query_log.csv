@@ -1,0 +1,19 @@
+query_id,date,query,purpose,source_ids,outcome
+RM11-Q01,2026-10-05,"""ramp metering"" ""merging area"" ""cell transmission"" ""length""",Finite-lane macroscopic control frontier,RM0004;FB0030,Lane CTM/control lineage rechecked; distributed task transfer audited
+RM11-Q02,2026-10-05,"""on-ramp"" ""merging"" ""empirical"" ""Daamen"" ""position""",Genuine finite geometry and position evidence,RM11-P01;RM11-P02,Original empirical papers selected
+RM11-Q03,2026-10-05,"""ramp metering"" ""state estimation"" ""initial"" ""detector"" macroscopic",Operational initialization and observation support,RM11-L01;RM11-L02,Aggregate-control leads; access limitations retained
+RM11-Q04,2026-10-05,"""distributed merging"" ""ramp"" traffic model",Strong spatial rival and distributed merging,FB0030;RM0004,Nearest lane/spatial modeling frontier followed; no law adopted
+RM11-Q05,2026-10-05,"""finite"" ""acceleration lane"" ""macroscopic"" ""ramp metering""",Finite opportunity versus point merge,RM0004;RM8-P02,Task geometry and actuator transfer checked
+RM11-Q06,2026-10-05,"""Empirical Analysis of Merging Behavior at Freeway On-Ramp"" pdf",Original empirical antecedent access,RM11-L03;RM11-P01,2010 secondary lead only; 2013 original selected; no duplicated empirical proof
+RM11-Q07,2026-10-05,"""ramp metering"" ""initial density"" ""measurements"" CTM",Measured aggregate initial state,RM11-L01,Indexed original thesis excerpt; full PDF unavailable; not a complete knowledge contract
+RM11-Q08,2026-10-05,"""merging area"" ""distributed"" ""macroscopic"" traffic",Distributed source mechanisms,FB0030;RM11-P01,Physical/spatial support; no exact history theorem transferred
+RM11-Q09,2026-10-05,"""finite"" ""merging"" ""lane"" ""cell transmission model"" ""ramp""",Finite lane CTM task frontier,RM0004;FB0030,Primary spatial model and transfer restrictions checked
+RM11-Q10,2026-10-05,"""Daamen"" ""Loot"" ""Bodegraven"" ""merging""",Empirical lineage and duplicate discipline,RM11-L03;RM11-P01,Older bibliographic lead kept distinct from inspected original
+RM11-Q11,2026-10-05,"""ramp metering"" ""distributed"" ""lane-changing"" ""CTM""",Nearby control and aggregate competitors,RM11-L05;RM0004,Collaborative-control lead not substituted for unchanged single-ramp task
+RM11-Q12,2026-10-05,"""lane-changing"" ""observability"" ""traffic"" ""density""",History reconstruction versus instantaneous detail,RM11-L02;FB0030,No joined strong-history/action certificate established; no universal absence claimed
+RM11-Q13,2026-10-05,"""Modelling and Optimisation of Dynamic Motorway Traffic"" ""initial""",Exact title and initial-state access,RM11-L01,UCL metadata accessible; alternative PDF failed
+RM11-Q14,2026-10-05,"""Design, Field Implementation and Evaluation of Adaptive Ramp Metering Algorithms"" pdf",Primary aggregate-control methods access,RM11-L02;RM0001,Report access limited; author-hosted RM0001 selected full methods obtained
+RM11-Q15,2026-10-05,"""ramp metering"" ""acceleration lane"" ""cell"" ""density"" ""finite""",Nearby finite-lane aggregate models,RM11-L04;RM0004,Emerging original-upload lead indexed only; no inference of failed methods
+RM11-Q16,2026-10-05,"""lane change"" ""finite"" ""ramp metering"" ""initial""",Initial knowledge and alternative-control boundary,RM8-P02;RM11-L05,No unchanged task certificate; RL/CAV/extra-actuator substitutes not expanded
+RM11-Q17,2026-10-05,"""Driving behaviour at motorway ramps and weaving segments based on empirical trajectory data""",Original version and author metadata,RM11-P02,Accepted manuscript and institutional bibliographic record verified
+RM11-Q18,2026-10-05,"""Modelling and Optimisation of Dynamic Motorway Traffic"" ""density"" ""initial"" site:discovery.ucl.ac.uk",Final bounded thesis access follow-up,RM11-L01,No additional full-method access; limited-grade lead preserved

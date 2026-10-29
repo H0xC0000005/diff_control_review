@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-12",
+  "scope": "documentary opening proposal only",
+  "pdf": {
+    "path": "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_kernel_note.pdf",
+    "pages": 3,
+    "bytes": 160417,
+    "page_text_characters": [
+      2034,
+      2033,
+      3095
+    ],
+    "all_three_content_sections_present": true,
+    "compilation_succeeded": true,
+    "latex_layout_or_reference_warnings": [],
+    "visual_raster_inspection_performed": false
+  },
+  "local_links": {
+    "documents_checked": 6,
+    "links_checked": 76,
+    "broken": []
+  },
+  "preservation": {
+    "snapshot": "/tmp/vsl_successor_opening_20261012_preservation_snapshot.json",
+    "existing_files_checked": 937,
+    "unchanged_files": 936,
+    "expected_changed_files": [
+      "misc/differentiable_freeway_bottleneck_task_review/README.md"
+    ],
+    "actual_changed_files": [
+      "misc/differentiable_freeway_bottleneck_task_review/README.md"
+    ],
+    "missing_files": [],
+    "closed_vsl_urban_ramp_evidence_and_feedback_unchanged": true,
+    "preexisting_AGENTS_and_PLANS_changes_preserved": true
+  },
+  "artifact_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "026d3e733d15111bc91dceb34573c339181c04f0e6ac2c81fe70c62df1a56336",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md": "2bf41fb16d7a20c0db3db17ee34acf1be1297f83cfbab7e4a52516821a28b2a4",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_work_report.md": "7b0017d6ba88b1a0748e1a033fc658bd346f94101df0326f63244cc87dab6835",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_kernel_note.pdf": "8f976b333caa14341b9a39e32d147efad5121dcc4417c52af905542d8306d4a4",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_kernel_note.tex": "7cbc15bcd80d2cec2dadce94dc67f9846c8e9f242a3656aa94b67a098c0d6e03",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md": "7377a4027b045001dbfa213693be7727703fd23a480ee6b811b2c6094f2f58e2",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md": "c04bd02f2eb3069b9dd59e317be3c6e64cfa4d06df14a6ca22b6ddef3bb32357"
+  },
+  "scientific_or_simulator_tests_run": false,
+  "traffic_experiments_run": false,
+  "dependencies_installed": false,
+  "status": "all document checks passed; opening task stops for user review",
+  "new_task_artifact_count": 8,
+  "repository_tracking": "misc/ is preexisting Git-ignored; review files saved locally, not staged"
+}

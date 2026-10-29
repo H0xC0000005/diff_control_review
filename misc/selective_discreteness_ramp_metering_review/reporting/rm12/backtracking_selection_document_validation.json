@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "review_status": "RM9/RM10/RM11 closed; RM12 four-position screen completed to BG1; successor execution unapproved",
+  "documents_checked": [
+    "rm12_20_backtracking_point_comparison.md",
+    "extraction/rm12/backtracking_source_recheck.md",
+    "rm12_10_bounded_next_step_proposal.md",
+    "rm12_00_post_c_backtracking_plan_check.md",
+    "README.md",
+    "reporting/rm11/current_handoff.md",
+    "discussion/rm12/backtracking_planning_dialogue.md"
+  ],
+  "local_links_checked": 54,
+  "broken_local_links": [],
+  "candidate_positions": [
+    "BP-M",
+    "BP-I",
+    "BP-U",
+    "BP-R"
+  ],
+  "scope_and_status_checks": {
+    "exactly_four_positions": true,
+    "each_position_has_pros_cons_dependencies": true,
+    "selection_unapproved": true,
+    "conditional_recommendation": true,
+    "recovery_priority_withdrawn": true,
+    "earlier_b_distinction": true,
+    "common_information_guard": true,
+    "open_loop_not_assumed_coarse": true,
+    "stable_global_local_inventory": true,
+    "historical_verifications_preserved": true,
+    "closure_files_preserved": true
+  },
+  "reused_primary_sources_rechecked": [
+    "RM8-P01",
+    "RM0003",
+    "RM9-O01",
+    "RM8-P02",
+    "S12A005"
+  ],
+  "new_search_queries": 0,
+  "new_source_ids": 0,
+  "source_access_grade": "selected primary methods/definitions; not exhaustive full-family coverage",
+  "simulations_or_numerical_gradient_tests": "none; planning and source screen only",
+  "previous_verifications": "retained as historical planning revisions"
+}

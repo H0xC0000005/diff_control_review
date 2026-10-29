@@ -1,0 +1,10 @@
+source_id,date,url,access,scope,decision_critical_request
+S06-S1,2026-09-17,https://elib.dlr.de/102254/1/Springer-SUMOs_Lane_changing_model.pdf,Success online PDF17pages,Selected native-model methodology; no installed version verified,no
+S06-S2,2026-09-17,https://www.victorknoop.eu/research/papers/ieee_itsc_2010.pdf,Timeout then browser safe-open failure,No PDF bytes or method claim from this route,no
+S06-S2,2026-09-17,https://www.researchgate.net/publication/224190648_Lane_distribution_of_traffic_near_merging_zones_influence_of_variable_speed_limits,Success author-uploaded primary paper text,Sections IV-VI inspected; institutional metadata reconciled,no
+S06-S2,2026-09-17,https://www.victorknoop.eu/research/,Success author webpage,Figure5 erratum checked,no
+S06-S3,2026-09-17,https://ira.lib.polyu.edu.hk/bitstream/10397/92568/1/Zhang_Optimization_Speed_Freeway.pdf,Success online PDF44pages,Selected primary methods results and CTM qualification; manuscript not final-PDF equivalence claim,no
+S06-S4,2026-09-17,../archive/full_text/FB0005.pdf,Success verified existing local archive,Selected advisory controller calibration and table accounting reinspected,no
+S06-S5,2026-09-17,../archive/full_text/FB0039.pdf,Success verified existing local archive,Occupancy conditioning stationarity and field limits reinspected,no
+S06-S6,2026-09-17,../extraction/rb_source_studies/new_lane_evidence.md,Success prior full-method extraction reused,Lateral actuator and negative-case qualifications retained; no new full-method inspection claimed,no
+S06-M1,2026-09-17,"https://sumo.dlr.de/docs/Definition_of_Vehicles,_Vehicle_Types,_and_Routes.html",Success official rolling documentation,Departure semantics support conditional methodology screen only; no server probe,no

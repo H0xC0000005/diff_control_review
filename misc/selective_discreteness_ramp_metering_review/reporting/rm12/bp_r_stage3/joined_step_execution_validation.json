@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "date": "2026-10-08",
+  "scope": "Analytical and document checks only; no simulator/gradient experiments",
+  "protected_files_unchanged": 586,
+  "existing_files_modified": [
+    "misc/selective_discreteness_ramp_metering_review/README.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_30_provisional_four_stage_roadmap.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_60_bp_r_stage3_protocol.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_66_bp_r_stage3_sampled_insertion_qualification.md",
+    "misc/selective_discreteness_ramp_metering_review/rm12_67_bp_r_stage3_control_birth_adequacy_continuation.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/motion_contact_findings_and_gate.md",
+    "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/motion_contact_qualification.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/own_motion_findings_and_gate.md",
+    "misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/own_motion_qualification.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/control_birth_findings_and_gate.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/sampled_insertion_findings.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/joined_receiving_findings.md",
+    "misc/selective_discreteness_ramp_metering_review/discussion/rm12/backtracking_planning_dialogue.md",
+    "misc/selective_discreteness_ramp_metering_review/reporting/rm12/bp_r_stage3/work_report.md"
+  ],
+  "new_files": [
+    "reporting/rm12/bp_r_stage3/joined_step_findings_and_gate.md",
+    "extraction/rm12/bp_r_stage3/joined_step_source_audit.md",
+    "synthesis/rm12/bp_r_stage3/joined_step_qualification.md",
+    "synthesis/rm12/bp_r_stage3/joined_step_math.tex",
+    "synthesis/rm12/bp_r_stage3/joined_step_math.pdf",
+    "search/rm12_bp_r_stage3_joined_step_queries.csv",
+    "screening/rm12_bp_r_stage3_joined_step_sources.csv",
+    "reporting/rm12/bp_r_stage3/joined_step_execution_validation.json"
+  ],
+  "documents_checked": 17,
+  "local_links_checked": 312,
+  "analytical_checks": [
+    {
+      "group": "Shared priority bounds and time-allocation noncommutation",
+      "bounded_cases": 375,
+      "diagnostic_actual": [
+        "2/5",
+        "1/5"
+      ],
+      "allocation_on_totals": [
+        "3/10",
+        "3/10"
+      ]
+    },
+    {
+      "group": "Paired approach/main/outside mass accounting",
+      "cases": 27,
+      "descriptor_population": 0
+    },
+    {
+      "group": "Local count gauge, recipient rebase and port double-count detection",
+      "cases": 12
+    },
+    {
+      "group": "CFL-compatible coincident fan and uniform projection mismatch",
+      "cases": 1,
+      "parent_CFL_equality": true,
+      "initial_mass": "3/10",
+      "entry": "3/8",
+      "exit": "3/10",
+      "cell_mass": "3/8",
+      "invented_gap_mass": "1/8",
+      "not_reached_meter_witness": true
+    },
+    {
+      "group": "Compatible interpolation conservation, storage, anchors, coincidence, local macro limit and single-projection count bound",
+      "cases": 81,
+      "incompatible_inputs_rejected": 3
+    },
+    {
+      "group": "Conditional geometric TST tail identity",
+      "cases": 64,
+      "does_not_establish_full_task_clearance": true
+    }
+  ],
+  "queries": 5,
+  "query_batches": 2,
+  "web_operations": 13,
+  "failed_publisher_opens": 4,
+  "failed_find": 1,
+  "find_no_match": 1,
+  "pdf": {
+    "pages": 3,
+    "equations": 15,
+    "sha256": "0d3eec32e5b223b646f828b755c805d463a05113288fa0eb517e9918e7d7dffe",
+    "clean_build_log": true,
+    "text_extraction_checked": true,
+    "raster_visual_inspection": false
+  },
+  "environment": {
+    "python": "3.11.9",
+    "executable": "/home/zpz/miniconda3/envs/differential_sim/bin/python",
+    "pypdf": "6.15.0",
+    "pdflatex": "/usr/bin/pdflatex",
+    "raster_tools": {
+      "gs": null,
+      "mutool": null,
+      "pdftoppm": null
+    }
+  },
+  "commands": [
+    "python /tmp/write_rm12_joined_step.py",
+    "python /tmp/update_rm12_joined_status.py",
+    "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/rm12_67_joined_step_20261008_zexia624/build misc/selective_discreteness_ramp_metering_review/synthesis/rm12/bp_r_stage3/joined_step_math.tex",
+    "/home/zpz/miniconda3/envs/differential_sim/bin/python /tmp/validate_rm12_joined_step.py"
+  ],
+  "status_contract": {
+    "K": "A approved",
+    "F": "A recommended; neither adopted",
+    "Stage3": "open",
+    "Stage4": "unopened",
+    "full_joined_law": "pending",
+    "clearance": "conditional only",
+    "meaningful_meter_TST_response": "pending",
+    "gradient_claim": "none"
+  },
+  "snapshot": "/tmp/rm12_67_joined_step_20261008_zexia624/before.json",
+  "validator": "/tmp/validate_rm12_joined_step.py"
+}

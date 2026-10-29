@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "scope": "repository bootstrap/document migration only; no traffic experiments",
+  "source_misc_files": 1413,
+  "source_misc_bytes": 149474463,
+  "review_imported_files_with_context": 1446,
+  "raw_preserved": 1388,
+  "navigation_only_markdown": 58,
+  "preexisting_link_issues_recovered": 82,
+  "unresolved_local_markdown_links": 0,
+  "review_local_links_checked": 4898,
+  "vsl_local_links_checked": 43,
+  "owned_cross_repository_targets_checked": 21,
+  "vsl_selected_source_files": 20,
+  "vsl_production_python_files": 0,
+  "implementation_workflow_preserved": true,
+  "urban_agent_context_roadmap_unchanged": true,
+  "all_source_files_unchanged": true,
+  "credential_pattern_matches": 0,
+  "largest_file_bytes": 10374285,
+  "vsl_pdf_checks": [
+    {
+      "file": "vsl_allocator_contract_and_checks.pdf",
+      "pages": 4
+    },
+    {
+      "file": "vsl_congestion_join_contract_and_checks.pdf",
+      "pages": 3
+    },
+    {
+      "file": "vsl_task_functional_comparison.pdf",
+      "pages": 1
+    },
+    {
+      "file": "vsl_lane_backbone_flow_checks.pdf",
+      "pages": 2
+    },
+    {
+      "file": "vsl_joined_candidate_contract_and_qualification.pdf",
+      "pages": 6
+    },
+    {
+      "file": "vsl_methodology_review_analytical_addendum.pdf",
+      "pages": 2
+    },
+    {
+      "file": "vsl_literature_backbone_review_report.pdf",
+      "pages": 4
+    }
+  ],
+  "next_development_action": "Phase A implementation proposal; no implementation plan approved",
+  "review_workflow": "independent topic-based review, not implementation A\u2013F"
+}

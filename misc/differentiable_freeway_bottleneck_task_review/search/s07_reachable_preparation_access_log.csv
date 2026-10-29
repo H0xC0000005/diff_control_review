@@ -1,0 +1,5 @@
+source_id,date,url,access,scope,decision_critical_request
+S07-S1,2026-09-29,"https://sumo.dlr.de/docs/Definition_of_Vehicles,_Vehicle_Types,_and_Routes.html",Success official rolling documentation,"Departure position/speed/lane and current LC2013 parameter semantics; no installed version claim",no
+S07-S2,2026-09-29,https://sumo.dlr.de/docs/Simulation/VehicleInsertion.html,Success official rolling documentation,"Safe/delayed insertion and step/placement dependencies",no
+S07-S3,2026-09-29,https://sumo.dlr.de/docs/Simulation/RoadCapacity.html,Success official rolling documentation,"Headway method and illustrative insertion sensitivity; no scenario capacity transfer",no
+S07-S4,2026-09-29,https://elib.dlr.de/102254/1/Springer-SUMOs_Lane_changing_model.pdf,Success online PDF 17 pages,"Reused native strategic urgency and speed-coupling methodology",no

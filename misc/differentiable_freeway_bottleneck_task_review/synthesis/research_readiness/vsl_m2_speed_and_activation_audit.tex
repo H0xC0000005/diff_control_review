@@ -1,0 +1,179 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\begin{center}
+{\Large M2: boundary speed and the first restriction}\\[4pt]
+15 October 2026 --- conditional analytical audit, no selected replacement law
+\end{center}
+
+\textbf{Status.} The shared-meter M2 direction is user-selected at CP-D2.
+This note checks its boundary inputs and activation requirements before
+qualifying an exact update. It does not implement a simulator, run traffic,
+calibrate parameters, or transfer M1's proofs. Accepted predecessor and M1
+source/PDF artifacts remain unchanged.
+
+\section*{1. A flow value does not determine actual boundary speed}
+
+Retain free-speed parameter $v>0$, backward-wave speed $w>0$ and jam
+density $k_j>0$. The triangular fundamental diagram is
+\begin{equation}
+ Q_v(k)=\min\{vk,w(k_j-k)\},\qquad
+ k_c(v)=\frac{wk_j}{v+w},\qquad C(v)=vk_c(v).
+ \tag{1}
+\end{equation}
+For any $0<f<C(v)$, it has two density states and associated speeds:
+\begin{align}
+ k_{\rm f}(f)&=f/v,& u_{\rm f}(f)&=v,\nonumber\\
+ k_{\rm c}(f)&=k_j-f/w,&
+ u_{\rm c}(f)&=\frac{wf}{wk_j-f}<v.
+ \tag{2}
+\end{align}
+The same subcapacity flow may therefore be light fast traffic or dense
+slow traffic. The branch must have a traffic interpretation. Applying
+$u_{\rm c}$ to every positive small discharge manufactures a slow state
+without establishing that traffic is congested. Empty-flow vehicle speed
+is not assigned by this argument.
+
+The inverse service-equivalent speed
+\begin{equation}
+ u_R=\frac{wR}{wk_j-R},\qquad C(u_R)=R,
+ \quad 0<R<C(v)
+ \tag{3}
+\end{equation}
+is likewise not actual crossing speed. A baseline service ceiling below
+$C(v)$ does not mean that all undisturbed vehicles travel at $u_R$.
+Boundary insertion kinematics require an explicit local regime/entry law.
+
+\textbf{Source interpretation.}
+\href{https://arxiv.org/pdf/1405.7080}{Jin's continuous-LTM manuscript}
+provides the FD and demand/service interfaces. The
+\href{https://www.researchgate.net/publication/251530773_Capacity_Drops_at_Merges_an_endogenous_model}{2011 conference source, section 2},
+keeps the main road sufficiently loaded for congestion; its section 2.2
+uses main-road speed for an uncongested entering stream. The
+\href{https://repository.tudelft.nl/file/File_c424c1b3-7374-436b-a6a7-abdf69063aa6}{2016 manuscript, section 3.2},
+relates insertion flow/speed under a congested entering-stream assumption.
+Neither relation is an already qualified empty-start M2 update.
+
+\newpage
+\section*{2. An undisturbed solution for a speed-recovery-only completion}
+
+Retain the accepted finite-cohort H1 arrivals, $r=e_0+a_0$, continuing
+symmetry, initially empty terminal and known zero recovery history.
+For fixed advice $v\in[v_-,v_+]$, the minimum-travel eligible arrivals obey
+\begin{equation}
+ \dot P_A(t)+\dot P_E(t)=vr
+ \quad\text{for }t_0=(L-\ell)/v<t<t_*=L/v,
+ \qquad 0\text{ otherwise}.
+ \tag{4}
+\end{equation}
+Their composition changes through H1, but their sum does not. The inherited
+ordinary budget satisfies
+\begin{equation}
+ v_+r<R\leq C(v_-),\qquad v_+b_0\leq R_B\leq C(v_-).
+ \tag{5}
+\end{equation}
+
+Consider the \emph{particular class of completions} with these properties:
+(i) zero disturbance gives shared service $R$;
+(ii) an unqueued free approach with no separate maneuver burden crosses
+at $v$ (or an unqueued entry matches the free continuing stream);
+(iii) such nonrestrictive passages generate no recovery loss, and zero
+history remains zero in their presence;
+(iv) service is conservative and work conserving with the retained priority.
+No stochastic disturbance, compulsory-maneuver slowing or new initial state
+is included in these conditions.
+
+Then the following trajectory is self-consistent:
+\begin{equation}
+ Y_A=P_A,\quad Y_E=P_E,\quad Y_B=P_B,\quad
+ q_A=q_E=q_B=0,\quad \mu=R,\quad Z=0.
+ \tag{6}
+\end{equation}
+$Z$ denotes the entire recovery state/history, not necessarily a scalar.
+Indeed, $\dot P_A+\dot P_E=vr<R$ makes all arrivals pass even under strict
+A priority. Each rate is below physical sending capacity. Thus no queue
+forms, the speed interpretation remains free, and no new loss is generated.
+If a completion with properties (i)--(iv) has a \emph{unique} causal solution,
+(6) is that solution. This note does not prove uniqueness for an unspecified
+M2 law or rule out other M2 mechanisms. Multiple-solution branch selection
+would itself require qualification.
+
+The local complete objective in this completion is
+\begin{equation}
+ J(v)=\frac{M(L-\ell/2)}{v},\qquad
+ J'(v)=-\frac{M(L-\ell/2)}{v^2}<0.
+ \tag{7}
+\end{equation}
+Hence the fastest advice is common and lane composition cannot alter the
+objective for fixed aggregate footprint/mass. This is an analytical result
+for the stated completion, not an empirical gradient result or a theorem
+about every state-dependent shared meter. H1 can still have active early
+receiving limitation; consequential terminal waiting is missing.
+
+\newpage
+\section*{3. Ordinary overload can be admitted without abandoning H1}
+
+The alternative congestion-origin route must explicitly amend the first
+inequality in (5). It need not violate H1's free-flow branch or its terminal
+storage protection. To show a nonempty compatible family, choose
+\begin{equation}
+ 0<r<k_c(v_+),\qquad
+ v_-r<R<\min\{v_+r,C(v_-)\}.
+ \tag{8}
+\end{equation}
+The interval for $R$ is nonempty: $v_-r<C(v_-)$ follows from
+$r<k_c(v_+)\leq k_c(v_-)$, and $v_-r<v_+r$. It permits an ordinary
+overload for $v>R/r$ while keeping $R\leq C(v_-)$.
+
+For all admitted advices, H1 still has
+\begin{equation}
+ e+a=r<k_c(v),\qquad
+ \dot F_E,\dot F_A\leq vr<C(v).
+ \tag{9}
+\end{equation}
+Choose $a_0=b_0>0$ sufficiently small, $e_0=r-a_0>0$, and retain
+an independent $R_B$ with $v_+b_0\leq R_B\leq C(v_-)$. With total
+mass $M=\ell(r+a_0)$ choose finite terminal length $b>M/k_j$.
+The earlier vacancy proof then still gives positive receiving at the H1
+handoff for any conservative admissible departures:
+\begin{equation}
+ V_j(t)>0\quad(0<t\leq b/w),\qquad
+ V_j(t)\geq k_jb-M>0\quad(t>b/w).
+ \tag{10}
+\end{equation}
+The first part uses $F_j(t)\leq C(v)t<k_jwt$. No spatial H1 state or
+upstream spillback feedback is inferred from this sufficient domain.
+
+If a prospective meter has $0\leq\mu\leq R$ and $vr>R$, its combined
+eligible queue during the arrival interval must satisfy
+\begin{equation}
+ Q(t)=P_A(t)+P_E(t)-Y_A(t)-Y_E(t)
+ \geq(vr-R)(t-t_0)>0\quad(t_0<t<t_*).
+ \tag{11}
+\end{equation}
+No initial queue or hidden slow-speed seed was inserted. This establishes
+a source of terminal congestion, not which stream queues, an insertion
+speed law, an extra capacity loss or M2 well-posedness/clearance. Those remain
+law-specific. The no-ordinary-overload isolation claim is changed by (8), so
+this route requires explicit G3 approval.
+
+\textbf{The other route.} Keeping (5) requires a separately justified
+compulsory-entry/yielding mechanism that can generate a restriction before
+ordinary overload. Its exact law is not supplied here. Simply reusing M1's
+fixed low insertion prototype would reinstate an assumption rather than
+derive actual kinematics.
+
+\textbf{Gate.} CP-M2-D1 selects the physical origin of the first restriction:
+compulsory-maneuver slowing under the old load domain, or congestion-origin
+slowing under an explicitly amended domain. Neither is adopted in this note.
+M2 architecture remains selected, with one aggregate account and sufficient
+internal information. No M1 theorem, native result or positive control claim
+is transferred. Step 3 and the full M2 law review remain open.
+\end{document}

@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-12",
+  "scope": "requested feedback-1 starting-point audit only",
+  "questions_answered": [
+    "component framework and completeness",
+    "literature adoption versus established coverage",
+    "necessary component/flow refinements and misunderstanding check"
+  ],
+  "local_links": {
+    "documents_checked": 7,
+    "links_checked": 84,
+    "broken": []
+  },
+  "candidate_record": {
+    "candidates": 3,
+    "pros_cons_dependencies_present": true,
+    "selection": "none; S13 reference retained"
+  },
+  "preservation": {
+    "snapshot": "/tmp/vsl_feedback1_20261012_preservation_snapshot.json",
+    "existing_files_checked": 946,
+    "unchanged_files": 941,
+    "expected_changed_files": [
+      "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md",
+      "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md",
+      "temp_content/feedback/vsl_refinement_feedback.md"
+    ],
+    "actual_changed_files": [
+      "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md",
+      "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md",
+      "temp_content/feedback/vsl_refinement_feedback.md"
+    ],
+    "missing_files": [],
+    "dialogue_append_only": true,
+    "feedback_change_only_answered_heading": true,
+    "closed_S13_urban_ramp_and_production_evidence_unchanged": true,
+    "preexisting_AGENTS_PLANS_changes_preserved": true,
+    "previous_opening_pdf_tex_and_validation_preserved": true,
+    "feedback_sha256": "9eaa70e49a6133c348f1a3626e886462ce77d632c3a2b4aaf4d78637dd711e68"
+  },
+  "artifact_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback1_starting_point_audit.md": "303c8ec6db829cd4c97ed4a6b645d773387c2626e6325162dee29c83e2824ab8",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "a17dae29b5771e028354da064dc332227ea05236a4c9c963af0602da6a632c0b",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback1_work_report.md": "8c2c26df5002a94a0ab4ea677e0a7abe5c6d9a81ec05f0c749959be12b51958a",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md": "89ca41bbcb0fa962724c36efdbcf825d7655e54bea8342ac8d1c253fdf49229e",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md": "1b20480c956c01bc4aa913618a5da8669bba4f33b7808afc19e07f0c70d656e9",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md": "f2546a5d4f4387f65d70f298e347188880d2e6526b10bdff4e30129b9cefcb3b",
+    "misc/differentiable_freeway_bottleneck_task_review/README.md": "c25dd41e434f03dc6b4d6474c3f1473dcd7b66d409762af851f3691913103a8f"
+  },
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback1_starting_point_audit.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback1_work_report.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback1_validation.json"
+  ],
+  "new_mathematical_model_selected": false,
+  "simulator_or_scientific_tests_run": false,
+  "traffic_experiments_run": false,
+  "dependencies_installed": false,
+  "status": "all document checks passed; stopped at starting-point audit checkpoint"
+}

@@ -1,0 +1,88 @@
+# Joined proposal: equation sources and completeness
+
+27 October 2026. This map accompanies the new complete **proposed** transcription. It supersedes the old working draft as the current reading route, while retaining that draft and its equation map unchanged as historical evidence. “Proposed” below is not user approval. Numerical calibration, implementation and empirical qualification remain later.
+
+[Compact report](../../reporting/research_readiness/urban_compact_methods_report.pdf)
+
+[Detailed specification](../../reporting/research_readiness/urban_methodology_specification.pdf)
+
+[Retained specification source](../../reporting/research_readiness/urban_methodology_specification.tex)
+
+[Separate review points and status](../../temp_content/research_readiness/joined_methodology_review.md)
+
+## Feedback 10: selected status supersedes the previous coupled candidate
+
+The [separate answer](../../reporting/research_readiness/urban_feedback10_response.md) records the selected shared-lane starting scenario, actual-admission commitment, no-target residual and movement-specific processing policy, withdrawal of Q4, and retention of constant average receiving A. Only the physical application of movement-specific skipping to the common-feeder representation remains open. This answer-only pass derives no replacement coupled map.
+
+All prior displayed equations are preserved as written. In particular, eq:pending-allocation and eq:old-commitment now belong to an unselected conditional waiting-quota model; their associated derivative pieces are not the current accepted waiting-state construction. The common prefix gate cannot be presented as the general logical-allocation policy. Realized-lane FIFO and actual physical access still apply.
+
+Eq:interval-rate is now the selected receiving convention. It does not remove the dependencies in elapsed head clearance, current-head sharing or eq:service-jacobian-new. The new permission choice also leaves the existing exclusive-target mixture ablation outside the selected shared-permission starting scenario unless adapted later.
+
+The previous full candidate is not a completed current specification after this amendment. This is decision/status synchronization, not completion of the new traffic or gradient transcription.
+
+## Earlier clarification before feedback 10
+
+The [expanded decision note](../../temp_content/research_readiness/joined_methodology_review.md) is reproduced in the methods PDF's decision appendix. It separates five concrete choices under the existing question IDs. All twenty-five specification labels and four compact-methods labels retain their earlier equation bodies and proposal status; this expansion approves no law.
+
+The permission recommendation is now shared left/through access when active responsive choice is intended. The existing exclusive-target equations remain an illustration and the domain of the optional mixture ablation. A shared-permission test needs a matched comparator; no formula is silently transferred to a different movement matrix.
+
+The receiving comparison is defined here as two possible coarse node laws. With allowance 0.6, physical receiving rate 1 and a second resident head joining halfway through, constant average receiving yields lane outputs 0.45/0.15; a consumable allowance yields 0.55/0.05. Both respect current-head sharing and total receiving, but leave different boundary states. This is exact hand reasoning, not a sourced theorem, executed simulation or return to the deferred event-history study.
+
+The waiting example separates first assignment from retargeting. Full remaining commitment follows the current default; delaying the first assignment of new unadmitted mass would require an explicit amendment. Conditional realization of genuinely old multi-lane targets is a separate question, not a renewed mandatory fresh-allocation vote.
+
+## Equation-level attribution
+
+Labels refer to the detailed specification, independently of pagination. Inherited means checked against the repository's approved transcription, without claiming a fresh reproduction of its entire original literature basis.
+
+| Specification labels / definition | Scientific origin | Status and evidence limit |
+|---|---|---|
+| eq:action-new | [T6/T7 authority](urban_authority_and_gap_audit.md), [accepted task](../../synthesis/experiment_formulation.md), [suite](../../synthesis/primary_green_allocation_suite.md) | Accepted effective-service task, with physical capacity cap explicitly reconciled. No waveform or numerical calibration selected. |
+| Physical U/F/branch graph, fork assignment location, permission subfamily | [Selected internal geometry and allocation meanings](../../temp_content/research_readiness/coupled_lane_access_and_service_discussion.md); [feedback 9](../../reporting/research_readiness/urban_feedback9_response.md) | Internal geometry agreed. Fork and pre-feeder assignment are explicit candidates. The forced-target subfamily is an illustration; shared permission is now provisionally preferred when responsive choice should be active. Neither matrix is selected. |
+| Canonical cohorts and compatible exact merging | [M1 ledger](../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md), [M2 global contracts](../../../../temp_content/milestone_2_per_lane_interaction_zone/phase_B_revision.md) | Exact-merge invariant inherited; canonicalization with target-proportion compatibility explicitly proposed for this new joint ledger. No lossy grouping. |
+| eq:grid-new | [Project grid/ledger semantics](../../../../PROJECT_CONTEXT.md), same M2 contracts | Restated representation identity; grid does not determine lost FIFO order. |
+| eq:interpolation-new, eq:sending-new, eq:receiving-new, eq:state-new | [M0 cumulative model](../../../../docs/milestones/milestone_0_ltm_baseline.md), [actual LTM](../../../../src/diff_minimal_meso/ltm.py) | Inherited boundary law; split physical-section application declared. Delay/timestep domain explicit. |
+| Per-lane affine entrance reconstruction and no same-step newly admitted service | [M1 timing and transfer](../../../../docs/milestones/milestone_1_ordered_route_mass_ledger.md), [actual timing reconstruction](../../../../src/diff_minimal_meso/ledger.py) | Inherited timing convention applied to the proposed section graph, without event-history upgrade. It does not claim exact within-step physical crossing chronology. |
+| eq:feasible-allocation, eq:pending-allocation, eq:old-commitment | [Feedback-7 progressive queues](../../reporting/research_readiness/urban_feedback7_amendment_response.md), [feedback-9 feasible allocation direction](../../reporting/research_readiness/urban_feedback9_response.md) | Defined-here proposed completion: feasible entry first; subsequent waiting intention; fixed old caps; queue criterion inside those caps. Strict convexity gives unique entry; this is not a Gong algorithm or former Candidate B retroactively approved. |
+| eq:interval-rate | Current timestep scope and [deferred history note](../../temp_content/research_readiness/service_history_consistency.md) | Defined-here proposed computational supply rate, not a theorem identifying interval allowance with instantaneous receiving. |
+| eq:leg-rates-new, eq:lane-rates-new, eq:head-step-new | [Selected receiving policy and current-head time basis](../../temp_content/research_readiness/receiving_priority_timing.md), [elapsed service](../../reporting/research_readiness/urban_feedback6_response.md) | Transcription of agreed sharing/head meanings, coupled here to the explicitly proposed timestep rate. |
+| eq:order-response-new | Elapsed-service law on the stated ready, nonbinding branch | Derived hand amount and analytic derivative. Not TST improvement, simulation, AD or finite-difference evidence. |
+| eq:storage-proof-new, eq:population-new | Cumulative update, paired transfers and compatible delay/timestep domain | Derived feasibility/conservation identities. Pending views are excluded as extra stocks. |
+| eq:allocation-jacobian-new, eq:priority-jacobian-new, eq:service-jacobian-new | Calculus of the stated laws on fixed active signatures | Derived conditional Jacobians and head-event response. No universal smoothness or executed derivative test. |
+| eq:tst-new | [Urban objective](../../synthesis/experiment_formulation.md), [actual objective code](../../../../src/diff_minimal_meso/objectives.py) | Inherited left-interval whole-population account, not the exact integral of arbitrary intra-interval profiles. |
+| eq:chain-new, eq:tst-exit-new | Chain rule and released-population conservation | Derived actual-proposal sensitivity composition and independent sink-exit identity. Continuation does not reset sensitivity. |
+| Qualified common horizon | [Earlier sensitivity alternatives](urban_open_question_register.md), complete-population task | Proposed common-horizon selection with a clearance neighborhood, without numerical cap or global clearance guarantee. |
+| eq:mix-fork-new, eq:mix-rate-new, progressive mixture sharing | Defined-here matched aggregate ablation | Proposed controlled comparison, not a literal native B1/B2 or macro impossibility theorem. Permission/topology domain and pure neutral checks explicit. |
+| eq:sumo-map-new, full-population reference time | Accepted external-test obligation; official [static signals](https://sumo.dlr.de/docs/Simulation/Traffic_Lights.html) and [TripInfo](https://sumo.dlr.de/docs/Simulation/Output/TripInfo.html) | Proposed fixed nominal mapping; definitions support duration plus departure delay and complete accounting. No program values, native lane calibration or reference equivalence claimed. |
+
+The M0 approved plan identifies Yperman (2007) and UNsim v0.12.0, commit 5c396357cc540f2433c3e33689b415b1df1f6e79, as its underlying basis. No new assertion of reproducing those full primary sources is made.
+
+The compact report repeats four mathematical statements: eq:compact-allocation maps to eq:feasible-allocation; eq:compact-service to eq:order-response-new; eq:compact-tst to eq:tst-new; and eq:compact-chain to eq:chain-new. Their source and proposal status are the same.
+
+## Native-model qualification stays distinct
+
+The [native-rival record](urban_aggregate_rival_source_notes.md) and [closed policy discussion](../../temp_content/research_readiness/aggregate_rival_questions.md) retain working A/A preferences. Exact state/implementation qualification is not silently replaced by the new ablation.
+
+[Wei et al., arXiv v2](https://arxiv.org/html/2310.12249v2), section 2, is the concrete B1 source. Its full-law qualification remains an adoption condition, not completed by selecting a fixed-speed shortcut.
+
+[Gong et al. (2025)](https://www.sciencedirect.com/science/article/pii/S0191261525000578), sections 5–7, is the lane-exit allocation source. The complete algorithm was not independently reproduced here. Finite-bay entry needs its own qualified composition.
+
+[Liu and Chang, TRC 19, 130–144](https://attap.umd.edu/wp-content/uploads/2022/05/TRC522.pdf), sections 2.4–2.6, supplies a storage/blockage candidate. Current citations use journal year **2011**, rather than 2010 from the DOI. Exact overflow notation and signal/timestep adaptation remain unqualified. Failed source-page/PDF access is not evidence of a source defect.
+
+These are the implementation-dependent choices accepted in feedback 8. They limit principal-rival readiness; they do not reopen the macro information boundary or justify excluding a stronger legal estimator.
+
+The controlled mixture ablation can overrestrict entry relative to an unblocked ordered prefix. Failure on V2 therefore exposes its closure limitation; it cannot replace a qualified storage-aware B2 or carry an order-necessity claim by itself.
+
+## Current coverage against the original standard
+
+| Criterion | Present result | Remaining limit |
+|---|---|---|
+| U1–U2: task and traffic world | Accepted task restated; physical stocks, routes, permissions and numerical domain explicit | Exact realization proposed, not approved; numerical parameters later. |
+| U3–U4: evolution and interfaces | Complete proposed update joins allocation, commitments, access, service and histories | Review new exact choices before calling them selected or implementing them. |
+| U5: complete objective | Population cost, continuation, qualified horizon and sink-exit identity explicit | Horizon qualification and noncompletion handling need later execution. |
+| U6: provenance | Every displayed label and consequential definition mapped above | Native adaptation is not qualified by citations alone. |
+| U7: comparisons | Conversion boundary, controlled ablation, native conditions, R1 and proposed R2 mapping explicit | Native implementations, observation/calibration protocols and reference settings pending. |
+| U8: sensitivity | Actual proposed local branches and complete state/cost composition given | Boundary handling and derivative correctness need implementation evidence. |
+| U9: coherent checks | Nine exact hand-definition calculations, storage/population reasoning and neutral conditions | No traffic, AD/FD, external-response or optimization validation run. |
+| U10: readable report | Compact report, mathematical supplement and this index | Complete proposal is not an empirical paper or approved method. |
+
+The old table retains its opening assessment for traceability. This table reports current proposal coverage without marking unfinished adoption/evidence complete.

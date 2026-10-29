@@ -1,0 +1,362 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\kc}{k_c}
+\newcommand{\bud}{\mathcal B}
+\newtheorem{proposition}{Proposition}
+\title{AS1: independent initial lane loads\newline and the existing forward model}
+\author{Elementary VSL lane-drop task review}
+\date{19 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} Bounded AS1 review completed; exact amendment
+submitted at its user checkpoint. Step 3 remains open. AS2's observation
+contract and AS3's action/gradient conclusions are not established here.
+
+\paragraph{Traffic meaning.}
+The same ending-lane population can face a crowded adjacent lane or an
+uncrowded adjacent lane even when the continuing total is identical.
+Allowing that distinction requires independent initial lane loads, not a
+different traffic mechanism. The existing H1 preparation, finite T1
+terminal, S-E-P allocation, R-E source, O-R renewal and W-F work laws
+support the asymmetric family below under their retained sufficient bounds.
+This is a conditional mathematical qualification, not empirical admission.
+
+\section{The exact initialization amendment}
+E is the ending lane, A its adjacent continuing lane and B the far continuing
+lane. The same uniform longitudinal footprint $[0,\ell]$ occupies the
+preparation reach at the decision, with $0<\ell\leq L_p$; the terminal of
+length $b>0$ and the recovery account are empty. Set $L=L_p+b$ and
+\begin{equation}
+ e_0,a_0,b_0\geq0,\qquad r=e_0+a_0,\qquad
+ \rho_0=e_0+a_0+b_0=r+b_0,\qquad M=\ell\rho_0>0.
+ \label{eq:initial}
+\end{equation}
+There is \emph{no} requirement $a_0=b_0$. Equal loading remains an admitted
+special case. Longitudinal homogeneity within each lane is retained.
+There are no postdecision external arrivals. One common constant advice
+$v\in[v_-,v_+]$, $0<v_-<v_+$, is applied to each fixed true initialization.
+
+Define the same fundamental diagram and inverse boundary mark:
+\begin{equation}
+ \begin{gathered}
+ K=wk_j,\quad \kc(v)=\frac{K}{w+v},\quad C(v)=\frac{Kv}{w+v},\\
+ c(u)=\frac{Ku}{w+u},\qquad U(g)=\frac{wg}{K-g}.
+ \end{gathered}
+ \label{eq:fd}
+\end{equation}
+Retain all existing sufficient restrictions, now with the actual three-lane
+mass in \eqref{eq:initial}:
+\begin{align}
+ &w,k_j,h,a_r>0,\quad\gamma\geq1,\quad
+ e_0,a_0,b_0\leq\kc(v_+),\nonumber\\
+ &v_+(e_0+a_0)<R\leq C(v_-),\quad
+ v_+b_0\leq R_B\leq C(v_-),\quad M<k_jb.
+ \label{eq:domain}
+\end{align}
+The fixed physical coefficient and root condition are unchanged:
+\begin{equation}
+ \begin{gathered}
+ c_0=1+\delta,\quad \delta,\beta\geq0,\quad
+ \chi=\frac{\beta}{C_\star v_\star},\quad
+ v_\star=v_+,\quad C_\star=C(v_\star),\\
+ \eta=c_0-\beta(1+v_+/w)>0,\qquad c_{\max}=c_0+\beta.
+ \end{gathered} \label{eq:workdomain}
+\end{equation}
+The anchor defining $\chi$ stays fixed across advice; $m=1$ veh-eq is the
+same physical mass normalization. All geometry and physical coefficients
+are shared across the contrasting initial states. The initial-dependent
+$r$ is derived true state, not automatically a shared observer input.
+Density has units veh-eq/length, rates have units veh-eq/time, and $M$ has
+units veh-eq; $b_0$ is a density and $b$ a length.
+
+\section{Preparation, handoff and storage: no lane equality is used}
+The retained rule is
+\begin{equation}
+ \begin{gathered}
+ S(v,a)=\min\{C(v),w(k_j-a)\},\qquad
+ f=\min\{ve,(S(v,a)-va)/\gamma\},\\
+ \dot e=-f/h,\quad\dot a=f/h,\quad\dot b_0=0.
+ \end{gathered}
+ \label{eq:h1}
+\end{equation}
+The transfer cancels in $e+a=r$. For every admitted advice,
+\begin{equation}
+ r<R/v_+\leq R/v\leq C(v)/v=\kc(v).
+ \label{eq:free}
+\end{equation}
+Consequently $0\leq e\leq e_0$, $a=r-e<\kc(v)$ and $S=C(v)$.
+The scalar right-hand side is Lipschitz and nonnegative toward the invariant
+boundaries. No equality with B is needed. With progress $z=vt$ and
+$\Delta(v)=\kc(v)-r>0$,
+\begin{equation}
+ e_z=-\frac1h\min\{e,(\Delta+e)/\gamma\},\qquad a=r-e.
+ \label{eq:progress}
+\end{equation}
+The two explicit branches remain
+\begin{equation}
+ e=e_s e^{-(z-z_s)/h}\quad\hbox{or}\quad
+ e=(e_s+\Delta)e^{-(z-z_s)/(\gamma h)}-\Delta,
+ \label{eq:branches}
+\end{equation}
+with a receiving-to-donor switch at $e=\Delta/(\gamma-1)$ for
+$\gamma>1$. For $\gamma=1$ the donor branch is active throughout.
+
+Let $t_f^p=(L_p-\ell)/v$, $t_r^p=L_p/v$. During that pulse only,
+\begin{equation}
+ \dot F_E=ve(t),\quad \dot F_A=v(r-e(t)),\quad\dot F_B=vb_0.
+ \label{eq:entry}
+\end{equation}
+Let $s(t)=\ell$ before $t_f^p$, $s=L_p-vt$ during the pulse, and $s=0$
+after $t_r^p$. With $J_{\rm lat}=\int_0^t s f/h\dd u$, the balances are
+\begin{align}
+ se+F_E+J_{\rm lat}&=\ell e_0,&
+ sa+F_A-J_{\rm lat}&=\ell a_0,\nonumber\\
+ sb_0+F_B&=\ell b_0,&s\rho_0+F_E+F_A+F_B&=M.
+ \label{eq:massprep}
+\end{align}
+Each identity follows from its initial value and its derivative before,
+during and after the pulse. Early-merged mass enters A once and is not later
+counted as forced E service.
+
+For $j\in\{E,A,B\}$, retain
+\begin{equation}
+ P_j(t)=F_j(t-b/v),\quad N_j=F_j-Y_j,\quad q_j=P_j-Y_j,
+ \quad \lambda_j=\dot P_j,\quad g_j=\dot Y_j,
+ \label{eq:counts}
+\end{equation}
+with zero negative-time histories. $N_j$ is physical terminal stock;
+$q_j$ is eligible waiting mass. The far lane has $Y_B=P_B$ since
+$vb_0\leq R_B$. Its density is not derived from A.
+
+The terminal entrance vacancy is
+\begin{equation}
+ V_j^{\rm vac}(t)=
+ \begin{cases}k_jwt-F_j(t),&0<t\leq b/w,\\
+ Y_j(t-b/w)+k_jb-F_j(t),&t>b/w.
+ \end{cases} \label{eq:vacancy}
+\end{equation}
+All entry rates are at most $C(v)<wk_j$. The early expression is positive;
+the later expression is at least $k_jb-M>0$. Thus finite receiving accepts
+the preparation handoff under the retained conservative total-mass bound.
+This protects the homogeneous upstream reduction; it is not a proof of
+general spillback dynamics outside this sufficient domain.
+
+The eligible pulse spans $t_f=(L-\ell)/v$ to $t_r=L/v$. Inside it,
+\begin{equation}
+ \lambda_A+\lambda_E=vr<R,\qquad
+ \lambda'_A=-\lambda'_E\in[0,L_A],\qquad L_A=v_+^2e_0/h.
+ \label{eq:pulse}
+\end{equation}
+E offers decrease and A offers increase. These facts use $e+a=r$ and the
+donor upper bound $f\leq ve$, not $a_0=b_0$.
+
+\section{The selected point service and recovery are unchanged}
+Free marks are $u_j=v$ and queued marks $u_j=U(g_j)$. Retain
+\begin{equation}
+ c_E=c_0+\chi g_A\pos{u_A-u_E},\qquad
+ H(g;a,u)=g\{c_0+\chi a\pos{u-U(g)}\}.
+ \label{eq:root}
+\end{equation}
+Here the argument $a$ in $H$ denotes an A \emph{flow}, not the upstream
+density. On the selected feasible interval, $H_g\geq\eta>0$ and
+$x/c_{\max}\leq H^{-1}(x;a,u)\leq x/c_0$. The proof uses bounds on
+flows, marks and fixed coefficients, not initial lane equality.
+
+The S-E-P branches are retained exactly:
+\begin{center}\small
+\begin{tabular}{p{28mm}p{118mm}}
+\toprule
+Current mode & Service and free-feasibility condition\\
+\midrule
+A/E free & $g_A=\lambda_A$, $g_E=\lambda_E$ if
+$\lambda_A+c_0\lambda_E\leq\bud$.\\[4pt]
+A free, E queued & $g_A=\lambda_A\leq\bud$,
+$H(g_E;\lambda_A,v)=\bud-\lambda_A$.\\[4pt]
+A/E queued & $g_A=\bud/2$,
+$H(g_E;\bud/2,U(\bud/2))=\bud/2$.\\[4pt]
+A queued, E free & $g_E=\lambda_E$, $g_A=\bud-c_0\lambda_E$
+if $c_0\lambda_E\leq\bud/2$; otherwise E queues.\\
+\bottomrule
+\end{tabular}\end{center}
+Retain strict-shortfall queue birth, actual-zero free-admission retesting,
+maximal feasible free continuation at equality, and right-hand data at
+arrival jumps. There is no new priority, timer, smoothing or branch latch.
+
+For E's insertion mark $u$, retain
+\begin{align}
+ V(\theta;u)&=\sqrt{(w+u)^2+2wa_r\theta}-w,\nonumber\\
+ D(\theta;u)&=\pos{R-c(V(\theta;u))},\nonumber\\
+ p(t)&=\frac1m\int_{\pos{Y_E(t)-m}}^{Y_E(t)}
+ D(t-T(\xi);u_E(T(\xi)))\dd\xi,\qquad \bud=\pos{R-p}.
+ \label{eq:recovery}
+\end{align}
+$T$ is E's mass-rank admission-time inverse. Only E deposits loss. Recent
+mass replaces oldest retained weight; profiles also age. The account
+retains history, not just its current reading, and it does not keep the
+strictest prior cap. $V$ is an equivalent boundary-speed quantity, not a
+vehicle trajectory. Neither the overlap approximation nor its physical
+validity is strengthened by this initialization amendment.
+
+\section{Forward qualification carries to every admitted asymmetric state}
+\begin{proposition}
+For \eqref{eq:initial}--\eqref{eq:workdomain}, the unchanged laws and causal
+guards have the same conditional unique complete forward continuation for
+every advice in the original interval. Mass, feasible service and finite
+terminal storage are respected. All traffic clears in finite time.
+\end{proposition}
+\begin{proof}
+The preceding preparation/storage argument supplies the same bounded,
+monotone eligible pulse as the accepted W-F proof. To make the remaining
+dependencies explicit, put $G=R/c_0$ and retain its bounds
+\begin{equation}
+ p\leq p_{\max}:=\frac Gm\int_0^{m/G}D(\theta;0)\dd\theta<R,
+ \quad B_{\min}=R-p_{\max}>0,\quad
+ |\dot{\bud}|\leq L_B:=2GR/m+a_rk_j.
+ \label{eq:budgetbounds}
+\end{equation}
+The account bound fills the youngest possible ages at the maximal admitted
+E rate. Strictness uses $a_r>0$, not an imposed service floor. The history
+comparison for identical past and two subsequent flow/mark histories is
+\begin{equation}
+ |\Delta p(t)|\leq\frac1m\left(5R\int_{t_0}^t|\Delta g_E|\dd s
+                 +k_jG\int_{t_0}^t|\Delta u_E|\dd s\right).
+ \label{eq:volterra}
+\end{equation}
+Together with $H_g\geq\eta$, this gives the same short-interval contraction
+on each valid mode. It does not assume a positive old E rate or initial
+symmetry. No numerical timestep is being defined.
+
+At the front A's ordinary offer is below $R$. If joint free work fits, free
+E has $v\geq U(R)$ and produces no recovery loss. Joint work
+$vr+\delta\lambda_E$ decreases, so both remain free. Otherwise E's strict
+shortfall gives a compatible queue birth. At any later E clearance with
+free A, $\lambda_A+c_0\lambda_E\leq\bud$; with queued A,
+$c_0\lambda_E\leq\bud/2$. Free E then adds no loss, old loss ages/retires,
+and its offer decreases. These tests persist through any A clearance.
+After the rear there are no arrivals. E has at most one waiting episode
+under these specific assumptions, not under finite-cohort initialization
+alone.
+
+While E queues, A birth is at $\lambda_A=\bud$, with right-hand queue
+growth $\bud/2\geq B_{\min}/2$. A clearance requires
+$\lambda_A\leq\bud/2$, leaving a free margin at least $B_{\min}/2$.
+The bounds \eqref{eq:pulse} and \eqref{eq:budgetbounds} give a common
+positive separation for repeated A births/clearances,
+\begin{equation}
+ \tau_0=\frac{B_{\min}}{2(L_B+2L_A)}>0.
+ \label{eq:separation}
+\end{equation}
+E clearance and the front/rear add only finitely many exceptions.
+The same feasible guards therefore join the unique local histories without
+event accumulation. After the rear, whenever $Q=q_A+q_E>0$,
+$g_A+g_E\geq B_{\min}/c_{\max}$. Hence
+\begin{equation}
+ T_{\rm clear}(v)\leq L/v+c_{\max}M/B_{\min},\quad
+ T_{\max}=L/v_-+c_{\max}M/B_{\min}
+ \label{eq:clearance}
+\end{equation}
+is a common sufficient horizon. Every inequality depends on $r$, separate
+B admission, total mass or common coefficients. None requires $a_0=b_0$.
+This transfers the accepted conditional forward argument; it does not
+establish smooth advice dependence at all queue boundaries.
+\end{proof}
+
+The complete balances and local total system travel time are consequently
+\begin{align}
+ s\rho_0+\sum_jN_j+\sum_jY_j&=M,\nonumber\\
+ J(v)=\int_0^{T_{\max}}\left(M-\sum_jY_j(t)\right)\dd t
+ &=\frac{M(L-\ell/2)}v+\int_0^\infty(q_A+q_E)\dd t.
+ \label{eq:tst}
+\end{align}
+The first term integrates each initial position's remaining distance
+$(L-x)$ over all three lanes. It needs $\rho_0=e_0+a_0+b_0$, not symmetry.
+B has no eligible queue in this domain. Completion remains at the choke;
+retained effects of completed E traffic affect unfinished followers only.
+
+\section{A nonempty fixed-E, fixed-continuing-total asymmetric family}
+In general, hold $e_0=e$ and $a_0+b_0=c$ fixed and set
+\begin{equation}
+ a_0=c/2+d,\qquad b_0=c/2-d,\qquad r=e+c/2+d,
+ \quad M=\ell(e+c).
+ \label{eq:split}
+\end{equation}
+The allowed $d$ obeys the existing bounds
+\begin{equation}
+ \begin{gathered}
+ -c/2\leq d\leq c/2,\quad
+ c/2+d\leq\kc(v_+),\quad c/2-d\leq\kc(v_+),\\
+ v_+(e+c/2+d)<R,\qquad v_+(c/2-d)\leq R_B,
+ \end{gathered} \label{eq:splitdomain}
+\end{equation}
+along with $e\leq\kc(v_+)$ and $\ell(e+c)<k_jb$ and the common parameter
+bounds. This is not permission to use arbitrary imbalance at any load.
+
+For an exact existence example, choose arbitrary positive speed scale $u$,
+density scale $\kappa$, lengths $\ell,h$, and acceleration $a_r$. Put
+\begin{equation}
+ \begin{gathered}
+ v_-=u,\ v_+=2u,\ w=2u,\ k_j=3\kappa,\ \gamma=2,
+ \quad R=39\kappa u/20,\quad R_B=\kappa u,\\
+ L_p=2\ell,\quad b=\ell,\quad
+ c_0=11/10,\quad\beta=1/100,\quad
+ e_0=3\kappa/5,\quad c=11\kappa/20,\\
+ a_0=11\kappa/40+d,\quad b_0=11\kappa/40-d,
+ \qquad |d|\leq3\kappa/40.
+ \end{gathered} \label{eq:example}
+\end{equation}
+Then $r\in[4\kappa/5,19\kappa/20]$,
+$M=23\kappa\ell/20$, $\kc(v_+)=3\kappa/2$ and $C(v_-)=2\kappa u$.
+The worst ordinary E/A margin is
+$R-v_+r\geq\kappa u/20>0$; the far margin is
+$R_B-v_+b_0\geq3\kappa u/10>0$;
+$M/(k_jb)=23/60<1$; and $\eta=27/25>0$.
+All initial lanes have positive free-flow density with substantial margins.
+
+At the two endpoints the A/B loads are swapped. At $v=v_+$ and the common
+initial preparation progress, the two alternatives in \eqref{eq:h1} are:
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+$(a_0,b_0)/\kappa$ & Donor offer $ve_0$ & Receiving alternative & Selected $f$\\
+\midrule
+$(1/5,7/20)$ & $6\kappa u/5$ & $13\kappa u/10$ & $6\kappa u/5$\\
+$(7/20,1/5)$ & $6\kappa u/5$ & $23\kappa u/20$ & $23\kappa u/20$\\
+\bottomrule
+\end{tabular}\end{center}
+The first preparation is donor-limited and the second receiving-limited.
+The inequalities are strict, so this rate contrast persists over a positive
+initial progress interval by continuity. The actual density source is
+$f/h$. This is exact local algebra, with no traffic rollout or calibrated
+parameter recommendation. It establishes a genuine mechanistic distinction
+inside the admitted family, not indistinguishable histories, different
+optimal advice or useful gradients.
+
+\section{What transfers, what stops here, and provenance}
+The whole-forward result, complete mass accounting, own-lane-first
+preparation, monotone pulse, storage protection, roots, recent-mass recovery
+and TST transfer as stated above. The old initial-E-only reconstruction
+does not: E and $M$ fix $a_0+b_0$, not $a_0$. Symmetric matched-history and
+action examples remain valid within their old member but cannot certify
+the new Level 2-to-Level 3 target. AS2 must examine every permitted
+observation and history, including lawful inference. AS3 must separately
+qualify action relevance and the complete advice derivative. Neither an
+interior optimum nor a positive information advantage is guaranteed.
+
+\paragraph{Reused derivations.}
+This is an original dependency audit and initialization extension of the
+accepted review model. The supporting lineage is
+\href{vsl_feedback8_full_mathematics.pdf}{the feedback-8 consolidated mathematics},
+Sections 2--11 (initialization through global forward/TST), and
+\href{vsl_wf_forward_qualification.pdf}{the W-F whole-domain qualification}.
+The precise source locations are retained separately in the
+\href{../../extraction/research_readiness/vsl_as1_initialization_proof_map.md}{AS1 component and proof dependency map}.
+No new paper was viewed or new literature-backed mechanism selected for
+AS1. Existing literature supports the ingredients to the extent recorded
+in its source audits; it is not attributed this complete asymmetric law or
+the illustrative parameter values. Applied MP6 remains open. SUMO is
+optional. This document ends at the AS1 contract-confirmation checkpoint.
+\end{document}

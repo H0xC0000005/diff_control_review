@@ -1,0 +1,224 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newcommand{\R}{\mathbb R}
+\title{RM10: Recovery/acceleration, information, and useful ramp gradients}
+\author{Methodology review --- Option A only}
+\date{5 October 2026}
+\begin{document}
+\maketitle
+\textbf{Conclusion.} Physical acceleration/recovery has support. A positive task
+with genuinely hidden, action-relevant information is not admitted in this bounded
+review. Conditional aggregate sufficiency and missing rich-family evidence are
+different findings. Option C was not opened.
+
+\section*{1. Task and complete population accounting}
+This is an audit template, not an adopted traffic update. Let $s=0,\ldots,S$
+index a common time grid with step $\Delta t$ (seconds). Let $\theta\in\R^d$
+parameterize a bounded common open-loop ramp rate $u_s(\theta)$ (vehicle-equivalents
+per second). The state $x_s$ contains road inventories, ramp/external queues and
+whatever recovery variables a justified model requires. Public parameters are
+$p$ and public arrivals/boundary inputs are $b_s$. A lawful discretization would give
+\[
+ x_{s+1}=F_s(x_s,u_s(\theta),b_s;p).
+\]
+Permission $u_s$, release at a meter, and actual entry at a merge are distinct:
+queues, travel and receiving can prevent permission being realized. This template
+specifies no new release or merge rule.
+
+Let $P_s=P(x_s)$ be \emph{all} arrived but not completed traffic mass, including
+external waiting and both road and ramp traffic. Let $a_s$ be external demand
+arrival rate and $e_s$ be final scenario exit rate. Internal transfers cancel:
+\begin{equation}
+ P_{s+1}=P_s+\Delta t(a_s-e_s),\qquad
+ J(\theta)=\Delta t\sum_{s=0}^{S-1}P_s(\theta).
+ \label{eq:tst}
+\end{equation}
+$J$ has vehicle-equivalent seconds as units; $J/M$ is mean system time for a
+common fixed total demand mass $M$. The grid convention is left-endpoint time
+accounting. A common $S$ must clear \emph{all} comparison policies and small
+perturbations; truncation with traffic remaining is not full TST.
+
+Iterating the balance gives
+\[
+ P_s=P_0+\Delta t\sum_{j=0}^{s-1}(a_j-e_j).
+\]
+For fixed $P_0,a_j$ and fixed $S$, therefore,
+\begin{equation}
+ \nabla_\theta J
+ =-\Delta t^2\sum_{j=0}^{S-2}(S-1-j)\nabla_\theta e_j.
+ \label{eq:exit}
+\end{equation}
+Earlier exits reduce more subsequent waiting intervals. Merely moving a queue
+from a mainline lane to the ramp leaves this objective unchanged when final exit
+history is unchanged. Mean steady capacity is not the exit-time history.
+
+\newpage
+\section*{2. What hidden information must mean}
+Let $O$ be a declared observation map with spatial and temporal support. A candidate
+history through decision epoch $t$ consists of
+\[
+ H_t=(O(x_0),\ldots,O(x_t),u_{0:t-1},b_{0:t-1},p).
+\]
+It includes admitted inventories, completed face counts/flows, speed and ramp
+observations. Public future demand may also be common; future observations are
+not available before selecting an action.
+
+If $N_i$ is cell mass and actual speed observations are a section mass mean, the
+idealized definition is
+\[
+ N_i=\sum_k m_{ik},\qquad
+ U_i=\frac{\sum_k m_{ik}v_{ik}}{N_i},\quad N_i>0.
+\]
+$m_{ik}$ has vehicle-equivalent units and $v_{ik},U_i$ have speed units; $k$
+indexes traffic groups within cell $i$. Empty-cell speed is unavailable.
+This illustrates support, not approval of a new sensor contract. Face/time speed
+means and equilibrium FD proxies differ from $U_i$. Do not use the closed RM9
+FD-speed proxy as an actual non-equilibrium speed law.
+
+Define the consistency set using source-lawful initial states $\mathcal D_0$:
+\[
+ \mathcal X(H_t)=
+ \left\{x_t:\begin{array}{l}
+ x_0\in\mathcal D_0,\quad x_{s+1}=F_s(x_s,u_s,b_s;p)\ (0\leq s<t),\\
+ O(x_s)=H_t[s]\ (0\leq s\leq t)
+ \end{array}\right\}.
+\]
+Different snapshots with equal total mass do not
+establish different future-relevant states in this set. Match public traffic
+characteristics and forcing; changing a random future realization is not a
+hidden initial-state certificate.
+
+\textbf{Conditional sufficiency.} In a well-defined deterministic model, a known
+complete $x_0$ and public inputs determine every $x_s$ by induction. Likewise,
+if history identifies a complete state at an earlier epoch, later congestion
+does not erase that knowledge. This is conditional on completeness and uniqueness;
+an existence result for a PDE alone is not such a uniqueness proof.
+
+For a homogeneous aggregate model with complete state $(N_i,U_i)$ and observed
+queues, exact observation observes that complete state. This does not establish
+physical adequacy or identifiability of unobserved lane speeds, within-cell waves,
+leaders or distributions.
+
+\textbf{A sufficient action certificate.} For two source-lawful states
+$x_t^a,x_t^b\in\mathcal X(H_t)$ and two common feasible rate schedules
+$\theta_1,\theta_2$, opposite TST rankings demonstrate action relevance:
+\[
+ J_a(\theta_1)<J_a(\theta_2),\qquad
+ J_b(\theta_1)>J_b(\theta_2).
+\]
+This distinguishes these two actions; it does not prove that all possible optimal
+action sets are disjoint. Opposite useful local descent directions could provide
+another certificate. Neither is established here.
+
+\newpage
+\section*{3. Why recovery alone does not prove necessary retained state}
+An inspected density-based aggregate competitor is Srivastava's queue-discharge
+demand law (2016 dissertation, Chapter 3.3.1, equation 3.3):
+\[
+ D_{\rm rec}(k)=\min\{v_fk,\ q_j+c_*(k_j-k)\},\qquad
+ c_*=\frac{q_c-q_j}{k_j-k_c}.
+\]
+$k,k_j,k_c$ are density, jam density and critical density; $v_f$ is free-flow
+speed; $q_c$ is capacity; $q_j$ is jam demand; $c_*$ has speed units.
+This source changes demand while retaining ordinary supply and conservation.
+It is an aggregate recovery precedent for queue discharge, not a validated
+ramp-merge law imported by this review.
+
+Another competitor retains a hysteresis mode $\sigma_s$. With public thresholds
+$k_-<k_+$ and a known initial mode, a representative recurrence is
+\[
+ \sigma_{s+1}=
+ \begin{cases}
+  1,& k_{s+1}\geq k_+,\\
+  0,& k_{s+1}\leq k_-,\\
+  \sigma_s,& k_-<k_{s+1}<k_+ .
+ \end{cases}
+\]
+This is the known-history logic of Cao/Nilsson/Coogan (2021), Section II.B,
+with indexing restated. Complete density history reconstructs this mode.
+An unknown initial mode is a different, unresolved domain.
+
+For richer recovery, $N_i$ and $U_i$ constrain only the zeroth and first moments
+of a speed distribution $\nu_i$:
+\[
+ N_i=\int d\nu_i(v),\qquad N_iU_i=\int v\,d\nu_i(v).
+\]
+These two constraints generally do not specify $\nu_i$. This algebra does
+\emph{not} prove that distinct distributions are source-lawful, persist
+under the same full history, or change useful ramp-rate actions.
+
+The primary studies support hybrid/local recovery and mean-capacity competitors.
+In particular, S12A005's similar mean capacities do not imply exact transient
+closure. Its differing transient flow traces are not identical observed
+histories. Laurent-Brouty/Costeseque/Goatin's macroscopic model retains local
+moving constraints: the label macro cannot be used to dismiss retained state.
+
+\textbf{Completed screening conclusion.} Closed density/rate laws, known
+history modes, and completely observed homogeneous speed-state models have
+conditional explanations for sufficiency. Rich distribution/leader models
+retain physical potential, but lack a joined lawful initialization, equal-history
+and useful-action certificate for this task. Negative admission concerns this
+review envelope and evidence, not every bounded-acceleration model.
+
+\newpage
+\section*{4. General gradient chain and its limits}
+The intended path is
+\begin{align*}
+ \theta&\ \longrightarrow\ {\rm permission/release}
+ \longrightarrow\ {\rm actual\ entry/recovery}\\
+ &\ \longrightarrow\ {\rm receiving/conservation}
+ \longrightarrow\ {\rm final\ exits/TST}.
+\end{align*}
+Consider a chosen source-lawful discretization on a locally differentiable
+branch. Fold the public rate parameterization into
+$\widetilde F_s(x,\theta)=F_s(x,u_s(\theta),b_s;p)$. Define
+\[
+ A_s=\partial_x\widetilde F_s,\quad
+ B_s=\partial_\theta\widetilde F_s,\quad
+ S_s=\partial_\theta x_s.
+\]
+For a state of dimension $n$, $A_s\in\R^{n\times n}$ and
+$B_s,S_s\in\R^{n\times d}$. If $x_0$ is fixed independently of $\theta$,
+\begin{align*}
+ S_0&=0,\\
+ S_{s+1}&=A_sS_s+B_s,\\
+ \nabla_\theta J&=\Delta t\sum_{s=0}^{S-1}
+                         S_s^\top\nabla_x P(x_s).
+\end{align*}
+These are chain-rule identities, not a numerical correctness result.
+They agree with the exit-balance expression when both use the same update and
+complete population. Normalized gradients divide by the common $M$.
+
+The corresponding adjoint, with no terminal cost and fixed $S$, is
+\[
+ \lambda_S=0,\qquad
+ \lambda_s=\Delta t\nabla_xP(x_s)+A_s^\top\lambda_{s+1},\qquad
+ \nabla_\theta J=\sum_{s=0}^{S-1}B_s^\top\lambda_{s+1}.
+\]
+$\lambda_s\in\R^n$ is the cost sensitivity to $x_s$. Explicit control costs or
+control-dependent initialization add their own terms. Neither is introduced here.
+
+Minimum sending/receiving laws, queue caps, active constraints, shocks and
+leader interactions can be nonsmooth. Smooth-branch sensitivities do not settle
+event boundaries. A hybrid reference may require event-time terms; holding an
+event fixed can yield a different derivative. No unapproved smoothing or private
+stochastic resampling resolves this issue. An existence theorem is not a
+differentiability or useful-gradient theorem. Mean-capacity parameter sensitivities
+are different from the ramp-rate TST derivative.
+
+Three evidence levels remain distinct: a justified derivative for a bound task;
+numerical/reference agreement; and useful common perturbations in a richer
+independent reference. This review gives the conditional general path, not the
+latter two. The unresolved history/action contract already prevents positive
+core-task admission.
+
+\textbf{Provenance.} Source versions, selected sections, URLs and access limits are
+in \path{extraction/rm10/primary_source_audit.md}. The task/consistency definitions,
+conditional sufficiency statements and TST chain-rule derivations are reviewer
+constructions. They impose no new traffic equation on the repository.
+\end{document}

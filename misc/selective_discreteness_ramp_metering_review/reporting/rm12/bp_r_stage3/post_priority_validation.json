@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-06",
+  "status": "passed",
+  "scope": "Document/navigation, source preservation and static mathematical artifact integrity; no traffic or gradient validation",
+  "documents": 22,
+  "local_links": 248,
+  "source_activity": {
+    "records": 9,
+    "primary_methods_rechecked": 6,
+    "prior_evidence_reused": 2,
+    "user_directed_unavailable": 1,
+    "new_search_queries": 0,
+    "new_missing_paper_retrievals": 0
+  },
+  "supplied_sources": [
+    {
+      "id": "RM12-S3-A01",
+      "pages": 14,
+      "sha256": "ac4a032d7e9df4baa2daa5b0546c8c22d95bb84f6320eb97463d12cad33c2b58",
+      "path": "user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf"
+    },
+    {
+      "id": "RM12-S3-A02",
+      "pages": 23,
+      "sha256": "512befe8666bbdb17a23386d76d499b85a5a6918ae99d51b7f247c882f7e2895",
+      "path": "user_supplied/rm12_bp_r_stage3/A SIMPLE PHYSICAL PRINCIPLE FOR THE SIMULATION OF FREEW A YS WITH SPECIAL LANES AND PRIORITY VEHICLES.pdf"
+    }
+  ],
+  "historical_counts_unchanged": {
+    "search/rm12_bp_r_stage3_query_log.csv": 4,
+    "screening/rm12_bp_r_stage3_records.csv": 7,
+    "search/rm12_bp_r_stage3_A_qualification_query_log.csv": 10,
+    "screening/rm12_bp_r_stage3_A_qualification_records.csv": 7,
+    "search/rm12_bp_r_stage3_meter_A_query_log.csv": 6,
+    "screening/rm12_bp_r_stage3_meter_A_records.csv": 7,
+    "search/rm12_bp_r_stage3_supplied_methods_query_log.csv": 4,
+    "screening/rm12_bp_r_stage3_supplied_methods_records.csv": 6
+  },
+  "historical_mathematical_artifacts_unchanged": true,
+  "pdf": {
+    "path": "synthesis/rm12/bp_r_stage3/post_priority_static_contract.pdf",
+    "pages": 3,
+    "equations": 10,
+    "sha256": "c865bbebfff420a5b918d9c3bbd5bbc7bd951b24c6659b7f752fce051eed8c17",
+    "source_sha256": "f7b5a71438e36da8885e0e63dc4d78d64cb1c4f0e3654cf1f339fbd93effda66",
+    "clean_final_latex_log": true,
+    "text_parsed": true,
+    "visual_inspection": false
+  },
+  "approved": [
+    "S3-G2.A",
+    "S3-G2-M.A",
+    "S3-G2-N.A"
+  ],
+  "gate": "S3-G3 open: partial-result disposition",
+  "stage3": "bounded pass complete; partial; user closure pending",
+  "stage4": "unopened",
+  "tracked_status": "M AGENTS.md\n M PLANS.md"
+}

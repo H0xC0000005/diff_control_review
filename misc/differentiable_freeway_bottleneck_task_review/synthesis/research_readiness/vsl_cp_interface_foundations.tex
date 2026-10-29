@@ -1,0 +1,143 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{hypertexnames=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\begin{center}
+{\Large C-P: conditional terminal-interface foundations}\\[4pt]
+14 October 2026 --- analytical review, no selected replacement node
+\end{center}
+
+\textbf{Scope.} The user selected coupled point merging with local completion
+at the choke. This note proves interface facts conditional on admissible
+departure histories, not existence or physical correctness of a new service
+law. The approved H1/T1 predecessor source/PDF are unchanged. No traffic
+integration, parameter fit, numerical gradient or optimisation is run.
+
+\section*{1. Retain H1 inputs and finite terminal histories}
+
+Use the accepted road length $L=L_p+b$, initial footprint $[0,\ell]$,
+total continuous mass $M$, fixed advice $v>0$, and initially empty terminal.
+H1 produces conservative entrance histories $F_j$ for $j\in\{E,A,B\}$.
+Let $w,k_j>0$, $H=k_jb$, $\tau=b/v$, $\tau_b=b/w$ and
+$C(v)=vwk_j/(v+w)$. Histories are zero at negative times. The prospective
+node must produce absolutely continuous, nondecreasing $Y_j$ satisfying
+\begin{equation}
+ P_j(t)=F_j(t-\tau),\qquad
+ 0\leq Y_j(t)\leq P_j(t),\qquad
+ 0\leq \dot Y_j(t)\leq C(v)
+ \quad\hbox{a.e.}
+ \tag{1}
+\end{equation}
+At an empty eligible queue the flow must also respect available arrivals;
+this is included in the requirement $Y_j\leq P_j$. Define
+\begin{equation}
+ N_j=F_j-Y_j,\qquad q_j=P_j-Y_j\geq0.
+ \tag{2}
+\end{equation}
+$N_j$ is physical stock; $q_j$ is eligible unserved mass. Unlike the old
+nominal member, (1)--(2) do not require $Y_A=P_A$. They allow $q_A>0$.
+Any extra service-memory variable is separate from vehicle mass. Traffic
+that has crossed the objective boundary is not counted again as queue stock.
+
+\section*{2. The conservative handoff bound does not require zero A delay}
+
+Retain the sufficient domain
+\begin{equation}
+ M<H,\qquad 0\leq\dot F_j\leq C(v),\qquad F_j(t)\leq M.
+ \tag{3}
+\end{equation}
+The accepted empty-link vacancy formula is
+\begin{equation}
+ V_j(t)=
+ \begin{cases}
+ k_jwt-F_j(t),&0<t\leq\tau_b,\\
+ Y_j(t-\tau_b)+H-F_j(t),&t>\tau_b.
+ \end{cases}
+ \tag{4}
+\end{equation}
+For early times, $F_j(t)\leq C(v)t<k_jwt$ because $C(v)<k_jw$.
+After $\tau_b$, nonnegative departures give
+\begin{equation}
+ V_j(t)\geq H-M>0.
+ \tag{5}
+\end{equation}
+Thus the terminal entrance remains at its capacity under these conditional
+first-order histories even if A or E departures temporarily stop. Inflow
+within that capacity therefore does not restrict H1. This reuses the
+predecessor's conservative proof, which never used $Y_A=P_A$.
+It is not a general spillback solution or a proof that a microscopic
+reference fits the chosen storage domain.
+
+\newpage
+\section*{3. Complete local TST includes every eligible lane queue}
+
+Assume the eventual node clears the cohort in finite time $T$ and there are
+no later arrivals or lost mass. The measured population remaining before
+the choke is $M-\sum_jY_j(t)$. Therefore
+\begin{align}
+ \mathrm{TST}_{\rm choke}
+ &=\int_0^T\left[M-\sum_jY_j(t)\right]dt\\
+ &=\int_0^T\left[M-\sum_jP_j(t)\right]dt
+   +\int_0^T\sum_jq_j(t)dt\\
+ &=\frac{M(L-\ell/2)}{v}
+   +\int_0^T(q_E+q_A+q_B)(t)dt.
+ \tag{6}
+\end{align}
+The last equality uses unchanged H1's uniform initial footprint and common
+ideal progress speed, its paired lateral conservation, and terminal
+minimum travel $b/v$. Lateral exchange changes lane composition, not the
+sum of minimum-travel completion histories. If B's old nonqueuing law is
+retained, $q_B=0$ and the new term is A's queue area. Equation (6) is an
+accounting identity, not a flow solver or a prediction of optimal advice.
+Post-choke travel is excluded, while its service influence may remain in
+the node state/history. Such influence is not added to (6) as fictitious mass.
+
+\section*{4. Clearance needs a new service argument}
+
+All H1 mass is minimum-travel eligible by $t_*=L/v$, so $\sum_jP_j(t_*)=M$.
+Afterwards let $Q(t)=\sum_jq_j(t)$. A sufficient property of a future node is
+\begin{equation}
+ \sum_j\dot Y_j(t)\geq\mu_{\min}>0
+ \quad\text{whenever }Q(t)>0\text{ and }t\geq t_*.
+ \tag{7}
+\end{equation}
+Then $\dot Q=-\sum_j\dot Y_j\leq-\mu_{\min}$ while nonempty, and
+\begin{equation}
+ T\leq t_*+\frac{Q(t_*)}{\mu_{\min}}.
+ \tag{8}
+\end{equation}
+No such lower bound has been established for a new coupled service law.
+It is sufficient, not necessary: another valid law-specific clearance
+proof can replace it. The old $R/\alpha$ guarantee cannot be copied when
+the receiving/service state has changed. Likewise these interface facts
+do not inherit a generic junction well-posedness theorem.
+
+\section*{5. Conditional compact initial information}
+
+Under continuing symmetry the admitted initial information reconstructs
+\begin{equation}
+ a_0=b_0=(\rho_0-e_0)/2.
+ \tag{9}
+\end{equation}
+If all physical parameters and the new service initial state/history are
+shared and known, H1 fixes the same $F_j$ for A+E and G. If the prospective
+node is a unique autonomous causal map of those histories and its known
+initial state, both representations give the same $Y_j$, queue histories
+and (6). Predicted service memory does not by itself require an extra
+initial observation. This is a conditional interface deduction; the new
+map's existence/uniqueness and the old action/gradient certificate are
+not proved here. An unknown initial memory would reopen G2.
+
+\textbf{Source basis.}
+\href{https://arxiv.org/pdf/1405.7080}{Jin, continuous LTM (2015),}
+selected demand/vacancy and boundary-history sections support the physical
+interface. All bounds, extended accounting and conditional reconstruction
+above are deductions for the stated candidate inputs and admissible
+departures, not source theorems about an unspecified coupled node.
+\end{document}

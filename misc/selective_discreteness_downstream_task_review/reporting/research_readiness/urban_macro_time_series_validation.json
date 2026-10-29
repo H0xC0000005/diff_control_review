@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26",
+  "task": "Original-series access through a declared macro model boundary",
+  "status": "pass",
+  "snapshot": "/tmp/urban_macro_time_series_before_20261026.json",
+  "snapshot_files": 773,
+  "unchanged_snapshot_files": 762,
+  "declared_existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_information_and_sensitivity.pdf",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_information_and_sensitivity.tex",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_response.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/comparison_sensitivity_and_credit_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_decisions.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_plan.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_macro_time_series_clarification.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_macro_time_series_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_macro_time_series_work_report.md"
+  ],
+  "outside_snapshot_changes": [],
+  "missing_snapshot_files": [],
+  "local_links_and_cited_lines_checked": 119,
+  "stable_question_ids_preserved": true,
+  "question_count": 15,
+  "candidate_count": 34,
+  "candidate_letters_unchanged": true,
+  "only_C_G4_candidate_explanation_refined": true,
+  "other_question_sections_preserved": true,
+  "scientific_relationships_preserved": true,
+  "completeness_change_limited_to_U7": true,
+  "report_budget_preserved": true,
+  "local_previous_step_and_TST_mathematics_byte_identical": true,
+  "response_local_sensitivity_section_byte_identical": true,
+  "feedback_root_implementation_and_historical_files_preserved": true,
+  "pdf_build_and_text_pass": true,
+  "pdf_info": {
+    "pages": 4,
+    "characters": [
+      2789,
+      3177,
+      2489,
+      2455
+    ]
+  },
+  "current_topic": "G4 comparison boundary clarification",
+  "agreed_conclusion": "Original-series access through model-defined macro conversion and observation updates allowed; disclose retained representation and observation schedule",
+  "principle_checkpoint": "Remains settled; no new candidate or gate",
+  "scientific_runs": "none",
+  "errors": []
+}

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-15",
+  "status": "Passed document, protected-file, PDF and exact symbolic-identity checks",
+  "markdown_files_checked": 16,
+  "local_links_checked": 406,
+  "heading_anchors_checked": 27,
+  "current_file_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/README.md": "43259039af9f714ae94df01ab25c9d1dfcbcdb1d85f3fcaa775ad92fc1d04df3",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md": "e8265b0a5ad5f5300dabb33d154ad4f586804312f6ef25f9bbf1e0419a310cae",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md": "a5b88aab841cb3bb69fc022841279c5b62772f7d8ece9476ecf758e71e1adb24",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "19b90ff6c7d69489fd006bc7672145272a4f2c21c858c21ebc91c3abe626ea57",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "33a9acc489b471329ef1be6d528b19ad7dbfa5c3b35c635e615f0e4bae86af60",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_step3_comparison_review_plan.md": "ec8664d4531f9f1f98c603c3b4094bce22d40397e0339ae3ee19790a0332b31f",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_review_progress.md": "7c0505fd28e79a3a4ca28b657d91276bceebb56b77c74c4f098634f32746a593",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_cp_qualification_review_plan.md": "0ec7f9129ca71bfe20d88bbacff811d003ebb0f692f0c9b0cbb5630aeb474f30",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback5_shared_service_meter_response.md": "b9ad6f81934c714b3ee29997b810f7e68dee90673fa2fef6650332ea56fb28bd",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_ph_recovery_work_findings_and_gate.md": "a02041e03f83d135f449627286af51e921b4c855456b6c550aa180bc0d698d19",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_ph_source_and_adaptation_audit.md": "8ae1187146e4656f4ac7372d1aeb8c48474327fe8441a60fe0749b209b6b4f9c",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md": "850f2cc374f5c6595ee5d538415a3cc004dc8ab3f69ad14c817f056ca45a932e",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_m2_selection_and_scope.md": "0ea073eb85515963c61d06e9df7b528e5f52756a36428b382bfb008a9f34ec07",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_m2_first_restriction_findings_and_gate.md": "21046cd15fa87110a73fc9ed228609cf4b8e1478db4ca51d691816e5d4124ecc",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_m2_speed_activation_source_audit.md": "69e301eef9dd130d42d999786542103d95a9fa70a7851654b9531d6ba1a3a268",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_m2_start_work_report.md": "e8402a81571fa09251395d6cbbab34bd3a08cf68b5eaa3d482a2799d763051bf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_m2_speed_and_activation_audit.tex": "44ca35ee686b246072346ada6eb97b9aa051162504076ac120b950750a9bc905",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_m2_speed_and_activation_audit.pdf": "051b79ddaf212f6ffcd5e030faf167ce2e938c5f49d6cd3ebf971fcf323f80f3",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_m2_speed_and_activation_build.log": "4bd00edf84bc74712d7978a9a802419e310b1224bc9b8483507ae72401f75687"
+  },
+  "protected_sha256_unchanged": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_ph_recovery_work_contract.tex": "4a3a4af169bc951f6aea56e0dcbbdff70344ad921726c8172cf6d217105e4f68",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_ph_recovery_work_contract.pdf": "be29c46651c043720131a5ad23e9469884b6b6e21b6bd2b836669348bb8240b1",
+    "AGENTS.md": "6f3742085828ac710744372d2dbe8c5e63f988cfb256923b31ef8924bdf63034",
+    "PLANS.md": "410b9619c8ca63a61c23118afb447ff2f520559d1a3bb97afd2f892f0861cb1b",
+    "memo.txt": "e2efa4ed7392fb4ba2e66d75c34154463edc4b311a944e2f70453f2ffbfde5ff",
+    "temp_content/feedback/vsl_refinement_feedback.md": "7c9336a1ba8d0684bff1ea7075418dac5871d8105ae74133e678726dd462a755"
+  },
+  "pdf": {
+    "pages": 3,
+    "bytes": 135140,
+    "strict_parse": true,
+    "text_checks": true,
+    "font_subtypes": {
+      "/Type1": 24
+    },
+    "overflow_duplicate_or_rerun_warnings": false,
+    "raster_visual_inspection": false
+  },
+  "exact_symbolic_identities": [
+    "free_branch_flow",
+    "congested_branch_flow",
+    "congested_speed",
+    "service_equivalent_speed",
+    "travel_only_derivative"
+  ],
+  "versions": {
+    "pypdf": "6.15.0",
+    "sympy": "1.14.0"
+  },
+  "cp_d2": "Direction choice closed by user selection of M2",
+  "current_gate": "CP-M2-D1: physical origin of the first restriction; F and D unselected",
+  "recommendation": "D for first source-based qualification if domain/ordinary-ceiling provenance is accepted",
+  "pass": "Opening source/speed/activation review complete; full M2 law review unfinished",
+  "step_3": "Open",
+  "step_4": "Unopened",
+  "m2_exact_law_approved": false,
+  "demand_domain_amended": false,
+  "new_A_penalty_approved": false,
+  "traffic_experiment_simulator_code_or_installation": false,
+  "limits": [
+    "Undisturbed result is conditional on the specified completion; not all M2 laws.",
+    "Unique-solution consequence assumes uniqueness; no generic M2 uniqueness proved.",
+    "Compatible overload domain is analytical, not calibrated or complete M2/MP6 evidence.",
+    "No native/reference, numerical gradient or policy-usefulness result."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "current_documents_changed": 9,
+  "new_validation_records": 1,
+  "protected_files_byte_identical": 213,
+  "local_links_resolved": 148,
+  "dialogue_append_only": true,
+  "original_A_C_candidate_sections_unchanged": true,
+  "state_receiving_reference_cases_checked_exactly": 4,
+  "traffic_rollouts_run": false,
+  "new_methodological_choice_adopted": false
+}

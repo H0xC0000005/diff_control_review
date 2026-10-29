@@ -1,0 +1,200 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\title{RM9: Approved section-speed observer\\Current-task history audit and its limits}
+\author{Method-first ramp-metering review}
+\date{5 October 2026}
+\begin{document}
+\maketitle
+\textbf{Disposition.} Observer C is approved; UG4-O is closed. This bounded R2
+pass establishes conditional information sufficiency, not a positive
+equal-history/useful-action certificate or universal impossibility. R3 admits
+no rescue assumption. R5 screens alternatives only; UG5 requires a user
+disposition before a changed task is formulated. No traffic experiment is run.
+
+\section{Approved observation, unchanged traffic law}
+For a mainline cell of length $L$, write lane masses $n_1,n_2$ in vehicle
+equivalents, total $N=n_1+n_2$, density $k_\ell=n_\ell/L$ and storage $M_\ell$.
+Public FD parameters are $v_\ell,w_\ell,C_\ell$ and
+$k^{\rm jam}_\ell=M_\ell/L$. Define $c_\ell=v_\ell/L$,
+$\gamma_\ell=w_\ell/L$ and the constitutive equilibrium rate
+\begin{equation}
+g_\ell(n)=\min\{c_\ell n,C_\ell,\gamma_\ell(M_\ell-n)\}.
+\end{equation}
+With $U^{\rm eq}_\ell(k)=f^{\rm eq}_\ell(k)/k$ for occupied lanes, C observes
+\begin{equation}
+V=\frac{n_1U^{\rm eq}_1(k_1)+n_2U^{\rm eq}_2(k_2)}{N},\qquad
+\frac{NV}{L}=g_1(n_1)+g_2(n_2),\quad N>0.
+\label{eq:c}
+\end{equation}
+Empty-lane contributions are zero without evaluating $0/0$; an empty cell's
+speed is unavailable. This is a homogeneous representative-equilibrium closure,
+not a detector or receiving-limited physical-speed theorem. The right side is
+\emph{not} the actual accepted face rate, which is observed separately.
+
+Preserve the adopted ordering: bounded lateral transfer conserving mass, then
+recompute forward sending and receiving, then conservative forward/merge updates.
+The Default positive-priority allocator redistributes unused receiving; the
+mainline and ramp share their forward receiver. Meter permission, actual
+release and actual downstream merge entry remain different where storage lies
+between them. No new traffic state or law follows from the observer approval.
+
+\textbf{TST qualification.} C describes traffic present in a section. It does
+not compute time spent in the whole system. For time step $h$ and all-stream
+present population $P^s$,
+\begin{equation}
+J_h=h\sum_{s=0}^{S-1}P^s.
+\end{equation}
+$P^s$ includes mainline, pre/post-meter ramp storage and external waiting, with
+the same arrivals and clearance rule for every method. Normalization by a fixed
+common total mass does not change action ranking. Do not replace this objective
+by a cell length divided by $V$; the FD closure need not describe actual blocked
+motion. The same-region time--space speed identity is a different statistic.
+\newpage
+
+\section{Branch-local information and global ambiguity}
+With $z=n_1$ and observed $N$, feasible splits lie in
+\begin{equation}
+I_N=[\max(0,N-M_2),\min(M_1,N)],\qquad
+G_N(z)=g_1(z)+g_2(N-z)=NV/L.
+\end{equation}
+Use F for the free branch, P for a capacity plateau and H for the congested
+branch. Away from branch boundaries, the lane-rate slopes are respectively
+$c_\ell,0,-\gamma_\ell$. The slope of $G_N$ is the difference of lane slopes:
+\begin{center}
+\begin{tabular}{lccc}\toprule
+Lane 1 / lane 2 & F & P & H\\\midrule
+F & $c_1-c_2$ & $c_1$ & $c_1+\gamma_2$\\
+P & $-c_2$ & $0$ & $\gamma_2$\\
+H & $-(\gamma_1+c_2)$ & $-\gamma_1$ & $\gamma_2-\gamma_1$\\
+\bottomrule\end{tabular}
+\end{center}
+A nonzero slope determines at most one candidate \emph{inside that known
+branch domain}. Equal free-flow mobilities or equal congested wave coefficients
+make the respective same-branch measurement constant; plateau/plateau is also
+constant when that branch actually exists. These are algebraic conditions,
+not permission to impose equal parameters to manufacture a collision.
+
+\textbf{Global warning.} Each $g_\ell$ is concave; $G_N$ is concave and
+piecewise affine. Roots can occur on opposite sides of its maximum, even when
+each involved branch has a nonzero slope. Flat intervals can give a continuum.
+Thus a free-flow inversion is a global identification result only when all
+other feasible branches are excluded by public state/domain information or
+completed observations. We do not silently observe branch membership.
+Nonconcave changes would require a new law, not use of this argument.
+
+\textbf{Plateau warning.} A positive-width P branch requires
+\begin{equation}
+C_\ell<\frac{c_\ell\gamma_\ell M_\ell}{c_\ell+\gamma_\ell}.
+\end{equation}
+For the ordinary triangular FD, equality holds and P is only a peak point.
+FB0030's triangular capacity relation does not justify a positive interval
+with both lanes on P. A separately capped trapezoid could be a legitimate
+public model if independently supported; it has not been adopted here.
+
+\textbf{Actual faces.} Even a compatible section-speed root must reproduce
+completed actual aggregate face counts/rates, ramp balances, all other cells
+and prior controls under the adopted lateral/forward law. A capped face alone
+does not remove the separate section-speed information. Future action-induced
+flow cannot be used to decide which root existed before choosing that action.
+\newpage
+
+\section{The complete-history requirement}
+Let $x^s$ denote the complete modeled mainline/ramp state, $p$ public parameters,
+$b^s$ all declared forcing/boundary allocation, and $u^s$ prior meter permissions.
+The deterministic adopted update is
+\begin{equation}
+x^{s+1}=F_B(x^s,b^s,u^s;p).
+\end{equation}
+Let $O_C$ include stored-state inventories/section speeds and completed labeled
+face and ramp observations. At the decision epoch, define the feasible initial
+state set using the \emph{whole common declared history} $H_*$:
+\begin{equation}
+\mathcal X(H_*)=\{x^0:\ x^{s+1}=F_B(x^s,b^s,u^s;p),\
+O_C(x^s,\text{completed fluxes})=O^s_{\rm admitted}\ \text{for all }s\leq *\}.
+\end{equation}
+All candidates obey storage, geometry, conservation and public forcing. This
+defines the proof obligation; it is not a numerical estimator or a solved
+site-specific constraint system.
+
+\textbf{Conditional sufficiency lemma.} If the admitted information uniquely
+identifies the complete state at any common past epoch $a\leq *$, then all later
+states up to the decision are uniquely determined. Proof: apply the public
+deterministic update once to the known state and inputs; repeat by induction.
+For any common future schedule and forcing, the same induction gives identical
+future states, exit histories and TST, hence identical action rankings.
+
+This includes a fully known complete initialization (including a genuinely
+known empty system), or an earlier epoch where every state coordinate is
+uniquely reconstructed. Queue formation, capacity caps and later snapshot
+ambiguity do not invalidate this result. A uniquely invertible local branch
+in one cell does not by itself identify the whole system.
+
+\textbf{Unresolved domain.} If only aggregate initial information is known
+and multiple complete states survive \emph{all} declared observations, the
+lemma does not settle the task. Mixed/congested branches may permit snapshot
+ambiguity, but no genuine site/initialization-supported pair has been
+established here that survives the coupled full history and changes useful
+common actions. Conversely, no global impossibility theorem has been proved
+for every such domain. Do not make the history short or forcing private just
+to obtain multiplicity.
+
+If a noninjective lateral update maps two different pre-states to the same
+\emph{complete} state before actions act, with all remaining inputs equal,
+their lost coordinate cannot create a subsequent action distinction. A failure
+of a memoryless total-density closure is also not sufficient: a stronger
+aggregate-history method can reconstruct an otherwise missing coordinate.
+\newpage
+
+\section{Action and gradient status; next physical comparison}
+The required positive claim would need two genuine feasible states with
+identical $H_*$, distinguishable useful actions from the same admissible
+open-loop family, and complete affected-population time accounting. None is
+admitted by this pass. Therefore R4 has no new certificate to propagate into
+a claim of useful gradients. Existing branch-wise conceptual derivatives are
+conditional; no finite-difference, cross-fidelity or one-step usefulness test
+has been conducted in this methodology review.
+
+R3 declines unsupported symmetry, invented plateau widths, weakened/noisy
+speed observations, omitted waiting, private forcing and extra lanes introduced
+only to defeat an inverse. These could be legitimate features of another
+source-grounded task, but need explicit scientific admission and cannot be
+silent repairs of this one.
+
+R5's bounded source comparison supports physical questions, not positivity:
+\begin{itemize}
+\item Laval, Cassidy and Daganzo's inspected merge model represents bounded
+acceleration and associated voids, even at a site without an acceleration lane.
+Its ramp-queue-dependent entry speed is not automatically hidden when that
+queue is known. No exact RM9 history collision follows.
+\item Srivastava's 2016 dissertation, Chapter 3.3.1, changes congested demand
+and adds a jam-demand parameter while retaining supply and density
+conservation. This is an aggregate-law competitor, in a queue-discharge task;
+the separate lane-drop model in Chapter 4 requires additional merge modeling
+for a ramp extension. Neither is copied into RM9.
+\item A real finite acceleration lane may require position/urgency and changed
+geometry. Gap-informed metering changes sensing and temporal action semantics.
+Both require their own task comparison, not an unchanged-law counterexample.
+\end{itemize}
+\textbf{Recommendation at UG5.} Accept the scoped absence of an established
+positive result for this bounded current-task pass, and discuss a targeted
+recovery/acceleration-family review beginning with the strongest credible
+aggregate demand/history competitor. Add state only if necessary to represent
+independently supported information that this competitor cannot reconstruct.
+This is a proposed next scope, not an adopted law, successor or universal
+rejection of the current family. The companion findings present fair alternatives.
+
+\section*{Primary provenance and reviewer boundary}
+FD source: \href{https://repository.tudelft.nl/file/File_2c4359e7-5e5a-4651-964f-6f3610ab89ae}{FB0030, final primary lane-model PDF}, capacity relation printed 1768.
+Physical merge mechanism: \href{https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/f/3571/files/2023/03/merges.pdf}{Laval, Cassidy and Daganzo, inspected merge paper}, Sections 2/4.
+Aggregate competitor: \href{https://escholarship.org/content/qt7dx478g4/qt7dx478g4.pdf}{Srivastava, UCI dissertation 2016}, selected Chapters 3/4.
+Observer provenance remains in the R1 source matrix. Equations and history
+lemmas above are reviewer deductions under the explicitly approved closure,
+not literature theorems for the combined adapted task. Search/access and claim
+ledgers retain version and coverage limits. No source establishes the combined
+hidden-information, useful-action and useful-gradient chain.
+\end{document}

@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-06",
+  "task": "BP-R approval/pre-opening readiness",
+  "Stage1": "Closed on documented evidence-limited result; BPI-G3 selects BP-R",
+  "Stage2": "Claim/direction approved; protocol ready; substantive execution not started",
+  "mandatory_preopening_methodological_decisions": [],
+  "next_allowed_action": "Open bounded BP-R admission audit to BPR-G2 or BPR-G3",
+  "checks": {
+    "markdown_files": 11,
+    "local_links": 92,
+    "questions": {
+      "BPR-G0": {
+        "question": "Adopt the relative representation/control-response claim?",
+        "owner": "Type 2; user",
+        "status": "Closed by current approval; preserves BP-I's scoped result"
+      },
+      "BPR-G1": {
+        "question": "Which scope, fairness, accounting and evidence limits govern admission?",
+        "owner": "Type 2; accepted candidate/roadmap, transcribed here",
+        "status": "Closed for opening; no new physical law adopted"
+      },
+      "BPR-E1": {
+        "question": "Does the source family support genuine common-rate leverage under complete accounting?",
+        "owner": "Type 1; reviewer source/static evidence",
+        "status": "To investigate under G0/G1"
+      },
+      "BPR-E2": {
+        "question": "What richer state/projection and strongest compact/memory rivals are justified?",
+        "owner": "Type 1; reviewer extraction/comparison",
+        "status": "Depends on E1 task qualification; no scientific adoption by reading"
+      },
+      "BPR-E3": {
+        "question": "What intervention-response distinction survives those rivals, and what remains missing?",
+        "owner": "Type 1; reviewer static/evidence audit",
+        "status": "Depends on E1/E2; cannot infer useful gradients from forward differences"
+      },
+      "BPR-G2": {
+        "question": "Adopt a concrete traffic/actuator/information/reference or acceptance amendment?",
+        "owner": "Type 2; user",
+        "status": "Trigger only if a named transfer requires changing methodological meaning"
+      },
+      "BPR-G3": {
+        "question": "Accept admission disposition and select the next stage?",
+        "owner": "Type 2; user",
+        "status": "End-stage gate after E1–E3 and any triggered G2"
+      }
+    },
+    "git_status": [
+      " M AGENTS.md",
+      " M PLANS.md"
+    ]
+  },
+  "manual_consistency_audit": [
+    "Claim change explicit; original information findings preserved",
+    "No repeated approval required for accepted direction and transcribed boundaries",
+    "Rate/TST task admission and strong reduction questions belong to evidence work",
+    "Missing operational history not assumed solved or unavailable",
+    "Common information/projection/forcing and stronger memory rivals required",
+    "Source reading default distinguished from physical-law adoption",
+    "G2 reserved for concrete scientific transfer; G3 for end-stage disposition",
+    "No Stage2 execution, later-stage opening or experiment authorized by readiness question",
+    "Historical reports/checks remain pre-acceptance snapshots; closure supersedes status labels"
+  ],
+  "new_searches": 0,
+  "new_source_ids": 0,
+  "scientific_tests_or_experiments": 0,
+  "scope": "Review documentation only; no production or feedback edits",
+  "errors": [],
+  "result": "PASS"
+}

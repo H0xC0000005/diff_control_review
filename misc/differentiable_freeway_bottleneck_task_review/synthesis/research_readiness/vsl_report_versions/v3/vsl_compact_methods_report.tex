@@ -1,0 +1,359 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage{xcolor}
+\usepackage{cite}
+\renewcommand{\citepunct}{], [}
+\renewcommand{\citedash}{]--[}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={An elementary VSL lane-drop task: model and sensitivity},
+ pdfauthor={Differentiable traffic task review},pdfsubject={Compact methodology}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\bud}{\mathcal B}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\head}[1]{\par\vspace{4pt}\noindent\textbf{#1}\par\nobreak\vspace{1pt}}
+\newcommand{\rev}[1]{\textcolor{red}{#1}}
+\newenvironment{points}{\begin{list}{$\bullet$}{%
+ \setlength{\leftmargin}{1.4em}\setlength{\labelwidth}{0.7em}%
+ \setlength{\labelsep}{0.4em}\setlength{\itemsep}{2pt}%
+ \setlength{\parsep}{0pt}\setlength{\topsep}{3pt}}}{\end{list}}
+\begin{document}
+\begin{center}
+{\large\bfseries An elementary VSL lane-drop task: model and sensitivity}
+\end{center}
+\vspace{-5pt}
+\rev{\textit{Revisions responding to feedback 11 are shown in red.}}
+
+\head{1. Research question}
+\begingroup\color{red}
+This elementary variable-speed-limit (VSL) task separates three questions:
+\begin{points}
+\item \textbf{Information:} Which omitted lane-loading information changes
+merge service when ending-lane traffic and total continuing traffic agree?
+\item \textbf{Decision:} Can retaining that information change the useful
+common-speed advice after both travel and all waiting time are counted?
+\item \textbf{Gradient:} Does the complete travel-time sensitivity predict
+beneficial speed changes, checked against actual objective changes and
+equal-information optimizer references?
+\end{points}
+\endgroup
+
+\head{2. Task and global assumptions}
+\rev{\textbf{Concrete task.} Control one permanent three-to-two lane drop
+for one specified finite cohort, using one constant common speed advice.}
+\rev{The road has} ending lane E, adjacent continuing lane A
+and far continuing lane B. Preparation ends at $L_p$; a terminal of length
+$b$ ends at the choke $L=L_p+b$. At time zero, independent lane densities
+$(e_0,a_0,b_0)\geq0$ are uniform on the common footprint $[0,\ell]$,
+$0<\ell\leq L_p$. Set $r=e_0+a_0$ and total mass
+$M=\ell(e_0+a_0+b_0)>0$. The terminal and recovery history start empty;
+there are no later external arrivals. Choose one constant common advice
+$v\in[v_-,v_+]$, $0<v_-<v_+$, with fixed initial state, geometry and physical parameters.
+The objective counts every initial unit's time until it crosses the choke.
+
+\begingroup\color{red}
+\textbf{Global modeling assumptions.} These specify the traffic represented
+by this task, separately from the sufficient operating bounds below.
+\begin{points}
+\item \textbf{MA1: continuous, homogeneous traffic.} Each lane carries
+continuous vehicle-equivalent mass. The remaining preparation body retains
+lane densities without internal longitudinal variation or individual maneuvers.
+\item \textbf{MA2: advice acts through traffic state.} Unblocked traffic
+follows the common advice. Backward-wave speed $w$, jam density $k_j$,
+geometry and physical interaction/recovery coefficients stay fixed as advice
+varies; merge service responds to the resulting local traffic state.
+\item \textbf{MA3: two-stage lane coupling.} E can transfer into A before
+the terminal; successful early transfer becomes ordinary A. Residual E
+traverses the terminal without ordinary lane changes and merges at the choke.
+B has separate service; no other lateral exchange is represented.
+\item \textbf{MA4: point-service closure.} Current A/E conditions determine
+priority/cooperation, maneuver work and representative boundary speeds.
+Those speeds describe free or queued service, rather than individual trajectories.
+\item \textbf{MA5: recovery memory.} Only forced E discharge generates
+recovery loss. One shared A/E budget depends on the retained ages and
+insertion speeds of the most recent fixed amount of E mass.
+\end{points}
+\endgroup
+
+Triangular-diagram and cumulative-boundary ingredients follow the link
+transmission model (LTM)~\cite{jin}; the advice-response family is selected
+here, with algebraic capacity/inverse maps:
+\begin{equation}
+ K=wk_j,\quad k_c(v)=\frac{K}{w+v},\quad C(v)=vk_c(v),\qquad
+ c(u)=\frac{Ku}{w+u},\quad U(g)=\frac{wg}{K-g}.
+ \label{eq:fd}
+\end{equation}
+\rev{Here $k_c$ is critical density, $C$ capacity, $c(u)$ the
+congested-branch flow associated with speed $u$, and $U$ its inverse.}
+$R$ and $R_B$ are undisturbed A/E and B service ceilings, respectively.
+Use positive physical scales and the sufficient operating domain
+\begin{equation}
+ e_0,a_0,b_0\leq k_c(v_+),\qquad
+ v_+r<R\leq C(v_-),\qquad v_+b_0\leq R_B\leq C(v_-),\qquad M<k_jb.
+ \label{eq:domain}
+\end{equation}
+It keeps preparation free, terminal receiving available and B unqueued.
+Work and recovery choices are specified below; $[x]_+=\max(x,0)$.
+
+\begingroup\color{red}
+\textbf{Why this test.} Lane-based conservation and finite receiving
+constraints~\cite{subraveti,carey}, together with insertion-speed effects
+on discharge~\cite{leclercq2011,leclercq}, motivate conserved, feasible
+traffic and state-sensitive merge service. Strong aggregate VSL models
+already retain traffic history and capacity drop~\cite{wei}, but do not
+explicitly resolve the A/B split. Lane-resolved models~\cite{subraveti,carey}
+supply that state; their traffic predictions alone do not answer this task's
+matched-information control/gradient questions. We therefore require
+complete travel-time accounting through clearance, lawful history inference,
+and separate checks of information value and equal-information gradient
+usefulness, including a sufficient compact peer and scalar search.
+\endgroup
+
+\newpage
+\head{3. Traffic model}
+\begingroup\color{red}
+Picture E traffic approaching the lane end. Some finds room in A early and
+continues as ordinary A traffic. What remains in E crosses a short terminal
+and must merge at the choke, competing with A for passage. A slow forced
+entry can keep restricting following traffic even after it has crossed the
+completion line; the restriction fades as downstream traffic accelerates.
+The four components below represent these early opportunities, travel to
+the merging point, competition for passage, and the lingering recovery effect.
+\endgroup
+
+\textbf{3.1. Pre-choke merging.}
+Let $e(t),a(t)$ be the remaining preparation body's E/A densities.
+Own A flow uses receiving first. E transfer is limited by its donor offer
+and by remaining adjacent service.
+\rev{Paired conservative sources follow~\cite{subraveti}; receiving work
+and own-lane priority draw on~\cite{carey}. The homogeneous minimum and
+interaction length below are defined here:}
+\begin{equation}
+ S(v,a)=\min\{C(v),w(k_j-a)\},\qquad
+ f=\min\!\left\{ve,\frac{S(v,a)-va}{\gamma}\right\},\qquad
+ \dot e=-f/h,\quad \dot a=f/h.
+ \label{eq:prep}
+\end{equation}
+Here $h>0$ is a physical interaction length, $\gamma\geq1$ is a receiving-work
+factor, and $f/h$ is the lateral density source. Thus $e+a=r$ and $b_0$
+stays constant. Donor-limited decay is exponential per traveled distance;
+advice affects preparation through normalized receiving headroom $k_c(v)$.
+
+\textbf{3.2. Finite terminal and the merging point.}
+\rev{The terminal separates reaching the end of preparation from being
+ready to pass the choke: traffic first travels distance $b$, then waits
+only if point service cannot accept it.}
+For $j\in\{E,A,B\}$, let $F_j,P_j,Y_j$ be cumulative terminal entry,
+service-eligible mass and departure.
+\rev{The initially empty count histories represent only this cohort.
+Boundary travel follows LTM~\cite{jin}; the preparation handoff is defined
+here. The cohort enters during $(L_p-\ell)/v<t<L_p/v$:}
+\begin{equation}
+ \dot F_E=ve(t),\quad \dot F_A=v[r-e(t)],\quad \dot F_B=vb_0;
+ \qquad P_j(t)=F_j(t-b/v).
+ \label{eq:arrivals}
+\end{equation}
+Define physical terminal stock $N_j=F_j-Y_j$, eligible waiting mass
+$q_j=P_j-Y_j$, offer $\lambda_j=\dot P_j$ and discharge $g_j=\dot Y_j$.
+Departures satisfy $0\leq Y_j\leq P_j\leq F_j$, with
+$\dot q_j=\lambda_j-g_j$. Domain~\eqref{eq:domain} protects finite storage
+and gives $Y_B=P_B$. Early-merged E becomes ordinary A; residual E travels
+through the terminal and merges at the choke.
+
+\newpage
+\textbf{3.3. Forced merging and service sharing.}
+\begingroup\color{red}
+The point has a shared work budget $\bud$, measured as A-equivalent service
+per unit time. A costs one work unit per mass; E's maneuver costs more
+when A is faster. For lane $j=A,E$, $u_j$ is the model's representative
+speed at the merging boundary: $u_j=v$ for unqueued traffic and
+$u_j=U(g_j)$ for queued traffic. The queued relation is an equilibrium
+closure, not an individual speed trajectory.
+Receiving-work accounting is adapted from~\cite{carey}; the specific
+speed-mismatch work and allocation below are defined here:
+\endgroup
+\begin{equation}
+ \begin{gathered}
+ c_E=c_0+\chi g_A\pos{u_A-u_E},\qquad
+ g_A+c_Eg_E\leq\bud,\\
+ \rev{H(g;g_A,u_A)=g\cdot\bigl(c_0+\chi g_A\pos{u_A-U(g)}\bigr)=x.}
+ \end{gathered}
+ \label{eq:work}
+\end{equation}
+$c_0\geq1$ is baseline E work and $\beta\geq0$ sets mismatch strength.
+Set $\chi=\beta/[C(v_+)v_+]$ once and hold it fixed.
+Require $c_0>\beta(1+v_+/w)$ so each feasible root $H(g)=x$
+is unique.
+\rev{When E is queued, \textbf{solve for $g=g_E$}: A's flow $g_A$, speed
+$u_A$ and allocated E work $x$ come from the sharing table. $H$ is the fully
+specified work consumed by a candidate E flow $g$; the dot denotes ordinary
+multiplication of that flow by its work per unit mass.}
+A fitting free A offer has
+priority; queued A cooperates through equal work and unused-work redistribution:
+\begin{center}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}ll@{}}
+\toprule
+A, E status & Selected service and free-admission condition\\
+\midrule
+Free, free & $g_A=\lambda_A,\ g_E=\lambda_E$ if
+$\lambda_A+c_0\lambda_E\leq\bud$.\\
+Free, queued & $g_A=\lambda_A\leq\bud,\quad
+H(g_E;\lambda_A,v)=\bud-\lambda_A$.\\
+Queued, queued & $g_A=\bud/2,\quad
+H(g_E;\bud/2,U(\bud/2))=\bud/2$.\\
+Queued, free & $g_E=\lambda_E,\ g_A=\bud-c_0\lambda_E$ if
+$c_0\lambda_E\leq\bud/2$.\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begingroup\color{red}
+A queue starts only when arriving traffic strictly exceeds feasible service.
+When all waiting traffic has passed, the lane becomes unqueued if its
+current arrivals can pass immediately; equality permits that continuation.
+After an arrival-rate change, service follows the new arrivals immediately.
+Recovery is a separate physical aftereffect: clearing a queue does not erase
+the influence of traffic already discharged. These transition rules and
+the sharing table are defined here.
+\endgroup
+
+\textbf{3.4. Recovery and the shared budget.}
+\begingroup\color{red}
+Crossing the choke completes an E entry's own trip, but a slow insertion
+can still hold back the A/E traffic waiting behind it. Downstream acceleration
+gradually releases that restriction. Point-merge studies supply this
+mechanism~\cite{leclercq2011,leclercq}. For one entry with insertion speed
+$u$, let $\theta\geq0$ be time since crossing and $a_r>0$ the recovery
+acceleration. Differentiating the isolated cumulative passing expression
+in~\cite{leclercq} gives $c(V)$; capping against undisturbed service $R$
+defines the loss below:
+\endgroup
+\begin{equation}
+ V(\theta;u)=\sqrt{(w+u)^2+2wa_r\theta}-w,\qquad
+ D(\theta;u)=\pos{R-c(V(\theta;u))}.
+ \label{eq:profile}
+\end{equation}
+\begingroup\color{red}
+$V$ summarizes how the downstream acceleration and backward-wave propagation
+restore service at the choke. It is an equivalent speed in the boundary-flow
+map $c$, not the discharged vehicle's actual speed. $D$ is the amount of
+the undisturbed A/E service $R$ still unavailable because of this insertion;
+it vanishes once $c(V)$ reaches $R$.
+To combine entries, $\xi$ labels cumulative discharged E mass,
+$T(\xi)$ is that mass's choke-crossing time, and $u_E(T(\xi))$ its insertion
+speed. Set $m=1$ vehicle-equivalent. Our recent-mass rule averages the
+remaining losses over at most the latest $m$ E mass and subtracts the
+reading $p_{\rm rec}$ from $R$ to obtain the shared budget:
+\endgroup
+\begin{equation}
+ p_{\rm rec}(t)=\frac1m\int_{\pos{Y_E(t)-m}}^{Y_E(t)}
+ D\bigl(t-T(\xi);u_E(T(\xi))\bigr)\dd\xi,\qquad
+ \bud(t)=\pos{R-p_{\rm rec}(t)}.
+ \label{eq:recovery}
+\end{equation}
+\rev{All retained profiles recover with age. Once $m$ has passed, newer
+E replaces the oldest retained mass; the denominator remains $m$ even before
+fill. A consumes the shared budget but adds no separate loss profile.
+The capped single-entry profile is derived/adapted from~\cite{leclercq};
+the E-only source and recent-mass renewal are defined here.}
+
+\head{4. How the task tests information}
+Compare the same initial E mass and continuing total with different A/B
+splits. A busier A can restrict preparation, leaving more E for forced work
+and recovery. Advice trades these effects against ordinary travel time.
+With a fixed horizon $H_*$ beyond cohort clearance, minimize complete
+\rev{total system time (TST)}:
+\begin{equation}
+ J(v)=\int_0^{H_*}\!\left[M-\sum_jY_j(t)\right]\dd t
+ =\frac{M(L-\ell/2)}v+\int_0^{H_*}(q_A+q_E)\dd t.
+ \label{eq:objective}
+\end{equation}
+The predictors share geometry and physical parameters and may use all
+inference from admitted predecision histories: aggregate density, flow,
+speed and cumulative counts, including any permitted E-resolved history.
+One knows initial E and combined A+B mass; the other knows each lane.
+An equal-information compact peer adds just initial A mass to the former,
+reconstructing all three initial densities and the same dynamics.
+\rev{A separate optimizer comparison uses the same information and model
+for gradient-based advice and bounded scalar search.}
+
+\newpage
+\head{5. Complete sensitivity}
+The model-specific sensitivities are derived here at fixed initial traffic
+and physical parameters.
+\rev{Advice changes preparation and arrival timing; these change passage,
+insertion speeds, recovery and waiting. Differentiate that whole path,
+including when queues form/clear and old recovery entries leave the account.}
+A subscript $v$ denotes advice sensitivity. On smooth branches,
+\begin{equation}
+ g_{E,v}=\frac{x_v-H_{g_A}g_{A,v}-H_{u_A}u_{A,v}}{H_g},\qquad H_g>0.
+ \label{eq:rootgradient}
+\end{equation}
+\begingroup\color{red}
+Let $s_m$ be the crossing time of the oldest retained E mass. For a filled
+window with $g_E(s_m)>0$, $Y_E(s_m)=Y_E(t)-m$; write $Z_E=Y_{E,v}$.
+The cutoff relation below is derived here. Differentiate~\eqref{eq:recovery}
+including insertion speeds, flows, retirement and source events. A branch
+switch at $t=\tau$ satisfies a condition $G(t,v)=0$ along the predicted
+traffic/history. For an isolated crossing with $G_t^-\ne0$, the remaining
+event corrections follow~\cite{kong}. Here $X$ collects continuous traffic
+coordinates and $-/+$ mean just before/after the switch:
+\endgroup
+\begin{equation}
+ \begin{gathered}
+ g_E(s_m)s_{m,v}=Z_E(t)-Z_E(s_m),\qquad \tau_v=-G_v^-/G_t^-,\\
+ X_v^+=X_v^-+(\dot X^- -\dot X^+)\tau_v.
+ \end{gathered}
+ \label{eq:eventgradient}
+\end{equation}
+Thus the complete derivative, on a fixed regular event/history sequence, is
+\begin{equation}
+ J'(v)=-\int_0^{H_*}\!\sum_jY_{j,v}(t)\dd t
+ =-\frac{M(L-\ell/2)}{v^2}+\int_0^{H_*}(q_{A,v}+q_{E,v})\dd t.
+ \label{eq:objectivegradient}
+\end{equation}
+\makeatletter
+\renewcommand{\section}{\@ifstar{\head}{\head}}
+\makeatother
+% Main methodology target: at most 3.5 pages; references are excluded.
+\begin{thebibliography}{7}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\bibitem{jin} W.-L. Jin, ``Continuous formulations and analytical properties
+of the link transmission model,'' \emph{Transp. Res. B, Methodol.}, vol.~74,
+pp.~88--103, 2015, doi: \href{https://doi.org/10.1016/j.trb.2014.12.006}{10.1016/j.trb.2014.12.006}.
+\bibitem{subraveti} H.~H.~S. Nagalur Subraveti, V.~L. Knoop, and B. van Arem,
+``First order multi-lane traffic flow model---an incentive based macroscopic
+model to represent lane change dynamics,'' \emph{Transportmetrica B, Transp.
+Dyn.}, vol.~7, no.~1, pp.~1758--1779, 2019, doi:
+\href{https://doi.org/10.1080/21680566.2019.1700846}{10.1080/21680566.2019.1700846}.
+\bibitem{carey} M. Carey, C. Balijepalli, and D. Watling, ``Extending the cell
+transmission model to multiple lanes and lane-changing,'' \emph{Netw. Spat.
+Econ.}, vol.~15, pp.~507--535, 2015, doi:
+\href{https://doi.org/10.1007/s11067-013-9193-7}{10.1007/s11067-013-9193-7}.
+\bibitem{leclercq2011} L. Leclercq, J.~A. Laval, and N. Chiabaut,
+``Capacity drops at merges: An endogenous model,'' \emph{Procedia Soc.
+Behav. Sci.}, vol.~17, pp.~12--26, 2011, doi:
+\href{https://doi.org/10.1016/j.sbspro.2011.04.505}{10.1016/j.sbspro.2011.04.505}.
+\bibitem{leclercq} L. Leclercq, V.~L. Knoop, F. Marczak, and S.~P. Hoogendoorn,
+``Capacity drops at merges: New analytical investigations,'' \emph{Transp.
+Res. C, Emerg. Technol.}, vol.~62, pp.~171--181, 2016, doi:
+\href{https://doi.org/10.1016/j.trc.2015.06.025}{10.1016/j.trc.2015.06.025}.
+\bibitem{wei} \rev{L. Wei, Y. Han, and M. Wang, ``A first-order link-based flow
+model with variable speed limits and capacity drops for freeway networks,''
+\emph{Comput.-Aided Civ. Infrastruct. Eng.}, vol.~40, no.~21,
+pp.~3200--3217, 2025, doi:
+\href{https://doi.org/10.1111/mice.13492}{10.1111/mice.13492}.}
+\bibitem{kong} N.~J. Kong, J.~J. Payne, J. Zhu, and A.~M. Johnson,
+``Saltation matrices: The essential tool for linearizing hybrid dynamical
+systems,'' \emph{Proc. IEEE}, vol.~112, no.~6, pp.~585--608, Jun. 2024, doi:
+\href{https://doi.org/10.1109/JPROC.2024.3440211}{10.1109/JPROC.2024.3440211}.
+\end{thebibliography}
+\end{document}

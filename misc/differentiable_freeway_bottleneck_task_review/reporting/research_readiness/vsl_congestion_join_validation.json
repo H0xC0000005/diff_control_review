@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-21",
+  "status": "LF1 selected and closed; next interface check stops at unselected LF2; full replacement qualification incomplete",
+  "scope": "static source-interpretation and document checks, exact rational hand case; no traffic trajectory or gradient test",
+  "package_before_files": 531,
+  "existing_files_changed": [
+    "README.md",
+    "extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+    "extraction/research_readiness/vsl_lane_backbone_source_audit.md",
+    "reporting/research_readiness/vsl_allocator_findings_and_gate.md",
+    "reporting/research_readiness/vsl_lane_backbone_qualification.md",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md"
+  ],
+  "existing_files_deleted": [],
+  "other_prior_package_files_unchanged": 525,
+  "files_added": [
+    "extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+    "reporting/research_readiness/vsl_allocator_selection.md",
+    "reporting/research_readiness/vsl_congestion_join_build.log",
+    "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+    "reporting/research_readiness/vsl_congestion_join_validation.json",
+    "reporting/research_readiness/vsl_congestion_join_work_report.md",
+    "synthesis/research_readiness/vsl_congestion_join_contract_and_checks.pdf",
+    "synthesis/research_readiness/vsl_congestion_join_contract_and_checks.tex"
+  ],
+  "protected_root_and_feedback_unchanged": {
+    "AGENTS.md": true,
+    "PROJECT_CONTEXT.md": true,
+    "PLANS.md": true,
+    "memo.txt": true,
+    "temp_content/feedback/vsl_refinement_feedback.md": true
+  },
+  "protected_model_source_and_proof_artifacts_unchanged": {
+    "synthesis/research_readiness/vsl_compact_methods_report.pdf": true,
+    "synthesis/research_readiness/vsl_compact_methods_report.tex": true,
+    "synthesis/research_readiness/vsl_lane_backbone_flow_checks.pdf": true,
+    "synthesis/research_readiness/vsl_lane_backbone_flow_checks.tex": true,
+    "synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf": true,
+    "synthesis/research_readiness/vsl_allocator_contract_and_checks.tex": true,
+    "archive/full_text/FB0030.pdf": true
+  },
+  "new_markdown_relative_links": [
+    {
+      "file": "reporting/research_readiness/vsl_allocator_selection.md",
+      "target": "vsl_allocator_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_selection.md",
+      "target": "../../synthesis/research_readiness/vsl_allocator_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_allocator_selection.md",
+      "target": "vsl_congestion_join_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_join_work_report.md",
+      "target": "vsl_congestion_join_validation.json",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+      "target": "../../archive/full_text/FB0030.pdf",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+      "target": "vsl_allocator_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+      "target": "../../reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+      "target": "vsl_allocator_selection.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+      "target": "../../synthesis/research_readiness/vsl_congestion_join_contract_and_checks.pdf",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+      "target": "../../extraction/research_readiness/vsl_congestion_join_sources_and_adaptations.md",
+      "exists": true
+    },
+    {
+      "file": "reporting/research_readiness/vsl_congestion_join_findings_and_gate.md",
+      "target": "vsl_congestion_join_work_report.md",
+      "exists": true
+    }
+  ],
+  "pdf": {
+    "pages": 3,
+    "words_per_page": [
+      521,
+      441,
+      501
+    ],
+    "bytes": 140226,
+    "sha256": "130db9e3389c5f6342836f9eceb4b7219af708d4931314c07adac95dcd6cbac2",
+    "latex_passes": 2,
+    "final_latex_warnings": [],
+    "content_markers_verified": true,
+    "image_rendered_visual_inspection": false
+  },
+  "exact_hand_case": {
+    "parameters": {
+      "free_speed": "60",
+      "backward_wave_speed": "20",
+      "jam_density": "150",
+      "max_drop": "1/10",
+      "capacity": "2250",
+      "critical_density": "75/2",
+      "recovery_slope": "540/31"
+    },
+    "densities": {
+      "preceding": "150",
+      "sending": "40",
+      "receiving_low": "399/10",
+      "receiving_high": "401/10"
+    },
+    "sending_ceiling_from_preceding": "2025",
+    "receiving_ceiling_from_sending": "2245",
+    "receiving_budget_rates": [
+      "68254/31",
+      "2198"
+    ],
+    "G_flow_rates": [
+      "2025",
+      "2198"
+    ],
+    "H_flow_rates": [
+      "2025",
+      "2025"
+    ],
+    "G_sample_difference": 173,
+    "G_one_sided_limit_difference": 175,
+    "sending_and_receiving_stock_bounds": true,
+    "zero_drop_limit_checked": true,
+    "status": "all exact rational assertions passed"
+  },
+  "environment": {
+    "python": "3.11.9",
+    "pypdf": "6.15.0",
+    "latex": "pdfTeX 3.141592653-2.6-1.40.25; TeX Live 2023/Debian"
+  },
+  "no_simulator_code_or_traffic_gradient_experiments": true,
+  "no_new_full_paper_archive_addition": true,
+  "urban_scope": "no writes performed; concurrent changes by others are outside this preservation claim",
+  "next_allowed_action": "user selection of congestion sending interpretation LF2, then remaining joined task qualification"
+}

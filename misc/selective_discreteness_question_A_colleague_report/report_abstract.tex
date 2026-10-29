@@ -1,0 +1,65 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=17mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{hyperref}
+\definecolor{navy}{HTML}{17365D}
+\definecolor{bluegray}{HTML}{EAF0F6}
+\hypersetup{colorlinks=true,linkcolor=navy,urlcolor=navy,pdftitle={Selective Discreteness: Condensed Literature and Contribution Review}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\tabcolsep}{4pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\conclusion}[1]{\begin{center}\colorbox{bluegray}{\parbox{0.94\linewidth}{\textbf{#1}}}\end{center}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Selective Discreteness in Differentiable Mesoscopic Traffic Simulation\par}
+\end{center}
+\vspace{2pt}
+
+\conclusion{Bottom line: the project has a credible but narrow literature gap. Its contribution is not a new traffic-flow component; it is a continuous-mass architecture that retains only the route order and lane-local state needed for signal-relevant mesoscopic behavior, followed by experiments that test whether this additional state produces more useful control sensitivities than aggregate alternatives.}
+
+\textbf{The literature defines the required baseline families, but no single work is a complete baseline.} Yperman's link transmission model and Tampère's generic node model establish the homogeneous continuous backbone and support the principal macroscopic baseline. Wright's partial-FIFO node and Wei's turn-level queues support a structured movement-queue baseline. Gong's multilane node, Liu--Chang's lane-group model, and Gao's physical turning-lane queues support the stronger lane/storage-aware aggregate baseline. de Souza's individual-tracking LTM and Ni--Kouvelas--Makridis's LIFT provide forward references for exact identity and FIFO through integer vehicles or events. Osorio's stochastic network loading and Seo's differentiable LTM confirm that aggregate gradients are established; Andelfinger's differentiable agents and Son's differentiable hybrid simulator provide conceptual alternatives for differentiating richer traffic state. These works collectively surround the target design point, but the 37-study synthesis found no model combining divisible mass, persistent exact route/order semantics, bounded lane-local storage/accessibility, derivatives of the implemented traffic model, and external evidence that those derivatives improve control decisions.
+
+The safe hypothesis is therefore: \emph{when shared-lane FIFO blocking, finite turn-pocket storage, or movement order changes realized service, selective route/order and lane-local semantics will provide more useful control sensitivities than a matched homogeneous or structured aggregate model, without integer vehicle transfers or a full microscopic graph.} Absence of an equivalent model in the reviewed corpus justifies testing this hypothesis; it does not prove universal priority or that the hypothesis is true.
+
+\textbf{Four progressively richer baseline roles are required.}
+
+\begin{tabularx}{\textwidth}{p{0.22\linewidth}YY}
+\toprule
+\textbf{Baseline role} & \textbf{What it tests} & \textbf{Decisive distinction}\\
+\midrule
+Homogeneous differentiable LTM & Whether any gain is due merely to implementation or optimization differences. & No lane-local state or realized order.\\
+Structured movement queue & Whether movement totals or calibrated partial FIFO already suffice. & FIFO service and blockage follow aggregate state/parameters, not the actual movement sequence.\\
+Lane/storage aggregate & Whether lane allocation, lane queues, and finite storage explain the gain. & Aggregate lane totals need not be reachable from a particular ordered approach queue.\\
+Individual/event mesoscopic reference & Whether continuous ordered mass reproduces established forward behavior and at what cost. & Exact order is retained, but through integer vehicles/events and without the target continuous gradient path.\\
+\bottomrule
+\end{tabularx}
+
+Here, ``baseline model'' denotes an explanatory role, not necessarily one external software package. The homogeneous baseline can be the proposed simulator with all mesoscopic additions disabled; the movement and lane/storage baselines can be matched ablations faithful to published equations; and individual/event models can supply executable or equation-level forward references. The lane/storage aggregate is the strongest scientific competitor. A positive result against homogeneous LTM alone would not identify the value of exact order.
+
+\textbf{This evidence supports a literature-to-design progression rather than a model-first progression.} The macroscopic literature supplies a scalable continuous model but aliases queues that have the same totals and different service-relevant sequence. Structured aggregate models then show that much of this aliasing can be removed with movement, lane, and storage state, establishing the strongest simpler alternative. Individual/event mesoscopic models show what is recovered by retaining realized identity and chronology, while differentiable agent and hybrid models show the cost or approximation mechanisms used when rich discrete state enters the derivative path. The proposed architecture follows directly from the unresolved intersection: retain common continuous physics, add exact semantics without integerizing mass, localize physical detail where sequence affects service, and test every added state against the strongest simpler aggregate explanation.
+
+\textbf{The three mesoscopic components are literature-backed adaptations and form a reasonable minimal causal chain.}
+
+\begin{itemize}
+  \item \textbf{Ordered continuous route-mass ledger:} combines multi-commodity LTM's separation of common physics and route labels with the persistent FIFO identity demonstrated by individual/event LTM. Its adaptation is divisible route mass with exact semantic chronology, not integer vehicles. Alone it is behaviorally passive.
+  \item \textbf{Per-lane cumulative-mass interaction zone:} composes the local movement queues, physical lane storage, pocket overflow, and spillback found in turn-level and lane-group models, but confines this detail to the downstream interaction region and aligns it with the ledger. Long-link propagation remains ordinary LTM.
+  \item \textbf{Lane allocation, finite access, and ordered service:} adapts established lane-equilibrium, partial-FIFO, physical-queue, and signal-node principles. It separates desired lane allocation from what can actually enter finite storage, then serves the eligible ordered prefix.
+\end{itemize}
+
+Removing any component breaks one causal link: without the ledger there is no persistent realized chronology; without the interaction zone order has no lane/storage context in which to matter; without allocation and ordered service, different states cannot cause different flows. This is minimal only for fixed-route, node-facing signal effects---not for all mesoscopic behavior.
+
+\textbf{The contribution requires a specific evidence chain.} Forward tests must first establish conservation, storage feasibility, spillback causality, and agreement with the matched aggregate limit when local detail is neutralized. Meso-sensitive cases must then hold aggregate demand and movement totals fixed while changing only route order or lane accessibility; different service is meaningful only where traffic semantics predict it. Derivative checks must compare automatic differentiation with finite differences away from active-set boundaries. Finally, controls or perturbations selected from each model's gradients must be evaluated in a richer forward simulator under the same demand, objective, and optimization budget. This last comparison separates a mathematically correct derivative of an approximate model from a direction that is useful for the traffic system being represented.
+
+The interpretation is deliberately symmetric. If exact order improves forward behavior but not externally evaluated decisions, it is a fidelity feature rather than an optimization contribution. If it improves decisions only against homogeneous LTM but not against structured lane/storage aggregates, the contribution belongs to aggregate state refinement rather than exact semantic order. Only improvement beyond both aggregate alternatives supports the full selective-discreteness claim; comparable performance at lower cost would support the simpler model instead.
+
+\conclusion{Most defensible contribution: a conservative alignment of continuous traffic mass, persistent exact semantics, localized lane/storage state, and order-conditioned service, plus a controlled demonstration of its incremental decision value. Unsafe claims include being the first differentiable traffic simulator, first mesoscopic simulator, or inventor of LTM, route identity, partial FIFO, lane allocation, finite storage, spillback, or queue order.}
+
+Forward correctness, derivative correctness, and decision usefulness must be tested separately. A scientifically valid negative result is possible: if the structured movement or lane/storage aggregate produces equally useful decisions, exact semantic order is unnecessary for the tested conditions.
+
+\end{document}

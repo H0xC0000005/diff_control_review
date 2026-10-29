@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-20",
+  "scope": "Explanation of urban gaps relative to VSL specification/presentation standard",
+  "status": "pass",
+  "command": "python3 /tmp/urban_gap_explanation_checks_20261020.py",
+  "primary_question_categories": {
+    "1": [
+      "UR-G1",
+      "UR-G2",
+      "UR-C1-Q1"
+    ],
+    "2": [
+      "UR-G3",
+      "UR-C2-Q1",
+      "UR-C3-Q1"
+    ],
+    "3": [
+      "UR-G4",
+      "UR-C4-Q1",
+      "UR-C4-Q2",
+      "UR-C6-Q1"
+    ],
+    "4": [
+      "UR-G5",
+      "UR-C5-Q1"
+    ],
+    "5": [
+      "UR-C7-Q1"
+    ]
+  },
+  "umbrella_question": "UR-G0",
+  "question_ids_covered": [
+    "UR-G0",
+    "UR-G1",
+    "UR-G2",
+    "UR-G3",
+    "UR-G4",
+    "UR-G5",
+    "UR-C1-Q1",
+    "UR-C2-Q1",
+    "UR-C3-Q1",
+    "UR-C4-Q1",
+    "UR-C4-Q2",
+    "UR-C5-Q1",
+    "UR-C6-Q1",
+    "UR-C7-Q1"
+  ],
+  "substantive_questions_mapped_once": 13,
+  "logical_evidence_comparisons": 5,
+  "local_links_checked": 37,
+  "cited_line_targets_checked": [
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:44",
+      "line": 44
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/project_impact_matrix.md:19",
+      "line": 19
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:161",
+      "line": 161
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/experiment_formulation_formal.tex:156",
+      "line": 156
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/project_impact_matrix.md:33",
+      "line": 33
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:260",
+      "line": 260
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/literature_adoption_matrix.md:34",
+      "line": 34
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/project_impact_matrix.md:25",
+      "line": 25
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:270",
+      "line": 270
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/experiment_formulation_formal.tex:109",
+      "line": 109
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/project_impact_matrix.md:37",
+      "line": 37
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../../differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex:121",
+      "line": 121
+    },
+    {
+      "source": "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+      "target": "../../synthesis/literature_adoption_matrix.md:18",
+      "line": 18
+    }
+  ],
+  "before_snapshot": "/tmp/urban_gap_bridge_before_20261020.json",
+  "before_snapshot_sha256": "30593f0b044a77c72d986ac008559b79e94f65fb2e8be915fd7d2348570f8df5",
+  "existing_files_checked": 815,
+  "existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md"
+  ],
+  "existing_files_unchanged": 812,
+  "new_files": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_gap_explanation_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_gap_explanation_work_report.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md"
+  ],
+  "detailed_question_register_unchanged": true,
+  "authority_gap_audit_unchanged": true,
+  "proposal_rubric_stages_candidates_unchanged": "navigation-only reconstruction matches prior SHA-256",
+  "artifact_sha256": {
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md": "9414bc50fcc5f7dc8cbe9c167c786b4ea71dc23a611204d0a9e3f0c74415730f",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_gap_explanation_work_report.md": "c6b304329fbc69eb44d8ec9f6eb124b8d272d18cf4b50cf9b58f9bd7d058e184",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md": "8169f310c2323c83ecebfe36143ad4888c3e13559c386e53ed321991efbd515f",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_proposal.md": "0f3367c1914f3c88ae33f3dc9d34731a91168e7169b62740441387eb7c4ffc5d",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/phase_A_dialogue.md": "c5b30c916fa3843125ff76ff818a691600ee03472672bda04ce53fe4b2885f6e"
+  },
+  "unchanged_source_evidence_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_compact_methods_report.tex": "3415847b5fb39032d6985e998e00920fbd7520ab856222a9cec67a3c05703319",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_global_assumptions_findings_and_checkpoint.md": "8883f972b8065025f99d8c2d5a7f155e58c999006bde119fd984c41f33bf1469",
+    "misc/selective_discreteness_downstream_task_review/synthesis/project_impact_matrix.md": "90a91d26c7c740929e5bbe1d12fd6ad9a1f13a205276320c7ffd971faf368cdc",
+    "misc/selective_discreteness_downstream_task_review/synthesis/experiment_formulation_formal.tex": "fc33a8bc2fc0fc1d0f65f6f1b8f20829c961749f187f8ad18eaf9ffaa00d1bd9",
+    "misc/selective_discreteness_downstream_task_review/synthesis/literature_adoption_matrix.md": "3c6f217d9220bbd44465804d008bd345e83b7783bfc62d9e8e21f5186ec39298"
+  },
+  "git_status_after": [
+    " M AGENTS.md",
+    " M PLANS.md",
+    " M memo.txt"
+  ],
+  "scientific_tests_run": false,
+  "new_model_decision": false,
+  "later_stage_started": false,
+  "problems": []
+}

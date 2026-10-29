@@ -1,0 +1,33 @@
+record_id,decision,exclusion_code,rationale,reviewer,date
+R0001,include,,Foundational LTM and route-flow propagation reference,Codex,2026-09-07
+R0002,include,,Foundational generic macroscopic node model,Codex,2026-09-07
+R0003,include,,Partial-FIFO and lane-geometry abstraction is a nearest comparator,Codex,2026-09-07
+R0004,include,,Differentiable-compatible continuum signal representation,Codex,2026-09-07
+R0005,include,,Continuous signalized node model and relevant service semantics,Codex,2026-09-07
+R0006,include,,Multilane macroscopic node state is a nearest comparator,Codex,2026-09-07
+R0007,include,,Individual-tracking mesoscopic LTM is a nearest comparator,Codex,2026-09-07
+R0008,include,,Turn-level queue transmission is a nearest comparator,Codex,2026-09-07
+R0009,include,,Lane-group storage blockage and signal optimization,Codex,2026-09-07
+R0010,include,,Queue-based mesoscopic simulator and calibration baseline,Codex,2026-09-07
+R0011,include,,Mesoscopic signal-plan simulation and optimization,Codex,2026-09-07
+R0012,include,,Algorithmic differentiation through discrete agent simulation,Codex,2026-09-07
+R0013,include,,Differentiable hybrid traffic representation,Codex,2026-09-07
+R0014,include,,Differentiable LTM with route-choice state,Codex,2026-09-07
+R0015,include,,Aggregate link-queue baseline,Codex,2026-09-07
+R0016,include,,Finite lane overflow and signal optimization,Codex,2026-09-07
+R0017,include,,Mesoscopic flow model used for network traffic control,Codex,2026-09-07
+R0018,include,,Mesoscopic actuated-signal optimization task,Codex,2026-09-07
+R0019,include,,Spillback-aware signal-control sensitivity comparator,Codex,2026-09-07
+R0020,include,,Oversaturated queue-aware signal-task comparator,Codex,2026-09-07
+R0021,include,,Recent interrupted-flow mesoscopic link model,Codex,2026-09-07
+R0022,uncertain,DUPLICATE_OR_EXTENSION,Relationship to R0021 and incremental method content require full-text/version check,Codex,2026-09-07
+R0023,include,,Calibration supplies a relevant differentiability and validation use case,Codex,2026-09-07
+R0024,include,,Systematic secondary map supports coverage and snowballing,Codex,2026-09-07
+R0025,include,,Turning-lane queues physical storage and lane-level FIFO are nearest semantics,Codex,2026-09-07
+R0026,include,,Signal phases offset and spillback extend the continuum-signal baseline,Codex,2026-09-07
+R0027,include,,Multi-commodity continuous CTM and node semantics,Codex,2026-09-07
+R0028,include,,Spillback-constrained node-flow model,Codex,2026-09-07
+R0029,include,,Contextual differentiable microscopic traffic use case; retain narrowly for boundary comparison,Codex,2026-09-07
+R0030,include,,Contextual differentiable IDM implementation; retain narrowly for derivative-method comparison,Codex,2026-09-07
+R0031,exclude,E1_LEARNED_AV_SIM,"Learned autonomous-driving behavior simulator without relevant network propagation, signal control, or selective traffic-state structure",Codex,2026-09-07
+R0032,include,,Dynamic micro/macro resolution is relevant hybrid-model prior art,Codex,2026-09-07

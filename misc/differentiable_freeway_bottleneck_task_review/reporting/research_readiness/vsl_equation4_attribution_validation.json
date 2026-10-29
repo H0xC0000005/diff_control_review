@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "scope": "Equation 4 attribution and document checks only",
+  "display_math_blocks_unchanged": 7,
+  "inline_math_expressions_unchanged": 72,
+  "equations": 8,
+  "bibliography_unchanged": true,
+  "references": 8,
+  "equation4_markings": {
+    "normalization": "Carey A; sender-side placement ours",
+    "straight_remainder": "standard S",
+    "request_formation": "Subraveti B; source Eq.14"
+  },
+  "pdf_math_color_checks": {
+    "Carey_b": 1,
+    "neutral_b": 2,
+    "Subraveti_m": 1
+  },
+  "palette_unchanged": true,
+  "pdf_pages": 4,
+  "main_text_pages_equivalent": 2.9219590043763777,
+  "main_text_limit": 3,
+  "references_start_page": 4,
+  "minimum_regular_font_pt": 9.9626,
+  "build_issues": [],
+  "local_links_checked": 12,
+  "local_pdf_links": [
+    "vsl_joined_candidate_contract_and_qualification.pdf"
+  ],
+  "changed_existing_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_allocator_sources_and_adaptations.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_equation4_source_attribution_clarification.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_feedback15_report_amendments.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex"
+  ],
+  "preserved_existing_files": 601,
+  "new_files": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_equation4_attribution_build.log",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_equation4_attribution_validation.json"
+  ],
+  "python": "3.11.9",
+  "pypdf": "6.15.0",
+  "visual_check": "PDF text/fonts/color operators and LaTeX log checked; no raster visual audit",
+  "artifacts": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.tex": {
+      "bytes": 22377,
+      "sha256": "ee2576f5bad55e83fd31606140982307c21010fa45b46e6cd477687aa261d07a"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_literature_backbone_review_report.pdf": {
+      "bytes": 204538,
+      "sha256": "68d215ac416c693a475f7a34ff185e45bc38a4572dff4ceb0c3522057d305ca9"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_equation4_attribution_build.log": {
+      "bytes": 19690,
+      "sha256": "3cd4a6012f9e84e6d86ce065e2eddbf935e6612ba586a99e499ab94f57bf0a78"
+    },
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_equation4_source_attribution_clarification.md": {
+      "bytes": 8306,
+      "sha256": "5a4280cfb9dba36c5580437f170fdca8690cb1b57e47d0d5260972a549833c9c"
+    }
+  }
+}

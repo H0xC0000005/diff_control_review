@@ -1,0 +1,184 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\setlength{\emergencystretch}{2em}
+\newcommand{\ve}{\mathrm{veh\mbox{-}eq}}
+\newcommand{\dd}{\mathrm{d}}
+\title{Elementary VSL Lane-Drop Opening\\[0.3em]
+\large Inherited S13 kernel, complete time and physical sensitivity}
+\author{Method-first task-definition review}
+\date{12 October 2026}
+\begin{document}
+\maketitle
+\vspace{-1em}
+
+\textbf{Status.} Opening support only. These equations restate the accepted
+S13 conditional member in SI units; they do not qualify an applied model,
+select an evaluator or authorize implementation.
+
+\section*{1. Traffic meaning, geometry and state}
+At a permanent three-to-two lane drop, slower common speed costs travel time
+but can leave less merging for the narrow exit. Does initial preparation change
+the useful speed perturbation, and does one continuous statistic suffice?
+
+A fixed cohort of mass $M>0$ is at the entrance of a preparation zone of length
+$L>0$. The ending lane is explicit; the two continuing lanes form a symmetric
+group. For fixed preparation $s$, its initial ending-lane fraction is $p_s$:
+\begin{equation}
+ e_s(0)=p_s M,\qquad c_s(0)=(1-p_s)M,\qquad 0<p_s<1.
+ \label{eq:initial}
+\end{equation}
+Here $e_s,c_s,M$ are continuous $\ve$; $L$ is metres; time is seconds.
+Lane labels, topology, routes and preparation are fixed during differentiation.
+Predecision history equality is conditional on S05/S13, not demonstrated in an
+independent evaluator.
+
+The only action is constant common advice $v\in[v_{\min},v_{\max}]$, in
+metres per second. In the admitted ideal longitudinal-response branch,
+\begin{equation}
+ \tau(v)=\frac{L}{v},\qquad
+ \tau_{\min}=\frac{L}{v_{\max}},\quad
+ \tau_{\max}=\frac{L}{v_{\min}},\qquad 0<v_{\min}<v_{\max}.
+ \label{eq:traversal}
+\end{equation}
+Advice equals realized longitudinal speed only under this assumption. Safety,
+congestion and heterogeneous compliance are not modeled by changing the name
+of $v$.
+
+\section*{2. Conservative preparation}
+The inherited fixed active branch uses $\lambda>0$ in $\mathrm{s}^{-1}$,
+with preparation-zone target receiving assumed nonbinding:
+\begin{equation}
+ \dot e_s=-\lambda e_s,\qquad \dot c_s=\lambda e_s,
+ \qquad e_s(t)+c_s(t)=M.
+ \label{eq:transfer}
+\end{equation}
+Consequently, at the choke,
+\begin{equation}
+ E_s(v):=e_s(\tau(v))=p_sM\exp(-\lambda L/v),\qquad
+ c_s(\tau)=M-E_s(v).
+ \label{eq:remaining}
+\end{equation}
+This exponential is a bounded analytical adaptation of conservative mandatory
+transfer, not a calibrated empirical lane-changing law. The longitudinal batch
+and lateral bookkeeping conserve continuous traffic mass; no rounding or
+vehicle identity is used.
+
+\newpage
+\section*{3. Finite receiving and complete time}
+Let ordinary continuing mass require one unit of receiving work per unit mass,
+and unfinished merging require $\alpha>1$ units. With common receiving-work
+rate $\mu>0$, in normalized $\ve/\mathrm{s}$, the work and clearance duration are
+\begin{equation}
+ W_s(v)=M+(\alpha-1)E_s(v),\qquad T_s(v)=W_s(v)/\mu.
+ \label{eq:work}
+\end{equation}
+The factor $\alpha$ changes receiving work, not vehicle mass. S13 assumes
+homogeneous proportional batch service: for elapsed service time $u$,
+\begin{equation}
+ D_s(u)=M u/T_s,\quad 0\le u\le T_s,\qquad D_s(T_s)=M.
+ \label{eq:departures}
+\end{equation}
+All mass spends $\tau$ in preparation; thereafter the remaining population
+declines linearly to zero. Complete total system time is therefore
+\begin{align}
+ F_s(v)&=M\tau+\int_0^{T_s}(M-D_s(u))\,\dd u
+       =M\tau+\frac{M T_s}{2}, \label{eq:total}\\
+ J_s(\tau)&:=F_s/M
+       =\tau+\frac{M}{2\mu}+Kp_s e^{-\lambda\tau},
+       \qquad K=\frac{(\alpha-1)M}{2\mu}. \label{eq:mean}
+\end{align}
+$F_s$ has units $\ve\,\mathrm{s}$; the mean $J_s$ has units seconds,
+not seconds per $\ve$. Fixed $M$ makes their action ranking identical.
+Common action-independent prefix/downstream costs do not change that ranking;
+any action-dependent waiting or travel must be charged. A different service
+priority cannot inherit $T_s/2$ merely because final clearance work is unchanged.
+
+\section*{4. Physical sensitivity and inherited open regime}
+Within the fixed smooth branch, the inherited derivatives are
+\begin{align}
+ \frac{\dd J_s}{\dd\tau}&=1-K\lambda p_s e^{-\lambda\tau},\qquad
+ \frac{\dd^2J_s}{\dd\tau^2}=K\lambda^2p_s e^{-\lambda\tau}>0,\label{eq:taugrad}\\
+ \frac{\dd F_s}{\dd v}&=-\frac{ML}{v^2}
+       \left(1-K\lambda p_s e^{-\lambda L/v}\right).
+ \label{eq:speedgrad}
+\end{align}
+The last derivative has units $\ve\,\mathrm{s}^2/\mathrm{m}$. It is the
+physical common-speed sensitivity; a traversal-time derivative is an internal
+coordinate and must be mapped back by $\dd\tau/\dd v=-L/v^2$.
+
+For $0<p_L<p_H<1$, the accepted certificate assumes the strict inequalities
+\begin{equation}
+ K\lambda p_L<e^{\lambda\tau_{\min}}
+ <K\lambda p_H<e^{\lambda\tau_{\max}}.
+ \label{eq:regime}
+\end{equation}
+Then the low-ending-lane state uniquely selects $\tau_{\min}$, whereas the high
+state selects the interior $\tau_H^*=\lambda^{-1}\log(K\lambda p_H)$.
+At $v_{\max}$ the feasible perturbation is a speed reduction: it improves the
+high state and worsens the low state. The low state is already at its optimum;
+an increase above the bound is not a permissible intervention. Strict openness
+does not establish that realistic traffic commonly occupies this regime.
+
+\newpage
+\section*{5. Minimum information and fair prediction}
+The strong aggregate observer is the complete declared predecision history of
+aggregate density, flow, speed and cumulative counts. Its exact equality across
+preparations is conditional on S05/S13's upstream construction. Equality of a
+snapshot alone is insufficient.
+
+Use three roles: aggregate history alone; that history plus initial ending-lane
+mass $E_{0,s}=p_sM$; and explicit ending/continuing groups. The scalar model
+predicts independently under the inherited law:
+\begin{equation}
+ E_s(v)=E_{0,s}e^{-\lambda L/v},\qquad c_s(\tau)=M-E_s(v).
+ \label{eq:compression}
+\end{equation}
+Thus it exactly reproduces the grouped objective and derivative for this member.
+It receives no future reference correction. Total mass and one continuous
+initial merge statistic suffice here; full lane state, order and identity have
+not been shown necessary. Comparing aggregate-only with scalar-augmented inputs
+is an information test; comparing scalar and grouped inputs is a compression
+test at equal information.
+
+\section*{6. Evidence sequence and permitted conclusions}
+Conservation, finite receiving, complete accounting and compact equivalence
+come first. A later authorized implementation would compare the analytical
+derivative with AD and central differences in double precision, using feasible
+interior steps with a stable event signature. Endpoint or event cases require
+separate one-sided/piecewise interpretation, without smoothing them away.
+
+An independent evaluator must then test common physical perturbations selected
+without its outcomes. Correct internal derivatives and internal objective
+improvement do not establish external usefulness. Reproducing these equations
+with an independent transcription verifies the equations, not empirical traffic
+validity. No evaluator is admitted here.
+
+The initial deletion audit removes action-sensitive transfer, removes extra
+merge work, inspects nonbinding receiving and removes the hidden-state contrast.
+No new deletion or alternative service law is frozen by this note. The complete
+time objective stays fixed; changing it to obtain priority invariance would be
+a new methodological choice. Strong one-dimensional direct search and the
+analytical optimum remain optimizer references; gradients need not be necessary
+to solve this scalar task.
+
+\section*{7. Source lineage and scope}
+Per-lane continuous conservation and mandatory-transfer structure follow the
+accepted FB0030/S12 source audit. Finite receiving, gap-weighted work and
+allocation alternatives are grounded in
+\href{https://doi.org/10.1007/s11067-013-9193-7}{Carey, Balijepalli and Watling}.
+Common VSL at a permanent drop has task precedent in
+\href{https://doi.org/10.1080/23249935.2022.2033878}{Zhang et al.}
+These sources do not supply the joint exponential/batch model as a calibrated
+law. The S13 adaptations and deductions remain explicitly conditional.
+
+This note preserves the accepted S13 result and does not broaden its claim to
+family robustness, native trajectory reachability, implementation derivatives,
+empirical prevalence, independent usefulness or novelty. The urban connection
+is the information--service--sensitivity--intervention evidence chain; its
+discrete-order hypothesis remains distinct and unchanged.
+
+\end{document}

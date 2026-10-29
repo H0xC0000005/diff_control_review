@@ -1,0 +1,7 @@
+query_id,date,query,purpose,outcome
+S12Q001,2026-09-30,"lane changing voids capacity drop analytical traffic flow model",lane-change disturbance/service mechanism,"Laval and Daganzo particle/void mechanism located; direct but microscopically enriched"
+S12Q002,2026-09-30,"capacity drops at merges analytical lane changing relaxation model",analytical service coupling,"Leclercq et al. merge-capacity formulation located; on-ramp/merge context rather than common-VSL lane drop"
+S12Q003,2026-09-30,"multi lane cell transmission model mandatory discretionary lane changing receiving gap acceptance",conservative lane-resolved family,"Carey et al. finite receiving/gap-acceptance CTM and Pan et al. priority/demand-supply model located"
+S12Q004,2026-09-30,"lane changing cell transmission model capacity drop lane drop bottleneck",permanent-lane-drop service mechanism,"Srivastava and Jin perceived-density capacity-drop model located"
+S12Q005,2026-09-30,"first order link based flow model variable speed limits capacity drops freeway networks",aggregate countercandidate,"Aggregate cumulative-flow VSL/capacity-drop model located; lane changing explicitly absent"
+S12Q006,2026-09-30,"variable speed limits freeway lane drop bottleneck microscopic macroscopic crosscheck",common-VSL lane-drop evidence,"Zhang et al. three-to-two lane-drop VSL study located and prior extraction reused"

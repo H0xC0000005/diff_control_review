@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-26",
+  "task": "Urban refinement feedback 5",
+  "status": "pass",
+  "snapshot": "/tmp/urban_feedback5_before_20261026.json",
+  "snapshot_files": 768,
+  "unchanged_snapshot_files": 758,
+  "declared_existing_files_changed": [
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_categories345_evidence_notes.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_open_question_register.md",
+    "misc/selective_discreteness_downstream_task_review/extraction/research_readiness/urban_review_completion_and_work_map.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_readiness_overview.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_vsl_standard_gap_explainer.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/comparison_sensitivity_and_credit_proposal.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_decisions.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_dialogue.md",
+    "misc/selective_discreteness_downstream_task_review/temp_content/research_readiness/review_plan.md",
+    "temp_content/feedback/urban_refinement_feedback.md"
+  ],
+  "declared_new_files": [
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_information_and_sensitivity.pdf",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_information_and_sensitivity.tex",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_response.md",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_validation.json",
+    "misc/selective_discreteness_downstream_task_review/reporting/research_readiness/urban_feedback5_work_report.md"
+  ],
+  "outside_snapshot_changes": [],
+  "missing_snapshot_files": [],
+  "local_links_and_cited_lines_checked": 141,
+  "question_count": 15,
+  "candidate_count": 34,
+  "stable_question_ids_preserved": true,
+  "only_candidate_addition_G4_C": true,
+  "all_previous_candidate_explanations_byte_identical": true,
+  "unrelated_and_settled_question_sections_unchanged": true,
+  "scientific_scope_and_related_question_links_preserved": true,
+  "completeness_edits_limited_to_comparison_and_sensitivity": true,
+  "report_budget_byte_identical": true,
+  "feedback_change_limited_to_answered_heading": true,
+  "historical_phase_records_byte_identical": true,
+  "settled_traffic_principles_document_byte_identical": true,
+  "root_implementation_and_general_feedback_preserved": true,
+  "pdf_build_matches_source_and_has_no_latex_warnings": true,
+  "pdf_text_and_page_check": {
+    "pages": 4,
+    "text_characters": [
+      2575,
+      2925,
+      2489,
+      2455
+    ],
+    "pypdf_version": "6.15.0"
+  },
+  "pdf_raster_preview": "unavailable; no probed renderer installed",
+  "current_topic": "Comparison, sensitivity and scientific credit: principle agreement recorded",
+  "agreed_conclusions": [
+    "G4 maximum aggregate information boundary",
+    "G5 one-step response composed into complete TST",
+    "C7 adjacent credit plus complete source map"
+  ],
+  "not_selected": [
+    "exact aggregation/history/resolution",
+    "particular baseline or coupled traffic law",
+    "horizon versus completion-based numerical treatment",
+    "margins or numeric caps"
+  ],
+  "scientific_tests_or_runs": "none; mathematical/document artifacts only",
+  "errors": []
+}

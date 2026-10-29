@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-14",
+  "status": "Passed document, unchanged-contract and PDF checks",
+  "markdown_files_checked": 24,
+  "local_links_checked": 418,
+  "heading_anchors_checked": 30,
+  "current_file_sha256": {
+    "README.md": "e53c80fa8aade95aae0091cf2543cc62ecb79ab47368aa361b75431d1e1694f5",
+    "vsl_successor_00_opening_plan.md": "0b414eab9f9c034f3fdb0683d18d22960ae507d80f8a479a43798be7e92754e9",
+    "reporting/research_readiness/vsl_step2_model_closure.md": "cbdf7ba5663bd063593001138f7c6b1adde86ff0fb0d28ebe34159465e4adba5",
+    "reporting/research_readiness/vsl_step3_sumo_bridge_and_terminal_gate.md": "aa07e56b8e1a5d10e5fbe0f02455847349ae06dd77920bd3e0516144b9de55c9",
+    "reporting/research_readiness/vsl_step3_validation_ladder_decision.md": "cd48abe3e2b50b544132d6f6e77c69c1da5f1584e7d66af34d16f1ea44a3487e",
+    "reporting/research_readiness/vsl_step3_sumo_work_report.md": "2f77063ebe987b5879a6b52096d0b2b7448ea66c14f227bef944078d72674ea2",
+    "reporting/research_readiness/vsl_step3_findings_and_gate.md": "59db0d6b8cf03fbf26a828f25cdaa7092fb6283901fd9fe266d74a780470109b",
+    "reporting/research_readiness/vsl_step3_comparison_review_plan.md": "d670b3ce24f2584ea6f68d66a904d70ad36b3151be15d87180f74de680881746",
+    "reporting/research_readiness/vsl_review_progress.md": "ff276162c8e76c5c3324749d896de7817476a1c412cb726637cadc081381fb17",
+    "synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "44259e8dc9cc0c85880d8c79cd3d78d5a7f4f640761cb4f14604836aef638395",
+    "reporting/research_readiness/vsl_successor_opening_dialogue.md": "56f9b96ddbf787b024b3532beaecf0bba1d4cbff2bc2df3f2a9a3dca703f9a9c",
+    "synthesis/research_readiness/vsl_step3_first_verification_protocol_draft.md": "9a1b6eaf1f59aeef780749826478571b8a68cfe3d0c94f2f46e1ed85e905bf77",
+    "extraction/research_readiness/vsl_step3_reference_and_evidence_audit.md": "6e284ac0e22dea6899828217876c2ebf9aefe8a9b56a5a355a3e27b28e6589bd",
+    "synthesis/research_readiness/vsl_successor_methods_outline.md": "1b50fd889e3de20053f66dc171482946d20fb3552dfb077964cfdf05cf7850cd",
+    "extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "0eca927f29aabd84e0b900e5604b01ce62b9affcbf26f4d94411843a72b28f97",
+    "reporting/research_readiness/vsl_step3_reference_qualification_and_final_gate.md": "f5b4e8ec6be5e481a48e83e183cc51ef0ccfc55ccb0705c4f7b0bf768c4e88a1",
+    "reporting/research_readiness/vsl_step3_resumed_review_work_report.md": "967980878906a77fd2b4091246fdf2743f2ce5e0525b26ae3d059ed971774cf7",
+    "reporting/research_readiness/vsl_step3_merge_feedback_and_completion_response.md": "b8b83a558310ea17253b5e7519095581a33d4a034f97f091c646e6cd0abd9188",
+    "reporting/research_readiness/vsl_step3_merge_feedback_response_work_report.md": "f48c149be56f0a7dd3ed16466f3255a222056f04a42e7c3a00fe787b622e79f8",
+    "reporting/research_readiness/vsl_step3_coupled_point_decision.md": "68453529b2fcdccf55c4b86167f68eb8857cf130574012068ae37588f38b2dd9",
+    "reporting/research_readiness/vsl_cp_qualification_review_plan.md": "cffe3bc6c86314f703c21b46bc9d0474c56607b7e8491e5894fda3768d7c5b27",
+    "reporting/research_readiness/vsl_cp_first_findings_and_gate.md": "6940e6b54bcacf0e666a8c3af520a2e5428495a2ed0db1c681d54b75cf49c502",
+    "extraction/research_readiness/vsl_cp_source_and_interface_audit.md": "3a30615fb99d48e3548cff74817243d9b18d88a141d5ae4590cad873e1abb081",
+    "reporting/research_readiness/vsl_cp_opening_work_report.md": "8f02b90d429b6a6170e48d61fc25f5cd22ebe80558fc617e2b7e02ba474b994f",
+    "synthesis/research_readiness/vsl_cp_interface_foundations.tex": "a05b7be3118b2c659572caf33f4b680bebc93d66c82ea0186c188c9d84cd473e",
+    "synthesis/research_readiness/vsl_cp_interface_foundations.pdf": "8bd7cc2edb2435986e648afe19be939e37f201b03662c73cba37eb98d57a2869",
+    "reporting/research_readiness/vsl_cp_interface_foundations_build.log": "7e8a6dd4baf3eb6d4933960c73d46093affa528f8e1d270f37e9e9c02dd2c2f1"
+  },
+  "accepted_h1_t1_sha256_unchanged": {
+    "vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e"
+  },
+  "pdf": {
+    "pages": 3,
+    "bytes": 131256,
+    "strict_parse": true,
+    "text_checks": true,
+    "font_subtypes": {
+      "/Type1": 18
+    },
+    "overflow_or_duplicate_link_warnings": false,
+    "raster_visual_inspection": false
+  },
+  "review": "C-P bounded qualification opened and begun; first source/interface pass delivered at VSL-CP-G1",
+  "cp_d1": "Open; P-H provisionally recommended, P-E strong simpler rival/viable alternative; neither selected",
+  "s3_m1_m2": "Closed; ladder and C-P point/local-completion choices unchanged",
+  "step_3": "Unfinished; exact coupled law and dependent evidence/protocol remain open",
+  "step_4": "Unopened",
+  "traffic_experiments": false,
+  "simulator_code_or_network_build": false,
+  "installation_or_binary_probe": false,
+  "gradient_or_optimisation_execution": false,
+  "parameter_fit": false,
+  "limits": [
+    "Conditional analytical interface findings only; no exact coupled node selected.",
+    "No generic node well-posedness, native admission or useful-gradient result.",
+    "Clearance and scalar initialization remain conditional on a qualified law."
+  ]
+}

@@ -1,0 +1,457 @@
+\section{The S13 backbone and its original closed calculation}
+\label{sec:s13}
+S13 starts with total continuous mass $M$ and ending fraction $p_s$ in
+preparation state $s$. The other mass is a symmetric continuing group.
+A common constant advice $v$ gives traversal time $\tau=L_{13}/v$.
+With constant positive completion rate $\lambda_{13}$,
+\begin{equation}
+ \dot E=-\lambda_{13}E,\quad \dot C=\lambda_{13}E,
+ \qquad E(\tau)=p_sM e^{-\lambda_{13}\tau}.
+ \label{eq:s13transfer}
+\end{equation}
+Target receiving is assumed nonbinding during preparation. Remaining E
+consumes $\alpha>1$ receiving work per mass at a fixed work rate $\mu$:
+\begin{equation}
+ W_{13}=M+(\alpha-1)E(\tau),\quad
+ T_{13}=W_{13}/\mu,\quad
+ \overline J_{13}=\tau+T_{13}/2
+ =\tau+\frac{M}{2\mu}+K_{13}p_s e^{-\lambda_{13}\tau},
+ \label{eq:s13objective}
+\end{equation}
+where $K_{13}=(\alpha-1)M/(2\mu)$. The half-clearance term follows
+from homogeneous proportional fluid-batch departures. It is not a general
+formula for an arbitrary arrival or departure curve.
+
+The original action result follows from
+\begin{equation}
+ \overline J_{13,\tau}=1-K_{13}\lambda_{13}p_s e^{-\lambda_{13}\tau},
+ \qquad
+ \overline J_{13,\tau\tau}=K_{13}\lambda_{13}^2p_s e^{-\lambda_{13}\tau}>0.
+ \label{eq:s13derivative}
+\end{equation}
+If two aggregate-history-matched preparations satisfy
+\begin{equation}
+ K_{13}\lambda_{13}p_L<e^{\lambda_{13}\tau_{\min}}
+ <K_{13}\lambda_{13}p_H<e^{\lambda_{13}\tau_{\max}},
+ \label{eq:s13split}
+\end{equation}
+strict convexity gives fastest advice for $L$ and an interior slower
+$\tau_H^*=\lambda_{13}^{-1}\log(K_{13}\lambda_{13}p_H)$ for $H$.
+The chain rule gives
+\begin{equation}
+ \frac{d\overline J_{13}}{dv}
+ =-\frac{L_{13}}{v^2}
+ \left(1-K_{13}\lambda_{13}p_s e^{-\lambda_{13}L_{13}/v}\right).
+ \label{eq:s13speed}
+\end{equation}
+Identical aggregate observations force a deterministic observer-only
+controller to take the same action. The two unique minimizers differ; the
+maximum of their nonnegative continuous regret functions is positive on
+the compact action interval and has a positive minimum. This is S13's
+conditional information/action/analytical-gradient certificate.
+
+The refinements below replace the constant completion, grouped receiving,
+batch timing and fixed-service reductions. Therefore
+\eqref{eq:s13objective}--\eqref{eq:s13speed} are historical reference
+results, not formulas for the current model. Their validity under S13's
+assumptions is preserved.
+
+\section{Current geometry, notation, units and admissible domain}
+\label{sec:domain}
+\subsection{Setting and initialized state}
+The road has preparation length $L_p$ and terminal length $b>0$,
+$L=L_p+b$. At decision time a uniform cohort occupies $[0,\ell]$,
+$0<\ell\leq L_p$, and the terminal is empty. E ends at $L$; A is its
+adjacent continuing lane and B the far continuing lane. Initial densities
+satisfy
+\begin{equation}
+ e_0,a_0,b_0\geq0,\quad a_0=b_0,\quad
+ r=e_0+a_0,\quad\rho_0=e_0+2a_0,\quad M=\ell\rho_0>0.
+ \label{eq:initial}
+\end{equation}
+There are no postdecision external arrivals. The constant common advice
+is $v\in[v_-,v_+]$, $0<v_-<v_+$. It sets ideal upstream/free travel;
+queued boundary motion need not equal it. H1's remaining upstream occupied
+body is homogeneous. Terminal propagation is represented by boundary counts;
+there is no new interior spatial grid or independent approach-speed ODE.
+
+Use
+\begin{equation}
+ K=wk_j,\quad\kc(v)=\frac K{w+v},\quad
+ C(v)=\frac{Kv}{w+v},\quad c(u)=\frac{Ku}{w+u},\quad
+ U(f)=\frac{wf}{K-f},\quad U(C(v))=v.
+ \label{eq:fd}
+\end{equation}
+The shared A/E budget is $\budget$; $B$ as a lane index still means the
+far lane. The archived recovery reading $p$ is written $\loss$ here.
+$K_{13}$ in Section~\ref{sec:s13} is unrelated to $K=wk_j$.
+
+\subsection{Retained sufficient domain}
+All geometry and physical parameters are common across advice and observers.
+Retain H1/T1's initial/handoff conditions, in particular
+\begin{align}
+ &w,k_j,h,a_r>0,\qquad\gamma\geq1,\qquad
+ e_0,a_0,b_0\leq\kc(v_+),\nonumber\\
+ &v_+r<R\leq C(v_-),\qquad
+ v_+b_0\leq R_B\leq C(v_-),\qquad M<k_jb. \label{eq:domain}
+\end{align}
+For immediate work set fixed reference units once,
+\begin{equation}
+ \begin{gathered}
+ v_\star=v_+,\quad C_\star=C(v_\star),\quad
+ c_0=1+\delta,\quad\chi=\frac\beta{C_\star v_\star},\\
+ \delta,\beta\geq0,\quad
+ \eta=c_0-\beta(1+v_+/w)>0,\quad c_{\max}=c_0+\beta.
+ \end{gathered}
+ \label{eq:workdomain}
+\end{equation}
+The anchor fixes $\chi$ once; it is not recomputed when advice or a search
+box changes. The reference mass $m=1$ vehicle-equivalent is fixed physical
+normalization, not packet size. Ordinary combined E/A arrival load fits
+$R$; any primary queue originates in additional forced work. These bounds
+are sufficient and may be conservative. They are not an empirically
+admitted operating range.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{47mm}>{\raggedright\arraybackslash}p{99mm}}
+\toprule
+Symbols & Units and meaning\\
+\midrule
+$L,L_p,b,\ell,h,z$ & m; lengths and traveled progress\\
+$e,a,b_0,k_j,\kc,\rho_0$ & veh-eq/m; densities\\
+$v,w,u_j,U,V$ & m/s; speeds or specified boundary speed quantities\\
+$M,F_j,P_j,Y_j,N_j,q_j,m$ & veh-eq; traffic mass, counts or reference mass\\
+$f,g_j,\lambda_j,R,R_B,K,\budget,\loss,D$ & veh-eq/s in normalized receiving-work units\\
+$f/h$ & veh-eq/(m s); actual lateral density source\\
+$a_r$ & m/s$^2$; selected physical recovery acceleration\\
+$\gamma,\delta,\beta,c_j$ & dimensionless work coefficients\\
+$\chi$ & s$^2$/(veh-eq m); fixed mismatch coefficient\\
+$\Theta,t,T$ & s; duration, time or mass-rank admission time\\
+$W$ & veh-eq; integrated isolated lost service\\
+$J$ & veh-eq s; complete local TST\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Preparation: conservative transfer limited by adjacent service}
+\label{sec:h1}
+\subsection{The local rule and free-branch reduction}
+Own A demand claims receiving before the E offer:
+\begin{equation}
+ S(v,a)=\min\{C(v),w(k_j-a)\},\quad
+ f=\min\left\{ve,\frac{S(v,a)-va}{\gamma}\right\},\quad
+ \dot e=-f/h,\quad\dot a=f/h,\quad\dot b_0=0.
+ \label{eq:h1general}
+\end{equation}
+This is H1's opportunity-equivalent closure. Actual transfer over
+$dx\,dt$ is $(f/h)dx\,dt$; neither $f$ itself nor $\gamma f$ is an
+additional longitudinal mass flow.
+
+Paired transfer gives $e+a=r$. In the invariant upstream free branch,
+$S=C$, hence
+\begin{equation}
+ \dot e=-\frac vh\min\left\{e,
+                     \frac{\kc(v)-r+e}{\gamma}\right\},\qquad a=r-e.
+ \label{eq:h1time}
+\end{equation}
+The scalar right-hand side is Lipschitz. At $e=0$ it is zero, and the
+receiving alternative vanishes at $a=\kc(v)$ if that boundary is reached.
+Thus the initial bounds imply
+\begin{equation}
+ 0\leq e(t)\leq e_0,\quad
+ a_0\leq a(t)\leq\min\{r,\kc(v)\},\quad b_0\leq\kc(v).
+ \label{eq:h1bounds}
+\end{equation}
+Under \eqref{eq:domain}, $r<R/v_+\leq R/v\leq\kc(v)$, with a strict
+margin inherited from $v_+r<R$. Uniform source and common motion preserve
+the remaining body's homogeneity provided the terminal entrance accepts it.
+Section~\ref{sec:terminal} supplies that protection.
+
+\subsection{Progress, explicit branches and the speed effect}
+Put $z=vt$ and $\Delta(v)=\kc(v)-r>0$. Then
+\begin{equation}
+ e_z=-\frac1h\min\{e,(\Delta+e)/\gamma\}. \label{eq:h1progress}
+\end{equation}
+On a donor-limited interval starting at $(z_s,e_s)$,
+\begin{equation}
+ e(z)=e_s e^{-(z-z_s)/h}. \label{eq:h1donor}
+\end{equation}
+On a receiving-limited interval,
+\begin{equation}
+ e(z)=(e_s+\Delta)e^{-(z-z_s)/(\gamma h)}-\Delta.
+ \label{eq:h1receiving}
+\end{equation}
+For $\gamma>1$ the switch is at $e=\Delta/(\gamma-1)$; the minimum
+selects the branch. A receiving-limited solution decreases to that value
+and then follows the donor branch. If $\gamma=1$, positive $\Delta$
+makes the donor branch active throughout.
+
+The explicit $v$ factor cancels in progress coordinates. Therefore travel
+time alone no longer guarantees improved preparation. Since $\kc(v)$
+decreases with $v$, the scalar comparison principle applied to
+\eqref{eq:h1progress} makes $e(z;v)$ nondecreasing with advice at fixed
+$z$, allowing equality on donor-only intervals. Speed dependence is
+through the declared receiving headroom.
+
+\section{Finite footprint, handoff arrivals and upstream mass balances}
+\label{sec:handoff}
+Early transfer stops at the fixed cutoff $L_p$. No ordinary lateral source
+acts inside the terminal; residual E merges at $L$. With zero initial
+terminal histories, entries satisfy almost everywhere
+\begin{align}
+ t_f^p&=(L_p-\ell)/v,\quad t_r^p=L_p/v,\nonumber\\
+ \dot F_E&=ve(t),\quad \dot F_A=v(r-e(t)),\quad\dot F_B=vb_0
+       \quad(t_f^p<t<t_r^p), \label{eq:entry}
+\end{align}
+and vanish outside that interval. Point values of flux at endpoints do
+not affect continuous cumulative mass.
+
+The remaining occupied preparation length is
+\begin{equation}
+ s(t)=\begin{cases}
+ \ell,&0\leq t\leq t_f^p,\\
+ L_p-vt,&t_f^p<t<t_r^p,\\
+ 0,&t\geq t_r^p.
+ \end{cases}\qquad
+ J_{\rm lat}(t)=\int_0^t s(u)f(u)/h\dd u. \label{eq:occupied}
+\end{equation}
+Differentiating interval by interval and matching initial values gives
+\begin{align}
+ s\rho_0+F_E+F_A+F_B&=M,\nonumber\\
+ se+F_E+J_{\rm lat}&=\ell e_0,\nonumber\\
+ sa+F_A-J_{\rm lat}&=\ell a_0,\qquad sb_0+F_B=\ell b_0.
+ \label{eq:upstreammass}
+\end{align}
+An early-merged unit belongs to A once; it is not charged as a later forced
+E merge. The uniform body's density state may be continued algebraically
+after preparation empties, but no source or population then remains there.
+
+\section{Terminal propagation, physical stock and storage protection}
+\label{sec:terminal}
+For each lane use minimum free travel $\tau=b/v$ and backward delay
+$\tau_b=b/w$. Negative-time histories are zero. Define
+\begin{equation}
+ P_j(t)=F_j(t-\tau),\quad
+ N_j(t)=F_j(t)-Y_j(t),\quad
+ q_j(t)=P_j(t)-Y_j(t),\quad
+ \lambda_j=\dot P_j,\quad g_j=\dot Y_j.
+ \label{eq:terminalcounts}
+\end{equation}
+$N_j$ is physical stock, $q_j$ eligible unserved mass. Feasible departures
+satisfy $0\leq Y_j\leq P_j\leq F_j$, so no unit exits before its minimum
+travel. Queued demand is $C(v)$; an empty free approach offers $\lambda_j$.
+The independent far lane has $Y_B=P_B$ under \eqref{eq:domain}.
+
+For empty-link boundary receiving, the vacancy expression is
+\begin{equation}
+ V_j^{\rm vac}(t)=\begin{cases}
+ k_jwt-F_j(t),&0<t\leq\tau_b,\\
+ Y_j(t-\tau_b)+k_jb-F_j(t),&t>\tau_b.
+ \end{cases} \label{eq:vacancy}
+\end{equation}
+By \eqref{eq:h1bounds}, $\dot F_j\leq C(v)<wk_j$. Initially
+$F_j(t)\leq C(v)t<k_jwt$. Later
+$V_j^{\rm vac}\geq k_jb-M>0$. Thus terminal entrance receiving never
+holds preparation in the sufficient domain. This is finite physical
+storage protection, not an infinite point buffer or a general spillback
+solution. It also implies $N_j\leq M<k_jb$.
+
+The eligible arrival pulse is
+\begin{equation}
+ t_f=(L-\ell)/v,\quad t_r=L/v,\qquad
+ \lambda_A+\lambda_E=vr=:s_v<R,\quad
+ \lambda'_A=-\lambda'_E\in[0,L_A],\quad L_A=v_+^2e_0/h
+ \label{eq:pulse}
+\end{equation}
+inside the pulse. E arrivals decrease and A arrivals increase; only the
+front and rear have external jumps. H1 branch switches preserve continuous
+rates. This monotonic structure is essential to the later event proof.
+
+\section{Current speed marks, immediate work and unique service roots}
+\label{sec:root}
+\subsection{Traffic-state closure and the fixed coefficient}
+Free boundary marks use $u_j=v$; queued marks use $u_j=U(g_j)$. These
+are equilibrium trace assumptions, not independent speed state or
+whole-lane mean speeds. The selected W-F work expression is
+\begin{equation}
+ c_A=1,\qquad c_E=c_0+\chi g_A\pos{u_A-u_E},\qquad
+ g_A+c_Eg_E\leq\budget. \label{eq:currentwork}
+\end{equation}
+It has no direct advice effect at fixed represented traffic and budget.
+For queued E, with $a=g_A$, fixed A mark $u$ and available E work $x$,
+\begin{equation}
+ \He(g;a,u)=g\{c_0+\chi a\pos{u-U(g)}\}=x.
+ \label{eq:root}
+\end{equation}
+On the active mismatch branch,
+\begin{equation}
+ \He_g=c_0+\chi a\{u-U(g)-gU'(g)\},\quad
+ U'(g)=\frac{wK}{(K-g)^2},\quad
+ gU'(g)\leq v(1+v/w)\quad(0\leq g\leq C(v)).
+ \label{eq:rootderiv}
+\end{equation}
+Because $a\leq C(v)\leq C_\star$ and $v\leq v_\star$,
+$\He_g\geq\eta>0$. Outside mismatch, $\He_g=c_0$; the continuous
+function is strictly increasing across the kink. Also
+$\He(0)=0$ and $\He(C(v))=c_0C(v)\geq\budget\geq x$.
+There is exactly one feasible root. With the same bounds,
+\begin{equation}
+ c_0\leq c_E\leq c_{\max},\qquad
+ x/c_{\max}\leq g_E\leq x/c_0,\qquad
+ g_A+g_E\leq\budget\leq R\leq C(v).
+ \label{eq:rootbounds}
+\end{equation}
+Thus sending/receiving ceilings and mass conservation are respected.
+
+\subsection{What fixing the coefficient changed}
+The earlier trial divided the mismatch term by $C(v)v$. Its multiplier
+$\rho(v)=(w+v)/(Kv^2)$ has
+$\rho'(v)=-(v+2w)/(Kv^3)<0$. When both approaches are queued at fixed
+budget, A flow/mark are fixed, yet that trial changes E work with an
+inactive advice cap. W-F removes that direct channel. It agrees with the
+trial at the fixed anchor $v_+$; it does not preserve its advice derivative
+away from that anchor.
+
+On a regular free-A/queued-E branch with fixed $a,\budget$,
+$u_A=v>U(g_E)$ and $x=\budget-a$. Implicit differentiation gives
+\begin{equation}
+ \frac{\partial g_E}{\partial v}
+ =-\frac{\chi a g_E}{\He_g}\leq0. \label{eq:localbenefit}
+\end{equation}
+Lowering free A speed can therefore ease E entry in this local comparison.
+This is not a full-cohort derivative: H1, arrivals, travel and recovery
+also change. When both are queued below the advice cap, there is no direct
+$v$ in the local root at fixed budget.
+
+\section{Priority, cooperation and causal queue transitions}
+\label{sec:allocation}
+Free A claims its offer when it fits. Queued A uses equal-work sharing
+with unused-work redistribution, including when E is free. A convenient
+fixed-cost template is the minimal $z\geq0$ with
+\begin{equation}
+ \min(d_A,z)+\min(c_Ed_E,z)=\min(\budget,d_A+c_Ed_E),\quad
+ g_A=\min(d_A,z),\quad g_E=\min(d_E,z/c_E).
+ \label{eq:equalwork}
+\end{equation}
+The selected branches resolve the implicit cost as follows:
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{27mm}>{\raggedright\arraybackslash}p{120mm}}
+\toprule
+Current modes & Service and feasibility\\
+\midrule
+A/E free & $g_A=\lambda_A$, $g_E=\lambda_E$ if
+$\lambda_A+c_0\lambda_E\leq\budget$.\\[5pt]
+A free, E queued & $g_A=a=\lambda_A\leq\budget$,
+$\He(g_E;a,v)=\budget-a$.\\[5pt]
+A/E queued & $g_A=\budget/2$,
+$\He(g_E;\budget/2,U(\budget/2))=\budget/2$.\\[5pt]
+A queued, E free & $g_E=\lambda_E$, $g_A=\budget-c_0\lambda_E$
+when $c_0\lambda_E\leq\budget/2$; otherwise E has a strict offer
+shortfall and enters its queued branch.\\
+\bottomrule
+\end{tabular}
+\end{center}
+Free E has $u_E=v$ and thus no positive mismatch term for either A mode.
+With both queued, $g_E\leq g_A/c_0\leq g_A$; E's maneuver disadvantage
+persists without a separate arbitrary flow-share parameter.
+
+\textbf{Causal guards.} Initially both queues are zero and modes free.
+An empty approach remains free while its offer is met. A strict free-mode
+shortfall selects its queued trace; recomputed right-hand queue growth
+must be compatible with nonnegative mass. While $q_j>0$,
+\begin{equation}
+ \dot q_j=\lambda_j-g_j,\qquad \dot Y_j=g_j. \label{eq:queuedynamics}
+\end{equation}
+At a true zero hit, retest free admission. Equality alone does not create
+a queue; use maximal feasible free continuation and right-hand arrival
+data at jumps. Retain recovery history across mode changes. No numerical
+epsilon, branch latch, averaging rule or dwell time is added.
+
+Why cooperation cannot be restricted literally to two positive queues:
+at E clearance with A still queued, take unit costs, budget $4/5$,
+$\lambda_A=3/5$, $\lambda_E=1/10$. Cooperative redistribution gives
+$(g_A,g_E)=(7/10,1/10)$, so E stays clear. Strict all-state A priority
+instead gives E no service at zero but $2/5$ at positive queue, requiring
+$\dot q_E=1/10$ at zero and $-3/10$ above zero. No nonnegative absolutely
+continuous continuation satisfies that literal toggle. The selected
+current-state rule avoids it without allocation memory. This is a local
+diagnostic, not a new primary initialization.
+
+\section{A speed-marked recovery profile and recent-mass renewal}
+\label{sec:recovery}
+\subsection{The isolated boundary deduction}
+Let $u_R=U(R)$ and $a_r>0$. Define
+\begin{align}
+ S(\theta;u)&=\sqrt{(w+u)^2+2wa_r\theta},\quad V=S-w,\nonumber\\
+ Q_{\rm iso}(\theta;u)&=K\left[\theta-
+                  \frac{S-w-u}{a_r}\right],\quad
+ \partial_\theta Q_{\rm iso}=K(1-w/S)=c(V),\nonumber\\
+ D(\theta;u)&=\pos{R-c(V(\theta;u))}. \label{eq:profile}
+\end{align}
+This reuses the isolated accelerated-insertion point expression to form
+a capped boundary service loss. $V$ is not a vehicle's speed trajectory;
+it parametrizes the boundary passing rate. The mark $u$ is the selected
+representative insertion speed. The source isolated deduction does not
+validate the aggregate overlap rule below.
+
+For $u<u_R$,
+\begin{align}
+ \Theta(u)&=\frac{(w+u_R)^2-(w+u)^2}{2wa_r},\quad
+ \Theta_{\max}=\Theta(0)=u_R/a_r+u_R^2/(2wa_r),\nonumber\\
+ W(u)&=\int_0^\infty D(\theta;u)\dd\theta
+ =\frac{K}{w+u_R}\frac{(u_R-u)^2}{2a_r}. \label{eq:profilearea}
+\end{align}
+For $u\geq u_R$, $D,W,\Theta$ are zero. To obtain the area, change
+variable from age to $V$:
+\begin{equation}
+ \frac{d\theta}{dV}=\frac{w+V}{wa_r},\qquad
+ D\frac{d\theta}{dV}=\frac{(K-R)(u_R-V)}{wa_r},
+ \qquad \frac{K-R}{w}=\frac{K}{w+u_R}.
+ \label{eq:areaderiv}
+\end{equation}
+Integrating from $u$ to $u_R$ gives \eqref{eq:profilearea}. On the active
+part,
+\begin{equation}
+ D_\theta=-\frac{Kw^2a_r}{S^3},\quad
+ D_u=-\frac{Kw(w+u)}{S^3},\quad
+ D_{a_r}=-\frac{Kw^2\theta}{S^3}. \label{eq:profilederivs}
+\end{equation}
+Thus $D$ decreases with age and mark, $0\leq D\leq R$,
+$|D_\theta|\leq a_rk_j$ and $|D_u|\leq k_j$. The bounds extend
+through the continuous zero-loss cutoff. Physical age is not a numerical
+step. $W$ is a lost-service area, not a second immediate E charge.
+
+\subsection{The selected E-only renewal account}
+For $Y=Y_E$, let $T(\xi)$ be its mass-rank admission-time inverse and
+$a_m(t)=\pos{Y(t)-m}$. The selected account is
+\begin{equation}
+ \loss(t)=\frac1m\int_{a_m(t)}^{Y(t)}
+ D(t-T(\xi);u_E(T(\xi)))\dd\xi,\qquad
+ \budget(t)=\pos{R-\loss(t)}. \label{eq:renewal}
+\end{equation}
+Only E creates new loss. A influences E service/marks and consumes the
+shared budget; A's slow passage is not independently charged as a new
+profile. The account averages at most the latest mass $m$. New mass
+retires equal oldest weight after fill while all profiles age. Recent
+speed/age history, not just the reading, is retained predicted state.
+
+Flat intervals of $Y$ carry no admission measure; inverse choices there
+do not affect the result. Equivalently,
+\begin{equation}
+ \loss(t)=\frac1m\int_0^tD(t-s;u_E(s))g_E(s)
+             \mathbf1_{\{Y(s)>a_m(t)\}}\dd s. \label{eq:renewaltime}
+\end{equation}
+Only ages up to $\Theta_{\max}$ and the latest mass $m$ can contribute.
+Where derivatives exist, put $T_o=T(Y(t)-m)$ when $Y(t)>m$. Then
+\begin{align}
+ \dot\loss={}&\frac{g_E(t)}mD(0;u_E(t))
+ +\frac1m\int_{a_m(t)}^{Y(t)}
+ D_\theta(t-T(\xi);u_E(T(\xi)))\dd\xi\nonumber\\
+ &-\frac{g_E(t)}m\mathbf1_{\{Y(t)>m\}}
+ D(t-T_o;u_E(T_o)). \label{eq:renewalupdate}
+\end{align}
+These are injection, aging and oldest-weight retirement. There is no
+division by an old flow rate. At fill and other endpoints use the a.e.
+identity; the cumulative account is continuous. With $g_E=0$ only aging
+remains. A fast new E entry can create zero loss and still retire an older
+strong profile; this is a selected approximation requiring physical evidence.

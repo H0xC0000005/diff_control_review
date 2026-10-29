@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-15",
+  "status": "Passed documentary checks",
+  "markdown_files_checked": 5,
+  "local_links_checked": 133,
+  "heading_anchors_checked": 20,
+  "current_file_sha256": {
+    "AGENTS.md": "6f3742085828ac710744372d2dbe8c5e63f988cfb256923b31ef8924bdf63034",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_ph_recovery_work_findings_and_gate.md": "275c209224ba681ec44ea867c65954c749fa239f2407a5910744c3af0c1f6508",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "4549434bd6a462f457f9c1f7f97101b3ac2511c1202b8202d29f7a4c76f77a19",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md": "1c549055c770e5595d6066cdc5d8a9948caf0f5cf7adbb49df7c91feb764e8a1",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_ph_options_readability_revision_work_report.md": "2d41c75524463658394ebeb5aaa62536147859c20a1e6a1dc2871e8e5428d727"
+  },
+  "unchanged_math_and_feedback_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_ph_recovery_work_contract.tex": "4a3a4af169bc951f6aea56e0dcbbdff70344ad921726c8172cf6d217105e4f68",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_ph_recovery_work_contract.pdf": "be29c46651c043720131a5ad23e9469884b6b6e21b6bd2b836669348bb8240b1",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_h1_t1_joined_contract.tex": "e0782dbcb8d168c66a5e7123ac33f1fb38cc47c4d86f760385b74a469b18a85e",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_h1_t1_joined_contract.pdf": "0ab641ab3f77e0581a64676a4065d878c181112ed6fbfa94421576cc54e6467e",
+    "temp_content/feedback/vsl_refinement_feedback.md": "13558785c22e749f4e17ec7d205b390726d01ecfaa92b2418c05c3aae0c45042"
+  },
+  "preexisting_AGENTS_content_preserved": true,
+  "scope": "Presentation revision and global reporting-preference clarification only",
+  "cp_d1": "Closed with P-H",
+  "cp_d2": "Open; recommendation unchanged: conditional Option 1",
+  "step_3": "Open",
+  "scientific_equations_changed": false,
+  "new_traffic_or_gradient_evidence": false,
+  "simulator_implementation_installation_or_experiments": false
+}

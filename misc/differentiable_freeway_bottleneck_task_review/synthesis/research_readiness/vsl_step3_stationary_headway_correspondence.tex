@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\title{A conditional stationary-headway interpretation of H1's capacity curve}
+\author{VSL task-definition review: Step 3 supporting note}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+
+\textbf{Status.} Source-backed stationary calculation and original algebraic
+correspondence. No vehicle trajectory, traffic experiment, parameter fit or
+new H1/T1 law is supplied. The approved model is unchanged. This note supports
+the plain-language reference-qualification report, not an empirical capacity
+or gradient claim.
+
+\section*{1. Why speed can change usable lane density}
+
+The official SUMO Road Capacity documentation gives the minimum gross
+front-to-front spacing for homogeneous Krauss vehicles travelling at the
+same constant speed. Let vehicle length be $l_{\rm veh}$ in metres,
+standstill gap $g_{\min}$ in metres and desired following time $\tau_d>0$
+in seconds. Write $d=l_{\rm veh}+g_{\min}>0$. At actual speed $s>0$,
+the documented stationary relation and its ideal flow consequence are
+\begin{align}
+ D(s)&=d+\tau_d s, & [D]&={\rm m},\\
+ k_{\rm ideal}(s)&=\frac{1}{d+\tau_d s},
+ & [k_{\rm ideal}]&={\rm veh/m},\\
+ Q_{\rm ideal}(s)&=\frac{s}{d+\tau_d s},
+ & [Q_{\rm ideal}]&={\rm veh/s}.
+\end{align}
+The documentation cautions that these conditions are rarely achieved
+exactly in a simulation. Desired-speed differences, random slowdowns and
+nonminimum gaps are among its stated reasons. This is an ideal stationary
+relation, not the realised capacity of the proposed lane drop.
+
+\section*{2. Algebraic correspondence with the accepted H1 curve}
+
+H1 uses triangular-diagram critical density and capacity
+\begin{equation}
+ k_c(v)=\frac{w k_j}{v+w},\qquad C(v)=v k_c(v).
+\end{equation}
+For the sole purpose of interpreting the stationary curve, set
+\begin{equation}
+ k_j=\frac{1}{d},\qquad w=\frac{d}{\tau_d}.
+\end{equation}
+Substitution gives
+\begin{equation}
+ k_c(v)=\frac{1}{d+\tau_d v},\qquad
+ C(v)=\frac{v}{d+\tau_d v}.
+\end{equation}
+Thus the two curve shapes coincide if the stationary actual speed $s$
+equals the predictor's advice $v$. This equality of shapes is an inference
+from the documented headway law. It does not establish equality of the two
+dynamic traffic models or prescribe reference parameters.
+
+\newpage
+\section*{3. The traffic meaning and its limits}
+
+The directions of the stationary changes are
+\begin{equation}
+ \frac{d k_{\rm ideal}}{d s}
+ =-\frac{\tau_d}{(d+\tau_d s)^2}<0,
+ \qquad
+ \frac{d Q_{\rm ideal}}{d s}
+ =\frac{d}{(d+\tau_d s)^2}>0.
+\end{equation}
+Slower travel permits more closely spaced vehicles per metre at the same
+desired following time, while ideal vehicles-per-second throughput falls.
+This gives a physical interpretation to density headroom in H1 without
+claiming that lower speed increases every kind of service. In H1's progress
+coordinate, the explicit speed factor in the preparation law cancels:
+the remaining preparation effect comes from headroom and the model's
+specified interaction, not additional seconds by themselves.
+
+The following conclusions do \emph{not} follow from the correspondence:
+\begin{enumerate}
+ \item A native lane-drop interaction obeys H1's receiving allocator,
+ preparation opportunity scale or forced-service work law.
+ \item $w=d/\tau_d$ is a measured transient backward-wave speed in the
+ chosen microscopic model. The equality identifies a stationary curve only.
+ \item Native actual speed equals the permitted advice during acceleration,
+ braking, lane changes or queueing.
+ \item A positive analytical work-factor range is traffic-calibrated, or
+ an interior optimal advice exists.
+\end{enumerate}
+For example, the earlier analytical family chose $w=2u$. Under this optional
+stationary interpretation it would imply $u=d/(2\tau_d)$. Its dimensionless
+construction must therefore not be presented as already calibrated freeway
+speeds. The general approved family is broader; no numerical mapping is
+selected here.
+
+\section*{4. Why a mixed departure trace may not identify the forced server}
+
+On intervals where the accepted fluid server is binding, let $u_A$ be
+continuing departure flow and $g_E$ ending departure flow, both in
+vehicle-equivalents per second. Its work account has the diagnostic form
+\begin{equation}
+ u_A+\alpha g_E=R.
+\end{equation}
+One repeated mixed-flow value supplies only one relation for the two
+unknowns $\alpha$ and $R$. At least differing flow observations with a
+nondegenerate design, correct binding-interval classification and a valid
+common-law fit are needed to separate them; two different $g_E$ values are
+necessary for rank two in this simple linear diagnostic. Native stopped
+vehicles do not by themselves certify the fluid server's binding condition.
+If the law fails across independently prepared development traces, or
+parameters remain unidentifiable, retain that failure or the admissible
+bounds. Do not select $\alpha$ from the positive-action range or fit held-out
+optima. This is an identifiability observation, not a fitted native model.
+
+\textbf{Primary source inspected, 14 October 2026:}
+\href{https://sumo.dlr.de/docs/Simulation/RoadCapacity.html}{SUMO documentation,
+Road Capacity}, sections Computing Headways and Further headway effects.
+All correspondence, derivatives and identifiability reasoning above are
+the review's deductions under their stated conditions.
+\end{document}

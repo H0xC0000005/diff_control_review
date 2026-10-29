@@ -1,0 +1,168 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\raggedright
+\begin{document}
+{\Large BP-R Stage 3: approved priority and static contract}\\[4pt]
+6 October 2026 --- source/static review; S3-G3 disposition pending
+
+\textbf{Status.} Reference route A, upstream admission M.A and fixed junction
+priority N.A are approved. The unavailable third source is excluded from exact
+replication. The equations below specify interface accounting and local bounds;
+they do not certify a completed reference solver, a transient compact closure,
+clearance, control benefit or a gradient.
+
+\section*{1. The approved receiving allocation}
+All quantities here are rates in vehicle equivalents per second.
+$D_r\ge0$ is ramp sending demand at the merge; $D_m\ge0$ is the sum of compatible
+non-ramp incoming demands to the same shoulder-lane receiver; $R\ge0$ is the
+available receiving rate consistent with the traffic field and existing moving
+constraints. $p\in(0,1)$ is a fixed physical ramp priority, common across models
+and control schedules. It is not the upstream metering rate.
+
+The selected conservative node operator is
+\begin{equation}
+(f_r,f_m)=
+\begin{cases}
+(D_r,D_m),&D_r+D_m\le R,\\
+\bigl(\min\{D_r,\max\{pR,R-D_m\}\},\ R-f_r\bigr),&D_r+D_m>R.
+\end{cases}
+\end{equation}
+In the second branch the displayed first coordinate defines $f_r$ before the
+second coordinate is evaluated. This follows the fixed-priority merge family
+in Daganzo's 1994 network CTM original, Section 3.2. Grouping non-ramp inflows
+and joining moving constraints are declared task adaptations.
+
+Under scarcity, $D_r>R-D_m$ and $pR\in[0,R]$. Hence
+\begin{equation}
+\max\{0,R-D_m\}\le f_r\le\min\{D_r,R\},\qquad
+0\le f_m=R-f_r\le D_m.
+\end{equation}
+Together with the unconstrained branch,
+\begin{equation}
+f_r+f_m=\min\{D_r+D_m,R\},\qquad 0\le f_b\le D_b\quad(b=r,m).
+\end{equation}
+Thus receiving is spent once and unused shares are reallocated. If both streams
+can use their contested shares, the allocation is $pR$ and $(1-p)R$.
+
+If compatible non-ramp movements have already budgeted requests $d_j$,
+$D_m=\sum_jd_j$, their subdivision is
+\begin{equation}
+f_j=\frac{d_j}{D_m}f_m\quad(D_m>0);\qquad f_j=0\quad(D_m=0).
+\end{equation}
+This preserves request bounds and sums to $f_m$. Donor budgets must be formed
+before subdivision; independent full-capacity requests are not admissible.
+Other receiving lanes keep their source local allocation.
+
+\newpage
+\section*{2. Upstream admission and population ownership}
+$W^k$ is waiting mass upstream of the finite ramp approach, $A^k$ is offered
+arrival mass in a time bin, $r^k$ is the common permission rate, $R_a^k$ is
+approach receiving and $\Delta t$ is the bin duration. A reviewable discrete
+boundary transcription is
+\begin{equation}
+B^k=\min\{W^k+A^k,\ r^k\Delta t,\ R_a^k\Delta t\},\qquad
+W^{k+1}=W^k+A^k-B^k.
+\end{equation}
+Admission $B^k$ is credited once to the ramp. It is not actual merge entry.
+Stored approach traffic can enter the freeway faster than the contemporaneous
+upstream command. All models must retain that propagation and count $W$.
+
+For road/ramp control volumes $c$, let $n_c^k$ be continuous mass. Each internal
+transfer $F_{cb}^k$ is debited from $c$ and credited to $b$. Let $I^k$ include
+all offered external arrival mass, and $E^k$ include all sink exit mass. For
+total waiting plus road/ramp inventory $M^k$,
+\begin{equation}
+M^k=W_r^k+W_m^k+\sum_cn_c^k,\qquad
+M^{k+1}-M^k=I^k-E^k.
+\end{equation}
+Here $W_m$ includes any blocked mainline entrance population. Every internal
+debit/credit cancels. Conservation alone does not establish receiving/storage
+correctness; those also require the coupled flux law.
+
+The supplied journal's lateral recipe sends mass from $(i,\ell)$ to $(i+1,b)$.
+Counting a separate same-cell lateral transfer followed by another longitudinal
+transfer for that mass would change the source update. Descriptor insertion
+does not add mass to $M$.
+
+For a particular actual entry/transfer stream, let $H(t)$ be its accumulated
+continuous mass plus a declared initial event progress. The deterministic
+source descriptor count can be expressed as
+\begin{equation}
+K(t)=\lfloor H(t)\rfloor-\lfloor H(0)\rfloor.
+\end{equation}
+This selects unit-threshold descriptors; it does not round $H$, the flow or
+$n_c$. Event progress is public initial data, not an optimized phase. Threshold
+crossing times and coincident events remain part of the reference transcription.
+
+The 2004 antecedent, Section 3, gives the sending-lane speed as birth speed.
+The final 2006 journal, Appendix A, then constrains realized motion using
+\begin{equation}
+v(t)=\min\{v_{\rm des}(t),v_{\rm dwn}(t)\},\qquad
+a(v,x)=a_0(1-v/v_{\max})-gG(x).
+\end{equation}
+$v_{\rm dwn}$ is the immediately downstream KW-stream speed, not the lane-choice
+look-ahead speed. Positions move with realized speed; desired speed advances
+with the source acceleration law. $a_0,v_{\max},G$ are physical parameters, not
+functions assigned arbitrarily from permission $r$.
+
+\newpage
+\section*{3. Complete system time and the remaining boundary}
+Let $A(t)$ and $E(t)$ be cumulative offered arrivals and exits from the declared
+start. For initial total population $M_0$,
+\begin{equation}
+M(t)=M_0+A(t)-E(t),\qquad
+J_{\rm TST}=\int_0^{T_{\rm clear}}M(t)\,dt.
+\end{equation}
+$J_{\rm TST}$ has units vehicle-equivalent seconds. Mean remaining system time
+is $J_{\rm TST}/P$ for common finite population $P$; pre-start elapsed time is
+a common constant. An asymptotic convergent inventory integral with a certified
+tail bound may replace finite $T_{\rm clear}$. No extra merge-work cost is added.
+
+For schedules $a,b$ with common population, arrivals and initial inventory,
+extend each cleared exit history constantly to a common terminal time $T$:
+\begin{equation}
+J_{\rm TST}^{a}-J_{\rm TST}^{b}
+=-\int_0^T\bigl(E^a(t)-E^b(t)\bigr)\,dt.
+\end{equation}
+Identical full exits therefore mean identical TST even if queues are relocated.
+Different mean capacity or one terminal count is not a complete-objective
+comparison. This identity is bookkeeping, not a feasible-control witness.
+
+\textbf{Clearance is not proved.} Finite offered arrivals and a positive draining
+permission do not alone establish clearance of the adapted reference. The joined
+law must justify eventual discharge: reachable exits, available receiving and
+constraints that release or depart. A certified residual tail is an alternative;
+dropping remaining mass or assuming an empty road is not.
+
+\section*{4. What the source evidence does and does not finish}
+The supplied journal and 2004 antecedent define traffic/event ingredients.
+The 2003 moving-boundary report gives a cumulative-count coupling route; its
+node/event integration here is not yet verified. A guessed acceleration-capacity
+penalty cannot replace that route.
+
+Existing compact alternatives are serious. The 2011 endogenous merge work and
+2016 moment manuscript predict mean capacity under their assumptions, not a
+matched transient state update for this upstream meter. The 2021 hysteretic CTM
+uses a different receiving/control construction. Importing any of these without
+qualification would confound representation with a changed task law.
+
+An independent rival must initialize from its declared public projection and
+evolve its own speed/mode/moment state. It cannot borrow the reference's future
+entries or constraint history. Unknown accuracy of a bound law can be tested
+later; a missing law cannot be silently delegated to an experiment.
+
+\textbf{Result: partial/evidence-limited formulation.} Local bounds and accounting
+are explicit. A complete joined reference/clearance and a strong independent
+transient compact closure remain unqualified. This is neither a necessity proof
+for finer state nor a sufficiency/impossibility theorem for compact models.
+Stage 3 disposition is pending S3-G3; Stage 4 remains unopened.
+
+Source versions and links are recorded in
+\texttt{post\_priority\_evidence\_audit.md}; the plain-language interpretation
+and remaining interfaces are in
+\texttt{joined\_contract\_and\_reduction\_audit.md}.
+\end{document}

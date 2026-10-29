@@ -1,0 +1,13 @@
+generation,direction,anchor_family,candidate,decision,reason
+1,forward,R0006,"Incorporation of endogenous exit capacities in node models with various movement exit speeds",exclude_context,"movement speed/capacity refinement does not alter identity/order/differentiation gap"
+1,forward,R0007,"mesoLTM software implementation",exclude_nonstudy,"software replication record; retain implementation note only"
+1,backward,R0006,"Multilane first-order traffic flow model with endogenous representation of lane-flow equilibrium",include_R0034,"endogenous lane-flow and lane-changing dynamics"
+1,backward,R0006,"Dynamic Queuing and Spillback in Analytical Multiclass Dynamic Network Loading Model",include_R0035,"continuous multiclass queues and spillback lineage"
+1,backward,R0014,"Dynamic network loading: A stochastic differentiable model that derives link state distributions",include_R0033,"previously omitted differentiable DNL family"
+1,backward,R0012-R0014,"Statistical metamodeling of dynamic network loading",include_R0036,"explicit differentiable surrogate DNL trade-off"
+2,forward,R0033,"Capturing Dependency Among Link Boundaries in a Stochastic Dynamic Network Loading Model",include_R0038,"extends stochastic differentiable link-boundary distributions"
+2,forward,R0033,"Stochastic network link transmission model",include_R0037,"network-scale stochastic LTM extension"
+2,forward,R0033,"A stochastic dynamic network loading model for mixed AV/HV traffic",exclude_context,"vehicle-class uncertainty and control application; no new identity/order/differentiation family"
+2,forward,R0036,"A link-to-link segment based metamodel for dynamic network loading",exclude_context,"later Kriging refinement; same surrogate family"
+2,forward,R0006,"Incorporation of endogenous exit capacities in node models",exclude_context,"no new target state or derivative category"
+2,backward,R0037,"finite-capacity stochastic node/link models",covered_family,"represented by R0033 R0037 and R0038"

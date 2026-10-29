@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-12",
+  "task": "VSL-R1 bounded core-mechanism/baseline qualification",
+  "phase": "method-only review delivered; VSL-R1-G1 pending",
+  "all_passed": true,
+  "checks": {
+    "expected_six_existing_changes_only": true,
+    "expected_six_new_artifacts_only": true,
+    "all_feedback_byte_identical": true,
+    "dialogue_append_only": true,
+    "all_local_links_resolve": true,
+    "gate_has_problem_function_gap_and_ownership": true,
+    "gate_has_three_full_alternatives": true,
+    "gate_recommendation_provisional_and_models_unselected": true,
+    "living_inventory_and_current_plan_synced": true,
+    "analytical_countercase_native_claim_limit_explicit": true,
+    "pdf_three_complete_text_pages": true,
+    "final_latex_log_clean": true,
+    "kernel_source_and_pdf_preserved": true,
+    "repository_authority_user_changes_preserved": true
+  },
+  "preservation": {
+    "snapshot": "/tmp/vsl_r1_20261012_preservation_snapshot.json",
+    "existing_files": 1050,
+    "byte_identical_existing_files": 1044,
+    "changed_existing_files": [
+      "misc/differentiable_freeway_bottleneck_task_review/README.md",
+      "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md",
+      "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md",
+      "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md",
+      "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md",
+      "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md"
+    ],
+    "missing_existing_files": [],
+    "new_artifacts": [
+      "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_r1_primary_source_join_audit.md",
+      "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_core_mechanism_findings_and_gate.md",
+      "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_validation.json",
+      "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_work_report.md",
+      "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_r1_transfer_clock_and_service_audit.pdf",
+      "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_r1_transfer_clock_and_service_audit.tex"
+    ]
+  },
+  "local_links": {
+    "documents_checked": 9,
+    "links_checked": 112,
+    "missing": []
+  },
+  "pdf": {
+    "pages": 3,
+    "bytes": 166335,
+    "pypdf_version": "6.15.0",
+    "page_checks": [
+      {
+        "page": 1,
+        "text_characters": 1804,
+        "start": "VSL-R1: What Makes Extra Preparation Time Useful? Conditional transfer-clock and receiving audit Method-first task-definition review 12",
+        "end": "location is altered. Those changes require their own complete departure-time accounting. The fixed coefficient a is not a source-independent service identity. 1"
+      },
+      {
+        "page": 2,
+        "text_characters": 1766,
+        "start": "2. Holding a time rate fixed is a scientific assumption For a diagnostic, suppose a nonbinding, prescribed-motion preparation uses a fr",
+        "end": "reak this scaling. Carey\u2019s location-based desire likewise is not a prescribed realized-completion schedule. Neither source identifies \u03bb\u2032(v) = 0 for this task. 2"
+      },
+      {
+        "page": 3,
+        "text_characters": 2290,
+        "start": "3. Conditional receiving reduction behind batch co-clearance The audited Carey R2 allocation uses gap-weighted receiving demands. Here ",
+        "end": "ersus amend- ing its primary preparation/receiving contract. Independent useful traffic gradients, calibration and implementation checks remain unestablished. 3"
+      }
+    ]
+  },
+  "artifact_sha256": {
+    "misc/differentiable_freeway_bottleneck_task_review/README.md": "1ab6ac059601a52883017d6b6df4e8cb5f54d1eceb94858583d9ad680a477714",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_r1_primary_source_join_audit.md": "319b5ec3d9866d8f462b1cb4ec3d0f1d631f25b1997521f1663c4c7f31e605ad",
+    "misc/differentiable_freeway_bottleneck_task_review/extraction/research_readiness/vsl_successor_baselines_and_evidence_gaps.md": "2551c88c85c1d427455501893df7e456493b7aa7092fc9a4d7ae00575ee02ff0",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_core_mechanism_findings_and_gate.md": "3083bcceba47b4b6a57983fc0883de4cd24d790e9ba6b26ad51cd981b6f7ee57",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_r1_work_report.md": "64299df728e6df117911175c589e7bad6336baa44dbf7f43ca9d68d25d66b83f",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_successor_opening_dialogue.md": "3861eb8ad16b837b0c1f830c96749963e2db4a1ed6bc7ff5aef489e8a9355bb1",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_feedback1_core_model_candidates.md": "ae21cadb557f8ac70bebf3fc4331d0c067e9d60f08aff27060961a3c9628c1b4",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_r1_transfer_clock_and_service_audit.pdf": "63abdaa813fad9a79633d4b67573de9c726e5d70e074589ec1b933b9b6892a8b",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_r1_transfer_clock_and_service_audit.tex": "c881dd960e313a299672deb7fc40909f5e182546977739b858dcc996c67063d2",
+    "misc/differentiable_freeway_bottleneck_task_review/synthesis/research_readiness/vsl_successor_methods_outline.md": "04a1ec84c4d37d7373050ed91b1e9648b77a8134593f485da6be7a663b167547",
+    "misc/differentiable_freeway_bottleneck_task_review/vsl_successor_00_opening_plan.md": "4afbb9035d197ea7f1d86c05b9794a466c7b430c92a8bee03821517db40dbc6e"
+  },
+  "validation_command": "python3 /tmp/vsl_r1_20261012_validate.py",
+  "scientific_evidence_limit": "Analytical/source audit only; document checks do not validate traffic or native-model gradients.",
+  "new_primary_law_or_evaluator_selected": false,
+  "traffic_experiment_or_numerical_gradient_run": false,
+  "dependency_installation_or_production_change": false
+}

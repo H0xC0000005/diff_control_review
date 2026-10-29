@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-07",
+  "status": "passed",
+  "scope": "Document/navigation and static mathematical artifact integrity; no traffic, clearance, or gradient validation",
+  "documents": 27,
+  "local_links": 308,
+  "queries": {
+    "executed": 11,
+    "batches": 5
+  },
+  "source_activity": {
+    "records": 13,
+    "technical_evidence": "primary originals only",
+    "missing_gridlock_retrievals": 0,
+    "new_official_memory_pdf_obtained": false
+  },
+  "supplied_sources_unchanged": [
+    {
+      "id": "RM12-S3-A01",
+      "pages": 14,
+      "sha256": "ac4a032d7e9df4baa2daa5b0546c8c22d95bb84f6320eb97463d12cad33c2b58",
+      "path": "user_supplied/rm12_bp_r_stage3/Lane-changing in traffic streams.pdf"
+    },
+    {
+      "id": "RM12-S3-A02",
+      "pages": 23,
+      "sha256": "512befe8666bbdb17a23386d76d499b85a5a6918ae99d51b7f247c882f7e2895",
+      "path": "user_supplied/rm12_bp_r_stage3/A SIMPLE PHYSICAL PRINCIPLE FOR THE SIMULATION OF FREEW A YS WITH SPECIAL LANES AND PRIORITY VEHICLES.pdf"
+    }
+  ],
+  "reused_compact_original": {
+    "path": "archive/full_text/RM0010.pdf",
+    "pages": 29,
+    "sha256": "431d788867db643e5d9eb8e9b548642395ff80466b40ea326465e26920819ff5"
+  },
+  "historical_counts_unchanged": {
+    "search/rm12_bp_r_stage3_query_log.csv": 4,
+    "screening/rm12_bp_r_stage3_records.csv": 7,
+    "search/rm12_bp_r_stage3_A_qualification_query_log.csv": 10,
+    "screening/rm12_bp_r_stage3_A_qualification_records.csv": 7,
+    "search/rm12_bp_r_stage3_meter_A_query_log.csv": 6,
+    "screening/rm12_bp_r_stage3_meter_A_records.csv": 7,
+    "search/rm12_bp_r_stage3_supplied_methods_query_log.csv": 4,
+    "screening/rm12_bp_r_stage3_supplied_methods_records.csv": 6,
+    "search/rm12_bp_r_stage3_post_priority_read_log.csv": 9
+  },
+  "historical_mathematical_artifacts_unchanged": [
+    {
+      "path": "synthesis/rm12/bp_r_stage3/source_laws_and_merge_choices.pdf",
+      "sha256": "a0a5c1ac903b415644e0135120c8102e1cb0a0524553e1bdae54a115c9e63b32"
+    },
+    {
+      "path": "synthesis/rm12/bp_r_stage3/post_priority_static_contract.pdf",
+      "sha256": "c865bbebfff420a5b918d9c3bbd5bbc7bd951b24c6659b7f752fce051eed8c17"
+    }
+  ],
+  "pdf": {
+    "path": "synthesis/rm12/bp_r_stage3/interface_continuation_math.pdf",
+    "pages": 3,
+    "equations": 10,
+    "sha256": "d405ff3fea9096c7406004ea3977ca537b0c7914f2b85452c322c980f34f6374",
+    "tex_sha256": "5d11a3dadc73c17db85eef13ff1ad0bbfdc0d44d5a3a43de7c187985c8808c88",
+    "clean_final_latex_log": true,
+    "text_parsed": true,
+    "visual_inspection": false
+  },
+  "approved": [
+    "S3-G2.A",
+    "S3-G2-M.A",
+    "S3-G2-N.A",
+    "interim partial findings and within-Stage-3 A continuation",
+    "S3-G2-Q-R A-primary/B-companion review routing"
+  ],
+  "gate": "S3-G2-Q-R routing resolved: A primary plus B companion; concrete S3-G2-Q adoption pending",
+  "stage3": "open; dual qualification authorized; concrete compact laws unfrozen",
+  "stage4": "unopened",
+  "tracked_status": "M AGENTS.md\n M PLANS.md",
+  "clarification": {
+    "meaning": "Local mean service for settled conditions used during evolving CTM traffic",
+    "optimization_property": false,
+    "new_search_queries": 0,
+    "new_law_approved": false,
+    "authorized_preparation": "S3-I3.Q-P",
+    "adoption_dependent_binding": "S3-I3.Q-F",
+    "prior_interface_validation_sha256": "3891e1daa2cf4aef3db82524e2c5d82eff0744983d9195f5d67b5f83044bc1e3"
+  },
+  "semantic_comparison": {
+    "service_assumptions_unchanged": true,
+    "review_roles_updated": true,
+    "new_law_approved": false,
+    "new_search_queries": 0,
+    "existing_primary_method_reopens": [
+      "RM0010",
+      "RM10-P02"
+    ],
+    "common_event": "Actual entry reduction after upstream propagation; previous disturbances may remain",
+    "prior_quasi_validation_sha256": "f36827f6e90c092bae0e004afd28bb423c010ecb4e4e22321c3db47af06474a3"
+  },
+  "dual_review_arrangement": {
+    "routing": "A primary plus B companion now; no A-failure prerequisite",
+    "source_assumptions_changed": false,
+    "service_equations_approved": false,
+    "inactive_criterion_waived": false,
+    "new_queries": 0,
+    "new_source_retrievals": 0,
+    "prior_semantic_validation_sha256": "3a50817e98cccad523c9bd6b3faab597208734c7d892ec529bb2ae38a273e2aa"
+  }
+}
