@@ -72,5 +72,7 @@ action. Do not substitute an implementation phase status for a review topic.
 The migrated misc collections are tracked, not ignored. context_snapshots
 are historical source records. Prefer portable relative links. Do not
 include secrets or credentials, delete archived papers/results, force push,
-or change repository visibility without explicit authorization. Keep this
-working archive private unless the user separately requests otherwise.
+or change repository visibility without explicit authorization. This review
+repository is public by the user's 2026-10-29 instruction; the separate VSL
+implementation repository remains private. Public review hosting does not
+authorize publishing private implementation material.

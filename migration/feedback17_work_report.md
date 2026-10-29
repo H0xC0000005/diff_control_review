@@ -2,7 +2,9 @@
 
 2026-10-29. The user authorizes migration of all original misc reviews,
 creation of the standalone VSL handoff/project, retention of established
-implementation customs, and online Git hosting. Both repositories are private.
+implementation customs, and online Git hosting. Both were initially created
+private; the user then explicitly selected public review hosting while keeping
+VSL private. The current settings and root documents reflect that clarification.
 
 The review archive imports 1,413 source files plus referenced context. PDFs,
 TeX and non-Markdown evidence retain their bytes. Markdown navigation-only

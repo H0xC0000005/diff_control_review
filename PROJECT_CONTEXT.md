@@ -26,3 +26,9 @@ Detailed historical urban implementation context is data in
 Use [REVIEW_INDEX.md](REVIEW_INDEX.md) and the applicable collection's
 current overview. Preserve source support/adaptation boundaries and
 distinguish selected decisions, defaults, hypotheses and open questions.
+
+## Repository visibility
+
+The user explicitly requests a public diff_control_review repository and a
+private diff_freeway_vsl repository on 2026-10-29. This supersedes the initial
+private-by-default hosting choice, without changing review or development scope.

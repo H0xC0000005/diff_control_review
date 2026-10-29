@@ -22,6 +22,6 @@ ancestor context gives a unique match; no missing scientific content is invented
 Original files in diff_minimal_meso are not moved or deleted.
 
 Current repository: [H0xC0000005/diff_control_review](https://github.com/H0xC0000005/diff_control_review).
-The review repository is private. The VSL handoff is in the separate
+The review repository is public at the user's explicit request. The private VSL handoff is in the separate
 [H0xC0000005/diff_freeway_vsl](https://github.com/H0xC0000005/diff_freeway_vsl) repository. Existing scientific
 status is preserved; document validation is not numerical traffic evidence.

@@ -1,6 +1,6 @@
 # Differentiable control research reviews
 
-This private repository is the canonical home of the research reviews
+This public repository is the canonical home of the research reviews
 formerly held under `diff_minimal_meso/misc`. The eight original collections
 are preserved under `misc/`, including literature archives, topic records,
 reports and presentation assets. Original source folders are retained for
@@ -15,7 +15,7 @@ compatibility; continue review work here rather than maintaining two active copi
 [Transfer provenance](migration/README.md)
 
 The standalone VSL implementation project is [H0xC0000005/diff_freeway_vsl](https://github.com/H0xC0000005/diff_freeway_vsl).
-Its developer starts with its own implementation planning. This review
+That implementation repository remains private. Its developer starts with its own implementation planning. This review
 repository contains no new simulator implementation or traffic experiment.
 
 Current entry points:

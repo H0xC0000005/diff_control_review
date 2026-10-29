@@ -15,3 +15,12 @@ establishes the current model, analytical findings and evidence obligations;
 the VSL development agent proposes software/validation planning in its own
 repository. Bootstrap is documentation/repository work only. See
 migration/README.md and the VSL START_HERE.md for the handoff.
+
+## 2026-10-29 — review public, VSL private
+
+The original bootstrap completed before the interrupted turn returned.
+The user's new instruction explicitly makes the review repository public
+while keeping VSL private. Update repository settings, current root guidance
+and publication receipts accordingly; preserve the imported scientific archive
+and the history of the initial private bootstrap. Development still begins
+with Phase A planning, and no simulator or experiment is opened.

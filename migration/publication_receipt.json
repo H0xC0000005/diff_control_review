@@ -1,7 +1,10 @@
 {
   "completed_utc": "2026-10-29T03:42:45.427891+00:00",
   "user_authorization": "vsl_refinement_feedback.md feedback 17",
-  "visibility": "private",
+  "visibility": {
+    "diff_control_review": "public",
+    "diff_freeway_vsl": "private"
+  },
   "original_urban_guidance_and_source_reviews_preserved": true,
   "repositories": {
     "diff_control_review": {
@@ -9,7 +12,7 @@
       "initial_commit": "1f8babbb6bcb0372facd0c0ee28d046f66162aa0",
       "created_private_remote": true,
       "url": "https://github.com/H0xC0000005/diff_control_review",
-      "private": true,
+      "private": false,
       "initial_pushed_commit": "1f8babbb6bcb0372facd0c0ee28d046f66162aa0"
     },
     "diff_freeway_vsl": {
@@ -75,5 +78,9 @@
     "review_workflow": "independent topic-based review, not implementation A\u2013F"
   },
   "scope": "review migration, VSL handoff and Git bootstrap/publication only",
-  "next_vsl_action": "development-agent Phase A proposal; no approved implementation plan or simulator code"
+  "next_vsl_action": "development-agent Phase A proposal; no approved implementation plan or simulator code",
+  "initial_bootstrap_visibility": "private for both repositories",
+  "user_visibility_instruction": "initialize the review as public repository, while the vsl as private",
+  "visibility_instruction_date": "2026-10-29",
+  "visibility_status": "user-authorized setting; verified in the visibility update receipt"
 }
