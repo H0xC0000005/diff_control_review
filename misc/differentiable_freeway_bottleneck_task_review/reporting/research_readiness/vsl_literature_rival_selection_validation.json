@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-02",
+  "status": "passed",
+  "review_topic": "literature-supported VSL rival selection",
+  "gate": "source route recommended; user adoption pending",
+  "payload_files_checked": 10,
+  "other_review_files_preserved": 1486,
+  "private_vsl_files_preserved": 40,
+  "urban_root_and_feedback_files_preserved": 4,
+  "local_links_checked": 228,
+  "prior_decision_and_discussion_prefixes": "preserved",
+  "model_formulas_changed": false,
+  "packages_installed": false,
+  "simulator_or_experiments_executed": false,
+  "private_handoff_updated": false,
+  "committed_or_pushed": false,
+  "source_access_limit": "Primary extracted text; no verified rendered-page or source-code inspection"
+}

@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-02",
+  "status": "passed",
+  "topic": "One shared controller; gradient/no-gradient tuning",
+  "fixed": "User requires identical literature-supported base controller",
+  "recommendation": "One common adapted Zhang-derived speed-setting design; not selected",
+  "previous_two_source_controller_attribution": "superseded",
+  "payload_files": 10,
+  "local_links_checked": 80,
+  "unrelated_review_files_preserved": 1500,
+  "private_vsl_files_preserved": 40,
+  "external_feedback_and_urban_files_preserved": 4,
+  "append_only_prefixes": "preserved",
+  "git_diff_check": "passed",
+  "controller_candidate_selected": false,
+  "traffic_equations_changed": false,
+  "experiments_executed": false,
+  "implementation_or_dependencies_changed": false,
+  "private_handoff_updated": false,
+  "committed_or_pushed": false,
+  "status_at_stop": "Revised shared-controller proposal; no new traffic law or experiment"
+}

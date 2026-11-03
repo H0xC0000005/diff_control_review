@@ -1,0 +1,36 @@
+Input #0, image2, from '/tmp/sumo_shutdown_fix_20261029/workspace/results/lane_drop-traci-video-20261029T104601Z-16474c94/frames/frame_%06d.png':
+  Duration: 00:00:18.60, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba(pc, gbr/unknown/unknown), 1280x720, 5 fps, 5 tbr, 5 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+[libx264 @ 0x63de6f9f7580] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x63de6f9f7580] profile High, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x63de6f9f7580] 264 - core 164 r3108 31e19f9 - H.264/MPEG-4 AVC codec - Copyleft 2003-2023 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=2 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=12 lookahead_threads=4 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=10 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/tmp/sumo_shutdown_fix_20261029/workspace/results/lane_drop-traci-video-20261029T104601Z-16474c94/scenario.mp4':
+  Metadata:
+    encoder         : Lavf60.16.100
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, progressive), 1280x720, q=2-31, 25 fps, 12800 tbn
+    Metadata:
+      encoder         : Lavc60.31.102 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0kB time=N/A bitrate=N/A dup=4 drop=0 speed=N/A    
+frame=  138 fps=0.0 q=25.0 size=       0kB time=00:00:05.44 bitrate=   0.1kbits/s dup=132 drop=0 speed=10.1x    
+frame=  318 fps=307 q=25.0 size=       0kB time=00:00:12.64 bitrate=   0.0kbits/s dup=276 drop=0 speed=12.2x    
+[mp4 @ 0x63de6f9eed80] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0x63de6f9d0380] video:56kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 11.312893%
+frame=  465 fps=332 q=-1.0 Lsize=      62kB time=00:00:18.48 bitrate=  27.4kbits/s dup=372 drop=0 speed=13.2x    
+[libx264 @ 0x63de6f9f7580] frame I:2     Avg QP: 5.24  size:  1236
+[libx264 @ 0x63de6f9f7580] frame P:117   Avg QP:14.47  size:   308
+[libx264 @ 0x63de6f9f7580] frame B:346   Avg QP:10.63  size:    51
+[libx264 @ 0x63de6f9f7580] consecutive B-frames:  0.6%  0.4%  0.0% 98.9%
+[libx264 @ 0x63de6f9f7580] mb I  I16..4: 99.3%  0.0%  0.7%
+[libx264 @ 0x63de6f9f7580] mb P  I16..4:  0.5%  0.0%  0.0%  P16..4:  0.3%  0.0%  0.0%  0.0%  0.0%    skip:99.2%
+[libx264 @ 0x63de6f9f7580] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.4%  0.0%  0.0%  direct: 0.0%  skip:99.6%  L0:47.0% L1:53.0% BI: 0.0%
+[libx264 @ 0x63de6f9f7580] 8x8 transform intra:0.0% inter:1.7%
+[libx264 @ 0x63de6f9f7580] coded y,uvDC,uvAC intra: 5.0% 4.9% 4.8% inter: 0.0% 0.1% 0.1%
+[libx264 @ 0x63de6f9f7580] i16 v,h,dc,p: 73% 25%  2%  0%
+[libx264 @ 0x63de6f9f7580] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu:  4% 66% 28%  0%  0%  0%  0%  0%  0%
+[libx264 @ 0x63de6f9f7580] i8c dc,h,v,p: 97%  1%  1%  0%
+[libx264 @ 0x63de6f9f7580] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x63de6f9f7580] kb/s:24.17

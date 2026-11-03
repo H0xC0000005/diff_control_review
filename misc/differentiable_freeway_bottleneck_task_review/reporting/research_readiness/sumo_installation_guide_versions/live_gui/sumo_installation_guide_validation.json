@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "scope": "installation guide and static helper/document checks only",
+  "guide": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_installation_guide.md",
+  "mode": "saved",
+  "python_syntax_and_help_checked": [
+    "prepare_cases.py",
+    "run_check.py"
+  ],
+  "input_xml_documents_parsed": 8,
+  "dummy_case_definitions": {
+    "straight": {
+      "vehicles": 12,
+      "lane_counts": [
+        1,
+        1
+      ]
+    },
+    "lane_drop": {
+      "vehicles": 12,
+      "lane_counts": [
+        3,
+        2
+      ]
+    }
+  },
+  "bash_blocks_syntax_checked": 15,
+  "local_links_checked": 35,
+  "broken_local_links": 0,
+  "migrated_source_records_preserved": 1446,
+  "other_review_files_preserved": true,
+  "vsl_repository_files_preserved": true,
+  "urban_context_files_preserved": true,
+  "files_delivered": [
+    "DISCUSSION_LOG.md",
+    "README.md",
+    "REVIEW_INDEX.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_installation_checks/prepare_cases.py",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_installation_checks/requirements-sumo.txt",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_installation_checks/run_check.py",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_installation_guide.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_installation_guide_work_record.md",
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/sumo_server_preparation_assessment.md"
+  ],
+  "package_installation_performed": false,
+  "network_conversion_performed": false,
+  "sumo_runtime_checks_performed": false,
+  "gui_rendering_verified": false,
+  "model_selected": false,
+  "next_action": "User reviews guide; a separately authorized installation/check pass may follow."
+}

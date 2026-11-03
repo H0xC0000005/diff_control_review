@@ -1,0 +1,16 @@
+***Starting server on port 40271 ***
+Loading net-file from '/tmp/sumo_shutdown_fix_20261029/workspace/lane_drop/network.net.xml' ... done (0ms).
+Loading route-files incrementally from '/tmp/sumo_shutdown_fix_20261029/workspace/lane_drop/routes.rou.xml'
+Loading done.
+Simulation started with time: 0.00.
+Simulation ended at time: 94.00.
+Reason: TraCI requested termination.
+Performance:
+ Duration: 5.23s
+ TraCI-Duration: 0.10s
+ Real time factor: 17.9595
+ UPS: 138.899503
+Vehicles:
+ Inserted: 12
+ Running: 0
+ Waiting: 0

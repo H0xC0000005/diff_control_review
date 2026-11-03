@@ -1,5 +1,21 @@
 # Joined VSL candidate: comparison and sensitivity evidence contract
 
+**First-verification timing amendment, user-selected 2026-11-02.**
+Optimize each initialized case using simulator planning queries before
+committing its one constant advice. Compare objective-only feedback with
+access also to the complete derivative, retaining the same fine plant.
+This supersedes the observation-only pre-decision timing below for this
+first verification. It does not change traffic equations, initialization,
+full-cohort accounting or regular-derivative qualifications.
+
+The shared-action information bound remains valid under its original
+observation-only conditions, but is not the interpretation of the selected
+per-case query pair. Shared-controller training and runtime control are
+deferred; this notice authorizes no experiment. The original contract
+below is preserved as a conditional evidence reference.
+
+[Current per-case comparison and status](../../reporting/research_readiness/vsl_per_case_matched_controller_contract.md)
+
 **Later analytical result, 2026-10-21.** The approved methodology-only
 review is complete at JM1. Its new analytical regularity/free-flow results
 do not execute or change the prospective numerical requirements below.

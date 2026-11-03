@@ -1,0 +1,80 @@
+{
+  "status": "passed",
+  "case": "lane_drop",
+  "backend": "traci",
+  "gui": true,
+  "created_utc": "2026-10-29T10:46:01.588116+00:00",
+  "seed": 42,
+  "python": "/home/zpz/miniconda3/envs/sumo/bin/python",
+  "python_version": "3.12.14",
+  "output_directory": "/tmp/sumo_shutdown_fix_20261029/workspace/results/lane_drop-traci-video-20261029T104601Z-16474c94",
+  "video_requested": true,
+  "manual_gui_check": "not applicable",
+  "manual_video_check": "pending_on_windows",
+  "stage": "passed",
+  "video_tool_versions": {
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+    },
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "version": "ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the FFmpeg developers"
+    }
+  },
+  "software_rendering_request": "true",
+  "package_versions": {
+    "eclipse-sumo": "1.28.0",
+    "libsumo": "1.28.0",
+    "traci": "1.28.0",
+    "sumolib": "1.28.0"
+  },
+  "api_module": "/home/zpz/miniconda3/envs/sumo/lib/python3.12/site-packages/traci/__init__.py",
+  "command": [
+    "/home/zpz/miniconda3/envs/sumo/bin/sumo-gui",
+    "-c",
+    "/tmp/sumo_shutdown_fix_20261029/workspace/lane_drop/test.sumocfg",
+    "--seed",
+    "42",
+    "--no-step-log",
+    "true",
+    "--tripinfo-output",
+    "/tmp/sumo_shutdown_fix_20261029/workspace/results/lane_drop-traci-video-20261029T104601Z-16474c94/tripinfo.xml",
+    "--log",
+    "/tmp/sumo_shutdown_fix_20261029/workspace/results/lane_drop-traci-video-20261029T104601Z-16474c94/sumo.log",
+    "--start",
+    "--quit-on-end",
+    "--window-size",
+    "1400,900",
+    "--window-pos",
+    "0,0"
+  ],
+  "sumo_api_version": [
+    22,
+    "SUMO 1.28.0"
+  ],
+  "simulation_step_s": 1.0,
+  "completion_time_s": 94.0,
+  "video": {
+    "file": "/tmp/sumo_shutdown_fix_20261029/workspace/results/lane_drop-traci-video-20261029T104601Z-16474c94/scenario.mp4",
+    "input_frames": 93,
+    "input_fps": 5.0,
+    "output_fps": 25,
+    "duration_s": 18.6,
+    "expected_duration_s": 18.6,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "full_decode_passed": true,
+    "nominal_playback_speed": 5.0
+  },
+  "steps": 94,
+  "departed": 12,
+  "arrived": 12,
+  "initial_motion_observed": true,
+  "teleports": [],
+  "low_cap_readback": true,
+  "restored_cap_readback": true,
+  "actual_slowing_observed": true,
+  "actual_acceleration_observed": true,
+  "frame_requests_flushed": 93
+}

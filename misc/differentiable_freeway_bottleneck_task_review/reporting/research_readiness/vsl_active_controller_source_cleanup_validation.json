@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-02",
+  "status": "passed",
+  "topic": "Exclude extra active source and recap next review topic",
+  "payload_files": 8,
+  "local_links_checked": 70,
+  "unrelated_review_files_preserved": 1503,
+  "private_vsl_files_preserved": 40,
+  "external_feedback_and_urban_files_preserved": 4,
+  "historical_source_reading_preserved": true,
+  "append_only_prefixes": "preserved",
+  "git_diff_check": "passed",
+  "new_source_review_executed": false,
+  "traffic_equations_changed": false,
+  "experiments_executed": false,
+  "private_handoff_updated": false,
+  "committed_or_pushed": false,
+  "next_topic": "Bounded Zhang task compatibility; not executed in this pass"
+}

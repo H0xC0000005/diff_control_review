@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "VSL model-choice preparation; document checks only",
+  "documents_checked": 6,
+  "local_links_checked": 30,
+  "broken_local_links": 0,
+  "migrated_source_records_preserved": 1446,
+  "original_source_hashes_preserved": true,
+  "all_other_tracked_review_files_preserved": true,
+  "vsl_repository_unchanged_and_clean": true,
+  "urban_agent_context_roadmap_unchanged": true,
+  "review_documents": [
+    "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_model_choice_preparation.md",
+    "README.md",
+    "REVIEW_INDEX.md",
+    "PROJECT_CONTEXT.md",
+    "DECISIONS.md",
+    "DISCUSSION_LOG.md"
+  ],
+  "check_record": "misc/differentiable_freeway_bottleneck_task_review/reporting/research_readiness/vsl_model_choice_preparation_validation.json",
+  "model_selected": false,
+  "implementation_phase_opened": false,
+  "software_architecture_frozen": false,
+  "new_backbone_ambiguity_found": false,
+  "traffic_runs_or_dependency_installs": false,
+  "checkpoint": "preparation complete; user review; await model choice before Phase A",
+  "mode": "saved"
+}

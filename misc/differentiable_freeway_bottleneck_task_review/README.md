@@ -1,5 +1,30 @@
 # Differentiable freeway bottleneck task review
 
+[Current B-first handoff alignment: outcome and next action](reporting/research_readiness/vsl_b_first_handoff_alignment.md)
+
+The user accepts B first and confirms that A is not required early.
+The local private handoff now carries the selected plant, same-controller
+comparison, case-specific query timing, reference evidence and A deferral.
+Original mathematical snapshots and implementation workflow are preserved.
+Review-side preparation is complete; development next proposes implementation.
+No code, scientific run, commit or push is performed here.
+
+[Accepted elementary-verification specification](reporting/research_readiness/vsl_b_pair_elementary_verification_specification.md)
+
+[Earlier task fit and resolved scope choice](reporting/research_readiness/vsl_zhang_task_fit_findings_and_choice.md)
+
+[Updated common-controller contract](reporting/research_readiness/vsl_per_case_matched_controller_contract.md)
+
+[Earlier feedback-timing choice, now resolved](reporting/research_readiness/vsl_matched_controller_review_findings_and_gate.md)
+
+
+[Earlier rival-selection findings and recommendation gate](reporting/research_readiness/vsl_literature_rival_selection_findings.md)
+
+Feedback 18 selects the literature-backed stack. The bounded rival review
+now recommends Zhang et al.'s aggregate CTM plus enumeration as a source
+route, with adaptations awaiting qualification. Earlier notices below retain
+their original scope; this pass opens no implementation or experiment.
+
 [Proposed bridge to standalone VSL development and repository organization](reporting/research_readiness/vsl_review_to_development_bridge_proposal.md)
 
 This 2026-10-29 proposal covers a portable provisional research handoff
